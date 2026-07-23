@@ -32,6 +32,7 @@ def _artifact_names() -> dict[str, str]:
         "analysis": os.environ.get("CODEWEAVER_ANALYSIS_ARTIFACT", "analysis.md"),
         "plan": os.environ.get("CODEWEAVER_PLAN_ARTIFACT", "plan.json"),
         "report": os.environ.get("CODEWEAVER_REPORT_ARTIFACT", "report.json"),
+        "milestones": os.environ.get("CODEWEAVER_MILESTONES_ARTIFACT", "milestones.json"),
     }
 
 
@@ -58,6 +59,22 @@ def respond(agent_name: str, prompt: str) -> str:
             "# (mock) source research\n\n- overview, structure, data models\n",
             encoding="utf-8")
         return f"mock analyzer: wrote {names['analysis']}"
+
+    if agent_name == "scoper":
+        # Emit a small generic milestone matrix so the auto-milestones path can be
+        # exercised offline. Overridable via CODEWEAVER_MOCK_MILESTONES (an int).
+        try:
+            k = int(os.environ.get("CODEWEAVER_MOCK_MILESTONES", "3"))
+        except ValueError:
+            k = 3
+        k = max(k, 1)
+        gen = [{"id": "M0", "title": "Skeleton",
+                "goal": "Compiles and runs; no features yet.", "tests": []}]
+        for i in range(1, k):
+            gen.append({"id": f"M{i}", "title": f"Feature {i}",
+                        "goal": f"Implement feature {i}.", "tests": [f"test_feature_{i}"]})
+        (pdir / names["milestones"]).write_text(json.dumps(gen, indent=2), encoding="utf-8")
+        return f"mock scoper: wrote {names['milestones']} ({k} milestones)"
 
     if agent_name == "planner":
         (pdir / names["plan"]).write_text(json.dumps({

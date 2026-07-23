@@ -52,6 +52,41 @@ Do NOT write any {target_language} implementation. Write only {analysis}. End \
 by confirming {analysis} exists and summarizing the three sections.
 """
 
+SCOPE = """\
+You are the Scoper. Decompose this {source_language} -> {target_language} port \
+into an ordered list of CUMULATIVE milestones, and write it to {milestones}.
+
+PROJECT BRIEF:
+{brief}
+
+Read the Analyzer's design at {analysis} (its milestone mapping is your primary \
+input) and the {source_language} source at {source_dir}; consult the reference \
+material at {reference_dirs} (e.g. the end-to-end test oracle) to learn which \
+tests exist and how they are named. Then design a milestone plan that:
+  - starts with a minimal "skeleton" milestone (compiles/links and the entrypoint \
+runs; no functional tests yet),
+  - adds ONE coherent slice of functionality per subsequent milestone, ordered \
+bottom-up so each milestone depends only on earlier ones,
+  - is CUMULATIVE: each milestone must pass its own tests AND every earlier \
+milestone's, so list under `tests` ONLY the NEW test selectors that milestone \
+adds (do not repeat earlier ones),
+  - uses REAL test selector tokens that the validate command understands \
+(e.g. test names/modules/tags that actually exist in the source's tests or the \
+oracle) -- verify they exist; do not invent tests,
+  - ends with a "golden"/conformance milestone that reproduces the full contract \
+and passes the entire suite.
+
+Write {milestones} as a JSON array (or an object with a top-level "milestones" \
+array). Each entry: {{"id" (short, e.g. "M0","M1",...), "title", "goal" (what \
+the target must do, concrete + testable), "tests" (array of NEW selector tokens; \
+[] for a skeleton/smoke milestone), "marker" (optional extra selector, "" if \
+unused)}}. Aim for a handful to a dozen milestones -- small enough to translate + \
+validate in one repair loop each, large enough to be meaningful.
+
+Write ONLY {milestones}. Do not write any implementation or plan. End by \
+confirming {milestones} exists and listing the milestone ids + titles in order.
+"""
+
 PLAN = """\
 You are the Planner. Turn the Analyzer's design into a granular, \
 dependency-aware, executable plan and a COMPILABLE skeleton -- covering both the \
@@ -135,6 +170,7 @@ _REPORT_SHAPE = (
 )
 
 DEFAULTS: dict[str, str] = {
+    "scope": SCOPE,
     "analyze": ANALYZE,
     "plan": PLAN,
     "translate": TRANSLATE,
@@ -191,6 +227,7 @@ def context(cfg: Config, **runtime: Any) -> dict[str, str]:
         "analysis": str(cfg.analysis_path),
         "plan": str(cfg.plan_path),
         "report": str(cfg.report_path),
+        "milestones": str(cfg.milestones_path),
         "build_check": cfg.build_check_cmd or "(no build command configured)",
         "unit_test": cfg.unit_test_cmd or "(no unit-test command configured)",
         "validate": cfg.validate_cmd or "(no validate command configured)",

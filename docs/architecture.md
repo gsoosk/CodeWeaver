@@ -37,6 +37,22 @@ Transitions (see `codeweaver/app.py`):
 `select_milestone` is pure bookkeeping: it advances `milestone_idx` after a pass
 and resets the per-milestone repair counter and pass flag.
 
+## Auto-generated milestones (the `scope` stage)
+
+If the config declares no `[[milestones]]` (`cfg.auto_milestones`), `build_application`
+inserts a **`scope`** action into the graph between `analyze` and `plan`
+(`analyze → scope → plan`); otherwise the head is just `analyze → plan`. The Scoper
+agent reads the analysis and the source and writes a cumulative milestone matrix to
+`milestones.json` (`milestones_artifact`). The `scope` action then loads it into the
+active `Config` (`load_generated_milestones`) and updates `num_milestones` / `last_idx`
+in state, so every downstream stage, transition, and gate uses the generated matrix.
+If the scoper produces nothing usable, a minimal two-milestone fallback is used so
+the run degrades gracefully instead of crashing.
+
+**Resume:** `build_application` reloads `milestones.json` from disk before running,
+so a crashed run that already passed the scope stage resumes with the correct matrix
+without re-scoping.
+
 ## State (`codeweaver/state.py`)
 
 Burr's `State` is an immutable dict. The schema:
@@ -47,7 +63,7 @@ Burr's `State` is an immutable dict. The schema:
 | `iter_count` / `max_iter` | repair attempts on the current milestone / the budget |
 | `milestone_passed` | did the last `validate` pass? |
 | `report` | last validation report (cleared on pass) |
-| `analysis_done` / `plan_done` | one-shot stage completion flags |
+| `analysis_done` / `milestones_done` / `plan_done` | one-shot stage completion flags |
 | `history` | append-only `{milestone, iter, passed}` log |
 | `done` | whole pipeline finished (all green or gave up) |
 | `last_agent` | most recently run agent |

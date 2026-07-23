@@ -1,0 +1,51 @@
+# Minimal CodeWeaver config WITHOUT a milestone matrix.
+#
+# When no [[milestones]] are declared, CodeWeaver inserts a `scope` stage between
+# `analyze` and `plan`: Copilot decomposes the port into a cumulative milestone
+# matrix (written to milestones.json) and the rest of the pipeline runs against it.
+#
+#     codeweaver check --config examples/auto-milestones/codeweaver.toml
+#
+# (Offline, the mock scoper emits a small M0..M2 matrix.)
+
+[project]
+name = "auto-milestones-demo"
+slug = "auto-milestones-demo"
+description = "Same as the minimal demo, but let Copilot design the milestones."
+
+[translation]
+source_language = "Python"
+target_language = "Rust"
+brief = """
+Translate the small library under source/ into an idiomatic Rust crate.
+Preserve the public API names and module layout. The unit tests encode the
+observable contract. No milestones are specified: derive them from the source and
+the analysis, skeleton first, one feature slice per milestone, golden last.
+"""
+
+[paths]
+source_dir = "source"
+pipeline_dir = "pipeline"
+
+[commands]
+build_check = "cargo build"
+unit_test  = "cargo test"
+validate   = "cargo test {milestone}"
+
+[validation]
+gate_template = '{tests_space}'
+
+[model]
+default = "claude-opus-4.8"
+effort_default = "high"
+[model.effort]
+analyzer = "max"
+scoper = "max"
+planner = "max"
+translator = "max"
+validator = "high"
+
+[execution]
+max_iter = 5
+
+# No [[milestones]] -> the scope stage generates them at runtime.

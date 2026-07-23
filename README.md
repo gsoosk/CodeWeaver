@@ -24,13 +24,13 @@ translation: Python→Rust, Java→Go, COBOL→Java, JS→TS, and so on.
 ```
 Apache Burr  (deterministic state machine + telemetry UI + SQLite resume)
 
-  analyze ─▶ plan ─▶ select_milestone ─▶ translate ─▶ validate
-                          ▲                   ▲            │
-                          │ next milestone    │ repair     │ parse verdict
-                          │ (passed & more)   │ (failed &  ▼
-                          │                   │  iter<max) report.json
-                          └───────────────────┴────────────┤
-                                       all green ─▶ terminal
+  analyze ─▶ [scope] ─▶ plan ─▶ select_milestone ─▶ translate ─▶ validate
+                                     ▲                   ▲            │
+                                     │ next milestone    │ repair     │ parse verdict
+                                     │ (passed & more)   │ (failed &  ▼
+                                     │                   │  iter<max) report.json
+                                     └───────────────────┴────────────┤
+                                                  all green ─▶ terminal
 
         every action = one `copilot --agent NAME` subprocess
         GitHub Copilot CLI custom agents do ALL the real work
@@ -40,6 +40,7 @@ Apache Burr  (deterministic state machine + telemetry UI + SQLite resume)
 | Stage | Agent | Reads → Writes |
 |-------|-------|----------------|
 | **analyze** | Analyzer | source → `analysis.md` (source research, dependency→target-lib analysis, target design + unit-test strategy) |
+| **scope** *(only if no milestones declared)* | Scoper | `analysis.md` → `milestones.json` (a cumulative milestone matrix: skeleton → feature slices → golden) |
 | **plan** | Planner | `analysis.md` → `plan.json` + a compilable skeleton (fragments, name mapping, mock/test seams, milestone plan) |
 | **translate** | Translator | `plan.json` / `report.json` → the working copy (implements the milestone + its unit tests; repairs reported failures) |
 | **validate** | Validator | runs unit tests + the end-to-end oracle → `report.json` (combined verdict; passes only if **both** layers pass) |
@@ -47,6 +48,12 @@ Apache Burr  (deterministic state machine + telemetry UI + SQLite resume)
 Inter-stage state is passed as **files** (`analysis.md`, `plan.json`,
 `report.json`) in the pipeline directory; Copilot's `--output-format json` (JSONL)
 is parsed only for success/failure detection and UI logging.
+
+**Milestones can be auto-generated.** If your config declares no `[[milestones]]`,
+CodeWeaver inserts the **scope** stage between `analyze` and `plan`: Copilot
+decomposes the port into a cumulative milestone matrix and writes it to
+`milestones.json`, then the rest of the pipeline runs against it. Declare
+`[[milestones]]` yourself to skip this and keep full control.
 
 **Two validation layers** (faithful to the paper's Part B): fast **unit tests**
 against mocked boundaries *plus* a fixed, authoritative **end-to-end oracle** that
@@ -170,6 +177,8 @@ See [`docs/config.md`](docs/config.md) for the full reference and
 examples live in [`examples/`](examples/):
 
 - **`examples/minimal/`** — a tiny Python→Rust library port (drives `codeweaver check`).
+- **`examples/auto-milestones/`** — same, but with **no `[[milestones]]`** — the
+  scope stage generates them (offline, the mock scoper emits `M0..M2`).
 - **`examples/xcvrd/`** — reproduces the original `recodeAgent` use case (SONiC
   xcvrd Python→Rust, thick PyO3 HAL + `swss-common`, DUT black-box oracle) purely
   as a config + [`brief.md`](examples/xcvrd/brief.md).
@@ -190,7 +199,7 @@ CodeWeaver/
 │   ├── app.py                #   ApplicationBuilder: actions + transitions + persister
 │   ├── mock.py               #   offline mock agent (drives the graph without Copilot)
 │   └── cli.py                #   `codeweaver` CLI (run/check/milestones/install-agents/init)
-├── agents/                   # generic Copilot CLI custom-agent profiles (the 4 roles)
+├── agents/                   # generic Copilot CLI custom-agent profiles (5 roles: scoper + the 4 core)
 ├── tools/                    # install_agents.sh, check.sh
 ├── examples/                 # minimal/ and xcvrd/ project configs
 └── docs/                     # config.md, architecture.md

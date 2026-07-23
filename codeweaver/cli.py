@@ -34,6 +34,7 @@ def _cmd_run(args) -> int:
     os.environ["CODEWEAVER_ANALYSIS_ARTIFACT"] = cfg.analysis_artifact
     os.environ["CODEWEAVER_PLAN_ARTIFACT"] = cfg.plan_artifact
     os.environ["CODEWEAVER_REPORT_ARTIFACT"] = cfg.report_artifact
+    os.environ["CODEWEAVER_MILESTONES_ARTIFACT"] = cfg.milestones_artifact
 
     app_id = args.app_id or f"{cfg.slug}-{uuid.uuid4().hex[:8]}"
     db_path = args.db or cfg.resolved_db_path
@@ -71,11 +72,21 @@ def _cmd_check(args) -> int:
     cfg = C.load(args.config)
     pipeline = cfg.pipeline_path
     ms = cfg.milestones
-    first = ms[1].id if len(ms) > 1 else ms[0].id
-    mid_ms = ms[min(3, len(ms) - 1)].id
+    if ms:
+        first = ms[1].id if len(ms) > 1 else ms[0].id
+        mid_ms = ms[min(3, len(ms) - 1)].id
+    else:
+        # auto-milestones: the mock scoper emits M0,M1,M2 by default.
+        first, mid_ms = "M1", "M2"
 
     def reset():
-        for f in [pipeline / "burr.db"] + list(pipeline.glob(".mock_attempts_*")):
+        globs = [".mock_attempts_*"]
+        purge = [pipeline / "burr.db"]
+        for g in globs:
+            purge += list(pipeline.glob(g))
+        if cfg.auto_milestones:
+            purge.append(pipeline / cfg.milestones_artifact)
+        for f in purge:
             try:
                 f.unlink()
             except OSError:
@@ -84,7 +95,12 @@ def _cmd_check(args) -> int:
     base_env = {"CODEWEAVER_PIPELINE_DIR": str(pipeline),
                 "CODEWEAVER_ANALYSIS_ARTIFACT": cfg.analysis_artifact,
                 "CODEWEAVER_PLAN_ARTIFACT": cfg.plan_artifact,
-                "CODEWEAVER_REPORT_ARTIFACT": cfg.report_artifact}
+                "CODEWEAVER_REPORT_ARTIFACT": cfg.report_artifact,
+                "CODEWEAVER_MILESTONES_ARTIFACT": cfg.milestones_artifact}
+
+    if cfg.auto_milestones:
+        print(f"[check] config declares no milestones -> scope stage will generate them "
+              f"(mock: M0..M{2})")
 
     print("\n===== 1) HAPPY PATH - all milestones pass =====")
     reset(); _run_pipeline(args.config, "chk-happy", base_env)
@@ -115,10 +131,19 @@ def _cmd_milestones(args) -> int:
     from . import config as C, milestones as M
 
     cfg = C.load(args.config)
+    # If milestones are auto-generated, show any previously generated matrix on disk.
+    if cfg.auto_milestones and not cfg.milestones:
+        cfg.load_generated_milestones()
     if args.gate:
         print(M.gate_string(cfg, args.gate))
         return 0
-    print(f"# {cfg.name}: {len(cfg.milestones)} milestones")
+    if not cfg.milestones:
+        print(f"# {cfg.name}: no milestones declared -> generated at runtime by the "
+              f"scope stage (between analyze and plan).")
+        print(f"# After a run, they are written to {cfg.milestones_path}.")
+        return 0
+    origin = "generated" if cfg.auto_milestones else "declared"
+    print(f"# {cfg.name}: {len(cfg.milestones)} milestones ({origin})")
     print(M.matrix(cfg))
     return 0
 
@@ -181,6 +206,7 @@ default = "claude-opus-4.8"
 effort_default = "high"
 [model.effort]
 analyzer = "max"
+scoper = "max"
 planner = "max"
 translator = "max"
 validator = "high"
@@ -188,6 +214,9 @@ validator = "high"
 [execution]
 max_iter = 5
 
+# Milestones are OPTIONAL. Omit the [[milestones]] tables entirely to let Copilot
+# generate a cumulative matrix at runtime (a `scope` stage runs between analyze and
+# plan). Declare them here for full control:
 [[milestones]]
 id = "M0"
 title = "Skeleton"

@@ -34,6 +34,7 @@ def initial_state(cfg: Config, max_iter: int = 5) -> dict:
         "milestone_passed": False,
         "report": {},
         "analysis_done": False,
+        "milestones_done": not cfg.auto_milestones,  # scope stage sets this when auto
         "plan_done": False,
         "history": [],
         "done": False,

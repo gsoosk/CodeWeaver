@@ -21,6 +21,7 @@ venv/
 # scratch (leading-underscore convention)
 _*.sh
 _*.py
+_*.txt
 !**/__init__.py
 !**/__main__.py
 

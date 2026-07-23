@@ -21,7 +21,25 @@ from burr.core import action
 
 from . import config as C
 from . import milestones, prompts, state as S
-from .copilot import invoke_agent, summary_from_events, transcript_from_events
+from .config import Milestone
+from .copilot import invoke_agent, is_mock, summary_from_events, transcript_from_events
+
+
+def from_mock() -> bool:
+    return is_mock()
+
+
+def _fallback_milestones() -> list[Milestone]:
+    """A minimal, generic two-milestone matrix used only if the scoper fails to
+    produce a usable one (so a real run degrades gracefully instead of crashing)."""
+    return [
+        Milestone("M0", "Skeleton",
+                  "Target compiles/links and the entrypoint runs; no functional tests yet.",
+                  tests=[]),
+        Milestone("M1", "Full port",
+                  "Implement the full functionality and pass the entire test suite.",
+                  tests=[]),
+    ]
 
 
 def _read_json(path: Path) -> dict:
@@ -91,6 +109,44 @@ def plan(state, __tracer) -> dict:
     return state.update(
         plan_done=cfg.plan_path.exists(),
         last_agent="planner",
+    )
+
+
+@action(
+    reads=["analysis_done"],
+    writes=["num_milestones", "last_idx", "milestones_done", "last_agent"],
+)
+def scope(state, __tracer) -> dict:
+    """Scoper Agent (only when the config declared no milestones): generate the
+    cumulative milestone matrix, write it to the milestones artifact, and load it
+    into the active config so downstream stages + gates use it.
+
+    Runs BETWEEN analyze and plan so it can use the analysis and the planner can
+    plan against the generated milestones.
+    """
+    cfg = C.active()
+    prompt = prompts.render("scope", cfg)
+    res = _invoke(cfg, "scoper", prompt)
+    _log_agent(__tracer, stage="scope", prompt=prompt, result=res)
+    n = cfg.load_generated_milestones()
+    if n == 0 and not from_mock():
+        # The scoper failed to produce a usable matrix; fall back so the run can
+        # still proceed rather than crashing with an empty milestone list.
+        cfg.milestones = _fallback_milestones()
+        n = len(cfg.milestones)
+    if __tracer is not None:
+        try:
+            __tracer.log_attributes(
+                milestones_generated=n,
+                milestone_ids=[m.id for m in cfg.milestones],
+            )
+        except Exception:
+            pass
+    return state.update(
+        num_milestones=n,
+        last_idx=max(n - 1, 0),
+        milestones_done=n > 0,
+        last_agent="scoper",
     )
 
 

@@ -71,6 +71,7 @@ class Config:
     analysis_artifact: str = "analysis.md"
     plan_artifact: str = "plan.json"
     report_artifact: str = "report.json"
+    milestones_artifact: str = "milestones.json"   # written by the scope stage (auto milestones)
 
     # validation commands (shell, run by the agents; support {placeholders})
     build_check_cmd: str = ""
@@ -86,8 +87,12 @@ class Config:
     agent_timeout: float | None = None    # per-agent wall-clock cap (seconds)
 
     # optional prompt-template overrides, keyed by stage
-    # (analyze|plan|translate|validate). Empty -> use codeweaver.prompts defaults.
+    # (scope|analyze|plan|translate|validate). Empty -> use codeweaver.prompts defaults.
     prompts: dict[str, str] = field(default_factory=dict)
+
+    # True when the config declared no [[milestones]] -> the scope stage generates
+    # them at runtime (written to milestones_artifact).
+    auto_milestones: bool = False
 
     # ------------------------------------------------------------------ #
     # Resolved paths
@@ -131,6 +136,26 @@ class Config:
     @property
     def report_path(self) -> Path:
         return self.artifact_path(self.report_artifact)
+
+    @property
+    def milestones_path(self) -> Path:
+        return self.artifact_path(self.milestones_artifact)
+
+    def load_generated_milestones(self) -> int:
+        """Populate ``self.milestones`` from the scope stage's artifact
+        (``milestones_artifact``). Accepts either a bare JSON array of milestone
+        objects or an object with a top-level ``"milestones"`` array. Returns the
+        number loaded (0 if the artifact is missing/empty)."""
+        p = self.milestones_path
+        if not p.exists():
+            return 0
+        try:
+            raw = json.loads(p.read_text(encoding="utf-8"))
+        except (ValueError, OSError):
+            return 0
+        items = raw.get("milestones") if isinstance(raw, dict) else raw
+        self.milestones = _milestones_from(items)
+        return len(self.milestones)
 
     @property
     def reference_paths(self) -> list[Path]:
@@ -255,6 +280,7 @@ def load(config_path: str | os.PathLike) -> Config:
         analysis_artifact=str(paths.get("analysis_artifact", "analysis.md")),
         plan_artifact=str(paths.get("plan_artifact", "plan.json")),
         report_artifact=str(paths.get("report_artifact", "report.json")),
+        milestones_artifact=str(paths.get("milestones_artifact", "milestones.json")),
         build_check_cmd=str(cmds.get("build_check", "")),
         unit_test_cmd=str(cmds.get("unit_test", "")),
         validate_cmd=str(cmds.get("validate", "")),
@@ -267,10 +293,9 @@ def load(config_path: str | os.PathLike) -> Config:
         prompts={k: str(v) for k, v in (raw.get("prompts", {}) or {}).items()},
     )
 
-    if not cfg.milestones:
-        raise ValueError(
-            f"{path}: at least one [[milestones]] entry is required."
-        )
+    # No [[milestones]] declared -> the scope stage (between analyze and plan)
+    # generates them at runtime. Otherwise the config's matrix is authoritative.
+    cfg.auto_milestones = not cfg.milestones
     return cfg
 
 

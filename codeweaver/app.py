@@ -27,37 +27,59 @@ from .config import Config
 
 def build_application(cfg: Config, app_id: str, max_iter: int | None = None,
                       db_path: str | None = None):
-    """Assemble the Burr application for a project config."""
+    """Assemble the Burr application for a project config.
+
+    When the config declared no ``[[milestones]]`` (``cfg.auto_milestones``), a
+    ``scope`` stage is inserted between ``analyze`` and ``plan`` to generate the
+    milestone matrix at runtime. On resume, any previously generated matrix on
+    disk is reloaded so state counts are correct.
+    """
     C.set_active(cfg)
     max_iter = cfg.max_iter if max_iter is None else max_iter
     db_path = db_path or cfg.resolved_db_path
     Path(db_path).parent.mkdir(parents=True, exist_ok=True)
 
+    auto = cfg.auto_milestones
+    if auto:
+        # Resume support: if the scoper already ran in a prior process, reload the
+        # generated matrix so num_milestones/last_idx are right from the start.
+        cfg.load_generated_milestones()
+
     persister = SQLLitePersister.from_values(db_path=db_path, table_name="codeweaver_state")
     persister.initialize()
 
+    actions_map = dict(
+        analyze=actions.analyze,
+        plan=actions.plan,
+        select_milestone=actions.select_milestone,
+        translate=actions.translate,
+        validate=actions.validate,
+        terminal=burr.core.Result("done", "history", "milestone_idx", "report"),
+    )
+    if auto:
+        actions_map["scope"] = actions.scope
+
+    # analyze -> [scope ->] plan
+    head_transitions = (
+        [("analyze", "scope"), ("scope", "plan")] if auto else [("analyze", "plan")]
+    )
+    transitions = [
+        *head_transitions,
+        ("plan", "select_milestone"),
+        ("select_milestone", "translate"),
+        ("translate", "validate"),
+        # repair the current milestone while it fails and there's budget
+        ("validate", "translate", expr("not milestone_passed and iter_count < max_iter")),
+        # advance to the next milestone once this one passes
+        ("validate", "select_milestone", expr("milestone_passed and milestone_idx < last_idx")),
+        # otherwise done: last milestone passed, or budget exhausted
+        ("validate", "terminal", default),
+    ]
+
     return (
         ApplicationBuilder()
-        .with_actions(
-            analyze=actions.analyze,
-            plan=actions.plan,
-            select_milestone=actions.select_milestone,
-            translate=actions.translate,
-            validate=actions.validate,
-            terminal=burr.core.Result("done", "history", "milestone_idx", "report"),
-        )
-        .with_transitions(
-            ("analyze", "plan"),
-            ("plan", "select_milestone"),
-            ("select_milestone", "translate"),
-            ("translate", "validate"),
-            # repair the current milestone while it fails and there's budget
-            ("validate", "translate", expr("not milestone_passed and iter_count < max_iter")),
-            # advance to the next milestone once this one passes
-            ("validate", "select_milestone", expr("milestone_passed and milestone_idx < last_idx")),
-            # otherwise done: last milestone passed, or budget exhausted
-            ("validate", "terminal", default),
-        )
+        .with_actions(**actions_map)
+        .with_transitions(*transitions)
         .initialize_from(
             persister,
             resume_at_next_action=True,      # crash-resume: pick up where we left off

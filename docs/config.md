@@ -41,6 +41,7 @@ All relative paths resolve against the config file's directory, unless
 | `analysis_artifact` | `analysis.md` | the Analyzer's output file (under `pipeline_dir`) |
 | `plan_artifact` | `plan.json` | the Planner's output file |
 | `report_artifact` | `report.json` | the Validator's verdict file |
+| `milestones_artifact` | `milestones.json` | the Scoper's generated milestone matrix (only used when no `[[milestones]]` are declared) |
 
 If both `immutable_input` and `working_copy` are set, the prompts instruct the
 Planner to copy input→working-copy first and all agents to edit only the working
@@ -90,9 +91,11 @@ Examples: pytest `-k` → `'-k "{tests_or}"'`; `go test -run` →
 
 ## `[[milestones]]`
 
-An ordered array of tables; **at least one is required**. Milestones are
-**cumulative** — a milestone's gate is its own `tests` plus every earlier
-milestone's.
+An ordered array of tables. **Optional** — if omitted, CodeWeaver inserts a
+**scope** stage between `analyze` and `plan` that asks Copilot to generate the
+milestone matrix at runtime (written to `milestones_artifact` and reloaded on
+resume). Declare them yourself for full control. Milestones are **cumulative** —
+a milestone's gate is its own `tests` plus every earlier milestone's.
 
 | key | required | meaning |
 |-----|----------|---------|
@@ -104,11 +107,12 @@ milestone's.
 
 ## `[prompts]` (optional)
 
-Override any stage's prompt template by key: `analyze`, `plan`, `translate`,
-`validate`. Omitted stages use the built-in defaults in `codeweaver/prompts.py`.
-Templates use `{placeholder}` substitution — see `prompts.context()` for the full
-list (`{source_language}`, `{brief}`, `{source_dir}`, `{analysis}`, `{plan}`,
-`{report}`, `{milestone_id}`, `{mode}`, `{failures}`, `{gate}`, …).
+Override any stage's prompt template by key: `scope`, `analyze`, `plan`,
+`translate`, `validate`. Omitted stages use the built-in defaults in
+`codeweaver/prompts.py`. Templates use `{placeholder}` substitution — see
+`prompts.context()` for the full list (`{source_language}`, `{brief}`,
+`{source_dir}`, `{analysis}`, `{plan}`, `{report}`, `{milestones}`,
+`{milestone_id}`, `{mode}`, `{failures}`, `{gate}`, …).
 
 ---
 
@@ -126,4 +130,5 @@ Runtime overrides (mostly for the offline mock and CI):
 | `CODEWEAVER_MOCK=1` | use the offline mock agent (no Copilot) |
 | `CODEWEAVER_MOCK_FAIL` | mock: `"M1:1,M3:2"` — fail the first N validate attempts per milestone |
 | `CODEWEAVER_CRASH_AT` | mock: milestone id to crash at (tests crash-resume) |
+| `CODEWEAVER_MOCK_MILESTONES` | mock: how many milestones the mock scoper emits (default 3) |
 | `COPILOT_HOME` | where agent profiles are installed (`$COPILOT_HOME/agents`) |
