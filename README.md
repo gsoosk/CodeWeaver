@@ -1,4 +1,8 @@
-# CodeWeaver
+<p align="center">
+  <img src="docs/assets/codeweaver-logo.png" alt="CodeWeaver" width="640">
+</p>
+
+<h1 align="center">CodeWeaver</h1>
 
 **A general-purpose, [ReCodeAgent](https://arxiv.org/abs/2604.07341)-style
 multi-agent framework for LLM-driven code translation and migration.**
