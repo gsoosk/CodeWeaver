@@ -18,8 +18,9 @@ description = "Multi-agent Python->Rust translation of the SONiC xcvrd daemon (t
 source_language = "Python"
 target_language = "Rust"
 # The brief is the project-specific knowledge every agent must honor. Kept in a
-# sibling file for readability; inline it here if you prefer a single file.
-brief = "See brief.md — inline its contents into this string for a real run, or keep both in sync."
+# sibling Markdown file and loaded via `brief_file` (resolved relative to this
+# config), so it is actually injected into every agent prompt.
+brief_file = "brief.md"
 
 [paths]
 root = "../../../toRust/dev/recodeAgent"     # the recodeAgent checkout (edit for your box)

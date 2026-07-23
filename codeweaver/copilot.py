@@ -28,8 +28,16 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 # When set, skip Copilot entirely and return a canned response so the Burr graph,
-# transitions and crash-resume can be exercised offline.
+# transitions and crash-resume can be exercised offline. Checked at CALL time (see
+# is_mock) so `--mock` works regardless of import order.
 MOCK = os.environ.get("CODEWEAVER_MOCK") == "1"
+
+
+def is_mock() -> bool:
+    """Whether to use the offline mock agent -- evaluated dynamically so setting
+    CODEWEAVER_MOCK after this module is imported (e.g. by `codeweaver run
+    --mock`) still takes effect."""
+    return MOCK or os.environ.get("CODEWEAVER_MOCK") == "1"
 
 # Canonical agent profiles: <repo>/agents/ by default; override with
 # CODEWEAVER_AGENTS_DIR. The CLI discovers custom agents from ~/.copilot/agents/,
@@ -240,7 +248,7 @@ def invoke_agent(
     cfg=None,
 ) -> AgentResult:
     """Run one Copilot custom agent non-interactively to completion."""
-    if MOCK:
+    if is_mock():
         return _mock(agent_name, prompt)
 
     if timeout is None:

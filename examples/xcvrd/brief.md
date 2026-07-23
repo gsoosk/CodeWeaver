@@ -2,9 +2,9 @@
 
 This is the project-specific knowledge every CodeWeaver agent must honor for the
 xcvrd port. It is the generalized replacement for the constraints that
-recodeAgent hard-coded into its four agent profiles. Paste it into
-`[translation].brief` in `codeweaver.toml` for a real run (or load it however you
-prefer), keeping the two in sync.
+recodeAgent hard-coded into its four agent profiles. The config loads it into
+every agent prompt via `[translation].brief_file = "brief.md"` in
+`codeweaver.toml`, so editing this file is all that's needed.
 
 ## What to translate
 Only the **daemon logic** of the SONiC `xcvrd` transceiver daemon: the task loops

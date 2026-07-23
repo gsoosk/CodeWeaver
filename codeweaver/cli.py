@@ -20,12 +20,15 @@ from pathlib import Path
 # run
 # --------------------------------------------------------------------------- #
 def _cmd_run(args) -> int:
+    # Set the mock flag BEFORE importing modules that read it, so `--mock` works
+    # regardless of import order (is_mock() also re-checks at call time).
+    if args.mock:
+        os.environ["CODEWEAVER_MOCK"] = "1"
+
     from . import config as C
     from .app import build_application
 
     cfg = C.load(args.config)
-    if args.mock:
-        os.environ["CODEWEAVER_MOCK"] = "1"
     # let the mock discover the artifact names + pipeline dir
     os.environ.setdefault("CODEWEAVER_PIPELINE_DIR", str(cfg.pipeline_path))
     os.environ["CODEWEAVER_ANALYSIS_ARTIFACT"] = cfg.analysis_artifact

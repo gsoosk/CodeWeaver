@@ -223,13 +223,29 @@ def load(config_path: str | os.PathLike) -> Config:
         effort={k: str(v) for k, v in (model_raw.get("effort", {}) or {}).items()},
     )
 
+    # Brief: inline `brief` and/or an external `brief_file` (resolved relative to
+    # the config file's dir). If both are given, the inline brief is prepended to
+    # the file's contents. This lets a long brief live in its own Markdown file.
+    brief = str(trans.get("brief", "")).strip()
+    brief_file = str(trans.get("brief_file", "")).strip()
+    if brief_file:
+        bf_path = Path(brief_file)
+        if not bf_path.is_absolute():
+            bf_path = (path.parent / bf_path)
+        if not bf_path.exists():
+            raise FileNotFoundError(
+                f"{path}: [translation].brief_file not found: {bf_path}"
+            )
+        file_text = bf_path.read_text(encoding="utf-8").strip()
+        brief = f"{brief}\n\n{file_text}".strip() if brief else file_text
+
     cfg = Config(
         name=name,
         slug=slug,
         description=str(proj.get("description", "")),
         source_language=str(trans.get("source_language", "the source language")),
         target_language=str(trans.get("target_language", "the target language")),
-        brief=str(trans.get("brief", "")),
+        brief=brief,
         root=root,
         source_dir=str(paths.get("source_dir", "source")),
         reference_dirs=[str(r) for r in (paths.get("reference_dirs") or [])],

@@ -26,6 +26,7 @@ All relative paths resolve against the config file's directory, unless
 | `source_language` | "the source language" | e.g. `"Python"` |
 | `target_language` | "the target language" | e.g. `"Rust"` |
 | `brief` | "" | **the project-specific knowledge injected into every agent prompt** — architectural constraints, provided scaffolding not to reinvent, the observable contract to reproduce, and hard boundaries. This is where most project detail lives. |
+| `brief_file` | "" | path to a Markdown/text file (resolved relative to the config) whose contents become the brief. If both `brief` and `brief_file` are set, the inline `brief` is prepended to the file's contents. |
 
 ## `[paths]`
 
