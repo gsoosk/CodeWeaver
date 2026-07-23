@@ -1,0 +1,74 @@
+# Minimal CodeWeaver project config.
+#
+# Enough to smoke-test the orchestrator offline:
+#     codeweaver check --config examples/minimal/codeweaver.toml
+#
+# For a real run, point `source_dir`/`reference_dirs` at a real project, fill in
+# the `brief`, wire the `commands` to real build/test scripts, and expand the
+# milestone matrix.
+
+[project]
+name = "minimal-demo"
+slug = "minimal-demo"
+description = "Minimal example: translate a small Python library to Rust."
+
+[translation]
+source_language = "Python"
+target_language = "Rust"
+brief = """
+Translate the small library under source/ into an idiomatic Rust crate.
+- Preserve the public API names and module layout so the port is traceable.
+- Keep every function pure and side-effect free; no global state.
+- The observable contract is the library's return values for the documented
+  inputs; the unit tests encode it.
+- Provided scaffolding: none. Use only the Rust standard library unless a
+  dependency is clearly justified.
+"""
+
+[paths]
+source_dir = "source"
+pipeline_dir = "pipeline"
+
+[commands]
+build_check = "cargo build"
+unit_test  = "cargo test"
+validate   = "cargo test {milestone}"
+
+[validation]
+gate_template = '{tests_space}'
+
+[model]
+default = "claude-opus-4.8"
+effort_default = "high"
+[model.effort]
+analyzer = "max"
+planner = "max"
+translator = "max"
+validator = "high"
+
+[execution]
+max_iter = 5
+
+[[milestones]]
+id = "M0"
+title = "Skeleton"
+goal = "Crate compiles and exposes stubbed public API; no behavior yet."
+tests = []
+
+[[milestones]]
+id = "M1"
+title = "Core parsing"
+goal = "Implement the core parse/format functions."
+tests = ["test_parse", "test_format"]
+
+[[milestones]]
+id = "M2"
+title = "Edge cases"
+goal = "Handle empty input, errors, and boundary values."
+tests = ["test_errors", "test_boundaries"]
+
+[[milestones]]
+id = "M3"
+title = "Conformance"
+goal = "Pass the full golden test set."
+tests = ["test_golden"]
