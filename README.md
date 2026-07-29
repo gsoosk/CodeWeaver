@@ -199,6 +199,9 @@ examples live in [`examples/`](examples/):
 - **`examples/crust-bench/`** — run CodeWeaver on a [CRUST-Bench](https://arxiv.org/abs/2504.15254)
   **C → safe-Rust** transpilation task (retargetable to any of the 100 benchmark
   projects via `setup`; auto-milestones + parity; validated by `cargo test`).
+- **`examples/commons-validator/`** — translate [Apache Commons Validator](https://github.com/apache/commons-validator)'s
+  `routines` package (validators + check-digit algorithms) from **Java → idiomatic
+  Python** (auto-milestones + parity; validated by translated `unittest` tests).
 - **`examples/xcvrd/`** — reproduces the original `recodeAgent` use case (SONiC
   xcvrd Python→Rust, thick PyO3 HAL + `swss-common`, DUT black-box oracle) purely
   as a config + [`brief.md`](examples/xcvrd/brief.md).

@@ -33,3 +33,6 @@ _*.txt
 # CRUST-bench example: generated config + vendored scaffold + run state (local only)
 examples/crust-bench/codeweaver.toml
 examples/crust-bench/.scaffold/
+
+# commons-validator example: generated config + run state (local only)
+examples/commons-validator/codeweaver.toml
