@@ -196,6 +196,9 @@ examples live in [`examples/`](examples/):
 - **`examples/minimal/`** — a tiny Python→Rust library port (drives `codeweaver check`).
 - **`examples/auto-milestones/`** — same, but with **no `[[milestones]]`** — the
   scope stage generates them (offline, the mock scoper emits `M0..M2`).
+- **`examples/crust-bench/`** — run CodeWeaver on a [CRUST-Bench](https://arxiv.org/abs/2504.15254)
+  **C → safe-Rust** transpilation task (retargetable to any of the 100 benchmark
+  projects via `setup`; auto-milestones + parity; validated by `cargo test`).
 - **`examples/xcvrd/`** — reproduces the original `recodeAgent` use case (SONiC
   xcvrd Python→Rust, thick PyO3 HAL + `swss-common`, DUT black-box oracle) purely
   as a config + [`brief.md`](examples/xcvrd/brief.md).

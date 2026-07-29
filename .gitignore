@@ -29,3 +29,7 @@ _*.txt
 .DS_Store
 .idea/
 .vscode/
+
+# CRUST-bench example: generated config + vendored scaffold + run state (local only)
+examples/crust-bench/codeweaver.toml
+examples/crust-bench/.scaffold/
