@@ -10,19 +10,20 @@ The key idea is a strict separation:
 - **Deterministic orchestration** — a small Apache Burr state machine. It never
   calls an LLM. It sequences the agents, owns the milestone × repair loop, keeps
   typed state, persists to SQLite (crash-resume), and renders the telemetry UI.
-- **Non-deterministic reasoning** — four GitHub Copilot CLI custom agents. Each is
-  a `copilot --agent NAME` subprocess that owns its entire agent loop (reasoning,
+- **Non-deterministic reasoning** — GitHub Copilot CLI custom agents (Analyzer,
+  Scoper, Planner, Translator, Validator, Parity Verifier). Each is a
+  `copilot --agent NAME` subprocess that owns its entire agent loop (reasoning,
   tools, MCP, LSP, file edits, web). CodeWeaver only launches it, captures JSONL
   output, and reads the artifact it wrote.
 
 ## The graph
 
 ```
-analyze ─▶ plan ─▶ select_milestone ─▶ translate ─▶ validate ─▶ terminal
-                        ▲                                │
-                        │  milestone_passed &&           │  not passed &&
-                        │  milestone_idx < last_idx      │  iter_count < max_iter
-                        └────────────────────────────────┘
+analyze ─▶ scope ─▶ plan ─▶ select_milestone ─▶ translate ─▶ validate ─▶ parity ─▶ terminal
+             ▲                     ▲                 ▲            │           │
+             │ parity incomplete   │ next milestone  │ repair     │           │
+             │ (schedule gaps)     │                 │            ▼           ▼
+             └─────────────────────┴─────────────────┴────────────┘   complete / out of rounds
 ```
 
 Transitions (see `codeweaver/app.py`):
@@ -32,26 +33,51 @@ Transitions (see `codeweaver/app.py`):
   (repair the current milestone).
 - `validate → select_milestone` when `milestone_passed and milestone_idx < last_idx`
   (advance to the next milestone).
-- `validate → terminal` otherwise (last milestone passed, or budget exhausted).
+- **(parity on)** `validate → parity` when `milestone_passed and milestone_idx >= last_idx`
+  (all milestones passed → run the final parity check).
+- `validate → terminal` otherwise (budget exhausted → gave up; or, with parity off,
+  the last milestone passed).
+- **(parity on)** `parity → scope` when `not parity_complete and parity_round < max_parity_rounds`
+  (gaps found → back to the milestone generator to schedule them).
+- **(parity on)** `parity → terminal` otherwise (parity complete, or out of rounds).
 
 `select_milestone` is pure bookkeeping: it advances `milestone_idx` after a pass
 and resets the per-milestone repair counter and pass flag.
 
-## Auto-generated milestones (the `scope` stage)
+## The `scope` stage (milestone generator)
 
-If the config declares no `[[milestones]]` (`cfg.auto_milestones`), `build_application`
-inserts a **`scope`** action into the graph between `analyze` and `plan`
-(`analyze → scope → plan`); otherwise the head is just `analyze → plan`. The Scoper
-agent reads the analysis and the source and writes a cumulative milestone matrix to
-`milestones.json` (`milestones_artifact`). The `scope` action then loads it into the
-active `Config` (`load_generated_milestones`) and updates `num_milestones` / `last_idx`
-in state, so every downstream stage, transition, and gate uses the generated matrix.
-If the scoper produces nothing usable, a minimal two-milestone fallback is used so
-the run degrades gracefully instead of crashing.
+`scope` runs between `analyze` and `plan` whenever milestones are auto-generated OR
+the parity loop is enabled (`include_scope = cfg.auto_milestones or cfg.parity_check`).
+It has three modes (`codeweaver/actions.py:scope`):
+
+- **Declared milestones, first pass** → *passthrough*: keep the config's matrix and
+  persist it to `milestones.json` (so parity rounds have a base). No LLM call.
+- **No declared milestones, first pass** → the Scoper writes a cumulative matrix to
+  `milestones.json`; the action loads it into the active `Config`
+  (`load_generated_milestones`) and updates `num_milestones` / `last_idx`.
+- **Parity re-entry** (`parity_round > 0`) → the Scoper runs in *incremental* mode:
+  it reads `parity.json`, appends new milestones for the reported gaps (preserving
+  the existing ids), and the action reloads the extended matrix.
+
+If the scoper ever produces nothing usable, a minimal fallback matrix keeps the run
+alive instead of crashing. `state.current_milestone` clamps the index defensively so
+a matrix that grows between rounds can never be indexed out of range.
+
+## The parity loop (the `parity` stage)
+
+When `cfg.parity_check` is on, a **`parity`** action closes the workflow. After the
+last milestone passes, the Parity Verifier compares the source against the final
+translation and writes a verdict to `parity.json`
+(`{complete, translated, missing, notes}`). The action sets `parity_complete`,
+increments `parity_round`, and sets `done = parity_complete` — so the run reports
+success **only** when parity is verified complete. If incomplete and rounds remain,
+the graph routes back to `scope`, which schedules the gaps as new milestones; the
+milestone loop implements + validates them and parity re-checks. The
+`max_parity_rounds` bound guarantees termination.
 
 **Resume:** `build_application` reloads `milestones.json` from disk before running,
-so a crashed run that already passed the scope stage resumes with the correct matrix
-without re-scoping.
+so a crashed run resumes with the correct (possibly parity-extended) matrix without
+re-scoping.
 
 ## State (`codeweaver/state.py`)
 
@@ -64,8 +90,10 @@ Burr's `State` is an immutable dict. The schema:
 | `milestone_passed` | did the last `validate` pass? |
 | `report` | last validation report (cleared on pass) |
 | `analysis_done` / `milestones_done` / `plan_done` | one-shot stage completion flags |
+| `parity_round` / `max_parity_rounds` | parity → scope iterations spent / the bound |
+| `parity_complete` / `parity_report` | did the last parity check pass? / its verdict |
 | `history` | append-only `{milestone, iter, passed}` log |
-| `done` | whole pipeline finished (all green or gave up) |
+| `done` | pipeline finished successfully (parity complete, or last milestone passed when parity is off) |
 | `last_agent` | most recently run agent |
 
 ## File-based hand-off
@@ -73,6 +101,8 @@ Burr's `State` is an immutable dict. The schema:
 Agents communicate through **files**, not by parsing each other's chatter:
 
 - Analyzer → `analysis.md` (design)
+- Scoper → `milestones.json` (the cumulative milestone matrix; extended per parity round)
+- Parity Verifier → `parity.json` (`{complete, translated, missing, notes}`)
 - Planner → `plan.json` (fragments, name mapping, milestone plan) + a skeleton on disk
 - Validator → `report.json` (combined verdict the Translator repairs against)
 
@@ -129,9 +159,11 @@ copilot -p <prompt> --agent <name> --model <model> --reasoning-effort <effort>
 ## Offline mock (`codeweaver/mock.py`)
 
 Set `CODEWEAVER_MOCK=1` (or `codeweaver check`) to replace Copilot with a mock that
-writes the same artifacts a real agent would. Validator outcomes are scriptable
-(`CODEWEAVER_MOCK_FAIL`, `CODEWEAVER_CRASH_AT`) so the four core behaviors — happy
-path, repair loop, budget exhaustion, and cross-process crash-resume — can be
+writes the same artifacts a real agent would. Validator and parity outcomes are
+scriptable (`CODEWEAVER_MOCK_FAIL`, `CODEWEAVER_CRASH_AT`,
+`CODEWEAVER_MOCK_PARITY_INCOMPLETE`, `CODEWEAVER_MOCK_MILESTONES`) so the five core
+behaviors — happy path, repair loop, budget exhaustion, cross-process crash-resume,
+and the parity loop (parity incomplete → new milestones → complete) — can be
 verified deterministically with no LLM cost.
 
 ## Persistence & resume (`codeweaver/app.py`)

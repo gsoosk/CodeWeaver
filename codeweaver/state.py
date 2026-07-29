@@ -37,13 +37,24 @@ def initial_state(cfg: Config, max_iter: int = 5) -> dict:
         "milestones_done": not cfg.auto_milestones,  # scope stage sets this when auto
         "plan_done": False,
         "history": [],
+        # final parity loop
+        "parity_round": 0,
+        "max_parity_rounds": cfg.max_parity_rounds,
+        "parity_complete": False,
+        "parity_report": {},
         "done": False,
         "last_agent": "",
     }
 
 
 def current_milestone(cfg: Config, state):
-    return cfg.milestones[state["milestone_idx"]]
+    # Clamp defensively: the parity loop can grow the matrix between rounds, and a
+    # re-entry must never index past the current list.
+    idx = state["milestone_idx"]
+    if not cfg.milestones:
+        raise IndexError("no milestones available")
+    idx = max(0, min(idx, len(cfg.milestones) - 1))
+    return cfg.milestones[idx]
 
 
 def is_last_milestone(cfg: Config, state) -> bool:

@@ -29,20 +29,36 @@ def build_application(cfg: Config, app_id: str, max_iter: int | None = None,
                       db_path: str | None = None):
     """Assemble the Burr application for a project config.
 
-    When the config declared no ``[[milestones]]`` (``cfg.auto_milestones``), a
-    ``scope`` stage is inserted between ``analyze`` and ``plan`` to generate the
-    milestone matrix at runtime. On resume, any previously generated matrix on
-    disk is reloaded so state counts are correct.
+    Graph shape (nodes in brackets are conditional):
+
+        analyze -> [scope] -> plan -> select_milestone -> translate -> validate
+                      ^                       ^                            |
+                      |  parity incomplete    |  repair (iter<max)         |
+                      |                        +---------------------------+
+                      |    all milestones pass -> [parity]
+                      +---------------------------+ (parity incomplete & rounds left)
+                                                  -> terminal (parity complete / gave up)
+
+    * The ``scope`` (milestone-generator) stage is present when milestones are
+      auto-generated OR when the parity loop is enabled (so it can be re-entered).
+    * The ``parity`` stage is present when ``parity_check`` is on: after the last
+      milestone passes it verifies the translation against the source; if
+      incomplete it loops back to ``scope`` to schedule the gaps, bounded by
+      ``max_parity_rounds``.
+    On resume, any milestone matrix already written to disk is reloaded so the
+    state counts are correct.
     """
     C.set_active(cfg)
     max_iter = cfg.max_iter if max_iter is None else max_iter
     db_path = db_path or cfg.resolved_db_path
     Path(db_path).parent.mkdir(parents=True, exist_ok=True)
 
-    auto = cfg.auto_milestones
-    if auto:
-        # Resume support: if the scoper already ran in a prior process, reload the
-        # generated matrix so num_milestones/last_idx are right from the start.
+    include_parity = cfg.parity_check
+    include_scope = cfg.auto_milestones or include_parity
+
+    # Resume support: reload any matrix written by a prior process (initial scope
+    # or a parity round) so num_milestones/last_idx are right from the start.
+    if include_scope and cfg.milestones_path.exists():
         cfg.load_generated_milestones()
 
     persister = SQLLitePersister.from_values(db_path=db_path, table_name="codeweaver_state")
@@ -54,14 +70,17 @@ def build_application(cfg: Config, app_id: str, max_iter: int | None = None,
         select_milestone=actions.select_milestone,
         translate=actions.translate,
         validate=actions.validate,
-        terminal=burr.core.Result("done", "history", "milestone_idx", "report"),
+        terminal=burr.core.Result("done", "history", "milestone_idx", "report",
+                                   "parity_complete", "parity_report"),
     )
-    if auto:
+    if include_scope:
         actions_map["scope"] = actions.scope
+    if include_parity:
+        actions_map["parity"] = actions.parity
 
     # analyze -> [scope ->] plan
     head_transitions = (
-        [("analyze", "scope"), ("scope", "plan")] if auto else [("analyze", "plan")]
+        [("analyze", "scope"), ("scope", "plan")] if include_scope else [("analyze", "plan")]
     )
     transitions = [
         *head_transitions,
@@ -72,9 +91,20 @@ def build_application(cfg: Config, app_id: str, max_iter: int | None = None,
         ("validate", "translate", expr("not milestone_passed and iter_count < max_iter")),
         # advance to the next milestone once this one passes
         ("validate", "select_milestone", expr("milestone_passed and milestone_idx < last_idx")),
-        # otherwise done: last milestone passed, or budget exhausted
-        ("validate", "terminal", default),
     ]
+    if include_parity:
+        # all milestones passed -> run the final parity check
+        transitions.append(
+            ("validate", "parity", expr("milestone_passed and milestone_idx >= last_idx"))
+        )
+        # parity found gaps and there are rounds left -> back to the milestone generator
+        transitions.append(
+            ("parity", "scope", expr("not parity_complete and parity_round < max_parity_rounds"))
+        )
+        # parity complete, or out of rounds -> done
+        transitions.append(("parity", "terminal", default))
+    # otherwise done: last milestone passed (parity off), or budget exhausted
+    transitions.append(("validate", "terminal", default))
 
     return (
         ApplicationBuilder()

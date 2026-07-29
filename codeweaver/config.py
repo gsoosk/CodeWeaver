@@ -72,6 +72,7 @@ class Config:
     plan_artifact: str = "plan.json"
     report_artifact: str = "report.json"
     milestones_artifact: str = "milestones.json"   # written by the scope stage (auto milestones)
+    parity_artifact: str = "parity.json"           # written by the parity stage
 
     # validation commands (shell, run by the agents; support {placeholders})
     build_check_cmd: str = ""
@@ -83,11 +84,17 @@ class Config:
     model: ModelConfig = field(default_factory=ModelConfig)
     milestones: list[Milestone] = field(default_factory=list)
     max_iter: int = 5
+    # Final parity check: after all milestones pass, a parity verifier compares the
+    # source with the translation; if incomplete, the milestone generator adds new
+    # milestones and the loop repeats. The run terminates successfully only when
+    # parity is verified complete (or max_parity_rounds is exhausted).
+    parity_check: bool = True
+    max_parity_rounds: int = 3
     db_path: str = ""                     # sqlite persistence (default: <pipeline>/burr.db)
     agent_timeout: float | None = None    # per-agent wall-clock cap (seconds)
 
     # optional prompt-template overrides, keyed by stage
-    # (scope|analyze|plan|translate|validate). Empty -> use codeweaver.prompts defaults.
+    # (scope|analyze|plan|translate|validate|parity). Empty -> use codeweaver.prompts defaults.
     prompts: dict[str, str] = field(default_factory=dict)
 
     # True when the config declared no [[milestones]] -> the scope stage generates
@@ -141,6 +148,10 @@ class Config:
     def milestones_path(self) -> Path:
         return self.artifact_path(self.milestones_artifact)
 
+    @property
+    def parity_path(self) -> Path:
+        return self.artifact_path(self.parity_artifact)
+
     def load_generated_milestones(self) -> int:
         """Populate ``self.milestones`` from the scope stage's artifact
         (``milestones_artifact``). Accepts either a bare JSON array of milestone
@@ -156,6 +167,18 @@ class Config:
         items = raw.get("milestones") if isinstance(raw, dict) else raw
         self.milestones = _milestones_from(items)
         return len(self.milestones)
+
+    def save_milestones(self) -> None:
+        """Write the current milestone matrix to ``milestones_artifact`` (a JSON
+        array). Used so declared milestones have a base the incremental parity loop
+        can append to, and so the matrix survives a resume."""
+        data = [
+            {"id": m.id, "title": m.title, "goal": m.goal,
+             "tests": list(m.tests), "marker": m.marker}
+            for m in self.milestones
+        ]
+        self.milestones_path.parent.mkdir(parents=True, exist_ok=True)
+        self.milestones_path.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
     @property
     def reference_paths(self) -> list[Path]:
@@ -281,6 +304,7 @@ def load(config_path: str | os.PathLike) -> Config:
         plan_artifact=str(paths.get("plan_artifact", "plan.json")),
         report_artifact=str(paths.get("report_artifact", "report.json")),
         milestones_artifact=str(paths.get("milestones_artifact", "milestones.json")),
+        parity_artifact=str(paths.get("parity_artifact", "parity.json")),
         build_check_cmd=str(cmds.get("build_check", "")),
         unit_test_cmd=str(cmds.get("unit_test", "")),
         validate_cmd=str(cmds.get("validate", "")),
@@ -288,6 +312,8 @@ def load(config_path: str | os.PathLike) -> Config:
         model=model,
         milestones=_milestones_from(raw.get("milestones")),
         max_iter=int(exec_raw.get("max_iter", 5)),
+        parity_check=bool(exec_raw.get("parity_check", True)),
+        max_parity_rounds=int(exec_raw.get("max_parity_rounds", 3)),
         db_path=str(exec_raw.get("db_path", "")),
         agent_timeout=exec_raw.get("agent_timeout"),
         prompts={k: str(v) for k, v in (raw.get("prompts", {}) or {}).items()},

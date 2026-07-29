@@ -35,6 +35,7 @@ def _cmd_run(args) -> int:
     os.environ["CODEWEAVER_PLAN_ARTIFACT"] = cfg.plan_artifact
     os.environ["CODEWEAVER_REPORT_ARTIFACT"] = cfg.report_artifact
     os.environ["CODEWEAVER_MILESTONES_ARTIFACT"] = cfg.milestones_artifact
+    os.environ["CODEWEAVER_PARITY_ARTIFACT"] = cfg.parity_artifact
 
     app_id = args.app_id or f"{cfg.slug}-{uuid.uuid4().hex[:8]}"
     db_path = args.db or cfg.resolved_db_path
@@ -80,11 +81,13 @@ def _cmd_check(args) -> int:
         first, mid_ms = "M1", "M2"
 
     def reset():
-        globs = [".mock_attempts_*"]
-        purge = [pipeline / "burr.db"]
-        for g in globs:
-            purge += list(pipeline.glob(g))
-        if cfg.auto_milestones:
+        purge = [pipeline / "burr.db",
+                 pipeline / ".mock_parity_attempts",
+                 pipeline / cfg.parity_artifact]
+        purge += list(pipeline.glob(".mock_attempts_*"))
+        # The milestone matrix is regenerated per run whenever scope is active
+        # (auto milestones, or the parity loop that can append to it).
+        if cfg.auto_milestones or cfg.parity_check:
             purge.append(pipeline / cfg.milestones_artifact)
         for f in purge:
             try:
@@ -96,11 +99,14 @@ def _cmd_check(args) -> int:
                 "CODEWEAVER_ANALYSIS_ARTIFACT": cfg.analysis_artifact,
                 "CODEWEAVER_PLAN_ARTIFACT": cfg.plan_artifact,
                 "CODEWEAVER_REPORT_ARTIFACT": cfg.report_artifact,
-                "CODEWEAVER_MILESTONES_ARTIFACT": cfg.milestones_artifact}
+                "CODEWEAVER_MILESTONES_ARTIFACT": cfg.milestones_artifact,
+                "CODEWEAVER_PARITY_ARTIFACT": cfg.parity_artifact}
 
     if cfg.auto_milestones:
         print(f"[check] config declares no milestones -> scope stage will generate them "
               f"(mock: M0..M{2})")
+    if cfg.parity_check:
+        print("[check] parity loop enabled -> a final parity check runs after the last milestone")
 
     print("\n===== 1) HAPPY PATH - all milestones pass =====")
     reset(); _run_pipeline(args.config, "chk-happy", base_env)
@@ -117,10 +123,16 @@ def _cmd_check(args) -> int:
     print("  (process 1 crashed; starting process 2 to resume...)")
     _run_pipeline(args.config, "chk-resume", base_env)
 
+    if cfg.parity_check:
+        print("\n===== 5) PARITY LOOP - parity incomplete twice, adds milestones, then completes =====")
+        reset(); _run_pipeline(args.config, "chk-parity", {**base_env, "CODEWEAVER_MOCK_PARITY_INCOMPLETE": "2"})
+
     reset()
     print("\nAll orchestrator checks ran. Verify above:")
     print(f"  1 done=True (all pass)   2 {first} iter1=False then iter2=True   3 done=False (gave up)")
     print(f"  4 process-2 'loaded state ... milestone_idx>0' => resumed, not restarted")
+    if cfg.parity_check:
+        print("  5 two extra milestones appear, then done=True after parity completes")
     return 0
 
 
@@ -213,6 +225,11 @@ validator = "high"
 
 [execution]
 max_iter = 5
+# After all milestones pass, a parity verifier compares the source with the
+# translation; if incomplete, the milestone generator schedules the gaps and the
+# loop repeats until parity is verified complete. Set false for legacy behavior.
+parity_check = true
+max_parity_rounds = 3
 
 # Milestones are OPTIONAL. Omit the [[milestones]] tables entirely to let Copilot
 # generate a cumulative matrix at runtime (a `scope` stage runs between analyze and

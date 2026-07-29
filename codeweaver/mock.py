@@ -33,6 +33,7 @@ def _artifact_names() -> dict[str, str]:
         "plan": os.environ.get("CODEWEAVER_PLAN_ARTIFACT", "plan.json"),
         "report": os.environ.get("CODEWEAVER_REPORT_ARTIFACT", "report.json"),
         "milestones": os.environ.get("CODEWEAVER_MILESTONES_ARTIFACT", "milestones.json"),
+        "parity": os.environ.get("CODEWEAVER_PARITY_ARTIFACT", "parity.json"),
     }
 
 
@@ -50,6 +51,14 @@ def _fail_budget() -> dict[str, int]:
     return out
 
 
+def _load_milestones(path) -> list:
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return []
+    return raw.get("milestones") if isinstance(raw, dict) else (raw or [])
+
+
 def respond(agent_name: str, prompt: str) -> str:
     pdir = _pipeline_dir()
     names = _artifact_names()
@@ -61,8 +70,25 @@ def respond(agent_name: str, prompt: str) -> str:
         return f"mock analyzer: wrote {names['analysis']}"
 
     if agent_name == "scoper":
-        # Emit a small generic milestone matrix so the auto-milestones path can be
-        # exercised offline. Overridable via CODEWEAVER_MOCK_MILESTONES (an int).
+        mfile = pdir / names["milestones"]
+        pfile = pdir / names["parity"]
+        # Incremental (parity re-entry): the milestones + a parity report already
+        # exist and parity said incomplete -> append one new milestone for the gap.
+        incremental = False
+        if mfile.exists() and pfile.exists():
+            try:
+                incremental = not json.loads(pfile.read_text(encoding="utf-8")).get("complete", True)
+            except (ValueError, OSError):
+                incremental = False
+        if incremental:
+            arr = _load_milestones(mfile)
+            k = len(arr)
+            arr.append({"id": f"M{k}", "title": f"Parity gap {k}",
+                        "goal": "Translate the remaining gap the parity check found.",
+                        "tests": [f"test_gap_{k}"]})
+            mfile.write_text(json.dumps(arr, indent=2), encoding="utf-8")
+            return f"mock scoper: appended M{k} (parity gap)"
+        # Initial: emit a small generic matrix. Overridable via CODEWEAVER_MOCK_MILESTONES.
         try:
             k = int(os.environ.get("CODEWEAVER_MOCK_MILESTONES", "3"))
         except ValueError:
@@ -73,8 +99,35 @@ def respond(agent_name: str, prompt: str) -> str:
         for i in range(1, k):
             gen.append({"id": f"M{i}", "title": f"Feature {i}",
                         "goal": f"Implement feature {i}.", "tests": [f"test_feature_{i}"]})
-        (pdir / names["milestones"]).write_text(json.dumps(gen, indent=2), encoding="utf-8")
+        mfile.write_text(json.dumps(gen, indent=2), encoding="utf-8")
         return f"mock scoper: wrote {names['milestones']} ({k} milestones)"
+
+    if agent_name == "parity":
+        # Report incomplete for the first N checks (each triggering a scope
+        # re-entry that appends a milestone), then complete. N via
+        # CODEWEAVER_MOCK_PARITY_INCOMPLETE (default 0 -> complete immediately).
+        budget = 0
+        try:
+            budget = int(os.environ.get("CODEWEAVER_MOCK_PARITY_INCOMPLETE", "0"))
+        except ValueError:
+            budget = 0
+        cnt_file = pdir / ".mock_parity_attempts"
+        attempts = int(cnt_file.read_text()) if cnt_file.exists() else 0
+        attempts += 1
+        cnt_file.write_text(str(attempts))
+        complete = attempts > budget
+        report = {
+            "complete": complete,
+            "translated": ["(mock) all components"] if complete else ["(mock) some components"],
+            "missing": [] if complete else [
+                {"component": f"gap_{attempts}", "source_ref": "(mock)",
+                 "reason": "not yet translated (mock)",
+                 "suggested_milestone": f"translate gap_{attempts}"}
+            ],
+            "notes": f"(mock) parity attempt {attempts}, budget {budget}",
+        }
+        (pdir / names["parity"]).write_text(json.dumps(report, indent=2), encoding="utf-8")
+        return f"mock parity: {'COMPLETE' if complete else 'INCOMPLETE'} (attempt {attempts})"
 
     if agent_name == "planner":
         (pdir / names["plan"]).write_text(json.dumps({

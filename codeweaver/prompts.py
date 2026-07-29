@@ -53,16 +53,17 @@ by confirming {analysis} exists and summarizing the three sections.
 """
 
 SCOPE = """\
-You are the Scoper. Decompose this {source_language} -> {target_language} port \
-into an ordered list of CUMULATIVE milestones, and write it to {milestones}.
+You are the Scoper (milestone generator). Decompose this {source_language} -> \
+{target_language} port into an ordered list of CUMULATIVE milestones, and write \
+them to {milestones}.
 
 PROJECT BRIEF:
 {brief}
 
-Read the Analyzer's design at {analysis} (its milestone mapping is your primary \
-input) and the {source_language} source at {source_dir}; consult the reference \
-material at {reference_dirs} (e.g. the end-to-end test oracle) to learn which \
-tests exist and how they are named. Then design a milestone plan that:
+{scope_mode_note}Read the Analyzer's design at {analysis} (its milestone mapping \
+is your primary input) and the {source_language} source at {source_dir}; consult \
+the reference material at {reference_dirs} (e.g. the end-to-end test oracle) to \
+learn which tests exist and how they are named. Then design a milestone plan that:
   - starts with a minimal "skeleton" milestone (compiles/links and the entrypoint \
 runs; no functional tests yet),
   - adds ONE coherent slice of functionality per subsequent milestone, ordered \
@@ -85,6 +86,47 @@ validate in one repair loop each, large enough to be meaningful.
 
 Write ONLY {milestones}. Do not write any implementation or plan. End by \
 confirming {milestones} exists and listing the milestone ids + titles in order.
+"""
+
+# Inserted into SCOPE as {scope_mode_note}: empty on the first pass; on a parity
+# re-entry it tells the scoper to APPEND milestones for the reported gaps only.
+SCOPE_INCREMENTAL_NOTE = (
+    "INCREMENTAL MODE (parity re-entry): {milestones} ALREADY contains the "
+    "milestones completed so far -- preserve every existing entry and its id "
+    "EXACTLY. The Parity Verifier found the translation INCOMPLETE; read its "
+    "report at {parity} and APPEND new milestones ONLY for the untranslated / "
+    "partial components it lists (its `missing` array), continuing the id sequence "
+    "(if the last id is M4, add M5, M6, ...). Do not re-list or renumber completed "
+    "milestones. Rewrite {milestones} as the FULL array (existing + appended).\n\n"
+)
+
+PARITY = """\
+You are the Parity Verifier. Do a COMPREHENSIVE parity check between the original \
+{source_language} source at {source_dir} and the final {target_language} \
+translation in {work_target}, and decide whether EVERYTHING in scope has been \
+translated. Write your verdict to {parity}.
+
+PROJECT BRIEF:
+{brief}
+
+Compare the two sides component-by-component: modules/files, classes/types, \
+functions/methods, the public API surface, and observable behaviors. For each \
+source component, confirm there is a faithful {target_language} counterpart with \
+equivalent behavior (not a stub, TODO, or partial implementation). Use the \
+reference material at {reference_dirs} for the intended contract. IGNORE anything \
+the brief marks as provided by scaffolding, intentionally reused from the source \
+language, or explicitly out of scope -- those are not gaps.
+
+Write {parity} as JSON: {{"complete": bool, "translated": ["component ..."], \
+"missing": [{{"component","source_ref","reason","suggested_milestone"}}], \
+"notes": "..."}}. Set "complete": true ONLY if every in-scope source component \
+has a faithful translation. For each gap, name the concrete component, its source \
+reference, why it is missing/partial, and a concrete `suggested_milestone` (title \
++ goal + the test selectors that would gate it) so the milestone generator can \
+schedule it next.
+
+You only READ and REPORT -- do not edit any code, tests, or scaffolding. End by \
+stating COMPLETE or INCOMPLETE and, if incomplete, listing the gaps.
 """
 
 PLAN = """\
@@ -175,6 +217,7 @@ DEFAULTS: dict[str, str] = {
     "plan": PLAN,
     "translate": TRANSLATE,
     "validate": VALIDATE,
+    "parity": PARITY,
 }
 
 
@@ -228,6 +271,7 @@ def context(cfg: Config, **runtime: Any) -> dict[str, str]:
         "plan": str(cfg.plan_path),
         "report": str(cfg.report_path),
         "milestones": str(cfg.milestones_path),
+        "parity": str(cfg.parity_path),
         "build_check": cfg.build_check_cmd or "(no build command configured)",
         "unit_test": cfg.unit_test_cmd or "(no unit-test command configured)",
         "validate": cfg.validate_cmd or "(no validate command configured)",
@@ -246,6 +290,7 @@ def context(cfg: Config, **runtime: Any) -> dict[str, str]:
         "gate": "",
         "gate_desc": "",
         "repair_clause": "",
+        "scope_mode_note": "",
     }
     ctx.update({k: str(v) for k, v in runtime.items()})
     return ctx
@@ -284,3 +329,15 @@ def validate_runtime(cfg: Config, milestone) -> dict[str, str]:
         "gate": gate,
         "gate_desc": gate or "(deploy/smoke only -- no test selector)",
     }
+
+
+def scope_runtime(cfg: Config, incremental: bool) -> dict[str, str]:
+    """Runtime placeholders for the scope stage. On a parity re-entry
+    (``incremental``) the scoper is told to append milestones for the reported
+    gaps only, preserving the existing matrix."""
+    note = ""
+    if incremental:
+        note = SCOPE_INCREMENTAL_NOTE.format(
+            milestones=str(cfg.milestones_path), parity=str(cfg.parity_path)
+        )
+    return {"scope_mode_note": note}

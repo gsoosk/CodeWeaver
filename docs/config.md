@@ -42,6 +42,7 @@ All relative paths resolve against the config file's directory, unless
 | `plan_artifact` | `plan.json` | the Planner's output file |
 | `report_artifact` | `report.json` | the Validator's verdict file |
 | `milestones_artifact` | `milestones.json` | the Scoper's generated milestone matrix (only used when no `[[milestones]]` are declared) |
+| `parity_artifact` | `parity.json` | the Parity Verifier's verdict (only used when `parity_check` is on) |
 
 If both `immutable_input` and `working_copy` are set, the prompts instruct the
 Planner to copy input→working-copy first and all agents to edit only the working
@@ -86,16 +87,18 @@ Examples: pytest `-k` → `'-k "{tests_or}"'`; `go test -run` →
 | key | default | meaning |
 |-----|---------|---------|
 | `max_iter` | 5 | translate→validate repair attempts per milestone before giving up |
+| `parity_check` | `true` | run a final parity verifier after all milestones pass; if the translation is incomplete, loop back to the milestone generator to schedule the gaps. The run succeeds only when parity is verified complete. Set `false` for the legacy behavior (finish when the last milestone passes). |
+| `max_parity_rounds` | 3 | bound on parity → scope re-iterations (safety against an unbounded loop) |
 | `db_path` | `<pipeline_dir>/burr.db` | SQLite persistence path |
 | `agent_timeout` | none | per-agent wall-clock cap (seconds) |
 
 ## `[[milestones]]`
 
-An ordered array of tables. **Optional** — if omitted, CodeWeaver inserts a
-**scope** stage between `analyze` and `plan` that asks Copilot to generate the
-milestone matrix at runtime (written to `milestones_artifact` and reloaded on
-resume). Declare them yourself for full control. Milestones are **cumulative** —
-a milestone's gate is its own `tests` plus every earlier milestone's.
+An ordered array of tables. **Optional** — if omitted, the **scope** stage asks
+Copilot to generate the milestone matrix at runtime (written to
+`milestones_artifact` and reloaded on resume). Declare them yourself to seed the
+plan; the parity loop can still append more. Milestones are **cumulative** — a
+milestone's gate is its own `tests` plus every earlier milestone's.
 
 | key | required | meaning |
 |-----|----------|---------|
@@ -108,10 +111,10 @@ a milestone's gate is its own `tests` plus every earlier milestone's.
 ## `[prompts]` (optional)
 
 Override any stage's prompt template by key: `scope`, `analyze`, `plan`,
-`translate`, `validate`. Omitted stages use the built-in defaults in
+`translate`, `validate`, `parity`. Omitted stages use the built-in defaults in
 `codeweaver/prompts.py`. Templates use `{placeholder}` substitution — see
 `prompts.context()` for the full list (`{source_language}`, `{brief}`,
-`{source_dir}`, `{analysis}`, `{plan}`, `{report}`, `{milestones}`,
+`{source_dir}`, `{analysis}`, `{plan}`, `{report}`, `{milestones}`, `{parity}`,
 `{milestone_id}`, `{mode}`, `{failures}`, `{gate}`, …).
 
 ---
@@ -131,4 +134,6 @@ Runtime overrides (mostly for the offline mock and CI):
 | `CODEWEAVER_MOCK_FAIL` | mock: `"M1:1,M3:2"` — fail the first N validate attempts per milestone |
 | `CODEWEAVER_CRASH_AT` | mock: milestone id to crash at (tests crash-resume) |
 | `CODEWEAVER_MOCK_MILESTONES` | mock: how many milestones the mock scoper emits (default 3) |
+| `CODEWEAVER_MOCK_PARITY_INCOMPLETE` | mock: how many parity checks report incomplete before completing (default 0) |
 | `COPILOT_HOME` | where agent profiles are installed (`$COPILOT_HOME/agents`) |
+

@@ -28,13 +28,13 @@ translation: Python→Rust, Java→Go, COBOL→Java, JS→TS, and so on.
 ```
 Apache Burr  (deterministic state machine + telemetry UI + SQLite resume)
 
-  analyze ─▶ [scope] ─▶ plan ─▶ select_milestone ─▶ translate ─▶ validate
-                                     ▲                   ▲            │
-                                     │ next milestone    │ repair     │ parse verdict
-                                     │ (passed & more)   │ (failed &  ▼
-                                     │                   │  iter<max) report.json
-                                     └───────────────────┴────────────┤
-                                                  all green ─▶ terminal
+  analyze ─▶ scope ─▶ plan ─▶ select_milestone ─▶ translate ─▶ validate ─▶ parity
+               ▲                     ▲                 ▲            │           │
+               │ parity found gaps   │ next milestone  │ repair     │           │ complete?
+               │ (add milestones)    │ (passed & more) │ (failed &  ▼           │
+               │                     └─────────────────┴  iter<max) ────────────┤
+               └──────────────────────────────────────── incomplete ───────────┤
+                                                              complete ─▶ terminal
 
         every action = one `copilot --agent NAME` subprocess
         GitHub Copilot CLI custom agents do ALL the real work
@@ -44,25 +44,36 @@ Apache Burr  (deterministic state machine + telemetry UI + SQLite resume)
 | Stage | Agent | Reads → Writes |
 |-------|-------|----------------|
 | **analyze** | Analyzer | source → `analysis.md` (source research, dependency→target-lib analysis, target design + unit-test strategy) |
-| **scope** *(only if no milestones declared)* | Scoper | `analysis.md` → `milestones.json` (a cumulative milestone matrix: skeleton → feature slices → golden) |
+| **scope** *(milestone generator)* | Scoper | `analysis.md` / `parity.json` → `milestones.json` (a cumulative milestone matrix: skeleton → feature slices → golden; on a parity re-entry it appends milestones for the gaps) |
 | **plan** | Planner | `analysis.md` → `plan.json` + a compilable skeleton (fragments, name mapping, mock/test seams, milestone plan) |
 | **translate** | Translator | `plan.json` / `report.json` → the working copy (implements the milestone + its unit tests; repairs reported failures) |
 | **validate** | Validator | runs unit tests + the end-to-end oracle → `report.json` (combined verdict; passes only if **both** layers pass) |
+| **parity** *(verifier)* | Parity Verifier | compares the source with the final translation → `parity.json`; **complete → terminal**, **incomplete → back to scope** |
 
 Inter-stage state is passed as **files** (`analysis.md`, `plan.json`,
-`report.json`) in the pipeline directory; Copilot's `--output-format json` (JSONL)
-is parsed only for success/failure detection and UI logging.
+`report.json`, `milestones.json`, `parity.json`) in the pipeline directory;
+Copilot's `--output-format json` (JSONL) is parsed only for success/failure
+detection and UI logging.
+
+**Closing parity loop.** After every milestone passes, the **parity verifier** does
+a comprehensive component-by-component comparison of the original repo against the
+final translation. If anything is untranslated or only stubbed, it writes the gaps
+to `parity.json` and the pipeline loops back to the **milestone generator**, which
+schedules new milestones for exactly those gaps — then translates/validates them and
+re-checks parity. **The run terminates successfully only when parity is verified
+complete** (bounded by `max_parity_rounds`). Disable with `[execution].parity_check
+= false`.
 
 **Milestones can be auto-generated.** If your config declares no `[[milestones]]`,
-CodeWeaver inserts the **scope** stage between `analyze` and `plan`: Copilot
-decomposes the port into a cumulative milestone matrix and writes it to
-`milestones.json`, then the rest of the pipeline runs against it. Declare
-`[[milestones]]` yourself to skip this and keep full control.
+the **scope** stage decomposes the port into a cumulative milestone matrix
+(`milestones.json`) up front. Declare `[[milestones]]` yourself to seed the plan;
+the parity loop can still extend it.
 
 **Two validation layers** (faithful to the paper's Part B): fast **unit tests**
 against mocked boundaries *plus* a fixed, authoritative **end-to-end oracle** that
 is never translated or modified. **Milestones are cumulative**: a milestone must
 pass its own tests *and* every earlier milestone's (regression safety).
+
 
 ---
 
@@ -162,6 +173,8 @@ validator = "high"
 
 [execution]
 max_iter = 5
+parity_check = true        # final source↔translation parity loop (default true)
+max_parity_rounds = 3      # bound on parity re-scope iterations
 
 [[milestones]]
 id = "M0"
@@ -203,7 +216,7 @@ CodeWeaver/
 │   ├── app.py                #   ApplicationBuilder: actions + transitions + persister
 │   ├── mock.py               #   offline mock agent (drives the graph without Copilot)
 │   └── cli.py                #   `codeweaver` CLI (run/check/milestones/install-agents/init)
-├── agents/                   # generic Copilot CLI custom-agent profiles (5 roles: scoper + the 4 core)
+├── agents/                   # generic Copilot CLI custom-agent profiles (6 roles: scoper + parity + the 4 core)
 ├── tools/                    # install_agents.sh, check.sh
 ├── examples/                 # minimal/ and xcvrd/ project configs
 └── docs/                     # config.md, architecture.md

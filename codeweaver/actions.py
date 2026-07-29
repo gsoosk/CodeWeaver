@@ -113,30 +113,47 @@ def plan(state, __tracer) -> dict:
 
 
 @action(
-    reads=["analysis_done"],
+    reads=["analysis_done", "parity_round"],
     writes=["num_milestones", "last_idx", "milestones_done", "last_agent"],
 )
 def scope(state, __tracer) -> dict:
-    """Scoper Agent (only when the config declared no milestones): generate the
-    cumulative milestone matrix, write it to the milestones artifact, and load it
-    into the active config so downstream stages + gates use it.
+    """Scoper Agent (milestone generator). Runs BETWEEN analyze and plan.
 
-    Runs BETWEEN analyze and plan so it can use the analysis and the planner can
-    plan against the generated milestones.
+    Three modes:
+      * declared milestones, first pass -> passthrough: keep the config's matrix
+        (just persist it to the artifact so later parity rounds can extend it);
+      * no declared milestones, first pass -> generate the initial matrix;
+      * parity re-entry (parity_round > 0) -> the Parity Verifier found gaps;
+        append NEW milestones for them, preserving the existing matrix.
     """
     cfg = C.active()
-    prompt = prompts.render("scope", cfg)
+    incremental = state["parity_round"] > 0
+
+    if not incremental and not cfg.auto_milestones:
+        # Declared milestones: no LLM call. Persist so incremental rounds have a base.
+        cfg.save_milestones()
+        n = len(cfg.milestones)
+        return state.update(
+            num_milestones=n, last_idx=max(n - 1, 0),
+            milestones_done=True, last_agent=state["last_agent"],
+        )
+
+    runtime = prompts.scope_runtime(cfg, incremental=incremental)
+    prompt = prompts.render("scope", cfg, **runtime)
     res = _invoke(cfg, "scoper", prompt)
-    _log_agent(__tracer, stage="scope", prompt=prompt, result=res)
+    _log_agent(__tracer, stage=f"scope:{'incremental' if incremental else 'initial'}",
+               prompt=prompt, result=res)
     n = cfg.load_generated_milestones()
     if n == 0 and not from_mock():
         # The scoper failed to produce a usable matrix; fall back so the run can
         # still proceed rather than crashing with an empty milestone list.
         cfg.milestones = _fallback_milestones()
+        cfg.save_milestones()
         n = len(cfg.milestones)
     if __tracer is not None:
         try:
             __tracer.log_attributes(
+                incremental=incremental,
                 milestones_generated=n,
                 milestone_ids=[m.id for m in cfg.milestones],
             )
@@ -147,6 +164,37 @@ def scope(state, __tracer) -> dict:
         last_idx=max(n - 1, 0),
         milestones_done=n > 0,
         last_agent="scoper",
+    )
+
+
+@action(
+    reads=["parity_round", "max_parity_rounds"],
+    writes=["parity_complete", "parity_report", "parity_round", "done", "last_agent"],
+)
+def parity(state, __tracer) -> dict:
+    """Parity Verifier: after all milestones pass, compare the source with the
+    translation and decide whether everything in scope has been translated. On
+    completion the run finishes; otherwise the graph loops back to `scope` (the
+    milestone generator) to schedule the gaps -- bounded by max_parity_rounds."""
+    cfg = C.active()
+    prompt = prompts.render("parity", cfg)
+    res = _invoke(cfg, "parity", prompt)
+    report = _read_json(cfg.parity_path)
+    complete = bool(report.get("complete"))
+    rnd = state["parity_round"] + 1
+    _log_agent(__tracer, stage=f"parity:round{rnd}", prompt=prompt, result=res)
+    if __tracer is not None:
+        try:
+            __tracer.log_attributes(parity_round=rnd, parity_complete=complete,
+                                    parity_missing=report.get("missing", []))
+        except Exception:
+            pass
+    return state.update(
+        parity_complete=complete,
+        parity_report=report,
+        parity_round=rnd,
+        done=complete,   # success == parity verified complete
+        last_agent="parity",
     )
 
 
@@ -192,7 +240,9 @@ def validate(state, __tracer) -> dict:
     report = _read_json(cfg.report_path)
     passed = bool(report.get("passed"))
     it = state["iter_count"] + 1
-    done = passed and S.is_last_milestone(cfg, state)
+    # When parity is enabled, finishing the last milestone routes to the parity
+    # stage (not terminal), so `done` stays False here; parity owns completion.
+    done = passed and S.is_last_milestone(cfg, state) and not cfg.parity_check
     entry = {"milestone": m.id, "iter": it, "passed": passed}
     _log_agent(__tracer, stage=f"validate:{m.id}", prompt=prompt, result=res)
     if __tracer is not None:
