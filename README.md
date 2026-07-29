@@ -189,8 +189,11 @@ goal = "Implement the first slice of behavior."
 tests = ["test_first"]
 ```
 
-See [`docs/config.md`](docs/config.md) for the full reference and
-[`docs/architecture.md`](docs/architecture.md) for the design. Full worked
+See [`docs/config.md`](docs/config.md) for the full reference,
+[`docs/architecture.md`](docs/architecture.md) for the design, and
+[`docs/related-work.md`](docs/related-work.md) for a literature review positioning
+CodeWeaver against ~60 related papers (code translation, multi-agent code gen,
+agentic SE, self-repair) and its predecessor **ReCodeAgent**. Full worked
 examples live in [`examples/`](examples/):
 
 - **`examples/minimal/`** — a tiny Python→Rust library port (drives `codeweaver check`).
