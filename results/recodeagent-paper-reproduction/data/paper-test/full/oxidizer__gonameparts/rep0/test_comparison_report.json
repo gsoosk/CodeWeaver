@@ -1,0 +1,2305 @@
+{
+  "summary": {
+    "total_tests": 26,
+    "both_found": 24,
+    "source_missing": 0,
+    "target_missing": 2,
+    "both_found_pct": 92.3,
+    "params_match_count": 0,
+    "params_mismatch_count": 26,
+    "assertions_match_count": 20,
+    "assertions_mismatch_count": 6,
+    "avg_line_count_source": 11.96,
+    "avg_line_count_target": 5.58,
+    "avg_method_calls_source": 6.12,
+    "avg_method_calls_target": 2.67,
+    "assertion_types_source": {
+      "t.Errorf": 51
+    },
+    "assertion_types_target": {
+      "assert_eq!": 47
+    },
+    "assertEquals_summary": {
+      "total_comparable_pairs": 0,
+      "total_matching_assertions": 0,
+      "overall_match_rate": null
+    },
+    "assertion_match_percentages": {
+      "t.Errorf": {
+        "good_matches": {
+          "assert_eq!": 47
+        },
+        "good_match_count": 47,
+        "good_match_percentage": 92.16,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 4,
+        "unmatched_percentage": 7.84,
+        "total_mapped": 47,
+        "total_source": 51
+      }
+    },
+    "tests_with_same_assertion_count": 20,
+    "assertion_match_percentages_same_assertion_count": {
+      "t.Errorf": {
+        "good_matches": {
+          "assert_eq!": 39
+        },
+        "good_match_count": 39,
+        "good_match_percentage": 100.0,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 0,
+        "unmatched_percentage": 0.0,
+        "total_mapped": 39,
+        "total_source": 39
+      }
+    },
+    "embedding_similarity_status": "measured",
+    "avg_similarity_score": 0.881422,
+    "min_similarity_score": 0.84975,
+    "max_similarity_score": 0.924303,
+    "embedding_similarity_count": 24
+  },
+  "test_pairs": [
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestBuildFullName",
+        "found": true,
+        "signature": "func TestBuildFullName(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestBuildFullName(t *testing.T) {",
+          "\tres := Parse(\"President George Herbert Walker Bush\")",
+          "",
+          "\tif res.FullName != \"President George Herbert Walker Bush\" {",
+          "",
+          "\t\tt.Errorf(\"Expected 'President George Herbert Walker Bush'.  Actual: %v\", res.FullName)",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_build_full_name",
+        "found": true,
+        "signature": "fn test_build_full_name() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_build_full_name() {",
+          "    let res = parse(\"President George Herbert Walker Bush\");",
+          "    ",
+          "    assert_eq!(res.full_name, \"President George Herbert Walker Bush\", ",
+          "               \"Expected 'President George Herbert Walker Bush'. Actual {}\", res.full_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 5,
+        "line_count_diff": 2,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 2,
+        "method_call_diff": 2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.850683
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestDottedAka",
+        "found": true,
+        "signature": "func TestDottedAka(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestDottedAka(t *testing.T) {",
+          "\tres := Parse(\"James Polera a.k.a James K. Polera\")",
+          "\tif len(res.Aliases) != 1 {",
+          "\t\tt.Errorf(\"Expected 1 alias.  Actual: %v\", len(res.Aliases))",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_dotted_aka",
+        "found": true,
+        "signature": "fn test_dotted_aka() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_dotted_aka() {",
+          "    let res = parse(\"James Polera a.k.a James K. Polera\");",
+          "    ",
+          "    assert_eq!(res.aliases.len(), 1, \"Expected 1 alias. Actual: {}\", res.aliases.len());",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 4,
+        "line_count_diff": 3,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 4,
+        "method_call_diff": 2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.903523
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestUnicodeCharsInName",
+        "found": true,
+        "signature": "func TestUnicodeCharsInName(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestUnicodeCharsInName(t *testing.T) {",
+          "\tres := Parse(\"K\u00f6nig Ludwig\")",
+          "",
+          "\tif res.FirstName != \"K\u00f6nig\" {",
+          "\t\tt.Errorf(\"Expected 'K\u00f6nig'.  Actual: %v\", res.FirstName)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_unicode_chars_in_name",
+        "found": true,
+        "signature": "fn test_unicode_chars_in_name() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_unicode_chars_in_name() {",
+          "    let res = parse(\"K\u00f6nig Ludwig\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"K\u00f6nig\", \"Expected 'K\u00f6nig'. Actual: {}\", res.first_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 4,
+        "line_count_diff": 3,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 2,
+        "method_call_diff": 2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.872702
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestTabsInName",
+        "found": true,
+        "signature": "func TestTabsInName(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 4,
+        "body": [
+          "func TestTabsInName(t *testing.T) {",
+          "\tres := Parse(\"Dr. James\\tPolera\\tEsq.\")",
+          "",
+          "\tif res.Salutation != \"Dr.\" {",
+          "\t\tt.Errorf(\"Expected 'Dr.'.  Actual: %v\", res.Salutation)",
+          "\t}",
+          "",
+          "\tif res.FirstName != \"James\" {",
+          "\t\tt.Errorf(\"Expected 'James'.  Actual: %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"Polera\" {",
+          "\t\tt.Errorf(\"Expected 'Polera'.  Actual: %v\", res.LastName)",
+          "\t}",
+          "",
+          "\tif res.Suffix != \"Esq.\" {",
+          "\t\tt.Errorf(\"Expected 'Esq.'.  Actual: %v\", res.Suffix)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_tabs_in_name",
+        "found": true,
+        "signature": "fn test_tabs_in_name() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 4,
+        "body": [
+          "fn test_tabs_in_name() {",
+          "    let res = parse(\"Dr. James\\tPolera\\tEsq.\");",
+          "    ",
+          "    assert_eq!(res.salutation, \"Dr.\", \"Expected 'Dr.'. Actual: {}\", res.salutation);",
+          "    assert_eq!(res.first_name, \"James\", \"Expected 'James'. Actual: {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"Polera\", \"Expected 'Polera'. Actual: {}\", res.last_name);",
+          "    assert_eq!(res.suffix, \"Esq.\", \"Expected 'Esq.'. Actual: {}\", res.suffix);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 4,
+        "assertion_count_target": 4,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 16,
+        "line_count_target": 7,
+        "line_count_diff": 9,
+        "assertion_types_source": {
+          "t.Errorf": 4
+        },
+        "assertion_types_target": {
+          "assert_eq!": 4
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 2,
+        "method_call_diff": 5,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 4,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 4,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 4,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 4
+          }
+        },
+        "similarity_score": 0.899352
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestObviouslyBadName",
+        "found": true,
+        "signature": "func TestObviouslyBadName(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestObviouslyBadName(t *testing.T) {",
+          "\t// make sure we don't panic on a clearly bad name",
+          "\tdefer func() {",
+          "\t\tif r := recover(); r != nil {",
+          "\t\t\t// panic happened, fail the test",
+          "\t\t\tt.Errorf(\"Panic happened, where it shouldn't have\")",
+          "\t\t}",
+          "\t}()",
+          "\tParse(\"I am a Popsicle\")",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_obviously_bad_name",
+        "found": true,
+        "signature": "fn test_obviously_bad_name() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "fn test_obviously_bad_name() {",
+          "    // make sure we don't panic on a clearly bad name",
+          "    let res = parse(\"I am a Popsicle\");",
+          "    // Should not panic - test passes if we get here",
+          "    let _ = res;",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 0,
+        "param_count_diff": 1,
+        "assertion_count_diff": 1,
+        "line_count_source": 11,
+        "line_count_target": 6,
+        "line_count_diff": 5,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {},
+        "method_call_count_source": 5,
+        "method_call_count_target": 2,
+        "method_call_diff": 3,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.860602
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestLastNameSalutation",
+        "found": true,
+        "signature": "func TestLastNameSalutation(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 4,
+        "body": [
+          "func TestLastNameSalutation(t *testing.T) {",
+          "\t// make sure we don't panic if the last name looks like a salutation",
+          "\tdefer func() {",
+          "\t\tif r := recover(); r != nil {",
+          "\t\t\t// panic happened, fail the test",
+          "\t\t\tt.Errorf(\"Panic happened, where it shouldn't have\")",
+          "\t\t}",
+          "\t}()",
+          "\tres := Parse(\"Alan Hon\")",
+          "",
+          "\tif res.FirstName != \"Alan\" {",
+          "\t\tt.Errorf(\"Expected 'Alan'.  Actual: %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"Hon\" {",
+          "\t\tt.Errorf(\"Expected 'Hon'.  Actual: %v\", res.LastName)",
+          "\t}",
+          "",
+          "\tif res.FullName != \"Alan Hon\" {",
+          "\t\tt.Errorf(\"Expected 'Alan Hon'.  Actual: %v\", res.FullName)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_last_name_salutation",
+        "found": true,
+        "signature": "fn test_last_name_salutation() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "fn test_last_name_salutation() {",
+          "    // make sure we don't panic if the last name looks like a salutation",
+          "    let res = parse(\"Alan Hon\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"Alan\", \"Expected 'Alan'. Actual: {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"Hon\", \"Expected 'Hon'. Actual: {}\", res.last_name);",
+          "    assert_eq!(res.full_name, \"Alan Hon\", \"Expected 'Alan Hon'. Actual: {}\", res.full_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 4,
+        "assertion_count_target": 3,
+        "param_count_diff": 1,
+        "assertion_count_diff": 1,
+        "line_count_source": 20,
+        "line_count_target": 7,
+        "line_count_diff": 13,
+        "assertion_types_source": {
+          "t.Errorf": 4
+        },
+        "assertion_types_target": {
+          "assert_eq!": 3
+        },
+        "method_call_count_source": 8,
+        "method_call_count_target": 2,
+        "method_call_diff": 6,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 3,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 3,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 3,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 3
+          }
+        },
+        "similarity_score": 0.895388
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestLastNameNonName",
+        "found": true,
+        "signature": "func TestLastNameNonName(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 4,
+        "body": [
+          "func TestLastNameNonName(t *testing.T) {",
+          "\t// make sure we don't panic if the last name looks like a nonname",
+          "\tdefer func() {",
+          "\t\tif r := recover(); r != nil {",
+          "\t\t\t// panic happened, fail the test",
+          "\t\t\tt.Errorf(\"Panic happened, where it shouldn't have\")",
+          "\t\t}",
+          "\t}()",
+          "\tres := Parse(\"Jessica Aka\")",
+          "",
+          "\tif res.FirstName != \"Jessica\" {",
+          "\t\tt.Errorf(\"Expected 'Jessica'.  Actual: %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"Aka\" {",
+          "\t\tt.Errorf(\"Expected 'Aka'.  Actual: %v\", res.LastName)",
+          "\t}",
+          "",
+          "\tif res.FullName != \"Jessica Aka\" {",
+          "\t\tt.Errorf(\"Expected 'Jessica Aka'.  Actual: %v\", res.FullName)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_last_name_non_name",
+        "found": true,
+        "signature": "fn test_last_name_non_name() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "fn test_last_name_non_name() {",
+          "    // make sure we don't panic if the last name looks like a nonname",
+          "    let res = parse(\"Jessica Aka\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"Jessica\", \"Expected 'Jessica'. Actual: {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"Aka\", \"Expected 'Aka'. Actual: {}\", res.last_name);",
+          "    assert_eq!(res.full_name, \"Jessica Aka\", \"Expected 'Jessica Aka'. Actual: {}\", res.full_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 4,
+        "assertion_count_target": 3,
+        "param_count_diff": 1,
+        "assertion_count_diff": 1,
+        "line_count_source": 20,
+        "line_count_target": 7,
+        "line_count_diff": 13,
+        "assertion_types_source": {
+          "t.Errorf": 4
+        },
+        "assertion_types_target": {
+          "assert_eq!": 3
+        },
+        "method_call_count_source": 8,
+        "method_call_count_target": 2,
+        "method_call_diff": 6,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 3,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 3,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 3,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 3
+          }
+        },
+        "similarity_score": 0.898821
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestNameEndsWithApostrophe",
+        "found": true,
+        "signature": "func TestNameEndsWithApostrophe(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 3,
+        "body": [
+          "func TestNameEndsWithApostrophe(t *testing.T) {",
+          "\t// make sure we don't panic on a clearly bad name",
+          "\tdefer func() {",
+          "\t\tif r := recover(); r != nil {",
+          "\t\t\t// panic happened, fail the test",
+          "\t\t\tt.Errorf(\"Panic happened, where it shouldn't have\")",
+          "\t\t}",
+          "\t}()",
+          "\tres := Parse(\"James Polera'\")",
+          "\tif res.FirstName != \"James\" {",
+          "\t\tt.Errorf(\"Expected 'James'. Actual: %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"Polera\" {",
+          "\t\tt.Errorf(\"Expected 'Polera'. Actual: %v\", res.LastName)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_name_ends_with_apostrophe",
+        "found": true,
+        "signature": "fn test_name_ends_with_apostrophe() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "fn test_name_ends_with_apostrophe() {",
+          "    // make sure we don't panic on a name ending with apostrophe",
+          "    let res = parse(\"James Polera'\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"James\", \"Expected 'James'. Actual: {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"Polera\", \"Expected 'Polera'. Actual: {}\", res.last_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 3,
+        "assertion_count_target": 2,
+        "param_count_diff": 1,
+        "assertion_count_diff": 1,
+        "line_count_source": 17,
+        "line_count_target": 6,
+        "line_count_diff": 11,
+        "assertion_types_source": {
+          "t.Errorf": 3
+        },
+        "assertion_types_target": {
+          "assert_eq!": 2
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 2,
+        "method_call_diff": 5,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.871167
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestLooksCorporate",
+        "found": true,
+        "signature": "func TestLooksCorporate(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestLooksCorporate(t *testing.T) {",
+          "\tt.Parallel()",
+          "\tn := nameString{FullName: \"Sprockets Inc\"}",
+          "",
+          "\tres := n.looksCorporate()",
+          "",
+          "\tif res != true {",
+          "\t\tt.Errorf(\"Expected true.  Actual %v\", res)",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/namestring.rs",
+        "name": "test_looks_corporate",
+        "found": true,
+        "signature": "fn test_looks_corporate() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_looks_corporate() {",
+          "        let mut n = NameString::new(\"Sprockets Inc\".to_string());",
+          "        ",
+          "        let res = n.looks_corporate();",
+          "        ",
+          "        assert_eq!(res, true, \"Expected true. Actual {}\", res);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 9,
+        "line_count_target": 5,
+        "line_count_diff": 4,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 4,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.888898
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestParseOnlySalutation",
+        "found": true,
+        "signature": "func TestParseOnlySalutation(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestParseOnlySalutation(t *testing.T) {",
+          "\tt.Parallel()",
+          "",
+          "\tres := Parse(\"Mr.\")",
+          "\tif res.FirstName != \"\" {",
+          "\t\tt.Errorf(\"Expected ''.  Actual %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"\" {",
+          "\t\tt.Errorf(\"Expected ''.  Actual %v\", res.LastName)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_parse_only_salutation",
+        "found": true,
+        "signature": "fn test_parse_only_salutation() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "fn test_parse_only_salutation() {",
+          "    let res = parse(\"Mr.\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"\", \"Expected ''. Actual {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"\", \"Expected ''. Actual {}\", res.last_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 11,
+        "line_count_target": 5,
+        "line_count_diff": 6,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 2
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 2,
+        "method_call_diff": 4,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.883096
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestParseAllFields",
+        "found": true,
+        "signature": "func TestParseAllFields(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 6,
+        "body": [
+          "func TestParseAllFields(t *testing.T) {",
+          "\tt.Parallel()",
+          "\tres := Parse(\"Mr. James J. Polera Jr. Esq.\")",
+          "",
+          "\tif res.Salutation != \"Mr.\" {",
+          "\t\tt.Errorf(\"Expected 'Mr.'.  Actual %v\", res.Salutation)",
+          "\t}",
+          "",
+          "\tif res.FirstName != \"James\" {",
+          "\t\tt.Errorf(\"Expected 'James'.  Actual %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.MiddleName != \"J.\" {",
+          "\t\tt.Errorf(\"Expected 'J.'.  Actual %v\", res.MiddleName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"Polera\" {",
+          "\t\tt.Errorf(\"Expected 'Polera'.  Actual %v\", res.LastName)",
+          "\t}",
+          "",
+          "\tif res.Generation != \"Jr.\" {",
+          "\t\tt.Errorf(\"Expected 'Jr.'.  Actual %v\", res.Generation)",
+          "\t}",
+          "",
+          "\tif res.Suffix != \"Esq.\" {",
+          "\t\tt.Errorf(\"Expected 'Esq.'.  Actual %v\", res.Suffix)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_parse_all_fields",
+        "found": true,
+        "signature": "fn test_parse_all_fields() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 6,
+        "body": [
+          "fn test_parse_all_fields() {",
+          "    let res = parse(\"Mr. James J. Polera Jr. Esq.\");",
+          "    ",
+          "    assert_eq!(res.salutation, \"Mr.\", \"Expected 'Mr.'. Actual {}\", res.salutation);",
+          "    assert_eq!(res.first_name, \"James\", \"Expected 'James'. Actual {}\", res.first_name);",
+          "    assert_eq!(res.middle_name, \"J.\", \"Expected 'J.'. Actual {}\", res.middle_name);",
+          "    assert_eq!(res.last_name, \"Polera\", \"Expected 'Polera'. Actual {}\", res.last_name);",
+          "    assert_eq!(res.generation, \"Jr.\", \"Expected 'Jr.'. Actual {}\", res.generation);",
+          "    assert_eq!(res.suffix, \"Esq.\", \"Expected 'Esq.'. Actual {}\", res.suffix);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 6,
+        "assertion_count_target": 6,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 23,
+        "line_count_target": 9,
+        "line_count_diff": 14,
+        "assertion_types_source": {
+          "t.Errorf": 6
+        },
+        "assertion_types_target": {
+          "assert_eq!": 6
+        },
+        "method_call_count_source": 10,
+        "method_call_count_target": 2,
+        "method_call_diff": 8,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 6,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 6,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 6,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 6
+          }
+        },
+        "similarity_score": 0.884
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestClean",
+        "found": true,
+        "signature": "func TestClean(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestClean(t *testing.T) {",
+          "\tt.Parallel()",
+          "\tn := nameString{FullName: \"Mr. James Polera\"}",
+          "",
+          "\tres := n.cleaned()",
+          "",
+          "\tif res[0] != \"Mr\" {",
+          "\t\tt.Errorf(\"Expected 'Mr'.  Actual %v\", res[0])",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/namestring.rs",
+        "name": "test_clean",
+        "found": true,
+        "signature": "fn test_clean() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_clean() {",
+          "        let mut n = NameString::new(\"Mr. James Polera\".to_string());",
+          "        ",
+          "        let res = n.cleaned();",
+          "        ",
+          "        assert_eq!(res[0], \"Mr\", \"Expected 'Mr'. Actual {}\", res[0]);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 9,
+        "line_count_target": 5,
+        "line_count_diff": 4,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 4,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.862739
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestSearchParts",
+        "found": true,
+        "signature": "func TestSearchParts(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestSearchParts(t *testing.T) {",
+          "\tt.Parallel()",
+          "\tn := nameString{FullName: \"Mr. James Polera\"}",
+          "",
+          "\tres := n.searchParts(salutations)",
+          "",
+          "\tif res != 0 {",
+          "\t\tt.Errorf(\"Expected true.  Actual %v\", res)",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/namestring.rs",
+        "name": "test_search_parts",
+        "found": true,
+        "signature": "fn test_search_parts() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_search_parts() {",
+          "        use crate::SALUTATIONS;",
+          "        let mut n = NameString::new(\"Mr. James Polera\".to_string());",
+          "        ",
+          "        let res = n.search_parts(SALUTATIONS);",
+          "        ",
+          "        assert_eq!(res, 0, \"Expected 0. Actual {}\", res);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 9,
+        "line_count_target": 6,
+        "line_count_diff": 3,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 4,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.88864
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestParseFirstLast",
+        "found": true,
+        "signature": "func TestParseFirstLast(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestParseFirstLast(t *testing.T) {",
+          "\tt.Parallel()",
+          "",
+          "\tres := Parse(\"James Polera\")",
+          "\tif res.FirstName != \"James\" {",
+          "\t\tt.Errorf(\"Expected 'James'.  Actual %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"Polera\" {",
+          "\t\tt.Errorf(\"Expected 'Polera'.  Actual %v\", res.LastName)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_parse_first_last",
+        "found": true,
+        "signature": "fn test_parse_first_last() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "fn test_parse_first_last() {",
+          "    let res = parse(\"James Polera\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"James\", \"Expected 'James'. Actual {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"Polera\", \"Expected 'Polera'. Actual {}\", res.last_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 11,
+        "line_count_target": 5,
+        "line_count_diff": 6,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 2
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 2,
+        "method_call_diff": 4,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.897003
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestStripSupplemental",
+        "found": true,
+        "signature": "func TestStripSupplemental(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 4,
+        "body": [
+          "func TestStripSupplemental(t *testing.T) {",
+          "\tt.Parallel()",
+          "",
+          "\tres := Parse(\"Philip Francis 'The Scooter' Rizzuto, deceased\")",
+          "",
+          "\tif res.FirstName != \"Philip\" {",
+          "\t\tt.Errorf(\"Expected 'Philip'.  Actual: %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.MiddleName != \"Francis\" {",
+          "\t\tt.Errorf(\"Expected 'Francis'.  Actual: %v\", res.MiddleName)",
+          "\t}",
+          "",
+          "\tif res.Nickname != \"'The Scooter'\" {",
+          "\t\tt.Errorf(\"Expected 'The Scooter'.  Actual: %v\", res.Nickname)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"Rizzuto\" {",
+          "\t\tt.Errorf(\"Expected 'Rizzuto'.  Actual: %v\", res.LastName)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_strip_supplemental",
+        "found": true,
+        "signature": "fn test_strip_supplemental() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 4,
+        "body": [
+          "fn test_strip_supplemental() {",
+          "    let res = parse(\"Philip Francis 'The Scooter' Rizzuto, deceased\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"Philip\", \"Expected 'Philip'. Actual: {}\", res.first_name);",
+          "    assert_eq!(res.middle_name, \"Francis\", \"Expected 'Francis'. Actual: {}\", res.middle_name);",
+          "    assert_eq!(res.nickname, \"'The Scooter'\", \"Expected 'The Scooter'. Actual: {}\", res.nickname);",
+          "    assert_eq!(res.last_name, \"Rizzuto\", \"Expected 'Rizzuto'. Actual: {}\", res.last_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 4,
+        "assertion_count_target": 4,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 17,
+        "line_count_target": 7,
+        "line_count_diff": 10,
+        "assertion_types_source": {
+          "t.Errorf": 4
+        },
+        "assertion_types_target": {
+          "assert_eq!": 4
+        },
+        "method_call_count_source": 8,
+        "method_call_count_target": 2,
+        "method_call_diff": 6,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 4,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 4,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 4,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 4
+          }
+        },
+        "similarity_score": 0.906531
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestNickname",
+        "found": true,
+        "signature": "func TestNickname(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNickname(t *testing.T) {",
+          "\tt.Parallel()",
+          "",
+          "\tres := Parse(\"Philip Francis 'The Scooter' Rizzuto\")",
+          "",
+          "\tif res.Nickname != \"'The Scooter'\" {",
+          "\t\tt.Errorf(\"Expected 'The Scooter'.  Actual: %v\", res.Nickname)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_nickname",
+        "found": true,
+        "signature": "fn test_nickname() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_nickname() {",
+          "    let res = parse(\"Philip Francis 'The Scooter' Rizzuto\");",
+          "    ",
+          "    assert_eq!(res.nickname, \"'The Scooter'\", \"Expected 'The Scooter'. Actual: {}\", res.nickname);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 8,
+        "line_count_target": 4,
+        "line_count_diff": 4,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 2,
+        "method_call_diff": 3,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.887005
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestLocateSalutation",
+        "found": true,
+        "signature": "func TestLocateSalutation(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestLocateSalutation(t *testing.T) {",
+          "\tt.Parallel()",
+          "\tn := nameString{FullName: \"Mr. James Polera\"}",
+          "",
+          "\tres := n.find(\"salutation\")",
+          "",
+          "\tif res != 0 {",
+          "\t\tt.Errorf(\"Expected 0.  Actual %v\", res)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/namestring.rs",
+        "name": "test_locate_salutation",
+        "found": true,
+        "signature": "fn test_locate_salutation() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_locate_salutation() {",
+          "        let mut n = NameString::new(\"Mr. James Polera\".to_string());",
+          "        ",
+          "        let res = n.find(\"salutation\");",
+          "        ",
+          "        assert_eq!(res, 0, \"Expected 0. Actual {}\", res);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 9,
+        "line_count_target": 5,
+        "line_count_diff": 4,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 4,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.869784
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestMultipleAKA",
+        "found": true,
+        "signature": "func TestMultipleAKA(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 3,
+        "body": [
+          "func TestMultipleAKA(t *testing.T) {",
+          "\tt.Parallel()",
+          "",
+          "\tres := Parse(\"Tony Stark a/k/a Ironman a/k/a Stark, Anthony a/k/a Anthony Edward \\\"Tony\\\" Stark\")",
+          "",
+          "\tif len(res.Aliases) != 3 {",
+          "\t\tt.Errorf(\"Expected 3 aliases.  Actual: %v\", len(res.Aliases))",
+          "\t}",
+          "",
+          "\tif res.FirstName != \"Tony\" {",
+          "\t\tt.Errorf(\"Expected 'Tony'.  Actual: %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"Stark\" {",
+          "\t\tt.Errorf(\"Expected 'Stark'.  Actual: %v\", res.LastName)",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_multiple_aka",
+        "found": true,
+        "signature": "fn test_multiple_aka() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "fn test_multiple_aka() {",
+          "    let res = parse(\"Tony Stark a/k/a Ironman a/k/a Stark, Anthony a/k/a Anthony Edward \\\"Tony\\\" Stark\");",
+          "    ",
+          "    assert_eq!(res.aliases.len(), 3, \"Expected 3 aliases. Actual: {}\", res.aliases.len());",
+          "    assert_eq!(res.first_name, \"Tony\", \"Expected 'Tony'. Actual: {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"Stark\", \"Expected 'Stark'. Actual: {}\", res.last_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 3,
+        "assertion_count_target": 3,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 14,
+        "line_count_target": 6,
+        "line_count_diff": 8,
+        "assertion_types_source": {
+          "t.Errorf": 3
+        },
+        "assertion_types_target": {
+          "assert_eq!": 3
+        },
+        "method_call_count_source": 9,
+        "method_call_count_target": 4,
+        "method_call_diff": 5,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 3,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 3,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 3,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 3
+          }
+        },
+        "similarity_score": 0.924303
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestHasComma",
+        "found": true,
+        "signature": "func TestHasComma(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestHasComma(t *testing.T) {",
+          "\tt.Parallel()",
+          "\tn := nameString{FullName: \"Polera, James\"}",
+          "\tres := n.hasComma()",
+          "",
+          "\tif res != true {",
+          "\t\tt.Errorf(\"Expected true.  Actual %v\", res)",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/namestring.rs",
+        "name": "test_has_comma",
+        "found": true,
+        "signature": "fn test_has_comma() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_has_comma() {",
+          "        let mut n = NameString::new(\"Polera, James\".to_string());",
+          "        let res = n.has_comma();",
+          "        ",
+          "        assert_eq!(res, true, \"Expected true. Actual {}\", res);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 9,
+        "line_count_target": 5,
+        "line_count_diff": 4,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 4,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.88332
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestAliases",
+        "found": true,
+        "signature": "func TestAliases(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestAliases(t *testing.T) {",
+          "\tt.Parallel()",
+          "",
+          "\tres := Parse(\"James Polera a/k/a Batman\")",
+          "",
+          "\tif res.Aliases[0].FirstName != \"Batman\" {",
+          "\t\tt.Errorf(\"Expected 'Batman'.  Actual: %v\", res.Aliases[0].FirstName)",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_aliases",
+        "found": true,
+        "signature": "fn test_aliases() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_aliases() {",
+          "    let res = parse(\"James Polera a/k/a Batman\");",
+          "    ",
+          "    assert_eq!(res.aliases[0].first_name, \"Batman\", \"Expected 'Batman'. Actual: {}\", res.aliases[0].first_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 8,
+        "line_count_target": 4,
+        "line_count_diff": 4,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 2,
+        "method_call_diff": 3,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.874508
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestMisplacedApostrophe",
+        "found": true,
+        "signature": "func TestMisplacedApostrophe(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestMisplacedApostrophe(t *testing.T) {",
+          "\tt.Parallel()",
+          "",
+          "\tres := Parse(\"John O' Hurley\")",
+          "",
+          "\tif res.FirstName != \"John\" {",
+          "\t\tt.Errorf(\"Expected 'John'.  Actual: %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"O'Hurley\" {",
+          "\t\tt.Errorf(\"Expected 'O'Hurley'.  Actual: %v\", res.LastName)",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_misplaced_apostrophe",
+        "found": true,
+        "signature": "fn test_misplaced_apostrophe() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "fn test_misplaced_apostrophe() {",
+          "    let res = parse(\"John O' Hurley\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"John\", \"Expected 'John'. Actual: {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"O'Hurley\", \"Expected 'O'Hurley'. Actual: {}\", res.last_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 11,
+        "line_count_target": 5,
+        "line_count_diff": 6,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 2
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 2,
+        "method_call_diff": 4,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.89124
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestLastNamePrefix",
+        "found": true,
+        "signature": "func TestLastNamePrefix(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestLastNamePrefix(t *testing.T) {",
+          "\tt.Parallel()",
+          "",
+          "\tres := Parse(\"Otto von Bismark\")",
+          "",
+          "\tif res.FirstName != \"Otto\" {",
+          "\t\tt.Errorf(\"Expected 'Otto'.  Actual %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"von Bismark\" {",
+          "\t\tt.Errorf(\"Expected 'von Bismark'.  Actual %v\", res.LastName)",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_last_name_prefix",
+        "found": true,
+        "signature": "fn test_last_name_prefix() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "fn test_last_name_prefix() {",
+          "    let res = parse(\"Otto von Bismark\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"Otto\", \"Expected 'Otto'. Actual {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"von Bismark\", \"Expected 'von Bismark'. Actual {}\", res.last_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 11,
+        "line_count_target": 5,
+        "line_count_diff": 6,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 2
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 2,
+        "method_call_diff": 4,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.850553
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestLongPrefixedLastName",
+        "found": true,
+        "signature": "func TestLongPrefixedLastName(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestLongPrefixedLastName(t *testing.T) {",
+          "\tt.Parallel()",
+          "",
+          "\tres := Parse(\"Saleh ibn Tariq ibn Khalid al-Fulan\")",
+          "",
+          "\tif res.FirstName != \"Saleh\" {",
+          "\t\tt.Errorf(\"Expected 'Saleh'.  Actual: %v\", res.FirstName)",
+          "\t}",
+          "",
+          "\tif res.LastName != \"ibn Tariq ibn Khalid al-Fulan\" {",
+          "\t\tt.Errorf(\"Expected 'ibn Tariq ibn Khalid al-Fulan'.  Actual: %v\", res.LastName)",
+          "",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/nameparts_test.rs",
+        "name": "test_long_prefixed_last_name",
+        "found": true,
+        "signature": "fn test_long_prefixed_last_name() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "fn test_long_prefixed_last_name() {",
+          "    let res = parse(\"Saleh ibn Tariq ibn Khalid al-Fulan\");",
+          "    ",
+          "    assert_eq!(res.first_name, \"Saleh\", \"Expected 'Saleh'. Actual: {}\", res.first_name);",
+          "    assert_eq!(res.last_name, \"ibn Tariq ibn Khalid al-Fulan\", ",
+          "               \"Expected 'ibn Tariq ibn Khalid al-Fulan'. Actual: {}\", res.last_name);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 11,
+        "line_count_target": 6,
+        "line_count_diff": 5,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 2
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 2,
+        "method_call_diff": 4,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.860532
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "TestNormalize",
+        "found": true,
+        "signature": "func TestNormalize(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestNormalize(t *testing.T) {",
+          "\tt.Parallel()",
+          "\tn := nameString{FullName: \"Polera, James\"}",
+          "\tres := n.normalize()",
+          "",
+          "\tif res[0] != \"James\" {",
+          "\t\tt.Errorf(\"Expected James.  Actual %v\", res[0])",
+          "\t}",
+          "",
+          "\tif res[1] != \"Polera\" {",
+          "\t\tt.Errorf(\"Expected Polera.  Actual %v\", res[1])",
+          "\t}",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/namestring.rs",
+        "name": "test_normalize",
+        "found": true,
+        "signature": "fn test_normalize() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "fn test_normalize() {",
+          "        let mut n = NameString::new(\"Polera, James\".to_string());",
+          "        let res = n.normalize();",
+          "        ",
+          "        assert_eq!(res[0], \"James\", \"Expected James. Actual {}\", res[0]);",
+          "        assert_eq!(res[1], \"Polera\", \"Expected Polera. Actual {}\", res[1]);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 12,
+        "line_count_target": 6,
+        "line_count_diff": 6,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 2
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 4,
+        "method_call_diff": 2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.84975
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "ExampleParse",
+        "found": true,
+        "signature": "func ExampleParse() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleParse() {",
+          "\tres := Parse(\"Thurston Howell III\")",
+          "\tfmt.Println(\"FirstName:\", res.FirstName)",
+          "\tfmt.Println(\"LastName:\", res.LastName)",
+          "\tfmt.Println(\"Generation:\", res.Generation)",
+          "",
+          "\t// Output:",
+          "\t// FirstName: Thurston",
+          "\t// LastName: Howell",
+          "\t// Generation: III",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "nameparts_test.go",
+        "name": "ExampleParse_second",
+        "found": true,
+        "signature": "func ExampleParse_second() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleParse_second() {",
+          "",
+          "\tres := Parse(\"President George Herbert Walker Bush\")",
+          "\tfmt.Println(\"Salutation:\", res.Salutation)",
+          "\tfmt.Println(\"FirstName:\", res.FirstName)",
+          "\tfmt.Println(\"MiddleName:\", res.MiddleName)",
+          "\tfmt.Println(\"LastName:\", res.LastName)",
+          "",
+          "\t// Output:",
+          "\t// Salutation: President",
+          "\t// FirstName: George",
+          "\t// MiddleName: Herbert Walker",
+          "\t// LastName: Bush",
+          "",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    }
+  ]
+}

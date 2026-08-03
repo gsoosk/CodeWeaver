@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "project_id": "alphatrans__commons-fileupload",
+  "paper_runtime_tests": 39,
+  "static_source_methods": 39,
+  "mappings": [
+    {
+      "source_path": "org.apache.commons.fileupload.FileItemHeadersTest",
+      "source_name": "testFileItemHeaders",
+      "target_path": "tests/test_file_item_headers.py",
+      "target_name": "test_file_item_headers",
+      "mapped": true,
+      "mapping_score": 0.94
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.MultipartStreamTest",
+      "source_name": "testSmallBuffer",
+      "target_path": "tests/util/test_limited_input_stream.py",
+      "target_name": "test_read1_into_buffer",
+      "mapped": true,
+      "mapping_score": 0.6084117647058824
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.MultipartStreamTest",
+      "source_name": "testThreeParamConstructor",
+      "target_path": "tests/test_multipart_stream.py",
+      "target_name": "test_multipart_stream_construction",
+      "mapped": true,
+      "mapping_score": 0.6885714285714286
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.MultipartStreamTest",
+      "source_name": "testTwoParamConstructor",
+      "target_path": "tests/test_file_item_factories.py",
+      "target_name": "test_custom_constructor",
+      "mapped": true,
+      "mapping_score": 0.7524324324324325
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.ParameterParserTest",
+      "source_name": "fileUpload199",
+      "target_path": "tests/test_parameter_parser.py",
+      "target_name": "test_file_upload_199",
+      "mapped": true,
+      "mapping_score": 0.94
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.ParameterParserTest",
+      "source_name": "testContentTypeParsing",
+      "target_path": "tests/test_parameter_parser.py",
+      "target_name": "test_content_type_parsing",
+      "mapped": true,
+      "mapping_score": 0.94
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.ParameterParserTest",
+      "source_name": "testFileUpload139",
+      "target_path": "tests/test_parameter_parser.py",
+      "target_name": "test_file_upload_139",
+      "mapped": true,
+      "mapping_score": 0.94
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.ParameterParserTest",
+      "source_name": "testParsing",
+      "target_path": "tests/test_parameter_parser.py",
+      "target_name": "test_parsing",
+      "mapped": true,
+      "mapping_score": 0.94
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.ParameterParserTest",
+      "source_name": "testParsingEscapedChars",
+      "target_path": "tests/test_parameter_parser.py",
+      "target_name": "test_parsing_escaped_chars",
+      "mapped": true,
+      "mapping_score": 0.94
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "badLength",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_bad_length",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "badPadding",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_bad_padding",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "badPaddingLeading1",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_bad_padding_leading_1",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "badPaddingLeading2",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_bad_padding_leading_2",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "decodeTrailing1",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_decode_trailing_1",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "decodeTrailing2",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_decode_trailing_2",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "decodeTrailing3",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_decode_trailing_3",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "decodeTrailingJunk",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_decode_trailing_junk",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "decodeWithInnerPad",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_decode_with_inner_pad",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "nonASCIIcharacter",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_non_ascii_character",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "nonBase64Bytes",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_non_base64_bytes",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "rfc4648Section10Decode",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_rfc4648_section10_decode",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+      "source_name": "truncatedString",
+      "target_path": "tests/util/mime/test_base64_decoder.py",
+      "target_name": "test_truncated_string",
+      "mapped": true,
+      "mapping_score": 0.9413333333333334
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+      "source_name": "decodeInvalidEncoding",
+      "target_path": "tests/util/mime/test_mime_utility.py",
+      "target_name": "test_decode_invalid_encoding",
+      "mapped": true,
+      "mapping_score": 0.9386046511627907
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+      "source_name": "decodeIso88591Base64Encoded",
+      "target_path": "tests/util/mime/test_mime_utility.py",
+      "target_name": "test_decode_iso88591_base64_encoded",
+      "mapped": true,
+      "mapping_score": 0.9386046511627907
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+      "source_name": "decodeIso88591Base64EncodedWithWhiteSpace",
+      "target_path": "tests/util/mime/test_mime_utility.py",
+      "target_name": "test_decode_iso88591_base64_encoded_with_whitespace",
+      "mapped": true,
+      "mapping_score": 0.9386046511627907
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+      "source_name": "decodeUtf8Base64Encoded",
+      "target_path": "tests/util/mime/test_mime_utility.py",
+      "target_name": "test_decode_utf8_base64_encoded",
+      "mapped": true,
+      "mapping_score": 0.9386046511627907
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+      "source_name": "decodeUtf8QuotedPrintableEncoded",
+      "target_path": "tests/util/mime/test_mime_utility.py",
+      "target_name": "test_decode_utf8_quoted_printable_encoded",
+      "mapped": true,
+      "mapping_score": 0.9386046511627907
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+      "source_name": "noNeedToDecode",
+      "target_path": "tests/util/mime/test_mime_utility.py",
+      "target_name": "test_no_need_to_decode",
+      "mapped": true,
+      "mapping_score": 0.9386046511627907
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "basicEncodeDecode",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_basic_encode_decode",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "emptyDecode",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_empty_decode",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "invalidCharDecode",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_invalid_char_decode",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "invalidQuotedPrintableEncoding",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_invalid_quoted_printable_encoding",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "invalidSoftBreak1",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_invalid_soft_break1",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "invalidSoftBreak2",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_invalid_soft_break2",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "plainDecode",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_plain_decode",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "softLineBreakDecode",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_soft_line_break_decode",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "truncatedEscape",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_truncated_escape",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "unsafeDecode",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_unsafe_decode",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    },
+    {
+      "source_path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+      "source_name": "unsafeDecodeLowerCase",
+      "target_path": "tests/util/mime/test_quoted_printable_decoder.py",
+      "target_name": "test_unsafe_decode_lower_case",
+      "mapped": true,
+      "mapping_score": 0.9511111111111111
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "tests/test_core_interfaces.py",
+      "name": "test_closeable_interface"
+    },
+    {
+      "path": "tests/test_core_interfaces.py",
+      "name": "test_file_item_factory_interface"
+    },
+    {
+      "path": "tests/test_core_interfaces.py",
+      "name": "test_file_item_headers_support_interface"
+    },
+    {
+      "path": "tests/test_core_interfaces.py",
+      "name": "test_file_item_interface"
+    },
+    {
+      "path": "tests/test_core_interfaces.py",
+      "name": "test_file_item_iterator_interface"
+    },
+    {
+      "path": "tests/test_core_interfaces.py",
+      "name": "test_file_item_stream_interface"
+    },
+    {
+      "path": "tests/test_core_interfaces.py",
+      "name": "test_item_skipped_exception"
+    },
+    {
+      "path": "tests/test_core_interfaces.py",
+      "name": "test_request_context_interface"
+    },
+    {
+      "path": "tests/test_core_interfaces.py",
+      "name": "test_upload_context_interface"
+    },
+    {
+      "path": "tests/test_default_file_item.py",
+      "name": "test_content_type_handling"
+    },
+    {
+      "path": "tests/test_default_file_item.py",
+      "name": "test_delete"
+    },
+    {
+      "path": "tests/test_default_file_item.py",
+      "name": "test_field_name_operations"
+    },
+    {
+      "path": "tests/test_default_file_item.py",
+      "name": "test_file_field_creation"
+    },
+    {
+      "path": "tests/test_default_file_item.py",
+      "name": "test_file_item_creation"
+    },
+    {
+      "path": "tests/test_default_file_item.py",
+      "name": "test_form_field_operations"
+    },
+    {
+      "path": "tests/test_default_file_item.py",
+      "name": "test_get_string_with_encoding"
+    },
+    {
+      "path": "tests/test_default_file_item.py",
+      "name": "test_threshold_based_storage"
+    },
+    {
+      "path": "tests/test_default_file_item.py",
+      "name": "test_write_to_file"
+    },
+    {
+      "path": "tests/test_disk_file_item_serialize.py",
+      "name": "test_deserialization"
+    },
+    {
+      "path": "tests/test_disk_file_item_serialize.py",
+      "name": "test_serialization"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_backward_compatibility"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_both_factories_create_same_item_type"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_create_item"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_create_item_file_upload"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_create_item_form_field"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_create_item_with_custom_charset"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_create_item_with_custom_repository"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_create_item_with_custom_settings"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_create_item_with_custom_threshold"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_create_multiple_items"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_default_constructor"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_extends_disk_file_item_factory"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_factories_with_same_settings_create_equivalent_items"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_factory_independence"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_implements_file_item_factory"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_inherits_all_methods"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_none_content_type"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_none_file_name"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_set_default_charset"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_set_repository"
+    },
+    {
+      "path": "tests/test_file_item_factories.py",
+      "name": "test_set_size_threshold"
+    },
+    {
+      "path": "tests/test_file_item_headers.py",
+      "name": "test_case_insensitive_headers"
+    },
+    {
+      "path": "tests/test_file_item_headers.py",
+      "name": "test_multiple_header_values"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_constructor_with_factory"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_constructor_without_factory"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_factory_replacement"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_get_file_item_factory"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_has_base_class_methods"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_header_encoding_configuration"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_inherits_from_file_upload_base"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_is_multipart_content_static_method"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_parse_request_requires_factory"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_progress_listener_configuration"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_set_file_item_factory"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_size_limits_configuration"
+    },
+    {
+      "path": "tests/test_file_upload.py",
+      "name": "test_with_disk_file_item_factory"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_all_imports_resolve"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_boundary_extraction"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_complete_file_upload_workflow"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_factory_creates_correct_item_types"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_file_size_limit_enforcement"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_file_upload_factory_configuration"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_file_upload_with_default_file_item_factory"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_file_upload_with_disk_file_item_factory"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_get_item_iterator"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_header_parsing"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_multipart_content_detection"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_parse_request_uses_multipart_stream"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_portlet_request_context_with_file_upload"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_progress_listener_with_file_upload"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_servlet_request_context_with_file_upload"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_streaming_and_non_streaming_apis_compatible"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_streaming_api_with_large_file"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "name": "test_total_size_limit_enforcement"
+    },
+    {
+      "path": "tests/test_multipart_stream.py",
+      "name": "test_boundary_parsing"
+    },
+    {
+      "path": "tests/test_multipart_stream.py",
+      "name": "test_buffer_size_validation"
+    },
+    {
+      "path": "tests/test_progress_listener.py",
+      "name": "test_progress_monotonic_increase"
+    },
+    {
+      "path": "tests/test_progress_listener.py",
+      "name": "test_progress_tracking"
+    },
+    {
+      "path": "tests/test_progress_listener.py",
+      "name": "test_progress_validation_fails_on_decrease"
+    },
+    {
+      "path": "tests/test_progress_listener.py",
+      "name": "test_progress_validation_fails_on_exceeding_content_length"
+    },
+    {
+      "path": "tests/test_progress_listener.py",
+      "name": "test_progress_validation_fails_on_exceeding_items"
+    },
+    {
+      "path": "tests/test_progress_listener.py",
+      "name": "test_progress_with_multiple_items"
+    },
+    {
+      "path": "tests/test_progress_listener.py",
+      "name": "test_progress_with_unknown_content_length"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_character_encoding_none"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_constructor"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_constructor_no_factory"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_content_length_unknown"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_django_request_character_encoding"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_django_request_content_length"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_django_request_content_type"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_django_request_input_stream"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_flask_request_character_encoding"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_flask_request_content_length"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_flask_request_content_type"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_flask_request_input_stream"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_is_multipart_content_case_insensitive"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_is_multipart_content_false"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_is_multipart_content_no_content_type"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_is_multipart_content_none"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_is_multipart_content_true"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_is_multipart_content_true_flask"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_is_multipart_content_true_wsgi"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_parse_request_map_groups_by_field_name"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_portlet_request_character_encoding"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_portlet_request_content_length"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_portlet_request_content_type"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_portlet_request_input_stream"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_str_representation"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_wsgi_request_character_encoding"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_wsgi_request_content_length"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_wsgi_request_content_type"
+    },
+    {
+      "path": "tests/test_web_framework_adapters.py",
+      "name": "test_wsgi_request_input_stream"
+    },
+    {
+      "path": "tests/util/mime/test_mime_utility.py",
+      "name": "test_decode_text_mixed_encoded_and_plain"
+    },
+    {
+      "path": "tests/util/mime/test_mime_utility.py",
+      "name": "test_decode_text_multiple_encoded_tokens_no_whitespace_between"
+    },
+    {
+      "path": "tests/util/mime/test_mime_utility.py",
+      "name": "test_decode_text_no_encoded_marker"
+    },
+    {
+      "path": "tests/util/mime/test_mime_utility.py",
+      "name": "test_decode_text_preserves_whitespace_between_plain_tokens"
+    },
+    {
+      "path": "tests/util/mime/test_mime_utility.py",
+      "name": "test_decode_word_empty_encoded_text"
+    },
+    {
+      "path": "tests/util/mime/test_mime_utility.py",
+      "name": "test_java_charset_mapping"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_close_closes_underlying_stream"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_close_sets_closed_flag"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_empty_stream"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_is_closed_initially_false"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_large_size_limit"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_limit_exactly_at_boundary"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_mixed_read_methods"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_multiple_reads_accumulate_count"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read0_and_read1_accumulate_count"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read0_at_eof"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read0_exceeds_limit"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read0_single_byte"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_at_eof"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_exceeds_limit"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_length_exceeds_buffer"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_negative_length"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_negative_offset"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_none_buffer"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_offset_plus_length_exceeds_buffer"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_partial_read"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_with_offset"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read1_zero_length"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read_after_eof"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read_all"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read_exceeds_limit"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read_with_size"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read_with_size_exceeds_limit"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_read_zero_size"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_stream_without_close_method"
+    },
+    {
+      "path": "tests/util/test_limited_input_stream.py",
+      "name": "test_zero_size_limit"
+    }
+  ]
+}

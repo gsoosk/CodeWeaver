@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "project_id": "oxidizer__gonameparts",
+  "paper_runtime_tests": 26,
+  "static_source_methods": 26,
+  "mappings": [
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestBuildFullName",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_build_full_name",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestDottedAka",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_dotted_aka",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestUnicodeCharsInName",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_unicode_chars_in_name",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestTabsInName",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_tabs_in_name",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestObviouslyBadName",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_obviously_bad_name",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestLastNameSalutation",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_last_name_salutation",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestLastNameNonName",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_last_name_non_name",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestNameEndsWithApostrophe",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_name_ends_with_apostrophe",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestLooksCorporate",
+      "target_path": "src/namestring.rs",
+      "target_name": "test_looks_corporate",
+      "mapped": true,
+      "mapping_score": 0.9448648648648649
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestParseOnlySalutation",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_parse_only_salutation",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestParseAllFields",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_parse_all_fields",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestClean",
+      "target_path": "src/namestring.rs",
+      "target_name": "test_clean",
+      "mapped": true,
+      "mapping_score": 0.9448648648648649
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestSearchParts",
+      "target_path": "src/namestring.rs",
+      "target_name": "test_search_parts",
+      "mapped": true,
+      "mapping_score": 0.9448648648648649
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestParseFirstLast",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_parse_first_last",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestStripSupplemental",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_strip_supplemental",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestNickname",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_nickname",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestLocateSalutation",
+      "target_path": "src/namestring.rs",
+      "target_name": "test_locate_salutation",
+      "mapped": true,
+      "mapping_score": 0.9448648648648649
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestMultipleAKA",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_multiple_aka",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestHasComma",
+      "target_path": "src/namestring.rs",
+      "target_name": "test_has_comma",
+      "mapped": true,
+      "mapping_score": 0.9448648648648649
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestAliases",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_aliases",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestMisplacedApostrophe",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_misplaced_apostrophe",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestLastNamePrefix",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_last_name_prefix",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestLongPrefixedLastName",
+      "target_path": "tests/nameparts_test.rs",
+      "target_name": "test_long_prefixed_last_name",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "TestNormalize",
+      "target_path": "src/namestring.rs",
+      "target_name": "test_normalize",
+      "mapped": true,
+      "mapping_score": 0.9448648648648649
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "ExampleParse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "nameparts_test.go",
+      "source_name": "ExampleParse_second",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "src/namestring.rs",
+      "name": "test_fix_misplaced_apostrophe_unit"
+    },
+    {
+      "path": "src/namestring.rs",
+      "name": "test_has_aliases_unit"
+    },
+    {
+      "path": "src/namestring.rs",
+      "name": "test_slot_nickname_unit"
+    },
+    {
+      "path": "src/namestring.rs",
+      "name": "test_split_aliases_unit"
+    },
+    {
+      "path": "tests/nameparts_test.rs",
+      "name": "test_json_serialization"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-03T16:59:40.502465Z",
+  "checksums": {
+    "manifest": {
+      "path": "/opt/codeweaver-experiments/manifest/manifest.json",
+      "exists": true,
+      "sha256": "e34c01073bc661b6c84b2f52255a1b44714193b004ff9c9d7939098e41d7eec6",
+      "size_bytes": 66584
+    },
+    "raw_runs": {
+      "path": "/opt/codeweaver-experiments/final-shards/partial-freeze-542/collected/raw_runs.jsonl",
+      "exists": true,
+      "sha256": "2b4930831e46596d8765291cdfd1895a5822c616069b4b07813b2abfade26611",
+      "size_bytes": 6332797
+    },
+    "test_comparisons": {
+      "path": null,
+      "exists": false,
+      "sha256": null
+    }
+  },
+  "report_generation_provenance": {
+    "captured_at": "2026-08-03T16:59:40.509683Z",
+    "model": {
+      "value": null,
+      "status": "not_applicable",
+      "reason": "no model specified"
+    },
+    "agent_timeout_seconds": {
+      "value": null,
+      "status": "not_applicable",
+      "reason": "no timeout specified"
+    },
+    "git_sha": {
+      "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+      "status": "measured",
+      "reason": ""
+    },
+    "codeweaver_package_version": {
+      "value": "0.1.0",
+      "status": "measured",
+      "reason": ""
+    },
+    "copilot_cli_version": {
+      "value": "GitHub Copilot CLI 1.0.77.",
+      "status": "measured",
+      "reason": ""
+    },
+    "python_version": {
+      "value": "3.12.3",
+      "status": "measured",
+      "reason": ""
+    },
+    "os": {
+      "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+      "status": "measured",
+      "reason": ""
+    },
+    "hostname": {
+      "value": "CPC-tfhab-FSGML",
+      "status": "measured",
+      "reason": ""
+    }
+  },
+  "note": "report_generation_provenance describes the machine/software that RENDERED this report, NOT the machine(s) that ran the CodeWeaver experiments -- per-run provenance (model, git SHA, Copilot CLI version, agent timeout) is recorded independently for every row in raw_runs.csv/raw_runs.jsonl by collect.py."
+}

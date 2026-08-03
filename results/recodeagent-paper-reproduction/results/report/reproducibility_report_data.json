@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-03T16:59:40.349905Z",
+  "verdict": {
+    "complete": false,
+    "reasons": [
+      "raw_runs coverage_fraction is 0.7655367231638418 (need 1.0); 166 (variant, project, repetition) cell(s) are missing"
+    ],
+    "coverage_fraction": 0.7655367231638418
+  },
+  "blockers": [],
+  "comparison_blockers": [],
+  "coverage_breakdown": [
+    {
+      "variant": "full",
+      "tool": "alphatrans",
+      "expected": 4,
+      "measured": 4,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "full",
+      "tool": "crust",
+      "expected": 100,
+      "measured": 100,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "full",
+      "tool": "oxidizer",
+      "expected": 6,
+      "measured": 6,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "full",
+      "tool": "skel",
+      "expected": 8,
+      "measured": 8,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "noanalyzer",
+      "tool": "alphatrans",
+      "expected": 4,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "noanalyzer",
+      "tool": "crust",
+      "expected": 100,
+      "measured": 89,
+      "coverage_fraction": 0.89
+    },
+    {
+      "variant": "noanalyzer",
+      "tool": "oxidizer",
+      "expected": 6,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "noanalyzer",
+      "tool": "skel",
+      "expected": 8,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "noplanning",
+      "tool": "alphatrans",
+      "expected": 4,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "noplanning",
+      "tool": "crust",
+      "expected": 100,
+      "measured": 99,
+      "coverage_fraction": 0.99
+    },
+    {
+      "variant": "noplanning",
+      "tool": "oxidizer",
+      "expected": 6,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "noplanning",
+      "tool": "skel",
+      "expected": 8,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "novalidator",
+      "tool": "alphatrans",
+      "expected": 4,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "novalidator",
+      "tool": "crust",
+      "expected": 100,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "novalidator",
+      "tool": "oxidizer",
+      "expected": 6,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "novalidator",
+      "tool": "skel",
+      "expected": 8,
+      "measured": 0,
+      "coverage_fraction": 0.0
+    },
+    {
+      "variant": "baseagent-condensed",
+      "tool": "alphatrans",
+      "expected": 4,
+      "measured": 4,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "baseagent-condensed",
+      "tool": "crust",
+      "expected": 100,
+      "measured": 100,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "baseagent-condensed",
+      "tool": "oxidizer",
+      "expected": 6,
+      "measured": 6,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "baseagent-condensed",
+      "tool": "skel",
+      "expected": 8,
+      "measured": 8,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "baseagent-concat",
+      "tool": "alphatrans",
+      "expected": 4,
+      "measured": 4,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "baseagent-concat",
+      "tool": "crust",
+      "expected": 100,
+      "measured": 100,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "baseagent-concat",
+      "tool": "oxidizer",
+      "expected": 6,
+      "measured": 6,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "baseagent-concat",
+      "tool": "skel",
+      "expected": 8,
+      "measured": 8,
+      "coverage_fraction": 1.0
+    }
+  ],
+  "project_count": 118,
+  "expected_total_projects": 118,
+  "raw_runs_row_count": 542,
+  "analysis_available": true
+}

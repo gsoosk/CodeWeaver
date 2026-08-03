@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__bst",
+  "paper_runtime_tests": 11,
+  "static_source_methods": 11,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_put",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_search",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_remove",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_remove_2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_is_empty",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_empty",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_exists",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_get_max_label",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_get_min_label",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_inorder_traversal",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_preorder_traversal",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    }
+  ],
+  "generated_target_tests": []
+}

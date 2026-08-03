@@ -1,0 +1,977 @@
+{
+  "schema_version": 1,
+  "project_id": "oxidizer__stats",
+  "paper_runtime_tests": 121,
+  "static_source_methods": 121,
+  "mappings": [
+    {
+      "source_path": "errors_test.go",
+      "source_name": "TestError",
+      "target_path": "src/error.rs",
+      "target_name": "test_error",
+      "mapped": true,
+      "mapping_score": 0.9544827586206897
+    },
+    {
+      "source_path": "util_test.go",
+      "source_name": "TestFloat64ToInt",
+      "target_path": "src/util.rs",
+      "target_name": "test_float64_to_int",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "correlation_test.go",
+      "source_name": "TestCorrelation",
+      "target_path": "src/correlation.rs",
+      "target_name": "test_correlation",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "correlation_test.go",
+      "source_name": "TestAutoCorrelation",
+      "target_path": "src/correlation.rs",
+      "target_name": "test_auto_correlation",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "cumulative_sum_test.go",
+      "source_name": "TestCumulativeSum",
+      "target_path": "src/cumulative_sum.rs",
+      "target_name": "test_cumulative_sum",
+      "mapped": true,
+      "mapping_score": 0.9727272727272728
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestInterfaceMethods",
+      "target_path": "src/data.rs",
+      "target_name": "test_interface_methods",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestHelperMethods",
+      "target_path": "src/data.rs",
+      "target_name": "test_helper_methods",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestMedianAbsoluteDeviationMethods",
+      "target_path": "src/data.rs",
+      "target_name": "test_median_absolute_deviation_methods",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestStandardDeviationMethods",
+      "target_path": "src/data.rs",
+      "target_name": "test_standard_deviation_methods",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestVarianceMethods",
+      "target_path": "src/data.rs",
+      "target_name": "test_variance_methods",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestPercentileMethods",
+      "target_path": "src/data.rs",
+      "target_name": "test_percentile_methods",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestOtherDataMethods",
+      "target_path": "src/data.rs",
+      "target_name": "test_other_data_methods",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestAutoCorrelationMethod",
+      "target_path": "src/correlation.rs",
+      "target_name": "test_auto_correlation_method",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestSampleMethod",
+      "target_path": "src/data.rs",
+      "target_name": "test_sample_method",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestQuartileMethods",
+      "target_path": "src/data.rs",
+      "target_name": "test_quartile_methods",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestSigmoidMethod",
+      "target_path": "src/data.rs",
+      "target_name": "test_sigmoid_method",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestSoftMaxMethod",
+      "target_path": "src/data.rs",
+      "target_name": "test_soft_max_method",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestEntropyMethod",
+      "target_path": "src/data.rs",
+      "target_name": "test_entropy_method",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "data_test.go",
+      "source_name": "TestQuartilesMethods",
+      "target_path": "src/data.rs",
+      "target_name": "test_quartiles_methods",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "describe_test.go",
+      "source_name": "TestDescribeValidDataset",
+      "target_path": "src/describe.rs",
+      "target_name": "test_describe_valid_dataset",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "describe_test.go",
+      "source_name": "TestDescribeEmptyDataset",
+      "target_path": "src/describe.rs",
+      "target_name": "test_describe_empty_dataset",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "describe_test.go",
+      "source_name": "TestDescribeEmptyDatasetNaN",
+      "target_path": "src/describe.rs",
+      "target_name": "test_describe_empty_dataset_na_n",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "describe_test.go",
+      "source_name": "TestDescribeValidDatasetNaN",
+      "target_path": "src/describe.rs",
+      "target_name": "test_describe_valid_dataset_na_n",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "describe_test.go",
+      "source_name": "TestDescribeValues",
+      "target_path": "src/describe.rs",
+      "target_name": "test_describe_values",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "describe_test.go",
+      "source_name": "TestDescribeString",
+      "target_path": "src/describe.rs",
+      "target_name": "test_describe_string",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "deviation_test.go",
+      "source_name": "TestMedianAbsoluteDeviation",
+      "target_path": "src/deviation.rs",
+      "target_name": "test_median_absolute_deviation",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "deviation_test.go",
+      "source_name": "TestMedianAbsoluteDeviationPopulation",
+      "target_path": "src/deviation.rs",
+      "target_name": "test_median_absolute_deviation_population",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "deviation_test.go",
+      "source_name": "TestStandardDeviation",
+      "target_path": "src/deviation.rs",
+      "target_name": "test_standard_deviation",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "deviation_test.go",
+      "source_name": "TestStandardDeviationPopulation",
+      "target_path": "src/deviation.rs",
+      "target_name": "test_standard_deviation_population",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "deviation_test.go",
+      "source_name": "TestStandardDeviationSample",
+      "target_path": "src/deviation.rs",
+      "target_name": "test_standard_deviation_sample",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "distances_test.go",
+      "source_name": "TestDataSetDistances",
+      "target_path": "src/distances.rs",
+      "target_name": "test_data_set_distances",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "entropy_test.go",
+      "source_name": "TestEntropy",
+      "target_path": "src/entropy.rs",
+      "target_name": "test_entropy",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "geometric_distribution_test.go",
+      "source_name": "TestProbGeomLarge",
+      "target_path": "src/geometric_distribution.rs",
+      "target_name": "test_prob_geom_large",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "geometric_distribution_test.go",
+      "source_name": "TestErrBoundsProbGeom",
+      "target_path": "src/geometric_distribution.rs",
+      "target_name": "test_err_bounds_prob_geom",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "geometric_distribution_test.go",
+      "source_name": "TestExpGeom",
+      "target_path": "src/geometric_distribution.rs",
+      "target_name": "test_exp_geom",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "geometric_distribution_test.go",
+      "source_name": "TestErrExpGeom",
+      "target_path": "src/geometric_distribution.rs",
+      "target_name": "test_err_exp_geom",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "geometric_distribution_test.go",
+      "source_name": "TestVarGeom",
+      "target_path": "src/geometric_distribution.rs",
+      "target_name": "test_var_geom",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "geometric_distribution_test.go",
+      "source_name": "TestErrVarGeom",
+      "target_path": "src/geometric_distribution.rs",
+      "target_name": "test_err_var_geom",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "legacy_test.go",
+      "source_name": "TestLegacy",
+      "target_path": "src/legacy.rs",
+      "target_name": "test_legacy",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "load_test.go",
+      "source_name": "TestLoadRawData",
+      "target_path": "src/load.rs",
+      "target_name": "test_load_raw_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "max_test.go",
+      "source_name": "TestMax",
+      "target_path": "src/max.rs",
+      "target_name": "test_max",
+      "mapped": true,
+      "mapping_score": 0.95
+    },
+    {
+      "source_path": "mean_test.go",
+      "source_name": "TestMean",
+      "target_path": "src/mean.rs",
+      "target_name": "test_mean",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "mean_test.go",
+      "source_name": "TestGeometricMean",
+      "target_path": "src/mean.rs",
+      "target_name": "test_geometric_mean",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "mean_test.go",
+      "source_name": "TestHarmonicMean",
+      "target_path": "src/mean.rs",
+      "target_name": "test_harmonic_mean",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "median_test.go",
+      "source_name": "TestMedian",
+      "target_path": "src/median.rs",
+      "target_name": "test_median",
+      "mapped": true,
+      "mapping_score": 0.96
+    },
+    {
+      "source_path": "median_test.go",
+      "source_name": "TestMedianSortSideEffects",
+      "target_path": "src/median.rs",
+      "target_name": "test_median_sort_side_effects",
+      "mapped": true,
+      "mapping_score": 0.96
+    },
+    {
+      "source_path": "min_test.go",
+      "source_name": "TestMin",
+      "target_path": "src/min.rs",
+      "target_name": "test_min",
+      "mapped": true,
+      "mapping_score": 0.95
+    },
+    {
+      "source_path": "mode_test.go",
+      "source_name": "TestMode",
+      "target_path": "src/mode.rs",
+      "target_name": "test_mode",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "nist_test.go",
+      "source_name": "TestLewData",
+      "target_path": "tests/nist_tests.rs",
+      "target_name": "test_lew_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "nist_test.go",
+      "source_name": "TestLotteryData",
+      "target_path": "tests/nist_tests.rs",
+      "target_name": "test_lottery_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "nist_test.go",
+      "source_name": "TestMavroData",
+      "target_path": "tests/nist_tests.rs",
+      "target_name": "test_mavro_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "nist_test.go",
+      "source_name": "TestMichelsonData",
+      "target_path": "tests/nist_tests.rs",
+      "target_name": "test_michelson_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "nist_test.go",
+      "source_name": "TestPidigitsData",
+      "target_path": "tests/nist_tests.rs",
+      "target_name": "test_pidigits_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "nist_test.go",
+      "source_name": "TestNumacc1Data",
+      "target_path": "tests/nist_tests.rs",
+      "target_name": "test_numacc1_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "nist_test.go",
+      "source_name": "TestNumacc2Data",
+      "target_path": "tests/nist_tests.rs",
+      "target_name": "test_numacc2_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "nist_test.go",
+      "source_name": "TestNumacc3Data",
+      "target_path": "tests/nist_tests.rs",
+      "target_name": "test_numacc3_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "nist_test.go",
+      "source_name": "TestNumacc4Data",
+      "target_path": "tests/nist_tests.rs",
+      "target_name": "test_numacc4_data",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormPpf",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_ppf",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormCdf",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_cdf",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormPdf",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_pdf",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormLogPdf",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_log_pdf",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormLogCdf",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_log_cdf",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormIsf",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_isf",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormSf",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_sf",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormLogSf",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_log_sf",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormMoment",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_moment",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormStats",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_stats",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormEntropy",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_entropy",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormFit",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_fit",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormInterval",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_interval",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormMean",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_mean",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormMedian",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_median",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormVar",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_var",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormStd",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_std",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormPpfRvs",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_ppf_rvs",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNormBoxMullerRvs",
+      "target_path": "src/norm.rs",
+      "target_name": "test_norm_box_muller_rvs",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "norm_test.go",
+      "source_name": "TestNcr",
+      "target_path": "src/norm.rs",
+      "target_name": "test_ncr",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "outlier_test.go",
+      "source_name": "TestQuartileOutliers",
+      "target_path": "src/outlier.rs",
+      "target_name": "test_quartile_outliers",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "percentile_test.go",
+      "source_name": "TestPercentile",
+      "target_path": "src/percentile.rs",
+      "target_name": "test_percentile",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "percentile_test.go",
+      "source_name": "TestPercentileSortSideEffects",
+      "target_path": "src/percentile.rs",
+      "target_name": "test_percentile_sort_side_effects",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "percentile_test.go",
+      "source_name": "TestPercentileNearestRank",
+      "target_path": "src/percentile.rs",
+      "target_name": "test_percentile_nearest_rank",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "quartile_test.go",
+      "source_name": "TestQuartile",
+      "target_path": "src/quartile.rs",
+      "target_name": "test_quartile",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "quartile_test.go",
+      "source_name": "TestInterQuartileRange",
+      "target_path": "src/quartile.rs",
+      "target_name": "test_inter_quartile_range",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "quartile_test.go",
+      "source_name": "TestMidhinge",
+      "target_path": "src/quartile.rs",
+      "target_name": "test_midhinge",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "quartile_test.go",
+      "source_name": "TestTrimean",
+      "target_path": "src/quartile.rs",
+      "target_name": "test_trimean",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "regression_test.go",
+      "source_name": "TestLinearRegression",
+      "target_path": "src/regression.rs",
+      "target_name": "test_linear_regression",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "regression_test.go",
+      "source_name": "TestExponentialRegression",
+      "target_path": "src/regression.rs",
+      "target_name": "test_exponential_regression",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "regression_test.go",
+      "source_name": "TestExponentialRegressionYCoordErr",
+      "target_path": "src/regression.rs",
+      "target_name": "test_exponential_regression_y_coord_err",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "regression_test.go",
+      "source_name": "TestLogarithmicRegression",
+      "target_path": "src/regression.rs",
+      "target_name": "test_logarithmic_regression",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "round_test.go",
+      "source_name": "TestRound",
+      "target_path": "src/round.rs",
+      "target_name": "test_round",
+      "mapped": true,
+      "mapping_score": 0.9571428571428572
+    },
+    {
+      "source_path": "sample_test.go",
+      "source_name": "TestSample",
+      "target_path": "src/sample.rs",
+      "target_name": "test_sample",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "sample_test.go",
+      "source_name": "TestSampleWithoutReplacement",
+      "target_path": "src/sample.rs",
+      "target_name": "test_sample_without_replacement",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "sample_test.go",
+      "source_name": "TestSampleWithReplacement",
+      "target_path": "src/sample.rs",
+      "target_name": "test_sample_with_replacement",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "sample_test.go",
+      "source_name": "TestStableSample",
+      "target_path": "src/sample.rs",
+      "target_name": "test_stable_sample",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "sigmoid_test.go",
+      "source_name": "TestSigmoidEmptyInput",
+      "target_path": "src/sigmoid.rs",
+      "target_name": "test_sigmoid_empty_input",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "sigmoid_test.go",
+      "source_name": "TestSigmoid",
+      "target_path": "src/sigmoid.rs",
+      "target_name": "test_sigmoid",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "softmax_test.go",
+      "source_name": "TestSoftMaxEmptyInput",
+      "target_path": "src/softmax.rs",
+      "target_name": "test_soft_max_empty_input",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "softmax_test.go",
+      "source_name": "TestSoftMax",
+      "target_path": "src/softmax.rs",
+      "target_name": "test_soft_max",
+      "mapped": true,
+      "mapping_score": 0.88
+    },
+    {
+      "source_path": "sum_test.go",
+      "source_name": "TestSum",
+      "target_path": "src/sum.rs",
+      "target_name": "test_sum",
+      "mapped": true,
+      "mapping_score": 0.95
+    },
+    {
+      "source_path": "variance_test.go",
+      "source_name": "TestVariance",
+      "target_path": "src/variance.rs",
+      "target_name": "test_variance",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "variance_test.go",
+      "source_name": "TestPopulationVariance",
+      "target_path": "src/variance.rs",
+      "target_name": "test_population_variance",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "variance_test.go",
+      "source_name": "TestSampleVariance",
+      "target_path": "src/variance.rs",
+      "target_name": "test_sample_variance",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "variance_test.go",
+      "source_name": "TestCovariance",
+      "target_path": "src/variance.rs",
+      "target_name": "test_covariance",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "variance_test.go",
+      "source_name": "TestCovariancePopulation",
+      "target_path": "src/variance.rs",
+      "target_name": "test_covariance_population",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "correlation_test.go",
+      "source_name": "ExampleCorrelation",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "correlation_test.go",
+      "source_name": "ExampleAutoCorrelation",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "cumulative_sum_test.go",
+      "source_name": "ExampleCumulativeSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "distances_test.go",
+      "source_name": "ExampleChebyshevDistance",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "entropy_test.go",
+      "source_name": "ExampleEntropy",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "geometric_distribution_test.go",
+      "source_name": "ExampleProbGeom",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "geometric_distribution_test.go",
+      "source_name": "ExampleExpGeom",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "geometric_distribution_test.go",
+      "source_name": "ExampleVarGeom",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "load_test.go",
+      "source_name": "ExampleLoadRawData",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "max_test.go",
+      "source_name": "ExampleMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "median_test.go",
+      "source_name": "ExampleMedian",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "min_test.go",
+      "source_name": "ExampleMin",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "regression_test.go",
+      "source_name": "ExampleLinearRegression",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "round_test.go",
+      "source_name": "ExampleRound",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "sigmoid_test.go",
+      "source_name": "ExampleSigmoid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "softmax_test.go",
+      "source_name": "ExampleSoftMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "sum_test.go",
+      "source_name": "ExampleSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    }
+  ],
+  "generated_target_tests": []
+}

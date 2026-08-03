@@ -1,0 +1,3407 @@
+{
+  "summary": {
+    "total_tests": 36,
+    "both_found": 24,
+    "source_missing": 0,
+    "target_missing": 12,
+    "both_found_pct": 66.7,
+    "params_match_count": 0,
+    "params_mismatch_count": 36,
+    "assertions_match_count": 12,
+    "assertions_mismatch_count": 24,
+    "avg_line_count_source": 29.96,
+    "avg_line_count_target": 12.83,
+    "avg_method_calls_source": 6.71,
+    "avg_method_calls_target": 8.96,
+    "assertion_types_source": {
+      "t.Error": 23,
+      "t.Errorf": 22
+    },
+    "assertion_types_target": {
+      "assert!": 19,
+      "assert_eq!": 82
+    },
+    "assertEquals_summary": {
+      "total_comparable_pairs": 0,
+      "total_matching_assertions": 0,
+      "overall_match_rate": null
+    },
+    "assertion_match_percentages": {
+      "t.Error": {
+        "good_matches": {
+          "assert!": 2,
+          "assert_eq!": 21
+        },
+        "good_match_count": 23,
+        "good_match_percentage": 100.0,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 0,
+        "unmatched_percentage": 0.0,
+        "total_mapped": 23,
+        "total_source": 23
+      },
+      "t.Errorf": {
+        "good_matches": {
+          "assert_eq!": 21,
+          "assert!": 1
+        },
+        "good_match_count": 22,
+        "good_match_percentage": 100.0,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 0,
+        "unmatched_percentage": 0.0,
+        "total_mapped": 22,
+        "total_source": 22
+      }
+    },
+    "tests_with_same_assertion_count": 12,
+    "assertion_match_percentages_same_assertion_count": {
+      "t.Error": {
+        "good_matches": {
+          "assert!": 2,
+          "assert_eq!": 10
+        },
+        "good_match_count": 12,
+        "good_match_percentage": 100.0,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 0,
+        "unmatched_percentage": 0.0,
+        "total_mapped": 12,
+        "total_source": 12
+      }
+    },
+    "embedding_similarity_status": "measured",
+    "avg_similarity_score": 0.850312,
+    "min_similarity_score": 0.812363,
+    "max_similarity_score": 0.888952,
+    "embedding_similarity_count": 24
+  },
+  "test_pairs": [
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewLuhn",
+        "found": true,
+        "signature": "func TestNewLuhn(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewLuhn(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewLuhn()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate luhn provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_luhn",
+        "found": true,
+        "signature": "fn test_new_luhn() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_luhn() {",
+          "        let p = new_luhn();",
+          "        // Verify the provider works by testing a known valid code",
+          "        assert!(p.verify(\"4242424242424242\"));",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 5,
+        "line_count_diff": 2,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 3,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert!": 1
+          }
+        },
+        "similarity_score": 0.843386
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewDamm",
+        "found": true,
+        "signature": "func TestNewDamm(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewDamm(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewDamm()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate damm provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_damm",
+        "found": true,
+        "signature": "fn test_new_damm() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_damm() {",
+          "        let p = new_damm();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"572\").unwrap();",
+          "        assert_eq!(cd, 4);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.84198
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewVerhoeff",
+        "found": true,
+        "signature": "func TestNewVerhoeff(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewVerhoeff(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewVerhoeff()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate verhoeff provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_verhoeff",
+        "found": true,
+        "signature": "fn test_new_verhoeff() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_verhoeff() {",
+          "        let p = new_verhoeff();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"236\").unwrap();",
+          "        assert_eq!(cd, 3);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.85035
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewISBN10",
+        "found": true,
+        "signature": "func TestNewISBN10(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewISBN10(t *testing.T) {",
+          "",
+          "\tv := checkdigit.NewISBN10()",
+          "\tif v == nil {",
+          "\t\tt.Error(\"failed to generate isbn10 verifier\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_isbn10",
+        "found": true,
+        "signature": "fn test_new_isbn10() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_isbn10() {",
+          "        let p = new_isbn10();",
+          "        // Verify the provider works by testing a known valid ISBN-10",
+          "        assert!(p.verify(\"155860832X\"));",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 5,
+        "line_count_diff": 2,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 3,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert!": 1
+          }
+        },
+        "similarity_score": 0.847759
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewISBN13",
+        "found": true,
+        "signature": "func TestNewISBN13(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewISBN13(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewISBN13()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate isbn13 provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_isbn13",
+        "found": true,
+        "signature": "fn test_new_isbn13() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_isbn13() {",
+          "        let p = new_isbn13();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"978000271217\").unwrap();",
+          "        assert_eq!(cd, 0);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.853223
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewEAN8",
+        "found": true,
+        "signature": "func TestNewEAN8(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewEAN8(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewEAN8()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate ean8 provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_ean8",
+        "found": true,
+        "signature": "fn test_new_ean8() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_ean8() {",
+          "        let p = new_ean8();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"9638507\").unwrap();",
+          "        assert_eq!(cd, 4);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.863904
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewEAN13",
+        "found": true,
+        "signature": "func TestNewEAN13(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewEAN13(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewEAN13()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate ean13 provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_ean13",
+        "found": true,
+        "signature": "fn test_new_ean13() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_ean13() {",
+          "        let p = new_ean13();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"590123412345\").unwrap();",
+          "        assert_eq!(cd, 7);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.869966
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewJAN8",
+        "found": true,
+        "signature": "func TestNewJAN8(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewJAN8(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewJAN8()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate jan8 provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_jan8",
+        "found": true,
+        "signature": "fn test_new_jan8() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_jan8() {",
+          "        let p = new_jan8();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"4996871\").unwrap();",
+          "        assert_eq!(cd, 2);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.812363
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewJAN13",
+        "found": true,
+        "signature": "func TestNewJAN13(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewJAN13(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewJAN13()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate jan13 provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_jan13",
+        "found": true,
+        "signature": "fn test_new_jan13() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_jan13() {",
+          "        let p = new_jan13();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"456995111617\").unwrap();",
+          "        assert_eq!(cd, 9);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.815071
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewITF",
+        "found": true,
+        "signature": "func TestNewITF(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewITF(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewITF()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate itf provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_itf",
+        "found": true,
+        "signature": "fn test_new_itf() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_itf() {",
+          "        let p = new_itf();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"1456995111617\").unwrap();",
+          "        assert_eq!(cd, 6);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.835616
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewUPC",
+        "found": true,
+        "signature": "func TestNewUPC(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewUPC(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewUPC()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate upc provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_upc",
+        "found": true,
+        "signature": "fn test_new_upc() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_upc() {",
+          "        let p = new_upc();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"01234567890\").unwrap();",
+          "        assert_eq!(cd, 5);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.853531
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "TestNewSSCC",
+        "found": true,
+        "signature": "func TestNewSSCC(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestNewSSCC(t *testing.T) {",
+          "",
+          "\tp := checkdigit.NewSSCC()",
+          "\tif p == nil {",
+          "\t\tt.Error(\"failed to generate sscc provider\")",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/lib.rs",
+        "name": "test_new_sscc",
+        "found": true,
+        "signature": "fn test_new_sscc() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_new_sscc() {",
+          "        let p = new_sscc();",
+          "        // Verify the provider works by testing generation",
+          "        let cd = p.generate(\"04569951110000001\").unwrap();",
+          "        assert_eq!(cd, 6);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 6,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.843669
+      }
+    },
+    {
+      "source_test": {
+        "path": "damm_test.go",
+        "name": "TestDamm_Verify",
+        "found": true,
+        "signature": "func TestDamm_Verify(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestDamm_Verify(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin  string",
+          "\t\tout bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"224564332323\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"543525432346\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"37\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tin: \"835323233227\",",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin: \"\",",
+          "\t\t},",
+          "\t\t\"Irregular 3\": {",
+          "\t\t\tin: \"a\",",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tret := checkdigit.NewDamm().Verify(c.in)",
+          "\t\tif c.out != ret {",
+          "\t\t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t// \tret := checkdigit.NewDamm().Verify(c.in)",
+          "\t\t// \tif c.out != ret {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/damm.rs",
+        "name": "test_damm_verify",
+        "found": true,
+        "signature": "fn test_damm_verify() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 6,
+        "body": [
+          "fn test_damm_verify() {",
+          "        let damm = Damm;",
+          "        ",
+          "        // Regular 1",
+          "        assert_eq!(damm.verify(\"224564332323\"), true);",
+          "        ",
+          "        // Regular 2",
+          "        assert_eq!(damm.verify(\"543525432346\"), true);",
+          "        ",
+          "        // Regular 3",
+          "        assert_eq!(damm.verify(\"37\"), true);",
+          "        ",
+          "        // Irregular 1",
+          "        assert_eq!(damm.verify(\"835323233227\"), false);",
+          "        ",
+          "        // Irregular 2",
+          "        assert_eq!(damm.verify(\"\"), false);",
+          "        ",
+          "        // Irregular 3",
+          "        assert_eq!(damm.verify(\"a\"), false);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 6,
+        "param_count_diff": 1,
+        "assertion_count_diff": -5,
+        "line_count_source": 42,
+        "line_count_target": 15,
+        "line_count_diff": 27,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 6
+        },
+        "method_call_count_source": 9,
+        "method_call_count_target": 7,
+        "method_call_diff": 2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 6,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 6,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.850646
+      }
+    },
+    {
+      "source_test": {
+        "path": "damm_test.go",
+        "name": "TestDamm_Generate",
+        "found": true,
+        "signature": "func TestDamm_Generate(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestDamm_Generate(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin      string",
+          "\t\tout     int",
+          "\t\tisError bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"22456433232\",",
+          "\t\t\tout: 3,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"54352543234\",",
+          "\t\t\tout: 6,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"10493839530\",",
+          "\t\t\tout: 5,",
+          "\t\t},",
+          "\t\t\"Regular 4\": {",
+          "\t\t\tin:  \"08989435403\",",
+          "\t\t\tout: 5,",
+          "\t\t},",
+          "\t\t\"Regular 5\": {",
+          "\t\t\tin:  \"54994384990\",",
+          "\t\t\tout: 4,",
+          "\t\t},",
+          "\t\t\"Regular 6\": {",
+          "\t\t\tin:  \"3\",",
+          "\t\t\tout: 7,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin:      \"a\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tr, err := checkdigit.NewDamm().Generate(c.in)",
+          "\t\tif c.isError && err == nil {",
+          "\t\t\tt.Error(\"unexpected error\")",
+          "\t\t}",
+          "\t\tif c.out != r {",
+          "\t\t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t// \tr, err := checkdigit.NewDamm().Generate(c.in)",
+          "\t\t// \tif c.isError && err == nil {",
+          "\t\t// \t\tt.Error(\"unexpected error\")",
+          "\t\t// \t}",
+          "\t\t// \tif c.out != r {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/damm.rs",
+        "name": "test_damm_generate",
+        "found": true,
+        "signature": "fn test_damm_generate() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 8,
+        "body": [
+          "fn test_damm_generate() {",
+          "        let damm = Damm;",
+          "        ",
+          "        // Regular 1",
+          "        assert_eq!(damm.generate(\"22456433232\"), Ok(3));",
+          "        ",
+          "        // Regular 2",
+          "        assert_eq!(damm.generate(\"54352543234\"), Ok(6));",
+          "        ",
+          "        // Regular 3",
+          "        assert_eq!(damm.generate(\"10493839530\"), Ok(5));",
+          "        ",
+          "        // Regular 4",
+          "        assert_eq!(damm.generate(\"08989435403\"), Ok(5));",
+          "        ",
+          "        // Regular 5",
+          "        assert_eq!(damm.generate(\"54994384990\"), Ok(4));",
+          "        ",
+          "        // Regular 6",
+          "        assert_eq!(damm.generate(\"3\"), Ok(7));",
+          "        ",
+          "        // Irregular 1 (empty string)",
+          "        assert!(damm.generate(\"\").is_err());",
+          "        ",
+          "        // Irregular 2 (non-numeric)",
+          "        assert!(damm.generate(\"a\").is_err());",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 8,
+        "param_count_diff": 1,
+        "assertion_count_diff": -6,
+        "line_count_source": 59,
+        "line_count_target": 19,
+        "line_count_diff": 40,
+        "assertion_types_source": {
+          "t.Errorf": 2,
+          "t.Error": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 6,
+          "assert!": 2
+        },
+        "method_call_count_source": 11,
+        "method_call_count_target": 17,
+        "method_call_diff": -6,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 6,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 2
+          },
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.868976
+      }
+    },
+    {
+      "source_test": {
+        "path": "gtin_test.go",
+        "name": "TestGtin_Verify",
+        "found": true,
+        "signature": "func TestGtin_Verify(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestGtin_Verify(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tfn  func() checkdigit.Provider",
+          "\t\tin  string",
+          "\t\tout bool",
+          "\t}{",
+          "\t\t\"EAN8\": {",
+          "\t\t\tfn:  checkdigit.NewEAN8,",
+          "\t\t\tin:  \"96385074\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"EAN13\": {",
+          "\t\t\tfn:  checkdigit.NewEAN13,",
+          "\t\t\tin:  \"5901234123457\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"JAN8\": {",
+          "\t\t\tfn:  checkdigit.NewJAN8,",
+          "\t\t\tin:  \"49968712\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"JAN13\": {",
+          "\t\t\tfn:  checkdigit.NewJAN13,",
+          "\t\t\tin:  \"4569951116179\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"ITF\": {",
+          "\t\t\tfn:  checkdigit.NewITF,",
+          "\t\t\tin:  \"14569951116176\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"UPC\": {",
+          "\t\t\tfn:  checkdigit.NewUPC,",
+          "\t\t\tin:  \"012345678905\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"SSCC\": {",
+          "\t\t\tfn:  checkdigit.NewSSCC,",
+          "\t\t\tin:  \"045699511100000016\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Empty\": {",
+          "\t\t\tfn: checkdigit.NewEAN8,",
+          "\t\t\tin: \"\",",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tret := c.fn().Verify(c.in)",
+          "\t\tif c.out != ret {",
+          "\t\t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t// \tret := c.fn().Verify(c.in)",
+          "\t\t// \tif c.out != ret {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/gtin.rs",
+        "name": "test_gtin_verify",
+        "found": true,
+        "signature": "fn test_gtin_verify() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 8,
+        "body": [
+          "fn test_gtin_verify() {",
+          "        // EAN8",
+          "        let provider = new_ean8();",
+          "        assert_eq!(true, provider.verify(\"96385074\"));",
+          "        ",
+          "        // EAN13",
+          "        let provider = new_ean13();",
+          "        assert_eq!(true, provider.verify(\"5901234123457\"));",
+          "        ",
+          "        // JAN8",
+          "        let provider = new_jan8();",
+          "        assert_eq!(true, provider.verify(\"49968712\"));",
+          "        ",
+          "        // JAN13",
+          "        let provider = new_jan13();",
+          "        assert_eq!(true, provider.verify(\"4569951116179\"));",
+          "        ",
+          "        // ITF",
+          "        let provider = new_itf();",
+          "        assert_eq!(true, provider.verify(\"14569951116176\"));",
+          "        ",
+          "        // UPC",
+          "        let provider = new_upc();",
+          "        assert_eq!(true, provider.verify(\"012345678905\"));",
+          "        ",
+          "        // SSCC",
+          "        let provider = new_sscc();",
+          "        assert_eq!(true, provider.verify(\"045699511100000016\"));",
+          "        ",
+          "        // Empty",
+          "        let provider = new_ean8();",
+          "        assert_eq!(false, provider.verify(\"\"));",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 8,
+        "param_count_diff": 1,
+        "assertion_count_diff": -7,
+        "line_count_source": 61,
+        "line_count_target": 26,
+        "line_count_diff": 35,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 8
+        },
+        "method_call_count_source": 9,
+        "method_call_count_target": 17,
+        "method_call_diff": -8,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 8,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 8,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.826937
+      }
+    },
+    {
+      "source_test": {
+        "path": "gtin_test.go",
+        "name": "TestGtin_Generate",
+        "found": true,
+        "signature": "func TestGtin_Generate(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestGtin_Generate(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tfn      func() checkdigit.Provider",
+          "\t\tin      string",
+          "\t\tout     int",
+          "\t\tisError bool",
+          "\t}{",
+          "\t\t\"EAN8\": {",
+          "\t\t\tfn:  checkdigit.NewEAN8,",
+          "\t\t\tin:  \"9638112\",",
+          "\t\t\tout: 0,",
+          "\t\t},",
+          "\t\t\"EAN13\": {",
+          "\t\t\tfn:  checkdigit.NewEAN13,",
+          "\t\t\tin:  \"590123412345\",",
+          "\t\t\tout: 7,",
+          "\t\t},",
+          "\t\t\"JAN8\": {",
+          "\t\t\tfn:  checkdigit.NewJAN8,",
+          "\t\t\tin:  \"4996871\",",
+          "\t\t\tout: 2,",
+          "\t\t},",
+          "\t\t\"JAN13\": {",
+          "\t\t\tfn:  checkdigit.NewJAN13,",
+          "\t\t\tin:  \"456995111617\",",
+          "\t\t\tout: 9,",
+          "\t\t},",
+          "\t\t\"ITF\": {",
+          "\t\t\tfn:  checkdigit.NewITF,",
+          "\t\t\tin:  \"1456995111617\",",
+          "\t\t\tout: 6,",
+          "\t\t},",
+          "\t\t\"UPC\": {",
+          "\t\t\tfn:  checkdigit.NewUPC,",
+          "\t\t\tin:  \"01234567890\",",
+          "\t\t\tout: 5,",
+          "\t\t},",
+          "\t\t\"SSCC\": {",
+          "\t\t\tfn:  checkdigit.NewSSCC,",
+          "\t\t\tin:  \"04569951110000001\",",
+          "\t\t\tout: 6,",
+          "\t\t},",
+          "\t\t\"Empty\": {",
+          "\t\t\tfn:      checkdigit.NewEAN8,",
+          "\t\t\tin:      \"\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Alphabet\": {",
+          "\t\t\tfn:      checkdigit.NewEAN8,",
+          "\t\t\tin:      \"aaaaaaa\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tr, err := c.fn().Generate(c.in)",
+          "\t\tif c.isError && err == nil {",
+          "\t\t\tt.Error(\"unexpected error\")",
+          "\t\t}",
+          "\t\tif c.out != r {",
+          "\t\t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t// \tr, err := c.fn().Generate(c.in)",
+          "\t\t// \tif c.isError && err == nil {",
+          "\t\t// \t\tt.Error(\"unexpected error\")",
+          "\t\t// \t}",
+          "\t\t// \tif c.out != r {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/gtin.rs",
+        "name": "test_gtin_generate",
+        "found": true,
+        "signature": "fn test_gtin_generate() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 9,
+        "body": [
+          "fn test_gtin_generate() {",
+          "        // EAN8",
+          "        let provider = new_ean8();",
+          "        let result = provider.generate(\"9638112\");",
+          "        assert_eq!(Ok(0), result);",
+          "        ",
+          "        // EAN13",
+          "        let provider = new_ean13();",
+          "        let result = provider.generate(\"590123412345\");",
+          "        assert_eq!(Ok(7), result);",
+          "        ",
+          "        // JAN8",
+          "        let provider = new_jan8();",
+          "        let result = provider.generate(\"4996871\");",
+          "        assert_eq!(Ok(2), result);",
+          "        ",
+          "        // JAN13",
+          "        let provider = new_jan13();",
+          "        let result = provider.generate(\"456995111617\");",
+          "        assert_eq!(Ok(9), result);",
+          "        ",
+          "        // ITF",
+          "        let provider = new_itf();",
+          "        let result = provider.generate(\"1456995111617\");",
+          "        assert_eq!(Ok(6), result);",
+          "        ",
+          "        // UPC",
+          "        let provider = new_upc();",
+          "        let result = provider.generate(\"01234567890\");",
+          "        assert_eq!(Ok(5), result);",
+          "        ",
+          "        // SSCC",
+          "        let provider = new_sscc();",
+          "        let result = provider.generate(\"04569951110000001\");",
+          "        assert_eq!(Ok(6), result);",
+          "        ",
+          "        // Empty - should error",
+          "        let provider = new_ean8();",
+          "        let result = provider.generate(\"\");",
+          "        assert!(result.is_err());",
+          "        ",
+          "        // Alphabet - should error",
+          "        let provider = new_ean8();",
+          "        let result = provider.generate(\"aaaaaaa\");",
+          "        assert!(result.is_err());",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 9,
+        "param_count_diff": 1,
+        "assertion_count_diff": -7,
+        "line_count_source": 74,
+        "line_count_target": 38,
+        "line_count_diff": 36,
+        "assertion_types_source": {
+          "t.Errorf": 2,
+          "t.Error": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 7,
+          "assert!": 2
+        },
+        "method_call_count_source": 11,
+        "method_call_count_target": 28,
+        "method_call_diff": -17,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 7,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 2
+          },
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.844907
+      }
+    },
+    {
+      "source_test": {
+        "path": "isbn_test.go",
+        "name": "TestIsbn10_Verify",
+        "found": true,
+        "signature": "func TestIsbn10_Verify(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestIsbn10_Verify(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin  string",
+          "\t\tout bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"0026515628\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"007231592X\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"155860832X\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tin: \"155860831X\",",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin: \"9780002715096\",",
+          "\t\t},",
+          "\t\t\"Irregular 3\": {",
+          "\t\t\tin: \"155860831\",",
+          "\t\t},",
+          "\t\t\"Irregular 4\": {",
+          "\t\t\tin: \"\",",
+          "\t\t},",
+          "\t\t\"Irregular 5\": {",
+          "\t\t\tin: \"aaaaaaaaaa\",",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tret := checkdigit.NewISBN10().Verify(c.in)",
+          "\t\tif c.out != ret {",
+          "\t\t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t// \tret := checkdigit.NewISBN10().Verify(c.in)",
+          "\t\t// \tif c.out != ret {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/isbn.rs",
+        "name": "test_isbn10_verify",
+        "found": true,
+        "signature": "fn test_isbn10_verify() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 8,
+        "body": [
+          "fn test_isbn10_verify() {",
+          "        let provider = crate::new_isbn10();",
+          "",
+          "        // Regular 1",
+          "        assert_eq!(provider.verify(\"0026515628\"), true);",
+          "",
+          "        // Regular 2",
+          "        assert_eq!(provider.verify(\"007231592X\"), true);",
+          "",
+          "        // Regular 3",
+          "        assert_eq!(provider.verify(\"155860832X\"), true);",
+          "",
+          "        // Irregular 1",
+          "        assert_eq!(provider.verify(\"155860831X\"), false);",
+          "",
+          "        // Irregular 2",
+          "        assert_eq!(provider.verify(\"9780002715096\"), false);",
+          "",
+          "        // Irregular 3",
+          "        assert_eq!(provider.verify(\"155860831\"), false);",
+          "",
+          "        // Irregular 4",
+          "        assert_eq!(provider.verify(\"\"), false);",
+          "",
+          "        // Irregular 5",
+          "        assert_eq!(provider.verify(\"aaaaaaaaaa\"), false);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 8,
+        "param_count_diff": 1,
+        "assertion_count_diff": -7,
+        "line_count_source": 48,
+        "line_count_target": 19,
+        "line_count_diff": 29,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 8
+        },
+        "method_call_count_source": 9,
+        "method_call_count_target": 10,
+        "method_call_diff": -1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 8,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 8,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.842516
+      }
+    },
+    {
+      "source_test": {
+        "path": "isbn_test.go",
+        "name": "TestIsbn10_Generate",
+        "found": true,
+        "signature": "func TestIsbn10_Generate(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestIsbn10_Generate(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin      string",
+          "\t\tout     int",
+          "\t\tisError bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"002651562\",",
+          "\t\t\tout: 8,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"007231592\",",
+          "\t\t\tout: 10,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"155860832\",",
+          "\t\t\tout: 10,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin:      \"9780002715096\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 3\": {",
+          "\t\t\tin:      \"15586\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 4\": {",
+          "\t\t\tin:      \"155860832X\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 5\": {",
+          "\t\t\tin:      \"aaaaaaaaa\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tr, err := checkdigit.NewISBN10().Generate(c.in)",
+          "\t\tif c.isError && err == nil {",
+          "\t\t\tt.Error(\"unexpected error\")",
+          "\t\t}",
+          "\t\tif c.out != r {",
+          "\t\t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t// \tr, err := checkdigit.NewISBN10().Generate(c.in)",
+          "\t\t// \tif c.isError && err == nil {",
+          "\t\t// \t\tt.Error(\"unexpected error\")",
+          "\t\t// \t}",
+          "\t\t// \tif c.out != r {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/isbn.rs",
+        "name": "test_isbn10_generate",
+        "found": true,
+        "signature": "fn test_isbn10_generate() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 8,
+        "body": [
+          "fn test_isbn10_generate() {",
+          "        let provider = crate::new_isbn10();",
+          "",
+          "        // Regular 1",
+          "        assert_eq!(provider.generate(\"002651562\").unwrap(), 8);",
+          "",
+          "        // Regular 2",
+          "        assert_eq!(provider.generate(\"007231592\").unwrap(), 10);",
+          "",
+          "        // Regular 3",
+          "        assert_eq!(provider.generate(\"155860832\").unwrap(), 10);",
+          "",
+          "        // Irregular 1 (empty string)",
+          "        assert!(provider.generate(\"\").is_err());",
+          "",
+          "        // Irregular 2 (too long)",
+          "        assert!(provider.generate(\"9780002715096\").is_err());",
+          "",
+          "        // Irregular 3 (too short)",
+          "        assert!(provider.generate(\"15586\").is_err());",
+          "",
+          "        // Irregular 4 (contains X)",
+          "        assert!(provider.generate(\"155860832X\").is_err());",
+          "",
+          "        // Irregular 5 (non-numeric)",
+          "        assert!(provider.generate(\"aaaaaaaaa\").is_err());",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 8,
+        "param_count_diff": 1,
+        "assertion_count_diff": -6,
+        "line_count_source": 59,
+        "line_count_target": 19,
+        "line_count_diff": 40,
+        "assertion_types_source": {
+          "t.Errorf": 2,
+          "t.Error": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 3,
+          "assert!": 5
+        },
+        "method_call_count_source": 11,
+        "method_call_count_target": 18,
+        "method_call_diff": -7,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 3,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 3,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 2
+          },
+          "t.Errorf": {
+            "assert_eq!": 1,
+            "assert!": 1
+          }
+        },
+        "similarity_score": 0.859075
+      }
+    },
+    {
+      "source_test": {
+        "path": "isbn_test.go",
+        "name": "TestIsbn13_Verify",
+        "found": true,
+        "signature": "func TestIsbn13_Verify(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestIsbn13_Verify(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin  string",
+          "\t\tout bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"9780002712095\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"9780002715096\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"9780002713306\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tin: \"155860831X\",",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin: \"9780002712520\",",
+          "\t\t},",
+          "\t\t\"Irregular 3\": {",
+          "\t\t\tin: \"9780002712709\",",
+          "\t\t},",
+          "\t\t\"Irregular 4\": {",
+          "\t\t\tin: \"\",",
+          "\t\t},",
+          "\t\t\"Irregular 5\": {",
+          "\t\t\tin: \"aaaaaaaaaaaaa\",",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tret := checkdigit.NewISBN13().Verify(c.in)",
+          "\t\tif c.out != ret {",
+          "\t\t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t// \tret := checkdigit.NewISBN13().Verify(c.in)",
+          "\t\t// \tif c.out != ret {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/isbn.rs",
+        "name": "test_isbn13_verify",
+        "found": true,
+        "signature": "fn test_isbn13_verify() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 8,
+        "body": [
+          "fn test_isbn13_verify() {",
+          "        let provider = crate::new_isbn13();",
+          "",
+          "        // Regular 1",
+          "        assert_eq!(provider.verify(\"9780002712095\"), true);",
+          "",
+          "        // Regular 2",
+          "        assert_eq!(provider.verify(\"9780002715096\"), true);",
+          "",
+          "        // Regular 3",
+          "        assert_eq!(provider.verify(\"9780002713306\"), true);",
+          "",
+          "        // Irregular 1",
+          "        assert_eq!(provider.verify(\"155860831X\"), false);",
+          "",
+          "        // Irregular 2",
+          "        assert_eq!(provider.verify(\"9780002712520\"), false);",
+          "",
+          "        // Irregular 3",
+          "        assert_eq!(provider.verify(\"9780002712709\"), false);",
+          "",
+          "        // Irregular 4",
+          "        assert_eq!(provider.verify(\"\"), false);",
+          "",
+          "        // Irregular 5",
+          "        assert_eq!(provider.verify(\"aaaaaaaaaaaaa\"), false);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 8,
+        "param_count_diff": 1,
+        "assertion_count_diff": -7,
+        "line_count_source": 48,
+        "line_count_target": 19,
+        "line_count_diff": 29,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 8
+        },
+        "method_call_count_source": 9,
+        "method_call_count_target": 10,
+        "method_call_diff": -1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 8,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 8,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.833763
+      }
+    },
+    {
+      "source_test": {
+        "path": "isbn_test.go",
+        "name": "TestIsbn13_Generate",
+        "found": true,
+        "signature": "func TestIsbn13_Generate(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestIsbn13_Generate(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin      string",
+          "\t\tout     int",
+          "\t\tisError bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"978000271217\",",
+          "\t\t\tout: 0,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"978000271330\",",
+          "\t\t\tout: 6,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"978000271363\",",
+          "\t\t\tout: 4,",
+          "\t\t},",
+          "\t\t\"Regular 4\": {",
+          "\t\t\tin:  \"978000271236\",",
+          "\t\t\tout: 1,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin:      \"0026515628\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 3\": {",
+          "\t\t\tin:      \"155860832X\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 4\": {",
+          "\t\t\tin:      \"a\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tr, err := checkdigit.NewISBN13().Generate(c.in)",
+          "\t\tif c.isError && err == nil {",
+          "\t\t\tt.Error(\"unexpected error\")",
+          "\t\t}",
+          "\t\tif c.out != r {",
+          "\t\t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t// \tr, err := checkdigit.NewISBN13().Generate(c.in)",
+          "\t\t// \tif c.isError && err == nil {",
+          "\t\t// \t\tt.Error(\"unexpected error\")",
+          "\t\t// \t}",
+          "\t\t// \tif c.out != r {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/isbn.rs",
+        "name": "test_isbn13_generate",
+        "found": true,
+        "signature": "fn test_isbn13_generate() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 8,
+        "body": [
+          "fn test_isbn13_generate() {",
+          "        let provider = crate::new_isbn13();",
+          "",
+          "        // Regular 1",
+          "        assert_eq!(provider.generate(\"978000271217\").unwrap(), 0);",
+          "",
+          "        // Regular 2",
+          "        assert_eq!(provider.generate(\"978000271330\").unwrap(), 6);",
+          "",
+          "        // Regular 3",
+          "        assert_eq!(provider.generate(\"978000271363\").unwrap(), 4);",
+          "",
+          "        // Regular 4",
+          "        assert_eq!(provider.generate(\"978000271236\").unwrap(), 1);",
+          "",
+          "        // Irregular 1 (empty string)",
+          "        assert!(provider.generate(\"\").is_err());",
+          "",
+          "        // Irregular 2 (wrong length)",
+          "        assert!(provider.generate(\"0026515628\").is_err());",
+          "",
+          "        // Irregular 3 (contains X)",
+          "        assert!(provider.generate(\"155860832X\").is_err());",
+          "",
+          "        // Irregular 4 (non-numeric)",
+          "        assert!(provider.generate(\"a\").is_err());",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 8,
+        "param_count_diff": 1,
+        "assertion_count_diff": -6,
+        "line_count_source": 59,
+        "line_count_target": 19,
+        "line_count_diff": 40,
+        "assertion_types_source": {
+          "t.Errorf": 2,
+          "t.Error": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 4,
+          "assert!": 4
+        },
+        "method_call_count_source": 11,
+        "method_call_count_target": 18,
+        "method_call_diff": -7,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 4,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 4,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 4,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 2
+          },
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.857365
+      }
+    },
+    {
+      "source_test": {
+        "path": "luhn_test.go",
+        "name": "TestLuhn_Verify",
+        "found": true,
+        "signature": "func TestLuhn_Verify(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestLuhn_Verify(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin  string",
+          "\t\tout bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"4242424242424242\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"5105105105105100\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"34\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tin: \"510510510510511\",",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin: \"\",",
+          "\t\t},",
+          "\t\t\"Irregular 3\": {",
+          "\t\t\tin: \"a\",",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tret := checkdigit.NewLuhn().Verify(c.in)",
+          "\t\tif c.out != ret {",
+          "\t\t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "\t\t//",
+          "",
+          "\t\t// \tret := checkdigit.NewLuhn().Verify(c.in)",
+          "\t\t// \tif c.out != ret {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/luhn.rs",
+        "name": "test_luhn_verify",
+        "found": true,
+        "signature": "fn test_luhn_verify() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 6,
+        "body": [
+          "fn test_luhn_verify() {",
+          "        let luhn = Luhn;",
+          "        ",
+          "        // Regular 1",
+          "        assert_eq!(luhn.verify(\"4242424242424242\"), true);",
+          "        ",
+          "        // Regular 2",
+          "        assert_eq!(luhn.verify(\"5105105105105100\"), true);",
+          "        ",
+          "        // Regular 3",
+          "        assert_eq!(luhn.verify(\"34\"), true);",
+          "        ",
+          "        // Irregular 1",
+          "        assert_eq!(luhn.verify(\"510510510510511\"), false);",
+          "        ",
+          "        // Irregular 2",
+          "        assert_eq!(luhn.verify(\"\"), false);",
+          "        ",
+          "        // Irregular 3",
+          "        assert_eq!(luhn.verify(\"a\"), false);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 6,
+        "param_count_diff": 1,
+        "assertion_count_diff": -5,
+        "line_count_source": 43,
+        "line_count_target": 15,
+        "line_count_diff": 28,
+        "assertion_types_source": {
+          "t.Errorf": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 6
+        },
+        "method_call_count_source": 9,
+        "method_call_count_target": 7,
+        "method_call_diff": 2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 6,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 6,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.852191
+      }
+    },
+    {
+      "source_test": {
+        "path": "luhn_test.go",
+        "name": "TestLuhn_Generate",
+        "found": true,
+        "signature": "func TestLuhn_Generate(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestLuhn_Generate(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin      string",
+          "\t\tout     int",
+          "\t\tisError bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"424242424242424\",",
+          "\t\t\tout: 2,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"510510510510510\",",
+          "\t\t\tout: 0,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"37144963539843\",",
+          "\t\t\tout: 1,",
+          "\t\t},",
+          "\t\t\"Regular 4\": {",
+          "\t\t\tin:  \"3056930902590\",",
+          "\t\t\tout: 4,",
+          "\t\t},",
+          "\t\t\"Regular 5\": {",
+          "\t\t\tin:  \"353011133330000\",",
+          "\t\t\tout: 0,",
+          "\t\t},",
+          "\t\t\"Regular 6\": {",
+          "\t\t\tin:  \"3\",",
+          "\t\t\tout: 4,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin:      \"a\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor _, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tr, err := checkdigit.NewLuhn().Generate(c.in)",
+          "\t\tif c.isError && err == nil {",
+          "\t\t\tt.Error(\"unexpected error\")",
+          "\t\t}",
+          "\t\tif c.out != r {",
+          "\t\t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t}",
+          "",
+          "\t\t// t.Run(name, func(t *testing.T) {",
+          "\t\t//",
+          "",
+          "\t\t// \tr, err := checkdigit.NewLuhn().Generate(c.in)",
+          "\t\t// \tif c.isError && err == nil {",
+          "\t\t// \t\tt.Error(\"unexpected error\")",
+          "\t\t// \t}",
+          "\t\t// \tif c.out != r {",
+          "\t\t// \t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t// \t}",
+          "\t\t// })",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/luhn.rs",
+        "name": "test_luhn_generate",
+        "found": true,
+        "signature": "fn test_luhn_generate() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 8,
+        "body": [
+          "fn test_luhn_generate() {",
+          "        let luhn = Luhn;",
+          "        ",
+          "        // Regular 1",
+          "        assert_eq!(luhn.generate(\"424242424242424\"), Ok(2));",
+          "        ",
+          "        // Regular 2",
+          "        assert_eq!(luhn.generate(\"510510510510510\"), Ok(0));",
+          "        ",
+          "        // Regular 3",
+          "        assert_eq!(luhn.generate(\"37144963539843\"), Ok(1));",
+          "        ",
+          "        // Regular 4",
+          "        assert_eq!(luhn.generate(\"3056930902590\"), Ok(4));",
+          "        ",
+          "        // Regular 5",
+          "        assert_eq!(luhn.generate(\"353011133330000\"), Ok(0));",
+          "        ",
+          "        // Regular 6",
+          "        assert_eq!(luhn.generate(\"3\"), Ok(4));",
+          "        ",
+          "        // Irregular 1 (empty string)",
+          "        assert!(luhn.generate(\"\").is_err());",
+          "        ",
+          "        // Irregular 2 (non-numeric)",
+          "        assert!(luhn.generate(\"a\").is_err());",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 8,
+        "param_count_diff": 1,
+        "assertion_count_diff": -6,
+        "line_count_source": 60,
+        "line_count_target": 19,
+        "line_count_diff": 41,
+        "assertion_types_source": {
+          "t.Errorf": 2,
+          "t.Error": 2
+        },
+        "assertion_types_target": {
+          "assert_eq!": 6,
+          "assert!": 2
+        },
+        "method_call_count_source": 11,
+        "method_call_count_target": 17,
+        "method_call_diff": -6,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 6,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 2
+          },
+          "t.Errorf": {
+            "assert_eq!": 2
+          }
+        },
+        "similarity_score": 0.87179
+      }
+    },
+    {
+      "source_test": {
+        "path": "verhoeff_test.go",
+        "name": "TestVerhoeff_Verify",
+        "found": true,
+        "signature": "func TestVerhoeff_Verify(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 1,
+        "body": [
+          "func TestVerhoeff_Verify(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin  string",
+          "\t\tout bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"938472210036\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"0973652\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"27\",",
+          "\t\t\tout: true,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tin: \"2361\",",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin: \"\",",
+          "\t\t},",
+          "\t\t\"Irregular 3\": {",
+          "\t\t\tin: \"a\",",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor name, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tt.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t\tret := checkdigit.NewVerhoeff().Verify(c.in)",
+          "\t\t\tif c.out != ret {",
+          "\t\t\t\tt.Errorf(\"not equal, expected = %v, given = %v\", c.out, ret)",
+          "\t\t\t}",
+          "\t\t})",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/verhoeff.rs",
+        "name": "test_verhoeff_verify",
+        "found": true,
+        "signature": "fn test_verhoeff_verify() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 6,
+        "body": [
+          "fn test_verhoeff_verify() {",
+          "        let v = Verhoeff;",
+          "        ",
+          "        // Regular 1",
+          "        assert_eq!(v.verify(\"938472210036\"), true);",
+          "        ",
+          "        // Regular 2",
+          "        assert_eq!(v.verify(\"0973652\"), true);",
+          "        ",
+          "        // Regular 3",
+          "        assert_eq!(v.verify(\"27\"), true);",
+          "        ",
+          "        // Irregular 1",
+          "        assert_eq!(v.verify(\"2361\"), false);",
+          "        ",
+          "        // Irregular 2",
+          "        assert_eq!(v.verify(\"\"), false);",
+          "        ",
+          "        // Irregular 3",
+          "        assert_eq!(v.verify(\"a\"), false);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 6,
+        "param_count_diff": 1,
+        "assertion_count_diff": -5,
+        "line_count_source": 38,
+        "line_count_target": 15,
+        "line_count_diff": 23,
+        "assertion_types_source": {
+          "t.Errorf": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 6
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 7,
+        "method_call_diff": -1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 6,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 6,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.879555
+      }
+    },
+    {
+      "source_test": {
+        "path": "verhoeff_test.go",
+        "name": "TestVerhoeff_Generate",
+        "found": true,
+        "signature": "func TestVerhoeff_Generate(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 2,
+        "body": [
+          "func TestVerhoeff_Generate(t *testing.T) {",
+          "",
+          "\tcases := map[string]struct {",
+          "\t\tin      string",
+          "\t\tout     int",
+          "\t\tisError bool",
+          "\t}{",
+          "\t\t\"Regular 1\": {",
+          "\t\t\tin:  \"236\",",
+          "\t\t\tout: 3,",
+          "\t\t},",
+          "\t\t\"Regular 2\": {",
+          "\t\t\tin:  \"097365\",",
+          "\t\t\tout: 2,",
+          "\t\t},",
+          "\t\t\"Regular 3\": {",
+          "\t\t\tin:  \"93847221003\",",
+          "\t\t\tout: 6,",
+          "\t\t},",
+          "\t\t\"Regular 4\": {",
+          "\t\t\tin:  \"2\",",
+          "\t\t\tout: 7,",
+          "\t\t},",
+          "\t\t\"Irregular 1\": {",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t\t\"Irregular 2\": {",
+          "\t\t\tin:      \"a\",",
+          "\t\t\tisError: true,",
+          "\t\t},",
+          "\t}",
+          "",
+          "\tfor name, c := range cases {",
+          "\t\tc := c",
+          "",
+          "\t\tt.Run(name, func(t *testing.T) {",
+          "",
+          "\t\t\tr, err := checkdigit.NewVerhoeff().Generate(c.in)",
+          "\t\t\tif c.isError && err == nil {",
+          "\t\t\t\tt.Error(\"unexpected error\")",
+          "\t\t\t}",
+          "\t\t\tif c.out != r {",
+          "\t\t\t\tt.Errorf(\"not equal, expected = %d, given = %d\", c.out, r)",
+          "\t\t\t}",
+          "\t\t})",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/verhoeff.rs",
+        "name": "test_verhoeff_generate",
+        "found": true,
+        "signature": "fn test_verhoeff_generate() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 6,
+        "body": [
+          "fn test_verhoeff_generate() {",
+          "        let v = Verhoeff;",
+          "        ",
+          "        // Regular 1",
+          "        assert_eq!(v.generate(\"236\"), Ok(3));",
+          "        ",
+          "        // Regular 2",
+          "        assert_eq!(v.generate(\"097365\"), Ok(2));",
+          "        ",
+          "        // Regular 3",
+          "        assert_eq!(v.generate(\"93847221003\"), Ok(6));",
+          "        ",
+          "        // Regular 4",
+          "        assert_eq!(v.generate(\"2\"), Ok(7));",
+          "        ",
+          "        // Irregular 1",
+          "        assert!(v.generate(\"\").is_err());",
+          "        ",
+          "        // Irregular 2",
+          "        assert!(v.generate(\"a\").is_err());",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 6,
+        "param_count_diff": 1,
+        "assertion_count_diff": -4,
+        "line_count_source": 44,
+        "line_count_target": 15,
+        "line_count_diff": 29,
+        "assertion_types_source": {
+          "t.Errorf": 1,
+          "t.Error": 1
+        },
+        "assertion_types_target": {
+          "assert_eq!": 4,
+          "assert!": 2
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 13,
+        "method_call_diff": -6,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 4,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Error": {
+            "assert_eq!": 1
+          },
+          "t.Errorf": {
+            "assert_eq!": 1
+          }
+        },
+        "similarity_score": 0.888952
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewLuhn",
+        "found": true,
+        "signature": "func ExampleNewLuhn() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewLuhn() {",
+          "\tp := checkdigit.NewLuhn()",
+          "",
+          "\tconst seed = \"411111111111111\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 411111111111111, check digit: 1, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewDamm",
+        "found": true,
+        "signature": "func ExampleNewDamm() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewDamm() {",
+          "\tp := checkdigit.NewDamm()",
+          "",
+          "\tconst seed = \"572\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 572, check digit: 4, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewVerhoeff",
+        "found": true,
+        "signature": "func ExampleNewVerhoeff() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewVerhoeff() {",
+          "\tp := checkdigit.NewVerhoeff()",
+          "",
+          "\tconst seed = \"236\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 236, check digit: 3, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewISBN10",
+        "found": true,
+        "signature": "func ExampleNewISBN10() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewISBN10() {",
+          "\tp := checkdigit.NewISBN10()",
+          "",
+          "\tconst seed = \"155860832\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tdigit := \"X\"",
+          "\tif cd != 10 {",
+          "\t\tdigit = strconv.Itoa(cd)",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + digit)",
+          "\tfmt.Printf(\"seed: %s, check digit: %s, verify: %t\\n\", seed, digit, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 155860832, check digit: X, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewISBN13",
+        "found": true,
+        "signature": "func ExampleNewISBN13() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewISBN13() {",
+          "\tp := checkdigit.NewISBN13()",
+          "",
+          "\tconst seed = \"978000271217\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 978000271217, check digit: 0, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewEAN8",
+        "found": true,
+        "signature": "func ExampleNewEAN8() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewEAN8() {",
+          "\tp := checkdigit.NewEAN8()",
+          "",
+          "\tconst seed = \"9638507\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 9638507, check digit: 4, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewEAN13",
+        "found": true,
+        "signature": "func ExampleNewEAN13() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewEAN13() {",
+          "\tp := checkdigit.NewEAN13()",
+          "",
+          "\tconst seed = \"590123412345\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 590123412345, check digit: 7, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewJAN8",
+        "found": true,
+        "signature": "func ExampleNewJAN8() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewJAN8() {",
+          "\tp := checkdigit.NewJAN8()",
+          "",
+          "\tconst seed = \"4996871\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 4996871, check digit: 2, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewJAN13",
+        "found": true,
+        "signature": "func ExampleNewJAN13() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewJAN13() {",
+          "\tp := checkdigit.NewJAN13()",
+          "",
+          "\tconst seed = \"456995111617\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 456995111617, check digit: 9, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewITF",
+        "found": true,
+        "signature": "func ExampleNewITF() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewITF() {",
+          "\tp := checkdigit.NewITF()",
+          "",
+          "\tconst seed = \"1456995111617\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 1456995111617, check digit: 6, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewUPC",
+        "found": true,
+        "signature": "func ExampleNewUPC() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewUPC() {",
+          "\tp := checkdigit.NewUPC()",
+          "",
+          "\tconst seed = \"01234567890\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 01234567890, check digit: 5, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "checkdigit_test.go",
+        "name": "ExampleNewSSCC",
+        "found": true,
+        "signature": "func ExampleNewSSCC() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "func ExampleNewSSCC() {",
+          "\tp := checkdigit.NewSSCC()",
+          "",
+          "\tconst seed = \"04569951110000001\"",
+          "\tcd, err := p.Generate(seed)",
+          "\tif err != nil {",
+          "\t\tlog.Fatalln(\"failed to generate check digit\")",
+          "\t}",
+          "",
+          "\tok := p.Verify(seed + strconv.Itoa(cd))",
+          "\tfmt.Printf(\"seed: %s, check digit: %d, verify: %t\\n\", seed, cd, ok)",
+          "",
+          "\t// Output:",
+          "\t// seed: 04569951110000001, check digit: 6, verify: true",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    }
+  ]
+}

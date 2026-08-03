@@ -1,0 +1,502 @@
+{
+  "summary": {
+    "total_tests": 11,
+    "both_found": 0,
+    "source_missing": 0,
+    "target_missing": 11,
+    "both_found_pct": 0.0,
+    "params_match_count": 0,
+    "params_mismatch_count": 11,
+    "assertions_match_count": 0,
+    "assertions_mismatch_count": 11,
+    "assertion_types_source": {},
+    "assertion_types_target": {},
+    "assertEquals_summary": {
+      "total_comparable_pairs": 0,
+      "total_matching_assertions": 0,
+      "overall_match_rate": null
+    },
+    "assertion_match_percentages": {},
+    "tests_with_same_assertion_count": 0,
+    "assertion_match_percentages_same_assertion_count": {},
+    "embedding_similarity_status": "unavailable"
+  },
+  "test_pairs": [
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_put",
+        "found": true,
+        "signature": "def test_put():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 16,
+        "body": [
+          "def test_put():",
+          "    ### --- BLOCK BEGIN 20",
+          "    t = BinarySearchTree()",
+          "    assert t.is_empty()",
+          "    t.put(8)",
+          "    r\"\"\"",
+          "                8",
+          "        \"\"\"",
+          "    assert t.root is not None",
+          "    assert t.root.parent is None",
+          "    assert t.root.label == 8",
+          "    t.put(10)",
+          "    r\"\"\"",
+          "                8",
+          "                \\",
+          "                10",
+          "        \"\"\"",
+          "    assert t.root.right is not None",
+          "    assert t.root.right.parent == t.root",
+          "    assert t.root.right.label == 10",
+          "    t.put(3)",
+          "    r\"\"\"",
+          "                8",
+          "                / \\",
+          "            3   10",
+          "        \"\"\"",
+          "    assert t.root.left is not None",
+          "    assert t.root.left.parent == t.root",
+          "    assert t.root.left.label == 3",
+          "    t.put(6)",
+          "    r\"\"\"",
+          "                8",
+          "                / \\",
+          "            3   10",
+          "                \\",
+          "                6",
+          "        \"\"\"",
+          "    assert t.root.left.right is not None",
+          "    assert t.root.left.right.parent == t.root.left",
+          "    assert t.root.left.right.label == 6",
+          "    t.put(1)",
+          "    r\"\"\"",
+          "                8",
+          "                / \\",
+          "            3   10",
+          "            / \\",
+          "            1   6",
+          "        \"\"\"",
+          "    assert t.root.left.left is not None",
+          "    assert t.root.left.left.parent == t.root.left",
+          "    assert t.root.left.left.label == 1",
+          "    try:",
+          "        t.put(1)",
+          "    except Exception:",
+          "        pass",
+          "    ### --- BLOCK END 20"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_search",
+        "found": true,
+        "signature": "def test_search():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def test_search():",
+          "    ### --- BLOCK BEGIN 21",
+          "    t = _get_binary_search_tree()",
+          "    node = t.search(6)",
+          "    assert node.label == 6",
+          "    node = t.search(13)",
+          "    assert node.label == 13",
+          "    try:",
+          "        t.search(2)",
+          "    except Exception:",
+          "        pass",
+          "    ### --- BLOCK END 21"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_remove",
+        "found": true,
+        "signature": "def test_remove():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 32,
+        "body": [
+          "def test_remove():",
+          "    ### --- BLOCK BEGIN 22",
+          "    t = _get_binary_search_tree()",
+          "    t.remove(13)",
+          "    r\"\"\"",
+          "                8",
+          "                / \\",
+          "            3   10",
+          "            / \\    \\",
+          "            1   6    14",
+          "                / \\",
+          "            4   7",
+          "                \\",
+          "                5",
+          "        \"\"\"",
+          "    assert t.root is not None",
+          "    assert t.root.right is not None",
+          "    assert t.root.right.right is not None",
+          "    assert t.root.right.right.right is None",
+          "    assert t.root.right.right.left is None",
+          "    t.remove(7)",
+          "    r\"\"\"",
+          "                8",
+          "                / \\",
+          "            3   10",
+          "            / \\    \\",
+          "            1   6    14",
+          "                /",
+          "            4",
+          "                \\",
+          "                5",
+          "        \"\"\"",
+          "    assert t.root.left is not None",
+          "    assert t.root.left.right is not None",
+          "    assert t.root.left.right.left is not None",
+          "    assert t.root.left.right.right is None",
+          "    assert t.root.left.right.left.label == 4",
+          "    t.remove(6)",
+          "    r\"\"\"",
+          "                8",
+          "                / \\",
+          "            3   10",
+          "            / \\    \\",
+          "            1   4    14",
+          "                \\",
+          "                5",
+          "        \"\"\"",
+          "    assert t.root.left.left is not None",
+          "    assert t.root.left.right.right is not None",
+          "    assert t.root.left.left.label == 1",
+          "    assert t.root.left.right.label == 4",
+          "    assert t.root.left.right.right.label == 5",
+          "    assert t.root.left.right.left is None",
+          "    assert t.root.left.left.parent == t.root.left",
+          "    assert t.root.left.right.parent == t.root.left",
+          "    t.remove(3)",
+          "    r\"\"\"",
+          "                8",
+          "                / \\",
+          "            4   10",
+          "            / \\    \\",
+          "            1   5    14",
+          "        \"\"\"",
+          "    assert t.root is not None",
+          "    assert t.root.left.label == 4",
+          "    assert t.root.left.right.label == 5",
+          "    assert t.root.left.left.label == 1",
+          "    assert t.root.left.parent == t.root",
+          "    assert t.root.left.left.parent == t.root.left",
+          "    assert t.root.left.right.parent == t.root.left",
+          "    t.remove(4)",
+          "    r\"\"\"",
+          "                8",
+          "                / \\",
+          "            5   10",
+          "            /      \\",
+          "            1        14",
+          "        \"\"\"",
+          "    assert t.root.left is not None",
+          "    assert t.root.left.left is not None",
+          "    assert t.root.left.label == 5",
+          "    assert t.root.left.right is None",
+          "    assert t.root.left.left.label == 1",
+          "    assert t.root.left.parent == t.root",
+          "    assert t.root.left.left.parent == t.root.left",
+          "    ### --- BLOCK END 22"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_remove_2",
+        "found": true,
+        "signature": "def test_remove_2():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 15,
+        "body": [
+          "def test_remove_2():",
+          "    ### --- BLOCK BEGIN 23",
+          "    t = _get_binary_search_tree()",
+          "    t.remove(3)",
+          "    r\"\"\"",
+          "                8",
+          "                / \\",
+          "            4   10",
+          "            / \\    \\",
+          "            1   6    14",
+          "                / \\   /",
+          "            5   7 13",
+          "        \"\"\"",
+          "    assert t.root is not None",
+          "    assert t.root.left is not None",
+          "    assert t.root.left.left is not None",
+          "    assert t.root.left.right is not None",
+          "    assert t.root.left.right.left is not None",
+          "    assert t.root.left.right.right is not None",
+          "    assert t.root.left.label == 4",
+          "    assert t.root.left.right.label == 6",
+          "    assert t.root.left.left.label == 1",
+          "    assert t.root.left.right.right.label == 7",
+          "    assert t.root.left.right.left.label == 5",
+          "    assert t.root.left.parent == t.root",
+          "    assert t.root.left.right.parent == t.root.left",
+          "    assert t.root.left.left.parent == t.root.left",
+          "    assert t.root.left.right.left.parent == t.root.left.right",
+          "    ### --- BLOCK END 23"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_is_empty",
+        "found": true,
+        "signature": "def test_is_empty():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def test_is_empty():",
+          "    ### --- BLOCK BEGIN 25",
+          "    t = _get_binary_search_tree()",
+          "    assert not t.is_empty()",
+          "    t.empty()",
+          "    assert t.is_empty()",
+          "    ### --- BLOCK END 25"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_empty",
+        "found": true,
+        "signature": "def test_empty():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_empty():",
+          "    ### --- BLOCK BEGIN 24",
+          "    t = _get_binary_search_tree()",
+          "    t.empty()",
+          "    assert t.root is None",
+          "    ### --- BLOCK END 24"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_exists",
+        "found": true,
+        "signature": "def test_exists():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def test_exists():",
+          "    ### --- BLOCK BEGIN 26",
+          "    t = _get_binary_search_tree()",
+          "    assert t.exists(6)",
+          "    assert not t.exists(-1)",
+          "    ### --- BLOCK END 26"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_get_max_label",
+        "found": true,
+        "signature": "def test_get_max_label():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_get_max_label():",
+          "    ### --- BLOCK BEGIN 27",
+          "    t = _get_binary_search_tree()",
+          "    assert t.get_max_label() == 14",
+          "    t.empty()",
+          "    try:",
+          "        t.get_max_label()",
+          "    except Exception:",
+          "        pass",
+          "    ### --- BLOCK END 27"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_get_min_label",
+        "found": true,
+        "signature": "def test_get_min_label():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_get_min_label():",
+          "    ### --- BLOCK BEGIN 28",
+          "    t = _get_binary_search_tree()",
+          "    assert t.get_min_label() == 1",
+          "    t.empty()",
+          "    try:",
+          "        t.get_min_label()",
+          "    except Exception:",
+          "        pass",
+          "    ### --- BLOCK END 28"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_inorder_traversal",
+        "found": true,
+        "signature": "def test_inorder_traversal():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_inorder_traversal():",
+          "    ### --- BLOCK BEGIN 29",
+          "    t = _get_binary_search_tree()",
+          "    inorder_traversal_nodes = [i.label for i in t.inorder_traversal()]",
+          "    assert inorder_traversal_nodes == [1, 3, 4, 5, 6, 7, 8, 10, 13, 14]",
+          "    ### --- BLOCK END 29"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_preorder_traversal",
+        "found": true,
+        "signature": "def test_preorder_traversal():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_preorder_traversal():",
+          "    ### --- BLOCK BEGIN 30",
+          "    t = _get_binary_search_tree()",
+          "    preorder_traversal_nodes = [i.label for i in t.preorder_traversal()]",
+          "    assert preorder_traversal_nodes == [8, 3, 1, 6, 4, 5, 7, 10, 14, 13]",
+          "    ### --- BLOCK END 30"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    }
+  ]
+}

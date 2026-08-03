@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__strsim",
+  "paper_runtime_tests": 19,
+  "static_source_methods": 19,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_levenshtein",
+      "target_path": "test/index.test.js",
+      "target_name": "testLevenshtein",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_longest_common_subsequence",
+      "target_path": "test/index.test.js",
+      "target_name": "testLongestCommonSubsequence",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_metric_lcs",
+      "target_path": "test/index.test.js",
+      "target_name": "testMetricLcs",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_ngram",
+      "target_path": "test/index.test.js",
+      "target_name": "testNgram",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_damerau",
+      "target_path": "test/index.test.js",
+      "target_name": "testDamerau",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_cosine",
+      "target_path": "test/index.test.js",
+      "target_name": "testCosine",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_jaccard",
+      "target_path": "test/index.test.js",
+      "target_name": "testJaccard",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_jarowinkler",
+      "target_path": "test/index.test.js",
+      "target_name": "testJarowinkler",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_normalized_levenshtein",
+      "target_path": "test/index.test.js",
+      "target_name": "testNormalizedLevenshtein",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_optimal_string_alignment",
+      "target_path": "test/index.test.js",
+      "target_name": "testOptimalStringAlignment",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_0",
+      "target_path": "test/index.test.js",
+      "target_name": "testOverlapCoefficient0",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_1",
+      "target_path": "test/index.test.js",
+      "target_name": "testOverlapCoefficient1",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_2",
+      "target_path": "test/index.test.js",
+      "target_name": "testOverlapCoefficient2",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_3",
+      "target_path": "test/index.test.js",
+      "target_name": "testOverlapCoefficient3",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_qgram",
+      "target_path": "test/index.test.js",
+      "target_name": "testQgram",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_sift4",
+      "target_path": "test/index.test.js",
+      "target_name": "testSift4",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_sorensen_dice",
+      "target_path": "test/index.test.js",
+      "target_name": "testSorensenDice",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_weighted_levenshtein",
+      "target_path": "test/index.test.js",
+      "target_name": "testWeightedLevenshtein",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_tests",
+      "target_path": "test/index.test.js",
+      "target_name": "additionalTests",
+      "mapped": true,
+      "mapping_score": 0.916
+    }
+  ],
+  "generated_target_tests": []
+}

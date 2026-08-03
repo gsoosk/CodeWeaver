@@ -1,0 +1,2 @@
+source,tool,total_loc,total_loc_precise,validated_tests,validated_tests_crust,validated_tests_oxidizer,validated_tests_alphatrans,validated_tests_skel,translated_tests_excluding_crust,functions,function_validation_denominator_non_crust
+paper_reference,ALL,230000,233057,2107,623,229,1181,74,1484,4583,1397

@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "project_id": "oxidizer__go-edlib",
+  "paper_runtime_tests": 36,
+  "static_source_methods": 36,
+  "mappings": [
+    {
+      "source_path": "cosine_test.go",
+      "source_name": "TestCosineSimilarity",
+      "target_path": "src/algorithms/cosine.rs",
+      "target_name": "test_cosine_similarity",
+      "mapped": true,
+      "mapping_score": 0.944390243902439
+    },
+    {
+      "source_path": "cosine_test.go",
+      "source_name": "TestCosineShingleSimilarity",
+      "target_path": "src/algorithms/cosine.rs",
+      "target_name": "test_cosine_shingle_similarity",
+      "mapped": true,
+      "mapping_score": 0.944390243902439
+    },
+    {
+      "source_path": "cosine_test.go",
+      "source_name": "Test_union",
+      "target_path": "src/algorithms/cosine.rs",
+      "target_name": "test_union",
+      "mapped": true,
+      "mapping_score": 0.944390243902439
+    },
+    {
+      "source_path": "cosine_test.go",
+      "source_name": "Test_find",
+      "target_path": "src/algorithms/cosine.rs",
+      "target_name": "test_find",
+      "mapped": true,
+      "mapping_score": 0.944390243902439
+    },
+    {
+      "source_path": "cosine_test.go",
+      "source_name": "Test_sum",
+      "target_path": "src/algorithms/cosine.rs",
+      "target_name": "test_sum",
+      "mapped": true,
+      "mapping_score": 0.944390243902439
+    },
+    {
+      "source_path": "hamming_test.go",
+      "source_name": "TestHammingDistance",
+      "target_path": "tests/test_hamming.rs",
+      "target_name": "test_hamming_distance",
+      "mapped": true,
+      "mapping_score": 0.9747368421052631
+    },
+    {
+      "source_path": "jaccard_test.go",
+      "source_name": "TestJaccardSimilarity",
+      "target_path": "src/algorithms/jaccard.rs",
+      "target_name": "test_jaccard_similarity",
+      "mapped": true,
+      "mapping_score": 0.9469767441860465
+    },
+    {
+      "source_path": "jaccard_test.go",
+      "source_name": "TestJaccardShingleSimilarity",
+      "target_path": "src/algorithms/jaccard.rs",
+      "target_name": "test_jaccard_shingle_similarity",
+      "mapped": true,
+      "mapping_score": 0.9469767441860465
+    },
+    {
+      "source_path": "jaro_test.go",
+      "source_name": "TestJaroSimilarity",
+      "target_path": "tests/test_jaro.rs",
+      "target_name": "test_jaro_similarity",
+      "mapped": true,
+      "mapping_score": 0.97
+    },
+    {
+      "source_path": "jaro_test.go",
+      "source_name": "TestJaroWinklerSimilarity",
+      "target_path": "tests/test_jaro.rs",
+      "target_name": "test_jaro_winkler_similarity",
+      "mapped": true,
+      "mapping_score": 0.97
+    },
+    {
+      "source_path": "lcs_test.go",
+      "source_name": "TestLCS",
+      "target_path": "tests/test_lcs.rs",
+      "target_name": "test_lcs",
+      "mapped": true,
+      "mapping_score": 0.976
+    },
+    {
+      "source_path": "lcs_test.go",
+      "source_name": "TestLCSBacktrack",
+      "target_path": "tests/test_lcs.rs",
+      "target_name": "test_lcs_backtrack",
+      "mapped": true,
+      "mapping_score": 0.976
+    },
+    {
+      "source_path": "lcs_test.go",
+      "source_name": "TestLCSBacktrackAll",
+      "target_path": "tests/test_lcs.rs",
+      "target_name": "test_lcs_backtrack_all",
+      "mapped": true,
+      "mapping_score": 0.976
+    },
+    {
+      "source_path": "lcs_test.go",
+      "source_name": "TestLCSDiff",
+      "target_path": "tests/test_lcs.rs",
+      "target_name": "test_lcs_diff",
+      "mapped": true,
+      "mapping_score": 0.976
+    },
+    {
+      "source_path": "lcs_test.go",
+      "source_name": "TestLCSEditDistance",
+      "target_path": "tests/test_lcs.rs",
+      "target_name": "test_lcs_edit_distance",
+      "mapped": true,
+      "mapping_score": 0.976
+    },
+    {
+      "source_path": "levenshtein_test.go",
+      "source_name": "Test_levenshteinDistance",
+      "target_path": "tests/test_levenshtein.rs",
+      "target_name": "test_levenshtein_distance",
+      "mapped": true,
+      "mapping_score": 0.785232129697863
+    },
+    {
+      "source_path": "levenshtein_test.go",
+      "source_name": "TestOSADamerauLevenshteinDistance",
+      "target_path": "tests/test_levenshtein.rs",
+      "target_name": "test_osa_damerau_levenshtein_distance",
+      "mapped": true,
+      "mapping_score": 0.8343203082003303
+    },
+    {
+      "source_path": "levenshtein_test.go",
+      "source_name": "TestDamerauLevenshteinDistance",
+      "target_path": "tests/test_levenshtein.rs",
+      "target_name": "test_damerau_levenshtein_distance",
+      "mapped": true,
+      "mapping_score": 0.8224181060154854
+    },
+    {
+      "source_path": "qgram_test.go",
+      "source_name": "TestQgramDistance",
+      "target_path": "tests/test_similarity_metrics.rs",
+      "target_name": "test_qgram_distance",
+      "mapped": true,
+      "mapping_score": 0.9426086956521739
+    },
+    {
+      "source_path": "shingle_test.go",
+      "source_name": "TestShingle",
+      "target_path": "tests/test_shingle.rs",
+      "target_name": "test_shingle",
+      "mapped": true,
+      "mapping_score": 0.9747368421052631
+    },
+    {
+      "source_path": "sorensen_dice_test.go",
+      "source_name": "TestSorensenDiceCoefficient",
+      "target_path": "src/algorithms/sorensen_dice.rs",
+      "target_name": "test_sorensen_dice_coefficient",
+      "mapped": true,
+      "mapping_score": 0.9569811320754718
+    },
+    {
+      "source_path": "string_analysis_test.go",
+      "source_name": "TestStringsSimilarity",
+      "target_path": "tests/test_api.rs",
+      "target_name": "test_strings_similarity",
+      "mapped": true,
+      "mapping_score": 0.9502439024390243
+    },
+    {
+      "source_path": "string_analysis_test.go",
+      "source_name": "TestFuzzySearch",
+      "target_path": "tests/test_api.rs",
+      "target_name": "test_fuzzy_search",
+      "mapped": true,
+      "mapping_score": 0.9502439024390243
+    },
+    {
+      "source_path": "string_analysis_test.go",
+      "source_name": "TestFuzzySearchThreshold",
+      "target_path": "tests/test_api.rs",
+      "target_name": "test_fuzzy_search_threshold",
+      "mapped": true,
+      "mapping_score": 0.9502439024390243
+    },
+    {
+      "source_path": "string_analysis_test.go",
+      "source_name": "TestFuzzySearchSet",
+      "target_path": "tests/test_api.rs",
+      "target_name": "test_fuzzy_search_set",
+      "mapped": true,
+      "mapping_score": 0.9502439024390243
+    },
+    {
+      "source_path": "string_analysis_test.go",
+      "source_name": "TestFuzzySearchSetThreshold",
+      "target_path": "tests/test_api.rs",
+      "target_name": "test_fuzzy_search_set_threshold",
+      "mapped": true,
+      "mapping_score": 0.9502439024390243
+    },
+    {
+      "source_path": "internal/orderedmap/orderedmap_test.go",
+      "source_name": "TestOrderedMap_Len",
+      "target_path": "src/utils/ordered_map.rs",
+      "target_name": "test_ordered_map_len",
+      "mapped": true,
+      "mapping_score": 0.93625
+    },
+    {
+      "source_path": "internal/orderedmap/orderedmap_test.go",
+      "source_name": "TestOrderedMap_Less",
+      "target_path": "src/utils/ordered_map.rs",
+      "target_name": "test_ordered_map_less",
+      "mapped": true,
+      "mapping_score": 0.93625
+    },
+    {
+      "source_path": "internal/orderedmap/orderedmap_test.go",
+      "source_name": "TestOrderedMap_Swap",
+      "target_path": "src/utils/ordered_map.rs",
+      "target_name": "test_ordered_map_swap",
+      "mapped": true,
+      "mapping_score": 0.93625
+    },
+    {
+      "source_path": "internal/orderedmap/orderedmap_test.go",
+      "source_name": "TestOrderedMap_ToArray",
+      "target_path": "src/utils/ordered_map.rs",
+      "target_name": "test_ordered_map_to_array",
+      "mapped": true,
+      "mapping_score": 0.93625
+    },
+    {
+      "source_path": "internal/orderedmap/orderedmap_test.go",
+      "source_name": "TestOrderedMap_SortByValues",
+      "target_path": "src/utils/ordered_map.rs",
+      "target_name": "test_ordered_map_sort_by_values",
+      "mapped": true,
+      "mapping_score": 0.93625
+    },
+    {
+      "source_path": "internal/utils/utils_test.go",
+      "source_name": "TestMin",
+      "target_path": "src/utils.rs",
+      "target_name": "test_min",
+      "mapped": true,
+      "mapping_score": 0.935813953488372
+    },
+    {
+      "source_path": "internal/utils/utils_test.go",
+      "source_name": "TestMax",
+      "target_path": "src/utils.rs",
+      "target_name": "test_max",
+      "mapped": true,
+      "mapping_score": 0.935813953488372
+    },
+    {
+      "source_path": "internal/utils/utils_test.go",
+      "source_name": "TestEqual",
+      "target_path": "src/utils.rs",
+      "target_name": "test_equal",
+      "mapped": true,
+      "mapping_score": 0.935813953488372
+    },
+    {
+      "source_path": "internal/utils/utils_test.go",
+      "source_name": "TestStringHashMap_AddAll",
+      "target_path": "src/utils.rs",
+      "target_name": "test_string_hash_map_add_all",
+      "mapped": true,
+      "mapping_score": 0.935813953488372
+    },
+    {
+      "source_path": "internal/utils/utils_test.go",
+      "source_name": "TestStringHashMap_ToArray",
+      "target_path": "src/utils.rs",
+      "target_name": "test_string_hash_map_to_array",
+      "mapped": true,
+      "mapping_score": 0.935813953488372
+    }
+  ],
+  "generated_target_tests": []
+}

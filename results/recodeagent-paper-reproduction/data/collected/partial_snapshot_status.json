@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-03T16:54:43.954179Z",
+  "status": "PARTIAL",
+  "frozen_rows": 542,
+  "full_protocol_rows": 708,
+  "pending_rows_at_freeze": 166,
+  "frozen_roots": [
+    {
+      "label": "base-complete",
+      "path": "/opt/codeweaver-experiments/final-shards/base-complete",
+      "rows": 236
+    },
+    {
+      "label": "full-current-18",
+      "path": "/opt/codeweaver-experiments/final-shards/merged-progress/full-current-18",
+      "rows": 118
+    },
+    {
+      "label": "noanalyzer-current-41",
+      "path": "/opt/codeweaver-experiments/final-shards/merged-progress/noanalyzer-current-41",
+      "rows": 89
+    },
+    {
+      "label": "noplanning-current-44",
+      "path": "/opt/codeweaver-experiments/final-shards/merged-progress/noplanning-current-44",
+      "rows": 99
+    }
+  ],
+  "paper_root": "/opt/codeweaver-experiments/final-shards/paper-current-118",
+  "live_runs_root": "/opt/codeweaver-experiments/runs",
+  "infrastructure_failures_root": "/opt/codeweaver-experiments/runs-infrastructure-failures",
+  "variant_counts": {
+    "full": 118,
+    "noanalyzer": 89,
+    "noplanning": 99,
+    "baseagent-condensed": 118,
+    "baseagent-concat": 118
+  },
+  "run_status_counts": {
+    "completed": 523,
+    "failed": 17,
+    "timeout": 2
+  }
+}

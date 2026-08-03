@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-03T01:10:43.551290Z",
+  "protocol": "Merged ReCodeAgent RQ2 AST comparator and generated-test shards",
+  "input_roots": [
+    "/opt/codeweaver-experiments/final-shards/paper-current-117",
+    "/opt/codeweaver-experiments/final-shards/paper-projects/full-tisp"
+  ],
+  "crust_excluded": true,
+  "project_rows": 18,
+  "failures": 0,
+  "expected_static_source_methods": 1472,
+  "observed_static_source_methods": 1472,
+  "expected_runtime_cases": 1484,
+  "observed_runtime_cases": 1484,
+  "mapped_runtime_cases": 933,
+  "generated_target_test_methods": 219,
+  "generated_test_project_rows": 118,
+  "generated_test_failures": 0,
+  "codeweaver_generated_tests_expected": 1546,
+  "codeweaver_generated_tests_executed": 1449,
+  "codeweaver_generated_tests_passed": 1447,
+  "coverage_before_measured_projects": 103,
+  "coverage_after_measured_projects": 103,
+  "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+  "embedding_status": "measured",
+  "complete": true
+}

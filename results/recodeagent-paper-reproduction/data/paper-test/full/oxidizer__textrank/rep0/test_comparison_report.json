@@ -1,0 +1,736 @@
+{
+  "summary": {
+    "total_tests": 8,
+    "both_found": 7,
+    "source_missing": 0,
+    "target_missing": 1,
+    "both_found_pct": 87.5,
+    "params_match_count": 0,
+    "params_mismatch_count": 8,
+    "assertions_match_count": 1,
+    "assertions_mismatch_count": 7,
+    "avg_line_count_source": 10.43,
+    "avg_line_count_target": 9.57,
+    "avg_method_calls_source": 10.43,
+    "avg_method_calls_target": 7.29,
+    "assertion_types_source": {},
+    "assertion_types_target": {
+      "assert_eq!": 12
+    },
+    "assertEquals_summary": {
+      "total_comparable_pairs": 0,
+      "total_matching_assertions": 0,
+      "overall_match_rate": null
+    },
+    "assertion_match_percentages": {},
+    "tests_with_same_assertion_count": 1,
+    "assertion_match_percentages_same_assertion_count": {},
+    "embedding_similarity_status": "measured",
+    "avg_similarity_score": 0.867567,
+    "min_similarity_score": 0.838094,
+    "max_similarity_score": 0.892544,
+    "embedding_similarity_count": 7
+  },
+  "test_pairs": [
+    {
+      "source_test": {
+        "path": "algorithm_test.go",
+        "name": "TestWeightingRelation",
+        "found": true,
+        "signature": "func TestWeightingRelation(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 0,
+        "body": [
+          "func TestWeightingRelation(t *testing.T) {",
+          "\trank := createRank()",
+          "\tdef := NewAlgorithmDefault()",
+          "\tweightDef := def.WeightingRelation(0, 1, rank)",
+          "",
+          "\tassert.Equal(t, float32(2), weightDef)",
+          "",
+          "\tchain := NewAlgorithmChain()",
+          "\tweightChain := chain.WeightingRelation(0, 1, rank)",
+          "",
+          "\tassert.Equal(t, float32(2.01), weightChain)",
+          "",
+          "\tweightChain = chain.WeightingRelation(2, 3, rank)",
+          "",
+          "\tassert.Equal(t, float32(1), weightChain)",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/algorithm_test.rs",
+        "name": "test_weighting_relation",
+        "found": true,
+        "signature": "fn test_weighting_relation() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "fn test_weighting_relation() {",
+          "    let rank = create_rank();",
+          "    let def = AlgorithmDefault::new();",
+          "    let weight_def = def.weighting_relation(0, 1, &rank);",
+          "",
+          "    assert_eq!(2.0, weight_def);",
+          "",
+          "    let chain = AlgorithmChain::new();",
+          "    let weight_chain = chain.weighting_relation(0, 1, &rank);",
+          "",
+          "    assert_eq!(2.01, weight_chain);",
+          "",
+          "    let weight_chain = chain.weighting_relation(2, 3, &rank);",
+          "",
+          "    assert_eq!(1.0, weight_chain);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 0,
+        "assertion_count_target": 3,
+        "param_count_diff": 1,
+        "assertion_count_diff": -3,
+        "line_count_source": 12,
+        "line_count_target": 11,
+        "line_count_diff": 1,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq!": 3
+        },
+        "method_call_count_source": 14,
+        "method_call_count_target": 7,
+        "method_call_diff": 7,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 3,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 3,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 3,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.88285
+      }
+    },
+    {
+      "source_test": {
+        "path": "algorithm_test.go",
+        "name": "TestWeightingHits",
+        "found": true,
+        "signature": "func TestWeightingHits(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 0,
+        "body": [
+          "func TestWeightingHits(t *testing.T) {",
+          "\trank := createRank()",
+          "",
+          "\tdef := NewAlgorithmDefault()",
+          "\tweightDef := def.WeightingHits(0, rank)",
+          "",
+          "\tassert.Equal(t, float32(2), weightDef)",
+          "",
+          "\tchain := NewAlgorithmChain()",
+          "\tweightChain := chain.WeightingHits(0, rank)",
+          "",
+          "\tassert.Equal(t, float32(3), weightChain)",
+          "",
+          "\tweightChain = chain.WeightingHits(2, rank)",
+          "",
+          "\tassert.Equal(t, float32(3), weightChain)",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/algorithm_test.rs",
+        "name": "test_weighting_hits",
+        "found": true,
+        "signature": "fn test_weighting_hits() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "fn test_weighting_hits() {",
+          "    let rank = create_rank();",
+          "",
+          "    let def = AlgorithmDefault::new();",
+          "    let weight_def = def.weighting_hits(0, &rank);",
+          "",
+          "    assert_eq!(2.0, weight_def);",
+          "",
+          "    let chain = AlgorithmChain::new();",
+          "    let weight_chain = chain.weighting_hits(0, &rank);",
+          "",
+          "    assert_eq!(3.0, weight_chain);",
+          "",
+          "    let weight_chain = chain.weighting_hits(2, &rank);",
+          "",
+          "    assert_eq!(3.0, weight_chain);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 0,
+        "assertion_count_target": 3,
+        "param_count_diff": 1,
+        "assertion_count_diff": -3,
+        "line_count_source": 12,
+        "line_count_target": 11,
+        "line_count_diff": 1,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq!": 3
+        },
+        "method_call_count_source": 14,
+        "method_call_count_target": 7,
+        "method_call_diff": 7,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 3,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 3,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.892544
+      }
+    },
+    {
+      "source_test": {
+        "path": "language_test.go",
+        "name": "TestLanguage",
+        "found": true,
+        "signature": "func TestLanguage(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 0,
+        "body": [
+          "func TestLanguage(t *testing.T) {",
+          "\tlang := NewLanguage()",
+          "",
+          "\tlang.SetActiveLanguage(\"hu\")",
+          "\tlang.SetWords(\"hu\", []string{\"word1\"})",
+          "",
+          "\tassert.Equal(t, true, lang.IsStopWord(\"word1\"))",
+          "\tassert.Equal(t, false, lang.IsStopWord(\"word2\"))",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/language_test.rs",
+        "name": "test_language",
+        "found": true,
+        "signature": "fn test_language() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "fn test_language() {",
+          "    let mut lang = LanguageDefault::new();",
+          "",
+          "    lang.set_active_language(\"hu\");",
+          "    lang.set_words(\"hu\", vec![\"word1\".to_string()]);",
+          "",
+          "    assert_eq!(true, lang.is_stop_word(\"word1\"));",
+          "    assert_eq!(false, lang.is_stop_word(\"word2\"));",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 0,
+        "assertion_count_target": 2,
+        "param_count_diff": 1,
+        "assertion_count_diff": -2,
+        "line_count_source": 8,
+        "line_count_target": 7,
+        "line_count_diff": 1,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq!": 2
+        },
+        "method_call_count_source": 9,
+        "method_call_count_target": 7,
+        "method_call_diff": 2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.849853
+      }
+    },
+    {
+      "source_test": {
+        "path": "rank_test.go",
+        "name": "TestGetWordData",
+        "found": true,
+        "signature": "func TestGetWordData(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 0,
+        "body": [
+          "func TestGetWordData(t *testing.T) {",
+          "\tranking := NewRank()",
+          "",
+          "\twords := ranking.GetWordData()",
+          "",
+          "\tassert.Equal(t, 0, len(words))",
+          "",
+          "\tranking.AddNewWord(\"word1\", 0, 1)",
+          "\tranking.AddNewWord(\"word2\", 1, 1)",
+          "",
+          "\tassert.Equal(t, 2, len(words))",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/rank_test.rs",
+        "name": "test_get_word_data",
+        "found": true,
+        "signature": "fn test_get_word_data() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "fn test_get_word_data() {",
+          "    let mut ranking = Rank::new();",
+          "    ",
+          "    let words = ranking.get_word_data();",
+          "    assert_eq!(0, words.len());",
+          "    ",
+          "    ranking.add_new_word(\"word1\", Some(0), 1);",
+          "    ranking.add_new_word(\"word2\", Some(1), 1);",
+          "    ",
+          "    let words = ranking.get_word_data();",
+          "    assert_eq!(2, words.len());",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 0,
+        "assertion_count_target": 2,
+        "param_count_diff": 1,
+        "assertion_count_diff": -2,
+        "line_count_source": 9,
+        "line_count_target": 9,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq!": 2
+        },
+        "method_call_count_source": 10,
+        "method_call_count_target": 10,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.883457
+      }
+    },
+    {
+      "source_test": {
+        "path": "sorting_test.go",
+        "name": "TestFindSentences",
+        "found": true,
+        "signature": "func TestFindSentences(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 0,
+        "body": [
+          "func TestFindSentences(t *testing.T) {",
+          "\tranking := NewRank()",
+          "",
+          "\tsentences := FindSentences(ranking, 999, 1)",
+          "",
+          "\tassert.Equal(t, 0, len(sentences))",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/sorting_test.rs",
+        "name": "test_find_sentences",
+        "found": true,
+        "signature": "fn test_find_sentences() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_find_sentences() {",
+          "    let ranking = Rank::new();",
+          "    let sentences = find_sentences(&ranking, 999, 1);",
+          "    assert_eq!(0, sentences.len());",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 0,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": -1,
+        "line_count_source": 6,
+        "line_count_target": 5,
+        "line_count_diff": 1,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 4,
+        "method_call_diff": 2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.8746
+      }
+    },
+    {
+      "source_test": {
+        "path": "textrank_test.go",
+        "name": "TestOnSingleThread",
+        "found": true,
+        "signature": "func TestOnSingleThread(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 0,
+        "body": [
+          "func TestOnSingleThread(t *testing.T) {",
+          "\trawText := \"Over the past fortnight we asked you to nominate your top extensions for the GNOME desktop. And you did just that. Having now sifted through the hundreds of entries, we\u2019re ready to reveal your favourite GNOME Shell extensions. GNOME 3 (which is more commonly used with the GNOME Shell) has an extension framework that lets developers (and users) extend, build on, and shape how the desktop looks, acts and functions. Dash to Dock takes the GNOME Dash \u2014 this is the \u2018favourites bar\u2019 that appears on the left-hand side of the screen in the Activities overlay \u2014 and transforms it into a desktop dock. And just like Plank, Docky or AWN you can add app launchers, rearrange them, and use them to minimise, restore and switch between app windows. Dash to Dock has many of the common \u201cDock\u201d features you\u2019d expect, including autohide and intellihide, a fixed-width mode, adjustable icon size, and custom themes. My biggest pet peeve with GNOME Shell is its legacy app tray that hides in the bottom left of the screen. All extraneous non-system applets, indicators and tray icons hide down here. This makes it a little harder to use applications that rely on a system tray presence, like Skype, Franz, Telegram, and Dropbox. TopIcons Plus is the quick way to put GNOME system tray icons back where they belong: on show and in reach. The extension moves legacy tray icons from the bottom left of Gnome Shell to the right-hand side of the top panel. A well-stocked settings panel lets you adjust icon opacity, color, padding, size and tray position. Dive into the settings to adjust the sizing, styling and positioning of icons. Like the popular daily stimulant of choice, the Caffeine GNOME extension keeps your computer awake. It couldn\u2019t be simpler to use: just click the empty mug icon. An empty cup means you\u2019re using normal auto suspend rules \u2013 e.g., a screensaver \u2013 while a freshly brewed cup of coffee means auto suspend and screensaver are turned off. The Caffeine GNOME extension supports GNOME Shell 3.4 or later. Familiar with applications like Guake and Tilda? If so, you\u2019ll instantly see the appeal of the (superbly named) Drop Down Terminal GNOME extension. When installed just tap the key above the tab key (though it can be changed to almost any key you wish) to get instant access to the command line. Want to speed up using workspaces? This simple tool lets you do just that. Once installed you can quickly switch between workspaces by scrolling over the top panel - no need to enter the Activities Overlay!\"",
+          "",
+          "\ttr := NewTextRank()",
+          "\trule := NewDefaultRule()",
+          "\tlanguage := NewDefaultLanguage()",
+          "\talgorithmDef := NewDefaultAlgorithm()",
+          "",
+          "\ttr.Populate(rawText, language, rule)",
+          "\ttr.Ranking(algorithmDef)",
+          "",
+          "\tassertTheGnomeTestTextDefault(t, tr)",
+          "",
+          "\talgorithmChain := NewChainAlgorithm()",
+          "\ttr.Ranking(algorithmChain)",
+          "",
+          "\tassertTheGnomeTestTextChain(t, tr)",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/textrank_test.rs",
+        "name": "test_on_single_thread",
+        "found": true,
+        "signature": "fn test_on_single_thread() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 0,
+        "body": [
+          "fn test_on_single_thread() {",
+          "    let mut tr = TextRank::new();",
+          "    let rule = new_default_rule();",
+          "    let language = new_default_language();",
+          "    let algorithm_def = new_default_algorithm();",
+          "",
+          "    tr.populate(GNOME_TEXT, &language, &rule);",
+          "    tr.ranking(&algorithm_def);",
+          "",
+          "    assert_the_gnome_test_text_default(&tr);",
+          "",
+          "    let algorithm_chain = new_chain_algorithm();",
+          "    tr.ranking(&algorithm_chain);",
+          "",
+          "    assert_the_gnome_test_text_chain(&tr);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 0,
+        "assertion_count_target": 0,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 14,
+        "line_count_target": 12,
+        "line_count_diff": 2,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 15,
+        "method_call_count_target": 11,
+        "method_call_diff": 4,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.851573
+      }
+    },
+    {
+      "source_test": {
+        "path": "textrank_test.go",
+        "name": "TestOnMultiThread",
+        "found": true,
+        "signature": "func TestOnMultiThread(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 0,
+        "body": [
+          "func TestOnMultiThread(t *testing.T) {",
+          "\texitTest := false",
+          "\tstream := make(chan string)",
+          "\ttr := NewTextRank()",
+          "",
+          "\tgo func(tr *TextRank) {",
+          "\t\ti := 1",
+          "",
+          "\t\tfor {",
+          "\t\t\trawText := <-stream",
+          "",
+          "\t\t\trule := NewDefaultRule()",
+          "\t\t\tlanguage := NewDefaultLanguage()",
+          "\t\t\talgorithm := NewDefaultAlgorithm()",
+          "",
+          "\t\t\ttr.Populate(rawText, language, rule)",
+          "\t\t\ttr.Ranking(algorithm)",
+          "",
+          "\t\t\tif i == 5 {",
+          "\t\t\t\texitTest = true",
+          "\t\t\t}",
+          "",
+          "\t\t\ti++",
+          "\t\t}",
+          "\t}(tr)",
+          "",
+          "\tgo func() {",
+          "\t\trawTexts := []string{",
+          "\t\t\t\"Over the past fortnight we asked you to nominate your top extensions for the GNOME desktop.\",",
+          "\t\t\t\"And you did just that. Having now sifted through the hundreds of entries, we\u2019re ready to reveal your favourite GNOME Shell extensions. GNOME 3 (which is more commonly used with the GNOME Shell) has an extension framework that lets developers (and users) extend, build on, and shape how the desktop looks, acts and functions.\",",
+          "\t\t\t\"Dash to Dock takes the GNOME Dash \u2014 this is the \u2018favourites bar\u2019 that appears on the left-hand side of the screen in the Activities overlay \u2014 and transforms it into a desktop dock. And just like Plank, Docky or AWN you can add app launchers, rearrange them, and use them to minimise, restore and switch between app windows. Dash to Dock has many of the common \u201cDock\u201d features you\u2019d expect, including autohide and intellihide, a fixed-width mode, adjustable icon size, and custom themes.\",",
+          "\t\t\t\"My biggest pet peeve with GNOME Shell is its legacy app tray that hides in the bottom left of the screen. All extraneous non-system applets, indicators and tray icons hide down here. This makes it a little harder to use applications that rely on a system tray presence, like Skype, Franz, Telegram, and Dropbox. TopIcons Plus is the quick way to put GNOME system tray icons back where they belong: on show and in reach. The extension moves legacy tray icons from the bottom left of Gnome Shell to the right-hand side of the top panel. A well-stocked settings panel lets you adjust icon opacity, color, padding, size and tray position. Dive into the settings to adjust the sizing, styling and positioning of icons. Like the popular daily stimulant of choice, the Caffeine GNOME extension keeps your computer awake.\",",
+          "\t\t\t\"It couldn\u2019t be simpler to use: just click the empty mug icon. An empty cup means you\u2019re using normal auto suspend rules \u2013 e.g., a screensaver \u2013 while a freshly brewed cup of coffee means auto suspend and screensaver are turned off. The Caffeine GNOME extension supports GNOME Shell 3.4 or later. Familiar with applications like Guake and Tilda? If so, you\u2019ll instantly see the appeal of the (superbly named) Drop Down Terminal GNOME extension. When installed just tap the key above the tab key (though it can be changed to almost any key you wish) to get instant access to the command line. Want to speed up using workspaces? This simple tool lets you do just that. Once installed you can quickly switch between workspaces by scrolling over the top panel - no need to enter the Activities Overlay!\",",
+          "\t\t}",
+          "",
+          "\t\tfor _, rawText := range rawTexts {",
+          "\t\t\tstream <- rawText",
+          "\t\t}",
+          "\t}()",
+          "",
+          "\tfor !exitTest {",
+          "\t\ttime.Sleep(time.Second * 1)",
+          "\t}",
+          "",
+          "\tassertTheGnomeTestTextDefault(t, tr)",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "tokenizer_test.go",
+        "name": "TestTokenizeText",
+        "found": true,
+        "signature": "func TestTokenizeText(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 0,
+        "body": [
+          "func TestTokenizeText(t *testing.T) {",
+          "\trule := NewRule()",
+          "",
+          "\ttext := TokenizeText(",
+          "\t\t\"This is the right sentence. This sentence without end mark\",",
+          "\t\trule,",
+          "\t)",
+          "",
+          "\tassert.Equal(t,",
+          "\t\t\" This sentence without end mark\",",
+          "\t\ttext.parsedSentences[1].original,",
+          "\t)",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "tests/tokenizer_test.rs",
+        "name": "test_tokenize_text",
+        "found": true,
+        "signature": "fn test_tokenize_text() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "fn test_tokenize_text() {",
+          "    let rule = RuleDefault::new();",
+          "    ",
+          "    let text = tokenize_text(",
+          "        \"This is the right sentence. This sentence without end mark\",",
+          "        &rule,",
+          "    );",
+          "    ",
+          "    let sentences = text.get_sentences();",
+          "    assert_eq!(",
+          "        \" This sentence without end mark\",",
+          "        sentences[1].get_original()",
+          "    );",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 0,
+        "assertion_count_target": 1,
+        "param_count_diff": 1,
+        "assertion_count_diff": -1,
+        "line_count_source": 12,
+        "line_count_target": 12,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq!": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 5,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.838094
+      }
+    }
+  ]
+}

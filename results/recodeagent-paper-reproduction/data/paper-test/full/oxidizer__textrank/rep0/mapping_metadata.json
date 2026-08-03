@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "project_id": "oxidizer__textrank",
+  "paper_runtime_tests": 8,
+  "static_source_methods": 8,
+  "mappings": [
+    {
+      "source_path": "algorithm_test.go",
+      "source_name": "TestWeightingRelation",
+      "target_path": "tests/algorithm_test.rs",
+      "target_name": "test_weighting_relation",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "algorithm_test.go",
+      "source_name": "TestWeightingHits",
+      "target_path": "tests/algorithm_test.rs",
+      "target_name": "test_weighting_hits",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "language_test.go",
+      "source_name": "TestLanguage",
+      "target_path": "tests/language_test.rs",
+      "target_name": "test_language",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "rank_test.go",
+      "source_name": "TestGetWordData",
+      "target_path": "tests/rank_test.rs",
+      "target_name": "test_get_word_data",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "sorting_test.go",
+      "source_name": "TestFindSentences",
+      "target_path": "tests/sorting_test.rs",
+      "target_name": "test_find_sentences",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "textrank_test.go",
+      "source_name": "TestOnSingleThread",
+      "target_path": "tests/textrank_test.rs",
+      "target_name": "test_on_single_thread",
+      "mapped": true,
+      "mapping_score": 1.0
+    },
+    {
+      "source_path": "textrank_test.go",
+      "source_name": "TestOnMultiThread",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "tokenizer_test.go",
+      "source_name": "TestTokenizeText",
+      "target_path": "tests/tokenizer_test.rs",
+      "target_name": "test_tokenize_text",
+      "mapped": true,
+      "mapping_score": 1.0
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "tests/sorting_test.rs",
+      "name": "test_find_phrases_empty"
+    },
+    {
+      "path": "tests/sorting_test.rs",
+      "name": "test_find_sentences_by_phrases_empty"
+    },
+    {
+      "path": "tests/sorting_test.rs",
+      "name": "test_find_sentences_by_qty_empty"
+    },
+    {
+      "path": "tests/sorting_test.rs",
+      "name": "test_find_sentences_by_relation_empty"
+    },
+    {
+      "path": "tests/sorting_test.rs",
+      "name": "test_find_sentences_from_empty"
+    },
+    {
+      "path": "tests/sorting_test.rs",
+      "name": "test_find_single_words_empty"
+    },
+    {
+      "path": "tests/tokenizer_test.rs",
+      "name": "test_find_words_basic"
+    },
+    {
+      "path": "tests/tokenizer_test.rs",
+      "name": "test_tokenize_text_multiple_sentences"
+    },
+    {
+      "path": "tests/tokenizer_test.rs",
+      "name": "test_word_separators"
+    }
+  ]
+}

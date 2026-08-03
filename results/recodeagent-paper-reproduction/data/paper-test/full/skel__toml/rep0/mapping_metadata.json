@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__toml",
+  "paper_runtime_tests": 12,
+  "static_source_methods": 12,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_bug_148",
+      "target_path": "test.js",
+      "target_name": "test_bug_148",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test__dict",
+      "target_path": "test.js",
+      "target_name": "test__dict",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_dict_decoder",
+      "target_path": "test.js",
+      "target_name": "test_dict_decoder",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_array_sep",
+      "target_path": "test.js",
+      "target_name": "test_array_sep",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_tuple",
+      "target_path": "test.js",
+      "target_name": "test_tuple",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_commutativity",
+      "target_path": "test.js",
+      "target_name": "test_commutativity",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_comment_preserve_decoder_encoder",
+      "target_path": "test.js",
+      "target_name": "test_comment_preserve_decoder_encoder",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test",
+      "target_path": "test.js",
+      "target_name": "additional_test",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test2",
+      "target_path": "test.js",
+      "target_name": "additional_test2",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test3",
+      "target_path": "test.js",
+      "target_name": "additional_test3",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test4",
+      "target_path": "test.js",
+      "target_name": "additional_test4",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test5",
+      "target_path": "test.js",
+      "target_name": "additional_test5",
+      "mapped": true,
+      "mapping_score": 0.9314285714285714
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "test.js",
+      "name": "test_array_basic"
+    },
+    {
+      "path": "test.js",
+      "name": "test_array_encoding"
+    }
+  ]
+}

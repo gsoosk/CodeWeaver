@@ -1,0 +1,2378 @@
+{
+  "schema_version": 1,
+  "project_id": "alphatrans__commons-csv",
+  "paper_runtime_tests": 298,
+  "static_source_methods": 286,
+  "mappings": [
+    {
+      "source_path": "org.apache.commons.csv.CSVFileParserTest",
+      "source_name": "testCSVFile",
+      "target_path": "tests/test_csv_file_parser.py",
+      "target_name": "test_csv_file",
+      "mapped": true,
+      "mapping_score": 0.9429508196721311
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFileParserTest",
+      "source_name": "testCSVUrl",
+      "target_path": "tests/test_csv_file_parser.py",
+      "target_name": "test_csv_url",
+      "mapped": true,
+      "mapping_score": 0.9429508196721311
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testDefault",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_default",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testExcel",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_excel",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testMongoDbCsv",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_mongodb_csv",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testMongoDbTsv",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_mongodb_tsv",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testMySQL",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_mysql",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testOracle",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_oracle",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testPostgreSqlCsv",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_postgresql_csv",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testPostgreSqlText",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_postgresql_text",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testRFC4180",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_rfc4180",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatPredefinedTest",
+      "source_name": "testTDF",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_tdf",
+      "mapped": true,
+      "mapping_score": 0.9523287671232876
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testDelimiterEmptyStringThrowsException1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testDelimiterSameAsCommentStartThrowsException1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testDelimiterSameAsCommentStartThrowsException_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testDelimiterSameAsEscapeThrowsException1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testDelimiterSameAsEscapeThrowsException_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testDelimiterSameAsRecordSeparatorThrowsException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEquals",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_equals",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsCommentStart",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_equals_comment_start",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsCommentStart_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsDelimiter",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_equals_delimiter",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsEscape",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsEscape_Deprecated",
+      "target_path": "tests/test_lexer.py",
+      "target_name": "test_escaped_characters",
+      "mapped": true,
+      "mapping_score": 0.5812939643942684
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsHash",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsIgnoreEmptyLines",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsIgnoreEmptyLines_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsIgnoreSurroundingSpaces",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_ignore_surrounding_spaces",
+      "mapped": true,
+      "mapping_score": 0.8463396226415094
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsIgnoreSurroundingSpaces_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsLeftNoQuoteRightQuote",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsLeftNoQuoteRightQuote_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsNoQuotes",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsNoQuotes_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsNullString",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsNullString_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsOne",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_header",
+      "mapped": true,
+      "mapping_score": 0.5899917965545529
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsQuoteChar",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_equals_quote_char",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsQuoteChar_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsQuotePolicy",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsQuotePolicy_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsRecordSeparator",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_record_separator",
+      "mapped": true,
+      "mapping_score": 0.8143396226415094
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsRecordSeparator_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsSkipHeaderRecord_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEqualsWithNull",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEscapeSameAsCommentStartThrowsException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEscapeSameAsCommentStartThrowsExceptionForWrapperType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEscapeSameAsCommentStartThrowsExceptionForWrapperType_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testEscapeSameAsCommentStartThrowsException_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testFormat",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "_test_format",
+      "mapped": true,
+      "mapping_score": 0.9295238095238095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testFormatThrowsNullPointerException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testGetAllowDuplicateHeaderNames",
+      "target_path": "tests/test_csv_duplicate_header.py",
+      "target_name": "test_get_allow_duplicate_header_names",
+      "mapped": true,
+      "mapping_score": 0.895483870967742
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testGetDuplicateHeaderMode",
+      "target_path": "tests/test_csv_duplicate_header.py",
+      "target_name": "test_get_duplicate_header_mode",
+      "mapped": true,
+      "mapping_score": 0.895483870967742
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testHashCodeAndWithIgnoreHeaderCase",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testNewFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testPrintRecord",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testPrintRecordEmpty",
+      "target_path": "tests/test_io_utils.py",
+      "target_name": "test_copy0_empty",
+      "mapped": true,
+      "mapping_score": 0.5882352941176471
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testPrintWithEscapesEndWithCRLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testPrintWithEscapesEndWithoutCRLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testPrintWithQuoteModeIsNONE",
+      "target_path": "tests/test_constants_and_enums.py",
+      "target_name": "test_quote_mode_distinct",
+      "mapped": true,
+      "mapping_score": 0.5904315824690533
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testPrintWithQuotes",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testPrintWithoutQuotes",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testQuoteCharSameAsCommentStartThrowsException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testQuoteCharSameAsCommentStartThrowsExceptionForWrapperType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testQuoteCharSameAsCommentStartThrowsExceptionForWrapperType_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testQuoteCharSameAsCommentStartThrowsException_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testQuoteCharSameAsDelimiterThrowsException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testQuoteCharSameAsDelimiterThrowsException_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testQuotePolicyNoneWithoutEscapeThrowsException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testQuotePolicyNoneWithoutEscapeThrowsException_Deprecated",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testRFC4180",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testSerialization",
+      "target_path": "tests/test_token.py",
+      "target_name": "test_token_initialization",
+      "mapped": true,
+      "mapping_score": 0.6795918367346939
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testToString",
+      "target_path": "tests/test_token.py",
+      "target_name": "test_token_str_eof",
+      "mapped": true,
+      "mapping_score": 0.6062585034013606
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testToStringAndWithCommentMarkerTakingCharacter",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testTrim",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithCommentStart",
+      "target_path": "tests/test_lexer.py",
+      "target_name": "test_comment_handling",
+      "mapped": true,
+      "mapping_score": 0.5611302982731554
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithCommentStartCRThrowsException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithDelimiter",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_delimiter",
+      "mapped": true,
+      "mapping_score": 0.8170062893081762
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithDelimiterLFThrowsException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithEmptyDuplicates",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithEscape",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_escape",
+      "mapped": true,
+      "mapping_score": 0.7876729559748428
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithEscapeCRThrowsExceptions",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithHeaderComments",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_header_comments",
+      "mapped": true,
+      "mapping_score": 0.8097777777777778
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithIgnoreEmptyLines",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithIgnoreSurround",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithNullString",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_null_string",
+      "mapped": true,
+      "mapping_score": 0.8243396226415094
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithQuoteChar",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithQuoteLFThrowsException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithQuotePolicy",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithRecordSeparatorCR",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithRecordSeparatorCRLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithRecordSeparatorLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVFormatTest",
+      "source_name": "testWithSystemRecordSeparator",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testBackslashEscaping",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_backslash_escaping",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testBackslashEscaping2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCSV141CSVFormat_DEFAULT",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCSV141CSVFormat_INFORMIX_UNLOAD",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_informix_unload",
+      "mapped": true,
+      "mapping_score": 0.6364145658263306
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCSV141CSVFormat_INFORMIX_UNLOAD_CSV",
+      "target_path": "tests/test_csv_format_predefined.py",
+      "target_name": "test_informix_unload_csv",
+      "mapped": true,
+      "mapping_score": 0.6636591478696742
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCSV141CSVFormat_ORACLE",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCSV141CSVFormat_POSTGRESQL_CSV",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCSV141RFC4180",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCSV235",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCSV57",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCarriageReturnEndings",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_carriage_return_endings",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testCarriageReturnLineFeedEndings",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_carriage_return_line_feed_endings",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testDefaultFormat",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_default_format",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testEmptyFile",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_empty_file",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testEmptyLineBehaviorCSV",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testEmptyLineBehaviorExcel",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testEmptyString",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_empty_string",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testEndOfFileBehaviorCSV",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testEndOfFileBehaviorExcel",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testExcelFormat1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testExcelFormat2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testFirstEndOfLineCr",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testFirstEndOfLineCrLf",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testFirstEndOfLineLf",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testForEach",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_header",
+      "mapped": true,
+      "mapping_score": 0.5571967654986523
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetLine",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_get_line",
+      "mapped": true,
+      "mapping_score": 0.9343396226415095
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetLineNumberWithCR",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetLineNumberWithCRLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetLineNumberWithLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetOneLine",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetOneLineOneParser",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetRecordNumberWithCR",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_get_record_number",
+      "mapped": true,
+      "mapping_score": 0.8143396226415094
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetRecordNumberWithCRLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetRecordNumberWithLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetRecordPositionWithCRLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetRecordPositionWithLF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetRecordWithMultiLineValues",
+      "target_path": "tests/test_io_utils.py",
+      "target_name": "test_copy_multiline",
+      "mapped": true,
+      "mapping_score": 0.5575990396158463
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testGetRecords",
+      "target_path": "tests/test_token.py",
+      "target_name": "test_token_str_eorecord",
+      "mapped": true,
+      "mapping_score": 0.6407683073229292
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testIgnoreEmptyLines",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_ignore_empty_lines",
+      "mapped": true,
+      "mapping_score": 0.8981132075471698
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testInvalidFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testIterator",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testIteratorSequenceBreaking",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testLineFeedEndings",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testMultipleIterators",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testNewCSVParserNullReaderFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testNewCSVParserReaderNullFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testNoHeaderMap",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_get_header_map",
+      "mapped": true,
+      "mapping_score": 0.7924041387705418
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testNotValueCSV",
+      "target_path": "tests/test_constants_and_enums.py",
+      "target_name": "test_quote_mode_values",
+      "mapped": true,
+      "mapping_score": 0.6369141755062682
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseFileNullFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseNullFileFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseNullPathFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseNullStringFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseNullUrlCharsetFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseStringNullFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseUrlCharsetNullFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseWithDelimiterStringWithEscape",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseWithDelimiterStringWithQuote",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseWithDelimiterWithEscape",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseWithDelimiterWithQuote",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseWithQuoteThrowsException",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParseWithQuoteWithEscape",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testParserUrlNullCharsetFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testRoundtrip",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVParserTest",
+      "source_name": "testStream",
+      "target_path": "tests/test_token.py",
+      "target_name": "test_token_str_empty",
+      "mapped": true,
+      "mapping_score": 0.6062585034013606
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testCRComment",
+      "target_path": "tests/test_token.py",
+      "target_name": "test_token_str_comment",
+      "mapped": true,
+      "mapping_score": 0.6792
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testCSV135",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testCSV259",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testDelimeterQuoteNone",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_quote_none",
+      "mapped": true,
+      "mapping_score": 0.7104415584415584
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testDelimeterQuoted",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_delimiter_quoted",
+      "mapped": true,
+      "mapping_score": 0.8904114832535884
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testDelimeterStringQuoteNone",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testDelimeterStringQuoted",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testDelimiterEscaped",
+      "target_path": "tests/test_lexer.py",
+      "target_name": "test_various_delimiters",
+      "mapped": true,
+      "mapping_score": 0.6201756097560976
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testDelimiterPlain",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_delimiter_plain",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testDelimiterStringEscaped",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testDisabledComment",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testDontQuoteEuroFirstChar",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEolEscaped",
+      "target_path": "tests/issues/test_jira_csv_290.py",
+      "target_name": "_test_helper",
+      "mapped": true,
+      "mapping_score": 0.6021505376344086
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEolPlain",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_eol_plain",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEolQuoted",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_eol_quoted",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeBackslash1",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_escape_backslash1",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeBackslash2",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_escape_backslash2",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeBackslash3",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_escape_backslash3",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeBackslash4",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_escape_backslash4",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeBackslash5",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_escape_backslash5",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeNull1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeNull2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeNull3",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeNull4",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testEscapeNull5",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testExcelPrintAllArrayOfArrays",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testExcelPrintAllArrayOfLists",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testExcelPrintAllIterableOfArrays",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testExcelPrintAllIterableOfLists",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testExcelPrinter1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testExcelPrinter2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testHeaderNotSet",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_header_not_set",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testInvalidFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testJira135_part1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testJira135_part3",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMongoDbCsvBasic",
+      "target_path": "tests/test_io_utils.py",
+      "target_name": "test_copy0_basic",
+      "mapped": true,
+      "mapping_score": 0.5517948717948717
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMongoDbCsvCommaInValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMongoDbCsvDoubleQuoteInValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMongoDbCsvTabInValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMongoDbTsvBasic",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMongoDbTsvCommaInValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMongoDbTsvTabInValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMultiLineComment",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_multi_line_comment",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMySqlNullOutput",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testMySqlNullStringDefault",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testNewCsvPrinterAppendableNullFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testNewCsvPrinterNullAppendableFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testNotFlushable",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testParseCustomNullValues",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPlainEscaped",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPlainPlain",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPlainQuoted",
+      "target_path": "tests/test_csv_format.py",
+      "target_name": "test_quote_mode",
+      "mapped": true,
+      "mapping_score": 0.6463492063492063
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPostgreSqlNullStringDefaultCsv",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPostgreSqlNullStringDefaultText",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrint",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintCSVParser",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintCSVRecord",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintCSVRecords",
+      "target_path": "tests/test_csv_parser.py",
+      "target_name": "test_csv_record_methods",
+      "mapped": true,
+      "mapping_score": 0.6762393162393162
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintCustomNullValues",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintNullValues",
+      "target_path": "tests/test_token.py",
+      "target_name": "test_token_type_enum_values",
+      "mapped": true,
+      "mapping_score": 0.6058666666666667
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintOnePositiveInteger",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintReaderWithoutQuoteToAppendable",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintReaderWithoutQuoteToWriter",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintRecordStream",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrintToPathWithDefaultCharset",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrinter1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrinter2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrinter3",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrinter4",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrinter5",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrinter6",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testPrinter7",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testQuoteAll",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_quote_all",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testQuoteCommaFirstChar",
+      "target_path": "tests/test_lexer.py",
+      "target_name": "test_quoted_fields",
+      "mapped": true,
+      "mapping_score": 0.5607384615384615
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testQuoteNonNumeric",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_quote_non_numeric",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testRandomDefault",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testRandomExcel",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testRandomMySql",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testRandomPostgreSqlText",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testRandomRfc4180",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testRandomTdf",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testSingleLineComment",
+      "target_path": "tests/test_csv_printer.py",
+      "target_name": "test_single_line_comment",
+      "mapped": true,
+      "mapping_score": 0.9367272727272727
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testSingleQuoteQuoted",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testTrailingDelimiterOnTwoColumns",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testTrimOffOneColumn",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testTrimOnOneColumn",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.csv.CSVPrinterTest",
+      "source_name": "testTrimOnTwoColumns",
+      "target_path": "tests/test_constants_and_enums.py",
+      "target_name": "test_string_constants",
+      "mapped": true,
+      "mapping_score": 0.5570223325062035
+    },
+    {
+      "source_path": "org.apache.commons.csv.ExtendedBufferedReaderTest",
+      "source_name": "testEmptyInput",
+      "target_path": "tests/test_extended_buffered_reader.py",
+      "target_name": "test_empty_input",
+      "mapped": true,
+      "mapping_score": 0.9559493670886076
+    },
+    {
+      "source_path": "org.apache.commons.csv.ExtendedBufferedReaderTest",
+      "source_name": "testReadChar",
+      "target_path": "tests/test_extended_buffered_reader.py",
+      "target_name": "test_read_char",
+      "mapped": true,
+      "mapping_score": 0.9559493670886076
+    },
+    {
+      "source_path": "org.apache.commons.csv.ExtendedBufferedReaderTest",
+      "source_name": "testReadLine",
+      "target_path": "tests/test_extended_buffered_reader.py",
+      "target_name": "test_read_line",
+      "mapped": true,
+      "mapping_score": 0.9559493670886076
+    },
+    {
+      "source_path": "org.apache.commons.csv.ExtendedBufferedReaderTest",
+      "source_name": "testReadLookahead1",
+      "target_path": "tests/test_extended_buffered_reader.py",
+      "target_name": "test_read_lookahead1",
+      "mapped": true,
+      "mapping_score": 0.9559493670886076
+    },
+    {
+      "source_path": "org.apache.commons.csv.ExtendedBufferedReaderTest",
+      "source_name": "testReadLookahead2",
+      "target_path": "tests/test_extended_buffered_reader.py",
+      "target_name": "test_read_lookahead2",
+      "mapped": true,
+      "mapping_score": 0.9559493670886076
+    },
+    {
+      "source_path": "org.apache.commons.csv.ExtendedBufferedReaderTest",
+      "source_name": "testReadingInDifferentBuffer",
+      "target_path": "tests/test_extended_buffered_reader.py",
+      "target_name": "test_reading_in_different_buffer",
+      "mapped": true,
+      "mapping_score": 0.9559493670886076
+    },
+    {
+      "source_path": "org.apache.commons.csv.IOUtilsTest",
+      "source_name": "testRethrow",
+      "target_path": "tests/test_io_utils.py",
+      "target_name": "test_rethrow",
+      "mapped": true,
+      "mapping_score": 0.9289795918367347
+    },
+    {
+      "source_path": "org.apache.commons.csv.LexerTest",
+      "source_name": "testEscapingAtEOF",
+      "target_path": "tests/test_lexer.py",
+      "target_name": "test_escaping_at_eof",
+      "mapped": true,
+      "mapping_score": 0.9226666666666666
+    },
+    {
+      "source_path": "org.apache.commons.csv.LexerTest",
+      "source_name": "testIsMetaCharCommentStart",
+      "target_path": "tests/test_lexer.py",
+      "target_name": "test_is_meta_char_comment_start",
+      "mapped": true,
+      "mapping_score": 0.9226666666666666
+    },
+    {
+      "source_path": "org.apache.commons.csv.LexerTest",
+      "source_name": "testReadEscapeBackspace",
+      "target_path": "tests/test_lexer.py",
+      "target_name": "test_read_escape_backspace",
+      "mapped": true,
+      "mapping_score": 0.9226666666666666
+    },
+    {
+      "source_path": "org.apache.commons.csv.LexerTest",
+      "source_name": "testReadEscapeFF",
+      "target_path": "tests/test_lexer.py",
+      "target_name": "test_read_escape_ff",
+      "mapped": true,
+      "mapping_score": 0.9226666666666666
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv148Test",
+      "source_name": "testWithIgnoreSurroundingSpacesEmpty",
+      "target_path": "tests/issues/test_jira_csv_148.py",
+      "target_name": "test_with_ignore_surrounding_spaces_empty",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv148Test",
+      "source_name": "testWithTrimEmpty",
+      "target_path": "tests/issues/test_jira_csv_148.py",
+      "target_name": "test_with_trim_empty",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv203Test",
+      "source_name": "testQuoteModeAll",
+      "target_path": "tests/issues/test_jira_csv_203.py",
+      "target_name": "test_quote_mode_all",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv203Test",
+      "source_name": "testQuoteModeAllNonNull",
+      "target_path": "tests/issues/test_jira_csv_203.py",
+      "target_name": "test_quote_mode_all_non_null",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv203Test",
+      "source_name": "testQuoteModeMinimal",
+      "target_path": "tests/issues/test_jira_csv_203.py",
+      "target_name": "test_quote_mode_minimal",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv203Test",
+      "source_name": "testQuoteModeNonNumeric",
+      "target_path": "tests/issues/test_jira_csv_203.py",
+      "target_name": "test_quote_mode_non_numeric",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv203Test",
+      "source_name": "testWithEmptyValues",
+      "target_path": "tests/issues/test_jira_csv_203.py",
+      "target_name": "test_with_empty_values",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv203Test",
+      "source_name": "testWithoutNullString",
+      "target_path": "tests/issues/test_jira_csv_203.py",
+      "target_name": "test_without_null_string",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv203Test",
+      "source_name": "testWithoutQuoteMode",
+      "target_path": "tests/issues/test_jira_csv_203.py",
+      "target_name": "test_without_quote_mode",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv248Test",
+      "source_name": "testJiraCsv248",
+      "target_path": "tests/issues/test_jira_csv_248.py",
+      "target_name": "test_jira_csv_248",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv249Test",
+      "source_name": "testJiraCsv249",
+      "target_path": "tests/issues/test_jira_csv_249.py",
+      "target_name": "test_jira_csv_249",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv253Test",
+      "source_name": "testHandleAbsentValues",
+      "target_path": "tests/issues/test_jira_csv_253.py",
+      "target_name": "test_handle_absent_values",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv263Test",
+      "source_name": "testPrintFromReaderWithQuotes",
+      "target_path": "tests/issues/test_jira_csv_263.py",
+      "target_name": "test_print_from_reader_with_quotes",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv271Test",
+      "source_name": "testJiraCsv271_withArray",
+      "target_path": "tests/issues/test_jira_csv_271.py",
+      "target_name": "test_jira_csv_271_with_array",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv271Test",
+      "source_name": "testJiraCsv271_withList",
+      "target_path": "tests/issues/test_jira_csv_271.py",
+      "target_name": "test_jira_csv_271_with_list",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithABADelimiter",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_aba_delimiter",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithDoublePipeDelimiter",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_double_pipe_delimiter",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithDoublePipeDelimiterDoubleCharValue",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_double_pipe_delimiter_double_char_value",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithDoublePipeDelimiterEndsWithDelimiter",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_double_pipe_delimiter_ends_with_delimiter",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithDoublePipeDelimiterQuoted",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_double_pipe_delimiter_quoted",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithSinglePipeDelimiterEndsWithDelimiter",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_single_pipe_delimiter_ends_with_delimiter",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithTriplePipeDelimiter",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_triple_pipe_delimiter",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithTwoCharDelimiter1",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_two_char_delimiter_1",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithTwoCharDelimiter2",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_two_char_delimiter_2",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithTwoCharDelimiter3",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_two_char_delimiter_3",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithTwoCharDelimiter4",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_two_char_delimiter_4",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv288Test",
+      "source_name": "testParseWithTwoCharDelimiterEndsWithDelimiter",
+      "target_path": "tests/issues/test_jira_csv_288.py",
+      "target_name": "test_parse_with_two_char_delimiter_ends_with_delimiter",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv290Test",
+      "source_name": "testPostgresqlCsv",
+      "target_path": "tests/issues/test_jira_csv_290.py",
+      "target_name": "test_postgresql_csv",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv290Test",
+      "source_name": "testPostgresqlText",
+      "target_path": "tests/issues/test_jira_csv_290.py",
+      "target_name": "test_postgresql_text",
+      "mapped": true,
+      "mapping_score": 0.9470588235294117
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv93Test",
+      "source_name": "testWithNotSetNullString",
+      "target_path": "tests/issues/test_jira_csv_93.py",
+      "target_name": "test_with_not_set_null_string",
+      "mapped": true,
+      "mapping_score": 0.9454545454545454
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv93Test",
+      "source_name": "testWithSetNullStringEmptyString",
+      "target_path": "tests/issues/test_jira_csv_93.py",
+      "target_name": "test_with_set_null_string_empty_string",
+      "mapped": true,
+      "mapping_score": 0.9454545454545454
+    },
+    {
+      "source_path": "org.apache.commons.csv.issues.JiraCsv93Test",
+      "source_name": "testWithSetNullStringNULL",
+      "target_path": "tests/issues/test_jira_csv_93.py",
+      "target_name": "test_with_set_null_string_null",
+      "mapped": true,
+      "mapping_score": 0.9454545454545454
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "tests/test_constants_and_enums.py",
+      "name": "test_character_constants"
+    },
+    {
+      "path": "tests/test_constants_and_enums.py",
+      "name": "test_duplicate_header_mode_distinct"
+    },
+    {
+      "path": "tests/test_constants_and_enums.py",
+      "name": "test_duplicate_header_mode_names"
+    },
+    {
+      "path": "tests/test_constants_and_enums.py",
+      "name": "test_duplicate_header_mode_values"
+    },
+    {
+      "path": "tests/test_constants_and_enums.py",
+      "name": "test_quote_mode_names"
+    },
+    {
+      "path": "tests/test_constants_and_enums.py",
+      "name": "test_special_constants"
+    },
+    {
+      "path": "tests/test_csv_duplicate_header.py",
+      "name": "test_duplicate_header_parsing"
+    },
+    {
+      "path": "tests/test_csv_parser.py",
+      "name": "test_csv_record_case_insensitive"
+    },
+    {
+      "path": "tests/test_csv_printer.py",
+      "name": "test_header_set"
+    },
+    {
+      "path": "tests/test_io_utils.py",
+      "name": "test_copy0_large"
+    },
+    {
+      "path": "tests/test_io_utils.py",
+      "name": "test_copy1_with_custom_buffer"
+    },
+    {
+      "path": "tests/test_io_utils.py",
+      "name": "test_copy_large0_basic"
+    },
+    {
+      "path": "tests/test_io_utils.py",
+      "name": "test_copy_large0_empty"
+    },
+    {
+      "path": "tests/test_io_utils.py",
+      "name": "test_copy_large0_large"
+    },
+    {
+      "path": "tests/test_io_utils.py",
+      "name": "test_copy_large1_with_custom_buffer"
+    },
+    {
+      "path": "tests/test_io_utils.py",
+      "name": "test_copy_special_chars"
+    },
+    {
+      "path": "tests/test_lexer.py",
+      "name": "test_tokenization_simple"
+    },
+    {
+      "path": "tests/test_token.py",
+      "name": "test_token_content_modification"
+    },
+    {
+      "path": "tests/test_token.py",
+      "name": "test_token_reset"
+    },
+    {
+      "path": "tests/test_token.py",
+      "name": "test_token_str_with_content"
+    }
+  ]
+}

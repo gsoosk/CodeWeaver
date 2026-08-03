@@ -1,0 +1,9 @@
+project,go test path,go test name,rust test path,rust test name,verified test,agent test,mismatch
+textrank,algorithm_test.go,TestWeightingRelation,tests/algorithm_test.rs,test_weighting_relation,1,1,0
+textrank,algorithm_test.go,TestWeightingHits,tests/algorithm_test.rs,test_weighting_hits,1,1,0
+textrank,language_test.go,TestLanguage,tests/language_test.rs,test_language,1,1,0
+textrank,rank_test.go,TestGetWordData,tests/rank_test.rs,test_get_word_data,1,1,0
+textrank,sorting_test.go,TestFindSentences,tests/sorting_test.rs,test_find_sentences,1,1,0
+textrank,textrank_test.go,TestOnSingleThread,tests/textrank_test.rs,test_on_single_thread,0,0,0
+textrank,textrank_test.go,TestOnMultiThread,,,0,0,0
+textrank,tokenizer_test.go,TestTokenizeText,tests/tokenizer_test.rs,test_tokenize_text,1,1,0

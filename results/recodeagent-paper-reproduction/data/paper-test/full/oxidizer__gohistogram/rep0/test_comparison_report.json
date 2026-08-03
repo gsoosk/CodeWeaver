@@ -1,0 +1,311 @@
+{
+  "summary": {
+    "total_tests": 2,
+    "both_found": 2,
+    "source_missing": 0,
+    "target_missing": 0,
+    "both_found_pct": 100.0,
+    "params_match_count": 0,
+    "params_mismatch_count": 2,
+    "assertions_match_count": 2,
+    "assertions_mismatch_count": 0,
+    "avg_line_count_source": 23.5,
+    "avg_line_count_target": 19.0,
+    "avg_method_calls_source": 24.0,
+    "avg_method_calls_target": 16.5,
+    "assertion_types_source": {
+      "t.Errorf": 11
+    },
+    "assertion_types_target": {
+      "assert_eq!": 1,
+      "assert!": 10
+    },
+    "assertEquals_summary": {
+      "total_comparable_pairs": 0,
+      "total_matching_assertions": 0,
+      "overall_match_rate": null
+    },
+    "assertion_match_percentages": {
+      "t.Errorf": {
+        "good_matches": {
+          "assert_eq!": 1,
+          "assert!": 10
+        },
+        "good_match_count": 11,
+        "good_match_percentage": 100.0,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 0,
+        "unmatched_percentage": 0.0,
+        "total_mapped": 11,
+        "total_source": 11
+      }
+    },
+    "tests_with_same_assertion_count": 2,
+    "assertion_match_percentages_same_assertion_count": {
+      "t.Errorf": {
+        "good_matches": {
+          "assert_eq!": 1,
+          "assert!": 10
+        },
+        "good_match_count": 11,
+        "good_match_percentage": 100.0,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 0,
+        "unmatched_percentage": 0.0,
+        "total_mapped": 11,
+        "total_source": 11
+      }
+    },
+    "embedding_similarity_status": "measured",
+    "avg_similarity_score": 0.858977,
+    "min_similarity_score": 0.84768,
+    "max_similarity_score": 0.870274,
+    "embedding_similarity_count": 2
+  },
+  "test_pairs": [
+    {
+      "source_test": {
+        "path": "histogram_test.go",
+        "name": "TestHistogram",
+        "found": true,
+        "signature": "func TestHistogram(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 6,
+        "body": [
+          "func TestHistogram(t *testing.T) {",
+          "\th := NewHistogram(160)",
+          "\tfor _, val := range testData {",
+          "\t\th.Add(float64(val))",
+          "\t}",
+          "\tif h.Count() != 14999 {",
+          "\t\tt.Errorf(\"Expected h.Count() to be 14999, got %v\", h.Count())",
+          "\t}",
+          "",
+          "\tif firstQ := h.Quantile(0.25); !approx(firstQ, 14) {",
+          "\t\tt.Errorf(\"Expected 25th percentile to be %v, got %v\", 14, firstQ)",
+          "\t}",
+          "\tif median := h.Quantile(0.5); !approx(median, 18) {",
+          "\t\tt.Errorf(\"Expected 50th percentile to be %v, got %v\", 18, median)",
+          "\t}",
+          "\tif thirdQ := h.Quantile(0.75); !approx(thirdQ, 22) {",
+          "\t\tt.Errorf(\"Expected 75th percentile to be %v, got %v\", 22, thirdQ)",
+          "\t}",
+          "\tif cdf := h.CDF(18); !approx(cdf, 0.5) {",
+          "\t\tt.Errorf(\"Expected CDF(median) to be %v, got %v\", 0.5, cdf)",
+          "\t}",
+          "\tif cdf := h.CDF(22); !approx(cdf, 0.75) {",
+          "\t\tt.Errorf(\"Expected CDF(3rd quartile) to be %v, got %v\", 0.75, cdf)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/numeric_histogram.rs",
+        "name": "test_histogram",
+        "found": true,
+        "signature": "fn test_histogram() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 6,
+        "body": [
+          "fn test_histogram() {",
+          "        use crate::histogram::Histogram;",
+          "        use crate::test_data::TEST_DATA;",
+          "        ",
+          "        let mut h = NumericHistogram::new(160);",
+          "        for &val in TEST_DATA {",
+          "            h.add(val as f64);",
+          "        }",
+          "        ",
+          "        assert_eq!(h.count(), 14999.0, \"Expected h.count() to be 14999, got {}\", h.count());",
+          "        ",
+          "        let first_q = h.quantile(0.25);",
+          "        assert!(approx(first_q, 14.0), \"Expected 25th percentile to be 14, got {}\", first_q);",
+          "        ",
+          "        let median = h.quantile(0.5);",
+          "        assert!(approx(median, 18.0), \"Expected 50th percentile to be 18, got {}\", median);",
+          "        ",
+          "        let third_q = h.quantile(0.75);",
+          "        assert!(approx(third_q, 22.0), \"Expected 75th percentile to be 22, got {}\", third_q);",
+          "        ",
+          "        let cdf_median = h.cdf(18.0);",
+          "        assert!(approx(cdf_median, 0.5), \"Expected CDF(median) to be 0.5, got {}\", cdf_median);",
+          "        ",
+          "        let cdf_third_q = h.cdf(22.0);",
+          "        assert!(approx(cdf_third_q, 0.75), \"Expected CDF(3rd quartile) to be 0.75, got {}\", cdf_third_q);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 6,
+        "assertion_count_target": 6,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 25,
+        "line_count_target": 19,
+        "line_count_diff": 6,
+        "assertion_types_source": {
+          "t.Errorf": 6
+        },
+        "assertion_types_target": {
+          "assert_eq!": 1,
+          "assert!": 5
+        },
+        "method_call_count_source": 26,
+        "method_call_count_target": 18,
+        "method_call_diff": 8,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert_eq!": 1,
+            "assert!": 5
+          }
+        },
+        "similarity_score": 0.84768
+      }
+    },
+    {
+      "source_test": {
+        "path": "histogram_test.go",
+        "name": "TestWeightedHistogram",
+        "found": true,
+        "signature": "func TestWeightedHistogram(t *testing.T) {",
+        "parameters": [
+          {
+            "name": "t",
+            "type": "*testing.T"
+          }
+        ],
+        "param_count": 1,
+        "assertion_count": 5,
+        "body": [
+          "func TestWeightedHistogram(t *testing.T) {",
+          "\th := NewWeightedHistogram(160, 1)",
+          "\tfor _, val := range testData {",
+          "\t\th.Add(float64(val))",
+          "\t}",
+          "",
+          "\tif firstQ := h.Quantile(0.25); !approx(firstQ, 14) {",
+          "\t\tt.Errorf(\"Expected 25th percentile to be %v, got %v\", 14, firstQ)",
+          "\t}",
+          "\tif median := h.Quantile(0.5); !approx(median, 18) {",
+          "\t\tt.Errorf(\"Expected 50th percentile to be %v, got %v\", 18, median)",
+          "\t}",
+          "\tif thirdQ := h.Quantile(0.75); !approx(thirdQ, 22) {",
+          "\t\tt.Errorf(\"Expected 75th percentile to be %v, got %v\", 22, thirdQ)",
+          "\t}",
+          "\tif cdf := h.CDF(18); !approx(cdf, 0.5) {",
+          "\t\tt.Errorf(\"Expected CDF(median) to be %v, got %v\", 0.5, cdf)",
+          "\t}",
+          "\tif cdf := h.CDF(22); !approx(cdf, 0.75) {",
+          "\t\tt.Errorf(\"Expected CDF(3rd quartile) to be %v, got %v\", 0.75, cdf)",
+          "\t}",
+          "}"
+        ]
+      },
+      "target_test": {
+        "path": "src/weighted_histogram.rs",
+        "name": "test_weighted_histogram",
+        "found": true,
+        "signature": "fn test_weighted_histogram() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 5,
+        "body": [
+          "fn test_weighted_histogram() {",
+          "        let mut h = WeightedHistogram::new(160, 1.0);",
+          "        ",
+          "        // Add all test data",
+          "        for &val in TEST_DATA {",
+          "            h.add(val as f64);",
+          "        }",
+          "",
+          "        // Test quantiles",
+          "        let first_q = h.quantile(0.25);",
+          "        assert!(approx(first_q, 14.0), \"Expected 25th percentile to be ~14, got {}\", first_q);",
+          "",
+          "        let median = h.quantile(0.5);",
+          "        assert!(approx(median, 18.0), \"Expected 50th percentile to be ~18, got {}\", median);",
+          "",
+          "        let third_q = h.quantile(0.75);",
+          "        assert!(approx(third_q, 22.0), \"Expected 75th percentile to be ~22, got {}\", third_q);",
+          "",
+          "        // Test CDF",
+          "        let cdf_median = h.cdf(18.0);",
+          "        assert!(approx(cdf_median, 0.5), \"Expected CDF(median) to be ~0.5, got {}\", cdf_median);",
+          "",
+          "        let cdf_third_q = h.cdf(22.0);",
+          "        assert!(approx(cdf_third_q, 0.75), \"Expected CDF(3rd quartile) to be ~0.75, got {}\", cdf_third_q);",
+          "    }"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": true,
+        "param_count_source": 1,
+        "param_count_target": 0,
+        "assertion_count_source": 5,
+        "assertion_count_target": 5,
+        "param_count_diff": 1,
+        "assertion_count_diff": 0,
+        "line_count_source": 22,
+        "line_count_target": 19,
+        "line_count_diff": 3,
+        "assertion_types_source": {
+          "t.Errorf": 5
+        },
+        "assertion_types_target": {
+          "assert!": 5
+        },
+        "method_call_count_source": 22,
+        "method_call_count_target": 15,
+        "method_call_diff": 7,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "t.Errorf": {
+            "assert!": 5
+          }
+        },
+        "similarity_score": 0.870274
+      }
+    }
+  ]
+}

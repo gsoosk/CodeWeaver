@@ -1,0 +1,32 @@
+[project]
+name = "codeweaver"
+version = "0.1.0"
+description = "A general-purpose, ReCodeAgent-style multi-agent framework for LLM-driven code translation and migration (driven by GitHub Copilot CLI, orchestrated by Apache Burr)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "CodeWeaver contributors" }]
+keywords = ["llm", "agents", "code-translation", "migration", "recodeagent", "burr", "copilot"]
+dependencies = [
+    "apache-burr>=0.42.0",
+]
+
+[project.optional-dependencies]
+# Burr's telemetry UI. Heavy (pyarrow); install separately where wheels exist.
+ui = ["apache-burr[start]"]
+# YAML project configs (TOML and JSON work with no extra deps).
+yaml = ["pyyaml>=6.0"]
+
+[project.scripts]
+codeweaver = "codeweaver.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gsoosk/CodeWeaver"
+Repository = "https://github.com/gsoosk/CodeWeaver"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["codeweaver"]

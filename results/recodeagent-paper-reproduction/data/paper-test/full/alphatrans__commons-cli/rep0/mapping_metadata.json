@@ -1,0 +1,3130 @@
+{
+  "schema_version": 1,
+  "project_id": "alphatrans__commons-cli",
+  "paper_runtime_tests": 381,
+  "static_source_methods": 381,
+  "mappings": [
+    {
+      "source_path": "org.apache.commons.cli.ApplicationTest",
+      "source_name": "testAnt",
+      "target_path": "tests/test_application.py",
+      "target_name": "test_ant",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.ApplicationTest",
+      "source_name": "testGroovy",
+      "target_path": "tests/test_application.py",
+      "target_name": "test_groovy",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.ApplicationTest",
+      "source_name": "testLs",
+      "target_path": "tests/test_application.py",
+      "target_name": "test_ls",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.ApplicationTest",
+      "source_name": "testMan",
+      "target_path": "tests/test_application.py",
+      "target_name": "test_man",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.ApplicationTest",
+      "source_name": "testNLT",
+      "target_path": "tests/test_application.py",
+      "target_name": "test_nlt",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.ArgumentIsOptionTest",
+      "source_name": "testOption",
+      "target_path": "tests/test_argument_is_option.py",
+      "target_name": "test_option",
+      "mapped": true,
+      "mapping_score": 0.9444776119402986
+    },
+    {
+      "source_path": "org.apache.commons.cli.ArgumentIsOptionTest",
+      "source_name": "testOptionAndOptionWithArgument",
+      "target_path": "tests/test_argument_is_option.py",
+      "target_name": "test_option_and_option_with_argument",
+      "mapped": true,
+      "mapping_score": 0.9444776119402986
+    },
+    {
+      "source_path": "org.apache.commons.cli.ArgumentIsOptionTest",
+      "source_name": "testOptionWithArgument",
+      "target_path": "tests/test_argument_is_option.py",
+      "target_name": "test_option_with_argument",
+      "mapped": true,
+      "mapping_score": 0.9444776119402986
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testArgumentStartingWithHyphen",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_argument_starting_with_hyphen",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testDoubleDash1",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_double_dash1",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testLongOptionQuoteHandling",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_long_option_quote_handling",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testLongWithUnexpectedArgument1",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_long_with_unexpected_argument1",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testLongWithUnexpectedArgument2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testLongWithoutEqualDoubleDash",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_long_without_equal_single_dash",
+      "mapped": true,
+      "mapping_score": 0.8174035087719299
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testMissingArg",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_missing_arg",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testMissingRequiredGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testMissingRequiredOption",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_missing_required_option",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testMissingRequiredOptions",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testMultiple",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_multiple",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testMultipleWithLong",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_multiple_with_long",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testNegativeArgument",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_negative_argument",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testOptionAndRequiredOption",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_option_and_required_option",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testOptionGroup",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_add_option_returns_self",
+      "mapped": true,
+      "mapping_score": 0.5583805668016194
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testOptionGroupLong",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testPropertyOptionFlags",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testPropertyOptionGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testPropertyOptionMultipleValues",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testPropertyOptionRequired",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testPropertyOptionSingularValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testPropertyOptionUnexpected",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testPropertyOverrideValues",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testReuseOptionsTwice",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testShortOptionQuoteHandling",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testShortWithUnexpectedArgument",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testSimpleLong",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_simple_long",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testSimpleShort",
+      "target_path": "tests/parser_test_case.py",
+      "target_name": "test_simple_short",
+      "mapped": true,
+      "mapping_score": 0.9357142857142857
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testSingleDash",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testStopAtExpectedArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testStopAtNonOptionLong",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_ambiguous_partial_long_option1",
+      "mapped": true,
+      "mapping_score": 0.5762183235867446
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testStopAtNonOptionShort",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_ambiguous_partial_long_option2",
+      "mapped": true,
+      "mapping_score": 0.5667368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testStopAtUnexpectedArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testUnlimitedArgs",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testUnrecognizedOption",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_negative_option",
+      "mapped": true,
+      "mapping_score": 0.7147368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.BasicParserTest",
+      "source_name": "testWithRequiredOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.CommandLineTest",
+      "source_name": "testBuilder",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_builder",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.CommandLineTest",
+      "source_name": "testGetOptionProperties",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_get_option_properties_basic",
+      "mapped": true,
+      "mapping_score": 0.8484623323013416
+    },
+    {
+      "source_path": "org.apache.commons.cli.CommandLineTest",
+      "source_name": "testGetOptionPropertiesWithOption",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_get_option_properties_with_option",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.CommandLineTest",
+      "source_name": "testGetOptions",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_get_options",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.CommandLineTest",
+      "source_name": "testGetParsedOptionValue",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_get_parsed_option_value",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.CommandLineTest",
+      "source_name": "testGetParsedOptionValueWithChar",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_get_option_value",
+      "mapped": true,
+      "mapping_score": 0.6883368421052631
+    },
+    {
+      "source_path": "org.apache.commons.cli.CommandLineTest",
+      "source_name": "testGetParsedOptionValueWithOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.CommandLineTest",
+      "source_name": "testNullhOption",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_null_option",
+      "mapped": true,
+      "mapping_score": 0.9043920145190564
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testAmbiguousLongWithoutEqualSingleDash",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_ambiguous_long_without_equal_single_dash",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testAmbiguousPartialLongOption1",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_ambiguous_partial_long_option1",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testAmbiguousPartialLongOption2",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_ambiguous_partial_long_option2",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testAmbiguousPartialLongOption3",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_ambiguous_partial_long_option3",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testAmbiguousPartialLongOption4",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_ambiguous_partial_long_option4",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testArgumentStartingWithHyphen",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testBuilder",
+      "target_path": "tests/test_default_parser.py",
+      "target_name": "test_builder",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testBursting",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_bursting",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testDoubleDash1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testDoubleDash2",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_double_dash2",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongOptionQuoteHandling",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongOptionQuoteHandlingWithStrip",
+      "target_path": "tests/test_default_parser.py",
+      "target_name": "test_long_option_quote_handling_with_strip",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongOptionQuoteHandlingWithoutStrip",
+      "target_path": "tests/test_default_parser.py",
+      "target_name": "test_long_option_quote_handling_without_strip",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongOptionWithEqualsQuoteHandling",
+      "target_path": "tests/test_default_parser.py",
+      "target_name": "test_long_option_with_equals_quote_handling",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongOptionWithEqualsQuoteHandlingWithStrip",
+      "target_path": "tests/test_default_parser.py",
+      "target_name": "test_long_option_with_equals_quote_handling_with_strip",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongOptionWithEqualsQuoteHandlingWithoutStrip",
+      "target_path": "tests/test_default_parser.py",
+      "target_name": "test_long_option_with_equals_quote_handling_without_strip",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongWithEqualDoubleDash",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_long_with_equal_double_dash",
+      "mapped": true,
+      "mapping_score": 0.912542372881356
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongWithEqualSingleDash",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_long_with_equal_single_dash",
+      "mapped": true,
+      "mapping_score": 0.912542372881356
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongWithUnexpectedArgument1",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_long_with_unexpected_argument1",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongWithUnexpectedArgument2",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_long_with_unexpected_argument2",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongWithoutEqualDoubleDash",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_ambiguous_long_without_equal_single_dash",
+      "mapped": true,
+      "mapping_score": 0.6957307786784575
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testLongWithoutEqualSingleDash",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_long_without_equal_single_dash",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testMissingArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testMissingArgWithBursting",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_missing_arg_with_bursting",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testMissingRequiredGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testMissingRequiredOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testMissingRequiredOptions",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testMultiple",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testMultipleWithLong",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testNegativeArgument",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testNegativeOption",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_negative_option",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testOptionAndRequiredOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testOptionGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testOptionGroupLong",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPartialLongOptionSingleDash",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_partial_long_option_single_dash",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPropertiesOption1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPropertiesOption2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPropertyOptionFlags",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPropertyOptionGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPropertyOptionMultipleValues",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPropertyOptionRequired",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPropertyOptionSingularValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPropertyOptionUnexpected",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testPropertyOverrideValues",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testReuseOptionsTwice",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testShortOptionConcatenatedQuoteHandling",
+      "target_path": "tests/test_default_parser.py",
+      "target_name": "test_short_option_concatenated_quote_handling",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testShortOptionQuoteHandling",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testShortOptionQuoteHandlingWithStrip",
+      "target_path": "tests/test_default_parser.py",
+      "target_name": "test_short_option_quote_handling_with_strip",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testShortOptionQuoteHandlingWithoutStrip",
+      "target_path": "tests/test_default_parser.py",
+      "target_name": "test_short_option_quote_handling_without_strip",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testShortWithEqual",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_short_with_equal",
+      "mapped": true,
+      "mapping_score": 0.9166101694915254
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testShortWithUnexpectedArgument",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_short_with_unexpected_argument",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testShortWithoutEqual",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testSimpleLong",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testSimpleShort",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testSingleDash",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testStopAtExpectedArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testStopAtNonOptionLong",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_ambiguous_partial_long_option4",
+      "mapped": true,
+      "mapping_score": 0.5540238543628374
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testStopAtNonOptionShort",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testStopAtUnexpectedArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testStopBursting",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_stop_bursting",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testStopBursting2",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_stop_bursting2",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testUnambiguousPartialLongOption1",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_unambiguous_partial_long_option1",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testUnambiguousPartialLongOption2",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_unambiguous_partial_long_option2",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testUnambiguousPartialLongOption3",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_unambiguous_partial_long_option3",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testUnambiguousPartialLongOption4",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_unambiguous_partial_long_option4",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testUnlimitedArgs",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testUnrecognizedOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testUnrecognizedOptionWithBursting",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_unrecognized_option_with_bursting",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.DefaultParserTest",
+      "source_name": "testWithRequiredOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.DisablePartialMatchingTest",
+      "source_name": "testDisablePartialMatching",
+      "target_path": "tests/test_disable_partial_matching.py",
+      "target_name": "test_disable_partial_matching",
+      "mapped": true,
+      "mapping_score": 0.9529113924050633
+    },
+    {
+      "source_path": "org.apache.commons.cli.DisablePartialMatchingTest",
+      "source_name": "testRegularPartialMatching",
+      "target_path": "tests/test_disable_partial_matching.py",
+      "target_name": "test_regular_partial_matching",
+      "mapped": true,
+      "mapping_score": 0.9529113924050633
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testArgumentStartingWithHyphen",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testDoubleDash1",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_double_dash2",
+      "mapped": true,
+      "mapping_score": 0.8562424242424242
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testLongOptionQuoteHandling",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testLongOptionWithEqualsQuoteHandling",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testLongWithEqualDoubleDash",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_long_with_equal_double_dash",
+      "mapped": true,
+      "mapping_score": 0.929811320754717
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testLongWithEqualSingleDash",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_long_with_equal_single_dash",
+      "mapped": true,
+      "mapping_score": 0.9192727272727272
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testLongWithoutEqualDoubleDash",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_ambiguous_long_without_equal_single_dash",
+      "mapped": true,
+      "mapping_score": 0.7024611330698287
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testMissingArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testMissingRequiredGroup",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_is_required_default",
+      "mapped": true,
+      "mapping_score": 0.6041212121212122
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testMissingRequiredOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testMissingRequiredOptions",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testMultiple",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_file",
+      "mapped": true,
+      "mapping_score": 0.558993006993007
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testMultipleWithLong",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testNegativeArgument",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testOptionAndRequiredOption",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_option_group_required_in_options",
+      "mapped": true,
+      "mapping_score": 0.733386748844376
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testOptionGroup",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_has_option",
+      "mapped": true,
+      "mapping_score": 0.6722077922077921
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testOptionGroupLong",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_option_group_in_options",
+      "mapped": true,
+      "mapping_score": 0.7132684989429176
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testPropertiesOption1",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_properties_option1",
+      "mapped": true,
+      "mapping_score": 0.929811320754717
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testPropertiesOption2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testPropertyOptionFlags",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testPropertyOptionGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testPropertyOptionMultipleValues",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_get_option_values",
+      "mapped": true,
+      "mapping_score": 0.6648128342245989
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testPropertyOptionRequired",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testPropertyOptionSingularValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testPropertyOptionUnexpected",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testPropertyOverrideValues",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value1",
+      "mapped": true,
+      "mapping_score": 0.5622164502164503
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testReuseOptionsTwice",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_set_selected_same_option_twice",
+      "mapped": true,
+      "mapping_score": 0.6386310160427808
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testShortOptionConcatenatedQuoteHandling",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testShortOptionQuoteHandling",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testShortWithEqual",
+      "target_path": "tests/test_gnu_parser.py",
+      "target_name": "test_short_with_equal",
+      "mapped": true,
+      "mapping_score": 0.929811320754717
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testShortWithoutEqual",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_short_with_equal",
+      "mapped": true,
+      "mapping_score": 0.8472167832167833
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testSimpleLong",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testSimpleShort",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testSingleDash",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testStopAtExpectedArg",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_set_selected",
+      "mapped": true,
+      "mapping_score": 0.6041212121212122
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testStopAtNonOptionLong",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_ambiguous_partial_long_option3",
+      "mapped": true,
+      "mapping_score": 0.5563905723905723
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testStopAtNonOptionShort",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testStopAtUnexpectedArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testUnlimitedArgs",
+      "target_path": "tests/test_command_line.py",
+      "target_name": "test_iterator",
+      "mapped": true,
+      "mapping_score": 0.5898432601880877
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testUnrecognizedOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.GnuParserTest",
+      "source_name": "testWithRequiredOption",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_set_required",
+      "mapped": true,
+      "mapping_score": 0.6358329238329239
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testAccessors",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_accessors",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testAutomaticUsage",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_automatic_usage",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testDefaultArgName",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_default_arg_name",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testFindWrapPos",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_find_wrap_pos",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testHeaderStartingWithLineSeparator",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_header_starting_with_line_separator",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testHelpWithLongOptSeparator",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_help_with_long_opt_separator",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testIndentedHeaderAndFooter",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_indented_header_and_footer",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testOptionWithoutShortFormat",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_option_without_short_format",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testOptionWithoutShortFormat2",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_option_without_short_format2",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintHelpNewlineFooter",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_help_newline_footer",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintHelpNewlineHeader",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_help_newline_header",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintHelpWithEmptySyntax",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_help_with_empty_syntax",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintOptionGroupUsage",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_option_group_usage",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintOptionWithEmptyArgNameUsage",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_option_with_empty_arg_name_usage",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintOptions",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_options",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintRequiredOptionGroupUsage",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_required_option_group_usage",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintSortedUsage",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_sorted_usage",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintSortedUsageWithNullComparator",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_sorted_usage_with_null_comparator",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testPrintUsage",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_print_usage",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testRenderWrappedTextMultiLine",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_render_wrapped_text_multi_line",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testRenderWrappedTextMultiLinePadded",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_render_wrapped_text_multi_line_padded",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testRenderWrappedTextSingleLine",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_render_wrapped_text_single_line",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testRenderWrappedTextSingleLinePadded",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_render_wrapped_text_single_line_padded",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testRenderWrappedTextSingleLinePadded2",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_render_wrapped_text_single_line_padded2",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testRenderWrappedTextWordCut",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_render_wrapped_text_word_cut",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testRtrim",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_rtrim",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.HelpFormatterTest",
+      "source_name": "testUsageWithLongOptSeparator",
+      "target_path": "tests/test_help_formatter.py",
+      "target_name": "test_usage_with_long_opt_separator",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionBuilderTest",
+      "source_name": "testBaseOptionCharOpt",
+      "target_path": "tests/test_option_builder.py",
+      "target_name": "test_base_option_char_opt",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionBuilderTest",
+      "source_name": "testBaseOptionStringOpt",
+      "target_path": "tests/test_option_builder.py",
+      "target_name": "test_base_option_string_opt",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionBuilderTest",
+      "source_name": "testBuilderIsResettedAlways",
+      "target_path": "tests/test_option_builder.py",
+      "target_name": "test_builder_is_resetted_always",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionBuilderTest",
+      "source_name": "testCompleteOption",
+      "target_path": "tests/test_option_builder.py",
+      "target_name": "test_complete_option",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionBuilderTest",
+      "source_name": "testCreateIncompleteOption",
+      "target_path": "tests/test_option_builder.py",
+      "target_name": "test_create_incomplete_option",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionBuilderTest",
+      "source_name": "testIllegalOptions",
+      "target_path": "tests/test_option_builder.py",
+      "target_name": "test_illegal_options",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionBuilderTest",
+      "source_name": "testOptionArgNumbers",
+      "target_path": "tests/test_option_builder.py",
+      "target_name": "test_option_arg_numbers",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionBuilderTest",
+      "source_name": "testSpecialOptChars",
+      "target_path": "tests/test_option_builder.py",
+      "target_name": "test_special_opt_chars",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionBuilderTest",
+      "source_name": "testTwoCompleteOptions",
+      "target_path": "tests/test_option_builder.py",
+      "target_name": "test_two_complete_options",
+      "mapped": true,
+      "mapping_score": 0.939016393442623
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testGetNames",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_get_names",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testNoOptionsExtraArgs",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testSingleLongOption",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_to_string_long_options",
+      "mapped": true,
+      "mapping_score": 0.7914810281517749
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testSingleOption",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_get_options",
+      "mapped": true,
+      "mapping_score": 0.7587368421052633
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testSingleOptionFromGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testToString",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_bursting",
+      "mapped": true,
+      "mapping_score": 0.6768421052631579
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testTwoLongOptionsFromGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testTwoOptionsFromDifferentGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testTwoOptionsFromGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testTwoOptionsFromGroupWithProperties",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testTwoValidLongOptions",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_to_string_short_options",
+      "mapped": true,
+      "mapping_score": 0.653885778275476
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testTwoValidOptions",
+      "target_path": "tests/test_option_group.py",
+      "target_name": "test_to_string_mixed_options",
+      "mapped": true,
+      "mapping_score": 0.6686903304773563
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionGroupTest",
+      "source_name": "testValidLongOnlyOptions",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testBuilderInsufficientParams1",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_builder_insufficient_params1",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testBuilderInsufficientParams2",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_builder_insufficient_params2",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testBuilderInvalidOptionName1",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_builder_invalid_option_name1",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testBuilderInvalidOptionName2",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_builder_invalid_option_name2",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testBuilderInvalidOptionName3",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_builder_invalid_option_name3",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testBuilderInvalidOptionName4",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_builder_invalid_option_name4",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testBuilderMethods",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_builder_methods",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testClear",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_clear",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testClone",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_clone",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testGetValue",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_get_value",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testHasArgName",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_has_arg_name",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testHasArgs",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_has_args",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testHashCode",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_hash_code",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionTest",
+      "source_name": "testSubclass",
+      "target_path": "tests/test_option.py",
+      "target_name": "test_subclass",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testDuplicateLong",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_duplicate_long",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testDuplicateSimple",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_duplicate_simple",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testGetMatchingOpts",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_get_matching_opts",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testGetOptionsGroups",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_get_options_groups",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testHelpOptions",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_help_options",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testLong",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_long",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testMissingOptionException",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_missing_option_exception",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testMissingOptionsException",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_missing_options_exception",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testSimple",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_simple",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.OptionsTest",
+      "source_name": "testToString",
+      "target_path": "tests/test_options.py",
+      "target_name": "test_to_string",
+      "mapped": true,
+      "mapping_score": 0.9240816326530612
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testClassPattern",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_class_pattern",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testEmptyPattern",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_empty_pattern",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testExistingFilePattern",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_existing_file_pattern",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testExistingFilePatternFileNotExist",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_existing_file_pattern_file_not_exist",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testNumberPattern",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_number_pattern",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testObjectPattern",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_object_pattern",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testRequiredOption",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_required_option",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testSimplePattern",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_simple_pattern",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testURLPattern",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_url_pattern",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PatternOptionBuilderTest",
+      "source_name": "testUntypedPattern",
+      "target_path": "tests/test_pattern_option_builder.py",
+      "target_name": "test_untyped_pattern",
+      "mapped": true,
+      "mapping_score": 0.9504
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testAmbiguousPartialLongOption1",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_ambiguous_partial_long_option1",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testAmbiguousPartialLongOption2",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_ambiguous_partial_long_option2",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testAmbiguousPartialLongOption3",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_ambiguous_partial_long_option3",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testArgumentStartingWithHyphen",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testBursting",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_bursting",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testDoubleDash1",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_double_dash2",
+      "mapped": true,
+      "mapping_score": 0.8760701754385966
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testLongOptionQuoteHandling",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testLongOptionWithEqualsQuoteHandling",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_long_option_with_equals_quote_handling",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testLongWithEqualDoubleDash",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_long_with_equal_double_dash",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testLongWithUnexpectedArgument2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testLongWithoutEqualDoubleDash",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_long_without_equal_single_dash",
+      "mapped": true,
+      "mapping_score": 0.8174035087719299
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testMissingArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testMissingArgWithBursting",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_missing_arg_with_bursting",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testMissingRequiredGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testMissingRequiredOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testMissingRequiredOptions",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testMultiple",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testMultipleWithLong",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testNegativeArgument",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testOptionAndRequiredOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testOptionGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testOptionGroupLong",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPartialLongOptionSingleDash",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_partial_long_option_single_dash",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPropertiesOption1",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_properties_option1",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPropertiesOption2",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_properties_option2",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPropertyOptionFlags",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPropertyOptionGroup",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPropertyOptionMultipleValues",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPropertyOptionRequired",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPropertyOptionSingularValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPropertyOptionUnexpected",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testPropertyOverrideValues",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testReuseOptionsTwice",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testShortOptionConcatenatedQuoteHandling",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_short_option_concatenated_quote_handling",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testShortOptionQuoteHandling",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testShortWithUnexpectedArgument",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testShortWithoutEqual",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_short_without_equal",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testSimpleLong",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testSimpleShort",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testSingleDash",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testStopAtExpectedArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testStopAtNonOptionLong",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_ambiguous_partial_long_option4",
+      "mapped": true,
+      "mapping_score": 0.5762183235867446
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testStopAtNonOptionShort",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testStopAtUnexpectedArg",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testStopBursting",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_stop_bursting",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testStopBursting2",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_stop_bursting2",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testUnambiguousPartialLongOption1",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_unambiguous_partial_long_option1",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testUnambiguousPartialLongOption2",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_unambiguous_partial_long_option2",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testUnambiguousPartialLongOption3",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_unambiguous_partial_long_option3",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testUnlimitedArgs",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testUnrecognizedOption",
+      "target_path": "tests/test_posix_parser.py",
+      "target_name": "test_negative_option",
+      "mapped": true,
+      "mapping_score": 0.7147368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testUnrecognizedOptionWithBursting",
+      "target_path": "tests/test_basic_parser.py",
+      "target_name": "test_unrecognized_option_with_bursting",
+      "mapped": true,
+      "mapping_score": 0.9178947368421053
+    },
+    {
+      "source_path": "org.apache.commons.cli.PosixParserTest",
+      "source_name": "testWithRequiredOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueClass",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_class",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueClass_notFound",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_class_not_found",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueDate",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_date",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueExistingFile",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_existing_file",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueExistingFile_nonExistingFile",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_existing_file_non_existing_file",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueFile",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_file",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueFiles",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_files",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueInteger_failure",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_integer_failure",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueNumber_Double",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_number_double",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueNumber_Long",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_number_long",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueNumber_noNumber",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_number_no_number",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueObject_InstantiableClass",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_object_instantiable_class",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueObject_notInstantiableClass",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_object_not_instantiable_class",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueObject_unknownClass",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_object_unknown_class",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueString",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_string",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueURL",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_url",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.TypeHandlerTest",
+      "source_name": "testCreateValueURL_malformed",
+      "target_path": "tests/test_type_handler.py",
+      "target_name": "test_create_value_url_malformed",
+      "mapped": true,
+      "mapping_score": 0.9347368421052632
+    },
+    {
+      "source_path": "org.apache.commons.cli.UtilTest",
+      "source_name": "testStripLeadingAndTrailingQuotes",
+      "target_path": "tests/test_util.py",
+      "target_name": "test_strip_leading_and_trailing_quotes",
+      "mapped": true,
+      "mapping_score": 0.9134883720930232
+    },
+    {
+      "source_path": "org.apache.commons.cli.UtilTest",
+      "source_name": "testStripLeadingHyphens",
+      "target_path": "tests/test_util.py",
+      "target_name": "test_strip_leading_hyphens",
+      "mapped": true,
+      "mapping_score": 0.9134883720930232
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongNoArg",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_no_arg",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongNoArgWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_no_arg_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongOptionalArgValue",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_optional_arg_value",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongOptionalArgValueWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_optional_arg_value_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongOptionalArgValues",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_optional_arg_values",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongOptionalArgValuesWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_optional_arg_values_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongOptionalNArgValues",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_optional_n_arg_values",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongOptionalNArgValuesWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_optional_n_arg_values_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongOptionalNoValue",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_optional_no_value",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongOptionalNoValueWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_optional_no_value_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongWithArg",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_with_arg",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testLongWithArgWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_long_with_arg_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortNoArg",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_no_arg",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortNoArgWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_no_arg_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortOptionalArgNoValue",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_optional_arg_no_value",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortOptionalArgNoValueWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_optional_arg_no_value_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortOptionalArgValue",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_optional_arg_value",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortOptionalArgValueWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_optional_arg_value_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortOptionalArgValues",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_optional_arg_values",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortOptionalArgValuesWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_optional_arg_values_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortOptionalNArgValues",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_optional_n_arg_values",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortOptionalNArgValuesWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_optional_n_arg_values_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortWithArg",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_with_arg",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValueTest",
+      "source_name": "testShortWithArgWithOption",
+      "target_path": "tests/test_value.py",
+      "target_name": "test_short_with_arg_with_option",
+      "mapped": true,
+      "mapping_score": 0.9173333333333333
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValuesTest",
+      "source_name": "testCharSeparator",
+      "target_path": "tests/test_values.py",
+      "target_name": "test_char_separator",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValuesTest",
+      "source_name": "testComplexValues",
+      "target_path": "tests/test_values.py",
+      "target_name": "test_complex_values",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValuesTest",
+      "source_name": "testExtraArgs",
+      "target_path": "tests/test_values.py",
+      "target_name": "test_extra_args",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValuesTest",
+      "source_name": "testMultipleArgValues",
+      "target_path": "tests/test_values.py",
+      "target_name": "test_multiple_arg_values",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValuesTest",
+      "source_name": "testShortArgs",
+      "target_path": "tests/test_values.py",
+      "target_name": "test_short_args",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValuesTest",
+      "source_name": "testShortArgsWithValue",
+      "target_path": "tests/test_values.py",
+      "target_name": "test_short_args_with_value",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.ValuesTest",
+      "source_name": "testTwoArgValues",
+      "target_path": "tests/test_values.py",
+      "target_name": "test_two_arg_values",
+      "mapped": true,
+      "mapping_score": 0.9208510638297872
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI133Test",
+      "source_name": "testOrder",
+      "target_path": "tests/bug/test_bug_cli133.py",
+      "target_name": "test_order",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI13Test",
+      "source_name": "testCLI13",
+      "target_path": "tests/bug/test_bug_cli13.py",
+      "target_name": "test_cli13",
+      "mapped": true,
+      "mapping_score": 0.9337931034482758
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI148Test",
+      "source_name": "testWorkaround1",
+      "target_path": "tests/bug/test_bug_cli148.py",
+      "target_name": "test_workaround1",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI148Test",
+      "source_name": "testWorkaround2",
+      "target_path": "tests/bug/test_bug_cli148.py",
+      "target_name": "test_workaround2",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI162Test",
+      "source_name": "testInfiniteLoop",
+      "target_path": "tests/bug/test_bug_cli162.py",
+      "target_name": "test_infinite_loop",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI162Test",
+      "source_name": "testLongLineChunking",
+      "target_path": "tests/bug/test_bug_cli162.py",
+      "target_name": "test_long_line_chunking",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI162Test",
+      "source_name": "testLongLineChunkingIndentIgnored",
+      "target_path": "tests/bug/test_bug_cli162.py",
+      "target_name": "test_long_line_chunking_indent_ignored",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI18Test",
+      "source_name": "testCLI18",
+      "target_path": "tests/bug/test_bug_cli18.py",
+      "target_name": "test_cli18",
+      "mapped": true,
+      "mapping_score": 0.9337931034482758
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI252Test",
+      "source_name": "testAmbiquousOptionName",
+      "target_path": "tests/bug/test_bug_cli252.py",
+      "target_name": "test_ambiguous_option_name",
+      "mapped": true,
+      "mapping_score": 0.8977391304347827
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI252Test",
+      "source_name": "testExactOptionNameMatch",
+      "target_path": "tests/bug/test_bug_cli252.py",
+      "target_name": "test_exact_option_name_match",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI265Test",
+      "source_name": "shouldParseConcatenatedShortOptions",
+      "target_path": "tests/bug/test_bug_cli265.py",
+      "target_name": "test_should_parse_concatenated_short_options",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI265Test",
+      "source_name": "shouldParseShortOptionWithValue",
+      "target_path": "tests/bug/test_bug_cli265.py",
+      "target_name": "test_should_parse_short_option_with_value",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI265Test",
+      "source_name": "shouldParseShortOptionWithoutValue",
+      "target_path": "tests/bug/test_bug_cli265.py",
+      "target_name": "test_should_parse_short_option_without_value",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI266Test",
+      "source_name": "testOptionComparatorDefaultOrder",
+      "target_path": "tests/bug/test_bug_cli266.py",
+      "target_name": "test_option_comparator_default_order",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI266Test",
+      "source_name": "testOptionComparatorInsertedOrder",
+      "target_path": "tests/bug/test_bug_cli266.py",
+      "target_name": "test_option_comparator_inserted_order",
+      "mapped": true,
+      "mapping_score": 0.936
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI71Test",
+      "source_name": "testBasic",
+      "target_path": "tests/bug/test_bug_cli71.py",
+      "target_name": "test_basic",
+      "mapped": true,
+      "mapping_score": 0.9337931034482758
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI71Test",
+      "source_name": "testGetsDefaultIfOptional",
+      "target_path": "tests/bug/test_bug_cli71.py",
+      "target_name": "test_gets_default_if_optional",
+      "mapped": true,
+      "mapping_score": 0.9337931034482758
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI71Test",
+      "source_name": "testLackOfError",
+      "target_path": "tests/bug/test_bug_cli71.py",
+      "target_name": "test_lack_of_error",
+      "mapped": true,
+      "mapping_score": 0.9337931034482758
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugCLI71Test",
+      "source_name": "testMistakenArgument",
+      "target_path": "tests/bug/test_bug_cli71.py",
+      "target_name": "test_mistaken_argument",
+      "mapped": true,
+      "mapping_score": 0.9337931034482758
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test11456",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_11456",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test11457",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_11457",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test11458",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_11458",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test11680",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_11680",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test12210",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_12210",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test13425",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_13425",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test13666",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_13666",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test13935",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_13935",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test14786",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_14786",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test15046",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_15046",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test15648",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_15648",
+      "mapped": true,
+      "mapping_score": 0.9232
+    },
+    {
+      "source_path": "org.apache.commons.cli.bug.BugsTest",
+      "source_name": "test31148",
+      "target_path": "tests/bug/test_bugs.py",
+      "target_name": "test_31148",
+      "mapped": true,
+      "mapping_score": 0.9232
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "tests/test_option_group.py",
+      "name": "test_get_selected_default"
+    },
+    {
+      "path": "tests/test_option_group.py",
+      "name": "test_set_selected_different_option_raises"
+    },
+    {
+      "path": "tests/test_option_group.py",
+      "name": "test_set_selected_null"
+    },
+    {
+      "path": "tests/test_option_group.py",
+      "name": "test_to_string_no_description"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_class"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_class_not_found"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_date"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_files"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_number_double"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_number_invalid"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_number_long"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_object"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_object_class_not_found"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_object_not_instantiable"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_url"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_create_url_malformed"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_open_file"
+    },
+    {
+      "path": "tests/test_type_handler.py",
+      "name": "test_open_file_not_found"
+    }
+  ]
+}

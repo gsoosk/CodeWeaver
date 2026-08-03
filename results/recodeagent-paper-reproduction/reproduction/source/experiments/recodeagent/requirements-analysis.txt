@@ -1,0 +1,22 @@
+# Exact environment used for the paper-aligned post-hoc analysis.
+openpyxl==3.1.5
+pandas==2.2.3
+matplotlib==3.10.3
+scipy==1.15.3
+reportlab==4.4.1
+numpy==2.4.6
+
+tree-sitter==0.24.0
+tree-sitter-c==0.23.4
+tree-sitter-go==0.23.4
+tree-sitter-java==0.23.5
+tree-sitter-javascript==0.23.1
+tree-sitter-python==0.23.6
+tree-sitter-rust==0.23.2
+
+sentence-transformers==5.2.1
+torch==2.13.0
+transformers==5.0.0
+tokenizers==0.22.2
+huggingface-hub==1.26.0
+safetensors==0.8.0

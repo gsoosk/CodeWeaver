@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "manifest_row.schema.json",
+  "title": "ReCodeAgent manifest row",
+  "description": "One discovered benchmark project (of the expected 118: 100 CRUST + 6 Oxidizer + 4 AlphaTrans + 8 SKEL). Paths are relative to --artifact-root so manifest.json stays portable across machines.",
+  "type": "object",
+  "required": [
+    "id", "tool", "project", "source_language", "target_language",
+    "source_rel_path", "status"
+  ],
+  "properties": {
+    "id": {"type": "string", "description": "stable id: '<tool>__<project>'"},
+    "tool": {"type": "string", "enum": ["crust", "oxidizer", "alphatrans", "skel"]},
+    "project": {"type": "string"},
+    "source_language": {"type": "string"},
+    "target_language": {"type": "string"},
+    "source_rel_path": {"type": "string"},
+    "oracle_rel_path": {"type": ["string", "null"]},
+    "scaffold_rel_path": {
+      "type": ["string", "null"],
+      "description": "CRUST only: provided Rust interface/test scaffold (contract, not a solution)."
+    },
+    "ground_truth_target_rel_path": {
+      "type": ["string", "null"],
+      "description": "Evaluator-only reference target implementation, if the artifact ships one. Never copied into a workspace or referenced by a generated config -- enforced and tested in prepare.py."
+    },
+    "loc_source": {"type": ["integer", "null"]},
+    "test_count_source": {"type": ["integer", "null"]},
+    "function_count_source": {"type": ["integer", "null"]},
+    "status": {"type": "string", "enum": ["ok", "missing_dir", "missing_source", "error"]},
+    "notes": {"type": "string"},
+    "discovered_at": {"type": "string"}
+  },
+  "additionalProperties": true
+}

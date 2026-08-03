@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "project_id": "oxidizer__gohistogram",
+  "paper_runtime_tests": 2,
+  "static_source_methods": 2,
+  "mappings": [
+    {
+      "source_path": "histogram_test.go",
+      "source_name": "TestHistogram",
+      "target_path": "src/numeric_histogram.rs",
+      "target_name": "test_histogram",
+      "mapped": true,
+      "mapping_score": 0.9469767441860465
+    },
+    {
+      "source_path": "histogram_test.go",
+      "source_name": "TestWeightedHistogram",
+      "target_path": "src/weighted_histogram.rs",
+      "target_name": "test_weighted_histogram",
+      "mapped": true,
+      "mapping_score": 0.9509090909090909
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "src/numeric_histogram.rs",
+      "name": "test_add_maintains_sorted_order"
+    },
+    {
+      "path": "src/numeric_histogram.rs",
+      "name": "test_bin_insertion_and_sorting"
+    }
+  ]
+}

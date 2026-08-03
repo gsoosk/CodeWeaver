@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "project_id": "oxidizer__checkdigit",
+  "paper_runtime_tests": 36,
+  "static_source_methods": 36,
+  "mappings": [
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewLuhn",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_luhn",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewDamm",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_damm",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewVerhoeff",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_verhoeff",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewISBN10",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_isbn10",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewISBN13",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_isbn13",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewEAN8",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_ean8",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewEAN13",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_ean13",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewJAN8",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_jan8",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewJAN13",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_jan13",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewITF",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_itf",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewUPC",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_upc",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "TestNewSSCC",
+      "target_path": "src/lib.rs",
+      "target_name": "test_new_sscc",
+      "mapped": true,
+      "mapping_score": 0.9187096774193548
+    },
+    {
+      "source_path": "damm_test.go",
+      "source_name": "TestDamm_Verify",
+      "target_path": "src/damm.rs",
+      "target_name": "test_damm_verify",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "damm_test.go",
+      "source_name": "TestDamm_Generate",
+      "target_path": "src/damm.rs",
+      "target_name": "test_damm_generate",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "gtin_test.go",
+      "source_name": "TestGtin_Verify",
+      "target_path": "src/gtin.rs",
+      "target_name": "test_gtin_verify",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "gtin_test.go",
+      "source_name": "TestGtin_Generate",
+      "target_path": "src/gtin.rs",
+      "target_name": "test_gtin_generate",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "isbn_test.go",
+      "source_name": "TestIsbn10_Verify",
+      "target_path": "src/isbn.rs",
+      "target_name": "test_isbn10_verify",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "isbn_test.go",
+      "source_name": "TestIsbn10_Generate",
+      "target_path": "src/isbn.rs",
+      "target_name": "test_isbn10_generate",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "isbn_test.go",
+      "source_name": "TestIsbn13_Verify",
+      "target_path": "src/isbn.rs",
+      "target_name": "test_isbn13_verify",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "isbn_test.go",
+      "source_name": "TestIsbn13_Generate",
+      "target_path": "src/isbn.rs",
+      "target_name": "test_isbn13_generate",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "luhn_test.go",
+      "source_name": "TestLuhn_Verify",
+      "target_path": "src/luhn.rs",
+      "target_name": "test_luhn_verify",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "luhn_test.go",
+      "source_name": "TestLuhn_Generate",
+      "target_path": "src/luhn.rs",
+      "target_name": "test_luhn_generate",
+      "mapped": true,
+      "mapping_score": 0.9538461538461539
+    },
+    {
+      "source_path": "verhoeff_test.go",
+      "source_name": "TestVerhoeff_Verify",
+      "target_path": "src/verhoeff.rs",
+      "target_name": "test_verhoeff_verify",
+      "mapped": true,
+      "mapping_score": 0.8047058823529413
+    },
+    {
+      "source_path": "verhoeff_test.go",
+      "source_name": "TestVerhoeff_Generate",
+      "target_path": "src/verhoeff.rs",
+      "target_name": "test_verhoeff_generate",
+      "mapped": true,
+      "mapping_score": 0.8180392156862746
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewLuhn",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewDamm",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewVerhoeff",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewISBN10",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewISBN13",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewEAN8",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewEAN13",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewJAN8",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewJAN13",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewITF",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewUPC",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "checkdigit_test.go",
+      "source_name": "ExampleNewSSCC",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    }
+  ],
+  "generated_target_tests": []
+}

@@ -1,0 +1,2953 @@
+{
+  "summary": {
+    "total_tests": 39,
+    "both_found": 39,
+    "source_missing": 0,
+    "target_missing": 0,
+    "both_found_pct": 100.0,
+    "params_match_count": 39,
+    "params_mismatch_count": 0,
+    "assertions_match_count": 35,
+    "assertions_mismatch_count": 4,
+    "avg_line_count_source": 6.74,
+    "avg_line_count_target": 7.49,
+    "avg_method_calls_source": 5.87,
+    "avg_method_calls_target": 4.92,
+    "assertion_types_source": {
+      "assertEquals": 37,
+      "assertTrue": 6,
+      "assertFalse": 5,
+      "assertNull": 2,
+      "assertNotNull": 2
+    },
+    "assertion_types_target": {
+      "pytest.raises": 8,
+      "assert_eq": 42,
+      "assert": 10
+    },
+    "assertEquals_summary": {
+      "total_comparable_pairs": 30,
+      "total_matching_assertions": 30,
+      "overall_match_rate": 1.0
+    },
+    "assertion_match_percentages": {
+      "assertEquals": {
+        "good_matches": {
+          "assert_eq": 24,
+          "assertTrue": 7
+        },
+        "good_match_count": 31,
+        "good_match_percentage": 83.78,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 6,
+        "unmatched_percentage": 16.22,
+        "total_mapped": 31,
+        "total_source": 37
+      },
+      "assertFalse": {
+        "good_matches": {
+          "assert_eq": 1
+        },
+        "good_match_count": 1,
+        "good_match_percentage": 20.0,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 4,
+        "unmatched_percentage": 80.0,
+        "total_mapped": 1,
+        "total_source": 5
+      },
+      "assertTrue": {
+        "good_matches": {
+          "assert_eq": 4
+        },
+        "good_match_count": 4,
+        "good_match_percentage": 66.67,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 2,
+        "unmatched_percentage": 33.33,
+        "total_mapped": 4,
+        "total_source": 6
+      },
+      "assertNotNull": {
+        "good_matches": {
+          "assert_eq": 1
+        },
+        "good_match_count": 1,
+        "good_match_percentage": 50.0,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 1,
+        "unmatched_percentage": 50.0,
+        "total_mapped": 1,
+        "total_source": 2
+      }
+    },
+    "tests_with_same_assertion_count": 35,
+    "assertion_match_percentages_same_assertion_count": {
+      "assertEquals": {
+        "good_matches": {
+          "assert_eq": 17,
+          "assertTrue": 6
+        },
+        "good_match_count": 23,
+        "good_match_percentage": 100.0,
+        "other_matches": {},
+        "other_match_count": 0,
+        "other_match_percentage": 0.0,
+        "unmatched_count": 0,
+        "unmatched_percentage": 0.0,
+        "total_mapped": 23,
+        "total_source": 23
+      }
+    },
+    "embedding_similarity_status": "measured",
+    "avg_similarity_score": 0.655651,
+    "min_similarity_score": 0.360071,
+    "max_similarity_score": 0.827966,
+    "embedding_similarity_count": 39
+  },
+  "test_pairs": [
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.FileItemHeadersTest",
+        "name": "testFileItemHeaders",
+        "found": true,
+        "signature": "@Test\n    public void testFileItemHeaders() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 25,
+        "body": [
+          "FileItemHeadersImpl aMutableFileItemHeaders = new FileItemHeadersImpl();",
+          "        aMutableFileItemHeaders.addHeader(",
+          "                \"Content-Disposition\", \"form-data; name=\\\"FileItem\\\"; filename=\\\"file1.txt\\\"\");",
+          "        aMutableFileItemHeaders.addHeader(\"Content-Type\", \"text/plain\");",
+          "",
+          "        aMutableFileItemHeaders.addHeader(\"TestHeader\", \"headerValue1\");",
+          "        aMutableFileItemHeaders.addHeader(\"TestHeader\", \"headerValue2\");",
+          "        aMutableFileItemHeaders.addHeader(\"TestHeader\", \"headerValue3\");",
+          "        aMutableFileItemHeaders.addHeader(\"testheader\", \"headerValue4\");",
+          "",
+          "        Iterator<String> headerNameEnumeration = aMutableFileItemHeaders.getHeaderNames();",
+          "        assertEquals(\"content-disposition\", headerNameEnumeration.next());",
+          "        assertEquals(\"content-type\", headerNameEnumeration.next());",
+          "        assertEquals(\"testheader\", headerNameEnumeration.next());",
+          "        assertFalse(headerNameEnumeration.hasNext());",
+          "",
+          "        assertEquals(",
+          "                aMutableFileItemHeaders.getHeader(\"Content-Disposition\"),",
+          "                \"form-data; name=\\\"FileItem\\\"; filename=\\\"file1.txt\\\"\");",
+          "        assertEquals(aMutableFileItemHeaders.getHeader(\"Content-Type\"), \"text/plain\");",
+          "        assertEquals(aMutableFileItemHeaders.getHeader(\"content-type\"), \"text/plain\");",
+          "        assertEquals(aMutableFileItemHeaders.getHeader(\"TestHeader\"), \"headerValue1\");",
+          "        assertNull(aMutableFileItemHeaders.getHeader(\"DummyHeader\"));",
+          "",
+          "        Iterator<String> headerValueEnumeration;",
+          "",
+          "        headerValueEnumeration = aMutableFileItemHeaders.getHeaders(\"Content-Type\");",
+          "        assertTrue(headerValueEnumeration.hasNext());",
+          "        assertEquals(headerValueEnumeration.next(), \"text/plain\");",
+          "        assertFalse(headerValueEnumeration.hasNext());",
+          "",
+          "        headerValueEnumeration = aMutableFileItemHeaders.getHeaders(\"content-type\");",
+          "        assertTrue(headerValueEnumeration.hasNext());",
+          "        assertEquals(headerValueEnumeration.next(), \"text/plain\");",
+          "        assertFalse(headerValueEnumeration.hasNext());",
+          "",
+          "        headerValueEnumeration = aMutableFileItemHeaders.getHeaders(\"TestHeader\");",
+          "        assertTrue(headerValueEnumeration.hasNext());",
+          "        assertEquals(headerValueEnumeration.next(), \"headerValue1\");",
+          "        assertTrue(headerValueEnumeration.hasNext());",
+          "        assertEquals(headerValueEnumeration.next(), \"headerValue2\");",
+          "        assertTrue(headerValueEnumeration.hasNext());",
+          "        assertEquals(headerValueEnumeration.next(), \"headerValue3\");",
+          "        assertTrue(headerValueEnumeration.hasNext());",
+          "        assertEquals(headerValueEnumeration.next(), \"headerValue4\");",
+          "        assertFalse(headerValueEnumeration.hasNext());",
+          "",
+          "        headerValueEnumeration = aMutableFileItemHeaders.getHeaders(\"DummyHeader\");",
+          "        assertFalse(headerValueEnumeration.hasNext());"
+        ]
+      },
+      "target_test": {
+        "path": "tests/test_file_item_headers.py",
+        "name": "test_file_item_headers",
+        "found": true,
+        "signature": "def test_file_item_headers(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 19,
+        "body": [
+          "def test_file_item_headers(self):",
+          "        \"\"\"Test basic header storage and retrieval.\"\"\"",
+          "        a_mutable_file_item_headers = FileItemHeadersImpl()",
+          "        a_mutable_file_item_headers.add_header(",
+          "            \"Content-Disposition\", \"form-data; name=\\\"FileItem\\\"; filename=\\\"file1.txt\\\"\")",
+          "        a_mutable_file_item_headers.add_header(\"Content-Type\", \"text/plain\")",
+          "        ",
+          "        a_mutable_file_item_headers.add_header(\"TestHeader\", \"headerValue1\")",
+          "        a_mutable_file_item_headers.add_header(\"TestHeader\", \"headerValue2\")",
+          "        a_mutable_file_item_headers.add_header(\"TestHeader\", \"headerValue3\")",
+          "        a_mutable_file_item_headers.add_header(\"testheader\", \"headerValue4\")",
+          "        ",
+          "        header_name_enumeration = a_mutable_file_item_headers.get_header_names()",
+          "        assert next(header_name_enumeration) == \"content-disposition\"",
+          "        assert next(header_name_enumeration) == \"content-type\"",
+          "        assert next(header_name_enumeration) == \"testheader\"",
+          "        with pytest.raises(StopIteration):",
+          "            next(header_name_enumeration)",
+          "        ",
+          "        assert a_mutable_file_item_headers.get_header(\"Content-Disposition\") == \\",
+          "            \"form-data; name=\\\"FileItem\\\"; filename=\\\"file1.txt\\\"\"",
+          "        assert a_mutable_file_item_headers.get_header(\"Content-Type\") == \"text/plain\"",
+          "        assert a_mutable_file_item_headers.get_header(\"content-type\") == \"text/plain\"",
+          "        assert a_mutable_file_item_headers.get_header(\"TestHeader\") == \"headerValue1\"",
+          "        assert a_mutable_file_item_headers.get_header(\"DummyHeader\") is None",
+          "        ",
+          "        header_value_enumeration = a_mutable_file_item_headers.get_headers(\"Content-Type\")",
+          "        assert next(header_value_enumeration) == \"text/plain\"",
+          "        with pytest.raises(StopIteration):",
+          "            next(header_value_enumeration)",
+          "        ",
+          "        header_value_enumeration = a_mutable_file_item_headers.get_headers(\"content-type\")",
+          "        assert next(header_value_enumeration) == \"text/plain\"",
+          "        with pytest.raises(StopIteration):",
+          "            next(header_value_enumeration)",
+          "        ",
+          "        header_value_enumeration = a_mutable_file_item_headers.get_headers(\"TestHeader\")",
+          "        assert next(header_value_enumeration) == \"headerValue1\"",
+          "        assert next(header_value_enumeration) == \"headerValue2\"",
+          "        assert next(header_value_enumeration) == \"headerValue3\"",
+          "        assert next(header_value_enumeration) == \"headerValue4\"",
+          "        with pytest.raises(StopIteration):",
+          "            next(header_value_enumeration)",
+          "        ",
+          "        header_value_enumeration = a_mutable_file_item_headers.get_headers(\"DummyHeader\")",
+          "        with pytest.raises(StopIteration):",
+          "            next(header_value_enumeration)"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 25,
+        "assertion_count_target": 19,
+        "param_count_diff": 0,
+        "assertion_count_diff": 6,
+        "line_count_source": 43,
+        "line_count_target": 40,
+        "line_count_diff": 3,
+        "assertion_types_source": {
+          "assertEquals": 13,
+          "assertTrue": 6,
+          "assertFalse": 5,
+          "assertNull": 1
+        },
+        "assertion_types_target": {
+          "pytest.raises": 5,
+          "assert_eq": 13,
+          "assert": 1
+        },
+        "method_call_count_source": 63,
+        "method_call_count_target": 37,
+        "method_call_diff": 26,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 13,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 13,
+          "source_with_literals": 13,
+          "target_with_literals": 13,
+          "comparable_pairs": 13,
+          "matching_assertions": 13,
+          "match_rate": 1.0,
+          "unique_literal_values_source": 9,
+          "unique_literal_values_target": 9,
+          "common_literal_values": 9
+        },
+        "assertion_type_mapping": {
+          "assertEquals": {
+            "assert_eq": 7
+          },
+          "assertFalse": {
+            "assert_eq": 1
+          },
+          "assertTrue": {
+            "assert_eq": 4
+          }
+        },
+        "similarity_score": 0.827966
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.MultipartStreamTest",
+        "name": "testSmallBuffer",
+        "found": true,
+        "signature": "@Test(expected = IllegalArgumentException.class)\n    public void testSmallBuffer() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "final String strData = \"foobar\";",
+          "        final byte[] contents = strData.getBytes();",
+          "        InputStream input = new ByteArrayInputStream(contents);",
+          "        byte[] boundary = BOUNDARY_TEXT.getBytes();",
+          "        int iBufSize = 1;",
+          "        new MultipartStream(",
+          "                input,",
+          "                boundary,",
+          "                iBufSize,",
+          "                new MultipartStream.ProgressNotifier(null, contents.length));"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/test_limited_input_stream.py",
+        "name": "test_read1_into_buffer",
+        "found": true,
+        "signature": "def test_read1_into_buffer(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def test_read1_into_buffer(self):",
+          "        \"\"\"Test reading into a buffer with read1.\"\"\"",
+          "        data = b\"Hello World\"",
+          "        stream = ConcreteLimitedInputStream(io.BytesIO(data), 20)",
+          "        ",
+          "        buffer = bytearray(5)",
+          "        bytes_read = stream.read1(buffer, 0, 5)",
+          "        assert bytes_read == 5",
+          "        assert buffer == b\"Hello\""
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": -1,
+        "line_count_source": 12,
+        "line_count_target": 8,
+        "line_count_diff": 4,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq": 2
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 5,
+        "method_call_diff": 2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 2,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.436776
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.MultipartStreamTest",
+        "name": "testThreeParamConstructor",
+        "found": true,
+        "signature": "@Test\n    public void testThreeParamConstructor() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "final String strData = \"foobar\";",
+          "        final byte[] contents = strData.getBytes();",
+          "        InputStream input = new ByteArrayInputStream(contents);",
+          "        byte[] boundary = BOUNDARY_TEXT.getBytes();",
+          "        int iBufSize = boundary.length + MultipartStream.BOUNDARY_PREFIX.length + 1;",
+          "        MultipartStream ms =",
+          "                new MultipartStream(",
+          "                        input,",
+          "                        boundary,",
+          "                        iBufSize,",
+          "                        new MultipartStream.ProgressNotifier(null, contents.length));",
+          "        assertNotNull(ms);"
+        ]
+      },
+      "target_test": {
+        "path": "tests/test_multipart_stream.py",
+        "name": "test_multipart_stream_construction",
+        "found": true,
+        "signature": "def test_multipart_stream_construction(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_multipart_stream_construction(self):",
+          "        \"\"\"Test MultipartStream initialization with three parameters.\"\"\"",
+          "        str_data = \"foobar\"",
+          "        contents = str_data.encode()",
+          "        input_stream = BytesIO(contents)",
+          "        boundary = self.BOUNDARY_TEXT.encode()",
+          "        buf_size = len(boundary) + len(MultipartStream.BOUNDARY_PREFIX) + 1",
+          "        ",
+          "        ms = MultipartStream(",
+          "            input_stream,",
+          "            boundary,",
+          "            buf_size,",
+          "            ProgressNotifier(None, len(contents))",
+          "        )",
+          "        ",
+          "        assert ms is not None"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 14,
+        "line_count_target": 14,
+        "line_count_diff": 0,
+        "assertion_types_source": {
+          "assertNotNull": 1
+        },
+        "assertion_types_target": {
+          "assert": 1
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 9,
+        "method_call_diff": -2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.752307
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.MultipartStreamTest",
+        "name": "testTwoParamConstructor",
+        "found": true,
+        "signature": "@Test\n    public void testTwoParamConstructor() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "final String strData = \"foobar\";",
+          "        final byte[] contents = strData.getBytes();",
+          "        InputStream input = new ByteArrayInputStream(contents);",
+          "        byte[] boundary = BOUNDARY_TEXT.getBytes();",
+          "        MultipartStream ms =",
+          "                MultipartStream.MultipartStream2(",
+          "                        input,",
+          "                        boundary,",
+          "                        new MultipartStream.ProgressNotifier(null, contents.length));",
+          "        assertNotNull(ms);"
+        ]
+      },
+      "target_test": {
+        "path": "tests/test_file_item_factories.py",
+        "name": "test_custom_constructor",
+        "found": true,
+        "signature": "def test_custom_constructor(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def test_custom_constructor(self):",
+          "        \"\"\"Test factory with custom settings.\"\"\"",
+          "        custom_threshold = 6000",
+          "        custom_repo = \"/tmp/default_uploads\"",
+          "        ",
+          "        factory = DefaultFileItemFactory(",
+          "            size_threshold=custom_threshold,",
+          "            repository=custom_repo",
+          "        )",
+          "        ",
+          "        assert factory.get_size_threshold() == custom_threshold",
+          "        assert factory.get_repository() == custom_repo"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": -1,
+        "line_count_source": 12,
+        "line_count_target": 10,
+        "line_count_diff": 2,
+        "assertion_types_source": {
+          "assertNotNull": 1
+        },
+        "assertion_types_target": {
+          "assert_eq": 2
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 4,
+        "method_call_diff": 3,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 2,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "assertNotNull": {
+            "assert_eq": 1
+          }
+        },
+        "similarity_score": 0.360071
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.ParameterParserTest",
+        "name": "fileUpload199",
+        "found": true,
+        "signature": "@Test\n    public void fileUpload199()",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "ParameterParser parser = new ParameterParser();",
+          "        String s =",
+          "                \"Content-Disposition: form-data; name=\\\"file\\\";\"",
+          "                        + \" filename=\\\"=?ISO-8859-1?B?SWYgeW91IGNhbiByZWFkIHRoaXMgeW8=?=\"",
+          "                        + \" =?ISO-8859-2?B?dSB1bmRlcnN0YW5kIHRoZSBleGFtcGxlLg==?=\\\"\\r\\n\";",
+          "        Map<String, String> params = parser.parse0(s, new char[] {',', ';'});",
+          "        assertEquals(\"If you can read this you understand the example.\", params.get(\"filename\"));"
+        ]
+      },
+      "target_test": {
+        "path": "tests/test_parameter_parser.py",
+        "name": "test_file_upload_199",
+        "found": true,
+        "signature": "def test_file_upload_199(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def test_file_upload_199(self):",
+          "        \"\"\"Test for FILEUPLOAD-199 issue.\"\"\"",
+          "        parser = ParameterParser()",
+          "        s = (\"Content-Disposition: form-data; name=\\\"file\\\";\"",
+          "             \" filename=\\\"=?ISO-8859-1?B?SWYgeW91IGNhbiByZWFkIHRoaXMgeW8=?=\"",
+          "             \" =?ISO-8859-2?B?dSB1bmRlcnN0YW5kIHRoZSBleGFtcGxlLg==?=\\\"\\r\\n\")",
+          "        params = parser.parse0(s, [',', ';'])",
+          "        # With M4 implemented, MimeUtility now properly decodes MIME-encoded text",
+          "        assert \"filename\" in params",
+          "        # The value should be the decoded string",
+          "        expected_decoded = \"If you can read this you understand the example.\"",
+          "        assert params.get(\"filename\") == expected_decoded"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": -1,
+        "line_count_source": 9,
+        "line_count_target": 12,
+        "line_count_diff": -3,
+        "assertion_types_source": {
+          "assertEquals": 1
+        },
+        "assertion_types_target": {
+          "assert_eq": 1,
+          "assert": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 4,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 1,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 1,
+          "source_with_literals": 1,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 1,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {
+          "assertEquals": {
+            "assertTrue": 1
+          }
+        },
+        "similarity_score": 0.741693
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.ParameterParserTest",
+        "name": "testContentTypeParsing",
+        "found": true,
+        "signature": "@Test\n    public void testContentTypeParsing()",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "String s = \"text/plain; Charset=UTF-8\";",
+          "        ParameterParser parser = new ParameterParser();",
+          "        parser.setLowerCaseNames(true);",
+          "        Map<String, String> params = parser.parse1(s, ';');",
+          "        assertEquals(\"UTF-8\", params.get(\"charset\"));"
+        ]
+      },
+      "target_test": {
+        "path": "tests/test_parameter_parser.py",
+        "name": "test_content_type_parsing",
+        "found": true,
+        "signature": "def test_content_type_parsing(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_content_type_parsing(self):",
+          "        \"\"\"Test content type parsing with charset.\"\"\"",
+          "        s = \"text/plain; Charset=UTF-8\"",
+          "        parser = ParameterParser()",
+          "        parser.set_lower_case_names(True)",
+          "        params = parser.parse1(s, ';')",
+          "        assert params.get(\"charset\") == \"UTF-8\""
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 7,
+        "line_count_diff": 0,
+        "assertion_types_source": {
+          "assertEquals": 1
+        },
+        "assertion_types_target": {
+          "assert_eq": 1
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 5,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 1,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 1,
+          "source_with_literals": 1,
+          "target_with_literals": 1,
+          "comparable_pairs": 1,
+          "matching_assertions": 1,
+          "match_rate": 1.0,
+          "unique_literal_values_source": 1,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 1
+        },
+        "assertion_type_mapping": {
+          "assertEquals": {
+            "assert_eq": 1
+          }
+        },
+        "similarity_score": 0.742556
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.ParameterParserTest",
+        "name": "testFileUpload139",
+        "found": true,
+        "signature": "@Test\n    public void testFileUpload139()",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "ParameterParser parser = new ParameterParser();",
+          "        String s = \"Content-type: multipart/form-data , boundary=AaB03x\";",
+          "        Map<String, String> params = parser.parse0(s, new char[] {',', ';'});",
+          "        assertEquals(\"AaB03x\", params.get(\"boundary\"));",
+          "",
+          "        s = \"Content-type: multipart/form-data, boundary=AaB03x\";",
+          "        params = parser.parse0(s, new char[] {';', ','});",
+          "        assertEquals(\"AaB03x\", params.get(\"boundary\"));",
+          "",
+          "        s = \"Content-type: multipart/mixed, boundary=BbC04y\";",
+          "        params = parser.parse0(s, new char[] {',', ';'});",
+          "        assertEquals(\"BbC04y\", params.get(\"boundary\"));"
+        ]
+      },
+      "target_test": {
+        "path": "tests/test_parameter_parser.py",
+        "name": "test_file_upload_139",
+        "found": true,
+        "signature": "def test_file_upload_139(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "def test_file_upload_139(self):",
+          "        \"\"\"Test for FILEUPLOAD-139 issue.\"\"\"",
+          "        parser = ParameterParser()",
+          "        s = \"Content-type: multipart/form-data , boundary=AaB03x\"",
+          "        params = parser.parse0(s, [',', ';'])",
+          "        assert params.get(\"boundary\") == \"AaB03x\"",
+          "        ",
+          "        s = \"Content-type: multipart/form-data, boundary=AaB03x\"",
+          "        params = parser.parse0(s, [';', ','])",
+          "        assert params.get(\"boundary\") == \"AaB03x\"",
+          "        ",
+          "        s = \"Content-type: multipart/mixed, boundary=BbC04y\"",
+          "        params = parser.parse0(s, [',', ';'])",
+          "        assert params.get(\"boundary\") == \"BbC04y\""
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 3,
+        "assertion_count_target": 3,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 12,
+        "line_count_target": 12,
+        "line_count_diff": 0,
+        "assertion_types_source": {
+          "assertEquals": 3
+        },
+        "assertion_types_target": {
+          "assert_eq": 3
+        },
+        "method_call_count_source": 11,
+        "method_call_count_target": 8,
+        "method_call_diff": 3,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 3,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 3,
+          "source_with_literals": 3,
+          "target_with_literals": 3,
+          "comparable_pairs": 3,
+          "matching_assertions": 3,
+          "match_rate": 1.0,
+          "unique_literal_values_source": 2,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 2
+        },
+        "assertion_type_mapping": {
+          "assertEquals": {
+            "assert_eq": 3
+          }
+        },
+        "similarity_score": 0.791583
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.ParameterParserTest",
+        "name": "testParsing",
+        "found": true,
+        "signature": "@Test\n    public void testParsing()",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 15,
+        "body": [
+          "String s = \"test; test1 =  stuff   ; test2 =  \\\"stuff; stuff\\\"; test3=\\\"stuff\";",
+          "        ParameterParser parser = new ParameterParser();",
+          "        Map<String, String> params = parser.parse1(s, ';');",
+          "        assertEquals(null, params.get(\"test\"));",
+          "        assertEquals(\"stuff\", params.get(\"test1\"));",
+          "        assertEquals(\"stuff; stuff\", params.get(\"test2\"));",
+          "        assertEquals(\"\\\"stuff\", params.get(\"test3\"));",
+          "",
+          "        params = parser.parse0(s, new char[] {',', ';'});",
+          "        assertEquals(null, params.get(\"test\"));",
+          "        assertEquals(\"stuff\", params.get(\"test1\"));",
+          "        assertEquals(\"stuff; stuff\", params.get(\"test2\"));",
+          "        assertEquals(\"\\\"stuff\", params.get(\"test3\"));",
+          "",
+          "        s = \"  test  , test1=stuff   ,  , test2=, test3, \";",
+          "        params = parser.parse1(s, ',');",
+          "        assertEquals(null, params.get(\"test\"));",
+          "        assertEquals(\"stuff\", params.get(\"test1\"));",
+          "        assertEquals(null, params.get(\"test2\"));",
+          "        assertEquals(null, params.get(\"test3\"));",
+          "",
+          "        s = \"  test\";",
+          "        params = parser.parse1(s, ';');",
+          "        assertEquals(null, params.get(\"test\"));",
+          "",
+          "        s = \"  \";",
+          "        params = parser.parse1(s, ';');",
+          "        assertEquals(0, params.size());",
+          "",
+          "        s = \" = stuff \";",
+          "        params = parser.parse1(s, ';');",
+          "        assertEquals(0, params.size());"
+        ]
+      },
+      "target_test": {
+        "path": "tests/test_parameter_parser.py",
+        "name": "test_parsing",
+        "found": true,
+        "signature": "def test_parsing(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 15,
+        "body": [
+          "def test_parsing(self):",
+          "        \"\"\"Test basic parsing functionality.\"\"\"",
+          "        s = \"test; test1 =  stuff   ; test2 =  \\\"stuff; stuff\\\"; test3=\\\"stuff\"",
+          "        parser = ParameterParser()",
+          "        params = parser.parse1(s, ';')",
+          "        assert params.get(\"test\") is None",
+          "        assert params.get(\"test1\") == \"stuff\"",
+          "        assert params.get(\"test2\") == \"stuff; stuff\"",
+          "        assert params.get(\"test3\") == \"\\\"stuff\"",
+          "        ",
+          "        params = parser.parse0(s, [',', ';'])",
+          "        assert params.get(\"test\") is None",
+          "        assert params.get(\"test1\") == \"stuff\"",
+          "        assert params.get(\"test2\") == \"stuff; stuff\"",
+          "        assert params.get(\"test3\") == \"\\\"stuff\"",
+          "        ",
+          "        s = \"  test  , test1=stuff   ,  , test2=, test3, \"",
+          "        params = parser.parse1(s, ',')",
+          "        assert params.get(\"test\") is None",
+          "        assert params.get(\"test1\") == \"stuff\"",
+          "        assert params.get(\"test2\") is None",
+          "        assert params.get(\"test3\") is None",
+          "        ",
+          "        s = \"  test\"",
+          "        params = parser.parse1(s, ';')",
+          "        assert params.get(\"test\") is None",
+          "        ",
+          "        s = \"  \"",
+          "        params = parser.parse1(s, ';')",
+          "        assert len(params) == 0",
+          "        ",
+          "        s = \" = stuff \"",
+          "        params = parser.parse1(s, ';')",
+          "        assert len(params) == 0"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 15,
+        "assertion_count_target": 15,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 29,
+        "line_count_target": 29,
+        "line_count_diff": 0,
+        "assertion_types_source": {
+          "assertEquals": 15
+        },
+        "assertion_types_target": {
+          "assert_eq": 9,
+          "assert": 6
+        },
+        "method_call_count_source": 38,
+        "method_call_count_target": 23,
+        "method_call_diff": 15,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 15,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 9,
+          "source_with_literals": 15,
+          "target_with_literals": 9,
+          "comparable_pairs": 9,
+          "matching_assertions": 9,
+          "match_rate": 1.0,
+          "unique_literal_values_source": 5,
+          "unique_literal_values_target": 4,
+          "common_literal_values": 4
+        },
+        "assertion_type_mapping": {
+          "assertEquals": {
+            "assertTrue": 6,
+            "assert_eq": 9
+          }
+        },
+        "similarity_score": 0.817871
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.ParameterParserTest",
+        "name": "testParsingEscapedChars",
+        "found": true,
+        "signature": "@Test\n    public void testParsingEscapedChars()",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 5,
+        "body": [
+          "String s = \"param = \\\"stuff\\\\\\\"; more stuff\\\"\";",
+          "        ParameterParser parser = new ParameterParser();",
+          "        Map<String, String> params = parser.parse1(s, ';');",
+          "        assertEquals(1, params.size());",
+          "        assertEquals(\"stuff\\\\\\\"; more stuff\", params.get(\"param\"));",
+          "",
+          "        s = \"param = \\\"stuff\\\\\\\\\\\"; anotherparam\";",
+          "        params = parser.parse1(s, ';');",
+          "        assertEquals(2, params.size());",
+          "        assertEquals(\"stuff\\\\\\\\\", params.get(\"param\"));",
+          "        assertNull(params.get(\"anotherparam\"));"
+        ]
+      },
+      "target_test": {
+        "path": "tests/test_parameter_parser.py",
+        "name": "test_parsing_escaped_chars",
+        "found": true,
+        "signature": "def test_parsing_escaped_chars(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 5,
+        "body": [
+          "def test_parsing_escaped_chars(self):",
+          "        \"\"\"Test parsing of escaped characters.\"\"\"",
+          "        s = \"param = \\\"stuff\\\\\\\"; more stuff\\\"\"",
+          "        parser = ParameterParser()",
+          "        params = parser.parse1(s, ';')",
+          "        assert len(params) == 1",
+          "        assert params.get(\"param\") == \"stuff\\\\\\\"; more stuff\"",
+          "        ",
+          "        s = \"param = \\\"stuff\\\\\\\\\\\"; anotherparam\"",
+          "        params = parser.parse1(s, ';')",
+          "        assert len(params) == 2",
+          "        assert params.get(\"param\") == \"stuff\\\\\\\\\"",
+          "        assert params.get(\"anotherparam\") is None"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 5,
+        "assertion_count_target": 5,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 12,
+        "line_count_target": 12,
+        "line_count_diff": 0,
+        "assertion_types_source": {
+          "assertEquals": 4,
+          "assertNull": 1
+        },
+        "assertion_types_target": {
+          "assert_eq": 4,
+          "assert": 1
+        },
+        "method_call_count_source": 14,
+        "method_call_count_target": 9,
+        "method_call_diff": 5,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 4,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 4,
+          "source_with_literals": 4,
+          "target_with_literals": 4,
+          "comparable_pairs": 4,
+          "matching_assertions": 4,
+          "match_rate": 1.0,
+          "unique_literal_values_source": 4,
+          "unique_literal_values_target": 4,
+          "common_literal_values": 4
+        },
+        "assertion_type_mapping": {
+          "assertEquals": {
+            "assert_eq": 4
+          }
+        },
+        "similarity_score": 0.764182
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "badLength",
+        "found": true,
+        "signature": "@Test\n    public void badLength() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"truncated\", \"Zm8==\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_bad_length",
+        "found": true,
+        "signature": "def test_bad_length(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_bad_length(self):",
+          "        \"\"\"Test bad length input.\"\"\"",
+          "        assert_io_exception(\"truncated\", \"Zm8==\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.607221
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "badPadding",
+        "found": true,
+        "signature": "@Test\n    public void badPadding() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"incorrect padding, 4th byte\", \"Zg=a\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_bad_padding",
+        "found": true,
+        "signature": "def test_bad_padding(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_bad_padding(self):",
+          "        \"\"\"Test bad padding scenarios.\"\"\"",
+          "        assert_io_exception(\"incorrect padding, 4th byte\", \"Zg=a\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.70707
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "badPaddingLeading1",
+        "found": true,
+        "signature": "@Test\n    public void badPaddingLeading1() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"incorrect padding, first two bytes cannot be padding\", \"=A==\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_bad_padding_leading_1",
+        "found": true,
+        "signature": "def test_bad_padding_leading_1(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_bad_padding_leading_1(self):",
+          "        \"\"\"Test bad padding with leading pad in first position.\"\"\"",
+          "        assert_io_exception(\"incorrect padding, first two bytes cannot be padding\", \"=A==\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.722696
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "badPaddingLeading2",
+        "found": true,
+        "signature": "@Test\n    public void badPaddingLeading2() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"incorrect padding, first two bytes cannot be padding\", \"====\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_bad_padding_leading_2",
+        "found": true,
+        "signature": "def test_bad_padding_leading_2(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_bad_padding_leading_2(self):",
+          "        \"\"\"Test bad padding with all pads.\"\"\"",
+          "        assert_io_exception(\"incorrect padding, first two bytes cannot be padding\", \"====\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.756894
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "decodeTrailing1",
+        "found": true,
+        "signature": "@Test\n    public void decodeTrailing1() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"truncated\", \"Zm9vYmFy1\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_decode_trailing_1",
+        "found": true,
+        "signature": "def test_decode_trailing_1(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_trailing_1(self):",
+          "        \"\"\"Test decoding with 1 trailing valid character.\"\"\"",
+          "        assert_io_exception(\"truncated\", \"Zm9vYmFy1\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.631934
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "decodeTrailing2",
+        "found": true,
+        "signature": "@Test\n    public void decodeTrailing2() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"truncated\", \"Zm9vYmFy12\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_decode_trailing_2",
+        "found": true,
+        "signature": "def test_decode_trailing_2(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_trailing_2(self):",
+          "        \"\"\"Test decoding with 2 trailing valid characters.\"\"\"",
+          "        assert_io_exception(\"truncated\", \"Zm9vYmFy12\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.64768
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "decodeTrailing3",
+        "found": true,
+        "signature": "@Test\n    public void decodeTrailing3() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"truncated\", \"Zm9vYmFy123\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_decode_trailing_3",
+        "found": true,
+        "signature": "def test_decode_trailing_3(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_trailing_3(self):",
+          "        \"\"\"Test decoding with 3 trailing valid characters.\"\"\"",
+          "        assert_io_exception(\"truncated\", \"Zm9vYmFy123\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.659368
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "decodeTrailingJunk",
+        "found": true,
+        "signature": "@Test\n    public void decodeTrailingJunk() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(\"foobar\", \"Zm9vYmFy!!!\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_decode_trailing_junk",
+        "found": true,
+        "signature": "def test_decode_trailing_junk(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_trailing_junk(self):",
+          "        \"\"\"Test decoding with trailing junk.\"\"\"",
+          "        assert_encoded(\"foobar\", \"Zm9vYmFy!!!\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.585441
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "decodeWithInnerPad",
+        "found": true,
+        "signature": "@Test\n    public void decodeWithInnerPad() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(\"Hello WorldHello World\", \"SGVsbG8gV29ybGQ=SGVsbG8gV29ybGQ=\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_decode_with_inner_pad",
+        "found": true,
+        "signature": "def test_decode_with_inner_pad(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_with_inner_pad(self):",
+          "        \"\"\"",
+          "        Test decode with pad character in the middle.",
+          "        Continues provided that the padding is in the correct place,",
+          "        i.e. concatenated valid strings decode OK.",
+          "        \"\"\"",
+          "        assert_encoded(\"Hello WorldHello World\", \"SGVsbG8gV29ybGQ=SGVsbG8gV29ybGQ=\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 7,
+        "line_count_diff": -4,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.58307
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "nonASCIIcharacter",
+        "found": true,
+        "signature": "@Test\n    public void nonASCIIcharacter() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "assertEncoded(\"f\", \"Zg=\u00c0=\"); // A-grave",
+          "        assertEncoded(\"f\", \"Zg=\\u0100=\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_non_ascii_character",
+        "found": true,
+        "signature": "def test_non_ascii_character(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def test_non_ascii_character(self):",
+          "        \"\"\"Test non-ASCII characters are ignored.\"\"\"",
+          "        # In Java, getBytes(US_ASCII) replaces non-ASCII chars with '?'",
+          "        # We need to encode the string to bytes first, handling non-ASCII chars",
+          "        # The non-ASCII characters (\u00c0 and \\u0100) will be outside the decoding table",
+          "        # and will be ignored as INVALID_BYTE",
+          "        ",
+          "        # For \"Zg=\u00c0=\", the \u00c0 character (0xC0 in Latin-1) will be ignored",
+          "        # So it's effectively \"Zg==\" which decodes to \"f\"",
+          "        out = BytesIO()",
+          "        # Encode as latin-1 to preserve the byte value of \u00c0",
+          "        encoded_data = \"Zg=\u00c0=\".encode('latin-1')",
+          "        Base64Decoder.decode(encoded_data, out)",
+          "        assert out.getvalue() == b'f'",
+          "        ",
+          "        # For \"Zg=\\u0100=\", the \\u0100 character will be encoded as UTF-8",
+          "        # which produces bytes outside the base64 alphabet, so they're ignored",
+          "        out = BytesIO()",
+          "        encoded_data = \"Zg=\\u0100=\".encode('utf-8')",
+          "        Base64Decoder.decode(encoded_data, out)",
+          "        assert out.getvalue() == b'f'"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 4,
+        "line_count_target": 19,
+        "line_count_diff": -15,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq": 2
+        },
+        "method_call_count_source": 3,
+        "method_call_count_target": 12,
+        "method_call_diff": -9,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 2,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.621475
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "nonBase64Bytes",
+        "found": true,
+        "signature": "@Test\n    public void nonBase64Bytes() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(\"Hello World\", \"S?G!V%sbG 8g\\rV\\t\\n29ybGQ*=\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_non_base64_bytes",
+        "found": true,
+        "signature": "def test_non_base64_bytes(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_non_base64_bytes(self):",
+          "        \"\"\"Test that non-BASE64 bytes are ignored.\"\"\"",
+          "        assert_encoded(\"Hello World\", \"S?G!V%sbG 8g\\rV\\t\\n29ybGQ*=\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.645262
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "rfc4648Section10Decode",
+        "found": true,
+        "signature": "@Test\n    public void rfc4648Section10Decode() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 7,
+        "body": [
+          "assertEncoded(\"\", \"\");",
+          "        assertEncoded(\"f\", \"Zg==\");",
+          "        assertEncoded(\"fo\", \"Zm8=\");",
+          "        assertEncoded(\"foo\", \"Zm9v\");",
+          "        assertEncoded(\"foob\", \"Zm9vYg==\");",
+          "        assertEncoded(\"fooba\", \"Zm9vYmE=\");",
+          "        assertEncoded(\"foobar\", \"Zm9vYmFy\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_rfc4648_section10_decode",
+        "found": true,
+        "signature": "def test_rfc4648_section10_decode(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 7,
+        "body": [
+          "def test_rfc4648_section10_decode(self):",
+          "        \"\"\"",
+          "        Tests RFC 4648 section 10 test vectors.",
+          "        ",
+          "        - BASE64(\"\") = \"\"",
+          "        - BASE64(\"f\") = \"Zg==\"",
+          "        - BASE64(\"fo\") = \"Zm8=\"",
+          "        - BASE64(\"foo\") = \"Zm9v\"",
+          "        - BASE64(\"foob\") = \"Zm9vYg==\"",
+          "        - BASE64(\"fooba\") = \"Zm9vYmE=\"",
+          "        - BASE64(\"foobar\") = \"Zm9vYmFy\"",
+          "        \"\"\"",
+          "        assert_encoded(\"\", \"\")",
+          "        assert_encoded(\"f\", \"Zg==\")",
+          "        assert_encoded(\"fo\", \"Zm8=\")",
+          "        assert_encoded(\"foo\", \"Zm9v\")",
+          "        assert_encoded(\"foob\", \"Zm9vYg==\")",
+          "        assert_encoded(\"fooba\", \"Zm9vYmE=\")",
+          "        assert_encoded(\"foobar\", \"Zm9vYmFy\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 7,
+        "assertion_count_target": 7,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 9,
+        "line_count_target": 18,
+        "line_count_diff": -9,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 8,
+        "method_call_count_target": 15,
+        "method_call_diff": -7,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.665151
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.Base64DecoderTestCase",
+        "name": "truncatedString",
+        "found": true,
+        "signature": "@Test(expected = IOException.class)\n    public void truncatedString() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "final byte[] x = new byte[] {'n'};",
+          "        Base64Decoder.decode(x, new ByteArrayOutputStream());"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_base64_decoder.py",
+        "name": "test_truncated_string",
+        "found": true,
+        "signature": "def test_truncated_string(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_truncated_string(self):",
+          "        \"\"\"Test that truncated strings raise IOError.\"\"\"",
+          "        x = b'n'",
+          "        out = BytesIO()",
+          "        with pytest.raises(IOError):",
+          "            Base64Decoder.decode(x, out)"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 4,
+        "line_count_target": 6,
+        "line_count_diff": -2,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "pytest.raises": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 4,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.5176
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+        "name": "decodeInvalidEncoding",
+        "found": true,
+        "signature": "@Test(expected = UnsupportedEncodingException.class)\n    public void decodeInvalidEncoding() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "MimeUtility.decodeText(\"=?invalid?B?xyz-?=\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_mime_utility.py",
+        "name": "test_decode_invalid_encoding",
+        "found": true,
+        "signature": "def test_decode_invalid_encoding(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_invalid_encoding(self):",
+          "        \"\"\"Test that invalid encoding raises UnicodeDecodeError.\"\"\"",
+          "        with pytest.raises(UnicodeDecodeError):",
+          "            MimeUtility.decode_text(\"=?invalid?B?xyz-?=\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 4,
+        "line_count_diff": -1,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "pytest.raises": 1
+        },
+        "method_call_count_source": 3,
+        "method_call_count_target": 3,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.722968
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+        "name": "decodeIso88591Base64Encoded",
+        "found": true,
+        "signature": "@Test\n    public void decodeIso88591Base64Encoded() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(",
+          "                \"If you can read this you understand the example.\",",
+          "                \"=?ISO-8859-1?B?SWYgeW91IGNhbiByZWFkIHRoaXMgeW8=?=\"",
+          "                        + \" =?ISO-8859-2?B?dSB1bmRlcnN0YW5kIHRoZSBleGFtcGxlLg==?=\\\"\\r\\n\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_mime_utility.py",
+        "name": "test_decode_iso88591_base64_encoded",
+        "found": true,
+        "signature": "def test_decode_iso88591_base64_encoded(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_iso88591_base64_encoded(self):",
+          "        \"\"\"Test decoding of ISO-8859-1 Base64-encoded text with multiple tokens.\"\"\"",
+          "        encoded = (\"=?ISO-8859-1?B?SWYgeW91IGNhbiByZWFkIHRoaXMgeW8=?=\"",
+          "                   \" =?ISO-8859-2?B?dSB1bmRlcnN0YW5kIHRoZSBleGFtcGxlLg==?=\\\"\\r\\n\")",
+          "        expected = \"If you can read this you understand the example.\"",
+          "        assert MimeUtility.decode_text(encoded) == expected"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 6,
+        "line_count_target": 6,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq": 1
+        },
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 1,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.656324
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+        "name": "decodeIso88591Base64EncodedWithWhiteSpace",
+        "found": true,
+        "signature": "@Test\n    public void decodeIso88591Base64EncodedWithWhiteSpace() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(",
+          "                \"If you can read this you understand the example.\",",
+          "                \"=?ISO-8859-1?B?SWYgeW91IGNhbiByZWFkIHRoaXMgeW8=?=\\t  \\r\\n\"",
+          "                        + \"   =?ISO-8859-2?B?dSB1bmRlcnN0YW5kIHRoZSBleGFtcGxlLg==?=\\\"\\r\\n\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_mime_utility.py",
+        "name": "test_decode_iso88591_base64_encoded_with_whitespace",
+        "found": true,
+        "signature": "def test_decode_iso88591_base64_encoded_with_whitespace(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_iso88591_base64_encoded_with_whitespace(self):",
+          "        \"\"\"Test decoding with whitespace between encoded tokens.\"\"\"",
+          "        encoded = (\"=?ISO-8859-1?B?SWYgeW91IGNhbiByZWFkIHRoaXMgeW8=?=\\t  \\r\\n\"",
+          "                   \"   =?ISO-8859-2?B?dSB1bmRlcnN0YW5kIHRoZSBleGFtcGxlLg==?=\\\"\\r\\n\")",
+          "        expected = \"If you can read this you understand the example.\"",
+          "        assert MimeUtility.decode_text(encoded) == expected"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 6,
+        "line_count_target": 6,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq": 1
+        },
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 1,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.668227
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+        "name": "decodeUtf8Base64Encoded",
+        "found": true,
+        "signature": "@Test\n    public void decodeUtf8Base64Encoded() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(\" h\\u00e9! \\u00e0\\u00e8\\u00f4u !!!\", \"=?UTF-8?B?IGjDqSEgw6DDqMO0dSAhISE=?=\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_mime_utility.py",
+        "name": "test_decode_utf8_base64_encoded",
+        "found": true,
+        "signature": "def test_decode_utf8_base64_encoded(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_utf8_base64_encoded(self):",
+          "        \"\"\"Test decoding of UTF-8 Base64-encoded text.\"\"\"",
+          "        encoded = \"=?UTF-8?B?IGjDqSEgw6DDqMO0dSAhISE=?=\"",
+          "        expected = \" h\\u00e9! \\u00e0\\u00e8\\u00f4u !!!\"",
+          "        assert MimeUtility.decode_text(encoded) == expected"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 5,
+        "line_count_diff": -2,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq": 1
+        },
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 1,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.672259
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+        "name": "decodeUtf8QuotedPrintableEncoded",
+        "found": true,
+        "signature": "@Test\n    public void decodeUtf8QuotedPrintableEncoded() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(",
+          "                \" h\\u00e9! \\u00e0\\u00e8\\u00f4u !!!\",",
+          "                \"=?UTF-8?Q?_h=C3=A9!_=C3=A0=C3=A8=C3=B4u_!!!?=\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_mime_utility.py",
+        "name": "test_decode_utf8_quoted_printable_encoded",
+        "found": true,
+        "signature": "def test_decode_utf8_quoted_printable_encoded(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_decode_utf8_quoted_printable_encoded(self):",
+          "        \"\"\"Test decoding of UTF-8 quoted-printable encoded text.\"\"\"",
+          "        encoded = \"=?UTF-8?Q?_h=C3=A9!_=C3=A0=C3=A8=C3=B4u_!!!?=\"",
+          "        expected = \" h\\u00e9! \\u00e0\\u00e8\\u00f4u !!!\"",
+          "        assert MimeUtility.decode_text(encoded) == expected"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 5,
+        "line_count_target": 5,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq": 1
+        },
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 1,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.739012
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.MimeUtilityTestCase",
+        "name": "noNeedToDecode",
+        "found": true,
+        "signature": "@Test\n    public void noNeedToDecode() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(\"abc\", \"abc\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_mime_utility.py",
+        "name": "test_no_need_to_decode",
+        "found": true,
+        "signature": "def test_no_need_to_decode(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_no_need_to_decode(self):",
+          "        \"\"\"Test that plain text is returned unchanged.\"\"\"",
+          "        assert MimeUtility.decode_text(\"abc\") == \"abc\""
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert_eq": 1
+        },
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 1,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.54254
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "basicEncodeDecode",
+        "found": true,
+        "signature": "@Test\n    public void basicEncodeDecode() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(\"= Hello there =\\r\\n\", \"=3D Hello there =3D=0D=0A\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_basic_encode_decode",
+        "found": true,
+        "signature": "def test_basic_encode_decode(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_basic_encode_decode(self):",
+          "        \"\"\"Test basic quoted-printable decoding.\"\"\"",
+          "        assert_encoded(\"= Hello there =\\r\\n\", \"=3D Hello there =3D=0D=0A\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.701823
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "emptyDecode",
+        "found": true,
+        "signature": "@Test\n    public void emptyDecode() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(\"\", \"\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_empty_decode",
+        "found": true,
+        "signature": "def test_empty_decode(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_empty_decode(self):",
+          "        \"\"\"Test decoding empty string.\"\"\"",
+          "        assert_encoded(\"\", \"\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.612506
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "invalidCharDecode",
+        "found": true,
+        "signature": "@Test(expected = IOException.class)\n    public void invalidCharDecode() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "assertEncoded(\"=\\r\\n\", \"=3D=XD=XA\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_invalid_char_decode",
+        "found": true,
+        "signature": "def test_invalid_char_decode(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def test_invalid_char_decode(self):",
+          "        \"\"\"Test that invalid hex characters raise exception.\"\"\"",
+          "        with pytest.raises(IOError):",
+          "            assert_encoded(\"=\\r\\n\", \"=3D=XD=XA\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 4,
+        "line_count_diff": -1,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "pytest.raises": 1
+        },
+        "method_call_count_source": 3,
+        "method_call_count_target": 3,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.5849
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "invalidQuotedPrintableEncoding",
+        "found": true,
+        "signature": "@Test\n    public void invalidQuotedPrintableEncoding() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(",
+          "                \"truncated escape sequence\", \"YWJjMTIzXy0uKn4hQCMkJV4mKCkre31cIlxcOzpgLC9bXQ==\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_invalid_quoted_printable_encoding",
+        "found": true,
+        "signature": "def test_invalid_quoted_printable_encoding(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_invalid_quoted_printable_encoding(self):",
+          "        \"\"\"Test that invalid encoding raises exception.\"\"\"",
+          "        assert_io_exception(",
+          "            \"truncated escape sequence\",",
+          "            \"YWJjMTIzXy0uKn4hQCMkJV4mKCkre31cIlxcOzpgLC9bXQ==\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 4,
+        "line_count_target": 5,
+        "line_count_diff": -1,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.599741
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "invalidSoftBreak1",
+        "found": true,
+        "signature": "@Test\n    public void invalidSoftBreak1() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"CR must be followed by LF\", \"=\\r\\r\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_invalid_soft_break1",
+        "found": true,
+        "signature": "def test_invalid_soft_break1(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_invalid_soft_break1(self):",
+          "        \"\"\"Test that CR not followed by LF raises exception.\"\"\"",
+          "        assert_io_exception(\"CR must be followed by LF\", \"=\\r\\r\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.694963
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "invalidSoftBreak2",
+        "found": true,
+        "signature": "@Test\n    public void invalidSoftBreak2() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"CR must be followed by LF\", \"=\\rn\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_invalid_soft_break2",
+        "found": true,
+        "signature": "def test_invalid_soft_break2(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_invalid_soft_break2(self):",
+          "        \"\"\"Test that CR not followed by LF raises exception.\"\"\"",
+          "        assert_io_exception(\"CR must be followed by LF\", \"=\\rn\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.714312
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "plainDecode",
+        "found": true,
+        "signature": "@Test\n    public void plainDecode() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(",
+          "                \"The quick brown fox jumps over the lazy dog.\",",
+          "                \"The quick brown fox jumps over the lazy dog.\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_plain_decode",
+        "found": true,
+        "signature": "def test_plain_decode(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_plain_decode(self):",
+          "        \"\"\"Test decoding plain text without encoding.\"\"\"",
+          "        assert_encoded(",
+          "            \"The quick brown fox jumps over the lazy dog.\",",
+          "            \"The quick brown fox jumps over the lazy dog.\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 5,
+        "line_count_target": 5,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.650211
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "softLineBreakDecode",
+        "found": true,
+        "signature": "@Test\n    public void softLineBreakDecode() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(",
+          "                \"If you believe that truth=beauty, then surely mathematics is the most beautiful\"",
+          "                        + \" branch of philosophy.\",",
+          "                \"If you believe that truth=3Dbeauty, then surely=20=\\r\\n\"",
+          "                        + \"mathematics is the most beautiful branch of philosophy.\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_soft_line_break_decode",
+        "found": true,
+        "signature": "def test_soft_line_break_decode(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_soft_line_break_decode(self):",
+          "        \"\"\"Test handling of soft line breaks (=\\r\\n).\"\"\"",
+          "        assert_encoded(",
+          "            \"If you believe that truth=beauty, then surely mathematics is the most beautiful\"",
+          "            + \" branch of philosophy.\",",
+          "            \"If you believe that truth=3Dbeauty, then surely=20=\\r\\n\"",
+          "            + \"mathematics is the most beautiful branch of philosophy.\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 7,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 3,
+        "method_call_diff": -1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.576293
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "truncatedEscape",
+        "found": true,
+        "signature": "@Test\n    public void truncatedEscape() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertIOException(\"truncated\", \"=1\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_truncated_escape",
+        "found": true,
+        "signature": "def test_truncated_escape(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_truncated_escape(self):",
+          "        \"\"\"Test that truncated escape sequence raises exception.\"\"\"",
+          "        assert_io_exception(\"truncated\", \"=1\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.651505
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "unsafeDecode",
+        "found": true,
+        "signature": "@Test\n    public void unsafeDecode() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(\"=\\r\\n\", \"=3D=0D=0A\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_unsafe_decode",
+        "found": true,
+        "signature": "def test_unsafe_decode(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_unsafe_decode(self):",
+          "        \"\"\"Test decoding unsafe characters.\"\"\"",
+          "        assert_encoded(\"=\\r\\n\", \"=3D=0D=0A\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.623143
+      }
+    },
+    {
+      "source_test": {
+        "path": "org.apache.commons.fileupload.util.mime.QuotedPrintableDecoderTestCase",
+        "name": "unsafeDecodeLowerCase",
+        "found": true,
+        "signature": "@Test\n    public void unsafeDecodeLowerCase() throws Exception",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "assertEncoded(\"=\\r\\n\", \"=3d=0d=0a\");"
+        ]
+      },
+      "target_test": {
+        "path": "tests/util/mime/test_quoted_printable_decoder.py",
+        "name": "test_unsafe_decode_lower_case",
+        "found": true,
+        "signature": "def test_unsafe_decode_lower_case(self):",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_unsafe_decode_lower_case(self):",
+          "        \"\"\"Test decoding with lowercase hex digits.\"\"\"",
+          "        assert_encoded(\"=\\r\\n\", \"=3d=0d=0a\")"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 3,
+        "line_count_target": 3,
+        "line_count_diff": 0,
+        "assertion_types_source": {},
+        "assertion_types_target": {},
+        "method_call_count_source": 2,
+        "method_call_count_target": 2,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.573779
+      }
+    }
+  ]
+}

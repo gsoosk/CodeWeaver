@@ -1,0 +1,38 @@
+# runtime hand-off + orchestrator state (never committed)
+pipeline/
+pipeline*/
+*.db
+*.sqlite
+*.sqllite.db
+.burr.db
+.burr/
+
+# python
+__pycache__/
+*.pyc
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pydeps/
+
+# scratch (leading-underscore convention)
+_*.sh
+_*.py
+_*.txt
+!**/__init__.py
+!**/__main__.py
+
+# editor/OS
+.DS_Store
+.idea/
+.vscode/
+
+# CRUST-bench example: generated config + vendored scaffold + run state (local only)
+examples/crust-bench/codeweaver.toml
+examples/crust-bench/.scaffold/
+
+# commons-validator example: generated config + run state (local only)
+examples/commons-validator/codeweaver.toml

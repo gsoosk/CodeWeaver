@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-03T17:05:30.286633Z",
+  "completion_verdict": {
+    "complete": false,
+    "reasons": [
+      "raw_runs coverage_fraction is 0.7655367231638418 (need 1.0); 166 (variant, project, repetition) cell(s) are missing"
+    ],
+    "coverage_fraction": 0.7655367231638418
+  },
+  "input_paths": {
+    "manifest": "/opt/codeweaver-experiments/manifest/manifest.json",
+    "collected_root": "/opt/codeweaver-experiments/final-shards/partial-freeze-542/collected",
+    "paper_test_root": "/opt/codeweaver-experiments/final-shards/paper-current-118",
+    "analysis_root": "/opt/codeweaver-experiments/final-shards/partial-freeze-542/analysis",
+    "report_root": "/opt/codeweaver-experiments/final-shards/partial-freeze-542/report",
+    "runs_root": "/opt/codeweaver-experiments/final-shards/partial-freeze-542/runs-subset",
+    "source_root": "/mnt/c/Users/t-fhabibi/CodeWeaver"
+  },
+  "copied_file_counts": {
+    "collected": 5,
+    "paper_test": 60,
+    "analysis": 15,
+    "report": 4,
+    "source": 86,
+    "run_metadata": 1
+  },
+  "run_archives": [
+    {
+      "variant": "full",
+      "file_count": 10260,
+      "parts": [
+        "raw-run-archives/full.tar.gz.part-000",
+        "raw-run-archives/full.tar.gz.part-001",
+        "raw-run-archives/full.tar.gz.part-002",
+        "raw-run-archives/full.tar.gz.part-003",
+        "raw-run-archives/full.tar.gz.part-004"
+      ]
+    },
+    {
+      "variant": "noanalyzer",
+      "file_count": 7035,
+      "parts": [
+        "raw-run-archives/noanalyzer.tar.gz.part-000",
+        "raw-run-archives/noanalyzer.tar.gz.part-001",
+        "raw-run-archives/noanalyzer.tar.gz.part-002"
+      ]
+    },
+    {
+      "variant": "noplanning",
+      "file_count": 8335,
+      "parts": [
+        "raw-run-archives/noplanning.tar.gz.part-000",
+        "raw-run-archives/noplanning.tar.gz.part-001",
+        "raw-run-archives/noplanning.tar.gz.part-002",
+        "raw-run-archives/noplanning.tar.gz.part-003"
+      ]
+    },
+    {
+      "variant": "novalidator",
+      "file_count": 0,
+      "parts": [
+        "raw-run-archives/novalidator.tar.gz"
+      ]
+    },
+    {
+      "variant": "baseagent-condensed",
+      "file_count": 3202,
+      "parts": [
+        "raw-run-archives/baseagent-condensed.tar.gz.part-000",
+        "raw-run-archives/baseagent-condensed.tar.gz.part-001"
+      ]
+    },
+    {
+      "variant": "baseagent-concat",
+      "file_count": 3709,
+      "parts": [
+        "raw-run-archives/baseagent-concat.tar.gz.part-000",
+        "raw-run-archives/baseagent-concat.tar.gz.part-001"
+      ]
+    }
+  ],
+  "infrastructure_failure_archives": [
+    {
+      "attempt": "20260801-baseagent-retry1",
+      "file_count": 38,
+      "parts": [
+        "infrastructure-failure-archives/20260801-baseagent-retry1.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260801-baseagent-retry2-auth-missing",
+      "file_count": 31,
+      "parts": [
+        "infrastructure-failure-archives/20260801-baseagent-retry2-auth-missing.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260801-baseagent-retry3-env-extraction",
+      "file_count": 31,
+      "parts": [
+        "infrastructure-failure-archives/20260801-baseagent-retry3-env-extraction.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260801-baseagent-retry4-auth-missing",
+      "file_count": 42,
+      "parts": [
+        "infrastructure-failure-archives/20260801-baseagent-retry4-auth-missing.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260801-baseagent-retry5-transport",
+      "file_count": 20,
+      "parts": [
+        "infrastructure-failure-archives/20260801-baseagent-retry5-transport.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260801-baseagent-retry6-transport",
+      "file_count": 21,
+      "parts": [
+        "infrastructure-failure-archives/20260801-baseagent-retry6-transport.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260801-orphaned-copilot-descendant",
+      "file_count": 67,
+      "parts": [
+        "infrastructure-failure-archives/20260801-orphaned-copilot-descendant.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260801-paper-comparator-memory",
+      "file_count": 30,
+      "parts": [
+        "infrastructure-failure-archives/20260801-paper-comparator-memory.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260801-sqlite-unique-collision",
+      "file_count": 414,
+      "parts": [
+        "infrastructure-failure-archives/20260801-sqlite-unique-collision.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260801-stale-running-cells",
+      "file_count": 53,
+      "parts": [
+        "infrastructure-failure-archives/20260801-stale-running-cells.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260802-0845-wsl-termination-exit15",
+      "file_count": 395,
+      "parts": [
+        "infrastructure-failure-archives/20260802-0845-wsl-termination-exit15.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260802-1152-wsl-termination-exit15",
+      "file_count": 251,
+      "parts": [
+        "infrastructure-failure-archives/20260802-1152-wsl-termination-exit15.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260802-1555-wsl-termination-exit15",
+      "file_count": 296,
+      "parts": [
+        "infrastructure-failure-archives/20260802-1555-wsl-termination-exit15.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260802-1921-wsl-oom-exit15",
+      "file_count": 320,
+      "parts": [
+        "infrastructure-failure-archives/20260802-1921-wsl-oom-exit15.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260802-1930-auth-securestring-bridge",
+      "file_count": 45,
+      "parts": [
+        "infrastructure-failure-archives/20260802-1930-auth-securestring-bridge.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260802-terminal-resume-guard-defect",
+      "file_count": 31,
+      "parts": [
+        "infrastructure-failure-archives/20260802-terminal-resume-guard-defect.tar.gz"
+      ]
+    },
+    {
+      "attempt": "20260802-wsl-restart-orphaned-running",
+      "file_count": 1022,
+      "parts": [
+        "infrastructure-failure-archives/20260802-wsl-restart-orphaned-running.tar.gz"
+      ]
+    },
+    {
+      "attempt": "paper-evaluator",
+      "file_count": 36,
+      "parts": [
+        "infrastructure-failure-archives/paper-evaluator.tar.gz"
+      ]
+    }
+  ]
+}

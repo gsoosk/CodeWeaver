@@ -1,0 +1,27 @@
+project,go test path,go test name,rust test path,rust test name,verified test,agent test,mismatch
+gonameparts,nameparts_test.go,TestBuildFullName,tests/nameparts_test.rs,test_build_full_name,1,1,0
+gonameparts,nameparts_test.go,TestDottedAka,tests/nameparts_test.rs,test_dotted_aka,0,0,0
+gonameparts,nameparts_test.go,TestUnicodeCharsInName,tests/nameparts_test.rs,test_unicode_chars_in_name,1,1,0
+gonameparts,nameparts_test.go,TestTabsInName,tests/nameparts_test.rs,test_tabs_in_name,1,1,0
+gonameparts,nameparts_test.go,TestObviouslyBadName,tests/nameparts_test.rs,test_obviously_bad_name,1,1,0
+gonameparts,nameparts_test.go,TestLastNameSalutation,tests/nameparts_test.rs,test_last_name_salutation,1,1,0
+gonameparts,nameparts_test.go,TestLastNameNonName,tests/nameparts_test.rs,test_last_name_non_name,1,1,0
+gonameparts,nameparts_test.go,TestNameEndsWithApostrophe,tests/nameparts_test.rs,test_name_ends_with_apostrophe,1,1,0
+gonameparts,nameparts_test.go,TestLooksCorporate,src/namestring.rs,test_looks_corporate,1,1,0
+gonameparts,nameparts_test.go,TestParseOnlySalutation,tests/nameparts_test.rs,test_parse_only_salutation,1,1,0
+gonameparts,nameparts_test.go,TestParseAllFields,tests/nameparts_test.rs,test_parse_all_fields,1,1,0
+gonameparts,nameparts_test.go,TestClean,src/namestring.rs,test_clean,1,1,0
+gonameparts,nameparts_test.go,TestSearchParts,src/namestring.rs,test_search_parts,1,1,0
+gonameparts,nameparts_test.go,TestParseFirstLast,tests/nameparts_test.rs,test_parse_first_last,1,1,0
+gonameparts,nameparts_test.go,TestStripSupplemental,tests/nameparts_test.rs,test_strip_supplemental,1,1,0
+gonameparts,nameparts_test.go,TestNickname,tests/nameparts_test.rs,test_nickname,1,1,0
+gonameparts,nameparts_test.go,TestLocateSalutation,src/namestring.rs,test_locate_salutation,1,1,0
+gonameparts,nameparts_test.go,TestMultipleAKA,tests/nameparts_test.rs,test_multiple_aka,0,0,0
+gonameparts,nameparts_test.go,TestHasComma,src/namestring.rs,test_has_comma,1,1,0
+gonameparts,nameparts_test.go,TestAliases,tests/nameparts_test.rs,test_aliases,0,0,0
+gonameparts,nameparts_test.go,TestMisplacedApostrophe,tests/nameparts_test.rs,test_misplaced_apostrophe,1,1,0
+gonameparts,nameparts_test.go,TestLastNamePrefix,tests/nameparts_test.rs,test_last_name_prefix,1,1,0
+gonameparts,nameparts_test.go,TestLongPrefixedLastName,tests/nameparts_test.rs,test_long_prefixed_last_name,1,1,0
+gonameparts,nameparts_test.go,TestNormalize,src/namestring.rs,test_normalize,1,1,0
+gonameparts,nameparts_test.go,ExampleParse,,,1,1,0
+gonameparts,nameparts_test.go,ExampleParse_second,,,1,1,0

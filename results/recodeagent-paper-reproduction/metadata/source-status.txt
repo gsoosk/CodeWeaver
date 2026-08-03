@@ -1,0 +1,44 @@
+ M .gitignore
+ M LICENSE
+ M README.md
+ M agents/analyzer.agent.md
+ M agents/parity.agent.md
+ M agents/planner.agent.md
+ M agents/scoper.agent.md
+ M agents/translator.agent.md
+ M agents/validator.agent.md
+ M codeweaver/__init__.py
+ M codeweaver/__main__.py
+ M codeweaver/actions.py
+ M codeweaver/app.py
+ M codeweaver/cli.py
+ M codeweaver/config.py
+ M codeweaver/copilot.py
+ M codeweaver/milestones.py
+ M codeweaver/mock.py
+ M codeweaver/prompts.py
+ M codeweaver/state.py
+ M docs/architecture.md
+ M docs/config.md
+ M docs/related-work.md
+ M examples/auto-milestones/codeweaver.toml
+ M examples/commons-validator/README.md
+ M examples/commons-validator/brief.md
+ M examples/commons-validator/codeweaver.template.toml
+ M examples/commons-validator/setup.ps1
+ M examples/commons-validator/setup.sh
+ M examples/crust-bench/README.md
+ M examples/crust-bench/brief.md
+ M examples/crust-bench/codeweaver.template.toml
+ M examples/crust-bench/setup.ps1
+ M examples/crust-bench/setup.sh
+ M examples/minimal/codeweaver.toml
+ M examples/xcvrd/brief.md
+ M examples/xcvrd/codeweaver.toml
+ M idea.md
+ M pyproject.toml
+ M tools/check.sh
+ M tools/install_agents.sh
+?? "\\"
+?? experiments/
+?? tests/

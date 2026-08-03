@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "manifest.schema.json",
+  "title": "ReCodeAgent full manifest",
+  "description": "Top-level manifest.json: every discovered project plus a summary confirming the expected 100/6/4/8/118 counts.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "artifact_root", "counts", "expected_counts", "projects"],
+  "properties": {
+    "schema_version": {"type": "integer"},
+    "generated_at": {"type": "string"},
+    "artifact_root": {"type": "string"},
+    "counts": {"type": "object"},
+    "expected_counts": {"type": "object"},
+    "counts_match_expected": {"type": "boolean"},
+    "projects": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": true
+}
