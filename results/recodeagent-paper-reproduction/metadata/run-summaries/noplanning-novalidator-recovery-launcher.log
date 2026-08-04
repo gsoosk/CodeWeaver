@@ -1,0 +1,3 @@
+[run] 236 job(s): variants=['noplanning', 'novalidator'] projects=118 repetitions=1
+[run] done: {'completed': 224, 'failed': 7, 'running': 5}
+[run] wrote /opt/codeweaver-experiments/runs/run_summary_noplanning_novalidator.json

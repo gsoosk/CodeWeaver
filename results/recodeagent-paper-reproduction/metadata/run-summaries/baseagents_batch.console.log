@@ -1,0 +1,3 @@
+[run] 236 job(s): variants=['baseagent-condensed', 'baseagent-concat'] projects=118 repetitions=1
+[run] done: {'completed': 232, 'timeout': 2, 'failed': 2}
+[run] wrote /opt/codeweaver-experiments/runs/run_summary_baseagents.json

@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-07-31T21:04:51.734361Z",
+  "jobs": 1,
+  "by_status": {
+    "completed": 1
+  },
+  "results": [
+    {
+      "variant": "full",
+      "project_id": "crust__leftpad",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__leftpad-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/full/crust__leftpad/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/full/crust__leftpad/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__leftpad-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 2,
+      "created_at": "2026-07-31T20:48:03.349984Z",
+      "updated_at": "2026-07-31T21:04:51.731514Z",
+      "started_at": "2026-07-31T20:51:46.455812Z",
+      "ended_at": "2026-07-31T21:04:51.731482Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-07-31T20:51:46.455863Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.77.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    }
+  ]
+}

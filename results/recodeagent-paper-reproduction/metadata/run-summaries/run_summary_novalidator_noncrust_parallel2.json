@@ -1,0 +1,1342 @@
+{
+  "generated_at": "2026-08-04T11:21:59.186935Z",
+  "jobs": 18,
+  "by_status": {
+    "completed": 17,
+    "failed": 1
+  },
+  "results": [
+    {
+      "variant": "novalidator",
+      "project_id": "oxidizer__checkdigit",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-oxidizer__checkdigit-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/oxidizer__checkdigit/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/oxidizer__checkdigit/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-oxidizer__checkdigit-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-03T18:32:13.504253Z",
+      "updated_at": "2026-08-03T19:43:40.855236Z",
+      "started_at": "2026-08-03T18:32:13.504361Z",
+      "ended_at": "2026-08-03T19:43:40.855210Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-03T18:32:13.504379Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.77.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-oxidizer__go-edlib-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/oxidizer__go-edlib/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/oxidizer__go-edlib/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-oxidizer__go-edlib-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-03T18:32:13.502943Z",
+      "updated_at": "2026-08-03T19:24:56.879699Z",
+      "started_at": "2026-08-03T18:32:13.503036Z",
+      "ended_at": "2026-08-03T19:24:56.879656Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-03T18:32:13.503058Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.77.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "oxidizer__gohistogram",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-oxidizer__gohistogram-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/oxidizer__gohistogram/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/oxidizer__gohistogram/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-oxidizer__gohistogram-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-03T19:24:56.883527Z",
+      "updated_at": "2026-08-03T20:12:24.598846Z",
+      "started_at": "2026-08-03T19:24:56.883572Z",
+      "ended_at": "2026-08-03T20:12:24.598809Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-03T19:24:56.883605Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.77.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "oxidizer__gonameparts",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-oxidizer__gonameparts-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/oxidizer__gonameparts/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/oxidizer__gonameparts/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-oxidizer__gonameparts-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-03T19:43:40.858140Z",
+      "updated_at": "2026-08-03T20:38:59.408676Z",
+      "started_at": "2026-08-03T19:43:40.858235Z",
+      "ended_at": "2026-08-03T20:38:59.408646Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-03T19:43:40.858264Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.77.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "oxidizer__stats",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-oxidizer__stats-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/oxidizer__stats/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/oxidizer__stats/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-oxidizer__stats-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-03T20:12:24.602028Z",
+      "updated_at": "2026-08-03T23:49:47.398399Z",
+      "started_at": "2026-08-03T20:12:24.602086Z",
+      "ended_at": "2026-08-03T23:49:47.398367Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-03T20:12:24.602120Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.77.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "oxidizer__textrank",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-oxidizer__textrank-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/oxidizer__textrank/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/oxidizer__textrank/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-oxidizer__textrank-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-03T20:38:59.412154Z",
+      "updated_at": "2026-08-03T21:51:15.251195Z",
+      "started_at": "2026-08-03T20:38:59.412242Z",
+      "ended_at": "2026-08-03T21:51:15.251114Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-03T20:38:59.412277Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.77.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "alphatrans__commons-cli",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-alphatrans__commons-cli-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/alphatrans__commons-cli/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/alphatrans__commons-cli/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-alphatrans__commons-cli-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-03T21:51:15.255747Z",
+      "updated_at": "2026-08-04T01:11:09.407813Z",
+      "started_at": "2026-08-03T21:51:15.255849Z",
+      "ended_at": "2026-08-04T01:11:09.407786Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-03T21:51:15.255917Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.77.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "alphatrans__commons-csv",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-alphatrans__commons-csv-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/alphatrans__commons-csv/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/alphatrans__commons-csv/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-alphatrans__commons-csv-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-03T23:49:47.402625Z",
+      "updated_at": "2026-08-04T04:21:58.142371Z",
+      "started_at": "2026-08-03T23:49:47.402802Z",
+      "ended_at": "2026-08-04T04:21:58.142338Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-03T23:49:47.402837Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "alphatrans__commons-fileupload",
+      "repetition": 0,
+      "status": "failed",
+      "app_id": "novalidator-alphatrans__commons-fileupload-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/alphatrans__commons-fileupload/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/alphatrans__commons-fileupload/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-alphatrans__commons-fileupload-rep0"
+      ],
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-04T01:11:09.412446Z",
+      "updated_at": "2026-08-04T05:20:28.479670Z",
+      "started_at": "2026-08-04T01:11:09.412533Z",
+      "ended_at": "2026-08-04T05:20:28.479626Z",
+      "timeout_seconds": null,
+      "error": "4  iter=1  passed=None\n    M5  iter=1  passed=None\n    M6  iter=1  passed=None\n    M7  iter=1  passed=None\n    M8  iter=1  passed=None\n    M9  iter=1  passed=None\n    M10  iter=1  passed=None\n    M11  iter=1  passed=None\n    M12  iter=1  passed=None\n    M13  iter=1  passed=None\n    M14  iter=1  passed=None\n    M15  iter=1  passed=None\n    M16  iter=1  passed=None\n    M17  iter=1  passed=None\n    M18  iter=1  passed=None\n    M19  iter=1  passed=None\n    M20  iter=1  passed=None\n    M21  iter=1  passed=None\n    M22  iter=1  passed=None\n    M23  iter=1  passed=None\n    M24  iter=1  passed=None\n    M25  iter=1  passed=None\n    M26  iter=1  passed=None\n    M27  iter=1  passed=None\n    M28  iter=1  passed=None\n    M29  iter=1  passed=None\n    M30  iter=1  passed=None\n    M31  iter=1  passed=None",
+      "provenance": {
+        "captured_at": "2026-08-04T01:11:09.412603Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "alphatrans__commons-validator",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-alphatrans__commons-validator-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/alphatrans__commons-validator/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/alphatrans__commons-validator/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-alphatrans__commons-validator-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-04T04:21:58.147582Z",
+      "updated_at": "2026-08-04T08:10:37.689032Z",
+      "started_at": "2026-08-04T04:21:58.147662Z",
+      "ended_at": "2026-08-04T08:10:37.689002Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-04T04:21:58.147753Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "skel__bst",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-skel__bst-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/skel__bst/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/skel__bst/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-skel__bst-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-04T05:20:28.483490Z",
+      "updated_at": "2026-08-04T05:39:37.513198Z",
+      "started_at": "2026-08-04T05:20:28.483557Z",
+      "ended_at": "2026-08-04T05:39:37.513150Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-04T05:20:28.483590Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "skel__colorsys",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-skel__colorsys-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/skel__colorsys/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/skel__colorsys/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-skel__colorsys-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-04T05:39:37.526256Z",
+      "updated_at": "2026-08-04T05:53:04.055296Z",
+      "started_at": "2026-08-04T05:39:37.526391Z",
+      "ended_at": "2026-08-04T05:53:04.055260Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-04T05:39:37.526432Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "skel__heapq",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-skel__heapq-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/skel__heapq/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/skel__heapq/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-skel__heapq-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-04T05:53:04.060067Z",
+      "updated_at": "2026-08-04T06:24:17.139932Z",
+      "started_at": "2026-08-04T05:53:04.060162Z",
+      "ended_at": "2026-08-04T06:24:17.139901Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-04T05:53:04.060202Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "skel__html",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-skel__html-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/skel__html/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/skel__html/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-skel__html-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-04T06:24:17.144663Z",
+      "updated_at": "2026-08-04T07:08:49.966430Z",
+      "started_at": "2026-08-04T06:24:17.144731Z",
+      "ended_at": "2026-08-04T07:08:49.966399Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-04T06:24:17.144774Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "skel__mathgen",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-skel__mathgen-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/skel__mathgen/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/skel__mathgen/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-skel__mathgen-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-04T07:08:49.969675Z",
+      "updated_at": "2026-08-04T07:56:07.707953Z",
+      "started_at": "2026-08-04T07:08:49.969722Z",
+      "ended_at": "2026-08-04T07:56:07.707908Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-04T07:08:49.969748Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "skel__rbt",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-skel__rbt-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/skel__rbt/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/skel__rbt/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-skel__rbt-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-04T07:56:07.711159Z",
+      "updated_at": "2026-08-04T08:39:28.659102Z",
+      "started_at": "2026-08-04T07:56:07.711208Z",
+      "ended_at": "2026-08-04T08:39:28.659071Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-04T07:56:07.711282Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "skel__strsim",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-skel__strsim-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/skel__strsim/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/skel__strsim/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-skel__strsim-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-04T08:10:37.692081Z",
+      "updated_at": "2026-08-04T10:13:29.458898Z",
+      "started_at": "2026-08-04T08:10:37.692152Z",
+      "ended_at": "2026-08-04T10:13:29.458866Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-04T08:10:37.692185Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    },
+    {
+      "variant": "novalidator",
+      "project_id": "skel__toml",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "novalidator-skel__toml-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/novalidator/skel__toml/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-experiments/runs/novalidator/skel__toml/rep0/codeweaver.toml",
+        "--app-id",
+        "novalidator-skel__toml-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-04T08:39:28.662547Z",
+      "updated_at": "2026-08-04T11:21:59.181810Z",
+      "started_at": "2026-08-04T08:39:28.662655Z",
+      "ended_at": "2026-08-04T11:21:59.181774Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-04T08:39:28.662694Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.78.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "ablation": {
+        "skipped_stage": "validate",
+        "execution_mode": "full_burr_graph"
+      }
+    }
+  ]
+}

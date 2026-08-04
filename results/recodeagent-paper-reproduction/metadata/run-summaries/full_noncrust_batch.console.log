@@ -1,0 +1,3 @@
+[run] 18 job(s): variants=['full'] projects=18 repetitions=1
+[run] done: {'completed': 17, 'failed': 1}
+[run] wrote /opt/codeweaver-experiments/runs/run_summary_full_noncrust.json

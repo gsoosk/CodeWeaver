@@ -1,12 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-03T16:59:40.349905Z",
+  "generated_at": "2026-08-04T18:23:26.178271Z",
   "verdict": {
-    "complete": false,
-    "reasons": [
-      "raw_runs coverage_fraction is 0.7655367231638418 (need 1.0); 166 (variant, project, repetition) cell(s) are missing"
-    ],
-    "coverage_fraction": 0.7655367231638418
+    "complete": true,
+    "reasons": [],
+    "coverage_fraction": 1.0
   },
   "blockers": [],
   "comparison_blockers": [],
@@ -43,85 +41,85 @@
       "variant": "noanalyzer",
       "tool": "alphatrans",
       "expected": 4,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 4,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "noanalyzer",
       "tool": "crust",
       "expected": 100,
-      "measured": 89,
-      "coverage_fraction": 0.89
+      "measured": 100,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "noanalyzer",
       "tool": "oxidizer",
       "expected": 6,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 6,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "noanalyzer",
       "tool": "skel",
       "expected": 8,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 8,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "noplanning",
       "tool": "alphatrans",
       "expected": 4,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 4,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "noplanning",
       "tool": "crust",
       "expected": 100,
-      "measured": 99,
-      "coverage_fraction": 0.99
+      "measured": 100,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "noplanning",
       "tool": "oxidizer",
       "expected": 6,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 6,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "noplanning",
       "tool": "skel",
       "expected": 8,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 8,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "novalidator",
       "tool": "alphatrans",
       "expected": 4,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 4,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "novalidator",
       "tool": "crust",
       "expected": 100,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 100,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "novalidator",
       "tool": "oxidizer",
       "expected": 6,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 6,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "novalidator",
       "tool": "skel",
       "expected": 8,
-      "measured": 0,
-      "coverage_fraction": 0.0
+      "measured": 8,
+      "coverage_fraction": 1.0
     },
     {
       "variant": "baseagent-condensed",
@@ -182,6 +180,6 @@
   ],
   "project_count": 118,
   "expected_total_projects": 118,
-  "raw_runs_row_count": 542,
+  "raw_runs_row_count": 708,
   "analysis_available": true
 }

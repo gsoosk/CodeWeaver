@@ -1,0 +1,3 @@
+[run] 1 job(s): variants=['full'] projects=1 repetitions=1
+[run] done: {'completed': 1}
+[run] wrote /opt/codeweaver-experiments/runs/calibration_skel_colorsys.json

@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-07-31T20:47:19.108902Z",
+  "jobs": 1,
+  "by_status": {
+    "dry_run": 1
+  },
+  "results": [
+    {
+      "variant": "full",
+      "project_id": "crust__leftpad",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-experiments/runs/full/crust__leftpad/rep0",
+      "app_id": "full-crust__leftpad-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-experiments/workspaces/crust__leftpad/codeweaver.toml",
+          "--app-id",
+          "full-crust__leftpad-rep0"
+        ]
+      }
+    }
+  ]
+}

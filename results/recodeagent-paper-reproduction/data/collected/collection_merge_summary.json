@@ -1,108 +1,26 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-03T16:54:43.947773Z",
+  "generated_at": "2026-08-04T18:03:06.917934Z",
   "input_roots": [
     "/opt/codeweaver-experiments/final-shards/base-complete",
     "/opt/codeweaver-experiments/final-shards/merged-progress/full-current-18",
-    "/opt/codeweaver-experiments/final-shards/merged-progress/noanalyzer-current-41",
-    "/opt/codeweaver-experiments/final-shards/merged-progress/noplanning-current-44"
+    "/opt/codeweaver-experiments/final-shards/merged-progress/noanalyzer-current-67",
+    "/opt/codeweaver-experiments/final-shards/merged-progress/noplanning-current-61",
+    "/opt/codeweaver-experiments/final-shards/merged-progress/novalidator-current-89"
   ],
-  "input_root_counts": {
-    "base-complete": 236,
-    "full-current-18": 118,
-    "noanalyzer-current-41": 89,
-    "noplanning-current-44": 99
-  },
-  "input_root_run_status_counts": {
-    "base-complete": {
-      "completed": 233,
-      "timeout": 2,
-      "failed": 1
-    },
-    "full-current-18": {
-      "completed": 112,
-      "failed": 6
-    },
-    "noanalyzer-current-41": {
-      "completed": 83,
-      "failed": 6
-    },
-    "noplanning-current-44": {
-      "completed": 95,
-      "failed": 4
-    }
-  },
-  "input_root_variant_counts": {
-    "base-complete": {
-      "baseagent-condensed": 118,
-      "baseagent-concat": 118
-    },
-    "full-current-18": {
-      "full": 118
-    },
-    "noanalyzer-current-41": {
-      "noanalyzer": 89
-    },
-    "noplanning-current-44": {
-      "noplanning": 99
-    }
-  },
-  "input_root_tool_counts": {
-    "base-complete": {
-      "crust": 200,
-      "oxidizer": 12,
-      "alphatrans": 8,
-      "skel": 16
-    },
-    "full-current-18": {
-      "crust": 100,
-      "oxidizer": 6,
-      "alphatrans": 4,
-      "skel": 8
-    },
-    "noanalyzer-current-41": {
-      "crust": 89
-    },
-    "noplanning-current-44": {
-      "crust": 99
-    }
-  },
   "variants": [
     "full",
     "noanalyzer",
     "noplanning",
+    "novalidator",
     "baseagent-condensed",
     "baseagent-concat"
   ],
   "repetitions": 1,
-  "expected_cells": 542,
-  "raw_rows": 542,
+  "expected_cells": 708,
+  "raw_rows": 708,
   "unresolved_failures": 0,
   "complete": true,
-  "partial_snapshot": true,
-  "full_protocol_expected_cells": 708,
-  "pending_protocol_cells_at_freeze": 166,
-  "variant_counts": {
-    "full": 118,
-    "noanalyzer": 89,
-    "noplanning": 99,
-    "baseagent-condensed": 118,
-    "baseagent-concat": 118
-  },
-  "tool_counts": {
-    "crust": 488,
-    "oxidizer": 18,
-    "alphatrans": 12,
-    "skel": 24
-  },
-  "run_status_counts": {
-    "completed": 523,
-    "failed": 17,
-    "timeout": 2
-  },
-  "notes": [
-    "This merged collected root is intentionally PARTIAL relative to the full 708-cell protocol.",
-    "It freezes exactly the 542 independently collected terminal cells present in the four frozen cumulative roots.",
-    "No novalidator rows are included; live/incomplete cells were excluded at freeze time."
-  ]
+  "allowed_replacement_keys": [],
+  "replaced_raw_keys": []
 }

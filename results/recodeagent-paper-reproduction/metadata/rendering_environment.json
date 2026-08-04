@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-03T17:01:37.464315Z",
+  "captured_at": "2026-08-04T18:27:34.278667Z",
   "model": {
     "value": "claude-sonnet-4.5",
     "status": "measured",
@@ -21,7 +21,7 @@
     "reason": ""
   },
   "copilot_cli_version": {
-    "value": "GitHub Copilot CLI 1.0.77.",
+    "value": "GitHub Copilot CLI 1.0.78.",
     "status": "measured",
     "reason": ""
   },

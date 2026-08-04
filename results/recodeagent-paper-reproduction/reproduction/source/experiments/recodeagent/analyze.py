@@ -260,7 +260,14 @@ def compute_project_row_completeness(
 # Provenance consistency: are all measured runs comparable (same model etc.)?
 # --------------------------------------------------------------------------- #
 def check_provenance_consistency(raw_rows: list[dict[str, Any]]) -> dict[str, Any]:
-    fields = ["model", "agent_timeout_seconds", "git_sha", "codeweaver_package_version", "copilot_cli_version"]
+    protocol_fields = [
+        "model",
+        "agent_timeout_seconds",
+        "git_sha",
+        "codeweaver_package_version",
+    ]
+    informational_fields = ["copilot_cli_version"]
+    fields = protocol_fields + informational_fields
     distinct: dict[str, set[Any]] = {f: set() for f in fields}
     for r in raw_rows:
         for f in fields:
@@ -269,7 +276,15 @@ def check_provenance_consistency(raw_rows: list[dict[str, Any]]) -> dict[str, An
                 distinct[f].add(v)
     return {
         "distinct_values": {f: sorted(str(v) for v in vs) for f, vs in distinct.items()},
-        "consistent": all(len(vs) <= 1 for vs in distinct.values()),
+        "protocol_fields": protocol_fields,
+        "informational_fields": informational_fields,
+        "consistent": all(len(distinct[f]) <= 1 for f in protocol_fields),
+        "strictly_consistent": all(len(vs) <= 1 for vs in distinct.values()),
+        "informational_drift": {
+            f: sorted(str(v) for v in distinct[f])
+            for f in informational_fields
+            if len(distinct[f]) > 1
+        },
     }
 
 

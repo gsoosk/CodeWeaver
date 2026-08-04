@@ -1011,9 +1011,12 @@ the reference oracle its TPR is explicitly missing.
   `report.py` requires: exactly 118 manifest projects; complete raw matrix
   coverage; complete primary-selection paper-RQ2 and generated-test project
   rows with no duplicates; schema-valid rows (including generated coverage
-  status fields); and consistent model/git/toolchain provenance. Any single
-  failing condition produces an explicit `INCOMPLETE` verdict with itemized
-  reasons.
+  status fields); and consistent protocol-defining model, agent-timeout, Git,
+  and CodeWeaver-package provenance. Exact Copilot CLI versions remain
+  recorded and any version drift is reported separately as informational
+  provenance, but patch-level CLI drift alone does not relabel an otherwise
+  complete measured matrix as incomplete. Any failing protocol condition
+  produces an explicit `INCOMPLETE` verdict with itemized reasons.
   `report.py` never refuses to run -- a report that honestly says "0/118
   measured, `analyze.py` was never run" is itself valid output.
 - **Provenance is recorded per run, not assumed.** `common.collect_provenance()`

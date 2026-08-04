@@ -1,29 +1,19 @@
-# CodeWeaver ReCodeAgent results — PARTIAL snapshot
+# CodeWeaver ReCodeAgent experiment results
 
-This repository is a **PARTIAL** CodeWeaver reproduction snapshot for the
-ReCodeAgent paper (`arXiv:2604.07341`), frozen at **542 / 708** independently
-collected terminal cells (**166 pending at freeze time**). It is **not** the
-final reproduction.
+This repository contains the measured 118-project x 6-variant reproduction of
+the experiments in arXiv:2604.07341, including raw normalized data, independent
+test/coverage evidence, paper-equivalent tables and figures, PDFs, provenance,
+and filtered raw run archives.
 
-Included now:
-- normalized raw data for exactly the frozen 542 collected cells
-- paper-aligned comparison corpus from `paper-current-118` (complete)
-- all seven analysis CSV/PDF table/figure pairs for the current partial state
-- the reproducibility report PDF/Markdown, which explicitly says INCOMPLETE
-- filtered raw-run archives limited to the frozen keys only
-- infrastructure-failure archives, provenance, checksums, and source snapshot
+- `results/`: final tables, figures, and reproducibility report.
+- `data/`: normalized raw rows and project-level RQ2/generated-test evidence.
+- `raw-run-archives/`: split compressed run outputs; concatenate numbered
+  parts before extracting when an archive was split.
+- `infrastructure-failure-archives/`: excluded retries, retained separately
+  so authentication, transport, and interrupted-state decisions are auditable.
+- `reproduction/source/`: exact CodeWeaver/harness source snapshot.
+- `metadata/checksums.sha256`: SHA-256 for every packaged file.
 
-Frozen collection roots:
-- `base-complete` — 236 rows
-- `full-current-18` — 118 rows
-- `noanalyzer-current-41` — 89 rows
-- `noplanning-current-44` — 99 rows
-
-Paper corpus status:
-- 18 paper comparison rows
-- 118 generated-test rows
-- 1,472 static source methods / 1,484 runtime cases
-- zero merge/evaluator failures
-
-See `PARTIAL_SNAPSHOT.md` and `metadata/partial_snapshot.json` for exact freeze
-provenance.
+Official benchmark artifacts are not redistributed. Their pinned Zenodo
+record, filenames, and MD5 checksums are recorded in the harness source and
+manifest so acquisition remains reproducible.

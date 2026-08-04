@@ -1,0 +1,3 @@
+[run] 2 job(s): variants=['baseagent-condensed', 'baseagent-concat'] projects=1 repetitions=1
+[run] done: {'completed': 2}
+[run] wrote /opt/codeweaver-experiments/runs/calibration_baseagents_v2.json

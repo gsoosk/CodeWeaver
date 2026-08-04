@@ -1,0 +1,3 @@
+[run] 5 job(s): variants=['noanalyzer', 'noplanning', 'novalidator', 'baseagent-condensed', 'baseagent-concat'] projects=1 repetitions=1
+[run] done: {'completed': 5}
+[run] wrote /opt/codeweaver-experiments/runs/calibration_ablations.json

@@ -1,0 +1,6 @@
+usage: run.py [-h] --manifest MANIFEST --workspace-root WORKSPACE_ROOT
+              --runs-root RUNS_ROOT [--config CONFIG] [--variant VARIANT]
+              [--project PROJECT] [--tool TOOL] [--repetitions REPETITIONS]
+              [--jobs JOBS] [--timeout TIMEOUT] [--dry-run] [--force]
+              [--resume-running] [--retry-terminal] [--out OUT]
+run.py: error: unrecognized arguments: set -e

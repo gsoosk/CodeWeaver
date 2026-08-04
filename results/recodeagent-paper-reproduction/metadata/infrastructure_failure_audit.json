@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T17:05:04.208572Z",
+  "generated_at": "2026-08-04T18:33:35.976841Z",
   "source_root": "/opt/codeweaver-experiments/runs-infrastructure-failures",
   "attempts": [
     {
@@ -911,6 +911,20 @@
       "returncode": null,
       "num_calls": 0,
       "error": ""
+    },
+    {
+      "attempt": "20260804-052535-novalidator-commons-fileupload-http500",
+      "state_path": "20260804-052535-novalidator-commons-fileupload-http500/novalidator/alphatrans__commons-fileupload/rep0/recodeagent_run_state.json",
+      "state_sha256": "8293c04f2071707e88d0923ce213b57b90a576e4219e995c58adcc18e97de09d",
+      "variant": "novalidator",
+      "project_id": "alphatrans__commons-fileupload",
+      "repetition": 0,
+      "status": "failed",
+      "started_at": "2026-08-04T01:11:09.412533Z",
+      "ended_at": "2026-08-04T05:20:28.479626Z",
+      "returncode": 1,
+      "num_calls": 1,
+      "error": "4  iter=1  passed=None\n    M5  iter=1  passed=None\n    M6  iter=1  passed=None\n    M7  iter=1  passed=None\n    M8  iter=1  passed=None\n    M9  iter=1  passed=None\n    M10  iter=1  passed=None\n    M11  iter=1  passed=None\n    M12  iter=1  passed=None\n    M13  iter=1  passed=None\n    M14  iter=1  passed=None\n    M15  iter=1  passed=None\n    M16  iter=1  passed=None\n    M17  iter=1  passed=None\n    M18  iter=1  passed=None\n    M19  iter=1  passed=None\n    M20  iter=1  passed=None\n    M21  iter=1  passed=None\n    M22  iter=1  passed=None\n    M23  iter=1  passed=None\n    M24  iter=1  passed=None\n    M25  iter=1  passed=None\n    M26  iter=1  passed=None\n    M27  iter=1  passed=None\n    M28  iter=1  passed=None\n    M29  iter=1  passed=None\n    M30  iter=1  passed=None\n    M31  iter=1  passed=None"
     }
   ]
 }

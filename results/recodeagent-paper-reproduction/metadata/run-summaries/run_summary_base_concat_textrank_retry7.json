@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-08-01T11:21:19.988086Z",
+  "jobs": 1,
+  "by_status": {
+    "failed": 1
+  },
+  "results": [
+    {
+      "variant": "baseagent-concat",
+      "project_id": "oxidizer__textrank",
+      "repetition": 0,
+      "status": "failed",
+      "app_id": "baseagent-concat-oxidizer__textrank-rep0",
+      "workspace_dir": "/opt/codeweaver-experiments/runs/baseagent-concat/oxidizer__textrank/rep0",
+      "argv": null,
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-01T11:16:16.898370Z",
+      "updated_at": "2026-08-01T11:21:19.985132Z",
+      "started_at": "2026-08-01T11:16:16.898437Z",
+      "ended_at": "2026-08-01T11:21:19.985097Z",
+      "timeout_seconds": null,
+      "error": "Execution failed: Error: Failed to get response from the AI model; retried 5 times (total retry wait time: 6.00 seconds) Last error: Failed to finalize Anthropic message stream: stream ended without producing a Message with role=assistant",
+      "provenance": {
+        "captured_at": "2026-08-01T11:16:16.898451Z",
+        "model": {
+          "value": "claude-sonnet-4.5",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.77.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    }
+  ]
+}

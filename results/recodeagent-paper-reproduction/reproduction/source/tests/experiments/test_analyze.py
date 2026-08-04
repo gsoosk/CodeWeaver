@@ -292,6 +292,8 @@ def test_check_provenance_consistency_all_consistent():
     rows = [_raw_row(), _raw_row(project_id="crust__b")]
     report = A.check_provenance_consistency(rows)
     assert report["consistent"] is True
+    assert report["strictly_consistent"] is True
+    assert report["informational_drift"] == {}
     assert report["distinct_values"]["model"] == ["claude-sonnet-4.5"]
 
 
@@ -299,7 +301,21 @@ def test_check_provenance_consistency_detects_mixed_models():
     rows = [_raw_row(model="claude-sonnet-4.5"), _raw_row(project_id="crust__b", model="gpt-4")]
     report = A.check_provenance_consistency(rows)
     assert report["consistent"] is False
+    assert report["strictly_consistent"] is False
     assert sorted(report["distinct_values"]["model"]) == ["claude-sonnet-4.5", "gpt-4"]
+
+
+def test_check_provenance_consistency_discloses_cli_version_drift():
+    rows = [
+        _raw_row(copilot_cli_version="1.0.77"),
+        _raw_row(project_id="crust__b", copilot_cli_version="1.0.78"),
+    ]
+    report = A.check_provenance_consistency(rows)
+    assert report["consistent"] is True
+    assert report["strictly_consistent"] is False
+    assert report["informational_drift"] == {
+        "copilot_cli_version": ["1.0.77", "1.0.78"],
+    }
 
 
 def test_check_provenance_consistency_empty_rows_is_consistent():

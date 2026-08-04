@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-03T16:59:40.502465Z",
+  "generated_at": "2026-08-04T18:23:26.320903Z",
   "checksums": {
     "manifest": {
       "path": "/opt/codeweaver-experiments/manifest/manifest.json",
@@ -9,19 +9,20 @@
       "size_bytes": 66584
     },
     "raw_runs": {
-      "path": "/opt/codeweaver-experiments/final-shards/partial-freeze-542/collected/raw_runs.jsonl",
+      "path": "/opt/codeweaver-experiments/final-shards/complete-708/raw_runs.jsonl",
       "exists": true,
-      "sha256": "2b4930831e46596d8765291cdfd1895a5822c616069b4b07813b2abfade26611",
-      "size_bytes": 6332797
+      "sha256": "1ccd6a713eec3a2f63b4f0071a57762cbf30ddcad027183c10093adb456c908b",
+      "size_bytes": 8838477
     },
     "test_comparisons": {
-      "path": null,
-      "exists": false,
-      "sha256": null
+      "path": "/opt/codeweaver-experiments/final-shards/paper-current-118/paper_test_projects.csv",
+      "exists": true,
+      "sha256": "6889a108130ec7dd730d8de7deb5cf554738f307c0cc977d8bbd2d6f9ffb4bfc",
+      "size_bytes": 8376
     }
   },
   "report_generation_provenance": {
-    "captured_at": "2026-08-03T16:59:40.509683Z",
+    "captured_at": "2026-08-04T18:23:26.330484Z",
     "model": {
       "value": null,
       "status": "not_applicable",
@@ -43,7 +44,7 @@
       "reason": ""
     },
     "copilot_cli_version": {
-      "value": "GitHub Copilot CLI 1.0.77.",
+      "value": "GitHub Copilot CLI 1.0.78.",
       "status": "measured",
       "reason": ""
     },
