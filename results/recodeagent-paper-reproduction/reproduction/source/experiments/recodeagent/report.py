@@ -171,6 +171,11 @@ def compute_completion_verdict(manifest: dict[str, Any], analysis_provenance: di
     if not (analysis_provenance.get("provenance_consistency", {}) or {}).get("consistent", False):
         reasons.append("measured runs used inconsistent model/git/toolchain provenance "
                        "(see analysis_provenance.json.provenance_consistency)")
+    if not analysis_provenance.get("paper_tables_side_by_side_available", False):
+        reasons.append(
+            "exact paper Tables 1/2 side-by-side comparison is unavailable; "
+            "rerun analyze.py with the official --paper-results-workbook"
+        )
 
     return {"complete": not reasons, "reasons": reasons, "coverage_fraction": coverage_fraction}
 
@@ -233,6 +238,11 @@ def build_report(
         "expected_total_projects": C.EXPECTED_TOTAL_PROJECTS,
         "raw_runs_row_count": len(raw_rows),
         "analysis_available": analysis_provenance is not None,
+        "paper_tables_side_by_side_available": bool(
+            (analysis_provenance or {}).get(
+                "paper_tables_side_by_side_available", False
+            )
+        ),
     }
 
 
@@ -287,7 +297,14 @@ def render_report_sections(report_data: dict[str, Any]) -> list[RD.ReportSection
     sections.append(RD.ReportSection(
         "Analysis Availability",
         ("analyze.py has been run; table1_effectiveness/table2_test_translation/figure7_ablation/"
-        "figure8_cost_tools are available in the analysis output root.") if report_data["analysis_available"]
+        "figure8_cost_tools are available in the analysis output root. "
+        + (
+            "The exact paper_table1_side_by_side.csv, paper_table2_side_by_side.csv, and "
+            "paper_tables_side_by_side.pdf comparison artifacts are also available."
+            if report_data["paper_tables_side_by_side_available"]
+            else
+            "The exact paper Tables 1/2 side-by-side comparison is unavailable."
+        )) if report_data["analysis_available"]
         else "analyze.py has NOT been run yet -- table1/table2/figure7/figure8 are not available.",
         level=2,
     ))

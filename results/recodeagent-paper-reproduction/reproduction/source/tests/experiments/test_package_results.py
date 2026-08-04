@@ -81,6 +81,16 @@ def _write_required_outputs(analysis: Path, report: Path, *, complete: bool) -> 
     report.mkdir()
     for filename in PKG.REQUIRED_ANALYSIS_PDFS:
         (analysis / filename).write_bytes(b"%PDF-1.4\n")
+    (analysis / "paper_table1_side_by_side.csv").write_text(
+        "paper,codeweaver\n1,1\n", encoding="utf-8"
+    )
+    (analysis / "paper_table2_side_by_side.csv").write_text(
+        "paper,codeweaver\n1,1\n", encoding="utf-8"
+    )
+    C.atomic_write_json(
+        analysis / "paper_tables_side_by_side_provenance.json",
+        {"available": True},
+    )
     (analysis / "table1_effectiveness.csv").write_text("x\n1\n", encoding="utf-8")
     (report / "reproducibility_report.pdf").write_bytes(b"%PDF-1.4\n")
     C.atomic_write_json(

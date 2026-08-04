@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-04T18:22:29.618624Z",
+  "generated_at": "2026-08-04T20:43:56.673180Z",
   "raw_runs_row_count": 708,
   "test_comparisons_row_count": 0,
   "paper_test_projects_row_count": 18,
@@ -12,7 +12,7 @@
   "primary_repetition": 0,
   "test_has_data_for_primary_selection": false,
   "paper_test_has_data_for_primary_selection": true,
-  "on_empty_mode": "fail",
+  "on_empty_mode": "watermark",
   "schema_validation_errors": {},
   "generated_test_schema_validation_errors": {},
   "schema_valid": true,
@@ -76,5 +76,8 @@
   "table1_row_count": 5,
   "table2_row_count": 22,
   "figure7_row_count": 24,
-  "figure8_row_count": 4
+  "figure8_row_count": 4,
+  "paper_tables_side_by_side_available": true,
+  "paper_table1_side_by_side_row_count": 27,
+  "paper_table2_side_by_side_row_count": 22
 }

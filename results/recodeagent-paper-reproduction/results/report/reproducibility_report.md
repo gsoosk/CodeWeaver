@@ -50,4 +50,4 @@ No failures recorded (or test_compare.py has not been run / comparison_failures.
 
 ## Analysis Availability
 
-analyze.py has been run; table1_effectiveness/table2_test_translation/figure7_ablation/figure8_cost_tools are available in the analysis output root.
+analyze.py has been run; table1_effectiveness/table2_test_translation/figure7_ablation/figure8_cost_tools are available in the analysis output root. The exact paper_table1_side_by_side.csv, paper_table2_side_by_side.csv, and paper_tables_side_by_side.pdf comparison artifacts are also available.

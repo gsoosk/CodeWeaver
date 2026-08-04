@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-04T18:34:09.321173Z",
+  "generated_at": "2026-08-04T21:06:31.418368Z",
   "completion_verdict": {
     "complete": true,
     "reasons": [],
@@ -10,17 +10,17 @@
     "manifest": "/opt/codeweaver-experiments/manifest/manifest.json",
     "collected_root": "/opt/codeweaver-experiments/final-shards/complete-708",
     "paper_test_root": "/opt/codeweaver-experiments/final-shards/paper-current-118",
-    "analysis_root": "/opt/codeweaver-experiments/final-analysis-708",
-    "report_root": "/opt/codeweaver-experiments/final-report-708",
+    "analysis_root": "/opt/codeweaver-experiments/final-analysis-708-paper-tables-v1",
+    "report_root": "/opt/codeweaver-experiments/final-report-708-paper-tables-v1",
     "runs_root": "/opt/codeweaver-experiments/runs",
     "source_root": "/mnt/c/Users/t-fhabibi/CodeWeaver"
   },
   "copied_file_counts": {
     "collected": 4,
     "paper_test": 60,
-    "analysis": 15,
+    "analysis": 19,
     "report": 4,
-    "source": 86,
+    "source": 88,
     "run_metadata": 51
   },
   "run_archives": [

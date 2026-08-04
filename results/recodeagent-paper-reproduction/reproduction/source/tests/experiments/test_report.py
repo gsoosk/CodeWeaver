@@ -199,6 +199,7 @@ def test_compute_completion_verdict_full_coverage_schema_valid_consistent_is_com
         "generated_test_completeness": {"coverage_fraction": 1.0, "missing_cells": [], "duplicate_rows": 0},
         "schema_valid": True,
         "provenance_consistency": {"consistent": True},
+        "paper_tables_side_by_side_available": True,
     }
     verdict = RPT.compute_completion_verdict(_full_manifest(), analysis_provenance)
     assert verdict["complete"] is True
@@ -324,7 +325,8 @@ def test_render_report_sections_shows_complete_status_text():
                             "generated_test_completeness": {
                                 "coverage_fraction": 1.0, "missing_cells": [], "duplicate_rows": 0,
                             },
-                            "schema_valid": True, "provenance_consistency": {"consistent": True}},
+                            "schema_valid": True, "provenance_consistency": {"consistent": True},
+                            "paper_tables_side_by_side_available": True},
         failures=[], comparison_failures=[], raw_rows=[], variants=["full"], repetitions=1,
     )
     sections = RPT.render_report_sections(data)
@@ -411,6 +413,7 @@ def test_cli_main_require_complete_returns_zero_when_complete(tmp_path: Path):
             "coverage_fraction": 1.0, "missing_cells": [], "duplicate_rows": 0,
         },
         "schema_valid": True, "provenance_consistency": {"consistent": True},
+        "paper_tables_side_by_side_available": True,
     })
     output_root = tmp_path / "report_out"
     rc = RPT.main(["--manifest", str(manifest_path), "--output-root", str(output_root),

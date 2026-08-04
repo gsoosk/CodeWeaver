@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-04T20:43:54.386853Z",
+  "available": true,
+  "paper_arxiv_id": "2604.07341",
+  "paper_table1_page": 7,
+  "paper_table2_page": 8,
+  "official_workbook_filename": "results.xlsx",
+  "official_workbook_md5": "a404779f2dcd7ac44d43bf72f4e88b98",
+  "official_workbook_expected_md5": "a404779f2dcd7ac44d43bf72f4e88b98",
+  "official_workbook_url": "https://zenodo.org/api/records/21399688/files/results.xlsx/content",
+  "official_workbook_sheets": [
+    "results (claude-4.5-sonnet)",
+    "test-translation-comparison",
+    "sweagent crust - tool test"
+  ],
+  "codeweaver_variant": "full",
+  "codeweaver_repetition": 0,
+  "paper_table1_rows": 27,
+  "paper_table2_rows": 22,
+  "paper_table1_csv": "paper_table1_side_by_side.csv",
+  "paper_table2_csv": "paper_table2_side_by_side.csv",
+  "comparison_pdf": "paper_tables_side_by_side.pdf",
+  "partial_marker": "*",
+  "partial_definition": "numeric result aggregates the measured subset, but one or more applicable constituent CodeWeaver measurements were unavailable"
+}

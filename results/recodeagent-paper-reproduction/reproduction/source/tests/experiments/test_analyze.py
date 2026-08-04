@@ -1537,7 +1537,15 @@ def test_run_analysis_measured_data_writes_real_tables(tmp_path: Path):
     assert (output_root / "figure8_cost_tools.csv").exists()
     assert (output_root / "table_generated_tests.csv").exists()
     assert (output_root / "table_function_validation.csv").exists()
+    assert (output_root / "paper_table1_side_by_side.csv").exists()
+    assert (output_root / "paper_table2_side_by_side.csv").exists()
+    comparison_pdf = output_root / "paper_tables_side_by_side.pdf"
+    assert comparison_pdf.exists() or Path(
+        str(comparison_pdf) + ".unavailable.txt"
+    ).exists()
+    assert (output_root / "paper_tables_side_by_side_provenance.json").exists()
     assert (output_root / "analysis_provenance.json").exists()
+    assert summary["paper_tables_side_by_side_available"] is False
     table1_text = (output_root / "table1_effectiveness.csv").read_text(encoding="utf-8")
     assert A.NO_MEASURED_DATA_TEXT not in table1_text
 
@@ -1559,7 +1567,8 @@ def test_run_analysis_empty_data_watermarks_every_artifact(tmp_path: Path):
                              on_empty="watermark")
     assert summary["raw_has_data"] is False
     for name in ("table1_effectiveness.csv", "figure7_ablation.csv", "figure8_cost_tools.csv",
-                "table2_test_translation.csv", "table_generated_tests.csv", "table_function_validation.csv"):
+                "table2_test_translation.csv", "table_generated_tests.csv", "table_function_validation.csv",
+                "paper_table1_side_by_side.csv", "paper_table2_side_by_side.csv"):
         text = (output_root / name).read_text(encoding="utf-8")
         assert A.NO_MEASURED_DATA_TEXT in text
 
@@ -1733,6 +1742,7 @@ def test_build_parser_defaults():
     assert args.primary_variant == "full"
     assert args.primary_repetition == "0"
     assert args.project is None
+    assert args.paper_results_workbook is None
 
 
 def test_cli_main_project_flag_filters_every_output(tmp_path: Path):

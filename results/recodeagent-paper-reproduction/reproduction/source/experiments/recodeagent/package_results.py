@@ -48,6 +48,12 @@ REQUIRED_ANALYSIS_PDFS = (
     "figure8_cost_tools.pdf",
     "table_generated_tests.pdf",
     "table_function_validation.pdf",
+    "paper_tables_side_by_side.pdf",
+)
+REQUIRED_ANALYSIS_FILES = (
+    "paper_table1_side_by_side.csv",
+    "paper_table2_side_by_side.csv",
+    "paper_tables_side_by_side_provenance.json",
 )
 
 
@@ -244,6 +250,24 @@ def _require_outputs(analysis_root: Path, report_root: Path) -> None:
         raise FileNotFoundError(
             "required valid PDF output(s) missing: " + ", ".join(invalid)
         )
+    missing_files = [
+        str(analysis_root / filename)
+        for filename in REQUIRED_ANALYSIS_FILES
+        if not (analysis_root / filename).is_file()
+        or (analysis_root / filename).stat().st_size == 0
+    ]
+    if missing_files:
+        raise FileNotFoundError(
+            "required analysis output(s) missing: " + ", ".join(missing_files)
+        )
+    comparison_provenance = C.read_json(
+        analysis_root / "paper_tables_side_by_side_provenance.json"
+    )
+    if not comparison_provenance.get("available", False):
+        raise RuntimeError(
+            "refusing to package without the exact paper Tables 1/2 "
+            "side-by-side comparison"
+        )
 
 
 def _result_readme() -> str:
@@ -255,6 +279,10 @@ test/coverage evidence, paper-equivalent tables and figures, PDFs, provenance,
 and filtered raw run archives.
 
 - `results/`: final tables, figures, and reproducibility report.
+- `results/analysis/paper_tables_side_by_side.pdf`: exact paper Tables 1 and 2
+  with the measured CodeWeaver Full result beside every corresponding metric.
+- `results/analysis/paper_table{1,2}_side_by_side.csv`: machine-readable
+  paper and CodeWeaver values with distinct provenance/status columns.
 - `data/`: normalized raw rows and project-level RQ2/generated-test evidence.
 - `raw-run-archives/`: split compressed run outputs; concatenate numbered
   parts before extracting when an archive was split.

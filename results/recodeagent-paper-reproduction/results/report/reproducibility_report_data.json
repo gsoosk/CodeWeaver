@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-04T18:23:26.178271Z",
+  "generated_at": "2026-08-04T20:52:50.990747Z",
   "verdict": {
     "complete": true,
     "reasons": [],
@@ -181,5 +181,6 @@
   "project_count": 118,
   "expected_total_projects": 118,
   "raw_runs_row_count": 708,
-  "analysis_available": true
+  "analysis_available": true,
+  "paper_tables_side_by_side_available": true
 }

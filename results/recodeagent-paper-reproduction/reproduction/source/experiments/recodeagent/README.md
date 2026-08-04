@@ -359,6 +359,7 @@ python -m experiments.recodeagent analyze \
   --test-comparisons /data/recodeagent/results/test_comparisons.jsonl \
   --paper-test-projects /data/recodeagent/results/paper_test_projects.csv \
   --generated-test-projects /data/recodeagent/results/generated_test_projects.csv \
+  --paper-results-workbook /data/recodeagent-cache/results.xlsx \
   --output-root /data/recodeagent/results/analysis \
   --variant all --primary-variant full --primary-repetition 0
 
@@ -405,7 +406,7 @@ completion verdict is `INCOMPLETE` (for CI-style gating) -- the report's
 | `test-compare` | `--manifest`, `--runs-root`, `--output-root` | `test_comparisons.jsonl`, `test_comparisons.csv`, `test_comparison_failures.csv`, `test_comparison_summary.json` |
 | `paper_test_compare` | official implementation/results + full run matrix | `paper_test_projects.csv`, `generated_test_projects.{csv,jsonl}` (isolated generated-test execution plus developer-only/developer+generated coverage), and failure/summary files |
 | `merge-paper` | repeated disjoint paper-test output roots, manifest | merged paper/generated project rows and project-level evidence with strict completeness checks |
-| `analyze` | `--manifest`, `--raw-runs`, `--output-root` plus paper/generated project CSVs for final output | `table1_effectiveness.{csv,pdf}`, `table1_paper_reference.{csv,pdf}`, `table2_test_translation.{csv,pdf}`, `figure7_ablation.{csv,pdf}`, `figure8_cost_tools.{csv,pdf}`, `table_generated_tests.{csv,pdf}`, `table_function_validation.{csv,pdf}`, `analysis_provenance.json` |
+| `analyze` | `--manifest`, `--raw-runs`, `--output-root` plus paper/generated project CSVs and the official `--paper-results-workbook` for final output | `table1_effectiveness.{csv,pdf}`, `table1_paper_reference.{csv,pdf}`, `table2_test_translation.{csv,pdf}`, `paper_table{1,2}_side_by_side.csv`, `paper_tables_side_by_side.pdf`, `figure7_ablation.{csv,pdf}`, `figure8_cost_tools.{csv,pdf}`, `table_generated_tests.{csv,pdf}`, `table_function_validation.{csv,pdf}`, `analysis_provenance.json` |
 | `report` | `--manifest`, `--output-root` (everything else optional) | `reproducibility_report.md`, `reproducibility_report.pdf`, `reproducibility_report_data.json`, `manifest_checksum_provenance.json` |
 | `package` | complete report plus manifest, collected/paper-test/analysis roots, and runs root | Git-ready result tree containing all normalized data/PDFs, source/provenance/checksums, and split filtered raw-run archives |
 
@@ -451,8 +452,8 @@ of `--primary-variant` (explicit opt-in only, never the default).
 
 | RQ | Paper concept | Artifact(s) |
 |---|---|---|
-| RQ1 | Syntactic/compilation success; developer test executed/pass/fail + TPR; translated/generated tests; coverage before/after; per-function/milestone validation | `table1_effectiveness.{csv,pdf}` (measured) vs. `table1_paper_reference.{csv,pdf}` (paper's own reported totals -- always a separate file/section). `tpr`/per-function validation are sourced from the **independently validated** oracle. `coverage_before`/`coverage_after` are sourced from `generated_test_projects` and mean independent developer tests before/after adding only CodeWeaver-authored generated tests. The official ReCodeAgent generated harness remains separately labeled as `standardized_coverage_before`/`standardized_coverage_after`; it is never substituted for CodeWeaver's result. |
-| RQ2 | Test translation rate, assertion-count match, `assertEqual` equivalence, assertion-type match, Qwen cosine similarity, LoC/method-invocation counts | `table2_test_translation.{csv,pdf}` (delegates to `test_compare.py`'s own `summarize_comparisons`), `table_generated_tests.{csv,pdf}` |
+| RQ1 | Syntactic/compilation success; developer test executed/pass/fail + TPR; translated/generated tests; coverage before/after; per-function/milestone validation | `table1_effectiveness.{csv,pdf}` (measured) vs. `table1_paper_reference.{csv,pdf}` (paper's own reported totals -- always a separate file/section), plus the exact row-level `paper_table1_side_by_side.csv` and combined `paper_tables_side_by_side.pdf`. `tpr`/per-function validation are sourced from the **independently validated** oracle. `coverage_before`/`coverage_after` are sourced from `generated_test_projects` and mean independent developer tests before/after adding only CodeWeaver-authored generated tests. The official ReCodeAgent generated harness remains separately labeled as `standardized_coverage_before`/`standardized_coverage_after`; it is never substituted for CodeWeaver's result. |
+| RQ2 | Test translation rate, assertion-count match, `assertEqual` equivalence, assertion-type match, Qwen cosine similarity, LoC/method-invocation counts | `table2_test_translation.{csv,pdf}`, exact row-level `paper_table2_side_by_side.csv`, combined `paper_tables_side_by_side.pdf`, and `table_generated_tests.{csv,pdf}` |
 | RQ3 | Ablation variants' TPR + NC/TEC/SEC/LC/ALL trajectory metrics | `figure7_ablation.{csv,pdf}` (paired delta vs. `full` via Wilcoxon-or-bootstrap). Its `tpr` uses the same independently validated, passed/expected `validated_tests_pass_rate` as Table 1 for every variant; without the reference oracle it remains explicitly missing. |
 | RQ4 | Tokens, premium requests/credits, elapsed time, agent turns, tool invocations, model/CLI/git/OS provenance | `figure8_cost_tools.{csv,pdf}` (`dollar_cost_usd` stays `not_applicable` unless `--pricing-usd-per-premium-request` is explicitly supplied -- GitHub Copilot CLI has no built-in dollar-cost API) |
 

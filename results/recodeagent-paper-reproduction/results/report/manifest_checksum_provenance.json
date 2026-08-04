@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-04T18:23:26.320903Z",
+  "generated_at": "2026-08-04T20:52:51.253941Z",
   "checksums": {
     "manifest": {
       "path": "/opt/codeweaver-experiments/manifest/manifest.json",
@@ -15,14 +15,13 @@
       "size_bytes": 8838477
     },
     "test_comparisons": {
-      "path": "/opt/codeweaver-experiments/final-shards/paper-current-118/paper_test_projects.csv",
-      "exists": true,
-      "sha256": "6889a108130ec7dd730d8de7deb5cf554738f307c0cc977d8bbd2d6f9ffb4bfc",
-      "size_bytes": 8376
+      "path": null,
+      "exists": false,
+      "sha256": null
     }
   },
   "report_generation_provenance": {
-    "captured_at": "2026-08-04T18:23:26.330484Z",
+    "captured_at": "2026-08-04T20:52:51.264815Z",
     "model": {
       "value": null,
       "status": "not_applicable",

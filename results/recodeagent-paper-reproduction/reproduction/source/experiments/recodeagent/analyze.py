@@ -46,6 +46,10 @@ measurement, and renders paper-style tables/figures:
     ``table_function_validation`` reports BOTH the symbol/completeness
     ``function_translation_ratio`` and, where available, execution-based
     ``function_validation_*``/``oracle_integrity`` per project)
+  - ``paper_table1_side_by_side.csv``, ``paper_table2_side_by_side.csv``, and
+    ``paper_tables_side_by_side.pdf`` (the exact printed paper table rows from
+    the pinned official ``results.xlsx``, with measured CodeWeaver values in
+    adjacent, source-distinct columns)
 
 Paper reference numbers (``common.PAPER_REFERENCE_TOTALS``) are written to a
 SEPARATE file (``table1_paper_reference.csv/pdf``) and a visually distinct
@@ -85,6 +89,7 @@ from pathlib import Path
 from typing import Any
 
 from experiments.recodeagent import common as C
+from experiments.recodeagent import paper_tables as PTables
 from experiments.recodeagent import paper_test_compare as PTcmp
 from experiments.recodeagent import test_compare as TCmp
 from experiments.recodeagent.common import Measurement, Status, atomic_write_text, read_jsonl, utcnow_iso
@@ -1590,6 +1595,7 @@ def run_analysis(
     pricing_usd_per_premium_request: float | None = None,
     paper_test_project_rows: list[dict[str, Any]] | None = None,
     generated_test_project_rows: list[dict[str, Any]] | None = None,
+    paper_results_workbook: str | Path | None = None,
 ) -> dict[str, Any]:
     """Writes every table/figure artifact and returns a JSON-serializable
     summary (also written to ``analysis_provenance.json``). Raises
@@ -1734,6 +1740,65 @@ def run_analysis(
                             reason=f"no test_comparisons rows for variant={primary_variant!r} "
                                   f"repetition={primary_repetition!r}")
 
+    # --- exact paper Tables 1/2 with CodeWeaver values immediately beside them ---
+    paper_comparison_reason = None
+    if paper_results_workbook is None:
+        paper_comparison_reason = (
+            "official results.xlsx was not supplied via --paper-results-workbook"
+        )
+    elif primary_repetition is None:
+        paper_comparison_reason = (
+            "the exact paper comparison requires one explicit primary repetition"
+        )
+    elif not raw_has_data:
+        paper_comparison_reason = "no raw_runs rows are available"
+    elif not paper_test_has_data_for_primary_selection:
+        paper_comparison_reason = (
+            "paper_test_projects has no rows for the primary selection"
+        )
+    elif not generated_test_project_rows:
+        paper_comparison_reason = "generated_test_projects rows are unavailable"
+
+    if paper_comparison_reason is None:
+        paper_comparison = PTables.build_artifacts(
+            workbook_path=paper_results_workbook,
+            manifest=manifest,
+            raw_rows=raw_rows,
+            paper_test_project_rows=paper_test_project_rows or [],
+            generated_test_project_rows=generated_test_project_rows or [],
+            output_root=output_root,
+            variant=primary_variant,
+            repetition=primary_repetition,
+        )
+    else:
+        for filename in (
+            "paper_table1_side_by_side.csv",
+            "paper_table2_side_by_side.csv",
+        ):
+            write_no_measured_data_csv(
+                output_root / filename,
+                [],
+                reason=paper_comparison_reason,
+            )
+        render_watermark_pdf(
+            output_root / "paper_tables_side_by_side.pdf",
+            title="Paper Tables 1 and 2 with CodeWeaver results",
+            reason=paper_comparison_reason,
+        )
+        paper_comparison = {
+            "schema_version": 1,
+            "generated_at": utcnow_iso(),
+            "available": False,
+            "reason": paper_comparison_reason,
+            "paper_table1_rows": 0,
+            "paper_table2_rows": 0,
+            "comparison_pdf": "paper_tables_side_by_side.pdf",
+        }
+        C.atomic_write_json(
+            output_root / "paper_tables_side_by_side_provenance.json",
+            paper_comparison,
+        )
+
     # --- figure7_ablation ---
     if raw_has_data:
         figure7_rows = compute_ablation_metrics_by_tool(raw_rows)
@@ -1822,6 +1887,15 @@ def run_analysis(
         "provenance_consistency": provenance_consistency,
         "table1_row_count": len(table1_rows), "table2_row_count": len(table2_rows),
         "figure7_row_count": len(figure7_rows), "figure8_row_count": len(figure8_rows),
+        "paper_tables_side_by_side_available": bool(
+            paper_comparison.get("available")
+        ),
+        "paper_table1_side_by_side_row_count": int(
+            paper_comparison.get("paper_table1_rows") or 0
+        ),
+        "paper_table2_side_by_side_row_count": int(
+            paper_comparison.get("paper_table2_rows") or 0
+        ),
     }
     C.atomic_write_json(output_root / "analysis_provenance.json", summary)
     return summary
@@ -1850,6 +1924,12 @@ def build_parser() -> argparse.ArgumentParser:
                          "paper-equivalent RQ2 input (the heuristic --test-comparisons is fallback only)")
     ap.add_argument("--generated-test-projects", default=None,
                     help="path to generated_test_projects.csv from paper_test_compare.py")
+    ap.add_argument(
+        "--paper-results-workbook",
+        default=None,
+        help="official pinned results.xlsx; required for the exact paper Tables 1/2 "
+             "side-by-side CSV/PDF comparison",
+    )
     ap.add_argument("--output-root", required=True, help="where tables/figures are written")
     ap.add_argument("--config", default=None, help="experiment.toml path (default: bundled one)")
     ap.add_argument("--variant", default="all", help="comma-separated variants, or 'all' (default); this is the "
@@ -1931,6 +2011,7 @@ def main(argv: list[str] | None = None) -> int:
             on_empty=args.on_empty, pricing_usd_per_premium_request=args.pricing_usd_per_premium_request,
             paper_test_project_rows=paper_test_project_rows,
             generated_test_project_rows=generated_test_project_rows,
+            paper_results_workbook=args.paper_results_workbook,
         )
     except AnalysisAborted as e:
         print(f"[analyze] ABORTED: {e}")
