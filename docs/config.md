@@ -43,6 +43,7 @@ All relative paths resolve against the config file's directory, unless
 | `report_artifact` | `report.json` | the Validator's verdict file |
 | `milestones_artifact` | `milestones.json` | the Scoper's generated milestone matrix (only used when no `[[milestones]]` are declared) |
 | `parity_artifact` | `parity.json` | the Parity Verifier's verdict (only used when `parity_check` is on) |
+| `skips_artifact` | `skips.json` | deferred known-failing tests recorded by skip-on-give-up (`{"tests_to_skip":[...],"retried":[...]}`) |
 
 If both `immutable_input` and `working_copy` are set, the prompts instruct the
 Planner to copy input→working-copy first and all agents to edit only the working
@@ -68,9 +69,11 @@ working copy.
 
 | key | default | meaning |
 |-----|---------|---------|
-| `gate_template` | `{tests_or}` | how a milestone's **cumulative** test list becomes the gate string. Placeholders: `{tests_or}` (" or "-joined), `{tests_space}` (space-joined), `{tests_csv}` (comma-joined), `{marker}` (this milestone's marker). |
+| `gate_template` | `{tests_or}` | how a milestone's **cumulative** test list becomes the gate string. Placeholders: `{tests_or}` (" or "-joined), `{tests_space}` (space-joined), `{tests_csv}` (comma-joined), `{marker}` (this milestone's marker), `{skip_exclude}` (the deferred-test deselection clause — see below). |
+| `skip_exclude_template` | "" | (skip-on-give-up) how the deferred/known-failing **skip** list renders into `{skip_exclude}` inside the gate. Same `{tests_or}`/`{tests_space}`/`{tests_csv}` placeholders, but over the SKIP tokens. Empty → skips are only surfaced to the agent textually, not mechanically deselected. |
 
-Examples: pytest `-k` → `'-k "{tests_or}"'`; `go test -run` →
+Examples: pytest `-k` → `'-k "({tests_or}){skip_exclude}"'` with
+`skip_exclude_template = ' and not ({tests_or})'`; `go test -run` →
 `'-run {tests_or}'`; `cargo test` names → `'{tests_space}'`; ctest →
 `'-R "{tests_or}"'`.
 
@@ -87,10 +90,27 @@ Examples: pytest `-k` → `'-k "{tests_or}"'`; `go test -run` →
 | key | default | meaning |
 |-----|---------|---------|
 | `max_iter` | 5 | translate→validate repair attempts per milestone before giving up |
-| `parity_check` | `true` | run a final parity verifier after all milestones pass; if the translation is incomplete, loop back to the milestone generator to schedule the gaps. The run succeeds only when parity is verified complete. Set `false` for the legacy behavior (finish when the last milestone passes). |
-| `max_parity_rounds` | 3 | bound on parity → scope re-iterations (safety against an unbounded loop) |
+| `skip_on_give_up` | `true` | when a milestone exhausts `max_iter`, **skip** it (record in `skipped[]` + `skips.json`, deselect its failing tests from later gates, advance) instead of hard-failing the run. The parity verifier then gives each deferred test one retry milestone. Set `false` for the legacy behavior (give-up = hard fail, `done=False`). |
+| `parity_check` | `true` | run a final parity verifier after all milestones conclude; if incomplete, loop back to the milestone generator to schedule the gaps. The run succeeds only when parity is verified complete. Set `false` to finish when the last milestone concludes (success = all milestones passed, no skips). |
+| `max_parity_rounds` | 3 | bound on parity → scope re-iterations AND on deferred-test retry milestones (safety against an unbounded loop) |
 | `db_path` | `<pipeline_dir>/burr.db` | SQLite persistence path |
 | `agent_timeout` | none | per-agent wall-clock cap (seconds) |
+
+### Skip-on-give-up & deferred-test retry (V2)
+
+By default a milestone that can't be fixed within `max_iter` no longer fails the
+whole run. Instead:
+1. it is **skipped** (added to `skipped[]`; its still-failing test ids are written
+   to `skips.json`), and the loop advances;
+2. every later milestone's gate **deselects** those tests via `skip_exclude_template`
+   (so the same failures don't drag each later milestone to `max_iter`), and they
+   are surfaced to the Validator/Translator as "known-failing, deferred";
+3. after the last milestone, the **parity verifier** gives each un-retried deferred
+   test **one dedicated retry milestone** (re-enabling it). If the retry passes, the
+   test is recovered; if it still fails, it becomes a **permanent skip**;
+4. untranslated behavior that has no test surfaces as a parity **gap** → re-scope.
+
+The run still terminates on completeness (parity), not on "the tests we ran pass".
 
 ## `[[milestones]]`
 
@@ -107,6 +127,7 @@ milestone's gate is its own `tests` plus every earlier milestone's.
 | `goal` | no | what this milestone must achieve (goes into the prompt) |
 | `tests` | no | selector tokens this milestone ADDS (test names/modules/tags) |
 | `marker` | no | optional extra selector exposed to `gate_template` as `{marker}` |
+| `origin` | no | provenance: `scoper` (default) / `parity` (gap re-scope) / `retry` (deferred-test retry). Set automatically; you don't normally write it. |
 
 ## `[prompts]` (optional)
 
@@ -135,5 +156,17 @@ Runtime overrides (mostly for the offline mock and CI):
 | `CODEWEAVER_CRASH_AT` | mock: milestone id to crash at (tests crash-resume) |
 | `CODEWEAVER_MOCK_MILESTONES` | mock: how many milestones the mock scoper emits (default 3) |
 | `CODEWEAVER_MOCK_PARITY_INCOMPLETE` | mock: how many parity checks report incomplete before completing (default 0) |
+| `CODEWEAVER_MOCK_RETRY_FAIL=1` | mock: make deferred-test retry milestones fail (exercises permanent skips) |
+| `CODEWEAVER_NO_TRACKER=1` | disable the Burr telemetry tracker (also auto-disabled when the `apache-burr[tracking]` extra is not installed) |
 | `COPILOT_HOME` | where agent profiles are installed (`$COPILOT_HOME/agents`) |
+
+## CLI (the `run` command)
+
+Beyond `--config`, `--app-id`, `--max-iter`, `--db`, `--mock`:
+
+| flag | effect |
+|------|--------|
+| `--max-parity-rounds N` | override `[execution].max_parity_rounds` |
+| `--pipeline-dir DIR` | override the pipeline artifact directory |
+| `--start-milestone Mx` | start a **new** app-id from an **existing** pipeline (reusing `analysis.md`, `milestones.json`, `plan.json`, and the working copy) at milestone `Mx`, skipping analyze/scope/plan. Useful to resume translation work without re-running the upfront stages. |
 
