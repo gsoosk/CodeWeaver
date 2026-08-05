@@ -86,10 +86,23 @@ def _invoke(cfg, agent: str, prompt: str):
     )
 
 
+def _stage_skipped(cfg, stage: str) -> bool:
+    return stage in cfg.skip_stages
+
+
 @action(reads=[], writes=["analysis_done", "last_agent"])
 def analyze(state, __tracer) -> dict:
     """Analyzer Agent: research the source and design the target."""
     cfg = C.active()
+    if _stage_skipped(cfg, "analyze"):
+        cfg.analysis_path.parent.mkdir(parents=True, exist_ok=True)
+        cfg.analysis_path.write_text(
+            "# Analyzer omitted for ablation\n\n"
+            "The Analyzer stage was deterministically skipped. Downstream agents "
+            "must derive any required design information from the source and brief.\n",
+            encoding="utf-8",
+        )
+        return state.update(analysis_done=True, last_agent="analyzer:skipped")
     prompt = prompts.render("analyze", cfg)
     res = _invoke(cfg, "analyzer", prompt)
     _log_agent(__tracer, stage="analyze", prompt=prompt, result=res)
@@ -103,6 +116,23 @@ def analyze(state, __tracer) -> dict:
 def plan(state, __tracer) -> dict:
     """Planning Agent: fragments, name mapping, skeleton, milestone plan."""
     cfg = C.active()
+    if _stage_skipped(cfg, "plan"):
+        cfg.plan_path.parent.mkdir(parents=True, exist_ok=True)
+        cfg.plan_path.write_text(
+            json.dumps(
+                {
+                    "placeholder": True,
+                    "reason": "Planner stage omitted for ablation",
+                    "fragments": [],
+                    "name_mapping": {},
+                    "skeleton": None,
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        return state.update(plan_done=True, last_agent="planner:skipped")
     prompt = prompts.render("plan", cfg)
     res = _invoke(cfg, "planner", prompt)
     _log_agent(__tracer, stage="plan", prompt=prompt, result=res)
@@ -234,6 +264,30 @@ def validate(state, __tracer) -> dict:
     """Validator Agent: run unit + e2e layers; write the authoritative report."""
     cfg = C.active()
     m = S.current_milestone(cfg, state)
+    if _stage_skipped(cfg, "validate"):
+        it = state["iter_count"] + 1
+        done = S.is_last_milestone(cfg, state) and not cfg.parity_check
+        report = {
+            "milestone": m.id,
+            "passed": None,
+            "placeholder": True,
+            "reason": (
+                "Validator stage omitted for ablation. The graph advances without "
+                "an agent verdict; collect.py independently executes the oracle."
+            ),
+            "tests": {"unit": None, "e2e": None},
+            "failures": [],
+        }
+        cfg.report_path.parent.mkdir(parents=True, exist_ok=True)
+        cfg.report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        entry = {"milestone": m.id, "iter": it, "passed": None, "validator_skipped": True}
+        return state.update(
+            milestone_passed=True,
+            iter_count=it,
+            report={},
+            done=done,
+            last_agent="validator:skipped",
+        ).append(history=entry)
     runtime = prompts.validate_runtime(cfg, m)
     prompt = prompts.render("validate", cfg, **runtime)
     res = _invoke(cfg, "validator", prompt)

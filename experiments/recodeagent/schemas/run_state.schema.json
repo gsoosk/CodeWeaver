@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "run_state.schema.json",
+  "title": "Per-run resumable execution state",
+  "description": "Written atomically by run.py for every (variant, project_id, repetition) job. status distinguishes 'not yet attempted' from 'attempted and failed' from 'succeeded' -- resume/idempotency logic keys off this file, never off side effects.",
+  "type": "object",
+  "required": ["variant", "project_id", "repetition", "status", "created_at", "updated_at"],
+  "properties": {
+    "variant": {"type": "string", "enum": ["full", "noanalyzer", "noplanning", "novalidator", "baseagent-condensed", "baseagent-concat"]},
+    "project_id": {"type": "string"},
+    "repetition": {"type": "integer"},
+    "status": {"type": "string", "enum": ["pending", "running", "completed", "failed", "timeout", "dry_run"]},
+    "app_id": {"type": ["string", "null"]},
+    "workspace_dir": {"type": ["string", "null"]},
+    "argv": {"type": ["array", "null"], "items": {"type": "string"}},
+    "returncode": {"type": ["integer", "null"]},
+    "attempt": {"type": "integer"},
+    "created_at": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "started_at": {"type": ["string", "null"]},
+    "ended_at": {"type": ["string", "null"]},
+    "timeout_seconds": {"type": ["number", "null"]},
+    "error": {"type": "string"},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": true
+}

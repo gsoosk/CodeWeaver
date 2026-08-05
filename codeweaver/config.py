@@ -92,6 +92,9 @@ class Config:
     max_parity_rounds: int = 3
     db_path: str = ""                     # sqlite persistence (default: <pipeline>/burr.db)
     agent_timeout: float | None = None    # per-agent wall-clock cap (seconds)
+    # Experiment instrumentation only. Empty in normal runs. Named stages are
+    # deterministically omitted while the rest of the Burr graph is unchanged.
+    skip_stages: set[str] = field(default_factory=set)
 
     # optional prompt-template overrides, keyed by stage
     # (scope|analyze|plan|translate|validate|parity). Empty -> use codeweaver.prompts defaults.
@@ -260,6 +263,24 @@ def load(config_path: str | os.PathLike) -> Config:
     validation = raw.get("validation", {}) or {}
     model_raw = raw.get("model", {}) or {}
     exec_raw = raw.get("execution", {}) or {}
+    configured_skip_stages = {
+        str(stage).strip().lower()
+        for stage in (exec_raw.get("skip_stages") or [])
+        if str(stage).strip()
+    }
+    environment_skip_stages = {
+        stage.strip().lower()
+        for stage in os.environ.get("CODEWEAVER_SKIP_STAGES", "").split(",")
+        if stage.strip()
+    }
+    skip_stages = configured_skip_stages | environment_skip_stages
+    unknown_skip_stages = skip_stages - {"analyze", "plan", "validate"}
+    if unknown_skip_stages:
+        raise ValueError(
+            "unsupported execution skip stage(s): "
+            + ", ".join(sorted(unknown_skip_stages))
+            + "; expected analyze, plan, or validate"
+        )
 
     # root override lets a config live elsewhere than the project it describes
     if paths.get("root"):
@@ -316,6 +337,7 @@ def load(config_path: str | os.PathLike) -> Config:
         max_parity_rounds=int(exec_raw.get("max_parity_rounds", 3)),
         db_path=str(exec_raw.get("db_path", "")),
         agent_timeout=exec_raw.get("agent_timeout"),
+        skip_stages=skip_stages,
         prompts={k: str(v) for k, v in (raw.get("prompts", {}) or {}).items()},
     )
 

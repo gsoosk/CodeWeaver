@@ -21,6 +21,7 @@ from __future__ import annotations
 import json
 import os
 import platform
+import signal
 import shutil
 import subprocess
 import time
@@ -92,6 +93,19 @@ def _truncate(s: str, limit: int) -> str:
     return s if len(s) <= limit else s[:limit] + f"\n…[truncated {len(s) - limit} chars]"
 
 
+def _tool_request_arguments(value) -> dict:
+    """Normalize Copilot tool arguments across CLI/model event schemas."""
+    if isinstance(value, dict):
+        return value
+    if isinstance(value, str):
+        try:
+            parsed = json.loads(value)
+        except (TypeError, ValueError):
+            return {"command": value}
+        return parsed if isinstance(parsed, dict) else {"command": value}
+    return {}
+
+
 def transcript_from_events(events: list, max_chars: int = 60000) -> str:
     """Render Copilot's JSONL events into a readable chat transcript for the UI."""
     lines: list[str] = []
@@ -121,7 +135,7 @@ def transcript_from_events(events: list, max_chars: int = 60000) -> str:
             for tr in d.get("toolRequests") or []:
                 name = tr.get("name", "tool")
                 intent = tr.get("intentionSummary") or ""
-                args = tr.get("arguments") or {}
+                args = _tool_request_arguments(tr.get("arguments"))
                 cmd = args.get("command") or args.get("prompt") or args.get("path") or ""
                 head = f"  ↳ 🔧 {name}" + (f": {intent}" if intent else "")
                 lines.append(head)
@@ -233,6 +247,58 @@ def _parse_jsonl(raw: str) -> tuple[list, str]:
     return events, final
 
 
+def _transcript_log_path(
+    log_dir: str | os.PathLike,
+    agent_name: str,
+    *,
+    timestamp_ns: int | None = None,
+    pid: int | None = None,
+) -> Path:
+    """Return a collision-resistant path so repeated agent calls are retained."""
+    timestamp_ns = time.time_ns() if timestamp_ns is None else timestamp_ns
+    pid = os.getpid() if pid is None else pid
+    return Path(log_dir) / f"{agent_name}.{timestamp_ns}-{pid}.stdout.jsonl"
+
+
+def _run_copilot_process(
+    cmd: list[str],
+    *,
+    cwd: str,
+    env: dict[str, str],
+    timeout: float | None,
+) -> tuple[int, str, str]:
+    """Run Copilot and terminate its whole POSIX process group on timeout."""
+    kwargs = {
+        "cwd": cwd,
+        "env": env,
+        "stdout": subprocess.PIPE,
+        "stderr": subprocess.PIPE,
+        "text": True,
+        "encoding": "utf-8",
+        "errors": "replace",
+    }
+    if os.name != "posix":
+        proc = subprocess.run(cmd, timeout=timeout, **kwargs)
+        return proc.returncode, proc.stdout or "", proc.stderr or ""
+
+    proc = subprocess.Popen(cmd, start_new_session=True, **kwargs)
+    try:
+        stdout, stderr = proc.communicate(timeout=timeout)
+        return proc.returncode, stdout or "", stderr or ""
+    except subprocess.TimeoutExpired:
+        try:
+            os.killpg(proc.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+        stdout, stderr = proc.communicate()
+        raise subprocess.TimeoutExpired(
+            cmd,
+            timeout,
+            output=stdout,
+            stderr=stderr,
+        )
+
+
 def invoke_agent(
     agent_name: str,
     prompt: str,
@@ -294,13 +360,12 @@ def invoke_agent(
 
     t0 = time.monotonic()
     try:
-        proc = subprocess.run(
-            cmd, cwd=cwd, env=env, capture_output=True,
-            text=True, encoding="utf-8", errors="replace", timeout=timeout,
+        returncode, stdout, stderr = _run_copilot_process(
+            cmd,
+            cwd=cwd,
+            env=env,
+            timeout=timeout,
         )
-        returncode = proc.returncode
-        stdout = proc.stdout or ""
-        stderr = proc.stderr or ""
     except subprocess.TimeoutExpired as e:
         stdout = (e.stdout.decode("utf-8", "replace") if isinstance(e.stdout, bytes) else (e.stdout or ""))
         stderr = (e.stderr.decode("utf-8", "replace") if isinstance(e.stderr, bytes) else (e.stderr or "")) \
@@ -317,7 +382,7 @@ def invoke_agent(
     stdout_path = None
     if log_dir:
         Path(log_dir).mkdir(parents=True, exist_ok=True)
-        stdout_path = str(Path(log_dir) / f"{agent_name}.stdout.jsonl")
+        stdout_path = str(_transcript_log_path(log_dir, agent_name))
         try:
             Path(stdout_path).write_text(stdout, encoding="utf-8")
         except OSError:
