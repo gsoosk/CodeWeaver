@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "snapshot_kind": "interim_non_final",
+  "generated_at": "2026-08-05T21:17:27.591104+00:00",
+  "paper_arxiv_id": "2604.07341",
+  "repository": "gsoosk/CodeWeaver",
+  "branch": "experiments",
+  "source_commit_at_capture": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+  "protocol": {
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "max",
+    "projects": 118,
+    "repetitions": 3,
+    "expected_cells": 354,
+    "primary_repetition": 0,
+    "selection_policy": "No best-of-three; repetition 0 is preregistered for exact paper tables."
+  },
+  "matrix": {
+    "counts": {
+      "completed": 59,
+      "failed": 21,
+      "queued": 221,
+      "running": 53
+    },
+    "terminal_cells": 80,
+    "active_cells": 53,
+    "queued_cells": 221,
+    "genuine_terminal_failures": 21,
+    "infrastructure_failures_excluded_and_archived": 4
+  },
+  "baselines": {
+    "prior": {
+      "schema_version": 1,
+      "generated_at": "2026-08-05T18:59:29.654990Z",
+      "systems": [
+        "prior"
+      ],
+      "expected": 118,
+      "measured": 18,
+      "failures": 100,
+      "by_system": {
+        "prior": {
+          "expected": 118,
+          "measured": 18,
+          "failures": 100,
+          "by_tool": {
+            "crust": {
+              "expected": 100,
+              "measured": 0,
+              "failures": 100
+            },
+            "oxidizer": {
+              "expected": 6,
+              "measured": 6,
+              "failures": 0
+            },
+            "alphatrans": {
+              "expected": 4,
+              "measured": 4,
+              "failures": 0
+            },
+            "skel": {
+              "expected": 8,
+              "measured": 8,
+              "failures": 0
+            }
+          }
+        }
+      },
+      "swe_agent_outputs": {
+        "available": false,
+        "expected_projects_in_selected_matrix": 100,
+        "statement": "Released SWE-agent CRUST target outputs are unavailable. All selected prior/CRUST projects are explicit unavailable failures; the implementation rust trees are stub scaffolds and are never replayed as SWE-agent output."
+      }
+    },
+    "recodeagent": {
+      "status": "running",
+      "published_rows": 0,
+      "reason": "Replay aggregation is atomic; partial in-memory rows are not published."
+    }
+  },
+  "available_now": [
+    "cell-level orchestration status",
+    "frozen protocol",
+    "exact manifest",
+    "shard/concurrency provenance",
+    "completed prior-baseline replay rows and explicit SWE-agent artifact unavailability",
+    "infrastructure-failure audit"
+  ],
+  "not_yet_available": [
+    "independent CodeWeaver build/test/coverage collection",
+    "three-repetition statistical comparison",
+    "exact paper tables populated with GPT-5.6 Sol results",
+    "final figures/report/package",
+    "ReCodeAgent replay aggregate while its final evaluator tasks run"
+  ],
+  "warning": "This snapshot is reviewable progress evidence, not a final effectiveness result. Completed means pipeline completion, not independent oracle correctness."
+}
