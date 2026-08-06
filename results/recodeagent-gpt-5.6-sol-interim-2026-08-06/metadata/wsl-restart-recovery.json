@@ -1,0 +1,498 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-06T03:37:46.976723+00:00",
+  "classification": "wsl_vm_resource_restart",
+  "observed_launcher_exit_code": 15,
+  "terminal_counts_before_resume": {
+    "completed": 160,
+    "failed": 82
+  },
+  "interrupted_running_cells": 47,
+  "unstarted_or_reserved_cells": 65,
+  "interrupted_cells": [
+    {
+      "runs_root": "runs",
+      "project_id": "crust__c-string",
+      "repetition": 0,
+      "app_id": "full-crust__c-string-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:12:22.747757Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-string/rep0/recodeagent_run_state.json",
+      "state_sha256": "4e9d1192f97e5a81f4166b30c77a4abed781fb911f8d8128fd4cc419a019d773"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__c-aces",
+      "repetition": 1,
+      "app_id": "full-crust__c-aces-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:01:44.002180Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-aces/rep1/recodeagent_run_state.json",
+      "state_sha256": "662b5f485d6e1a9e8a3f0206d5d439f779cda7ad14dd501bdbe78b147cc940e6"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__c-aces",
+      "repetition": 2,
+      "app_id": "full-crust__c-aces-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:01:56.854929Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-aces/rep2/recodeagent_run_state.json",
+      "state_sha256": "3a38b82bf04eb1548356d0d259efb4e6061e0a9d943be4c471f52fbf121e5741"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__bostree",
+      "repetition": 0,
+      "app_id": "full-crust__bostree-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T00:37:56.346854Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep0/recodeagent_run_state.json",
+      "state_sha256": "b0e4f73acd88d1e3381934d0c7b7922a0c2291998ddae7c0c803f23701d95eab"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__bostree",
+      "repetition": 2,
+      "app_id": "full-crust__bostree-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T00:51:33.292644Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep2/recodeagent_run_state.json",
+      "state_sha256": "5c3a208c6ed25afc27c22f22b0289bbc1b6cdf6fefa884c026d093444b199362"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__c-blind-rsa-signatures",
+      "repetition": 0,
+      "app_id": "full-crust__c-blind-rsa-signatures-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:17:14.470615Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep0/recodeagent_run_state.json",
+      "state_sha256": "d5b558dce350025644c3a8cfcd39fe1cd4395e3de9bf75bea3742d49f5b69946"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__c-blind-rsa-signatures",
+      "repetition": 1,
+      "app_id": "full-crust__c-blind-rsa-signatures-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:37:41.350385Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep1/recodeagent_run_state.json",
+      "state_sha256": "b4363d9a017dc0717afde376239f9d2a4900feb5fcb176b8828c402cd58002d5"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__c-blind-rsa-signatures",
+      "repetition": 2,
+      "app_id": "full-crust__c-blind-rsa-signatures-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:59:27.763836Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep2/recodeagent_run_state.json",
+      "state_sha256": "e04413df02a0be4d185f3ffc9c0838c816122077155999fc386cc6afc7e608fa"
+    },
+    {
+      "runs_root": "runs-shard2",
+      "project_id": "crust__megalania",
+      "repetition": 0,
+      "app_id": "full-crust__megalania-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:08:21.130599Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep0/recodeagent_run_state.json",
+      "state_sha256": "5de3a906d1967291f23f43189a0902999a774f6346fd4563ca3fce185b05c2d0"
+    },
+    {
+      "runs_root": "runs-shard2",
+      "project_id": "crust__megalania",
+      "repetition": 1,
+      "app_id": "full-crust__megalania-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:10:53.741219Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep1/recodeagent_run_state.json",
+      "state_sha256": "f1662b9fa0193cc446984f36ca65b2e7a9f3d9d51dfb5a79dbb536dcc65fa4c8"
+    },
+    {
+      "runs_root": "runs-shard2",
+      "project_id": "crust__megalania",
+      "repetition": 2,
+      "app_id": "full-crust__megalania-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:12:04.722683Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep2/recodeagent_run_state.json",
+      "state_sha256": "e008974accd6b7dfadab7f771d767708efa57d2a3c306a71b850a0d709c94d5e"
+    },
+    {
+      "runs_root": "runs-shard2",
+      "project_id": "crust__mdb",
+      "repetition": 2,
+      "app_id": "full-crust__mdb-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:46:14.806790Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mdb/rep2/recodeagent_run_state.json",
+      "state_sha256": "63c845cb1facb874a8a103ae3627a70fea4d6fb063b56936e350fd0b8d8bbe89"
+    },
+    {
+      "runs_root": "runs-shard2",
+      "project_id": "crust__merkle-tree-c",
+      "repetition": 0,
+      "app_id": "full-crust__merkle-tree-c-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:14:08.874272Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__merkle-tree-c/rep0/recodeagent_run_state.json",
+      "state_sha256": "78a32e2eabc94ec26717b1f62859d0aa3d0015db0b7b6c3bfcac903fb8b69b1b"
+    },
+    {
+      "runs_root": "runs-shard2",
+      "project_id": "crust__ltre",
+      "repetition": 2,
+      "app_id": "full-crust__ltre-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-05T22:57:57.794329Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ltre/rep2/recodeagent_run_state.json",
+      "state_sha256": "3f8aae6ca2ced7fc79cb81a189750f2a97ef17c73c4e58011ca71f5fbc31c54e"
+    },
+    {
+      "runs_root": "runs-shard3",
+      "project_id": "crust__holdem-odds",
+      "repetition": 1,
+      "app_id": "full-crust__holdem-odds-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T01:55:01.506976Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__holdem-odds/rep1/recodeagent_run_state.json",
+      "state_sha256": "001d2de5e9cb50153c23a90a1e10bc55bd8330df6149ea3ad1d0c9f30643d791"
+    },
+    {
+      "runs_root": "runs-shard3",
+      "project_id": "crust__hydra",
+      "repetition": 0,
+      "app_id": "full-crust__hydra-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:32:05.146218Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep0/recodeagent_run_state.json",
+      "state_sha256": "880e6be7220ca4049ecfa616b2df86af822042b385163bbcb2d62c0ef17541d3"
+    },
+    {
+      "runs_root": "runs-shard3",
+      "project_id": "crust__hydra",
+      "repetition": 1,
+      "app_id": "full-crust__hydra-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:00:59.555037Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep1/recodeagent_run_state.json",
+      "state_sha256": "a2d9f6b451bc8b219e2167ad6aa186e9cde08e56dbf23e20dff15f7d01d6aabc"
+    },
+    {
+      "runs_root": "runs-shard3",
+      "project_id": "crust__hamta",
+      "repetition": 0,
+      "app_id": "full-crust__hamta-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T00:40:36.072640Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hamta/rep0/recodeagent_run_state.json",
+      "state_sha256": "77c88463f2aac7dd78920d126f2baa414abc972383a84e97dc8e987da65dc85d"
+    },
+    {
+      "runs_root": "runs-shard3",
+      "project_id": "crust__hamta",
+      "repetition": 2,
+      "app_id": "full-crust__hamta-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T00:54:29.037471Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hamta/rep2/recodeagent_run_state.json",
+      "state_sha256": "39dba271f31858e3041eefd654acfeede8124f8aac32a376cea857853ecedcca"
+    },
+    {
+      "runs_root": "runs-shard3",
+      "project_id": "crust__genetic-neural-network-for-simple-control",
+      "repetition": 1,
+      "app_id": "full-crust__genetic-neural-network-for-simple-control-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-05T20:58:33.134181Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__genetic-neural-network-for-simple-control/rep1/recodeagent_run_state.json",
+      "state_sha256": "00a858d05ed14e6a706eea30e84c1694e41ff2457242a31c57ea06dc189ff8d7"
+    },
+    {
+      "runs_root": "runs-shard4",
+      "project_id": "crust__dict",
+      "repetition": 0,
+      "app_id": "full-crust__dict-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T01:43:26.252623Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__dict/rep0/recodeagent_run_state.json",
+      "state_sha256": "12217d430d7e081a9a3692f629641d4198d25125e0c40a4e4c38fc07c1f9e070"
+    },
+    {
+      "runs_root": "runs-shard4",
+      "project_id": "crust__expr",
+      "repetition": 0,
+      "app_id": "full-crust__expr-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:52:48.623014Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep0/recodeagent_run_state.json",
+      "state_sha256": "b72a6c002535c00381d7a5fc58bbb450ba2873d57f132877a273586609db30b6"
+    },
+    {
+      "runs_root": "runs-shard4",
+      "project_id": "crust__expr",
+      "repetition": 1,
+      "app_id": "full-crust__expr-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:03:44.982878Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep1/recodeagent_run_state.json",
+      "state_sha256": "cd5ae0423ac2334ec651f5c18e69cd771012bd8bf993291e46450d784ced4aa7"
+    },
+    {
+      "runs_root": "runs-shard4",
+      "project_id": "crust__expr",
+      "repetition": 2,
+      "app_id": "full-crust__expr-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:07:14.758929Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep2/recodeagent_run_state.json",
+      "state_sha256": "28631cfc4132afeb10adcc667022d68ccf7fc1e1d6d341216c170fe1759e13e1"
+    },
+    {
+      "runs_root": "runs-shard4",
+      "project_id": "crust__emlang",
+      "repetition": 2,
+      "app_id": "full-crust__emlang-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:46:19.406543Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__emlang/rep2/recodeagent_run_state.json",
+      "state_sha256": "57f4e5ff74280761abf7f909d9ef3113067bc5af570b4902d359e11ef29783f6"
+    },
+    {
+      "runs_root": "runs-shard4",
+      "project_id": "crust__fasthamming",
+      "repetition": 0,
+      "app_id": "full-crust__fasthamming-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:20:19.556177Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__fasthamming/rep0/recodeagent_run_state.json",
+      "state_sha256": "6157499a799d1cd260687a6ce31c07d050d2a8c99542fb1ae6b3c863a205a036"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "crust__xopt",
+      "repetition": 1,
+      "app_id": "full-crust__xopt-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T00:56:52.319045Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__xopt/rep1/recodeagent_run_state.json",
+      "state_sha256": "01944fa9d7a02d520f4bc455bcf0c88f5f6bb184224fb29828ae53a75da470ff"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "crust__xopt",
+      "repetition": 2,
+      "app_id": "full-crust__xopt-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T01:01:36.032779Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__xopt/rep2/recodeagent_run_state.json",
+      "state_sha256": "c663ea111b7c9e9f9844fb0edfc5341fbc2f4bd68589481beccc800ca04641fe"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "crust__worsp",
+      "repetition": 0,
+      "app_id": "full-crust__worsp-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-05T23:38:58.849607Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep0/recodeagent_run_state.json",
+      "state_sha256": "941f274b7ef3ebff4bfc10ccf3e55dabab6e5f09d67289554bcd1b41785089db"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "crust__worsp",
+      "repetition": 1,
+      "app_id": "full-crust__worsp-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T00:44:52.586254Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep1/recodeagent_run_state.json",
+      "state_sha256": "aa25b07579396ebc07aecc6f014eff92db71bc144e5a4698e69932d7b3a28b0d"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "crust__worsp",
+      "repetition": 2,
+      "app_id": "full-crust__worsp-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T00:46:16.420966Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep2/recodeagent_run_state.json",
+      "state_sha256": "c54a9d777d09a7ee62abbab9e8c7308dec23e4621874f73551753af4ab309d4f"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__gonameparts",
+      "repetition": 0,
+      "app_id": "full-oxidizer__gonameparts-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:13:40.425486Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep0/recodeagent_run_state.json",
+      "state_sha256": "085a646c30d76b20ce6362e521ac67d7540f44a58cb3d76ce49be6b4675202f0"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__gonameparts",
+      "repetition": 1,
+      "app_id": "full-oxidizer__gonameparts-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:17:05.331852Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep1/recodeagent_run_state.json",
+      "state_sha256": "bfd3cf09e4a55fa87e5fda796106e1e04ab04d003f6b660411d320bc2bd0e5bc"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 0,
+      "app_id": "full-oxidizer__go-edlib-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:46:42.498639Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep0/recodeagent_run_state.json",
+      "state_sha256": "2a27c6f4d6513d76d6e35cefb23581a15d3368583635f24f09f5c0bb6fda184b"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 1,
+      "app_id": "full-oxidizer__go-edlib-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:54:02.691056Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep1/recodeagent_run_state.json",
+      "state_sha256": "9a24206f849bcb91d32af4caa0a459d9d8c62bba76827f9f74c9ea59f2ca840f"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 2,
+      "app_id": "full-oxidizer__go-edlib-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:06:11.206988Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep2/recodeagent_run_state.json",
+      "state_sha256": "f0371fc251714320ab3703f1a0b972d55ca2c7a818d7717aafb07929bb816dc3"
+    },
+    {
+      "runs_root": "runs-shard7",
+      "project_id": "crust__libpsbt",
+      "repetition": 0,
+      "app_id": "full-crust__libpsbt-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T01:21:37.090103Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep0/recodeagent_run_state.json",
+      "state_sha256": "f82a03bef0b9bbbf99a762e1c78aa6f001dca4640655ffa7b036ada5f78248e7"
+    },
+    {
+      "runs_root": "runs-shard7",
+      "project_id": "crust__libpsbt",
+      "repetition": 1,
+      "app_id": "full-crust__libpsbt-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T01:21:56.905301Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep1/recodeagent_run_state.json",
+      "state_sha256": "98b50352da500b5b1ec9d0259eac35b5fd655a43d9e028a415d30386e53d8461"
+    },
+    {
+      "runs_root": "runs-shard7",
+      "project_id": "crust__libpsbt",
+      "repetition": 2,
+      "app_id": "full-crust__libpsbt-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T01:22:55.165606Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep2/recodeagent_run_state.json",
+      "state_sha256": "9e1095236aa13faef4f236bab49cd4b79281b5deac438de13e335a549c19650c"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__rubiksolver",
+      "repetition": 1,
+      "app_id": "full-crust__rubiksolver-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T01:09:58.226180Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep1/recodeagent_run_state.json",
+      "state_sha256": "29442a9746439cbe7f4c9a6c4d7c54fc3bf233733ca2a2313a0496d75d3d4779"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__satc",
+      "repetition": 2,
+      "app_id": "full-crust__satc-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T01:30:30.818614Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep2/recodeagent_run_state.json",
+      "state_sha256": "97cb00dac181f8215a34d42a87f6ea92c6e14bd5e8b4791ca9c0ff96afd85a52"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__rhbloom",
+      "repetition": 2,
+      "app_id": "full-crust__rhbloom-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-05T22:34:24.314403Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep2/recodeagent_run_state.json",
+      "state_sha256": "3523300f0ea6c79235a002974d3a934ae4b05d0713aea98fc0435b15d03f80f6"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-config",
+      "repetition": 1,
+      "app_id": "full-crust__simple-config-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:12:19.847793Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep1/recodeagent_run_state.json",
+      "state_sha256": "4ca60b05c0efafa771817142c6f6851ee87993766990d9bd5d6f8414114b18d6"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-config",
+      "repetition": 2,
+      "app_id": "full-crust__simple-config-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:15:33.099837Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep2/recodeagent_run_state.json",
+      "state_sha256": "5a43859e2b9f028b687e0e69a00ac7fcb0ced20a257c8ce5fea85ed1d569bd67"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 0,
+      "app_id": "full-crust__simple-sparsehash-rep0",
+      "attempt": 1,
+      "started_at": "2026-08-06T02:30:46.419844Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep0/recodeagent_run_state.json",
+      "state_sha256": "9400103f9b107b2d4361d7313132a51b6c3aa61aecabf9dcecc89bb37b6fd6d3"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 1,
+      "app_id": "full-crust__simple-sparsehash-rep1",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:15:37.982721Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep1/recodeagent_run_state.json",
+      "state_sha256": "4e36e1ce5a2d101cf6865b432621d08e00a7eeb89ed4c1898ea148da75c2d5a5"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 2,
+      "app_id": "full-crust__simple-sparsehash-rep2",
+      "attempt": 1,
+      "started_at": "2026-08-06T03:20:04.509149Z",
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep2/recodeagent_run_state.json",
+      "state_sha256": "d448b4ba293686824f2d991004a4c60b7cf80d87f02a02f1cee686fb6435194d"
+    }
+  ],
+  "recovery": {
+    "policy": "Resume only status=running actual cells with stable app IDs and Burr persistence; skip every reservation and every terminal state. Start previously unattempted cells normally.",
+    "worker_counts": {
+      "runs": 3,
+      "runs-shard2": 2,
+      "runs-shard3": 2,
+      "runs-shard4": 2,
+      "runs-shard6": 3,
+      "runs-shard7": 2,
+      "runs-shard8": 2
+    },
+    "total_workers": 16
+  },
+  "postprocessing": "Reconciliation and postprocessing watchers were terminated before starting; relaunch after matrix schedulers are restored."
+}

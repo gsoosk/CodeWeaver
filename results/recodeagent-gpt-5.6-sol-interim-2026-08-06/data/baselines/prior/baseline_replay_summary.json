@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-05T18:59:29.654990Z",
+  "systems": [
+    "prior"
+  ],
+  "expected": 118,
+  "measured": 18,
+  "failures": 100,
+  "by_system": {
+    "prior": {
+      "expected": 118,
+      "measured": 18,
+      "failures": 100,
+      "by_tool": {
+        "crust": {
+          "expected": 100,
+          "measured": 0,
+          "failures": 100
+        },
+        "oxidizer": {
+          "expected": 6,
+          "measured": 6,
+          "failures": 0
+        },
+        "alphatrans": {
+          "expected": 4,
+          "measured": 4,
+          "failures": 0
+        },
+        "skel": {
+          "expected": 8,
+          "measured": 8,
+          "failures": 0
+        }
+      }
+    }
+  },
+  "swe_agent_outputs": {
+    "available": false,
+    "expected_projects_in_selected_matrix": 100,
+    "statement": "Released SWE-agent CRUST target outputs are unavailable. All selected prior/CRUST projects are explicit unavailable failures; the implementation rust trees are stub scaffolds and are never replayed as SWE-agent output."
+  }
+}

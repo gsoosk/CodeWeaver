@@ -1,0 +1,150 @@
+{
+  "schema_version": 2,
+  "snapshot_kind": "interim_non_final",
+  "generated_at": "2026-08-06T18:44:41.569395Z",
+  "paper_arxiv_id": "2604.07341",
+  "repository": "gsoosk/CodeWeaver",
+  "branch": "experiments",
+  "source_commit_at_capture": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+  "protocol": {
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "max",
+    "projects": 118,
+    "repetitions": 3,
+    "expected_cells": 354,
+    "primary_repetition": 0,
+    "selection_policy": "No best-of-three; repetition 0 is preregistered for exact paper tables."
+  },
+  "matrix": {
+    "counts": {
+      "completed": 208,
+      "failed": 102,
+      "queued": 41,
+      "running": 3
+    },
+    "terminal_cells": 310,
+    "terminal_percent": 87.57,
+    "active_cells": 3,
+    "queued_cells": 41,
+    "genuine_terminal_failures": 102,
+    "infrastructure_failures_excluded_and_archived": 4
+  },
+  "baselines": {
+    "prior": {
+      "schema_version": 1,
+      "generated_at": "2026-08-05T18:59:29.654990Z",
+      "systems": [
+        "prior"
+      ],
+      "expected": 118,
+      "measured": 18,
+      "failures": 100,
+      "by_system": {
+        "prior": {
+          "expected": 118,
+          "measured": 18,
+          "failures": 100,
+          "by_tool": {
+            "crust": {
+              "expected": 100,
+              "measured": 0,
+              "failures": 100
+            },
+            "oxidizer": {
+              "expected": 6,
+              "measured": 6,
+              "failures": 0
+            },
+            "alphatrans": {
+              "expected": 4,
+              "measured": 4,
+              "failures": 0
+            },
+            "skel": {
+              "expected": 8,
+              "measured": 8,
+              "failures": 0
+            }
+          }
+        }
+      },
+      "swe_agent_outputs": {
+        "available": false,
+        "expected_projects_in_selected_matrix": 100,
+        "statement": "Released SWE-agent CRUST target outputs are unavailable. All selected prior/CRUST projects are explicit unavailable failures; the implementation rust trees are stub scaffolds and are never replayed as SWE-agent output."
+      }
+    },
+    "recodeagent": {
+      "schema_version": 1,
+      "generated_at": "2026-08-05T22:35:39.195850Z",
+      "systems": [
+        "recodeagent"
+      ],
+      "expected": 118,
+      "measured": 117,
+      "failures": 1,
+      "by_system": {
+        "recodeagent": {
+          "expected": 118,
+          "measured": 117,
+          "failures": 1,
+          "by_tool": {
+            "crust": {
+              "expected": 100,
+              "measured": 99,
+              "failures": 1
+            },
+            "oxidizer": {
+              "expected": 6,
+              "measured": 6,
+              "failures": 0
+            },
+            "alphatrans": {
+              "expected": 4,
+              "measured": 4,
+              "failures": 0
+            },
+            "skel": {
+              "expected": 8,
+              "measured": 8,
+              "failures": 0
+            }
+          }
+        }
+      },
+      "swe_agent_outputs": {
+        "available": false,
+        "expected_projects_in_selected_matrix": 0,
+        "statement": "Released SWE-agent CRUST target outputs are unavailable. All selected prior/CRUST projects are explicit unavailable failures; the implementation rust trees are stub scaffolds and are never replayed as SWE-agent output."
+      }
+    }
+  },
+  "recovery": {
+    "completed_scheduler_summaries": [
+      "full-matrix-recovery-2.json",
+      "early-middle-shard-recovery-2.json",
+      "middle-split-shard-recovery-2.json",
+      "tail-quarter-shard-recovery-2.json"
+    ],
+    "pending_scheduler_summaries": [
+      "tail-shard-recovery-2.json",
+      "middle-shard-recovery-2.json",
+      "tail-split-shard-recovery-2.json"
+    ],
+    "reconciliation_status": "pending"
+  },
+  "available_now": [
+    "all 354 cell-level orchestration states at capture time",
+    "frozen GPT-5.6 Sol protocol and exact 118-project manifest",
+    "117 measured ReCodeAgent released outputs plus one accounted missing artifact",
+    "18 measured prior-system outputs plus 100 explicit unavailable SWE-agent CRUST artifacts",
+    "sharding, restart, infrastructure, source, and harness provenance"
+  ],
+  "not_yet_available": [
+    "independent CodeWeaver build/test/coverage collection",
+    "three-repetition statistical comparison",
+    "exact paper tables populated with GPT-5.6 Sol results",
+    "final figures, report, archives, and publication package"
+  ],
+  "warning": "This snapshot is reviewable progress evidence, not a final effectiveness result. Completed means pipeline completion, not independent oracle correctness."
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-05T16:57:29.8377061-07:00",
+  "run_recorded_git_sha": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+  "harness_source_commit": "58ef7b0e7e52c4dbd1bcd5b4f729afefbdf79e07",
+  "interim_results_commit": "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+  "statement": "Runs were launched from the recorded base commit plus the experiment harness working-tree changes. Harness semantics were committed as aecaba9; recovery reservation protection was added and tested in 58ef7b0 after a WSL resource restart. Text files were normalized from CRLF to LF before commit without changing Python/TOML behavior.",
+  "protocol_hashes": {
+    "campaign_capture_crlf_sha256": "4a57ba8c7dcba5f0213db3971c8054ae76165c5e3f10c36aecf008f2cf501b6b",
+    "committed_lf_sha256": "e01c408efdf8a513501a9b117135d7a7a8916e954970ae8768ad5a6ad234ca21"
+  },
+  "source_review_url": "https://github.com/gsoosk/CodeWeaver/tree/58ef7b0/experiments/recodeagent"
+}
