@@ -462,6 +462,36 @@ def test_run_one_resume_running_is_explicit_opt_in(prepared, tmp_path: Path):
     assert len(rec.cli_calls) == 1
 
 
+def test_run_one_never_resumes_a_shard_reservation(prepared, tmp_path: Path):
+    runs_root = tmp_path / "runs"
+    run_dir = R.run_dir_for(runs_root, "full", prepared["project_id"], 0)
+    state = R.new_run_state("full", prepared["project_id"], 0, run_dir)
+    state["status"] = "running"
+    state["reservation"] = {
+        "shard": "tail-shard-v1",
+        "source_runs_root": str(tmp_path / "runs-shard2"),
+    }
+    R.save_run_state(run_dir, state)
+
+    rec = RecordingExecutor()
+    executor = R.Executor(run_cli=rec.run_cli, run_agent=rec.run_agent, run_raw=rec.run_raw)
+    result = R.run_one(
+        "full",
+        prepared["project_id"],
+        0,
+        workspace_root=prepared["workspace_root"],
+        runs_root=runs_root,
+        protocol=PROTOCOL,
+        executor=executor,
+        resume_running=True,
+    )
+
+    assert result["status"] == "running"
+    assert result["skipped"] is True
+    assert result["skip_reason"] == "reserved for disjoint shard"
+    assert rec.cli_calls == []
+
+
 def test_run_one_force_re_executes(prepared, tmp_path: Path):
     rec = RecordingExecutor()
     executor = R.Executor(run_cli=rec.run_cli, run_agent=rec.run_agent, run_raw=rec.run_raw)

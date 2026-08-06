@@ -499,6 +499,12 @@ def run_one(
     run_dir = run_dir_for(runs_root, variant, project_id, repetition)
 
     existing = load_run_state(run_dir)
+    if existing and existing.get("reservation") and not force:
+        return {
+            **existing,
+            "skipped": True,
+            "skip_reason": "reserved for disjoint shard",
+        }
     if existing and existing.get("status") == "completed" and not force:
         return {**existing, "skipped": True, "skip_reason": "already completed"}
     if (
