@@ -1,0 +1,3018 @@
+{
+  "generated_at": "2026-08-06T17:22:14.877481Z",
+  "jobs": 42,
+  "by_status": {
+    "completed": 30,
+    "failed": 12
+  },
+  "results": [
+    {
+      "variant": "full",
+      "project_id": "crust__nandc",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__nandc-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__nandc-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T18:43:32.075766Z",
+      "updated_at": "2026-08-05T19:45:44.345815Z",
+      "started_at": "2026-08-05T18:43:32.075834Z",
+      "ended_at": "2026-08-05T19:45:44.345781Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T18:43:32.075846Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-3.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__nandc",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-crust__nandc-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__nandc-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T18:43:32.076361Z",
+      "updated_at": "2026-08-05T19:35:41.304835Z",
+      "started_at": "2026-08-05T18:43:32.076407Z",
+      "ended_at": "2026-08-05T19:35:41.304787Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T18:43:32.076421Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-3.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__nandc",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__nandc-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__nandc-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T18:43:32.077973Z",
+      "updated_at": "2026-08-05T19:29:28.398834Z",
+      "started_at": "2026-08-05T18:43:32.078020Z",
+      "ended_at": "2026-08-05T19:29:28.398792Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T18:43:32.078032Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-3.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__phills_dht",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__phills_dht-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__phills_dht-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T18:43:32.080432Z",
+      "updated_at": "2026-08-05T19:39:00.358903Z",
+      "started_at": "2026-08-05T18:43:32.080487Z",
+      "ended_at": "2026-08-05T19:39:00.358838Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T18:43:32.080504Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-3.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__phills_dht",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-crust__phills_dht-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__phills_dht-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T18:43:32.080842Z",
+      "updated_at": "2026-08-05T19:51:01.906820Z",
+      "started_at": "2026-08-05T18:43:32.080896Z",
+      "ended_at": "2026-08-05T19:51:01.906781Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T18:43:32.080907Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-3.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__phills_dht",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__phills_dht-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__phills_dht-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T18:43:32.082836Z",
+      "updated_at": "2026-08-05T19:43:07.615405Z",
+      "started_at": "2026-08-05T18:43:32.082890Z",
+      "ended_at": "2026-08-05T19:43:07.615341Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T18:43:32.082899Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-3.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__quadtree",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__quadtree-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__quadtree-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T18:43:32.087092Z",
+      "updated_at": "2026-08-05T21:10:41.567048Z",
+      "started_at": "2026-08-05T18:43:32.087151Z",
+      "ended_at": "2026-08-05T21:10:41.566953Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T18:43:32.087166Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-3.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__quadtree",
+      "repetition": 1,
+      "status": "failed",
+      "app_id": "full-crust__quadtree-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__quadtree-rep1"
+      ],
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-05T18:43:32.086885Z",
+      "updated_at": "2026-08-05T21:41:01.905267Z",
+      "started_at": "2026-08-05T18:43:32.086947Z",
+      "ended_at": "2026-08-05T21:41:01.905186Z",
+      "timeout_seconds": null,
+      "error": "line/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=11\n    M0  iter=1  passed=False\n    M0  iter=2  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=False\n    M6  iter=2  passed=False\n    M6  iter=3  passed=True\n    M7  iter=1  passed=True\n    M8  iter=1  passed=True\n    M9  iter=1  passed=True\n    M10  iter=1  passed=True\n    M11  iter=1  passed=False\n    M11  iter=2  passed=False\n    M11  iter=3  passed=False\n    M11  iter=4  passed=False\n    M11  iter=5  passed=False",
+      "provenance": {
+        "captured_at": "2026-08-05T18:43:32.086964Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-3.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already failed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__quadtree",
+      "repetition": 2,
+      "status": "failed",
+      "app_id": "full-crust__quadtree-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__quadtree-rep2"
+      ],
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-05T19:29:28.415310Z",
+      "updated_at": "2026-08-05T21:10:30.287569Z",
+      "started_at": "2026-08-05T19:29:28.415455Z",
+      "ended_at": "2026-08-05T21:10:30.287532Z",
+      "timeout_seconds": null,
+      "error": "project=crust__quadtree app_id=full-crust__quadtree-rep2 mock=False db=/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep2/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=7\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=True\n    M7  iter=1  passed=False\n    M7  iter=2  passed=False\n    M7  iter=3  passed=False\n    M7  iter=4  passed=False\n    M7  iter=5  passed=False",
+      "provenance": {
+        "captured_at": "2026-08-05T19:29:28.415510Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already failed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__razz_simulation",
+      "repetition": 0,
+      "status": "failed",
+      "app_id": "full-crust__razz_simulation-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__razz_simulation-rep0"
+      ],
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-05T19:35:41.310857Z",
+      "updated_at": "2026-08-05T20:23:55.419318Z",
+      "started_at": "2026-08-05T19:35:41.310940Z",
+      "ended_at": "2026-08-05T20:23:55.419264Z",
+      "timeout_seconds": null,
+      "error": "[codeweaver] project=crust__razz_simulation app_id=full-crust__razz_simulation-rep0 mock=False db=/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+      "provenance": {
+        "captured_at": "2026-08-05T19:35:41.310977Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already failed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__razz_simulation",
+      "repetition": 1,
+      "status": "failed",
+      "app_id": "full-crust__razz_simulation-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__razz_simulation-rep1"
+      ],
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-05T19:39:00.363145Z",
+      "updated_at": "2026-08-05T20:27:51.591978Z",
+      "started_at": "2026-08-05T19:39:00.363210Z",
+      "ended_at": "2026-08-05T20:27:51.591934Z",
+      "timeout_seconds": null,
+      "error": "[codeweaver] project=crust__razz_simulation app_id=full-crust__razz_simulation-rep1 mock=False db=/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep1/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+      "provenance": {
+        "captured_at": "2026-08-05T19:39:00.363261Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already failed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__razz_simulation",
+      "repetition": 2,
+      "status": "failed",
+      "app_id": "full-crust__razz_simulation-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__razz_simulation-rep2"
+      ],
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-05T19:43:07.623500Z",
+      "updated_at": "2026-08-05T20:32:14.079481Z",
+      "started_at": "2026-08-05T19:43:07.623590Z",
+      "ended_at": "2026-08-05T20:32:14.079431Z",
+      "timeout_seconds": null,
+      "error": "[codeweaver] project=crust__razz_simulation app_id=full-crust__razz_simulation-rep2 mock=False db=/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep2/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+      "provenance": {
+        "captured_at": "2026-08-05T19:43:07.623649Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already failed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rbtree-lab",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__rbtree-lab-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__rbtree-lab-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T19:45:44.349039Z",
+      "updated_at": "2026-08-05T21:01:25.338057Z",
+      "started_at": "2026-08-05T19:45:44.349093Z",
+      "ended_at": "2026-08-05T21:01:25.338005Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T19:45:44.349123Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rbtree-lab",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-crust__rbtree-lab-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__rbtree-lab-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T19:51:01.910763Z",
+      "updated_at": "2026-08-05T21:07:12.979807Z",
+      "started_at": "2026-08-05T19:51:01.910843Z",
+      "ended_at": "2026-08-05T21:07:12.979777Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T19:51:01.910895Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rbtree-lab",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__rbtree-lab-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__rbtree-lab-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T20:23:55.423157Z",
+      "updated_at": "2026-08-05T21:43:43.438707Z",
+      "started_at": "2026-08-05T20:23:55.423220Z",
+      "ended_at": "2026-08-05T21:43:43.438603Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T20:23:55.423261Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__recordmanager",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__recordmanager-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__recordmanager-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T20:27:51.595557Z",
+      "updated_at": "2026-08-05T23:13:04.822288Z",
+      "started_at": "2026-08-05T20:27:51.595613Z",
+      "ended_at": "2026-08-05T23:13:04.822190Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T20:27:51.595646Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__recordmanager",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-crust__recordmanager-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__recordmanager-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T20:32:14.083428Z",
+      "updated_at": "2026-08-06T01:30:30.813550Z",
+      "started_at": "2026-08-05T20:32:14.083484Z",
+      "ended_at": "2026-08-06T01:30:30.813516Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T20:32:14.083510Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__recordmanager",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__recordmanager-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__recordmanager-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T21:01:25.342389Z",
+      "updated_at": "2026-08-06T00:43:44.649304Z",
+      "started_at": "2026-08-05T21:01:25.342484Z",
+      "ended_at": "2026-08-06T00:43:44.646074Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T21:01:25.342573Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rect_pack_h",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__rect_pack_h-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__rect_pack_h-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T21:07:12.983755Z",
+      "updated_at": "2026-08-05T21:53:10.141628Z",
+      "started_at": "2026-08-05T21:07:12.983822Z",
+      "ended_at": "2026-08-05T21:53:10.141579Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T21:07:12.983883Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rect_pack_h",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-crust__rect_pack_h-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__rect_pack_h-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T21:10:30.291233Z",
+      "updated_at": "2026-08-05T21:54:50.681727Z",
+      "started_at": "2026-08-05T21:10:30.291331Z",
+      "ended_at": "2026-08-05T21:54:50.681652Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T21:10:30.291374Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rect_pack_h",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__rect_pack_h-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__rect_pack_h-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T21:10:41.570567Z",
+      "updated_at": "2026-08-05T21:48:39.210473Z",
+      "started_at": "2026-08-05T21:10:41.570707Z",
+      "ended_at": "2026-08-05T21:48:39.210418Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T21:10:41.570723Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__remimu",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__remimu-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__remimu-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T21:41:01.911883Z",
+      "updated_at": "2026-08-06T00:46:07.924755Z",
+      "started_at": "2026-08-05T21:41:01.912323Z",
+      "ended_at": "2026-08-06T00:46:07.924307Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T21:41:01.912382Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__remimu",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-crust__remimu-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__remimu-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T21:43:43.443727Z",
+      "updated_at": "2026-08-06T01:27:58.515933Z",
+      "started_at": "2026-08-05T21:43:43.443826Z",
+      "ended_at": "2026-08-06T01:27:58.515898Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T21:43:43.443880Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__remimu",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__remimu-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__remimu-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T21:48:39.214707Z",
+      "updated_at": "2026-08-06T01:09:58.220475Z",
+      "started_at": "2026-08-05T21:48:39.214763Z",
+      "ended_at": "2026-08-06T01:09:58.220430Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T21:48:39.214795Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rhbloom",
+      "repetition": 0,
+      "status": "failed",
+      "app_id": "full-crust__rhbloom-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__rhbloom-rep0"
+      ],
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-05T21:53:10.147877Z",
+      "updated_at": "2026-08-05T22:34:24.295774Z",
+      "started_at": "2026-08-05T21:53:10.147966Z",
+      "ended_at": "2026-08-05T22:34:24.295707Z",
+      "timeout_seconds": null,
+      "error": "[codeweaver] project=crust__rhbloom app_id=full-crust__rhbloom-rep0 mock=False db=/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+      "provenance": {
+        "captured_at": "2026-08-05T21:53:10.148016Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already failed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rhbloom",
+      "repetition": 1,
+      "status": "failed",
+      "app_id": "full-crust__rhbloom-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__rhbloom-rep1"
+      ],
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-05T21:54:50.686675Z",
+      "updated_at": "2026-08-05T22:43:47.942256Z",
+      "started_at": "2026-08-05T21:54:50.686760Z",
+      "ended_at": "2026-08-05T22:43:47.942213Z",
+      "timeout_seconds": null,
+      "error": "[codeweaver] project=crust__rhbloom app_id=full-crust__rhbloom-rep1 mock=False db=/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep1/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+      "provenance": {
+        "captured_at": "2026-08-05T21:54:50.686812Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already failed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rhbloom",
+      "repetition": 2,
+      "status": "failed",
+      "app_id": "full-crust__rhbloom-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__rhbloom-rep2"
+      ],
+      "returncode": 1,
+      "attempt": 3,
+      "created_at": "2026-08-05T22:34:24.314246Z",
+      "updated_at": "2026-08-06T05:51:25.518419Z",
+      "started_at": "2026-08-06T05:43:02.186401Z",
+      "ended_at": "2026-08-06T05:51:25.518390Z",
+      "timeout_seconds": null,
+      "error": "peline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=7 history_len=17  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=7\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=False\n    M3  iter=2  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=False\n    M6  iter=2  passed=False\n    M6  iter=3  passed=False\n    M6  iter=4  passed=True\n    M7  iter=1  passed=False\n    M7  iter=2  passed=False\n    M7  iter=3  passed=False\n    M7  iter=4  passed=False\n    M7  iter=5  passed=False",
+      "provenance": {
+        "captured_at": "2026-08-06T05:43:02.186455Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-5.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__roaring-bitmap",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__roaring-bitmap-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__roaring-bitmap-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T22:43:47.947505Z",
+      "updated_at": "2026-08-06T01:10:51.526955Z",
+      "started_at": "2026-08-05T22:43:47.947606Z",
+      "ended_at": "2026-08-06T01:10:51.526903Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T22:43:47.947661Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__roaring-bitmap",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-crust__roaring-bitmap-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__roaring-bitmap-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-05T23:13:04.838552Z",
+      "updated_at": "2026-08-06T01:15:44.234603Z",
+      "started_at": "2026-08-05T23:13:04.838638Z",
+      "ended_at": "2026-08-06T01:15:44.234472Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-05T23:13:04.838831Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__roaring-bitmap",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__roaring-bitmap-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__roaring-bitmap-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-06T00:43:44.696097Z",
+      "updated_at": "2026-08-06T02:12:19.843490Z",
+      "started_at": "2026-08-06T00:43:44.696194Z",
+      "ended_at": "2026-08-06T02:12:19.843430Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-06T00:43:44.698402Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rubiksolver",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__rubiksolver-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__rubiksolver-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-06T00:46:07.937620Z",
+      "updated_at": "2026-08-06T01:44:30.024354Z",
+      "started_at": "2026-08-06T00:46:07.937706Z",
+      "ended_at": "2026-08-06T01:44:30.023768Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-06T00:46:07.937746Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rubiksolver",
+      "repetition": 1,
+      "status": "failed",
+      "app_id": "full-crust__rubiksolver-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__rubiksolver-rep1"
+      ],
+      "returncode": 1,
+      "attempt": 3,
+      "created_at": "2026-08-06T01:09:58.226122Z",
+      "updated_at": "2026-08-06T11:31:20.685471Z",
+      "started_at": "2026-08-06T05:51:25.523676Z",
+      "ended_at": "2026-08-06T11:31:20.685025Z",
+      "timeout_seconds": null,
+      "error": "sol-comparison/runs-shard8/full/crust__rubiksolver/rep1/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=7 history_len=13  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=7\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=False\n    M6  iter=2  passed=False\n    M6  iter=3  passed=True\n    M7  iter=1  passed=False\n    M7  iter=2  passed=False\n    M7  iter=3  passed=False\n    M7  iter=4  passed=False\n    M7  iter=5  passed=False",
+      "provenance": {
+        "captured_at": "2026-08-06T05:51:25.523723Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-5.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__rubiksolver",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__rubiksolver-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__rubiksolver-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-06T01:10:51.532718Z",
+      "updated_at": "2026-08-06T02:15:33.093049Z",
+      "started_at": "2026-08-06T01:10:51.532791Z",
+      "ended_at": "2026-08-06T02:15:33.093004Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-06T01:10:51.532904Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__satc",
+      "repetition": 0,
+      "status": "failed",
+      "app_id": "full-crust__satc-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__satc-rep0"
+      ],
+      "returncode": 1,
+      "attempt": 1,
+      "created_at": "2026-08-06T01:15:44.247241Z",
+      "updated_at": "2026-08-06T03:20:04.504450Z",
+      "started_at": "2026-08-06T01:15:44.247330Z",
+      "ended_at": "2026-08-06T03:20:04.504320Z",
+      "timeout_seconds": null,
+      "error": "ver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=11\n    M0  iter=1  passed=False\n    M0  iter=2  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=False\n    M6  iter=2  passed=True\n    M7  iter=1  passed=True\n    M8  iter=1  passed=True\n    M9  iter=1  passed=False\n    M9  iter=2  passed=True\n    M10  iter=1  passed=True\n    M11  iter=1  passed=False\n    M11  iter=2  passed=False\n    M11  iter=3  passed=True",
+      "provenance": {
+        "captured_at": "2026-08-06T01:15:44.247370Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already failed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__satc",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-crust__satc-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__satc-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-06T01:27:58.525146Z",
+      "updated_at": "2026-08-06T02:30:46.405298Z",
+      "started_at": "2026-08-06T01:27:58.525936Z",
+      "ended_at": "2026-08-06T02:30:46.405244Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-06T01:27:58.526011Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-4.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__satc",
+      "repetition": 2,
+      "status": "failed",
+      "app_id": "full-crust__satc-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__satc-rep2"
+      ],
+      "returncode": 1,
+      "attempt": 2,
+      "created_at": "2026-08-06T01:30:30.818533Z",
+      "updated_at": "2026-08-06T11:54:31.456176Z",
+      "started_at": "2026-08-06T11:31:20.794559Z",
+      "ended_at": "2026-08-06T11:54:31.455676Z",
+      "timeout_seconds": null,
+      "error": "tc app_id=full-crust__satc-rep2 mock=False db=/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep2/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=9 history_len=12  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=11\n    M0  iter=1  passed=False\n    M0  iter=2  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=False\n    M5  iter=2  passed=True\n    M6  iter=1  passed=True\n    M7  iter=1  passed=True\n    M8  iter=1  passed=True\n    M9  iter=1  passed=True\n    M10  iter=1  passed=False\n    M10  iter=2  passed=True\n    M11  iter=1  passed=True",
+      "provenance": {
+        "captured_at": "2026-08-06T11:31:20.796415Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-5.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__simple-config",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__simple-config-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__simple-config-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-06T01:44:30.036540Z",
+      "updated_at": "2026-08-06T03:15:37.978777Z",
+      "started_at": "2026-08-06T01:44:30.036622Z",
+      "ended_at": "2026-08-06T03:15:37.978738Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-06T01:44:30.036670Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-5.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__simple-config",
+      "repetition": 1,
+      "status": "failed",
+      "app_id": "full-crust__simple-config-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__simple-config-rep1"
+      ],
+      "returncode": 1,
+      "attempt": 2,
+      "created_at": "2026-08-06T02:12:19.847683Z",
+      "updated_at": "2026-08-06T13:09:39.863732Z",
+      "started_at": "2026-08-06T11:54:31.463623Z",
+      "ended_at": "2026-08-06T13:09:39.863708Z",
+      "timeout_seconds": null,
+      "error": "-sol-comparison/runs-shard8/full/crust__simple-config/rep1/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=5 history_len=8  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=14\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=True\n    M7  iter=1  passed=True\n    M8  iter=1  passed=True\n    M9  iter=1  passed=True\n    M10  iter=1  passed=True\n    M11  iter=1  passed=True\n    M12  iter=1  passed=True\n    M13  iter=1  passed=True\n    M14  iter=1  passed=True",
+      "provenance": {
+        "captured_at": "2026-08-06T11:54:31.463660Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-5.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__simple-config",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__simple-config-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__simple-config-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 2,
+      "created_at": "2026-08-06T02:15:33.099769Z",
+      "updated_at": "2026-08-06T13:24:28.527173Z",
+      "started_at": "2026-08-06T13:09:39.867826Z",
+      "ended_at": "2026-08-06T13:24:28.527142Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-06T13:09:39.868567Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-5.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-crust__simple-sparsehash-rep0",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep0/codeweaver.toml",
+        "--app-id",
+        "full-crust__simple-sparsehash-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 2,
+      "created_at": "2026-08-06T02:30:46.419770Z",
+      "updated_at": "2026-08-06T14:41:32.490741Z",
+      "started_at": "2026-08-06T13:24:28.533310Z",
+      "ended_at": "2026-08-06T14:41:32.490710Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-06T13:24:28.533371Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-5.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-crust__simple-sparsehash-rep1",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep1/codeweaver.toml",
+        "--app-id",
+        "full-crust__simple-sparsehash-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 2,
+      "created_at": "2026-08-06T03:15:37.982640Z",
+      "updated_at": "2026-08-06T16:21:21.208092Z",
+      "started_at": "2026-08-06T14:41:32.494226Z",
+      "ended_at": "2026-08-06T16:21:21.208067Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-06T14:41:32.494546Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-5.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-crust__simple-sparsehash-rep2",
+      "workspace_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep2/codeweaver.toml",
+        "--app-id",
+        "full-crust__simple-sparsehash-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 2,
+      "created_at": "2026-08-06T03:20:04.509069Z",
+      "updated_at": "2026-08-06T17:22:14.868598Z",
+      "started_at": "2026-08-06T16:21:21.211763Z",
+      "ended_at": "2026-08-06T17:22:14.868573Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-06T16:21:21.211793Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.79-5.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    }
+  ]
+}

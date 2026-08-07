@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-05T23:59:05.6839890+00:00",
+  "source_commit": "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+  "campaign_environment": {
+    "command": "/opt/codeweaver-venv/bin/python -m pytest -q",
+    "result": "928 passed",
+    "warnings": 14,
+    "status": "passed"
+  },
+  "windows_environment": {
+    "command": "Python312 python.exe -m pytest -q",
+    "result": "865 passed, 61 skipped, 2 failed",
+    "status": "environment_dependency_gap",
+    "reason": "Windows interpreter lacked the optional tree-sitter JavaScript parser; both affected SKEL tests passed in the campaign WSL environment."
+  },
+  "focused": {
+    "system_comparison": "22 passed",
+    "report_package_cli": "96 passed"
+  },
+  "compileall": {
+    "command": "Python312 python.exe -m compileall -q codeweaver experiments/recodeagent",
+    "status": "passed"
+  }
+}

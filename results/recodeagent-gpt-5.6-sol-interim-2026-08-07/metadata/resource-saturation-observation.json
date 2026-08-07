@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-05T17:35:02.838371-07:00",
+  "classification": "resource_saturation_observed_recovered_without_pause",
+  "evidence": {
+    "loadavg": "71.60 134.33 151.59 23/3905 3675000",
+    "mem_available_kib": 20569224,
+    "swap_total_kib": 8388608,
+    "swap_free_kib": 3292456
+  },
+  "paused_shells": [],
+  "preserved_shells": [
+    "gptmatrix",
+    "gptshard2",
+    "gptshard3",
+    "matrixreconcile2",
+    "postprocess"
+  ],
+  "policy": "Pause only resumable shard launchers. Preserve all completed/failed/timeout outcomes. Resume states left running with the same app IDs and --resume-running after memory recovers; never replace terminal outcomes.",
+  "considered_for_pause": [
+    "gptshard4",
+    "gptshard6",
+    "gptshard7",
+    "gptshard8"
+  ],
+  "decision": "No launcher was stopped: memory pressure returned to zero and available memory recovered above 19 GiB before any pause action."
+}

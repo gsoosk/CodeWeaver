@@ -1,0 +1,37 @@
+{
+  "count": 4,
+  "attempts": [
+    {
+      "state_path": "transcript-arguments-schema-20260805/full/alphatrans__commons-fileupload/rep0/recodeagent_run_state.json",
+      "project_id": "alphatrans__commons-fileupload",
+      "repetition": 0,
+      "status": "failed",
+      "classification": "telemetry_schema_infrastructure",
+      "sha256": "6dcba69d3a2907ea8689b5e25efc694f624b512345f2b69b9320a7fac2fe9f20"
+    },
+    {
+      "state_path": "transcript-arguments-schema-20260805/full/crust__2dpartint/rep0/recodeagent_run_state.json",
+      "project_id": "crust__2dpartint",
+      "repetition": 0,
+      "status": "failed",
+      "classification": "telemetry_schema_infrastructure",
+      "sha256": "9f6b43b3b5a01f89e0051b4f0ea7d410a015af2bb7d837425ab8bc283033fac4"
+    },
+    {
+      "state_path": "transcript-arguments-schema-20260805/full/oxidizer__gohistogram/rep0/recodeagent_run_state.json",
+      "project_id": "oxidizer__gohistogram",
+      "repetition": 0,
+      "status": "failed",
+      "classification": "telemetry_schema_infrastructure",
+      "sha256": "588644e98a4ae7a0c3434784e8f3c2866eff91c5c1089788bb8619dbc9b43d34"
+    },
+    {
+      "state_path": "transcript-arguments-schema-20260805/full/skel__bst/rep0/recodeagent_run_state.json",
+      "project_id": "skel__bst",
+      "repetition": 0,
+      "status": "failed",
+      "classification": "telemetry_schema_infrastructure",
+      "sha256": "c96ed81e230f8a3725c05aa34c0f88cbdefb4ab6fd3c359e81ad855ddea576cd"
+    }
+  ]
+}

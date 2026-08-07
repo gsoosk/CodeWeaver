@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-06T05:42:26.865506+00:00",
+  "classification": "second_wsl_vm_memory_restart",
+  "observed_launcher_exit_code": 15,
+  "counts_before_resume": {
+    "running": 29,
+    "completed": 172,
+    "failed": 88
+  },
+  "interrupted_running_cells": 29,
+  "interrupted_cells": [
+    {
+      "runs_root": "runs",
+      "project_id": "crust__c-string",
+      "repetition": 0,
+      "app_id": "full-crust__c-string-rep0",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-string/rep0/recodeagent_run_state.json",
+      "state_sha256": "4e9d1192f97e5a81f4166b30c77a4abed781fb911f8d8128fd4cc419a019d773"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__bostree",
+      "repetition": 0,
+      "app_id": "full-crust__bostree-rep0",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep0/recodeagent_run_state.json",
+      "state_sha256": "e54bdad44bf440b30825d732528dc2de81fc83487e6a6921142ad6a452eec28d"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__bostree",
+      "repetition": 2,
+      "app_id": "full-crust__bostree-rep2",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep2/recodeagent_run_state.json",
+      "state_sha256": "8ab60e7698a9f121dd634151935e6d10402c58531edbc7b931a3f16c749fb479"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__c-blind-rsa-signatures",
+      "repetition": 1,
+      "app_id": "full-crust__c-blind-rsa-signatures-rep1",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep1/recodeagent_run_state.json",
+      "state_sha256": "df5aa57ba1e024dfbabd0400dcd328463122fd48340814e3b5e85ac4b65d9769"
+    },
+    {
+      "runs_root": "runs",
+      "project_id": "crust__c-blind-rsa-signatures",
+      "repetition": 2,
+      "app_id": "full-crust__c-blind-rsa-signatures-rep2",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep2/recodeagent_run_state.json",
+      "state_sha256": "e04413df02a0be4d185f3ffc9c0838c816122077155999fc386cc6afc7e608fa"
+    },
+    {
+      "runs_root": "runs-shard2",
+      "project_id": "crust__megalania",
+      "repetition": 1,
+      "app_id": "full-crust__megalania-rep1",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep1/recodeagent_run_state.json",
+      "state_sha256": "a2d6bf67c43fc3b9820310b9a5d8fd25cdd751f3022cf88c669b98e83abb977c"
+    },
+    {
+      "runs_root": "runs-shard2",
+      "project_id": "crust__megalania",
+      "repetition": 2,
+      "app_id": "full-crust__megalania-rep2",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep2/recodeagent_run_state.json",
+      "state_sha256": "f6ac313a71031cb977086c2f4048d1bab8e10a4ea3fba30ed76b892b45f1b1cf"
+    },
+    {
+      "runs_root": "runs-shard2",
+      "project_id": "crust__merkle-tree-c",
+      "repetition": 0,
+      "app_id": "full-crust__merkle-tree-c-rep0",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__merkle-tree-c/rep0/recodeagent_run_state.json",
+      "state_sha256": "78a32e2eabc94ec26717b1f62859d0aa3d0015db0b7b6c3bfcac903fb8b69b1b"
+    },
+    {
+      "runs_root": "runs-shard3",
+      "project_id": "crust__hydra",
+      "repetition": 0,
+      "app_id": "full-crust__hydra-rep0",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep0/recodeagent_run_state.json",
+      "state_sha256": "2b5961a55cb6d6312827b79bf57c6831150b16553669207f6091a2d143738533"
+    },
+    {
+      "runs_root": "runs-shard3",
+      "project_id": "crust__hydra",
+      "repetition": 1,
+      "app_id": "full-crust__hydra-rep1",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep1/recodeagent_run_state.json",
+      "state_sha256": "e3199410d8c2cf5e3bd883a6f00369073baeb2c415e824bc2b015f38e338d216"
+    },
+    {
+      "runs_root": "runs-shard4",
+      "project_id": "crust__expr",
+      "repetition": 1,
+      "app_id": "full-crust__expr-rep1",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep1/recodeagent_run_state.json",
+      "state_sha256": "537cf93d3d945bf9fc321fb4bd2e6b2cb105d958482542937d6117800744d611"
+    },
+    {
+      "runs_root": "runs-shard4",
+      "project_id": "crust__expr",
+      "repetition": 2,
+      "app_id": "full-crust__expr-rep2",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep2/recodeagent_run_state.json",
+      "state_sha256": "e671062998d5465c43c30674f34afce874fe5debe0ab3c83836a35614a2405f2"
+    },
+    {
+      "runs_root": "runs-shard4",
+      "project_id": "crust__fasthamming",
+      "repetition": 0,
+      "app_id": "full-crust__fasthamming-rep0",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__fasthamming/rep0/recodeagent_run_state.json",
+      "state_sha256": "6157499a799d1cd260687a6ce31c07d050d2a8c99542fb1ae6b3c863a205a036"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "crust__worsp",
+      "repetition": 2,
+      "app_id": "full-crust__worsp-rep2",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep2/recodeagent_run_state.json",
+      "state_sha256": "61ceec0b97f6aab95b11fc6224fbf1b97ec545d95bd96e4f959966070a17146a"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__gonameparts",
+      "repetition": 0,
+      "app_id": "full-oxidizer__gonameparts-rep0",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep0/recodeagent_run_state.json",
+      "state_sha256": "085a646c30d76b20ce6362e521ac67d7540f44a58cb3d76ce49be6b4675202f0"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__gonameparts",
+      "repetition": 1,
+      "app_id": "full-oxidizer__gonameparts-rep1",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep1/recodeagent_run_state.json",
+      "state_sha256": "bfd3cf09e4a55fa87e5fda796106e1e04ab04d003f6b660411d320bc2bd0e5bc"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 0,
+      "app_id": "full-oxidizer__go-edlib-rep0",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep0/recodeagent_run_state.json",
+      "state_sha256": "52335dbc6216d5887a3cf1618ad601db2bcd636e11e28afae4840b68bc9f9c94"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 1,
+      "app_id": "full-oxidizer__go-edlib-rep1",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep1/recodeagent_run_state.json",
+      "state_sha256": "189a9f71c18fff050d449e620203ae0d5267172845c2cd99e19d5977e9c3c838"
+    },
+    {
+      "runs_root": "runs-shard6",
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 2,
+      "app_id": "full-oxidizer__go-edlib-rep2",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep2/recodeagent_run_state.json",
+      "state_sha256": "f0371fc251714320ab3703f1a0b972d55ca2c7a818d7717aafb07929bb816dc3"
+    },
+    {
+      "runs_root": "runs-shard7",
+      "project_id": "crust__libpsbt",
+      "repetition": 1,
+      "app_id": "full-crust__libpsbt-rep1",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep1/recodeagent_run_state.json",
+      "state_sha256": "568b15ef85008203015ca9d2b46f25f2c4a3c714090cac3a5ca1006f9544edcc"
+    },
+    {
+      "runs_root": "runs-shard7",
+      "project_id": "crust__libpsbt",
+      "repetition": 2,
+      "app_id": "full-crust__libpsbt-rep2",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep2/recodeagent_run_state.json",
+      "state_sha256": "a83a6d0017255b9e38e466f74c6e0bb481acc36c2e1c613393feccb2cbf26996"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__rubiksolver",
+      "repetition": 1,
+      "app_id": "full-crust__rubiksolver-rep1",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep1/recodeagent_run_state.json",
+      "state_sha256": "0c455daa68e14aa188ff6efc0d8cf55783bf982d74c01dabe068b2b63962afcb"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__satc",
+      "repetition": 2,
+      "app_id": "full-crust__satc-rep2",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep2/recodeagent_run_state.json",
+      "state_sha256": "97cb00dac181f8215a34d42a87f6ea92c6e14bd5e8b4791ca9c0ff96afd85a52"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__rhbloom",
+      "repetition": 2,
+      "app_id": "full-crust__rhbloom-rep2",
+      "attempt": 2,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep2/recodeagent_run_state.json",
+      "state_sha256": "ddd77842b11a7923df994a931d0ff7d285ff6430fb7d82bce4d3ffa885b2000f"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-config",
+      "repetition": 1,
+      "app_id": "full-crust__simple-config-rep1",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep1/recodeagent_run_state.json",
+      "state_sha256": "4ca60b05c0efafa771817142c6f6851ee87993766990d9bd5d6f8414114b18d6"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-config",
+      "repetition": 2,
+      "app_id": "full-crust__simple-config-rep2",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep2/recodeagent_run_state.json",
+      "state_sha256": "5a43859e2b9f028b687e0e69a00ac7fcb0ced20a257c8ce5fea85ed1d569bd67"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 0,
+      "app_id": "full-crust__simple-sparsehash-rep0",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep0/recodeagent_run_state.json",
+      "state_sha256": "9400103f9b107b2d4361d7313132a51b6c3aa61aecabf9dcecc89bb37b6fd6d3"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 1,
+      "app_id": "full-crust__simple-sparsehash-rep1",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep1/recodeagent_run_state.json",
+      "state_sha256": "4e36e1ce5a2d101cf6865b432621d08e00a7eeb89ed4c1898ea148da75c2d5a5"
+    },
+    {
+      "runs_root": "runs-shard8",
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 2,
+      "app_id": "full-crust__simple-sparsehash-rep2",
+      "attempt": 1,
+      "state_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep2/recodeagent_run_state.json",
+      "state_sha256": "d448b4ba293686824f2d991004a4c60b7cf80d87f02a02f1cee686fb6435194d"
+    }
+  ],
+  "recovery": {
+    "total_workers": 8,
+    "worker_counts": {
+      "runs": 2,
+      "runs-shard2": 1,
+      "runs-shard3": 1,
+      "runs-shard4": 1,
+      "runs-shard6": 1,
+      "runs-shard7": 1,
+      "runs-shard8": 1
+    },
+    "policy": "Resume only actual running cells; reservation guard and terminal immutability remain enforced."
+  }
+}
