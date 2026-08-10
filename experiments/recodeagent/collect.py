@@ -1341,7 +1341,11 @@ def compute_paper_pass_rate(expected: Measurement, passed: Measurement) -> Measu
     always names the underlying non-measured status/reason verbatim, so a
     build failure is never mistaken for a genuine, executed, all-failing
     run. Requires ``expected`` to be measured and non-zero; propagates
-    ``expected``'s own non-measured status/reason verbatim otherwise."""
+    ``expected``'s own non-measured status/reason verbatim otherwise. When a
+    target runner reports more passing executions than the fixed denominator
+    (for example parameterized or generated tests), the raw count remains
+    unchanged but credited passes are capped at ``expected`` so this rate can
+    never exceed 1."""
     if not expected.is_measured:
         reason = f"validated_tests_expected not measured: {expected.reason}" if expected.reason \
             else "validated_tests_expected not measured"
@@ -1674,6 +1678,83 @@ def crust_contract_relpaths(scaffold_dir: Path) -> list[str]:
                 if p.is_file():
                     rel.append(p.relative_to(scaffold_dir).as_posix())
     return rel
+
+
+def strip_rust_test_items(path: Path) -> int:
+    """Remove attributed Rust test items from one temporary source file.
+
+    CRUST's immutable oracle lives under ``src/bin``/``tests``. CodeWeaver may
+    add inline ``#[test]`` functions or ``#[cfg(test)]`` modules to production
+    files; Cargo's binary targets import those modules and would otherwise
+    count generated tests as oracle executions. This helper runs only on the
+    evaluator's temporary copy and uses tree-sitter byte ranges so production
+    items remain unchanged.
+    """
+    tree_sitter = C.optional_import("tree_sitter")
+    tree_sitter_rust = C.optional_import("tree_sitter_rust")
+    if tree_sitter is None or tree_sitter_rust is None:
+        raise RuntimeError(
+            "tree-sitter and tree-sitter-rust are required to isolate CRUST oracle tests"
+        )
+    try:
+        parser = tree_sitter.Parser(tree_sitter.Language(tree_sitter_rust.language()))
+    except (AttributeError, TypeError, ValueError) as exc:
+        raise RuntimeError(f"failed to initialize the Rust parser: {exc}") from exc
+
+    source = path.read_bytes()
+    tree = parser.parse(source)
+    removals: list[tuple[int, int]] = []
+
+    def is_test_attribute(node: Any) -> bool:
+        text = source[node.start_byte:node.end_byte].decode("utf-8", "replace")
+        return bool(re.search(r"(?<![A-Za-z0-9_])test(?![A-Za-z0-9_])", text))
+
+    def visit(parent: Any) -> None:
+        children = [child for child in parent.named_children]
+        index = 0
+        while index < len(children):
+            child = children[index]
+            if child.type != "attribute_item":
+                visit(child)
+                index += 1
+                continue
+            start = index
+            attributes: list[Any] = []
+            while index < len(children) and children[index].type == "attribute_item":
+                attributes.append(children[index])
+                index += 1
+            if index < len(children) and any(is_test_attribute(attr) for attr in attributes):
+                removals.append((children[start].start_byte, children[index].end_byte))
+                index += 1
+                continue
+            for attribute in attributes:
+                visit(attribute)
+            if index < len(children):
+                visit(children[index])
+                index += 1
+
+    visit(tree.root_node)
+    if not removals:
+        return 0
+    updated = source
+    for start, end in sorted(removals, reverse=True):
+        updated = updated[:start] + b"\n" + updated[end:]
+    path.write_bytes(updated)
+    return len(removals)
+
+
+def strip_crust_target_tests(tmp_target: Path) -> int:
+    """Strip target-authored inline tests outside CRUST's contract dirs."""
+    source_root = tmp_target / "src"
+    if not source_root.is_dir():
+        return 0
+    stripped = 0
+    for path in sorted(source_root.rglob("*.rs")):
+        relative = path.relative_to(source_root)
+        if relative.parts and relative.parts[0] == "bin":
+            continue
+        stripped += strip_rust_test_items(path)
+    return stripped
 
 
 def crust_validated_tests_expected_native(scaffold_dir: Path) -> Measurement:
@@ -2157,6 +2238,15 @@ def crust_validated_tests_eval(run_dir: Path, dataset_spec: dict[str, Any], *, t
             src = scaffold_dir / name
             if src.is_file():
                 shutil.copy2(src, tmp_target / name)
+        try:
+            stripped_test_items = strip_crust_target_tests(tmp_target)
+        except (OSError, RuntimeError) as exc:
+            error = Measurement.error(f"failed to isolate target-authored Rust tests: {exc}")
+            return _finalize_validated_tests(
+                {"total": error, "passed": error, "failed": error},
+                expected,
+                **expected_kwargs,
+            )
         test_cmd = list(dataset_spec.get("unit_test_cmd", []))
         if (
             len(test_cmd) >= 2
@@ -2170,6 +2260,22 @@ def crust_validated_tests_eval(run_dir: Path, dataset_spec: dict[str, Any], *, t
                     separator += 1
         raw = evaluate_tests(tmp_target, test_cmd, "crust",
                              timeout=timeout, dataset_spec=dataset_spec, runner=runner)
+        if stripped_test_items:
+            reason = (
+                f"excluded {stripped_test_items} target-authored Rust test item(s) "
+                "from the temporary fixed-oracle evaluation"
+            )
+            raw = {
+                key: (
+                    Measurement(
+                        value=value.value,
+                        status=value.status,
+                        reason="; ".join(part for part in (value.reason, reason) if part),
+                    )
+                    if value.is_measured else value
+                )
+                for key, value in raw.items()
+            }
         # ``cargo test`` builds every target (including src/bin/*.rs) before
         # running any #[test], so if it produced a real (measured) result
         # the binaries have already compiled -- safe to attempt running

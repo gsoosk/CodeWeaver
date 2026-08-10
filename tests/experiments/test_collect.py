@@ -1371,6 +1371,25 @@ def test_crust_contract_relpaths_empty_when_no_contract_files_present(tmp_path: 
     assert COL.crust_contract_relpaths(scaffold) == []
 
 
+def test_strip_rust_test_items_preserves_production_items(tmp_path: Path):
+    path = tmp_path / "lib.rs"
+    _write(
+        path,
+        "#[cfg(test)]\n"
+        "mod tests { #[test] fn generated() {} }\n"
+        "#[test]\n"
+        "fn standalone_generated() {}\n"
+        "pub fn production() -> usize { 7 }\n",
+    )
+
+    stripped = COL.strip_rust_test_items(path)
+
+    text = path.read_text(encoding="utf-8")
+    assert stripped == 2
+    assert "generated" not in text
+    assert "pub fn production() -> usize { 7 }" in text
+
+
 def test_crust_oracle_integrity_pristine_when_contract_matches(tmp_path: Path):
     scaffold, target = tmp_path / "scaffold", tmp_path / "target"
     _write(scaffold / "Cargo.toml", "same-content")
