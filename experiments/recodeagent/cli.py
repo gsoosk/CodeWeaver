@@ -39,6 +39,7 @@ _STAGE_MODULES: dict[str, str] = {
     "analyze": "experiments.recodeagent.analyze",
     "compare-systems": "experiments.recodeagent.system_compare",
     "report": "experiments.recodeagent.report",
+    "conference-paper": "experiments.recodeagent.conference_paper",
     "package": "experiments.recodeagent.package_results",
 }
 
@@ -58,6 +59,7 @@ _STAGE_SUMMARIES: dict[str, str] = {
     "analyze": "RQ1-RQ4 tables/figures from collect.py + test_compare.py outputs only.",
     "compare-systems": "Publication-grade CodeWeaver vs released-system comparison.",
     "report": "Final reproducibility_report.{pdf,md} + manifest/checksum/provenance JSON.",
+    "conference-paper": "Unified conference-style Markdown/PDF/LaTeX paper from verified outputs.",
     "package": "Build the final Git-ready results repository with data, PDFs, and raw archives.",
 }
 

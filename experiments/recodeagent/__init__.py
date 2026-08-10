@@ -19,6 +19,7 @@ Pipeline stages (one module each, runnable standalone or via ``cli.py``):
     analyze      -> RQ1-RQ4 tables/figures from measured data only
     compare-systems -> cross-system CodeWeaver/released-artifact comparison
     report       -> final reproducibility_report.{pdf,md}
+    conference-paper -> unified conference_paper.{md,pdf,tex}
     package      -> Git-ready data/PDF/provenance/raw-archive repository
 
 Nothing in this package fabricates results: every measurement is either a real

@@ -378,7 +378,16 @@ python -m experiments.recodeagent report \
   --system-comparison-provenance /data/recodeagent/results/system-comparison/system_comparison_provenance.json \
   --output-root /data/recodeagent/results/report
 
-# 9) Refuse incomplete results, then assemble the final local results
+# 9) Render a unified human-readable conference paper from the completeness-
+#    gated report, exact analysis provenance, and cross-system statistics.
+python -m experiments.recodeagent conference-paper \
+  --report-data /data/recodeagent/results/report/reproducibility_report_data.json \
+  --system-comparison /data/recodeagent/results/system-comparison/system_comparison.json \
+  --analysis-provenance /data/recodeagent/results/analysis/analysis_provenance.json \
+  --output-root /data/recodeagent/results/report \
+  --require-complete
+
+# 10) Refuse incomplete results, then assemble the final local results
 #    repository. Raw archives omit duplicated benchmark inputs and build
 #    caches while retaining translated source, logs, state, and reports.
 python -m experiments.recodeagent package \
@@ -420,6 +429,7 @@ completion verdict is `INCOMPLETE` (for CI-style gating) -- the report's
 | `analyze` | `--manifest`, `--raw-runs`, `--output-root` plus paper/generated project CSVs and the official `--paper-results-workbook` for final output | `table1_effectiveness.{csv,pdf}`, `table1_paper_reference.{csv,pdf}`, `table2_test_translation.{csv,pdf}`, `paper_table{1,2}_side_by_side.csv`, `paper_tables_side_by_side.pdf`, `figure7_ablation.{csv,pdf}`, `figure8_cost_tools.{csv,pdf}`, `table_generated_tests.{csv,pdf}`, `table_function_validation.{csv,pdf}`, `analysis_provenance.json` |
 | `compare-systems` | CodeWeaver `raw_runs.{csv,jsonl}`, baseline replay `baseline_raw_runs.{csv,jsonl}`, manifest; failure files/workbook optional | completeness audit, primary rep-0 paired comparison CSV/JSON, LaTeX tables, publication PDF (or explicit unavailable marker), cost frontier, and provenance |
 | `report` | `--manifest`, `--output-root` (everything else optional; comparison JSON/provenance can be supplied) | `reproducibility_report.md`, `reproducibility_report.pdf`, `reproducibility_report_data.json`, `manifest_checksum_provenance.json` |
+| `conference-paper` | completeness-gated report data, system comparison JSON, analysis provenance | unified `conference_paper.{md,pdf,tex}`, data extract, and input-hash provenance |
 | `package` | complete report plus manifest, collected/paper-test/analysis roots, and runs root; optional baseline/comparison/test/campaign roots | Git-ready result tree containing normalized data/PDFs, cross-system/baseline/test/campaign evidence, source/provenance/checksums, and selected split filtered raw-run archives |
 
 ### Cross-system comparison

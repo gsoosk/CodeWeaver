@@ -39,7 +39,8 @@ def test_stage_aliases_map_to_known_canonical_stage_names():
 def test_expected_stages_present_in_expected_order():
     assert list(CLI._STAGE_MODULES) == [
         "acquire", "manifest", "prepare", "run", "collect", "merge-collections", "test-compare",
-        "paper-test-compare", "merge-paper", "analyze", "compare-systems", "report", "package",
+        "paper-test-compare", "merge-paper", "analyze", "compare-systems", "report",
+        "conference-paper", "package",
     ]
 
 
