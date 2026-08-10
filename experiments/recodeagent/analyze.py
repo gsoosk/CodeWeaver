@@ -362,7 +362,7 @@ def paper_equivalent_pass_rate(
         n_rows += 1
         total_expected += expected_value
         if r.get(passed_status_field) == Status.MEASURED and r.get(passed_field) is not None:
-            total_passed += r.get(passed_field)
+            total_passed += min(r.get(passed_field), expected_value)
         # else: a non-measured `passed` contributes 0 to the numerator here,
         # per the paper's own methodology -- NOT an excluded row (its
         # `expected` count above still counts toward the denominator).

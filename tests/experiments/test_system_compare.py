@@ -100,6 +100,45 @@ def test_malformed_success_shaped_boolean_is_not_coerced():
         SC._strict_bool("1", field="build")
 
 
+def test_validated_rates_cap_passes_at_each_fixed_denominator():
+    def row(expected, passed, rate):
+        return {
+            "metrics": {
+                "validated_tests_expected": {
+                    "status": C.Status.MEASURED,
+                    "value": expected,
+                },
+                "validated_tests_passed": {
+                    "status": C.Status.MEASURED,
+                    "value": passed,
+                },
+                "validated_test_rate": {
+                    "status": C.Status.MEASURED,
+                    "value": rate,
+                },
+            },
+        }
+
+    rows = [row(2, 84, 42.0), row(2, 0, 0.0)]
+    micro = SC._aggregate_rate(
+        rows,
+        "validated_test_micro_pass_rate",
+        resamples=100,
+        seed=1,
+    )
+    macro = SC._aggregate_rate(
+        rows,
+        "validated_test_macro_pass_rate",
+        resamples=100,
+        seed=1,
+    )
+
+    assert micro["value"] == pytest.approx(0.5)
+    assert macro["value"] == pytest.approx(0.5)
+    assert micro["capped_pass_counts"] == 1
+    assert macro["capped_pass_counts"] == 1
+
+
 @pytest.mark.parametrize(
     ("value", "expected"),
     [(0, False), (1, True), (0.0, False), (1.0, True), ("0", False), ("1.0", True)],

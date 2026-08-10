@@ -1349,7 +1349,19 @@ def compute_paper_pass_rate(expected: Measurement, passed: Measurement) -> Measu
     if expected.value in (None, 0):
         return Measurement.na("zero expected validated tests for this project; a pass rate is undefined")
     if passed.is_measured:
-        return Measurement.ok(passed.value / expected.value)
+        credited_passes = min(passed.value, expected.value)
+        reason = ""
+        if passed.value > expected.value:
+            reason = (
+                f"observed {passed.value} passing target executions but the fixed oracle "
+                f"denominator is {expected.value}; credited passes are capped at the "
+                "denominator so generated/parameterized executions cannot yield a rate above 1"
+            )
+        return Measurement(
+            value=credited_passes / expected.value,
+            status=Status.MEASURED,
+            reason=reason,
+        )
     reason = (f"the passed-test count was not measured (status={passed.status!r}: "
              f"{passed.reason or 'no reason recorded'}); treated as 0 of {expected.value} expected test(s) "
              "per the paper's own TPR methodology (a build/import failure or a non-executed test contributes "
@@ -2076,7 +2088,9 @@ def crust_validated_tests_eval(run_dir: Path, dataset_spec: dict[str, Any], *, t
                                crust_paper_expected_tests: dict[str, int] | None = None) -> dict[str, Measurement]:
     """CRUST's independently validated developer tests: restore the PRISTINE
     scaffold's own Cargo contract over a TEMPORARY copy of the run's produced
-    target, then run the dataset's own ``unit_test_cmd`` there, PLUS any
+    target, remove any target-authored files from the oracle-only ``src/bin``
+    and ``tests`` directories, then run only Cargo's binary and integration
+    test targets there, PLUS any
     detected "binary assertion harness" oracles (``crust_binary_test_harnesses``
     / ``crust_run_binary_test_harnesses`` -- e.g. the real CRUST ``libfor``
     project's ``src/bin/test.rs``, which plain ``cargo test`` never
@@ -2130,11 +2144,31 @@ def crust_validated_tests_eval(run_dir: Path, dataset_spec: dict[str, Any], *, t
     with tempfile.TemporaryDirectory(prefix="recodeagent_crust_oracle_") as tmp:
         tmp_target = Path(tmp) / "target"
         copy_evaluation_tree(target_dir, tmp_target)
-        for rel in rel_paths:
-            dst = tmp_target / rel
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(scaffold_dir / rel, dst)
-        raw = evaluate_tests(tmp_target, list(dataset_spec.get("unit_test_cmd", [])), "crust",
+        for dirname in CRUST_ORACLE_CONTRACT_DIRS:
+            dst = tmp_target / dirname
+            if dst.is_symlink() or dst.is_file():
+                dst.unlink()
+            elif dst.is_dir():
+                shutil.rmtree(dst)
+            src = scaffold_dir / dirname
+            if src.is_dir():
+                shutil.copytree(src, dst, symlinks=True)
+        for name in CRUST_ORACLE_CONTRACT_TOP_LEVEL_FILES:
+            src = scaffold_dir / name
+            if src.is_file():
+                shutil.copy2(src, tmp_target / name)
+        test_cmd = list(dataset_spec.get("unit_test_cmd", []))
+        if (
+            len(test_cmd) >= 2
+            and Path(test_cmd[0]).name.lower() in {"cargo", "cargo.exe"}
+            and test_cmd[1] == "test"
+        ):
+            separator = test_cmd.index("--") if "--" in test_cmd else len(test_cmd)
+            for flag in ("--bins", "--tests"):
+                if flag not in test_cmd:
+                    test_cmd.insert(separator, flag)
+                    separator += 1
+        raw = evaluate_tests(tmp_target, test_cmd, "crust",
                              timeout=timeout, dataset_spec=dataset_spec, runner=runner)
         # ``cargo test`` builds every target (including src/bin/*.rs) before
         # running any #[test], so if it produced a real (measured) result

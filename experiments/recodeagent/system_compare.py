@@ -722,19 +722,21 @@ def _metric(row: dict[str, Any], name: str) -> dict[str, Any]:
     return row["metrics"][name]
 
 
-def _micro_pair(row: dict[str, Any]) -> tuple[float, float, bool] | None:
+def _micro_pair(row: dict[str, Any]) -> tuple[float, float, bool, bool] | None:
     expected = _metric(row, "validated_tests_expected")
     passed = _metric(row, "validated_tests_passed")
     rate = _metric(row, "validated_test_rate")
     if expected["status"] != Status.MEASURED or expected["value"] <= 0:
         return None
     if passed["status"] == Status.MEASURED:
-        return float(passed["value"]), float(expected["value"]), False
+        expected_value = float(expected["value"])
+        passed_value = float(passed["value"])
+        return min(passed_value, expected_value), expected_value, False, passed_value > expected_value
     # collect.compute_paper_pass_rate deliberately records blocked execution as
     # a *measured* zero rate against a measured oracle denominator.  Honor that
     # explicit evaluator semantics, but record every such zero substitution.
     if rate["status"] == Status.MEASURED and rate["value"] == 0.0:
-        return 0.0, float(expected["value"]), True
+        return 0.0, float(expected["value"]), True, False
     return None
 
 
@@ -746,6 +748,7 @@ def _aggregate_rate(
     seed: int,
 ) -> dict[str, Any]:
     total_rows = len(rows)
+    capped_pass_counts = 0
     if metric_name in ("compilation_success", "project_pass_all"):
         values = [
             float(_metric(row, metric_name)["value"])
@@ -758,10 +761,15 @@ def _aggregate_rate(
         zero_substitutions = 0
     elif metric_name == "validated_test_macro_pass_rate":
         values = [
-            float(_metric(row, "validated_test_rate")["value"])
+            min(float(_metric(row, "validated_test_rate")["value"]), 1.0)
             for row in rows
             if _metric(row, "validated_test_rate")["status"] == Status.MEASURED
         ]
+        capped_pass_counts = sum(
+            float(_metric(row, "validated_test_rate")["value"]) > 1.0
+            for row in rows
+            if _metric(row, "validated_test_rate")["status"] == Status.MEASURED
+        )
         numerator = sum(values)
         denominator = len(values)
         ci = bootstrap_mean_ci(values, resamples=resamples, seed=seed)
@@ -773,6 +781,7 @@ def _aggregate_rate(
         values = [(pair[0], pair[1]) for pair in pairs]
         ci = _bootstrap_ratio_ci(values, resamples=resamples, seed=seed)
         zero_substitutions = sum(pair[2] for pair in pairs)
+        capped_pass_counts = sum(pair[3] for pair in pairs)
     else:
         raise ValueError(f"unknown metric {metric_name!r}")
     eligible = len(values)
@@ -788,6 +797,7 @@ def _aggregate_rate(
             "denominator": None,
             "bootstrap": ci,
             "zero_numerator_substitutions": zero_substitutions,
+            "capped_pass_counts": capped_pass_counts,
             "reason": f"no genuinely measured {metric_name} values",
         }
     value = numerator / denominator
@@ -802,6 +812,7 @@ def _aggregate_rate(
         "denominator": denominator,
         "bootstrap": ci,
         "zero_numerator_substitutions": zero_substitutions,
+        "capped_pass_counts": capped_pass_counts,
         "reason": (
             f"{total_rows - eligible} project(s) excluded because their metric was not genuinely measured"
             if eligible != total_rows else ""
@@ -1721,11 +1732,16 @@ def compare_systems(
         "denominators": {
             "binary_rates": "genuinely measured project-level binary values only",
             "validated_micro": (
-                "sum(validated_tests_passed) / sum(validated_tests_expected) over eligible projects; "
+                "sum(min(validated_tests_passed, validated_tests_expected)) / "
+                "sum(validated_tests_expected) over eligible projects; "
                 "an explicitly measured zero paper-rate with unavailable passed count is retained as a "
-                "documented zero numerator per collect.compute_paper_pass_rate"
+                "documented zero numerator per collect.compute_paper_pass_rate; passes above the fixed "
+                "denominator are retained in raw counts but cannot produce a rate above 1"
             ),
-            "validated_macro": "mean of genuinely measured per-project validated_tests_pass_rate values",
+            "validated_macro": (
+                "mean of genuinely measured per-project validated_tests_pass_rate values, "
+                "bounded to [0, 1]"
+            ),
             "paired": "intersection of genuinely measured CodeWeaver rep0 and replayed ReCodeAgent projects",
         },
         "methods": {

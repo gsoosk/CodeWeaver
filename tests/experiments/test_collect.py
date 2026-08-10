@@ -1434,6 +1434,8 @@ def test_crust_validated_tests_eval_uses_pristine_content_despite_mutated_target
           "PRISTINE_HARNESS\n#[test]\nfn t1() {}\n#[test]\nfn t2() {}\n")
     _write(target / "Cargo.toml", "MUTATED_CARGO_TOML")
     _write(target / "src" / "bin" / "harness.rs", "MUTATED_HARNESS")
+    _write(target / "src" / "bin" / "generated.rs", "#[test]\nfn generated() {}\n")
+    _write(target / "tests" / "generated.rs", "#[test]\nfn generated() {}\n")
     _write(target / "src" / "lib.rs", "OWN_TRANSLATION")
 
     # oracle_integrity must independently see the mutation...
@@ -1456,9 +1458,14 @@ def test_crust_validated_tests_eval_uses_pristine_content_despite_mutated_target
     assert files["Cargo.toml"] == "PRISTINE_CARGO_TOML"          # NOT the mutated target copy
     assert files["src/bin/harness.rs"] == "PRISTINE_HARNESS\n#[test]\nfn t1() {}\n#[test]\nfn t2() {}\n"
     assert files["src/lib.rs"] == "OWN_TRANSLATION"              # non-contract files untouched
+    assert "src/bin/generated.rs" not in files
+    assert "tests/generated.rs" not in files
+    assert "--bins" in snapshot.calls[0]["argv"]
+    assert "--tests" in snapshot.calls[0]["argv"]
     assert snapshot.calls[0]["cwd"] != str(target)               # ran in an EPHEMERAL copy, never run_dir itself
     # And the run's own (mutated) target tree must be left completely alone.
     assert (target / "Cargo.toml").read_text(encoding="utf-8") == "MUTATED_CARGO_TOML"
+    assert (target / "src" / "bin" / "generated.rs").is_file()
 
 
 def test_crust_validated_tests_eval_unavailable_when_scaffold_has_no_contract(tmp_path: Path):
@@ -3708,14 +3715,14 @@ def test_compute_paper_pass_rate_zero_substituted_numerator_when_passed_not_meas
     assert "cargo build failed" in result.reason
 
 
-def test_compute_paper_pass_rate_never_clamped_above_one():
-    """Deliberately NOT clamped: a >100% rate (passed > expected, e.g. a
-    whole-crate `cargo test` running extra tests beyond the static contract
-    count) is left visible as an honest signal of a data-quality mismatch,
-    never silently masked to 1.0."""
+def test_compute_paper_pass_rate_caps_credit_at_fixed_denominator():
+    """Raw execution counts retain extras, but a fixed-denominator pass rate
+    cannot credit generated or parameterized target executions above 100%."""
     result = COL.compute_paper_pass_rate(Measurement.ok(2), Measurement.ok(5))
     assert result.is_measured
-    assert result.value == pytest.approx(2.5)
+    assert result.value == pytest.approx(1.0)
+    assert "observed 5" in result.reason
+    assert "capped" in result.reason
 
 
 # --------------------------------------------------------------------------- #

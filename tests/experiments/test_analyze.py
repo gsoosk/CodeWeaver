@@ -452,6 +452,35 @@ def test_paper_equivalent_pass_rate_is_sum_based_not_mean_of_per_row_rates():
     assert m.value != pytest.approx(naive_mean.value)  # the paper-equivalent (sum-based) result must differ
 
 
+def test_paper_equivalent_pass_rate_caps_each_project_at_fixed_denominator():
+    rows = [
+        _raw_row(
+            project_id="crust__a",
+            validated_tests_passed=84,
+            validated_tests_passed_status=Status.MEASURED,
+            validated_tests_expected=2,
+            validated_tests_expected_status=Status.MEASURED,
+        ),
+        _raw_row(
+            project_id="crust__b",
+            validated_tests_passed=0,
+            validated_tests_passed_status=Status.MEASURED,
+            validated_tests_expected=2,
+            validated_tests_expected_status=Status.MEASURED,
+        ),
+    ]
+
+    measured = A.paper_equivalent_pass_rate(
+        rows,
+        "validated_tests_passed",
+        "validated_tests_passed_status",
+        "validated_tests_expected",
+        "validated_tests_expected_status",
+    )
+
+    assert measured.value == pytest.approx(0.5)
+
+
 def test_paper_equivalent_pass_rate_build_failure_contributes_zero_numerator_full_denominator():
     """A row whose passed-count is Status.ERROR (a real build failure, never
     a fabricated measured 0) still contributes its FULL expected count to the
