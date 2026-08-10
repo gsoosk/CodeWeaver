@@ -269,10 +269,9 @@ def check_provenance_consistency(raw_rows: list[dict[str, Any]]) -> dict[str, An
     protocol_fields = [
         "model",
         "agent_timeout_seconds",
-        "git_sha",
         "codeweaver_package_version",
     ]
-    informational_fields = ["copilot_cli_version"]
+    informational_fields = ["git_sha", "copilot_cli_version"]
     fields = protocol_fields + informational_fields
     distinct: dict[str, set[Any]] = {f: set() for f in fields}
     for r in raw_rows:

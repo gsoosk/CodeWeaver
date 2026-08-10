@@ -320,6 +320,19 @@ def test_check_provenance_consistency_discloses_cli_version_drift():
     }
 
 
+def test_check_provenance_consistency_discloses_git_revision_drift():
+    rows = [
+        _raw_row(git_sha="abc123"),
+        _raw_row(project_id="crust__b", git_sha="def456"),
+    ]
+    report = A.check_provenance_consistency(rows)
+    assert report["consistent"] is True
+    assert report["strictly_consistent"] is False
+    assert report["informational_drift"] == {
+        "git_sha": ["abc123", "def456"],
+    }
+
+
 def test_check_provenance_consistency_empty_rows_is_consistent():
     report = A.check_provenance_consistency([])
     assert report["consistent"] is True

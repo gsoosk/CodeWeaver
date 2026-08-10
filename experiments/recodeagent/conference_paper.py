@@ -103,6 +103,18 @@ def build_sections(
     primary = _primary_metrics(comparison)
     variability = _variability_metrics(comparison)
     paired = _paired_metrics(comparison)
+    provenance = analysis_provenance.get("provenance_consistency") or {}
+    informational_drift = provenance.get("informational_drift") or {}
+    git_revisions = informational_drift.get("git_sha") or []
+    cli_revisions = informational_drift.get("copilot_cli_version") or []
+    revision_statement = (
+        f"Rows retain {len(git_revisions)} exact repository revisions and "
+        f"{len(cli_revisions)} Copilot CLI patch builds observed during campaign "
+        "recovery. Model, timeout, and package-version protocol fields are invariant; "
+        "the revision drift is retained in provenance and treated as a validity threat."
+        if git_revisions or cli_revisions
+        else "No repository or Copilot CLI revision drift was observed."
+    )
 
     abstract = (
         f"We evaluate CodeWeaver with GPT-5.6 Sol on the {project_count}-project "
@@ -185,7 +197,8 @@ def build_sections(
             "evaluated by the same normalized collector where artifacts exist. "
             "Three projects with nonterminating stress or FIFO-wait commands use "
             "the collector's 300-second per-command limit; the repair audit "
-            "records that no completed normalized row was replaced.",
+            "records that no completed normalized row was replaced. "
+            + revision_statement,
         ),
         RD.ReportSection("Artifact completion and claim boundary", verdict_body),
         RD.ReportSection(
@@ -255,7 +268,8 @@ def build_sections(
             "replayed artifacts. Missing and unavailable costs are not zero. "
             "The preregistered repetition prevents post-hoc run selection. Three "
             "independent evaluations required the documented 300-second command "
-            "cap after unbounded stress or FIFO-wait tests did not terminate.",
+            "cap after unbounded stress or FIFO-wait tests did not terminate. "
+            + revision_statement,
         ),
         RD.ReportSection(
             "Artifact and reproducibility",
@@ -287,6 +301,7 @@ def build_latex(
     title: str,
     report_data: dict[str, Any],
     comparison: dict[str, Any],
+    analysis_provenance: dict[str, Any],
 ) -> str:
     verdict = report_data.get("verdict") or {}
     rows = _primary_metrics(comparison)
@@ -295,6 +310,18 @@ def build_latex(
         f"{_latex_escape(_percent(row.get('value')))} & "
         f"{_latex_escape(_interval((row.get('bootstrap') or {}).get('ci_95')))} \\\\"
         for row in rows
+    )
+    provenance = analysis_provenance.get("provenance_consistency") or {}
+    informational_drift = provenance.get("informational_drift") or {}
+    git_revision_count = len(informational_drift.get("git_sha") or [])
+    cli_revision_count = len(informational_drift.get("copilot_cli_version") or [])
+    revision_threat = (
+        f"Campaign recovery spans {git_revision_count} exact repository revisions "
+        f"and {cli_revision_count} Copilot CLI patch builds. Model, timeout, and "
+        "package-version protocol fields are invariant; exact revision drift is "
+        "retained in provenance as a validity threat."
+        if git_revision_count or cli_revision_count
+        else "No repository or Copilot CLI revision drift was observed."
     )
     return rf"""\documentclass[10pt,twocolumn]{{article}}
 \usepackage[margin=0.75in]{{geometry}}
@@ -340,7 +367,7 @@ The systems are not model-matched fresh reruns. SWE-agent released targets are
 unavailable; workbook values are reference-only. Missing costs are not zero.
 Three independent evaluations use a documented 300-second command cap after
 unbounded stress or FIFO-wait tests did not terminate; no completed normalized
-row was replaced.
+row was replaced. {_latex_escape(revision_threat)}
 \section{{Reproducibility}}
 The package contains source, raw normalized evidence, filtered run archives,
 provenance, infrastructure audits, and SHA-256 checksums.
@@ -389,7 +416,12 @@ def generate_conference_paper(
         raise RuntimeError("reportlab is required to render conference_paper.pdf")
     C.atomic_write_text(
         latex_path,
-        build_latex(title=title, report_data=report_data, comparison=comparison),
+        build_latex(
+            title=title,
+            report_data=report_data,
+            comparison=comparison,
+            analysis_provenance=analysis,
+        ),
     )
     C.atomic_write_json(
         data_path,

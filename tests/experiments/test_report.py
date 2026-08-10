@@ -428,6 +428,40 @@ def test_render_report_sections_shows_complete_status_text():
     assert "All completion criteria met." in verdict_section.body
 
 
+def test_render_report_sections_discloses_informational_revision_drift():
+    analysis = {
+        "completeness": {"coverage_fraction": 1.0, "missing_cells": []},
+        "paper_test_completeness": {
+            "coverage_fraction": 1.0, "missing_cells": [], "duplicate_rows": 0,
+        },
+        "generated_test_completeness": {
+            "coverage_fraction": 1.0, "missing_cells": [], "duplicate_rows": 0,
+        },
+        "schema_valid": True,
+        "provenance_consistency": {
+            "protocol_fields": ["model", "agent_timeout_seconds"],
+            "consistent": True,
+            "strictly_consistent": False,
+            "informational_drift": {"git_sha": ["abc123", "def456"]},
+        },
+        "paper_tables_side_by_side_available": True,
+    }
+    data = RPT.build_report(
+        manifest=_full_manifest(),
+        analysis_provenance=analysis,
+        failures=[],
+        comparison_failures=[],
+        raw_rows=[],
+        variants=["full"],
+        repetitions=1,
+    )
+
+    sections = {section.heading: section.body for section in RPT.render_report_sections(data)}
+
+    assert data["verdict"]["complete"] is True
+    assert "git_sha: 2 exact value(s)" in sections["Protocol and revision provenance"]
+
+
 def test_report_includes_cross_system_tracks_results_and_unavailability_evidence(tmp_path: Path):
     data = RPT.build_report(
         manifest=_manifest([("crust__a", "crust")]),

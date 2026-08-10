@@ -183,7 +183,7 @@ def compute_completion_verdict(manifest: dict[str, Any], analysis_provenance: di
     if not analysis_provenance.get("schema_valid", False):
         reasons.append("raw_runs/test_comparisons rows failed schema validation (see analysis_provenance.json)")
     if not (analysis_provenance.get("provenance_consistency", {}) or {}).get("consistent", False):
-        reasons.append("measured runs used inconsistent model/git/toolchain provenance "
+        reasons.append("measured runs used inconsistent frozen protocol provenance "
                        "(see analysis_provenance.json.provenance_consistency)")
     if not analysis_provenance.get("paper_tables_side_by_side_available", False):
         reasons.append(
@@ -336,6 +336,11 @@ def build_report(
         "expected_total_projects": C.EXPECTED_TOTAL_PROJECTS,
         "raw_runs_row_count": len(raw_rows),
         "analysis_available": analysis_provenance is not None,
+        "provenance_consistency": (
+            analysis_provenance.get("provenance_consistency", {})
+            if analysis_provenance is not None
+            else {}
+        ),
         "paper_tables_side_by_side_available": bool(
             (analysis_provenance or {}).get(
                 "paper_tables_side_by_side_available", False
@@ -409,6 +414,31 @@ def render_report_sections(report_data: dict[str, Any]) -> list[RD.ReportSection
         else "analyze.py has NOT been run yet -- table1/table2/figure7/figure8 are not available.",
         level=2,
     ))
+    provenance = report_data.get("provenance_consistency")
+    if isinstance(provenance, dict) and provenance:
+        informational_drift = provenance.get("informational_drift") or {}
+        drift_lines = [
+            f"  - {field}: {len(values)} exact value(s): {', '.join(str(value) for value in values)}"
+            for field, values in informational_drift.items()
+            if isinstance(values, list)
+        ]
+        provenance_body = (
+            f"Frozen protocol fields: {', '.join(provenance.get('protocol_fields') or [])}.\n"
+            f"Protocol-consistent: {provenance.get('consistent', False)}.\n"
+            f"Strictly identical environment metadata: "
+            f"{provenance.get('strictly_consistent', False)}."
+        )
+        if drift_lines:
+            provenance_body += (
+                "\n\nRecorded informational revision drift (retained exactly and "
+                "treated as a validity threat, not collapsed):\n"
+                + "\n".join(drift_lines)
+            )
+        sections.append(RD.ReportSection(
+            "Protocol and revision provenance",
+            provenance_body,
+            level=2,
+        ))
     comparison = report_data.get("system_comparison")
     if isinstance(comparison, dict):
         tracks = "\n".join(f"  - {track}" for track in comparison["tracks"])

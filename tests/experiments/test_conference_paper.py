@@ -114,7 +114,22 @@ def test_generate_complete_conference_paper(tmp_path: Path, monkeypatch: pytest.
     comparison = _write_json(tmp_path / "comparison.json", _comparison())
     analysis = _write_json(
         tmp_path / "analysis.json",
-        {"paper_tables_side_by_side_available": True},
+        {
+            "paper_tables_side_by_side_available": True,
+            "provenance_consistency": {
+                "protocol_fields": [
+                    "model",
+                    "agent_timeout_seconds",
+                    "codeweaver_package_version",
+                ],
+                "consistent": True,
+                "strictly_consistent": False,
+                "informational_drift": {
+                    "git_sha": ["abc123", "def456"],
+                    "copilot_cli_version": ["1.0.79-3", "1.0.79-4"],
+                },
+            },
+        },
     )
 
     def render_pdf(title, sections, path):
@@ -136,6 +151,8 @@ def test_generate_complete_conference_paper(tmp_path: Path, monkeypatch: pytest.
     assert "50.0%" in result["markdown"].read_text(encoding="utf-8")
     assert "300-second" in result["markdown"].read_text(encoding="utf-8")
     assert "300-second" in result["latex"].read_text(encoding="utf-8")
+    assert "2 exact repository revisions" in result["markdown"].read_text(encoding="utf-8")
+    assert "2 exact repository revisions" in result["latex"].read_text(encoding="utf-8")
     assert r"project\_pass\_all" in result["latex"].read_text(encoding="utf-8")
     provenance = json.loads(result["provenance"].read_text(encoding="utf-8"))
     assert set(provenance["inputs_sha256"]) == {
