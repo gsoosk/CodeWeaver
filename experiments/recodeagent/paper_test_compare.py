@@ -1155,6 +1155,16 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--variant", default="full")
     parser.add_argument("--project", default=None, help="comma-separated project ids")
     parser.add_argument("--repetitions", type=int, default=1)
+    parser.add_argument(
+        "--repetition",
+        action="append",
+        type=int,
+        dest="selected_repetitions",
+        help=(
+            "evaluate only this zero-based repetition; repeat for a subset "
+            "(default: every repetition below --repetitions)"
+        ),
+    )
     parser.add_argument("--embeddings", action="store_true")
     parser.add_argument("--embedding-model", default="Qwen/Qwen3-Embedding-0.6B")
     parser.add_argument("--embedding-batch-size", type=int, default=8)
@@ -1162,8 +1172,31 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def _selected_repetitions(
+    repetitions: int,
+    selected: list[int] | None,
+) -> list[int]:
+    if repetitions <= 0:
+        raise ValueError("--repetitions must be positive")
+    values = list(range(repetitions)) if selected is None else list(selected)
+    if len(values) != len(set(values)):
+        raise ValueError("--repetition values must be unique")
+    invalid = [value for value in values if value < 0 or value >= repetitions]
+    if invalid:
+        raise ValueError(
+            f"--repetition values must be in [0, {repetitions - 1}]: {invalid}"
+        )
+    return values
+
+
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    try:
+        repetitions = _selected_repetitions(
+            args.repetitions, args.selected_repetitions
+        )
+    except ValueError as exc:
+        build_parser().error(str(exc))
     manifest = C.read_json(args.manifest)
     official = _load_official_module(Path(args.reference_implementation_root))
     output_root = Path(args.output_root)
@@ -1199,7 +1232,7 @@ def main(argv: list[str] | None = None) -> int:
         for manifest_row in projects:
             project_id = str(manifest_row["id"])
             tool = str(manifest_row["tool"]).lower()
-            for repetition in range(args.repetitions):
+            for repetition in repetitions:
                 run_dir = R.run_dir_for(
                     Path(args.runs_root), variant, project_id, repetition
                 )
@@ -1291,7 +1324,7 @@ def main(argv: list[str] | None = None) -> int:
 
         for manifest_row in crust_projects:
             project_id = str(manifest_row["id"])
-            for repetition in range(args.repetitions):
+            for repetition in repetitions:
                 run_dir = R.run_dir_for(
                     Path(args.runs_root), variant, project_id, repetition
                 )

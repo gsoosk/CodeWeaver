@@ -8,6 +8,15 @@ import pytest
 from experiments.recodeagent import paper_test_compare as P
 
 
+def test_selected_repetitions_supports_disjoint_shards():
+    assert P._selected_repetitions(3, None) == [0, 1, 2]
+    assert P._selected_repetitions(3, [2, 0]) == [2, 0]
+    with pytest.raises(ValueError, match="unique"):
+        P._selected_repetitions(3, [1, 1])
+    with pytest.raises(ValueError, match=r"\[0, 2\]"):
+        P._selected_repetitions(3, [3])
+
+
 def test_paper_runtime_inventory_matches_published_denominators():
     assert sum(P.PAPER_RUNTIME_COUNTS.values()) == 1484
     assert sum(P.PAPER_STATIC_COUNTS.values()) == 1472
