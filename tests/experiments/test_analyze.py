@@ -1378,6 +1378,20 @@ def test_render_table_pdf_writes_real_pdf_when_reportlab_available(tmp_path: Pat
     assert path.stat().st_size > 0
 
 
+def test_render_table_pdf_bounds_multiline_diagnostic_cells(tmp_path: Path):
+    if C.optional_import("reportlab") is None:
+        pytest.skip("reportlab not installed in this environment")
+    path = tmp_path / "wide-table.pdf"
+    columns = [f"column_{index}" for index in range(30)]
+    row = {column: index for index, column in enumerate(columns)}
+    row["column_8"] = "\n".join(["compiler diagnostic"] * 1_000)
+
+    ok = A.render_table_pdf([row], columns, title="Wide Table", path=path)
+
+    assert ok is True
+    assert path.read_bytes().startswith(b"%PDF-")
+
+
 def test_render_table_pdf_writes_placeholder_when_reportlab_unavailable(tmp_path, monkeypatch):
     monkeypatch.setattr(A.C, "optional_import", lambda name: None)
     path = tmp_path / "table1.pdf"

@@ -87,6 +87,7 @@ import random
 import statistics
 from pathlib import Path
 from typing import Any
+from xml.sax.saxutils import escape
 
 from experiments.recodeagent import common as C
 from experiments.recodeagent import paper_tables as PTables
@@ -1275,23 +1276,85 @@ def render_table_pdf(rows: list[dict[str, Any]], columns: list[str], *, title: s
         _write_pdf_unavailable_notice(path, title=title, why="reportlab is not installed in this environment")
         return False
     from reportlab.lib import colors
-    from reportlab.lib.pagesizes import landscape, letter
-    from reportlab.lib.styles import getSampleStyleSheet
-    from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+    from reportlab.lib.enums import TA_CENTER
+    from reportlab.lib.pagesizes import A3, landscape, letter
+    from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+    from reportlab.lib.units import mm
+    from reportlab.platypus import LongTable, Paragraph, SimpleDocTemplate, Spacer, TableStyle
 
     styles = getSampleStyleSheet()
-    doc = SimpleDocTemplate(str(path), pagesize=landscape(letter))
+    wide_table = len(columns) > 12
+    page_size = landscape(A3 if wide_table else letter)
+    margin = 8 * mm if wide_table else 18 * mm
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=page_size,
+        leftMargin=margin,
+        rightMargin=margin,
+        topMargin=margin,
+        bottomMargin=margin,
+    )
     elements: list[Any] = [Paragraph(title, styles["Title"])]
     if subtitle:
         elements.append(Paragraph(subtitle, styles["Normal"]))
+    max_cell_chars = 160
+    truncated = any(
+        len(_cell_text(row.get(column))) > max_cell_chars
+        for row in rows
+        for column in columns
+    )
+    if truncated:
+        elements.append(Paragraph(
+            f"Display cells are limited to {max_cell_chars} characters; "
+            "the companion CSV preserves every exact value.",
+            styles["Normal"],
+        ))
     elements.append(Spacer(1, 12))
-    data = [columns] + [[_cell_text(r.get(c)) for c in columns] for r in rows]
-    table = Table(data, repeatRows=1)
+    font_size = 5.0 if wide_table else 7.0
+    header_style = ParagraphStyle(
+        "AnalysisTableHeader",
+        parent=styles["Normal"],
+        alignment=TA_CENTER,
+        fontSize=font_size,
+        leading=font_size + 0.8,
+        textColor=colors.white,
+        wordWrap="CJK",
+    )
+    cell_style = ParagraphStyle(
+        "AnalysisTableCell",
+        parent=styles["Normal"],
+        fontSize=font_size,
+        leading=font_size + 0.8,
+        wordWrap="CJK",
+    )
+
+    def pdf_text(value: Any) -> str:
+        text = _cell_text(value)
+        if len(text) > max_cell_chars:
+            text = text[:max_cell_chars - 3] + "..."
+        return escape(text).replace("\n", "<br/>")
+
+    data = [[Paragraph(escape(column), header_style) for column in columns]]
+    data.extend(
+        [Paragraph(pdf_text(row.get(column)), cell_style) for column in columns]
+        for row in rows
+    )
+    available_width = page_size[0] - (2 * margin)
+    table = LongTable(
+        data,
+        repeatRows=1,
+        colWidths=[available_width / max(1, len(columns))] * len(columns),
+        splitByRow=1,
+    )
     table.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#333333")),
         ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-        ("FONTSIZE", (0, 0), (-1, -1), 7),
         ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 1.2),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 1.2),
+        ("TOPPADDING", (0, 0), (-1, -1), 1.5),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.5),
         ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f0f0f0")]),
     ]))
     elements.append(table)
