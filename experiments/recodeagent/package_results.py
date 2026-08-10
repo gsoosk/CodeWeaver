@@ -138,7 +138,7 @@ def create_filtered_archive(
     included = 0
     with tarfile.open(archive_path, mode="w:gz", compresslevel=6) as archive:
         for path in sorted(source.rglob("*")):
-            if not path.is_file():
+            if not (path.is_file() or path.is_symlink()):
                 continue
             relative = path.relative_to(source)
             if not predicate(relative):

@@ -70,6 +70,8 @@ def test_filtered_archive_and_split(tmp_path: Path) -> None:
     kept = source / "p" / "rep0" / "pipeline" / "target" / "src" / "lib.rs"
     kept.parent.mkdir(parents=True)
     kept.write_text("pub fn f() {}\n", encoding="utf-8")
+    broken_link = kept.with_name("generated.rs")
+    broken_link.symlink_to("missing.rs")
     dropped = source / "p" / "rep0" / "source" / "lib.c"
     dropped.parent.mkdir(parents=True)
     dropped.write_text("void f(void) {}\n", encoding="utf-8")
@@ -79,11 +81,17 @@ def test_filtered_archive_and_split(tmp_path: Path) -> None:
         tmp_path / "raw.tar.gz",
         arc_prefix="full",
     )
-    assert count == 1
+    assert count == 2
     with tarfile.open(archive, "r:gz") as handle:
         assert handle.getnames() == [
+            "full/p/rep0/pipeline/target/src/generated.rs",
             "full/p/rep0/pipeline/target/src/lib.rs"
         ]
+        link = handle.getmember(
+            "full/p/rep0/pipeline/target/src/generated.rs"
+        )
+        assert link.issym()
+        assert link.linkname == "missing.rs"
 
     parts = PKG.split_file(archive, max_part_bytes=5)
     assert len(parts) > 1
