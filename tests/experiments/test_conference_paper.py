@@ -134,6 +134,8 @@ def test_generate_complete_conference_paper(tmp_path: Path, monkeypatch: pytest.
     assert result["complete"] is True
     assert result["pdf"].read_bytes().startswith(b"%PDF-")
     assert "50.0%" in result["markdown"].read_text(encoding="utf-8")
+    assert "300-second" in result["markdown"].read_text(encoding="utf-8")
+    assert "300-second" in result["latex"].read_text(encoding="utf-8")
     assert r"project\_pass\_all" in result["latex"].read_text(encoding="utf-8")
     provenance = json.loads(result["provenance"].read_text(encoding="utf-8"))
     assert set(provenance["inputs_sha256"]) == {

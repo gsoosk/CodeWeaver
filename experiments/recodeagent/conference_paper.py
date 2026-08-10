@@ -182,7 +182,10 @@ def build_sections(
             "Python-to-JavaScript. CodeWeaver runs use gpt-5.6-sol with maximum "
             "reasoning effort, five repair iterations, three parity rounds, "
             "and a 5,000-second agent timeout. Released baseline outputs are "
-            "evaluated by the same normalized collector where artifacts exist.",
+            "evaluated by the same normalized collector where artifacts exist. "
+            "Three projects with nonterminating stress or FIFO-wait commands use "
+            "the collector's 300-second per-command limit; the repair audit "
+            "records that no completed normalized row was replaced.",
         ),
         RD.ReportSection("Artifact completion and claim boundary", verdict_body),
         RD.ReportSection(
@@ -250,7 +253,9 @@ def build_sections(
             "Released SWE-agent CRUST targets are unavailable, so workbook values "
             "are labeled published_reference_non_replayed and never treated as "
             "replayed artifacts. Missing and unavailable costs are not zero. "
-            "The preregistered repetition prevents post-hoc run selection.",
+            "The preregistered repetition prevents post-hoc run selection. Three "
+            "independent evaluations required the documented 300-second command "
+            "cap after unbounded stress or FIFO-wait tests did not terminate.",
         ),
         RD.ReportSection(
             "Artifact and reproducibility",
@@ -333,6 +338,9 @@ in the artifact.
 \section{{Threats to Validity}}
 The systems are not model-matched fresh reruns. SWE-agent released targets are
 unavailable; workbook values are reference-only. Missing costs are not zero.
+Three independent evaluations use a documented 300-second command cap after
+unbounded stress or FIFO-wait tests did not terminate; no completed normalized
+row was replaced.
 \section{{Reproducibility}}
 The package contains source, raw normalized evidence, filtered run archives,
 provenance, infrastructure audits, and SHA-256 checksums.
