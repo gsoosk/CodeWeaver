@@ -79,7 +79,13 @@ SNAPSHOT_EXCLUDED_TOP_LEVEL_DIRS = {"results", "raw-run-archives"}
 
 
 def _run_git(source_root: Path, args: list[str]) -> str:
-    result = C.run_argv(["git", "--no-pager", *args], cwd=source_root)
+    # Normalize Windows working-tree CRLF before Git compares it with the
+    # canonical LF index. The result remains sensitive to content changes but
+    # does not fabricate a package-sized patch when packaging through WSL.
+    result = C.run_argv(
+        ["git", "-c", "core.autocrlf=true", "--no-pager", *args],
+        cwd=source_root,
+    )
     if not result.ok:
         raise RuntimeError(result.error or result.stderr or result.stdout)
     return result.stdout
@@ -705,7 +711,7 @@ def package_results(
     metadata.mkdir(parents=True, exist_ok=True)
     C.atomic_write_text(
         metadata / "source-status.txt",
-        _run_git(source_root, ["status", "--short"]),
+        _run_git(source_root, ["status", "--short", "--untracked-files=no"]),
     )
     C.atomic_write_text(
         metadata / "source.patch",

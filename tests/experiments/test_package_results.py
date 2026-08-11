@@ -196,6 +196,35 @@ def _patch_package_side_effects(
     )
 
 
+def test_run_git_normalizes_windows_line_endings(tmp_path: Path, monkeypatch):
+    captured = {}
+
+    def run_argv(argv, *, cwd):
+        captured["argv"] = argv
+        captured["cwd"] = cwd
+        return C.ExecResult(
+            argv=argv,
+            returncode=0,
+            stdout="",
+            stderr="",
+            duration_s=0.0,
+            timed_out=False,
+            started_at=C.utcnow_iso(),
+            ended_at=C.utcnow_iso(),
+            cwd=str(cwd),
+        )
+
+    monkeypatch.setattr(PKG.C, "run_argv", run_argv)
+
+    assert PKG._run_git(tmp_path, ["status", "--short"]) == ""
+    assert captured["argv"][:4] == [
+        "git",
+        "-c",
+        "core.autocrlf=true",
+        "--no-pager",
+    ]
+
+
 def _minimal_package_inputs(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
