@@ -1,0 +1,11 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-08-11T02:03:06.053598Z",
+  "analysis_provenance_sha256": "d44f35caff2ff3843b39483842ad7a59593c52df223a926873b4647da1e98ef0",
+  "system_comparison_sha256": "30377470b338e0ea41639a9c5922c96678d8aee49d3a81b8f5379e5ef76ca032",
+  "report_data_sha256": "109f05f88cdf42f0da3fe5dd7bc5a3095a9531ff073393d7ec9fa0f23310a814",
+  "conference_paper_sha256": "21df4906eccd1cbd32cdda89cf7d3e73254a53d1f2115d87993578b9010638ba",
+  "oracle_isolation_repair_sha256": "73aa1d5656075ae277e0304734e41b9386d316fe11f0ccd134b872583d47c4f0",
+  "baseline_oracle_isolation_repair_sha256": "5ffac7227938866f228e1d2d10f8d895237b064d06ada1d10b59a88e10c405d1",
+  "revision_drift_audit_sha256": "7ada0fed120d0b85153922c8f1bc45ddf5cefca02e83db304755948f51a2e651"
+}

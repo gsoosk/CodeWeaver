@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-08-11T02:03:13.454009Z",
+  "model": {
+    "value": "claude-sonnet-4.5",
+    "status": "measured",
+    "reason": ""
+  },
+  "agent_timeout_seconds": {
+    "value": 5000,
+    "status": "measured",
+    "reason": ""
+  },
+  "git_sha": {
+    "value": "b53ab7af33af7d125de703d5801e78da422f09b1",
+    "status": "measured",
+    "reason": ""
+  },
+  "codeweaver_package_version": {
+    "value": "0.1.0",
+    "status": "measured",
+    "reason": ""
+  },
+  "copilot_cli_version": {
+    "value": "GitHub Copilot CLI 1.0.79-9.",
+    "status": "measured",
+    "reason": ""
+  },
+  "python_version": {
+    "value": "3.12.3",
+    "status": "measured",
+    "reason": ""
+  },
+  "os": {
+    "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+    "status": "measured",
+    "reason": ""
+  },
+  "hostname": {
+    "value": "CPC-tfhab-FSGML",
+    "status": "measured",
+    "reason": ""
+  },
+  "toolchains": {
+    "rustc": {
+      "value": "rustc 1.92.0-nightly (52618eb33 2025-09-14)",
+      "status": "measured",
+      "reason": ""
+    },
+    "cargo": {
+      "value": "cargo 1.92.0-nightly (24bb93c38 2025-09-10)",
+      "status": "measured",
+      "reason": ""
+    },
+    "node": {
+      "value": "v22.16.0",
+      "status": "measured",
+      "reason": ""
+    },
+    "npm": {
+      "value": "11.4.0",
+      "status": "measured",
+      "reason": ""
+    },
+    "java": {
+      "value": "openjdk version \"21.0.12\" 2026-07-21 LTS",
+      "status": "measured",
+      "reason": ""
+    },
+    "go": {
+      "value": "go version go1.24.4 linux/amd64",
+      "status": "measured",
+      "reason": ""
+    },
+    "git": {
+      "value": "git version 2.43.0",
+      "status": "measured",
+      "reason": ""
+    }
+  }
+}

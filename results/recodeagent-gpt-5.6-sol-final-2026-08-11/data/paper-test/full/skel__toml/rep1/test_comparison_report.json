@@ -1,0 +1,979 @@
+{
+  "summary": {
+    "total_tests": 12,
+    "both_found": 12,
+    "source_missing": 0,
+    "target_missing": 0,
+    "both_found_pct": 100.0,
+    "params_match_count": 12,
+    "params_mismatch_count": 0,
+    "assertions_match_count": 7,
+    "assertions_mismatch_count": 5,
+    "avg_line_count_source": 8.67,
+    "avg_line_count_target": 10.0,
+    "avg_method_calls_source": 6.08,
+    "avg_method_calls_target": 6.67,
+    "assertion_types_source": {
+      "assert_eq": 7,
+      "assert": 2
+    },
+    "assertion_types_target": {
+      "assert.equal": 13,
+      "assert.deepEqual": 11
+    },
+    "assertEquals_summary": {
+      "total_comparable_pairs": 0,
+      "total_matching_assertions": 0,
+      "overall_match_rate": null
+    },
+    "assertion_match_percentages": {},
+    "tests_with_same_assertion_count": 7,
+    "assertion_match_percentages_same_assertion_count": {},
+    "embedding_similarity_status": "measured",
+    "avg_similarity_score": 0.876926,
+    "min_similarity_score": 0.810141,
+    "max_similarity_score": 0.930075,
+    "embedding_similarity_count": 12
+  },
+  "test_pairs": [
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_bug_148",
+        "found": true,
+        "signature": "def test_bug_148():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "def test_bug_148():",
+          "    ### --- BLOCK BEGIN 76",
+          "    assert 'a = \"\\\\u0064\"\\n' == dumps({'a': '\\\\x64'}, None)",
+          "    assert 'a = \"\\\\\\\\x64\"\\n' == dumps({'a': '\\\\\\\\x64'}, None)",
+          "    assert 'a = \"\\\\\\\\\\\\u0064\"\\n' == dumps({'a': '\\\\\\\\\\\\x64'}, None)",
+          "    ### --- BLOCK END 76"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "test_bug_148",
+        "found": true,
+        "signature": "function test_bug_148() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "function test_bug_148() {",
+          "  assert.equal(",
+          "    toml.dumps({ a: \"\\\\x64\" }),",
+          "    `a = \"${\"\\\\\"}u0064\"\\n`,",
+          "  );",
+          "  assert.equal(",
+          "    toml.dumps({ a: \"\\\\\\\\x64\" }),",
+          "    `a = \"${\"\\\\\\\\\"}x64\"\\n`,",
+          "  );",
+          "  assert.equal(",
+          "    toml.dumps({ a: \"\\\\\\\\\\\\x64\" }),",
+          "    `a = \"${\"\\\\\\\\\\\\\"}u0064\"\\n`,",
+          "  );",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 3,
+        "assertion_count_target": 3,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 7,
+        "line_count_target": 14,
+        "line_count_diff": -7,
+        "assertion_types_source": {
+          "assert_eq": 3
+        },
+        "assertion_types_target": {
+          "assert.equal": 3
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 7,
+        "method_call_diff": -2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 3,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.889627
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test__dict",
+        "found": true,
+        "signature": "def test__dict():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test__dict():",
+          "    ### --- BLOCK BEGIN 77",
+          "    assert isinstance(loads(TEST_STR, func_dict, None), dict)",
+          "    ### --- BLOCK END 77"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "test__dict",
+        "found": true,
+        "signature": "function test__dict() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "function test__dict() {",
+          "  const result = toml.loads(toml.TEST_STR, toml.func_dict, null);",
+          "  assert.equal(toml.user_check_type(result, toml.func_dict), true);",
+          "  assert.deepEqual(result, { a: { b: 1, c: 2 } });",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": -1,
+        "line_count_source": 5,
+        "line_count_target": 5,
+        "line_count_diff": 0,
+        "assertion_types_source": {
+          "assert": 1
+        },
+        "assertion_types_target": {
+          "assert.deepEqual": 1,
+          "assert.equal": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 5,
+        "method_call_diff": -1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.810141
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_dict_decoder",
+        "found": true,
+        "signature": "def test_dict_decoder():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_dict_decoder():",
+          "    ### --- BLOCK BEGIN 78",
+          "    _test_dict_decoder = TomlDecoder(func_dict)",
+          "    assert isinstance(loads(TEST_STR, func_dict, _test_dict_decoder), dict)",
+          "    ### --- BLOCK END 78"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "test_dict_decoder",
+        "found": true,
+        "signature": "function test_dict_decoder() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "function test_dict_decoder() {",
+          "  const decoder = toml.TomlDecoder(toml.func_dict);",
+          "  const originalGetEmptyTable = decoder.get_empty_table.bind(decoder);",
+          "  let allocations = 0;",
+          "  decoder.get_empty_table = () => {",
+          "    allocations += 1;",
+          "    return originalGetEmptyTable();",
+          "  };",
+          "  const result = toml.loads(",
+          "    toml.TEST_STR,",
+          "    () => {",
+          "      throw new Error(\"unused table factory\");",
+          "    },",
+          "    decoder,",
+          "  );",
+          "  assert.deepEqual(result, { a: { b: 1, c: 2 } });",
+          "  assert.equal(allocations, 2);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": -1,
+        "line_count_source": 6,
+        "line_count_target": 18,
+        "line_count_diff": -12,
+        "assertion_types_source": {
+          "assert": 1
+        },
+        "assertion_types_target": {
+          "assert.deepEqual": 1,
+          "assert.equal": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 8,
+        "method_call_diff": -3,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.832035
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_array_sep",
+        "found": true,
+        "signature": "def test_array_sep():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_array_sep():",
+          "    ### --- BLOCK BEGIN 79",
+          "    encoder = TomlArraySeparatorEncoder(func_dict, False, \",\\t\")",
+          "    d = {\"a\": [1, 2, 3]}",
+          "    tmp = dumps(d, encoder)",
+          "    o = loads(tmp, func_dict, None)",
+          "    tmp2 = dumps(o, encoder)",
+          "    assert o == loads(tmp2, func_dict, None)",
+          "    ### --- BLOCK END 79"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "test_array_sep",
+        "found": true,
+        "signature": "function test_array_sep() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "function test_array_sep() {",
+          "  const encoder = toml.TomlArraySeparatorEncoder(",
+          "    toml.func_dict,",
+          "    false,",
+          "    \",\\t\",",
+          "  );",
+          "  const encoded = toml.dumps({ a: [1, 2, 3] }, encoder);",
+          "  const decoded = toml.loads(encoded, toml.func_dict, null);",
+          "  const reencoded = toml.dumps(decoded, encoder);",
+          "  assert.deepEqual(decoded, toml.loads(reencoded, toml.func_dict, null));",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 10,
+        "line_count_target": 11,
+        "line_count_diff": -1,
+        "assertion_types_source": {
+          "assert_eq": 1
+        },
+        "assertion_types_target": {
+          "assert.deepEqual": 1
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 7,
+        "method_call_diff": 0,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.928308
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_tuple",
+        "found": true,
+        "signature": "def test_tuple():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_tuple():",
+          "    ### --- BLOCK BEGIN 80",
+          "    d = {\"a\": (3, 4)}",
+          "    encoder = TomlEncoder(func_dict, False)",
+          "    tmp = dumps(d, encoder)",
+          "    o = loads(tmp, func_dict, None)",
+          "    tmp2 = dumps(o, encoder)",
+          "    assert o == loads(tmp2, func_dict, None)",
+          "    ### --- BLOCK END 80"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "test_tuple",
+        "found": true,
+        "signature": "function test_tuple() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "function test_tuple() {",
+          "  class OrderedPair {",
+          "    *[Symbol.iterator]() {",
+          "      yield 3;",
+          "      yield 4;",
+          "    }",
+          "  }",
+          "  const encoder = toml.TomlEncoder(toml.func_dict, false);",
+          "  const encoded = toml.dumps({ a: new OrderedPair() }, encoder);",
+          "  assert.equal(encoded, \"a = [ 3, 4,]\\n\");",
+          "  const decoded = toml.loads(encoded, toml.func_dict, null);",
+          "  const reencoded = toml.dumps(decoded, encoder);",
+          "  assert.deepEqual(decoded, toml.loads(reencoded, toml.func_dict, null));",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": -1,
+        "line_count_source": 10,
+        "line_count_target": 14,
+        "line_count_diff": -4,
+        "assertion_types_source": {
+          "assert_eq": 1
+        },
+        "assertion_types_target": {
+          "assert.deepEqual": 1,
+          "assert.equal": 1
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 9,
+        "method_call_diff": -2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.815765
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_commutativity",
+        "found": true,
+        "signature": "def test_commutativity():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_commutativity():",
+          "    ### --- BLOCK BEGIN 81",
+          "    encoder = TomlEncoder(func_dict, False)",
+          "    tmp = dumps(TEST_DICT, encoder)",
+          "    o = loads(tmp, func_dict, None)",
+          "    tmp2 = dumps(o, encoder)",
+          "    assert o == loads(tmp2, func_dict, None)",
+          "    ### --- BLOCK END 81"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "test_commutativity",
+        "found": true,
+        "signature": "function test_commutativity() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "function test_commutativity() {",
+          "  const encoder = toml.TomlEncoder(toml.func_dict, false);",
+          "  const encoded = toml.dumps(toml.TEST_DICT, encoder);",
+          "  assert.equal(encoded, \"[a]\\nb = 1\\nc = 2\\n\");",
+          "  const decoded = toml.loads(encoded, toml.func_dict, null);",
+          "  const reencoded = toml.dumps(decoded, encoder);",
+          "  assert.equal(reencoded, encoded);",
+          "  assert.deepEqual(decoded, toml.loads(reencoded, toml.func_dict, null));",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 3,
+        "param_count_diff": 0,
+        "assertion_count_diff": -2,
+        "line_count_source": 9,
+        "line_count_target": 9,
+        "line_count_diff": 0,
+        "assertion_types_source": {
+          "assert_eq": 1
+        },
+        "assertion_types_target": {
+          "assert.deepEqual": 1,
+          "assert.equal": 2
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 9,
+        "method_call_diff": -2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 3,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.905156
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_comment_preserve_decoder_encoder",
+        "found": true,
+        "signature": "def test_comment_preserve_decoder_encoder():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_comment_preserve_decoder_encoder():",
+          "    ### --- BLOCK BEGIN 82",
+          "    tmp = loads(tool_functions.test_str, func_dict, TomlPreserveCommentDecoder(func_dict))",
+          "    s = dumps(tmp, TomlPreserveCommentEncoder(func_dict, False))",
+          "    assert len(s) == len(tool_functions.test_str) and sorted(tool_functions.test_str) == sorted(s)",
+          "    ### --- BLOCK END 82"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "test_comment_preserve_decoder_encoder",
+        "found": true,
+        "signature": "function test_comment_preserve_decoder_encoder() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "function test_comment_preserve_decoder_encoder() {",
+          "  const decoded = toml.loads(",
+          "    tracer.test_str,",
+          "    toml.func_dict,",
+          "    toml.TomlPreserveCommentDecoder(toml.func_dict),",
+          "  );",
+          "  const encoded = toml.dumps(",
+          "    decoded,",
+          "    toml.TomlPreserveCommentEncoder(toml.func_dict, false),",
+          "  );",
+          "  assert.equal(encoded.length, tracer.test_str.length);",
+          "  assert.deepEqual(",
+          "    Array.from(encoded).sort(),",
+          "    Array.from(tracer.test_str).sort(),",
+          "  );",
+          "  assert.equal(encoded, tracer.test_str);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 3,
+        "param_count_diff": 0,
+        "assertion_count_diff": -2,
+        "line_count_source": 7,
+        "line_count_target": 17,
+        "line_count_diff": -10,
+        "assertion_types_source": {
+          "assert_eq": 1
+        },
+        "assertion_types_target": {
+          "assert.deepEqual": 1,
+          "assert.equal": 2
+        },
+        "method_call_count_source": 10,
+        "method_call_count_target": 12,
+        "method_call_diff": -2,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 3,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.922165
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test",
+        "found": true,
+        "signature": "def additional_test():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def additional_test():",
+          "    ### --- BLOCK BEGIN 85",
+          "    decoder = TomlDecoder(func_dict)",
+          "    cur = {}",
+          "    multikey = False",
+          "    multibackslash = False",
+          "    decoder.load_line(\"'a.x'=2=3\", cur, multikey, multibackslash)",
+          "    assert(cur == {'a.x': {'=2': 3}})",
+          "    ### --- BLOCK END 85"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "additional_test",
+        "found": true,
+        "signature": "function additional_test() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "function additional_test() {",
+          "  const decoder = toml.TomlDecoder(toml.func_dict);",
+          "  const current = {};",
+          "  decoder.load_line(\"'a.x'=2=3\", current, false, false);",
+          "  assert.deepEqual(current, { \"a.x\": { \"=2\": 3 } });",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 10,
+        "line_count_target": 6,
+        "line_count_diff": 4,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert.deepEqual": 1
+        },
+        "method_call_count_source": 5,
+        "method_call_count_target": 4,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.902109
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test2",
+        "found": true,
+        "signature": "def additional_test2():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def additional_test2():",
+          "    ### --- BLOCK BEGIN 86",
+          "    decoder = TomlDecoder(func_dict)",
+          "    input_str = \"[{'x' = 1}]\"",
+          "    res = decoder.load_array(input_str)",
+          "    assert(res == [{'x': 1}])",
+          "    input_str = \"[{'x' = 1}, {'y' = 2}]\"",
+          "    res = decoder.load_array(input_str)",
+          "    assert(res == [{'x': 1}, {'y': 2}])",
+          "    ### --- BLOCK END 86"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "additional_test2",
+        "found": true,
+        "signature": "function additional_test2() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "function additional_test2() {",
+          "  const decoder = toml.TomlDecoder(toml.func_dict);",
+          "  assert.deepEqual(decoder.load_array(\"[{'x' = 1}]\"), [{ x: 1 }]);",
+          "  assert.deepEqual(decoder.load_array(\"[{'x' = 1}, {'y' = 2}]\"), [",
+          "    { x: 1 },",
+          "    { y: 2 },",
+          "  ]);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 11,
+        "line_count_target": 8,
+        "line_count_diff": 3,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert.deepEqual": 2
+        },
+        "method_call_count_source": 7,
+        "method_call_count_target": 6,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.930075
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test3",
+        "found": true,
+        "signature": "def additional_test3():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def additional_test3():",
+          "    ### --- BLOCK BEGIN 87",
+          "    v = \"abc\\\\\"",
+          "    hexbytes = ['0064']",
+          "    prefix = 'u'",
+          "    res = _load_unicode_escapes(v, hexbytes, prefix)",
+          "    assert(res == 'abc\\\\u0064')",
+          "    ### --- BLOCK END 87"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "additional_test3",
+        "found": true,
+        "signature": "function additional_test3() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "function additional_test3() {",
+          "  assert.equal(",
+          "    toml._load_unicode_escapes(\"abc\\\\\", [\"0064\"], \"u\"),",
+          "    \"abc\\\\u0064\",",
+          "  );",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 1,
+        "assertion_count_target": 1,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 9,
+        "line_count_target": 6,
+        "line_count_diff": 3,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert.equal": 1
+        },
+        "method_call_count_source": 4,
+        "method_call_count_target": 3,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 1,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 1,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 1,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.868879
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test4",
+        "found": true,
+        "signature": "def additional_test4():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def additional_test4():",
+          "    ### --- BLOCK BEGIN 88",
+          "    v = \"\\\\\\\\\"",
+          "    res = _unescape(v)",
+          "    assert(res == '\\\\')",
+          "    v = \"\\\\u\"",
+          "    res = _unescape(v)",
+          "    assert(res == '\\\\u')",
+          "    ### --- BLOCK END 88"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "additional_test4",
+        "found": true,
+        "signature": "function additional_test4() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "function additional_test4() {",
+          "  assert.equal(toml._unescape(\"\\\\\\\\\"), \"\\\\\");",
+          "  assert.equal(toml._unescape(\"\\\\u\"), \"\\\\u\");",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 10,
+        "line_count_target": 4,
+        "line_count_diff": 6,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert.equal": 2
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 5,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 2,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 2,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.877019
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test5",
+        "found": true,
+        "signature": "def additional_test5():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def additional_test5():",
+          "    ### --- BLOCK BEGIN 89",
+          "    s = \"\"\"['\"test\"']\"\"\"",
+          "    t = loads(s, func_dict, None)",
+          "    assert(t == {'\"test\"': {}})",
+          "    s = \"\"\"[\"abc\"]\"\"\"",
+          "    t = loads(s, func_dict, None)",
+          "    assert(t == {'abc': {}})",
+          "    ### --- BLOCK END 89"
+        ]
+      },
+      "target_test": {
+        "path": "test/source.test.js",
+        "name": "additional_test5",
+        "found": true,
+        "signature": "function additional_test5() {",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "function additional_test5() {",
+          "  assert.deepEqual(toml.loads(`['\"test\"']`, toml.func_dict, null), {",
+          "    '\"test\"': {},",
+          "  });",
+          "  assert.deepEqual(toml.loads(`[\"abc\"]`, toml.func_dict, null), {",
+          "    abc: {},",
+          "  });",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": true,
+        "assertions_match": true,
+        "param_count_source": 0,
+        "param_count_target": 0,
+        "assertion_count_source": 2,
+        "assertion_count_target": 2,
+        "param_count_diff": 0,
+        "assertion_count_diff": 0,
+        "line_count_source": 10,
+        "line_count_target": 8,
+        "line_count_diff": 2,
+        "assertion_types_source": {},
+        "assertion_types_target": {
+          "assert.deepEqual": 2
+        },
+        "method_call_count_source": 6,
+        "method_call_count_target": 5,
+        "method_call_diff": 1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 2,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.841838
+      }
+    }
+  ]
+}

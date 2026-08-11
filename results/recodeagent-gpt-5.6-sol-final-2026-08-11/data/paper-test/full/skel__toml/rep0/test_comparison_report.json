@@ -1,0 +1,447 @@
+{
+  "summary": {
+    "total_tests": 12,
+    "both_found": 1,
+    "source_missing": 0,
+    "target_missing": 11,
+    "both_found_pct": 8.3,
+    "params_match_count": 0,
+    "params_mismatch_count": 12,
+    "assertions_match_count": 0,
+    "assertions_mismatch_count": 12,
+    "avg_line_count_source": 10.0,
+    "avg_line_count_target": 9.0,
+    "avg_method_calls_source": 7.0,
+    "avg_method_calls_target": 8.0,
+    "assertion_types_source": {
+      "assert_eq": 1
+    },
+    "assertion_types_target": {},
+    "assertEquals_summary": {
+      "total_comparable_pairs": 0,
+      "total_matching_assertions": 0,
+      "overall_match_rate": null
+    },
+    "assertion_match_percentages": {},
+    "tests_with_same_assertion_count": 0,
+    "assertion_match_percentages_same_assertion_count": {},
+    "embedding_similarity_status": "measured",
+    "avg_similarity_score": 0.500038,
+    "min_similarity_score": 0.500038,
+    "max_similarity_score": 0.500038,
+    "embedding_similarity_count": 1
+  },
+  "test_pairs": [
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_bug_148",
+        "found": true,
+        "signature": "def test_bug_148():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 3,
+        "body": [
+          "def test_bug_148():",
+          "    ### --- BLOCK BEGIN 76",
+          "    assert 'a = \"\\\\u0064\"\\n' == dumps({'a': '\\\\x64'}, None)",
+          "    assert 'a = \"\\\\\\\\x64\"\\n' == dumps({'a': '\\\\\\\\x64'}, None)",
+          "    assert 'a = \"\\\\\\\\\\\\u0064\"\\n' == dumps({'a': '\\\\\\\\\\\\x64'}, None)",
+          "    ### --- BLOCK END 76"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test__dict",
+        "found": true,
+        "signature": "def test__dict():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test__dict():",
+          "    ### --- BLOCK BEGIN 77",
+          "    assert isinstance(loads(TEST_STR, func_dict, None), dict)",
+          "    ### --- BLOCK END 77"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_dict_decoder",
+        "found": true,
+        "signature": "def test_dict_decoder():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_dict_decoder():",
+          "    ### --- BLOCK BEGIN 78",
+          "    _test_dict_decoder = TomlDecoder(func_dict)",
+          "    assert isinstance(loads(TEST_STR, func_dict, _test_dict_decoder), dict)",
+          "    ### --- BLOCK END 78"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_array_sep",
+        "found": true,
+        "signature": "def test_array_sep():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_array_sep():",
+          "    ### --- BLOCK BEGIN 79",
+          "    encoder = TomlArraySeparatorEncoder(func_dict, False, \",\\t\")",
+          "    d = {\"a\": [1, 2, 3]}",
+          "    tmp = dumps(d, encoder)",
+          "    o = loads(tmp, func_dict, None)",
+          "    tmp2 = dumps(o, encoder)",
+          "    assert o == loads(tmp2, func_dict, None)",
+          "    ### --- BLOCK END 79"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_tuple",
+        "found": true,
+        "signature": "def test_tuple():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_tuple():",
+          "    ### --- BLOCK BEGIN 80",
+          "    d = {\"a\": (3, 4)}",
+          "    encoder = TomlEncoder(func_dict, False)",
+          "    tmp = dumps(d, encoder)",
+          "    o = loads(tmp, func_dict, None)",
+          "    tmp2 = dumps(o, encoder)",
+          "    assert o == loads(tmp2, func_dict, None)",
+          "    ### --- BLOCK END 80"
+        ]
+      },
+      "target_test": {
+        "path": "index.js",
+        "name": "tester",
+        "found": true,
+        "signature": "function tester(name, fixture_reader = null) {",
+        "parameters": [
+          {
+            "name": "name",
+            "type": ""
+          },
+          {
+            "name": "fixture_reader",
+            "type": ""
+          }
+        ],
+        "param_count": 2,
+        "assertion_count": 0,
+        "body": [
+          "function tester(name, fixture_reader = null) {",
+          "  const { get_input } = require('./tracer_skip');",
+          "  const decodeInput = fixture_reader === null",
+          "    ? get_input(name)",
+          "    : get_input(name, fixture_reader);",
+          "  const taggedResult = tag(loads(decodeInput, func_dict, null));",
+          "  const encodeInput = convert(taggedResult);",
+          "  dumps(encodeInput, null);",
+          "}"
+        ]
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false,
+        "param_count_source": 0,
+        "param_count_target": 2,
+        "assertion_count_source": 1,
+        "assertion_count_target": 0,
+        "param_count_diff": -2,
+        "assertion_count_diff": 1,
+        "line_count_source": 10,
+        "line_count_target": 9,
+        "line_count_diff": 1,
+        "assertion_types_source": {
+          "assert_eq": 1
+        },
+        "assertion_types_target": {},
+        "method_call_count_source": 7,
+        "method_call_count_target": 8,
+        "method_call_diff": -1,
+        "assertEquals_comparison": {
+          "source_assertEquals_count": 0,
+          "target_assertEqual_count": 0,
+          "target_assert_eq_count": 0,
+          "source_with_literals": 0,
+          "target_with_literals": 0,
+          "comparable_pairs": 0,
+          "matching_assertions": 0,
+          "match_rate": null,
+          "unique_literal_values_source": 0,
+          "unique_literal_values_target": 0,
+          "common_literal_values": 0
+        },
+        "assertion_type_mapping": {},
+        "similarity_score": 0.500038
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_commutativity",
+        "found": true,
+        "signature": "def test_commutativity():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_commutativity():",
+          "    ### --- BLOCK BEGIN 81",
+          "    encoder = TomlEncoder(func_dict, False)",
+          "    tmp = dumps(TEST_DICT, encoder)",
+          "    o = loads(tmp, func_dict, None)",
+          "    tmp2 = dumps(o, encoder)",
+          "    assert o == loads(tmp2, func_dict, None)",
+          "    ### --- BLOCK END 81"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "test_comment_preserve_decoder_encoder",
+        "found": true,
+        "signature": "def test_comment_preserve_decoder_encoder():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def test_comment_preserve_decoder_encoder():",
+          "    ### --- BLOCK BEGIN 82",
+          "    tmp = loads(tool_functions.test_str, func_dict, TomlPreserveCommentDecoder(func_dict))",
+          "    s = dumps(tmp, TomlPreserveCommentEncoder(func_dict, False))",
+          "    assert len(s) == len(tool_functions.test_str) and sorted(tool_functions.test_str) == sorted(s)",
+          "    ### --- BLOCK END 82"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test",
+        "found": true,
+        "signature": "def additional_test():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def additional_test():",
+          "    ### --- BLOCK BEGIN 85",
+          "    decoder = TomlDecoder(func_dict)",
+          "    cur = {}",
+          "    multikey = False",
+          "    multibackslash = False",
+          "    decoder.load_line(\"'a.x'=2=3\", cur, multikey, multibackslash)",
+          "    assert(cur == {'a.x': {'=2': 3}})",
+          "    ### --- BLOCK END 85"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test2",
+        "found": true,
+        "signature": "def additional_test2():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def additional_test2():",
+          "    ### --- BLOCK BEGIN 86",
+          "    decoder = TomlDecoder(func_dict)",
+          "    input_str = \"[{'x' = 1}]\"",
+          "    res = decoder.load_array(input_str)",
+          "    assert(res == [{'x': 1}])",
+          "    input_str = \"[{'x' = 1}, {'y' = 2}]\"",
+          "    res = decoder.load_array(input_str)",
+          "    assert(res == [{'x': 1}, {'y': 2}])",
+          "    ### --- BLOCK END 86"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test3",
+        "found": true,
+        "signature": "def additional_test3():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 1,
+        "body": [
+          "def additional_test3():",
+          "    ### --- BLOCK BEGIN 87",
+          "    v = \"abc\\\\\"",
+          "    hexbytes = ['0064']",
+          "    prefix = 'u'",
+          "    res = _load_unicode_escapes(v, hexbytes, prefix)",
+          "    assert(res == 'abc\\\\u0064')",
+          "    ### --- BLOCK END 87"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test4",
+        "found": true,
+        "signature": "def additional_test4():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def additional_test4():",
+          "    ### --- BLOCK BEGIN 88",
+          "    v = \"\\\\\\\\\"",
+          "    res = _unescape(v)",
+          "    assert(res == '\\\\')",
+          "    v = \"\\\\u\"",
+          "    res = _unescape(v)",
+          "    assert(res == '\\\\u')",
+          "    ### --- BLOCK END 88"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    },
+    {
+      "source_test": {
+        "path": "source.py",
+        "name": "additional_test5",
+        "found": true,
+        "signature": "def additional_test5():",
+        "parameters": [],
+        "param_count": 0,
+        "assertion_count": 2,
+        "body": [
+          "def additional_test5():",
+          "    ### --- BLOCK BEGIN 89",
+          "    s = \"\"\"['\"test\"']\"\"\"",
+          "    t = loads(s, func_dict, None)",
+          "    assert(t == {'\"test\"': {}})",
+          "    s = \"\"\"[\"abc\"]\"\"\"",
+          "    t = loads(s, func_dict, None)",
+          "    assert(t == {'abc': {}})",
+          "    ### --- BLOCK END 89"
+        ]
+      },
+      "target_test": {
+        "path": "",
+        "name": "",
+        "found": false
+      },
+      "metrics": {
+        "params_match": false,
+        "assertions_match": false
+      }
+    }
+  ]
+}

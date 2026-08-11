@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__rbt",
+  "paper_runtime_tests": 10,
+  "static_source_methods": 10,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_rotations",
+      "target_path": "index.js",
+      "target_name": "test_rotations",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_insert",
+      "target_path": "index.js",
+      "target_name": "test_insert",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_insert_and_search",
+      "target_path": "index.js",
+      "target_name": "test_insert_and_search",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_insert_delete",
+      "target_path": "index.js",
+      "target_name": "test_insert_delete",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_floor_ceil",
+      "target_path": "index.js",
+      "target_name": "test_floor_ceil",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_min_max",
+      "target_path": "index.js",
+      "target_name": "test_min_max",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_tree_traversal",
+      "target_path": "index.js",
+      "target_name": "test_tree_traversal",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_tree_chaining",
+      "target_path": "index.js",
+      "target_name": "test_tree_chaining",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_insertion_speed",
+      "target_path": "index.js",
+      "target_name": "test_insertion_speed",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_tests",
+      "target_path": "index.js",
+      "target_name": "additional_tests",
+      "mapped": true,
+      "mapping_score": 0.928
+    }
+  ],
+  "generated_target_tests": []
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__heapq",
+  "paper_runtime_tests": 8,
+  "static_source_methods": 8,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_heappush",
+      "target_path": "test/source.test.js",
+      "target_name": "test_heappush",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_heapify",
+      "target_path": "test/source.test.js",
+      "target_name": "test_heapify",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_heappushpop",
+      "target_path": "test/source.test.js",
+      "target_name": "test_heappushpop",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_heapreplace",
+      "target_path": "test/source.test.js",
+      "target_name": "test_heapreplace",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_nsmallest",
+      "target_path": "test/source.test.js",
+      "target_name": "test_nsmallest",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_nlargest",
+      "target_path": "test/source.test.js",
+      "target_name": "test_nlargest",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_merge",
+      "target_path": "test/source.test.js",
+      "target_name": "test_merge",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_tests",
+      "target_path": "test/source.test.js",
+      "target_name": "additional_tests",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "test/source.test.js",
+      "name": "test_complete_api_and_silent_load"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_empty_heap_errors"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_heap_mutation_contract"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_invalid_selection_counts"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_max_heap_and_sift_directions"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_merge_cached_next"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_merge_final_delegation"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_merge_final_stream_and_iterator_errors"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_merge_laziness_and_empty_streams"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_merge_reverse_truthiness"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_merge_stability"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_nlargest_invalid_count_timing"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_nlargest_invalid_size"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_nlargest_iterator_protocol"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_nsmallest_invalid_count_timing"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_nsmallest_invalid_size"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_nsmallest_iterator_protocol"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_selection_count_edges"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_selection_duplicates_and_numeric_ordering"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_selection_sized_and_one_shot_iterables"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_skel_compatibility"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_skel_dynamic_tag_parity"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_skel_exact_branch_parity"
+    },
+    {
+      "path": "test/source.test.js",
+      "name": "test_skel_runtime_type_round_trip"
+    }
+  ]
+}

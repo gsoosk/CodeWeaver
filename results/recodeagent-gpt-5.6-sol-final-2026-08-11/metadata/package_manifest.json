@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-11T02:08:33.260845Z",
+  "completion_verdict": {
+    "complete": true,
+    "reasons": [],
+    "coverage_fraction": 1.0
+  },
+  "input_paths": {
+    "manifest": "/opt/codeweaver-experiments/manifest/manifest.json",
+    "collected_root": "/opt/codeweaver-gpt-sol-comparison/collected-final",
+    "paper_test_root": "/opt/codeweaver-gpt-sol-comparison/paper-test-final",
+    "analysis_root": "/opt/codeweaver-gpt-sol-comparison/analysis-final",
+    "report_root": "/opt/codeweaver-gpt-sol-comparison/report-final",
+    "runs_root": "/opt/codeweaver-gpt-sol-comparison/runs",
+    "source_root": "/mnt/c/Users/t-fhabibi/CodeWeaver",
+    "baseline_roots": [
+      {
+        "label": "baselines-recodeagent",
+        "path": "/opt/codeweaver-gpt-sol-comparison/baselines-recodeagent",
+        "file_count": 5
+      },
+      {
+        "label": "baselines-prior",
+        "path": "/opt/codeweaver-gpt-sol-comparison/baselines-prior",
+        "file_count": 5
+      }
+    ],
+    "system_comparison_root": "/opt/codeweaver-gpt-sol-comparison/system-comparison-final",
+    "test_comparison_root": "/opt/codeweaver-gpt-sol-comparison/test-comparisons-final",
+    "campaign_metadata_roots": [
+      {
+        "label": "summaries",
+        "path": "/opt/codeweaver-gpt-sol-comparison/summaries",
+        "file_count": 25
+      },
+      {
+        "label": "logs",
+        "path": "/opt/codeweaver-gpt-sol-comparison/logs",
+        "file_count": 155
+      }
+    ]
+  },
+  "copied_file_counts": {
+    "collected": 4,
+    "paper_test": 82,
+    "analysis": 19,
+    "report": 9,
+    "baselines": 10,
+    "system_comparison": 10,
+    "test_comparison": 5,
+    "campaign_metadata": 180,
+    "source": 148,
+    "run_metadata": 0
+  },
+  "selected_variants": [
+    "full"
+  ],
+  "run_archives": [
+    {
+      "variant": "full",
+      "file_count": 30410,
+      "parts": [
+        "raw-run-archives/full.tar.gz.part-000",
+        "raw-run-archives/full.tar.gz.part-001",
+        "raw-run-archives/full.tar.gz.part-002",
+        "raw-run-archives/full.tar.gz.part-003",
+        "raw-run-archives/full.tar.gz.part-004",
+        "raw-run-archives/full.tar.gz.part-005",
+        "raw-run-archives/full.tar.gz.part-006",
+        "raw-run-archives/full.tar.gz.part-007",
+        "raw-run-archives/full.tar.gz.part-008",
+        "raw-run-archives/full.tar.gz.part-009",
+        "raw-run-archives/full.tar.gz.part-010",
+        "raw-run-archives/full.tar.gz.part-011",
+        "raw-run-archives/full.tar.gz.part-012",
+        "raw-run-archives/full.tar.gz.part-013",
+        "raw-run-archives/full.tar.gz.part-014",
+        "raw-run-archives/full.tar.gz.part-015",
+        "raw-run-archives/full.tar.gz.part-016",
+        "raw-run-archives/full.tar.gz.part-017",
+        "raw-run-archives/full.tar.gz.part-018",
+        "raw-run-archives/full.tar.gz.part-019",
+        "raw-run-archives/full.tar.gz.part-020",
+        "raw-run-archives/full.tar.gz.part-021",
+        "raw-run-archives/full.tar.gz.part-022",
+        "raw-run-archives/full.tar.gz.part-023",
+        "raw-run-archives/full.tar.gz.part-024",
+        "raw-run-archives/full.tar.gz.part-025",
+        "raw-run-archives/full.tar.gz.part-026",
+        "raw-run-archives/full.tar.gz.part-027"
+      ]
+    }
+  ],
+  "infrastructure_failure_archives": [
+    {
+      "attempt": "transcript-arguments-schema-20260805",
+      "file_count": 54,
+      "parts": [
+        "infrastructure-failure-archives/transcript-arguments-schema-20260805.tar.gz"
+      ]
+    }
+  ],
+  "system_comparison_completeness": {
+    "status": "complete_with_explicit_unavailability_and_accounted_missing",
+    "complete": true,
+    "inventory_totals": {
+      "expected": 590,
+      "measured": 489,
+      "unavailable": 100,
+      "error": 0,
+      "missing": 1,
+      "accounted_missing": 1,
+      "unaccounted_missing": 0
+    },
+    "explicit_unavailability_count": 100,
+    "missing_artifact_cell_count": 1,
+    "accounted_missing_artifact_cell_count": 1,
+    "unaccounted_missing_artifact_cell_count": 0,
+    "error_cell_count": 0,
+    "crust_overlap_status": "measured",
+    "note": "Explicit unavailable replay/workbook evidence and accounted released-artifact absence are retained as such; unaccounted missing cells and errors are rejected."
+  }
+}

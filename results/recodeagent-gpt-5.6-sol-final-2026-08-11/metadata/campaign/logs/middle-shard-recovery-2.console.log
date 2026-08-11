@@ -1,0 +1,3 @@
+[run] 87 job(s): variants=['full'] projects=29 repetitions=3
+[run] done: {'completed': 30, 'failed': 15, 'running': 42}
+[run] wrote /opt/codeweaver-gpt-sol-comparison/summaries/middle-shard-recovery-2.json

@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__strsim",
+  "paper_runtime_tests": 19,
+  "static_source_methods": 19,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_levenshtein",
+      "target_path": "test/source.test.js",
+      "target_name": "test_levenshtein",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_longest_common_subsequence",
+      "target_path": "test/source.test.js",
+      "target_name": "test_longest_common_subsequence",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_metric_lcs",
+      "target_path": "test/source.test.js",
+      "target_name": "test_metric_lcs",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_ngram",
+      "target_path": "test/source.test.js",
+      "target_name": "test_ngram",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_damerau",
+      "target_path": "test/source.test.js",
+      "target_name": "test_damerau",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_cosine",
+      "target_path": "test/source.test.js",
+      "target_name": "test_cosine",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_jaccard",
+      "target_path": "test/source.test.js",
+      "target_name": "test_jaccard",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_jarowinkler",
+      "target_path": "test/source.test.js",
+      "target_name": "test_jarowinkler",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_normalized_levenshtein",
+      "target_path": "test/source.test.js",
+      "target_name": "test_normalized_levenshtein",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_optimal_string_alignment",
+      "target_path": "test/source.test.js",
+      "target_name": "test_optimal_string_alignment",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_0",
+      "target_path": "test/source.test.js",
+      "target_name": "test_overlap_coefficient_0",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_1",
+      "target_path": "test/source.test.js",
+      "target_name": "test_overlap_coefficient_1",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_2",
+      "target_path": "test/source.test.js",
+      "target_name": "test_overlap_coefficient_2",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_3",
+      "target_path": "test/source.test.js",
+      "target_name": "test_overlap_coefficient_3",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_qgram",
+      "target_path": "test/source.test.js",
+      "target_name": "test_qgram",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_sift4",
+      "target_path": "test/source.test.js",
+      "target_name": "test_sift4",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_sorensen_dice",
+      "target_path": "test/source.test.js",
+      "target_name": "test_sorensen_dice",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_weighted_levenshtein",
+      "target_path": "test/source.test.js",
+      "target_name": "test_weighted_levenshtein",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_tests",
+      "target_path": "test/source.test.js",
+      "target_name": "additional_tests",
+      "mapped": true,
+      "mapping_score": 0.9714285714285714
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_callback_exception_propagation"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_exports_and_silent_load"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_jaro_matches"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_ngram_nonpositive_widths"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_nullish_rejections"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_profile_level_apis"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_python_call_binding"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_python_range_bound_type_semantics"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_sequence_transpositions"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_shingle_profile_whitespace"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_sift4_callable_strategies"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_sift4_maxdistance"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_sift4_named_strategies_and_errors"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_sift4_recursive_helpers_source_failures"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_sift4_skel_object_options"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_sift4_tokenizers"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_skel_runtime_helpers"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_skel_superclass_construction"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_supplementary_plane_unicode"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_user_check_type_source_semantics"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_weighted_callback_routing"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_wordsplit_python_whitespace"
+    },
+    {
+      "path": "test/edge-cases.test.js",
+      "name": "test_zero_denominator_failures"
+    }
+  ]
+}

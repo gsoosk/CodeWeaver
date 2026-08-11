@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-08-10T22:22:05.276609Z",
+  "classification": "embedding_resource_repair",
+  "evidence_policy": "No completed project row was replaced. Every discarded configuration lacked paper_test_summary.json and was removed before restart. Final rows are exact disjoint repetitions 0,1,2.",
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "attempts": [
+    {
+      "batch_size": 1,
+      "omp_threads": 1,
+      "elapsed_seconds_before_abort": 10600,
+      "reason": "projected serial wall time; repetition 0 incomplete"
+    },
+    {
+      "batch_size": 8,
+      "omp_threads": 1,
+      "elapsed_seconds_before_abort": 945,
+      "peak_rss_kib": 27417556,
+      "reason": "unsafe WSL memory range and swapping"
+    },
+    {
+      "batch_size": 4,
+      "omp_threads": 1,
+      "elapsed_seconds_before_abort": 623,
+      "peak_rss_kib": 6798536,
+      "reason": "thread benchmark identified safe acceleration"
+    },
+    {
+      "batch_size": 4,
+      "omp_threads": 4,
+      "elapsed_seconds_before_abort": 8297,
+      "peak_rss_kib": 25643804,
+      "reason": "padding unequal method bodies erased batching speedup; repetition 0 incomplete"
+    },
+    {
+      "batch_size": 1,
+      "omp_threads": 4,
+      "parallel_repetition_shards": [
+        0,
+        1,
+        2
+      ],
+      "status": "completed",
+      "merge_audit_sha256": "83f7b6aef8237d11c741bc6ec354ff2c2f5cd25dc4b499ea7a58a503a34c6046"
+    }
+  ],
+  "other_delta_projects": {
+    "paper_embedding_batch_size": 1,
+    "omp_threads": 1
+  }
+}

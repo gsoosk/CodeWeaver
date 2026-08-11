@@ -1,0 +1,3 @@
+[run] 4 job(s): variants=['full'] projects=4 repetitions=1
+[run] done: {'completed': 3, 'failed': 1}
+[run] wrote /opt/codeweaver-gpt-sol-comparison/summaries/pilot-rep0.json

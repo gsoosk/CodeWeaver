@@ -1,0 +1,3 @@
+[test_compare] 71 per-test comparison row(s) -> /opt/codeweaver-gpt-sol-comparison/test-projects/skel__html/test_comparisons.csv
+[test_compare] 0 unresolved run(s) -> /opt/codeweaver-gpt-sol-comparison/test-projects/skel__html/test_comparison_failures.csv
+[test_compare] translation_rate=None -> /opt/codeweaver-gpt-sol-comparison/test-projects/skel__html/test_comparison_summary.json

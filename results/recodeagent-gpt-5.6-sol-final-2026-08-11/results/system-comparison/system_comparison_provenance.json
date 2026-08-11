@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-11T01:45:18.710895Z",
+  "inputs_sha256": {
+    "manifest": {
+      "path": "/opt/codeweaver-experiments/manifest/manifest.json",
+      "sha256": "e34c01073bc661b6c84b2f52255a1b44714193b004ff9c9d7939098e41d7eec6",
+      "size_bytes": 66584,
+      "status": "measured",
+      "reason": ""
+    },
+    "codeweaver_raw": {
+      "path": "/opt/codeweaver-gpt-sol-comparison/collected-final/raw_runs.jsonl",
+      "sha256": "ccc95eccc5aaaa6562f46c9a8ad939a38915b9807e6a4eacc74cd4f89d4b3cf6",
+      "size_bytes": 4483052,
+      "status": "measured",
+      "reason": ""
+    },
+    "codeweaver_failures": {
+      "path": "/opt/codeweaver-gpt-sol-comparison/collected-final/failures.csv",
+      "sha256": "a8332f42fdaafa6dfecf4a1317a9d0cce169c203e48e1c350c6210597b33a19b",
+      "size_bytes": 69,
+      "status": "measured",
+      "reason": ""
+    },
+    "baseline_raw": [
+      {
+        "input_index": 0,
+        "path": "/opt/codeweaver-gpt-sol-comparison/baselines-recodeagent/baseline_raw_runs.jsonl",
+        "sha256": "061638ef4c6110f446f4d56aac78e11dce602225f135ead721aca64db7b23737",
+        "size_bytes": 1347102,
+        "status": "measured",
+        "reason": ""
+      },
+      {
+        "input_index": 1,
+        "path": "/opt/codeweaver-gpt-sol-comparison/baselines-prior/baseline_raw_runs.jsonl",
+        "sha256": "95c6ec6c7511b7ad97af67a18be8702af38f4d49fde05a281dc64d58ba4b8056",
+        "size_bytes": 474760,
+        "status": "measured",
+        "reason": ""
+      }
+    ],
+    "baseline_failures": [
+      {
+        "input_index": 0,
+        "path": "/opt/codeweaver-gpt-sol-comparison/baselines-recodeagent/baseline_failures.csv",
+        "sha256": "56865f036a5b24cb55c62e2cbe7789388b4d606b24aa79e4560905e15bda8db2",
+        "size_bytes": 530,
+        "status": "measured",
+        "reason": ""
+      },
+      {
+        "input_index": 1,
+        "path": "/opt/codeweaver-gpt-sol-comparison/baselines-prior/baseline_failures.csv",
+        "sha256": "7ae0d17bdcaacf35cbffaadb1a35382430b187e35774d6fb1b15fc502d012a3b",
+        "size_bytes": 26043,
+        "status": "measured",
+        "reason": ""
+      }
+    ],
+    "official_results_workbook_reference_only": {
+      "path": "/opt/recodeagent-official/results.xlsx",
+      "sha256": "3d635fe30ec7a587201f9731cc69cb5d038a58093d1b9e047253eb085b92578e",
+      "size_bytes": 333789,
+      "status": "measured",
+      "reason": ""
+    }
+  },
+  "primary_analysis": {
+    "codeweaver_repetition": 0,
+    "statement": "Repetition 0 is the preregistered primary comparison. Repetitions 0, 1, and 2 are summarized as variability; no best-of-three selection is performed."
+  },
+  "model_and_execution_confounding": {
+    "codeweaver_model": "GPT-5.6 Sol",
+    "original_paper_reference_model": "claude-sonnet-4.5",
+    "statement": "CodeWeaver GPT-5.6 Sol is not model-matched to the original systems/models. Released ReCodeAgent/prior outputs are post-hoc artifact replay measurements, not fresh runs. Results are cross-system observational comparisons."
+  },
+  "swe_agent": {
+    "released_artifacts_available": false,
+    "statement": "Released SWE-agent CRUST targets are unavailable and were never fabricated. The optional workbook can appear only as the separate published_reference_non_replayed per-project compilation track.",
+    "workbook_overlap_status": "measured",
+    "workbook_overlap_reason": ""
+  },
+  "denominators": {
+    "binary_rates": "genuinely measured project-level binary values only",
+    "validated_micro": "sum(min(validated_tests_passed, validated_tests_expected)) / sum(validated_tests_expected) over eligible projects; an explicitly measured zero paper-rate with unavailable passed count is retained as a documented zero numerator per collect.compute_paper_pass_rate; passes above the fixed denominator are retained in raw counts but cannot produce a rate above 1",
+    "validated_macro": "mean of genuinely measured per-project validated_tests_pass_rate values, bounded to [0, 1]",
+    "paired": "intersection of genuinely measured CodeWeaver rep0 and replayed ReCodeAgent projects"
+  },
+  "methods": {
+    "repetition_summary": "mean, sample SD (n-1), two-sided 95% Student-t interval",
+    "primary_rate_ci": "deterministic percentile project-cluster bootstrap, 5000 resamples, seed 20260805",
+    "binary_test": "two-sided exact binomial McNemar test on discordant pairs",
+    "continuous_test": "SciPy Wilcoxon signed-rank only when available; otherwise explicit unavailable"
+  },
+  "rendering": {
+    "pdf": "reportlab when installed; otherwise a .pdf.unavailable.txt marker",
+    "latex": "system_comparison_tables.tex",
+    "pdf_rendered": true
+  },
+  "environment": {
+    "captured_at": "2026-08-11T01:45:18.710910Z",
+    "model": {
+      "value": "GPT-5.6 Sol",
+      "status": "measured",
+      "reason": ""
+    },
+    "agent_timeout_seconds": {
+      "value": null,
+      "status": "not_applicable",
+      "reason": "no timeout specified"
+    },
+    "git_sha": {
+      "value": "0a21864ec68989ab4973d8a04ae441b45254365e",
+      "status": "measured",
+      "reason": ""
+    },
+    "codeweaver_package_version": {
+      "value": "0.1.0",
+      "status": "measured",
+      "reason": ""
+    },
+    "copilot_cli_version": {
+      "value": "GitHub Copilot CLI 1.0.79-9.",
+      "status": "measured",
+      "reason": ""
+    },
+    "python_version": {
+      "value": "3.12.3",
+      "status": "measured",
+      "reason": ""
+    },
+    "os": {
+      "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+      "status": "measured",
+      "reason": ""
+    },
+    "hostname": {
+      "value": "CPC-tfhab-FSGML",
+      "status": "measured",
+      "reason": ""
+    }
+  },
+  "outputs": {
+    "analysis_json": "system_comparison.json",
+    "inventory_csv": "system_comparison_inventory.csv",
+    "metrics_csv": "system_comparison_metrics.csv",
+    "paired_csv": "system_comparison_paired.csv",
+    "crust_overlap_csv": "system_comparison_crust_overlap.csv",
+    "frontier_csv": "system_comparison_cost_frontier.csv",
+    "failure_evidence_csv": "system_comparison_failure_evidence.csv",
+    "latex": "system_comparison_tables.tex",
+    "pdf": "system_comparison.pdf",
+    "provenance": "system_comparison_provenance.json"
+  }
+}

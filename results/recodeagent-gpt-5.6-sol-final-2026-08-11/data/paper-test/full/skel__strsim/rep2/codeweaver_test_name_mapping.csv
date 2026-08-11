@@ -1,0 +1,20 @@
+project,python test path,python test name,javascript test path,javascript test name,verified test,agent test,mismatch
+strsim,source.py,test_levenshtein,test/source.test.js,test_levenshtein,1,1,0
+strsim,source.py,test_longest_common_subsequence,test/source.test.js,test_longest_common_subsequence,1,1,0
+strsim,source.py,test_metric_lcs,test/source.test.js,test_metric_lcs,1,1,0
+strsim,source.py,test_ngram,test/source.test.js,test_ngram,1,1,0
+strsim,source.py,test_damerau,test/source.test.js,test_damerau,1,1,0
+strsim,source.py,test_cosine,test/source.test.js,test_cosine,1,1,0
+strsim,source.py,test_jaccard,test/source.test.js,test_jaccard,1,1,0
+strsim,source.py,test_jarowinkler,test/source.test.js,test_jarowinkler,1,1,0
+strsim,source.py,test_normalized_levenshtein,test/source.test.js,test_normalized_levenshtein,1,1,0
+strsim,source.py,test_optimal_string_alignment,test/source.test.js,test_optimal_string_alignment,1,1,0
+strsim,source.py,test_overlap_coefficient_0,test/source.test.js,test_overlap_coefficient_0,1,1,0
+strsim,source.py,test_overlap_coefficient_1,test/source.test.js,test_overlap_coefficient_1,1,1,0
+strsim,source.py,test_overlap_coefficient_2,test/source.test.js,test_overlap_coefficient_2,1,1,0
+strsim,source.py,test_overlap_coefficient_3,test/source.test.js,test_overlap_coefficient_3,1,1,0
+strsim,source.py,test_qgram,test/source.test.js,test_qgram,1,1,0
+strsim,source.py,test_sift4,test/source.test.js,test_sift4,1,1,0
+strsim,source.py,test_sorensen_dice,test/source.test.js,test_sorensen_dice,1,1,0
+strsim,source.py,test_weighted_levenshtein,test/source.test.js,test_weighted_levenshtein,1,1,0
+strsim,source.py,additional_tests,test/source.test.js,additional_tests,1,1,0

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__colorsys",
+  "paper_runtime_tests": 2,
+  "static_source_methods": 2,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_assertions",
+      "target_path": "index.js",
+      "target_name": "test_assertions",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_tests",
+      "target_path": "index.js",
+      "target_name": "additional_tests",
+      "mapped": true,
+      "mapping_score": 0.928
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "index.js",
+      "name": "test_hls_contracts"
+    },
+    {
+      "path": "index.js",
+      "name": "test_hls_special_float_contracts"
+    },
+    {
+      "path": "index.js",
+      "name": "test_hsv_contracts"
+    },
+    {
+      "path": "index.js",
+      "name": "test_hsv_inverse_special_float_contracts"
+    },
+    {
+      "path": "index.js",
+      "name": "test_hsv_special_float_contracts"
+    },
+    {
+      "path": "index.js",
+      "name": "test_iterable_assertion_contracts"
+    },
+    {
+      "path": "index.js",
+      "name": "test_runtime_contracts"
+    }
+  ]
+}

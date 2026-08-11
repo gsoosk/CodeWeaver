@@ -1,0 +1,852 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-11T01:45:21.164242Z",
+  "verdict": {
+    "complete": true,
+    "reasons": [],
+    "coverage_fraction": 1.0
+  },
+  "blockers": [],
+  "comparison_blockers": [],
+  "coverage_breakdown": [
+    {
+      "variant": "full",
+      "tool": "alphatrans",
+      "expected": 12,
+      "measured": 12,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "full",
+      "tool": "crust",
+      "expected": 300,
+      "measured": 300,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "full",
+      "tool": "oxidizer",
+      "expected": 18,
+      "measured": 18,
+      "coverage_fraction": 1.0
+    },
+    {
+      "variant": "full",
+      "tool": "skel",
+      "expected": 24,
+      "measured": 24,
+      "coverage_fraction": 1.0
+    }
+  ],
+  "project_count": 118,
+  "expected_total_projects": 118,
+  "raw_runs_row_count": 354,
+  "analysis_available": true,
+  "provenance_consistency": {
+    "distinct_values": {
+      "model": [
+        "gpt-5.6-sol"
+      ],
+      "agent_timeout_seconds": [
+        "5000.0"
+      ],
+      "codeweaver_package_version": [
+        "0.1.0"
+      ],
+      "git_sha": [
+        "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+        "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+        "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+        "8e7fc421b1e1597dafba55b60390512b5c8ffb38",
+        "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+        "e51a794bf90db676d177cee0e781a749f748acbd"
+      ],
+      "copilot_cli_version": [
+        "GitHub Copilot CLI 1.0.79-3.",
+        "GitHub Copilot CLI 1.0.79-4.",
+        "GitHub Copilot CLI 1.0.79-5.",
+        "GitHub Copilot CLI 1.0.79-6.",
+        "GitHub Copilot CLI 1.0.79-7.",
+        "GitHub Copilot CLI 1.0.79-9."
+      ]
+    },
+    "protocol_fields": [
+      "model",
+      "agent_timeout_seconds",
+      "codeweaver_package_version"
+    ],
+    "informational_fields": [
+      "git_sha",
+      "copilot_cli_version"
+    ],
+    "consistent": true,
+    "strictly_consistent": false,
+    "informational_drift": {
+      "git_sha": [
+        "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+        "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+        "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+        "8e7fc421b1e1597dafba55b60390512b5c8ffb38",
+        "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+        "e51a794bf90db676d177cee0e781a749f748acbd"
+      ],
+      "copilot_cli_version": [
+        "GitHub Copilot CLI 1.0.79-3.",
+        "GitHub Copilot CLI 1.0.79-4.",
+        "GitHub Copilot CLI 1.0.79-5.",
+        "GitHub Copilot CLI 1.0.79-6.",
+        "GitHub Copilot CLI 1.0.79-7.",
+        "GitHub Copilot CLI 1.0.79-9."
+      ]
+    }
+  },
+  "paper_tables_side_by_side_available": true,
+  "system_comparison": {
+    "available": true,
+    "provenance_available": true,
+    "tracks": [
+      "fresh GPT-5.6 Sol CodeWeaver runs",
+      "released-artifact ReCodeAgent/prior replay",
+      "workbook-only published reference (non-replayed)"
+    ],
+    "model_system_design_caveat": "CodeWeaver GPT-5.6 Sol is not model-matched to the original systems/models. Released ReCodeAgent/prior outputs are post-hoc artifact replay measurements, not fresh runs. Results are cross-system observational comparisons.",
+    "swe_agent_caveat": "Released SWE-agent CRUST targets are unavailable and were never fabricated. The optional workbook can appear only as the separate published_reference_non_replayed per-project compilation track.",
+    "protocol": {
+      "benchmark_expected_projects": 118,
+      "manifest_projects": 118,
+      "tool_counts": {
+        "crust": 100,
+        "oxidizer": 6,
+        "alphatrans": 4,
+        "skel": 8
+      },
+      "variant": "full",
+      "primary_codeweaver_repetition": 0,
+      "configured_codeweaver_repetitions": 3,
+      "bootstrap_resamples": 5000,
+      "bootstrap_seed": 20260805,
+      "rate_tolerance": 1e-12
+    },
+    "input_row_accounting": {
+      "codeweaver_raw_selected": 354,
+      "codeweaver_raw_excluded_nonselected_variant": 0,
+      "baseline_raw_selected": 135,
+      "baseline_raw_excluded_nonselected_variant": 0,
+      "baseline_raw_input_count": 2,
+      "baseline_failure_input_count": 2,
+      "failure_rows_retained": 101,
+      "failure_rows_excluded_nonselected_variant": 0
+    },
+    "inventory": [
+      {
+        "system": "codeweaver",
+        "tool": "crust",
+        "repetition": 0,
+        "expected": 100,
+        "measured": 100,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "oxidizer",
+        "repetition": 0,
+        "expected": 6,
+        "measured": 6,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "alphatrans",
+        "repetition": 0,
+        "expected": 4,
+        "measured": 4,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "skel",
+        "repetition": 0,
+        "expected": 8,
+        "measured": 8,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "crust",
+        "repetition": 1,
+        "expected": 100,
+        "measured": 100,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "oxidizer",
+        "repetition": 1,
+        "expected": 6,
+        "measured": 6,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "alphatrans",
+        "repetition": 1,
+        "expected": 4,
+        "measured": 4,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "skel",
+        "repetition": 1,
+        "expected": 8,
+        "measured": 8,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "crust",
+        "repetition": 2,
+        "expected": 100,
+        "measured": 100,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "oxidizer",
+        "repetition": 2,
+        "expected": 6,
+        "measured": 6,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "alphatrans",
+        "repetition": 2,
+        "expected": 4,
+        "measured": 4,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "codeweaver",
+        "tool": "skel",
+        "repetition": 2,
+        "expected": 8,
+        "measured": 8,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "recodeagent",
+        "tool": "crust",
+        "repetition": 0,
+        "expected": 100,
+        "measured": 99,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 1,
+        "accounted_missing": 1,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 1,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "missing"
+      },
+      {
+        "system": "recodeagent",
+        "tool": "oxidizer",
+        "repetition": 0,
+        "expected": 6,
+        "measured": 6,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "recodeagent",
+        "tool": "alphatrans",
+        "repetition": 0,
+        "expected": 4,
+        "measured": 4,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "recodeagent",
+        "tool": "skel",
+        "repetition": 0,
+        "expected": 8,
+        "measured": 8,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "prior",
+        "tool": "crust",
+        "repetition": 0,
+        "expected": 100,
+        "measured": 0,
+        "unavailable": 100,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 100,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "missing"
+      },
+      {
+        "system": "prior",
+        "tool": "oxidizer",
+        "repetition": 0,
+        "expected": 6,
+        "measured": 6,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "prior",
+        "tool": "alphatrans",
+        "repetition": 0,
+        "expected": 4,
+        "measured": 4,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      },
+      {
+        "system": "prior",
+        "tool": "skel",
+        "repetition": 0,
+        "expected": 8,
+        "measured": 8,
+        "unavailable": 0,
+        "error": 0,
+        "missing": 0,
+        "accounted_missing": 0,
+        "unaccounted_missing": 0,
+        "all_expected_cells_accounted_for": true,
+        "accounting_status": "measured",
+        "failure_evidence_rows": 0,
+        "conflicting_failure_evidence_rows": 0,
+        "status": "measured"
+      }
+    ],
+    "codeweaver_three_repetition_all_tools": [
+      {
+        "system": "codeweaver",
+        "tool": "all",
+        "metric": "compilation_success",
+        "expected_repetitions": 3,
+        "measured_repetitions": [
+          0,
+          1,
+          2
+        ],
+        "missing_repetitions": [],
+        "partial": false,
+        "status": "measured",
+        "n": 3,
+        "mean": 1.0,
+        "sample_sd": 0.0,
+        "ci_95_t": [
+          1.0,
+          1.0
+        ],
+        "variability_status": "measured",
+        "reason": ""
+      },
+      {
+        "system": "codeweaver",
+        "tool": "all",
+        "metric": "project_pass_all",
+        "expected_repetitions": 3,
+        "measured_repetitions": [
+          0,
+          1,
+          2
+        ],
+        "missing_repetitions": [],
+        "partial": false,
+        "status": "measured",
+        "n": 3,
+        "mean": 0.5141242937853107,
+        "sample_sd": 0.0048927988914374936,
+        "ci_95_t": [
+          0.5019699075430806,
+          0.5262786800275407
+        ],
+        "variability_status": "measured",
+        "reason": ""
+      },
+      {
+        "system": "codeweaver",
+        "tool": "all",
+        "metric": "validated_test_micro_pass_rate",
+        "expected_repetitions": 3,
+        "measured_repetitions": [
+          0,
+          1,
+          2
+        ],
+        "missing_repetitions": [],
+        "partial": false,
+        "status": "measured",
+        "n": 3,
+        "mean": 0.4252491694352159,
+        "sample_sd": 0.006059395033129414,
+        "ci_95_t": [
+          0.41019679772302653,
+          0.4403015411474053
+        ],
+        "variability_status": "measured",
+        "reason": ""
+      },
+      {
+        "system": "codeweaver",
+        "tool": "all",
+        "metric": "validated_test_macro_pass_rate",
+        "expected_repetitions": 3,
+        "measured_repetitions": [
+          0,
+          1,
+          2
+        ],
+        "missing_repetitions": [],
+        "partial": false,
+        "status": "measured",
+        "n": 3,
+        "mean": 0.6326201685618252,
+        "sample_sd": 0.004893468608238655,
+        "ci_95_t": [
+          0.6204641186508332,
+          0.6447762184728173
+        ],
+        "variability_status": "measured",
+        "reason": ""
+      }
+    ],
+    "primary_rep0_paired_all_tools": [
+      {
+        "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+        "tool": "all",
+        "metric": "compilation_success",
+        "metric_kind": "binary",
+        "manifest_projects": 118,
+        "raw_intersection_projects": 117,
+        "excluded_not_genuinely_measured": 0,
+        "status": "measured",
+        "n": 117,
+        "cw_yes_rca_no_wins": 37,
+        "rca_yes_cw_no_losses": 0,
+        "ties": 80,
+        "delta_percentage_points": 31.62393162393162,
+        "exact_mcnemar_p_value": 1.4551915228366852e-11,
+        "exact_test": "two-sided exact binomial McNemar test",
+        "paired_bootstrap_ci_percentage_points": [
+          23.076923076923077,
+          40.17094017094017
+        ],
+        "bootstrap_status": "measured",
+        "bootstrap_reason": "",
+        "reason": ""
+      },
+      {
+        "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+        "tool": "all",
+        "metric": "project_pass_all",
+        "metric_kind": "binary",
+        "manifest_projects": 118,
+        "raw_intersection_projects": 117,
+        "excluded_not_genuinely_measured": 0,
+        "status": "measured",
+        "n": 117,
+        "cw_yes_rca_no_wins": 27,
+        "rca_yes_cw_no_losses": 15,
+        "ties": 75,
+        "delta_percentage_points": 10.256410256410255,
+        "exact_mcnemar_p_value": 0.08842954698775429,
+        "exact_test": "two-sided exact binomial McNemar test",
+        "paired_bootstrap_ci_percentage_points": [
+          -0.8547008547008548,
+          21.367521367521366
+        ],
+        "bootstrap_status": "measured",
+        "bootstrap_reason": "",
+        "reason": ""
+      },
+      {
+        "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+        "tool": "all",
+        "metric": "validated_test_project_rate",
+        "metric_kind": "continuous_rate",
+        "manifest_projects": 118,
+        "raw_intersection_projects": 117,
+        "excluded_not_genuinely_measured": 0,
+        "status": "measured",
+        "n": 117,
+        "cw_wins": 12,
+        "ties": 75,
+        "rca_losses": 30,
+        "mean_delta": -0.08747705999597125,
+        "mean_delta_percentage_points": -8.747705999597125,
+        "paired_bootstrap_ci_percentage_points": [
+          -17.36082127937907,
+          -0.6173494956623177
+        ],
+        "bootstrap_status": "measured",
+        "bootstrap_reason": "",
+        "numerical_tolerance": 1e-12,
+        "wilcoxon": {
+          "status": "measured",
+          "statistic": 293.5,
+          "p_value": 0.04530786488610505,
+          "reason": ""
+        },
+        "reason": ""
+      }
+    ],
+    "crust_three_system_overlap": {
+      "status": "measured",
+      "reason": "",
+      "n_triples": 99,
+      "excluded_projects": 1,
+      "cells": [
+        {
+          "codeweaver_rep0": false,
+          "recodeagent_replay": false,
+          "swe_agent_workbook": false,
+          "count": 0,
+          "swe_agent_track": "published_reference_non_replayed"
+        },
+        {
+          "codeweaver_rep0": false,
+          "recodeagent_replay": false,
+          "swe_agent_workbook": true,
+          "count": 0,
+          "swe_agent_track": "published_reference_non_replayed"
+        },
+        {
+          "codeweaver_rep0": false,
+          "recodeagent_replay": true,
+          "swe_agent_workbook": false,
+          "count": 0,
+          "swe_agent_track": "published_reference_non_replayed"
+        },
+        {
+          "codeweaver_rep0": false,
+          "recodeagent_replay": true,
+          "swe_agent_workbook": true,
+          "count": 0,
+          "swe_agent_track": "published_reference_non_replayed"
+        },
+        {
+          "codeweaver_rep0": true,
+          "recodeagent_replay": false,
+          "swe_agent_workbook": false,
+          "count": 21,
+          "swe_agent_track": "published_reference_non_replayed"
+        },
+        {
+          "codeweaver_rep0": true,
+          "recodeagent_replay": false,
+          "swe_agent_workbook": true,
+          "count": 16,
+          "swe_agent_track": "published_reference_non_replayed"
+        },
+        {
+          "codeweaver_rep0": true,
+          "recodeagent_replay": true,
+          "swe_agent_workbook": false,
+          "count": 37,
+          "swe_agent_track": "published_reference_non_replayed"
+        },
+        {
+          "codeweaver_rep0": true,
+          "recodeagent_replay": true,
+          "swe_agent_workbook": true,
+          "count": 25,
+          "swe_agent_track": "published_reference_non_replayed"
+        }
+      ],
+      "swe_agent_track": "published_reference_non_replayed"
+    },
+    "cost_correctness_frontier": {
+      "status": "unavailable",
+      "reason": "fewer than two systems have genuinely measured, same-unit actual costs; missing replay costs were not mapped to zero",
+      "cost_unit": "nano_aiu",
+      "rows": [
+        {
+          "system": "codeweaver",
+          "track": "measured",
+          "repetition": 0,
+          "actual_cost_metric": "total_nano_aiu",
+          "actual_cost_unit": "nano_aiu",
+          "cost_status": "measured",
+          "mean_actual_cost": 2537095697245.7627,
+          "n_cost_projects": 118,
+          "cost_missing_projects": 0,
+          "cost_partial": false,
+          "project_pass_all_rate": 0.5169491525423728,
+          "correctness_status": "measured",
+          "correctness_n_projects": 118,
+          "correctness_excluded_projects": 0,
+          "correctness_partial": false,
+          "published_reference_cost_status": "unavailable",
+          "published_reference_cost_reason": "Workbook/paper cost is not an actual replay cost and is intentionally kept off this measured-cost frontier"
+        },
+        {
+          "system": "recodeagent",
+          "track": "released_artifact_replay",
+          "repetition": 0,
+          "actual_cost_metric": "total_nano_aiu",
+          "actual_cost_unit": "nano_aiu",
+          "cost_status": "unavailable",
+          "mean_actual_cost": null,
+          "n_cost_projects": 0,
+          "cost_missing_projects": 117,
+          "cost_partial": false,
+          "project_pass_all_rate": 0.4188034188034188,
+          "correctness_status": "measured",
+          "correctness_n_projects": 117,
+          "correctness_excluded_projects": 0,
+          "correctness_partial": false,
+          "published_reference_cost_status": "unavailable",
+          "published_reference_cost_reason": "Workbook/paper cost is not an actual replay cost and is intentionally kept off this measured-cost frontier"
+        },
+        {
+          "system": "prior",
+          "track": "released_artifact_replay",
+          "repetition": 0,
+          "actual_cost_metric": "total_nano_aiu",
+          "actual_cost_unit": "nano_aiu",
+          "cost_status": "unavailable",
+          "mean_actual_cost": null,
+          "n_cost_projects": 0,
+          "cost_missing_projects": 18,
+          "cost_partial": false,
+          "project_pass_all_rate": 0.16666666666666666,
+          "correctness_status": "measured",
+          "correctness_n_projects": 18,
+          "correctness_excluded_projects": 0,
+          "correctness_partial": false,
+          "published_reference_cost_status": "unavailable",
+          "published_reference_cost_reason": "Workbook/paper cost is not an actual replay cost and is intentionally kept off this measured-cost frontier"
+        }
+      ]
+    },
+    "input_hashes": {
+      "manifest": {
+        "path": "/opt/codeweaver-experiments/manifest/manifest.json",
+        "sha256": "e34c01073bc661b6c84b2f52255a1b44714193b004ff9c9d7939098e41d7eec6",
+        "size_bytes": 66584,
+        "status": "measured",
+        "reason": ""
+      },
+      "codeweaver_raw": {
+        "path": "/opt/codeweaver-gpt-sol-comparison/collected-final/raw_runs.jsonl",
+        "sha256": "ccc95eccc5aaaa6562f46c9a8ad939a38915b9807e6a4eacc74cd4f89d4b3cf6",
+        "size_bytes": 4483052,
+        "status": "measured",
+        "reason": ""
+      },
+      "codeweaver_failures": {
+        "path": "/opt/codeweaver-gpt-sol-comparison/collected-final/failures.csv",
+        "sha256": "a8332f42fdaafa6dfecf4a1317a9d0cce169c203e48e1c350c6210597b33a19b",
+        "size_bytes": 69,
+        "status": "measured",
+        "reason": ""
+      },
+      "baseline_raw": [
+        {
+          "input_index": 0,
+          "path": "/opt/codeweaver-gpt-sol-comparison/baselines-recodeagent/baseline_raw_runs.jsonl",
+          "sha256": "061638ef4c6110f446f4d56aac78e11dce602225f135ead721aca64db7b23737",
+          "size_bytes": 1347102,
+          "status": "measured",
+          "reason": ""
+        },
+        {
+          "input_index": 1,
+          "path": "/opt/codeweaver-gpt-sol-comparison/baselines-prior/baseline_raw_runs.jsonl",
+          "sha256": "95c6ec6c7511b7ad97af67a18be8702af38f4d49fde05a281dc64d58ba4b8056",
+          "size_bytes": 474760,
+          "status": "measured",
+          "reason": ""
+        }
+      ],
+      "baseline_failures": [
+        {
+          "input_index": 0,
+          "path": "/opt/codeweaver-gpt-sol-comparison/baselines-recodeagent/baseline_failures.csv",
+          "sha256": "56865f036a5b24cb55c62e2cbe7789388b4d606b24aa79e4560905e15bda8db2",
+          "size_bytes": 530,
+          "status": "measured",
+          "reason": ""
+        },
+        {
+          "input_index": 1,
+          "path": "/opt/codeweaver-gpt-sol-comparison/baselines-prior/baseline_failures.csv",
+          "sha256": "7ae0d17bdcaacf35cbffaadb1a35382430b187e35774d6fb1b15fc502d012a3b",
+          "size_bytes": 26043,
+          "status": "measured",
+          "reason": ""
+        }
+      ],
+      "official_results_workbook_reference_only": {
+        "path": "/opt/recodeagent-official/results.xlsx",
+        "sha256": "3d635fe30ec7a587201f9731cc69cb5d038a58093d1b9e047253eb085b92578e",
+        "size_bytes": 333789,
+        "status": "measured",
+        "reason": ""
+      }
+    }
+  }
+}

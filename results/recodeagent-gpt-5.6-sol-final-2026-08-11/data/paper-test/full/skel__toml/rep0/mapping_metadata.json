@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__toml",
+  "paper_runtime_tests": 12,
+  "static_source_methods": 12,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_bug_148",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test__dict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_dict_decoder",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_array_sep",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_tuple",
+      "target_path": "index.js",
+      "target_name": "tester",
+      "mapped": true,
+      "mapping_score": 0.6346666666666667
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_commutativity",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_comment_preserve_decoder_encoder",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test3",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test4",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test5",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    }
+  ],
+  "generated_target_tests": []
+}

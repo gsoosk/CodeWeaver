@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-05T22:35:37.686077+00:00",
+  "classification": "baseline_evaluator_timeout_descendant_escape",
+  "baseline_replay_pid": 473012,
+  "timed_out_parent_pid": 2238816,
+  "orphan_pid": 2239512,
+  "orphan_ppid": 473007,
+  "orphan_command": "/tmp/recodeagent_crust_coverage_2ulsx8g9/target/target/debug/deps/test_system_builder-0e655bb755ddb057 --test-threads=1",
+  "observed_state": "S (sleeping)",
+  "held_pipe_inodes": [
+    5705956,
+    5705957
+  ],
+  "evidence": "cargo-tarpaulin parent was defunct while its test_system_builder child remained alive and held both replay capture pipes, preventing subprocess timeout completion.",
+  "repair": "Send TERM only to the verified orphan test PID; do not alter any candidate artifact or replace any translation outcome. The replay evaluator records the command outcome after its pipe closes.",
+  "measurement_policy": "This is evaluator infrastructure repair, not a rerun or success substitution."
+}

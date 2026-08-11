@@ -1,0 +1,23 @@
+tool,project,tests,tests_translated,tests_not_translated,assertion_count_matching_tests,assertion_count_nonmatching_tests,assert_equal_output_total,assert_equal_output_matching,assert_equal_output_match_percent,assert_equal_type_match_percent,assert_true_type_match_percent,assert_false_type_match_percent,other_type_match_percent,avg_cosine_similarity,avg_source_loc,avg_target_loc,avg_source_method_calls,avg_target_method_calls,static_source_methods,generated_target_test_methods,protocol
+oxidizer,checkdigit,36,36,0,12,24,0,0,,40.0,,,,0.858492,24.42,8.25,7.139999999999999,3.67,36,19,official ReCodeAgent AST comparator + exact runtime weights
+oxidizer,go-edlib,36,36,0,19,17,0,0,,91.11111111111111,,,,0.831114,30.779999999999998,16.44,7.610000000000001,4.72,36,41,official ReCodeAgent AST comparator + exact runtime weights
+oxidizer,gohistogram,2,2,0,2,0,0,0,,100.0,,,,0.854283,23.5,34.0,24.0,17.5,2,18,official ReCodeAgent AST comparator + exact runtime weights
+oxidizer,gonameparts,26,24,2,14,12,0,0,,90.19607843137256,,,,0.872382,11.96,5.71,6.12,2.54,26,22,official ReCodeAgent AST comparator + exact runtime weights
+oxidizer,stats,121,121,0,58,63,0,0,,84.95934959349593,,,,0.845927,14.160000000000002,11.45,7.62,7.14,121,67,official ReCodeAgent AST comparator + exact runtime weights
+oxidizer,textrank,8,8,0,2,6,0,0,,,,,,0.865147,13.75,11.75,10.88,9.25,8,28,official ReCodeAgent AST comparator + exact runtime weights
+oxidizer,Total,229,227,2,107,122,0,0,,81.65829145728644,,,,0.8491184713656388,18.258149779735685,11.336255506607928,7.6429074889867845,5.8851982378854615,229,195,official ReCodeAgent AST comparator + exact runtime weights
+alphatrans,commons-cli,381,257,124,199,182,196,190,96.93877551020408,79.56989247311827,87.77777777777777,79.41176470588235,47.72727272727273,0.749869,13.03,11.97,13.06,9.18,381,46,official ReCodeAgent AST comparator + exact runtime weights
+alphatrans,commons-csv,298,298,0,242,56,149,118,79.19463087248322,67.29857819905213,36.734693877551024,18.65284974093264,35.294117647058826,0.749024,11.84,6.61,12.2,5.67,286,45,official ReCodeAgent AST comparator + exact runtime weights
+alphatrans,commons-fileupload,39,39,0,37,2,14,14,100.0,78.37837837837837,16.666666666666668,20.0,50.0,0.706495,6.74,5.49,5.87,3.49,39,43,official ReCodeAgent AST comparator + exact runtime weights
+alphatrans,commons-validator,463,296,167,171,292,122,120,98.36065573770492,66.04477611940298,38.98768809849521,24.142011834319526,13.227513227513228,0.792197,18.7,12.18,21.19,7.4799999999999995,463,76,official ReCodeAgent AST comparator + exact runtime weights
+alphatrans,Total,1181,890,291,649,532,481,442,91.89189189189189,70.44623262618873,47.82608695652174,26.552655265526553,27.951807228915662,0.7617289357798165,14.274498861047837,10.006993166287016,15.201355353075172,7.210785876993166,1169,210,official ReCodeAgent AST comparator + exact runtime weights
+skel,bst,11,0,11,0,11,0,0,,,,,,,,,,,11,0,official ReCodeAgent AST comparator + exact runtime weights
+skel,colorsys,2,2,0,0,2,0,0,,,,,,0.873894,67.0,138.0,45.0,7.0,2,0,official ReCodeAgent AST comparator + exact runtime weights
+skel,heapq,8,8,0,6,2,0,0,,,,,,0.892777,13.12,12.25,11.25,10.12,8,6,official ReCodeAgent AST comparator + exact runtime weights
+skel,html,7,7,0,6,1,0,0,,,,,,0.909989,24.71,20.0,20.29,16.86,7,0,official ReCodeAgent AST comparator + exact runtime weights
+skel,mathgen,5,5,0,0,5,0,0,,,,,,0.900372,47.0,75.0,49.0,44.0,5,0,official ReCodeAgent AST comparator + exact runtime weights
+skel,rbt,10,10,0,8,2,0,0,,,,,,0.9029260000000001,17.9,17.6,20.9,13.9,10,0,official ReCodeAgent AST comparator + exact runtime weights
+skel,strsim,19,0,19,0,19,0,0,,,,,,,,,,,19,0,official ReCodeAgent AST comparator + exact runtime weights
+skel,toml,12,1,11,0,12,0,0,,,,,,0.500038,10.0,9.0,7.0,8.0,12,0,official ReCodeAgent AST comparator + exact runtime weights
+skel,Total,74,33,41,20,54,0,0,,,,,,0.8858481724137931,22.342413793103447,26.689655172413794,20.24241379310345,13.930344827586207,74,6,official ReCodeAgent AST comparator + exact runtime weights
+ALL,Total,1484,1150,334,776,708,481,442,91.89189189189189,72.97450424929178,47.82608695652174,26.552655265526553,27.951807228915662,0.7825063138297873,15.278253968253969,10.699708994708994,13.817248677248678,7.117275132275132,1472,411,official ReCodeAgent AST comparator + exact runtime weights

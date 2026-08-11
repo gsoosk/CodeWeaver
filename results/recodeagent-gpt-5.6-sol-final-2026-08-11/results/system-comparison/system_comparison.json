@@ -1,0 +1,2990 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-11T01:45:18.710809Z",
+  "protocol": {
+    "benchmark_expected_projects": 118,
+    "manifest_projects": 118,
+    "tool_counts": {
+      "crust": 100,
+      "oxidizer": 6,
+      "alphatrans": 4,
+      "skel": 8
+    },
+    "variant": "full",
+    "primary_codeweaver_repetition": 0,
+    "configured_codeweaver_repetitions": 3,
+    "bootstrap_resamples": 5000,
+    "bootstrap_seed": 20260805,
+    "rate_tolerance": 1e-12
+  },
+  "input_row_accounting": {
+    "codeweaver_raw_selected": 354,
+    "codeweaver_raw_excluded_nonselected_variant": 0,
+    "baseline_raw_selected": 135,
+    "baseline_raw_excluded_nonselected_variant": 0,
+    "baseline_raw_input_count": 2,
+    "baseline_failure_input_count": 2,
+    "failure_rows_retained": 101,
+    "failure_rows_excluded_nonselected_variant": 0
+  },
+  "inventory": [
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 0,
+      "expected": 100,
+      "measured": 100,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 0,
+      "expected": 6,
+      "measured": 6,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 0,
+      "expected": 4,
+      "measured": 4,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 0,
+      "expected": 8,
+      "measured": 8,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 1,
+      "expected": 100,
+      "measured": 100,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 1,
+      "expected": 6,
+      "measured": 6,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 1,
+      "expected": 4,
+      "measured": 4,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 1,
+      "expected": 8,
+      "measured": 8,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 2,
+      "expected": 100,
+      "measured": 100,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 2,
+      "expected": 6,
+      "measured": 6,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 2,
+      "expected": 4,
+      "measured": 4,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 2,
+      "expected": 8,
+      "measured": 8,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "recodeagent",
+      "tool": "crust",
+      "repetition": 0,
+      "expected": 100,
+      "measured": 99,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 1,
+      "accounted_missing": 1,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 1,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "missing"
+    },
+    {
+      "system": "recodeagent",
+      "tool": "oxidizer",
+      "repetition": 0,
+      "expected": 6,
+      "measured": 6,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "recodeagent",
+      "tool": "alphatrans",
+      "repetition": 0,
+      "expected": 4,
+      "measured": 4,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "recodeagent",
+      "tool": "skel",
+      "repetition": 0,
+      "expected": 8,
+      "measured": 8,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "prior",
+      "tool": "crust",
+      "repetition": 0,
+      "expected": 100,
+      "measured": 0,
+      "unavailable": 100,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 100,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "missing"
+    },
+    {
+      "system": "prior",
+      "tool": "oxidizer",
+      "repetition": 0,
+      "expected": 6,
+      "measured": 6,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "prior",
+      "tool": "alphatrans",
+      "repetition": 0,
+      "expected": 4,
+      "measured": 4,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    },
+    {
+      "system": "prior",
+      "tool": "skel",
+      "repetition": 0,
+      "expected": 8,
+      "measured": 8,
+      "unavailable": 0,
+      "error": 0,
+      "missing": 0,
+      "accounted_missing": 0,
+      "unaccounted_missing": 0,
+      "all_expected_cells_accounted_for": true,
+      "accounting_status": "measured",
+      "failure_evidence_rows": 0,
+      "conflicting_failure_evidence_rows": 0,
+      "status": "measured"
+    }
+  ],
+  "inventory_completeness": {
+    "expected": 590,
+    "measured": 489,
+    "unavailable": 100,
+    "error": 0,
+    "missing": 1,
+    "accounted_missing": 1,
+    "unaccounted_missing": 0,
+    "accounted_cells": 590,
+    "all_expected_cells_accounted_for": true,
+    "accounting_status": "measured",
+    "policy_statement": "Explicit missing failure evidence is accounted_missing and may be accepted for released-artifact completeness; unaccounted_missing must be rejected."
+  },
+  "codeweaver_per_repetition_metrics": [
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 0,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 100.0,
+      "denominator": 100,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260805,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 0,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.56,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 56.0,
+      "denominator": 100,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.46,
+          0.65
+        ],
+        "resamples": 5000,
+        "seed": 20260806,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 0,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.7174959871589085,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 447.0,
+      "denominator": 623.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.5977917981072555,
+          0.8311444652908068
+        ],
+        "resamples": 5000,
+        "seed": 20260807,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 11,
+      "capped_pass_counts": 12,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 0,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.6694060365560365,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 66.94060365560365,
+      "denominator": 100,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.5806666185666186,
+          0.7573902116402117
+        ],
+        "resamples": 5000,
+        "seed": 20260808,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 1,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 100.0,
+      "denominator": 100,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260905,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 1,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.55,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 55.0,
+      "denominator": 100,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.45,
+          0.65
+        ],
+        "resamples": 5000,
+        "seed": 20260906,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 1,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.7287319422150883,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 454.0,
+      "denominator": 623.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.6080114449213162,
+          0.8439201451905626
+        ],
+        "resamples": 5000,
+        "seed": 20260907,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 16,
+      "capped_pass_counts": 12,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 1,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.6488227032227032,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 64.88227032227032,
+      "denominator": 100,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.5611415343915344,
+          0.735201491101491
+        ],
+        "resamples": 5000,
+        "seed": 20260908,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 2,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 100.0,
+      "denominator": 100,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20261005,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 2,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.54,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 54.0,
+      "denominator": 100,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.44,
+          0.64
+        ],
+        "resamples": 5000,
+        "seed": 20261006,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 2,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.6789727126805778,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 423.0,
+      "denominator": 623.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.5414937759336099,
+          0.8151986183074266
+        ],
+        "resamples": 5000,
+        "seed": 20261007,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 13,
+      "capped_pass_counts": 10,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "repetition": 2,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.6697782106782106,
+      "n_projects": 100,
+      "input_rows": 100,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 66.97782106782107,
+      "denominator": 100,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.5813932900432901,
+          0.7564127705627706
+        ],
+        "resamples": 5000,
+        "seed": 20261008,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 0,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 6.0,
+      "denominator": 6,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260805,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 0,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.16666666666666666,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 1.0,
+      "denominator": 6,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.5
+        ],
+        "resamples": 5000,
+        "seed": 20260806,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 0,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.14410480349344978,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 33.0,
+      "denominator": 229.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.01092896174863388,
+          0.5576923076923077
+        ],
+        "resamples": 5000,
+        "seed": 20260807,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 1,
+      "capped_pass_counts": 1,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 0,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.3587962962962963,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 2.1527777777777777,
+      "denominator": 6,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.07175925925925926,
+          0.6828703703703703
+        ],
+        "resamples": 5000,
+        "seed": 20260808,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 1,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 6.0,
+      "denominator": 6,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260905,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 1,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.16666666666666666,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 1.0,
+      "denominator": 6,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.5
+        ],
+        "resamples": 5000,
+        "seed": 20260906,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 1,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.13537117903930132,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 31.0,
+      "denominator": 229.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.006024096385542169,
+          0.56
+        ],
+        "resamples": 5000,
+        "seed": 20260907,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 2,
+      "capped_pass_counts": 1,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 1,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.34953703703703703,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 2.0972222222222223,
+      "denominator": 6,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0625,
+          0.6828703703703703
+        ],
+        "resamples": 5000,
+        "seed": 20260908,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 2,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 6.0,
+      "denominator": 6,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20261005,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 2,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.3333333333333333,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 2.0,
+      "denominator": 6,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.6666666666666666
+        ],
+        "resamples": 5000,
+        "seed": 20261006,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 2,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.16593886462882096,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 38.0,
+      "denominator": 229.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.6923076923076923
+        ],
+        "resamples": 5000,
+        "seed": 20261007,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 3,
+      "capped_pass_counts": 1,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "repetition": 2,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.3333333333333333,
+      "n_projects": 6,
+      "input_rows": 6,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 2.0,
+      "denominator": 6,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.6666666666666666
+        ],
+        "resamples": 5000,
+        "seed": 20261008,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 0,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 4.0,
+      "denominator": 4,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260805,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 0,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.0,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 0.0,
+      "denominator": 4,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "resamples": 5000,
+        "seed": 20260806,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 0,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.32091447925486877,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 379.0,
+      "denominator": 1181.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.9023809523809524
+        ],
+        "resamples": 5000,
+        "seed": 20260807,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 1,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 0,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.3004744599232788,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 1.2018978396931153,
+      "denominator": 4,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.7283464566929134
+        ],
+        "resamples": 5000,
+        "seed": 20260808,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 1,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 4.0,
+      "denominator": 4,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260905,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 1,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.0,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 0.0,
+      "denominator": 4,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "resamples": 5000,
+        "seed": 20260906,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 1,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.31583403895004236,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 373.0,
+      "denominator": 1181.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.888095238095238
+        ],
+        "resamples": 5000,
+        "seed": 20260907,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 1,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.2965374520492631,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 1.1861498081970523,
+      "denominator": 4,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.7165354330708662
+        ],
+        "resamples": 5000,
+        "seed": 20260908,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 2,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 4.0,
+      "denominator": 4,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20261005,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 2,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.0,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 0.0,
+      "denominator": 4,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "resamples": 5000,
+        "seed": 20261006,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 2,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.32006773920406434,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 378.0,
+      "denominator": 1181.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.9
+        ],
+        "resamples": 5000,
+        "seed": 20261007,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "repetition": 2,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.29981829194427617,
+      "n_projects": 4,
+      "input_rows": 4,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 1.1992731677771047,
+      "denominator": 4,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.0,
+          0.7263779527559054
+        ],
+        "resamples": 5000,
+        "seed": 20261008,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 0,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 8.0,
+      "denominator": 8,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260805,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 0,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.5,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 4.0,
+      "denominator": 8,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.125,
+          0.875
+        ],
+        "resamples": 5000,
+        "seed": 20260806,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 0,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.5405405405405406,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 40.0,
+      "denominator": 74.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.19298245614035087,
+          0.9012345679012346
+        ],
+        "resamples": 5000,
+        "seed": 20260807,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 1,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 0,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.5416666666666666,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 4.333333333333333,
+      "denominator": 8,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.20833333333333331,
+          0.875
+        ],
+        "resamples": 5000,
+        "seed": 20260808,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 1,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 8.0,
+      "denominator": 8,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260905,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 1,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.625,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 5.0,
+      "denominator": 8,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.25,
+          0.875
+        ],
+        "resamples": 5000,
+        "seed": 20260906,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 1,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.6621621621621622,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 49.0,
+      "denominator": 74.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.29333333333333333,
+          0.9875
+        ],
+        "resamples": 5000,
+        "seed": 20260907,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 1,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.7395833333333334,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 5.916666666666667,
+      "denominator": 8,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.375,
+          0.9895833333333334
+        ],
+        "resamples": 5000,
+        "seed": 20260908,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 2,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 8.0,
+      "denominator": 8,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20261005,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 2,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.5,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 4.0,
+      "denominator": 8,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.125,
+          0.875
+        ],
+        "resamples": 5000,
+        "seed": 20261006,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 2,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.581081081081081,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 43.0,
+      "denominator": 74.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.22641509433962265,
+          0.9324324324324325
+        ],
+        "resamples": 5000,
+        "seed": 20261007,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "repetition": 2,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.6324404761904762,
+      "n_projects": 8,
+      "input_rows": 8,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 5.059523809523809,
+      "denominator": 8,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.2857142857142857,
+          0.9583333333333333
+        ],
+        "resamples": 5000,
+        "seed": 20261008,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 118.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260805,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.5169491525423728,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 61.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.4322033898305085,
+          0.6101694915254238
+        ],
+        "resamples": 5000,
+        "seed": 20260806,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.4266729947793071,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 899.0,
+      "denominator": 2107.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.18642160540135033,
+          0.7528397963180572
+        ],
+        "resamples": 5000,
+        "seed": 20260807,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 14,
+      "capped_pass_counts": 13,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.6324458695458295,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 74.62861260640788,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.5506314168652351,
+          0.7110803728600339
+        ],
+        "resamples": 5000,
+        "seed": 20260808,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 1,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 118.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260905,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 1,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.5169491525423728,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 61.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.423728813559322,
+          0.6016949152542372
+        ],
+        "resamples": 5000,
+        "seed": 20260906,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 1,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.43046986236355006,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 907.0,
+      "denominator": 2107.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.1937901498929336,
+          0.7597087378640777
+        ],
+        "resamples": 5000,
+        "seed": 20260907,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 18,
+      "capped_pass_counts": 13,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 1,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.6278161781301378,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 74.08230901935626,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.546226082454896,
+          0.7068454019301478
+        ],
+        "resamples": 5000,
+        "seed": 20260908,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 2,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 118.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20261005,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 2,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.5084745762711864,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 60.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.4152542372881356,
+          0.5932203389830508
+        ],
+        "resamples": 5000,
+        "seed": 20261006,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 2,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.4186046511627907,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 882.0,
+      "denominator": 2107.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.18448337504469073,
+          0.7526158445440957
+        ],
+        "resamples": 5000,
+        "seed": 20261007,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 16,
+      "capped_pass_counts": 11,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 2,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.6375984580095083,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 75.23661804512199,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.554884780944103,
+          0.7226744601617816
+        ],
+        "resamples": 5000,
+        "seed": 20261008,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    }
+  ],
+  "codeweaver_repetition_summary": [
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "metric": "compilation_success",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 1.0,
+      "sample_sd": 0.0,
+      "ci_95_t": [
+        1.0,
+        1.0
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "metric": "project_pass_all",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.55,
+      "sample_sd": 0.010000000000000009,
+      "ci_95_t": [
+        0.5251586228824967,
+        0.5748413771175034
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "metric": "validated_test_micro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.7084002140181914,
+      "sample_sd": 0.02609683980365375,
+      "ci_95_t": [
+        0.6435720701044282,
+        0.7732283579319547
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "crust",
+      "metric": "validated_test_macro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.6626689834856502,
+      "sample_sd": 0.011992674273670529,
+      "ci_95_t": [
+        0.6328775290576872,
+        0.6924604379136131
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "metric": "compilation_success",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 1.0,
+      "sample_sd": 0.0,
+      "ci_95_t": [
+        1.0,
+        1.0
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "metric": "project_pass_all",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.2222222222222222,
+      "sample_sd": 0.09622504486493762,
+      "ci_95_t": [
+        -0.016814040541636432,
+        0.46125848498608085
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "metric": "validated_test_micro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.14847161572052403,
+      "sample_sd": 0.01574476539503925,
+      "ci_95_t": [
+        0.10935945024004551,
+        0.18758378120100255
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "oxidizer",
+      "metric": "validated_test_macro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.34722222222222215,
+      "sample_sd": 0.012888343432476905,
+      "ci_95_t": [
+        0.31520580225961664,
+        0.37923864218482767
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "metric": "compilation_success",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 1.0,
+      "sample_sd": 0.0,
+      "ci_95_t": [
+        1.0,
+        1.0
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "metric": "project_pass_all",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.0,
+      "sample_sd": 0.0,
+      "ci_95_t": [
+        0.0,
+        0.0
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "metric": "validated_test_micro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.31893875246965847,
+      "sample_sd": 0.002721888445101019,
+      "ci_95_t": [
+        0.3121772067360056,
+        0.32570029820331137
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "alphatrans",
+      "metric": "validated_test_macro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.29894340130560604,
+      "sample_sd": 0.0021092849433492827,
+      "ci_95_t": [
+        0.29370364703300494,
+        0.30418315557820713
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "metric": "compilation_success",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 1.0,
+      "sample_sd": 0.0,
+      "ci_95_t": [
+        1.0,
+        1.0
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "metric": "project_pass_all",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.5416666666666666,
+      "sample_sd": 0.07216878364870322,
+      "ci_95_t": [
+        0.3623894695937726,
+        0.7209438637395607
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "metric": "validated_test_micro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.5945945945945946,
+      "sample_sd": 0.06192669858048432,
+      "ci_95_t": [
+        0.4407601472866181,
+        0.7484290419025712
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "skel",
+      "metric": "validated_test_macro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.6378968253968255,
+      "sample_sd": 0.09907108834623418,
+      "ci_95_t": [
+        0.39179059869179683,
+        0.884003052101854
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "metric": "compilation_success",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 1.0,
+      "sample_sd": 0.0,
+      "ci_95_t": [
+        1.0,
+        1.0
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "metric": "project_pass_all",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.5141242937853107,
+      "sample_sd": 0.0048927988914374936,
+      "ci_95_t": [
+        0.5019699075430806,
+        0.5262786800275407
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "metric": "validated_test_micro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.4252491694352159,
+      "sample_sd": 0.006059395033129414,
+      "ci_95_t": [
+        0.41019679772302653,
+        0.4403015411474053
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "metric": "validated_test_macro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.6326201685618252,
+      "sample_sd": 0.004893468608238655,
+      "ci_95_t": [
+        0.6204641186508332,
+        0.6447762184728173
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    }
+  ],
+  "primary_paired_comparisons": [
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "crust",
+      "metric": "compilation_success",
+      "metric_kind": "binary",
+      "manifest_projects": 100,
+      "raw_intersection_projects": 99,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 99,
+      "cw_yes_rca_no_wins": 37,
+      "rca_yes_cw_no_losses": 0,
+      "ties": 62,
+      "delta_percentage_points": 37.37373737373738,
+      "exact_mcnemar_p_value": 1.4551915228366852e-11,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        28.28282828282828,
+        47.474747474747474
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "crust",
+      "metric": "project_pass_all",
+      "metric_kind": "binary",
+      "manifest_projects": 100,
+      "raw_intersection_projects": 99,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 99,
+      "cw_yes_rca_no_wins": 27,
+      "rca_yes_cw_no_losses": 11,
+      "ties": 61,
+      "delta_percentage_points": 16.161616161616163,
+      "exact_mcnemar_p_value": 0.013852965261321515,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        4.040404040404041,
+        28.28282828282828
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "crust",
+      "metric": "validated_test_project_rate",
+      "metric_kind": "continuous_rate",
+      "manifest_projects": 100,
+      "raw_intersection_projects": 99,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 99,
+      "cw_wins": 11,
+      "ties": 69,
+      "rca_losses": 19,
+      "mean_delta": -0.034106480874157644,
+      "mean_delta_percentage_points": -3.4106480874157645,
+      "paired_bootstrap_ci_percentage_points": [
+        -12.08449575116242,
+        5.100475656031212
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "numerical_tolerance": 1e-12,
+      "wilcoxon": {
+        "status": "measured",
+        "statistic": 196.5,
+        "p_value": 0.44905370208066275,
+        "reason": ""
+      },
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "oxidizer",
+      "metric": "compilation_success",
+      "metric_kind": "binary",
+      "manifest_projects": 6,
+      "raw_intersection_projects": 6,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 6,
+      "cw_yes_rca_no_wins": 0,
+      "rca_yes_cw_no_losses": 0,
+      "ties": 6,
+      "delta_percentage_points": 0.0,
+      "exact_mcnemar_p_value": 1.0,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "oxidizer",
+      "metric": "project_pass_all",
+      "metric_kind": "binary",
+      "manifest_projects": 6,
+      "raw_intersection_projects": 6,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 6,
+      "cw_yes_rca_no_wins": 0,
+      "rca_yes_cw_no_losses": 2,
+      "ties": 4,
+      "delta_percentage_points": -33.33333333333333,
+      "exact_mcnemar_p_value": 0.5,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        -66.66666666666666,
+        0.0
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "oxidizer",
+      "metric": "validated_test_project_rate",
+      "metric_kind": "continuous_rate",
+      "manifest_projects": 6,
+      "raw_intersection_projects": 6,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 6,
+      "cw_wins": 0,
+      "ties": 1,
+      "rca_losses": 5,
+      "mean_delta": -0.40172558922558926,
+      "mean_delta_percentage_points": -40.17255892255893,
+      "paired_bootstrap_ci_percentage_points": [
+        -67.36111111111111,
+        -15.404040404040407
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "numerical_tolerance": 1e-12,
+      "wilcoxon": {
+        "status": "measured",
+        "statistic": 0.0,
+        "p_value": 0.0625,
+        "reason": ""
+      },
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "alphatrans",
+      "metric": "compilation_success",
+      "metric_kind": "binary",
+      "manifest_projects": 4,
+      "raw_intersection_projects": 4,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 4,
+      "cw_yes_rca_no_wins": 0,
+      "rca_yes_cw_no_losses": 0,
+      "ties": 4,
+      "delta_percentage_points": 0.0,
+      "exact_mcnemar_p_value": 1.0,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "alphatrans",
+      "metric": "project_pass_all",
+      "metric_kind": "binary",
+      "manifest_projects": 4,
+      "raw_intersection_projects": 4,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 4,
+      "cw_yes_rca_no_wins": 0,
+      "rca_yes_cw_no_losses": 0,
+      "ties": 4,
+      "delta_percentage_points": 0.0,
+      "exact_mcnemar_p_value": 1.0,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "alphatrans",
+      "metric": "validated_test_project_rate",
+      "metric_kind": "continuous_rate",
+      "manifest_projects": 4,
+      "raw_intersection_projects": 4,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 4,
+      "cw_wins": 1,
+      "ties": 1,
+      "rca_losses": 2,
+      "mean_delta": -0.43698021940837345,
+      "mean_delta_percentage_points": -43.69802194083734,
+      "paired_bootstrap_ci_percentage_points": [
+        -88.70837983967994,
+        1.3123359580052507
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "numerical_tolerance": 1e-12,
+      "wilcoxon": {
+        "status": "measured",
+        "statistic": 1.0,
+        "p_value": 0.5,
+        "reason": ""
+      },
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "skel",
+      "metric": "compilation_success",
+      "metric_kind": "binary",
+      "manifest_projects": 8,
+      "raw_intersection_projects": 8,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 8,
+      "cw_yes_rca_no_wins": 0,
+      "rca_yes_cw_no_losses": 0,
+      "ties": 8,
+      "delta_percentage_points": 0.0,
+      "exact_mcnemar_p_value": 1.0,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "skel",
+      "metric": "project_pass_all",
+      "metric_kind": "binary",
+      "manifest_projects": 8,
+      "raw_intersection_projects": 8,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 8,
+      "cw_yes_rca_no_wins": 0,
+      "rca_yes_cw_no_losses": 2,
+      "ties": 6,
+      "delta_percentage_points": -25.0,
+      "exact_mcnemar_p_value": 0.5,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        -62.5,
+        0.0
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "skel",
+      "metric": "validated_test_project_rate",
+      "metric_kind": "continuous_rate",
+      "manifest_projects": 8,
+      "raw_intersection_projects": 8,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 8,
+      "cw_wins": 0,
+      "ties": 4,
+      "rca_losses": 4,
+      "mean_delta": -0.3375,
+      "mean_delta_percentage_points": -33.75,
+      "paired_bootstrap_ci_percentage_points": [
+        -65.0,
+        -6.25
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "numerical_tolerance": 1e-12,
+      "wilcoxon": {
+        "status": "measured",
+        "statistic": 0.0,
+        "p_value": 0.125,
+        "reason": ""
+      },
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "all",
+      "metric": "compilation_success",
+      "metric_kind": "binary",
+      "manifest_projects": 118,
+      "raw_intersection_projects": 117,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 117,
+      "cw_yes_rca_no_wins": 37,
+      "rca_yes_cw_no_losses": 0,
+      "ties": 80,
+      "delta_percentage_points": 31.62393162393162,
+      "exact_mcnemar_p_value": 1.4551915228366852e-11,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        23.076923076923077,
+        40.17094017094017
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "all",
+      "metric": "project_pass_all",
+      "metric_kind": "binary",
+      "manifest_projects": 118,
+      "raw_intersection_projects": 117,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 117,
+      "cw_yes_rca_no_wins": 27,
+      "rca_yes_cw_no_losses": 15,
+      "ties": 75,
+      "delta_percentage_points": 10.256410256410255,
+      "exact_mcnemar_p_value": 0.08842954698775429,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        -0.8547008547008548,
+        21.367521367521366
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "all",
+      "metric": "validated_test_project_rate",
+      "metric_kind": "continuous_rate",
+      "manifest_projects": 118,
+      "raw_intersection_projects": 117,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 117,
+      "cw_wins": 12,
+      "ties": 75,
+      "rca_losses": 30,
+      "mean_delta": -0.08747705999597125,
+      "mean_delta_percentage_points": -8.747705999597125,
+      "paired_bootstrap_ci_percentage_points": [
+        -17.36082127937907,
+        -0.6173494956623177
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "numerical_tolerance": 1e-12,
+      "wilcoxon": {
+        "status": "measured",
+        "statistic": 293.5,
+        "p_value": 0.04530786488610505,
+        "reason": ""
+      },
+      "reason": ""
+    }
+  ],
+  "crust_three_system_overlap": {
+    "status": "measured",
+    "reason": "",
+    "n_triples": 99,
+    "excluded_projects": 1,
+    "cells": [
+      {
+        "codeweaver_rep0": false,
+        "recodeagent_replay": false,
+        "swe_agent_workbook": false,
+        "count": 0,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": false,
+        "recodeagent_replay": false,
+        "swe_agent_workbook": true,
+        "count": 0,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": false,
+        "recodeagent_replay": true,
+        "swe_agent_workbook": false,
+        "count": 0,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": false,
+        "recodeagent_replay": true,
+        "swe_agent_workbook": true,
+        "count": 0,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": true,
+        "recodeagent_replay": false,
+        "swe_agent_workbook": false,
+        "count": 21,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": true,
+        "recodeagent_replay": false,
+        "swe_agent_workbook": true,
+        "count": 16,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": true,
+        "recodeagent_replay": true,
+        "swe_agent_workbook": false,
+        "count": 37,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": true,
+        "recodeagent_replay": true,
+        "swe_agent_workbook": true,
+        "count": 25,
+        "swe_agent_track": "published_reference_non_replayed"
+      }
+    ],
+    "swe_agent_track": "published_reference_non_replayed"
+  },
+  "cost_correctness_frontier": {
+    "status": "unavailable",
+    "reason": "fewer than two systems have genuinely measured, same-unit actual costs; missing replay costs were not mapped to zero",
+    "cost_unit": "nano_aiu",
+    "rows": [
+      {
+        "system": "codeweaver",
+        "track": "measured",
+        "repetition": 0,
+        "actual_cost_metric": "total_nano_aiu",
+        "actual_cost_unit": "nano_aiu",
+        "cost_status": "measured",
+        "mean_actual_cost": 2537095697245.7627,
+        "n_cost_projects": 118,
+        "cost_missing_projects": 0,
+        "cost_partial": false,
+        "project_pass_all_rate": 0.5169491525423728,
+        "correctness_status": "measured",
+        "correctness_n_projects": 118,
+        "correctness_excluded_projects": 0,
+        "correctness_partial": false,
+        "published_reference_cost_status": "unavailable",
+        "published_reference_cost_reason": "Workbook/paper cost is not an actual replay cost and is intentionally kept off this measured-cost frontier"
+      },
+      {
+        "system": "recodeagent",
+        "track": "released_artifact_replay",
+        "repetition": 0,
+        "actual_cost_metric": "total_nano_aiu",
+        "actual_cost_unit": "nano_aiu",
+        "cost_status": "unavailable",
+        "mean_actual_cost": null,
+        "n_cost_projects": 0,
+        "cost_missing_projects": 117,
+        "cost_partial": false,
+        "project_pass_all_rate": 0.4188034188034188,
+        "correctness_status": "measured",
+        "correctness_n_projects": 117,
+        "correctness_excluded_projects": 0,
+        "correctness_partial": false,
+        "published_reference_cost_status": "unavailable",
+        "published_reference_cost_reason": "Workbook/paper cost is not an actual replay cost and is intentionally kept off this measured-cost frontier"
+      },
+      {
+        "system": "prior",
+        "track": "released_artifact_replay",
+        "repetition": 0,
+        "actual_cost_metric": "total_nano_aiu",
+        "actual_cost_unit": "nano_aiu",
+        "cost_status": "unavailable",
+        "mean_actual_cost": null,
+        "n_cost_projects": 0,
+        "cost_missing_projects": 18,
+        "cost_partial": false,
+        "project_pass_all_rate": 0.16666666666666666,
+        "correctness_status": "measured",
+        "correctness_n_projects": 18,
+        "correctness_excluded_projects": 0,
+        "correctness_partial": false,
+        "published_reference_cost_status": "unavailable",
+        "published_reference_cost_reason": "Workbook/paper cost is not an actual replay cost and is intentionally kept off this measured-cost frontier"
+      }
+    ]
+  }
+}

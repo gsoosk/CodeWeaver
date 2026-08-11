@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-11T01:45:21.311834Z",
+  "checksums": {
+    "manifest": {
+      "path": "/opt/codeweaver-experiments/manifest/manifest.json",
+      "exists": true,
+      "sha256": "e34c01073bc661b6c84b2f52255a1b44714193b004ff9c9d7939098e41d7eec6",
+      "size_bytes": 66584
+    },
+    "raw_runs": {
+      "path": "/opt/codeweaver-gpt-sol-comparison/collected-final/raw_runs.jsonl",
+      "exists": true,
+      "sha256": "ccc95eccc5aaaa6562f46c9a8ad939a38915b9807e6a4eacc74cd4f89d4b3cf6",
+      "size_bytes": 4483052
+    },
+    "test_comparisons": {
+      "path": "/opt/codeweaver-gpt-sol-comparison/test-comparisons-final/test_comparisons.jsonl",
+      "exists": true,
+      "sha256": "51d2d4fbf36b52fa2f7e59b1c11a9fda024da63e164470a5f4a708fc0b0b50ec",
+      "size_bytes": 15852135
+    },
+    "system_comparison": {
+      "path": "/opt/codeweaver-gpt-sol-comparison/system-comparison-final/system_comparison.json",
+      "exists": true,
+      "sha256": "30377470b338e0ea41639a9c5922c96678d8aee49d3a81b8f5379e5ef76ca032",
+      "size_bytes": 75777
+    },
+    "system_comparison_provenance": {
+      "path": "/opt/codeweaver-gpt-sol-comparison/system-comparison-final/system_comparison_provenance.json",
+      "exists": true,
+      "sha256": "521937f971866d3f46d3548194d60e239c3b5ebf14248ce2298458ba2f280ceb",
+      "size_bytes": 6266
+    }
+  },
+  "report_generation_provenance": {
+    "captured_at": "2026-08-11T01:45:21.330791Z",
+    "model": {
+      "value": null,
+      "status": "not_applicable",
+      "reason": "no model specified"
+    },
+    "agent_timeout_seconds": {
+      "value": null,
+      "status": "not_applicable",
+      "reason": "no timeout specified"
+    },
+    "git_sha": {
+      "value": "0a21864ec68989ab4973d8a04ae441b45254365e",
+      "status": "measured",
+      "reason": ""
+    },
+    "codeweaver_package_version": {
+      "value": "0.1.0",
+      "status": "measured",
+      "reason": ""
+    },
+    "copilot_cli_version": {
+      "value": "GitHub Copilot CLI 1.0.79-9.",
+      "status": "measured",
+      "reason": ""
+    },
+    "python_version": {
+      "value": "3.12.3",
+      "status": "measured",
+      "reason": ""
+    },
+    "os": {
+      "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+      "status": "measured",
+      "reason": ""
+    },
+    "hostname": {
+      "value": "CPC-tfhab-FSGML",
+      "status": "measured",
+      "reason": ""
+    }
+  },
+  "note": "report_generation_provenance describes the machine/software that RENDERED this report, NOT the machine(s) that ran the CodeWeaver experiments -- per-run provenance (model, git SHA, Copilot CLI version, agent timeout) is recorded independently for every row in raw_runs.csv/raw_runs.jsonl by collect.py."
+}

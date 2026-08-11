@@ -1,0 +1,97 @@
+# CodeWeaver config reproducing the original recodeAgent use case:
+# translating the SONiC xcvrd transceiver daemon from Python to Rust.
+#
+# This is the generalized equivalent of recodeAgent's hard-coded orchestrator +
+# agents + milestones.py. The project-specific knowledge that recodeAgent baked
+# into its four .agent.md files now lives in `brief` (loaded from brief.md) and
+# this config; the CodeWeaver core is unchanged across projects.
+#
+# `root` points at the actual recodeAgent checkout, so the paths/commands resolve
+# to the real source, tools, and working copy. Adjust `root` for your machine.
+
+[project]
+name = "recodeagent-xcvrd"
+slug = "recodeagent-xcvrd"
+description = "Multi-agent Python->Rust translation of the SONiC xcvrd daemon (thick PyO3 HAL + swss-common), black-box validated against xcvrd-tests on the DUT."
+
+[translation]
+source_language = "Python"
+target_language = "Rust"
+# The brief is the project-specific knowledge every agent must honor. Kept in a
+# sibling Markdown file and loaded via `brief_file` (resolved relative to this
+# config), so it is actually injected into every agent prompt.
+brief_file = "brief.md"
+
+[paths]
+root = "../../../toRust/dev/recodeAgent"     # the recodeAgent checkout (edit for your box)
+source_dir = "source/xcvrd"                  # the Python daemon + its behavioral unit tests
+reference_dirs = ["../xcvrd-tests"]          # the end-to-end black-box oracle (read-only)
+immutable_input = "crate"                    # the M1 bootstrap crate; copied, never edited
+working_copy = "pipeline/crate"              # the mutable copy the agents translate into
+pipeline_dir = "pipeline"
+analysis_artifact = "analysis.md"
+plan_artifact = "plan.json"
+report_artifact = "report.json"
+
+[commands]
+build_check = "bash tools/build_check.sh"
+unit_test  = "bash tools/unit_test.sh"
+validate   = "bash tools/validate_on_dut.sh {milestone}"
+
+[validation]
+# xcvrd-tests/run.sh runs `pytest <dir> <args>`; select modules with a -k expression.
+gate_template = '-k "{tests_or}"'
+
+[model]
+default = "claude-opus-4.8"
+effort_default = "high"
+[model.effort]
+analyzer = "max"
+planner = "max"
+translator = "max"
+validator = "high"
+
+[execution]
+max_iter = 5
+
+[[milestones]]
+id = "M0"
+title = "Skeleton (deploy smoke)"
+goal = "Rust crate compiles; the binary is injected into pmon and stays RUNNING under supervisor. Deploy-smoke gate only (no pytest on a bare skeleton)."
+tests = []
+
+[[milestones]]
+id = "M1"
+title = "Presence + identity"
+goal = "On insertion, read identity via the platform bridge and publish TRANSCEIVER_INFO; on removal, clear it; restore on re-plug."
+tests = ["test_presence", "test_info_content"]
+
+[[milestones]]
+id = "M2"
+title = "DOM"
+goal = "Periodically poll module monitors via the platform and publish TRANSCEIVER_DOM_SENSOR; the emulator Monitor trace shows real reads."
+tests = ["test_dom", "test_interaction_trace"]
+
+[[milestones]]
+id = "M3"
+title = "Status / CMIS state / errors"
+goal = "Publish TRANSCEIVER_STATUS_SW (plug status, cmis_state=READY) and decode injected error events (blocking removes DOM, non-blocking keeps it)."
+tests = ["test_status_error"]
+
+[[milestones]]
+id = "M4"
+title = "lpmode / reset"
+goal = "Handle sfputil lpmode/reset: drive the CMIS ModuleGlobalControls writes and reflect lpmode state."
+tests = ["test_lpmode_reset"]
+
+[[milestones]]
+id = "M5"
+title = "Multiport concurrency"
+goal = "Handle concurrent presence/DOM across many ports with per-module isolation (no cross-talk)."
+tests = ["test_multiport"]
+
+[[milestones]]
+id = "M6"
+title = "Golden conformance (full suite)"
+goal = "Reproduce the reference STATE_DB projection and pass the ENTIRE suite, including slow tests."
+tests = ["test_golden"]

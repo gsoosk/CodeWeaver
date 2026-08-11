@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-11T02:03:05.982723Z",
+  "classification": "declared_campaign_revision_drift",
+  "policy": "Exact repository and CLI values remain in every normalized row. Model, timeout, and package version define the frozen protocol consistency gate; revision drift is separately disclosed as a validity threat and is never collapsed or rewritten.",
+  "row_count": 354,
+  "frozen_protocol_values": {
+    "model": [
+      "gpt-5.6-sol"
+    ],
+    "agent_timeout_seconds": [
+      "5000.0"
+    ],
+    "codeweaver_package_version": [
+      "0.1.0"
+    ]
+  },
+  "git_revisions": [
+    {
+      "git_sha": "72529ee879e383df5ac5526cf2a2075a3a9c3d68",
+      "row_count": 135,
+      "commit": "2026-07-30T19:32:29+01:00 Add idea.md: complete project brief + evaluation plan for the research agent",
+      "codeweaver_tree": "a1a45978f9a7f2343f7c819306beddbd23d6d384",
+      "agents_tree": "02165629c99873fb8062ce6e2949b697bf36e65f",
+      "pyproject_blob": "c4c50bffe95bf81d200029fcf45b6ac5084b43c0"
+    },
+    {
+      "git_sha": "3c6f1d63b5d9d868e6f9f3207e11619f944e51e8",
+      "row_count": 65,
+      "commit": "2026-08-05T14:21:26-07:00 Publish interim GPT-5.6 Sol comparison snapshot",
+      "codeweaver_tree": "a1a45978f9a7f2343f7c819306beddbd23d6d384",
+      "agents_tree": "02165629c99873fb8062ce6e2949b697bf36e65f",
+      "pyproject_blob": "c4c50bffe95bf81d200029fcf45b6ac5084b43c0"
+    },
+    {
+      "git_sha": "aecaba9f4bb0b5e472cfd615e19bf9bb30d00fa7",
+      "row_count": 52,
+      "commit": "2026-08-05T16:38:43-07:00 Add ReCodeAgent comparison harness",
+      "codeweaver_tree": "8dcce950e48c9c4113693e36d79c7f1b8a87e1ac",
+      "agents_tree": "02165629c99873fb8062ce6e2949b697bf36e65f",
+      "pyproject_blob": "c4c50bffe95bf81d200029fcf45b6ac5084b43c0"
+    },
+    {
+      "git_sha": "58ef7b06dff42ca4227d7998c0df620cf96bb5aa",
+      "row_count": 61,
+      "commit": "2026-08-05T20:40:36-07:00 Preserve shard reservations during recovery",
+      "codeweaver_tree": "8dcce950e48c9c4113693e36d79c7f1b8a87e1ac",
+      "agents_tree": "02165629c99873fb8062ce6e2949b697bf36e65f",
+      "pyproject_blob": "c4c50bffe95bf81d200029fcf45b6ac5084b43c0"
+    },
+    {
+      "git_sha": "e51a794bf90db676d177cee0e781a749f748acbd",
+      "row_count": 17,
+      "commit": "2026-08-06T11:50:24-07:00 Publish updated GPT-5.6 Sol interim snapshot",
+      "codeweaver_tree": "8dcce950e48c9c4113693e36d79c7f1b8a87e1ac",
+      "agents_tree": "02165629c99873fb8062ce6e2949b697bf36e65f",
+      "pyproject_blob": "c4c50bffe95bf81d200029fcf45b6ac5084b43c0"
+    },
+    {
+      "git_sha": "8e7fc421b1e1597dafba55b60390512b5c8ffb38",
+      "row_count": 24,
+      "commit": "2026-08-07T10:33:56-07:00 Publish August 7 GPT-5.6 Sol interim snapshot",
+      "codeweaver_tree": "8dcce950e48c9c4113693e36d79c7f1b8a87e1ac",
+      "agents_tree": "02165629c99873fb8062ce6e2949b697bf36e65f",
+      "pyproject_blob": "c4c50bffe95bf81d200029fcf45b6ac5084b43c0"
+    }
+  ],
+  "copilot_cli_versions": [
+    {
+      "value": "GitHub Copilot CLI 1.0.79-3.",
+      "row_count": 60
+    },
+    {
+      "value": "GitHub Copilot CLI 1.0.79-4.",
+      "row_count": 164
+    },
+    {
+      "value": "GitHub Copilot CLI 1.0.79-5.",
+      "row_count": 98
+    },
+    {
+      "value": "GitHub Copilot CLI 1.0.79-6.",
+      "row_count": 8
+    },
+    {
+      "value": "GitHub Copilot CLI 1.0.79-7.",
+      "row_count": 1
+    },
+    {
+      "value": "GitHub Copilot CLI 1.0.79-9.",
+      "row_count": 23
+    }
+  ],
+  "source_tree_summary": {
+    "codeweaver_tree_row_counts": {
+      "8dcce950e48c9c4113693e36d79c7f1b8a87e1ac": 154,
+      "a1a45978f9a7f2343f7c819306beddbd23d6d384": 200
+    },
+    "distinct_codeweaver_trees": 2,
+    "distinct_agents_trees": 1,
+    "distinct_pyproject_blobs": 1,
+    "codeweaver_tree_change_files": [
+      "codeweaver/actions.py",
+      "codeweaver/config.py",
+      "codeweaver/copilot.py"
+    ],
+    "change_classification": "The second tree adds ablation-only stage skipping plus timeout/process and transcript instrumentation. The measured full variant has no skipped stages; all 354 rows have ablation_skipped_stage empty. No measured row has run_status=timeout."
+  },
+  "observed_execution": {
+    "variants": {
+      "full": 354
+    },
+    "ablation_skipped_stage": {
+      "None": 354
+    },
+    "run_status": {
+      "completed": 229,
+      "failed": 125
+    }
+  },
+  "current_publication_source_sha": "b53ab7af33af7d125de703d5801e78da422f09b1",
+  "post_measurement_evaluator_repairs": [
+    "0a21864 Exclude inline tests from CRUST oracle",
+    "07bde78 Disclose fixed-oracle isolation repair",
+    "b53ab7a Normalize source provenance across WSL"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__mathgen",
+  "paper_runtime_tests": 5,
+  "static_source_methods": 5,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test3",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test4",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_tests",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    }
+  ],
+  "generated_target_tests": []
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__html",
+  "paper_runtime_tests": 7,
+  "static_source_methods": 7,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test",
+      "target_path": "index.js",
+      "target_name": "test",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test",
+      "target_path": "index.js",
+      "target_name": "additional_test",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test2",
+      "target_path": "index.js",
+      "target_name": "additional_test2",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test3",
+      "target_path": "index.js",
+      "target_name": "additional_test3",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test4",
+      "target_path": "index.js",
+      "target_name": "additional_test4",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test5",
+      "target_path": "index.js",
+      "target_name": "additional_test5",
+      "mapped": true,
+      "mapping_score": 0.928
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_test6",
+      "target_path": "index.js",
+      "target_name": "additional_test6",
+      "mapped": true,
+      "mapping_score": 0.928
+    }
+  ],
+  "generated_target_tests": []
+}

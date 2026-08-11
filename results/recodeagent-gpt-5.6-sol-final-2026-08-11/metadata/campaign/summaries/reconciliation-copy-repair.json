@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-10T08:32:31.074685Z",
+  "classification": "reconciliation_copy_repair",
+  "affected_cells": [
+    {
+      "project_id": "crust__fs_c",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fs_c/rep0",
+      "destination_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fs_c/rep0"
+    },
+    {
+      "project_id": "crust__fs_c",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fs_c/rep1",
+      "destination_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fs_c/rep1"
+    },
+    {
+      "project_id": "crust__fs_c",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fs_c/rep2",
+      "destination_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fs_c/rep2"
+    },
+    {
+      "project_id": "crust__impcheck",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep0",
+      "destination_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__impcheck/rep0"
+    }
+  ],
+  "skipped_special_files": [
+    {
+      "source_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep0/scaffold/.parsed.1.pipe",
+      "kind": "fifo",
+      "reason": "runtime IPC/special file; not candidate source or measurement evidence"
+    },
+    {
+      "source_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep0/scaffold/.feedback.1.pipe",
+      "kind": "fifo",
+      "reason": "runtime IPC/special file; not candidate source or measurement evidence"
+    },
+    {
+      "source_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep0/scaffold/.feedback.1.pipe\udce0b\udcddy=|",
+      "kind": "fifo",
+      "reason": "runtime IPC/special file; not candidate source or measurement evidence"
+    },
+    {
+      "source_path": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep0/scaffold/.directives.1.pipe",
+      "kind": "fifo",
+      "reason": "runtime IPC/special file; not candidate source or measurement evidence"
+    }
+  ],
+  "policy": "Broken symlinks are preserved as symlinks. FIFOs/sockets/devices are runtime IPC artifacts and are excluded; no regular file, directory, candidate output, state, log, or measurement is excluded."
+}

@@ -1,0 +1,4 @@
+[analyze] raw_runs=354 row(s), test_comparisons=14590 row(s), paper_test_projects=54 row(s), generated_test_projects=354 row(s)
+[analyze] schema_valid=True completeness=1.0
+[analyze] table1/2 + supporting tables report primary_variant='full' primary_repetition=0 (project_ids=None)
+[analyze] wrote tables/figures -> /opt/codeweaver-gpt-sol-comparison/analysis-final

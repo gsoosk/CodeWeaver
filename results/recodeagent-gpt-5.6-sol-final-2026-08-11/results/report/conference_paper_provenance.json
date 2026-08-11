@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-11T01:50:27.654187Z",
+  "inputs_sha256": {
+    "report_data": "109f05f88cdf42f0da3fe5dd7bc5a3095a9531ff073393d7ec9fa0f23310a814",
+    "system_comparison": "30377470b338e0ea41639a9c5922c96678d8aee49d3a81b8f5379e5ef76ca032",
+    "analysis_provenance": "d44f35caff2ff3843b39483842ad7a59593c52df223a926873b4647da1e98ef0"
+  },
+  "outputs": {
+    "markdown": "conference_paper.md",
+    "pdf": "conference_paper.pdf",
+    "latex": "conference_paper.tex",
+    "data": "conference_paper_data.json"
+  },
+  "claim_boundary": "Complete is asserted only when the upstream report verdict is complete; all measurements and statistical results are copied, not recomputed."
+}

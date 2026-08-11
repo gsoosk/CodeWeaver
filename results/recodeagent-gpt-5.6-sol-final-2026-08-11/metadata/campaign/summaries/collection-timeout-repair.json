@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-10T16:25:24.222838Z",
+  "classification": "independent_evaluator_timeout_repair",
+  "affected_projects": [
+    "crust__bostree",
+    "crust__genetic-neural-network-for-simple-control",
+    "crust__impcheck"
+  ],
+  "per_command_timeout_seconds": 300,
+  "policy": "Apply collect.py existing explicit per-command timeout to the only three projects that had not produced any normalized row; no completed evidence was replaced.",
+  "observations": [
+    {
+      "project_id": "crust__bostree",
+      "command": "cargo test timing stress/oracle",
+      "observed_elapsed_seconds_before_repair": 2045,
+      "state": "CPU-bound 10,000,000-element timing test"
+    },
+    {
+      "project_id": "crust__genetic-neural-network-for-simple-control",
+      "command": "cargo test test_full_run",
+      "observed_elapsed_seconds_before_repair": 2038,
+      "state": "CPU-bound full-run stress test"
+    },
+    {
+      "project_id": "crust__impcheck",
+      "command": "cargo test scaffold oracle",
+      "observed_elapsed_seconds_before_repair": 1565,
+      "state": "idle FIFO subprocess wait"
+    }
+  ],
+  "normalized_rows": 9,
+  "unresolved_collection_failures": 0,
+  "logs": [
+    "logs/sharded/collect-timeout-crust__bostree.log",
+    "logs/sharded/collect-timeout-crust__genetic-neural-network-for-simple-control.log",
+    "logs/sharded/collect-timeout-crust__impcheck.log"
+  ]
+}

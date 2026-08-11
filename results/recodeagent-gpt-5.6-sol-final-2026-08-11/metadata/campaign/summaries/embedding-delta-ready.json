@@ -1,0 +1,8 @@
+{
+  "schema_version": 4,
+  "generated_at": "2026-08-10T22:22:05.280581Z",
+  "new_keys": 25,
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "policy": "One project per process; commons-validator used exact disjoint repetition shards at batch size 1 with four CPU threads. Discarded resource attempts produced no completed row.",
+  "resource_audit": "embedding-resource-repair.json"
+}

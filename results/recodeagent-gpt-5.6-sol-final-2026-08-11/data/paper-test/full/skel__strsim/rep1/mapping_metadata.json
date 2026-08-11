@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__strsim",
+  "paper_runtime_tests": 19,
+  "static_source_methods": 19,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_levenshtein",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_longest_common_subsequence",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_metric_lcs",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_ngram",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_damerau",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_cosine",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_jaccard",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_jarowinkler",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_normalized_levenshtein",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_optimal_string_alignment",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_0",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_overlap_coefficient_3",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_qgram",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_sift4",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_sorensen_dice",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "test_weighted_levenshtein",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_tests",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    }
+  ],
+  "generated_target_tests": []
+}

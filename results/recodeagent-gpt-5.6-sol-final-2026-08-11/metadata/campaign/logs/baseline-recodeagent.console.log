@@ -1,0 +1,4 @@
+/opt/recodeagent-results-artifact/results/recodeagent_translations/data/tool_projects/alphatrans/commons-validator/verified_test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py:31: SyntaxWarning: invalid escape sequence '\@'
+  "0123456789 ABCDEFHIJKLMNOPQRSTUVWXYZ\tabcdefghijklmnopqrstuvwxyz!\@£$%^&*()_+"
+[baseline-replay] 117 measured, 1 failure/unavailable of 118 expected
+[baseline-replay] outputs -> /opt/codeweaver-gpt-sol-comparison/baselines-recodeagent

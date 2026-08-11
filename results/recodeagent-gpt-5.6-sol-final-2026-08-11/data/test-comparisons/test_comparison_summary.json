@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-10T22:21:59.761308Z",
+  "total_source_tests": 3957,
+  "total_mapped_tests": 2287,
+  "total_generated_tests": 10633,
+  "translation_rate": 0.5779631033611322,
+  "assertion_count_match_rate": 0.45561871447310887,
+  "assertion_count_match_denominator": 2287,
+  "assert_equal_equivalence_rate": 0.6327433628318584,
+  "assert_equal_equivalence_denominator": 226,
+  "assertion_type_match_rate": 0.38850415512465375,
+  "assertion_type_match_denominator": 1444,
+  "embedding_similarity_status": "measured",
+  "embedding_similarity_mean": 0.7951991165025228,
+  "embedding_similarity_count": 2287
+}

@@ -1,0 +1,4222 @@
+{
+  "schema_version": 1,
+  "project_id": "alphatrans__commons-validator",
+  "paper_runtime_tests": 463,
+  "static_source_methods": 463,
+  "mappings": [
+    {
+      "source_path": "org.apache.commons.validator.CreditCardValidatorTest",
+      "source_name": "testAddAllowedCardType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.CreditCardValidatorTest",
+      "source_name": "testIsValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.CustomValidatorResourcesTest",
+      "source_name": "testCustomResources",
+      "target_path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "target_name": "test_uri_file_and_http_url_sources",
+      "mapped": true,
+      "mapping_score": 0.5875280464216635
+    },
+    {
+      "source_path": "org.apache.commons.validator.FieldTest",
+      "source_name": "testDefaultOnePosition",
+      "target_path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "target_name": "test_date_card_email_and_url_composition",
+      "mapped": true,
+      "mapping_score": 0.6421978021978022
+    },
+    {
+      "source_path": "org.apache.commons.validator.FieldTest",
+      "source_name": "testDefaultPositionImplied",
+      "target_path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "target_name": "test_default_options_and_invalid_input",
+      "mapped": true,
+      "mapping_score": 0.6688431792002634
+    },
+    {
+      "source_path": "org.apache.commons.validator.FieldTest",
+      "source_name": "testDefaultSomePositions",
+      "target_path": "tests/org/apache/commons/validator/test_field.py",
+      "target_name": "test_default_argument_positions",
+      "mapped": true,
+      "mapping_score": 0.8346153846153845
+    },
+    {
+      "source_path": "org.apache.commons.validator.FieldTest",
+      "source_name": "testDefaultUsingPositions",
+      "target_path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "target_name": "test_default_singleton_and_factories",
+      "mapped": true,
+      "mapping_score": 0.6641666666666667
+    },
+    {
+      "source_path": "org.apache.commons.validator.FieldTest",
+      "source_name": "testEmptyArgs",
+      "target_path": "tests/org/apache/commons/validator/test_field.py",
+      "target_name": "test_empty_args",
+      "mapped": true,
+      "mapping_score": 0.97
+    },
+    {
+      "source_path": "org.apache.commons.validator.FieldTest",
+      "source_name": "testOverridePositionImplied",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.FieldTest",
+      "source_name": "testOverrideSomePosition",
+      "target_path": "tests/org/apache/commons/validator/test_boundary_contracts.py",
+      "target_name": "test_time_zone_provider_restoration",
+      "mapped": true,
+      "mapping_score": 0.5876521739130435
+    },
+    {
+      "source_path": "org.apache.commons.validator.FieldTest",
+      "source_name": "testOverrideUsingPositionA",
+      "target_path": "tests/org/apache/commons/validator/test_field.py",
+      "target_name": "test_named_arguments_override_defaults_by_position",
+      "mapped": true,
+      "mapping_score": 0.6431428571428571
+    },
+    {
+      "source_path": "org.apache.commons.validator.FieldTest",
+      "source_name": "testOverrideUsingPositionB",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.GenericValidatorTest",
+      "source_name": "testMaxLength",
+      "target_path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "target_name": "test_max_length",
+      "mapped": true,
+      "mapping_score": 0.9764705882352941
+    },
+    {
+      "source_path": "org.apache.commons.validator.GenericValidatorTest",
+      "source_name": "testMinLength",
+      "target_path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "target_name": "test_min_length",
+      "mapped": true,
+      "mapping_score": 0.9764705882352941
+    },
+    {
+      "source_path": "org.apache.commons.validator.ISBNValidatorTest",
+      "source_name": "testIsValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.UrlTest",
+      "source_name": "testIsValid0",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.UrlTest",
+      "source_name": "testIsValidScheme",
+      "target_path": "tests/org/apache/commons/validator/test_url.py",
+      "target_name": "test_is_valid_scheme",
+      "mapped": true,
+      "mapping_score": 0.9715789473684211
+    },
+    {
+      "source_path": "org.apache.commons.validator.UrlTest",
+      "source_name": "testValidateUrl",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.UrlTest",
+      "source_name": "testValidator202",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.UrlTest",
+      "source_name": "testValidator204",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testBigDecimalRangeMinMax",
+      "target_path": "tests/org/apache/commons/validator/routines/test_big_decimal_validator.py",
+      "target_name": "test_big_decimal_common_number_contract",
+      "mapped": true,
+      "mapping_score": 0.5771281355932204
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testBigDecimalValidatorMethods",
+      "target_path": "tests/org/apache/commons/validator/routines/test_big_decimal_validator.py",
+      "target_name": "test_big_decimal_methods_scale_and_ranges",
+      "mapped": true,
+      "mapping_score": 0.6684553846153847
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testInvalidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testInvalidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testValidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testValidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testValidateLocale",
+      "target_path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "target_name": "test_invalid_atom_local_parts",
+      "mapped": true,
+      "mapping_score": 0.7468837209302325
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigDecimalValidatorTest",
+      "source_name": "testValidateMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testBigIntegerRangeMinMax",
+      "target_path": "tests/org/apache/commons/validator/routines/test_big_integer_validator.py",
+      "target_name": "test_big_integer_methods_ranges_and_long_value_narrowing",
+      "mapped": true,
+      "mapping_score": 0.6061413698630137
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testBigIntegerValidatorMethods",
+      "target_path": "tests/org/apache/commons/validator/routines/test_byte_validator.py",
+      "target_name": "test_byte_transformed_methods_and_ranges",
+      "mapped": true,
+      "mapping_score": 0.5781409179056238
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testInvalidNotStrict",
+      "target_path": "tests/org/apache/commons/validator/routines/test_regex_validator.py",
+      "target_name": "test_invalid_pattern_and_string_representation",
+      "mapped": true,
+      "mapping_score": 0.5824918032786884
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testInvalidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testValidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testValidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testValidateLocale",
+      "target_path": "tests/org/apache/commons/validator/routines/test_big_decimal_validator.py",
+      "target_name": "test_java_custom_pattern_locale_matrix",
+      "mapped": true,
+      "mapping_score": 0.6059670588235294
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.BigIntegerValidatorTest",
+      "source_name": "testValidateMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testByteRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testByteValidatorMethods",
+      "target_path": "tests/org/apache/commons/validator/routines/test_time_validator.py",
+      "target_name": "test_time_format_methods",
+      "mapped": true,
+      "mapping_score": 0.6801179941002949
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testFormat",
+      "target_path": "tests/org/apache/commons/validator/routines/test_isbn_validator.py",
+      "target_name": "test_format_regexes",
+      "mapped": true,
+      "mapping_score": 0.7453031792854801
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testInvalidNotStrict",
+      "target_path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "target_name": "test_invalid_idn_and_dotty_hosts",
+      "mapped": true,
+      "mapping_score": 0.6934346504559271
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testInvalidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": "tests/org/apache/commons/validator/routines/test_issn_validator.py",
+      "target_name": "test_issn_vectors_and_normalization",
+      "mapped": true,
+      "mapping_score": 0.6801179941002949
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testValidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testValidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testValidateLocale",
+      "target_path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "target_name": "test_valid_atom_local_parts",
+      "mapped": true,
+      "mapping_score": 0.7794608472400514
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ByteValidatorTest",
+      "source_name": "testValidateMinMax",
+      "target_path": "tests/org/apache/commons/validator/routines/test_inet_address_validator.py",
+      "target_name": "test_valid_embedded_ipv4",
+      "mapped": true,
+      "mapping_score": 0.5935384615384616
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testAdjustToTimeZone",
+      "target_path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "target_name": "test_adjust_to_time_zone_preserves_wall_time_for_different_rules",
+      "mapped": true,
+      "mapping_score": 0.574849229394684
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testCalendarValidatorMethods",
+      "target_path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "target_name": "test_calendar_validator_methods",
+      "mapped": true,
+      "mapping_score": 0.9791735537190083
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testCompare",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testDateTimeStyle",
+      "target_path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "target_name": "test_date_time_style_validator",
+      "mapped": true,
+      "mapping_score": 0.7949875072073803
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testLocaleInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testLocaleValid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_currency_validator.py",
+      "target_name": "test_java_currency_locale_matrix",
+      "mapped": true,
+      "mapping_score": 0.5804189890447818
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testPatternInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testPatternValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CalendarValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CodeValidatorTest",
+      "source_name": "testCheckDigit",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_iban_check_digit.py",
+      "target_name": "test_iban_check_digit_contract",
+      "mapped": true,
+      "mapping_score": 0.69472
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CodeValidatorTest",
+      "source_name": "testConstructors",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_iban_check_digit.py",
+      "target_name": "test_iban_text_vectors",
+      "mapped": true,
+      "mapping_score": 0.6318628571428572
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CodeValidatorTest",
+      "source_name": "testLength",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CodeValidatorTest",
+      "source_name": "testNoInput",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CodeValidatorTest",
+      "source_name": "testRegex",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CodeValidatorTest",
+      "source_name": "testValidator294_1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CodeValidatorTest",
+      "source_name": "testValidator294_2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testAddAllowedCardType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testAmexOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testAmexValidator",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testArrayConstructor",
+      "target_path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "target_name": "test_code_validator_array_constructor_and_errors",
+      "mapped": true,
+      "mapping_score": 0.667581935483871
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testDinersOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testDinersValidator",
+      "target_path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "target_name": "test_combined_ranges_and_predefined_validators",
+      "mapped": true,
+      "mapping_score": 0.6278400000000001
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testDiscoverOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testDiscoverValidator",
+      "target_path": "tests/org/apache/commons/validator/routines/test_isbn_validator.py",
+      "target_name": "test_utf16_dispatch_conversion_and_errors",
+      "mapped": true,
+      "mapping_score": 0.5827745835176176
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testDisjointRange",
+      "target_path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "target_name": "test_valid_length_and_disjoint_ranges",
+      "mapped": true,
+      "mapping_score": 0.7104522448979592
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testGeneric",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testIsValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testMastercardOption",
+      "target_path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "target_name": "test_modern_mastercard_iin_range_is_complete",
+      "mapped": true,
+      "mapping_score": 0.6157020689655173
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testMastercardUsingSeparators",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testMastercardValidator",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testRangeGenerator",
+      "target_path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "target_name": "test_all_dtd_generations",
+      "mapped": true,
+      "mapping_score": 0.6471884057971015
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testRangeGeneratorNoLuhn",
+      "target_path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "target_name": "test_range_generator_without_luhn",
+      "mapped": true,
+      "mapping_score": 0.8636135849056604
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testVPayOption",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testValidLength",
+      "target_path": "tests/org/apache/commons/validator/routines/test_percent_validator.py",
+      "target_name": "test_localized_percent_digits",
+      "mapped": true,
+      "mapping_score": 0.6036465413834466
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testVisaOption",
+      "target_path": "tests/org/apache/commons/validator/test_url.py",
+      "target_name": "test_factories_and_legacy_options",
+      "mapped": true,
+      "mapping_score": 0.601693023255814
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CreditCardValidatorTest",
+      "source_name": "testVisaValidator",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CurrencyValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": "tests/org/apache/commons/validator/routines/test_currency_validator.py",
+      "target_name": "test_currency_format_type_and_valid_values",
+      "mapped": true,
+      "mapping_score": 0.5919735537190083
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CurrencyValidatorTest",
+      "source_name": "testIntegerInvalid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_integer_validator.py",
+      "target_name": "test_integer_common_number_contract",
+      "mapped": true,
+      "mapping_score": 0.5529387755102041
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CurrencyValidatorTest",
+      "source_name": "testIntegerValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CurrencyValidatorTest",
+      "source_name": "testInvalid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_inet_address_validator.py",
+      "target_name": "test_invalid_ipv6",
+      "mapped": true,
+      "mapping_score": 0.7949379652605458
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CurrencyValidatorTest",
+      "source_name": "testPattern",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.CurrencyValidatorTest",
+      "source_name": "testValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DateValidatorTest",
+      "source_name": "testCompare",
+      "target_path": "tests/org/apache/commons/validator/test_url.py",
+      "target_name": "test_source_component_matrices",
+      "mapped": true,
+      "mapping_score": 0.5835162374020156
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DateValidatorTest",
+      "source_name": "testDateValidatorMethods",
+      "target_path": "tests/org/apache/commons/validator/routines/test_date_validator.py",
+      "target_name": "test_date_validator_methods",
+      "mapped": true,
+      "mapping_score": 0.9776991150442478
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DateValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DateValidatorTest",
+      "source_name": "testLocaleInvalid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "target_name": "test_local_part_length_boundary",
+      "mapped": true,
+      "mapping_score": 0.5726315789473684
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DateValidatorTest",
+      "source_name": "testLocaleProviders",
+      "target_path": "tests/org/apache/commons/validator/test_boundary_contracts.py",
+      "target_name": "test_locale_provider_restoration",
+      "mapped": true,
+      "mapping_score": 0.7611111111111111
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DateValidatorTest",
+      "source_name": "testLocaleValid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "target_name": "test_local_and_bare_tld_policy",
+      "mapped": true,
+      "mapping_score": 0.6206315789473684
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DateValidatorTest",
+      "source_name": "testPatternInvalid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_percent_validator.py",
+      "target_name": "test_percent_invalid_values",
+      "mapped": true,
+      "mapping_score": 0.7196059113300493
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DateValidatorTest",
+      "source_name": "testPatternValid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_code_validator.py",
+      "target_name": "test_custom_pattern_java_semantics",
+      "mapped": true,
+      "mapping_score": 0.6291035013466718
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DateValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "target_name": "test_source_exact_authority_normalization_and_ports",
+      "mapped": true,
+      "mapping_score": 0.5768663594470046
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testCannotUpdate",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator_startup.py",
+      "target_name": "test_read_only_tables_cannot_be_updated",
+      "mapped": true,
+      "mapping_score": 0.6754572363296464
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testInstanceOverride",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator_startup.py",
+      "target_name": "test_generic_and_local_startup_overrides",
+      "mapped": true,
+      "mapping_score": 0.644763358778626
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateBaseArrayCC",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateBaseArrayGeneric",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateBaseArrayInfra",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator_startup.py",
+      "target_name": "test_updates_are_locked_after_any_instance_access",
+      "mapped": true,
+      "mapping_score": 0.6074300254452927
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateBaseArrayLocal",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateCountryCode1a",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateCountryCode1b",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateCountryCode2",
+      "target_path": "tests/org/apache/commons/validator/routines/test_date_validator.py",
+      "target_name": "test_date_common_contract",
+      "mapped": true,
+      "mapping_score": 0.6485245901639344
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateCountryCode3a",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateCountryCode3b",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateCountryCode3c",
+      "target_path": "tests/org/apache/commons/validator/routines/test_isin_validator.py",
+      "target_name": "test_isin_vectors_without_country_check",
+      "mapped": true,
+      "mapping_score": 0.5825596778832326
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateGeneric1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateGeneric2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateGeneric3",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateGeneric4",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testUpdateGeneric5",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testVALIDATOR_412a",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testVALIDATOR_412b",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testVALIDATOR_412c",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorStartupTest",
+      "source_name": "testVALIDATOR_412d",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testAllowLocal",
+      "target_path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "target_name": "test_quoted_local_parts",
+      "mapped": true,
+      "mapping_score": 0.6107505070993915
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testDomainNoDots",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_domain_syntax_without_tld_lookup",
+      "mapped": true,
+      "mapping_score": 0.6117948717948719
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testEnumIsPublic",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testGetArray",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testIDN",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testIDNJava6OrLater",
+      "target_path": "tests/org/apache/commons/validator/routines/test_abstract_number_validator.py",
+      "target_name": "test_mapping_java_locale_data_provider",
+      "mapped": true,
+      "mapping_score": 0.6240984615384615
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testInvalidDomains",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_invalid_domains",
+      "mapped": true,
+      "mapping_score": 0.9784615384615385
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testIsIDNtoASCIIBroken",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testRFC2396domainlabel",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_rfc2396_domain_labels",
+      "mapped": true,
+      "mapping_score": 0.958905982905983
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testRFC2396toplabel",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testTopLevelDomains",
+      "target_path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "target_name": "test_calendar_comparisons",
+      "mapped": true,
+      "mapping_score": 0.6335014005602241
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testUnicodeToASCII",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_unicode_to_ascii_preserves_all_trailing_dot_forms",
+      "mapped": true,
+      "mapping_score": 0.5934615384615385
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testValidDomains",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_valid_domains",
+      "mapped": true,
+      "mapping_score": 0.9784615384615385
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testValidator297",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "testValidator306",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "test_COUNTRY_CODE_TLDS_sortedAndLowerCase",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "test_GENERIC_TLDS_sortedAndLowerCase",
+      "target_path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "target_name": "test_generic_type_dates_and_credit_card",
+      "mapped": true,
+      "mapping_score": 0.6170030581039755
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "test_INFRASTRUCTURE_TLDS_sortedAndLowerCase",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_instance_override_arrays_are_sorted_lowercase_and_defensive",
+      "mapped": true,
+      "mapping_score": 0.5751282051282051
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DomainValidatorTest",
+      "source_name": "test_LOCAL_TLDS_sortedAndLowerCase",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_tld_categories_and_case",
+      "mapped": true,
+      "mapping_score": 0.6424615384615385
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testDoubleRangeMinMax",
+      "target_path": "tests/org/apache/commons/validator/test_golden_contracts.py",
+      "target_name": "test_public_export_and_signature_matrix",
+      "mapped": true,
+      "mapping_score": 0.5764444444444444
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testDoubleValidatorMethods",
+      "target_path": "tests/org/apache/commons/validator/routines/test_double_validator.py",
+      "target_name": "test_double_transformed_methods_and_ranges",
+      "mapped": true,
+      "mapping_score": 0.6571916971916972
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testInvalidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testInvalidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testValidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testValidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testValidateLocale",
+      "target_path": "tests/org/apache/commons/validator/routines/test_abstract_calendar_validator.py",
+      "target_name": "test_java_short_date_time_locale_matrix",
+      "mapped": true,
+      "mapping_score": 0.6371962328238382
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.DoubleValidatorTest",
+      "source_name": "testValidateMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmail",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailAtTLD",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailExtension",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailLocalhost",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailUserName",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailWithBogusCharacter",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_label_and_domain_length_boundaries",
+      "mapped": true,
+      "mapping_score": 0.585664217071792
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailWithCommas",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailWithControlChars",
+      "target_path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "target_name": "test_ascii_controls_are_rejected",
+      "mapped": true,
+      "mapping_score": 0.6294077112387203
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailWithDash",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailWithDotEnd",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailWithNumericAddress",
+      "target_path": "tests/org/apache/commons/validator/test_boundary_contracts.py",
+      "target_name": "test_java_numeric_narrowing_boundaries",
+      "mapped": true,
+      "mapping_score": 0.5543450142878628
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailWithSlashes",
+      "target_path": "tests/org/apache/commons/validator/util/test_flags.py",
+      "target_name": "test_clone_equality_hash_and_pickle",
+      "mapped": true,
+      "mapping_score": 0.5704470588235295
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testEmailWithSpaces",
+      "target_path": "tests/org/apache/commons/validator/routines/test_time_validator.py",
+      "target_name": "test_java_timezone_names_and_literal_whitespace",
+      "mapped": true,
+      "mapping_score": 0.5912982456140351
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testVALIDATOR_278",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testVALIDATOR_315",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testValidator235",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testValidator293",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testValidator359",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testValidator365",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testValidator374",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testValidator473_1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testValidator473_2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testValidator473_3",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.EmailValidatorTest",
+      "source_name": "testValidator473_4",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testFloatRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testFloatSmallestValues",
+      "target_path": "tests/org/apache/commons/validator/routines/test_float_validator.py",
+      "target_name": "test_float_methods_binary32_edges_and_ranges",
+      "mapped": true,
+      "mapping_score": 0.5597263007840342
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testFloatValidatorMethods",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testInvalidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testInvalidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testValidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testValidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testValidateLocale",
+      "target_path": "tests/org/apache/commons/validator/routines/test_abstract_number_validator.py",
+      "target_name": "test_java_number_locale_matrix",
+      "mapped": true,
+      "mapping_score": 0.6051612903225807
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.FloatValidatorTest",
+      "source_name": "testValidateMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testGetValidator",
+      "target_path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "target_name": "test_singleton_variants",
+      "mapped": true,
+      "mapping_score": 0.6613371266002845
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testHasValidator",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testInValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testNull",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testSetDefaultValidator1",
+      "target_path": "tests/org/apache/commons/validator/test_credit_card_validator.py",
+      "target_name": "test_deprecated_default_and_option_validation",
+      "mapped": true,
+      "mapping_score": 0.6625909090909091
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testSetDefaultValidator2",
+      "target_path": "tests/org/apache/commons/validator/routines/test_iban_validator.py",
+      "target_name": "test_default_registry_valid_and_invalid_vectors",
+      "mapped": true,
+      "mapping_score": 0.6392375765827093
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testSetValidatorLC",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testSetValidatorLen35",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testSetValidatorLen7",
+      "target_path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "target_name": "test_scheme_validation_and_case_normalization",
+      "mapped": true,
+      "mapping_score": 0.5886666666666667
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testSetValidatorLen_1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testSorted",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IBANValidatorTest",
+      "source_name": "testValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testConversionErrors",
+      "target_path": "tests/org/apache/commons/validator/routines/test_isbn_validator.py",
+      "target_name": "test_conversion_errors",
+      "mapped": true,
+      "mapping_score": 0.9776991150442478
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testInvalidISBN10Format",
+      "target_path": "tests/org/apache/commons/validator/routines/test_isbn_validator.py",
+      "target_name": "test_isbn13_validation_and_normalization",
+      "mapped": true,
+      "mapping_score": 0.6346482675866207
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testInvalidISBN13Format",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testIsValidISBN10",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testIsValidISBN13",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testNull",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testValidISBN10Format",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_isbn10_check_digit.py",
+      "target_name": "test_isbn10_check_digit_contract",
+      "mapped": true,
+      "mapping_score": 0.5765579302587176
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testValidISBN13Format",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testValidateISBN10",
+      "target_path": "tests/org/apache/commons/validator/test_isbn_validator.py",
+      "target_name": "test_deprecated_isbn10_facade",
+      "mapped": true,
+      "mapping_score": 0.6546153846153846
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testValidateISBN10Convert",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISBNValidatorTest",
+      "source_name": "testValidateISBN13",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISINValidatorTest",
+      "source_name": "testInvalidFalse",
+      "target_path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "target_name": "test_invalid_addresses",
+      "mapped": true,
+      "mapping_score": 0.7749707602339181
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISINValidatorTest",
+      "source_name": "testInvalidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISINValidatorTest",
+      "source_name": "testIsValidFalse",
+      "target_path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "target_name": "test_valid_addresses",
+      "mapped": true,
+      "mapping_score": 0.711702786377709
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISINValidatorTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISSNValidatorTest",
+      "source_name": "testConversionErrors",
+      "target_path": "tests/org/apache/commons/validator/routines/test_issn_validator.py",
+      "target_name": "test_conversion_to_ean13",
+      "mapped": true,
+      "mapping_score": 0.741601554068638
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISSNValidatorTest",
+      "source_name": "testInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISSNValidatorTest",
+      "source_name": "testIsValidExtract",
+      "target_path": "tests/org/apache/commons/validator/test_url.py",
+      "target_name": "test_increment_index_contract",
+      "mapped": true,
+      "mapping_score": 0.6340425531914893
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISSNValidatorTest",
+      "source_name": "testIsValidISSN",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISSNValidatorTest",
+      "source_name": "testIsValidISSNConvert",
+      "target_path": "tests/org/apache/commons/validator/routines/test_inet_address_validator.py",
+      "target_name": "test_invalid_prefixes_and_scope_ids",
+      "mapped": true,
+      "mapping_score": 0.5915384615384616
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISSNValidatorTest",
+      "source_name": "testIsValidISSNConvertNull",
+      "target_path": "tests/org/apache/commons/validator/routines/test_isbn_validator.py",
+      "target_name": "test_isbn10_validation_normalization_and_conversion",
+      "mapped": true,
+      "mapping_score": 0.584464110127827
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISSNValidatorTest",
+      "source_name": "testIsValidISSNConvertSuffix",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_idn_domains_and_invalid_conversion",
+      "mapped": true,
+      "mapping_score": 0.6311809256661992
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISSNValidatorTest",
+      "source_name": "testNull",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ISSNValidatorTest",
+      "source_name": "testValidCheckDigitEan13",
+      "target_path": "tests/org/apache/commons/validator/routines/test_currency_validator.py",
+      "target_name": "test_localized_currency_digits",
+      "mapped": true,
+      "mapping_score": 0.6424132730015083
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.InetAddressValidatorTest",
+      "source_name": "testBrokenInetAddresses",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.InetAddressValidatorTest",
+      "source_name": "testIPv6",
+      "target_path": "tests/org/apache/commons/validator/routines/test_inet_address_validator.py",
+      "target_name": "test_valid_ipv6",
+      "mapped": true,
+      "mapping_score": 0.7706336707911511
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.InetAddressValidatorTest",
+      "source_name": "testInetAddressesByClass",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.InetAddressValidatorTest",
+      "source_name": "testInetAddressesFromTheWild",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.InetAddressValidatorTest",
+      "source_name": "testReservedInetAddresses",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.InetAddressValidatorTest",
+      "source_name": "testVALIDATOR_335",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.InetAddressValidatorTest",
+      "source_name": "testVALIDATOR_419",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.InetAddressValidatorTest",
+      "source_name": "testVALIDATOR_445",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testIntegerRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testIntegerValidatorMethods",
+      "target_path": "tests/org/apache/commons/validator/routines/test_time_validator.py",
+      "target_name": "test_time_zone_validation_overloads",
+      "mapped": true,
+      "mapping_score": 0.669655172413793
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testInvalidNotStrict",
+      "target_path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "target_name": "test_idn_and_trailing_dot_hosts",
+      "mapped": true,
+      "mapping_score": 0.6295652173913044
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testInvalidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testMinMaxValues",
+      "target_path": "tests/org/apache/commons/validator/routines/test_code_validator.py",
+      "target_name": "test_minimum_and_maximum_lengths",
+      "mapped": true,
+      "mapping_score": 0.613103448275862
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "target_name": "test_separator_normalization",
+      "mapped": true,
+      "mapping_score": 0.7453755242089211
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testValidNotStrict",
+      "target_path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "target_name": "test_calendar_common_contract",
+      "mapped": true,
+      "mapping_score": 0.612
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testValidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testValidateLocale",
+      "target_path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "target_name": "test_java_date_locale_matrix",
+      "mapped": true,
+      "mapping_score": 0.7624761904761904
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.IntegerValidatorTest",
+      "source_name": "testValidateMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testInvalidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testInvalidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testLongRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testLongValidatorMethods",
+      "target_path": "tests/org/apache/commons/validator/routines/test_iban_validator.py",
+      "target_name": "test_invalid_custom_validator_records",
+      "mapped": true,
+      "mapping_score": 0.6779941002949852
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testValidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testValidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testValidateLocale",
+      "target_path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "target_name": "test_java_date_locale_facade_matrix",
+      "mapped": true,
+      "mapping_score": 0.6696573208722741
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.LongValidatorTest",
+      "source_name": "testValidateMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.PercentValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.PercentValidatorTest",
+      "source_name": "testInvalid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_inet_address_validator.py",
+      "target_name": "test_invalid_ipv4",
+      "mapped": true,
+      "mapping_score": 0.7953470919324578
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.PercentValidatorTest",
+      "source_name": "testValid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_inet_address_validator.py",
+      "target_name": "test_valid_ipv4",
+      "mapped": true,
+      "mapping_score": 0.7707317073170733
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.RegexValidatorTest",
+      "source_name": "testExceptions",
+      "target_path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "target_name": "test_source_component_permutations",
+      "mapped": true,
+      "mapping_score": 0.5606607669616519
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.RegexValidatorTest",
+      "source_name": "testMissingRegex",
+      "target_path": "tests/org/apache/commons/validator/routines/test_regex_validator.py",
+      "target_name": "test_missing_regex_errors",
+      "mapped": true,
+      "mapping_score": 0.8391395881006865
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.RegexValidatorTest",
+      "source_name": "testMultipleInsensitive",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.RegexValidatorTest",
+      "source_name": "testMultipleSensitive",
+      "target_path": "tests/org/apache/commons/validator/routines/test_regex_validator.py",
+      "target_name": "test_multiple_regexes_use_first_full_match",
+      "mapped": true,
+      "mapping_score": 0.5921220442410373
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.RegexValidatorTest",
+      "source_name": "testNullValue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.RegexValidatorTest",
+      "source_name": "testSingle",
+      "target_path": "tests/org/apache/commons/validator/routines/test_inet_address_validator.py",
+      "target_name": "test_singleton",
+      "mapped": true,
+      "mapping_score": 0.814804168163852
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.RegexValidatorTest",
+      "source_name": "testToString",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testFormatType",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testInvalidNotStrict",
+      "target_path": "tests/org/apache/commons/validator/routines/test_issn_validator.py",
+      "target_name": "test_ean13_validation_and_issn_extraction",
+      "mapped": true,
+      "mapping_score": 0.5954887218045112
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testInvalidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testRangeMinMax",
+      "target_path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "target_name": "test_range_and_value_helpers",
+      "mapped": true,
+      "mapping_score": 0.5808547008547009
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testShortRangeMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testShortValidatorMethods",
+      "target_path": "tests/org/apache/commons/validator/routines/test_short_validator.py",
+      "target_name": "test_short_transformed_methods_and_ranges",
+      "mapped": true,
+      "mapping_score": 0.6462836778332146
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testValidNotStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testValidStrict",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testValidateLocale",
+      "target_path": "tests/org/apache/commons/validator/routines/test_time_validator.py",
+      "target_name": "test_java_time_locale_matrix",
+      "mapped": true,
+      "mapping_score": 0.6792982456140351
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.ShortValidatorTest",
+      "source_name": "testValidateMinMax",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.TimeValidatorTest",
+      "source_name": "testCompare",
+      "target_path": "tests/org/apache/commons/validator/routines/test_time_validator.py",
+      "target_name": "test_time_comparisons",
+      "mapped": true,
+      "mapping_score": 0.6843657817109144
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.TimeValidatorTest",
+      "source_name": "testFormat",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.TimeValidatorTest",
+      "source_name": "testLocaleInvalid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "target_name": "test_local_policy_and_singletons",
+      "mapped": true,
+      "mapping_score": 0.5611594202898551
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.TimeValidatorTest",
+      "source_name": "testLocaleValid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_percent_validator.py",
+      "target_name": "test_java_percent_locale_matrix",
+      "mapped": true,
+      "mapping_score": 0.5938916256157635
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.TimeValidatorTest",
+      "source_name": "testPatternInvalid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_time_validator.py",
+      "target_name": "test_time_pattern_and_locale_validity",
+      "mapped": true,
+      "mapping_score": 0.6960991150442478
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.TimeValidatorTest",
+      "source_name": "testPatternValid",
+      "target_path": "tests/org/apache/commons/validator/routines/test_percent_validator.py",
+      "target_name": "test_percent_format_type_and_valid_values",
+      "mapped": true,
+      "mapping_score": 0.6086815415821502
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.TimeValidatorTest",
+      "source_name": "testTimeZone",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testFragments",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testIsValid0",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testIsValidScheme",
+      "target_path": "tests/org/apache/commons/validator/routines/test_inet_address_validator.py",
+      "target_name": "test_invalid_embedded_ipv4",
+      "mapped": true,
+      "mapping_score": 0.622420168067227
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidateUrl",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator202",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator204",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator218",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator235",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator248",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator276",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator283",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator288",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator290",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator309",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator339",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator339IDN",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator342",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator353",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator361",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator363",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator375",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator380",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator382",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator391FAILS",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator391OK",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator411",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator420",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator452",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator464",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator467",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator473_1",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator473_2",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.UrlValidatorTest",
+      "source_name": "testValidator473_3",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": "tests/org/apache/commons/validator/routines/test_inet_address_validator.py",
+      "target_name": "test_valid_prefixes_and_scope_ids",
+      "mapped": true,
+      "mapping_score": 0.5672727272727273
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest",
+      "source_name": "testVALIDATOR_336_InvalidCheckDigits",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_isin_check_digit.py",
+      "target_name": "test_validator_345_rejects_alpha_check_digits",
+      "mapped": true,
+      "mapping_score": 0.7473092690730927
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest",
+      "source_name": "testVALIDATOR_336_ValidCheckDigits",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_sedol_check_digit.py",
+      "target_name": "test_validator_346_rejects_alpha_check_digits",
+      "mapped": true,
+      "mapping_score": 0.7879975505205143
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.EAN13CheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.EAN13CheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.EAN13CheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.EAN13CheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.EAN13CheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.EAN13CheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.EAN13CheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest",
+      "source_name": "testOther",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_isbn_check_digit.py",
+      "target_name": "test_calculate_rejects_invalid_isbn_lengths",
+      "mapped": true,
+      "mapping_score": 0.7074847870182556
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest",
+      "source_name": "testInvalidLength",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_isbn_check_digit.py",
+      "target_name": "test_validation_rejects_invalid_isbn_lengths",
+      "mapped": true,
+      "mapping_score": 0.6348739495798319
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest",
+      "source_name": "testVALIDATOR_345",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISSNCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISSNCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISSNCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISSNCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISSNCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_issn_check_digit.py",
+      "target_name": "test_issn_check_digit_contract",
+      "mapped": true,
+      "mapping_score": 0.5727833572453371
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISSNCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ISSNCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.LuhnCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.LuhnCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.LuhnCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.LuhnCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.LuhnCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.LuhnCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.LuhnCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenABACheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenABACheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenABACheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenABACheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenABACheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenABACheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenABACheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest",
+      "source_name": "testVALIDATOR_336_InvalidCheckDigits",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_isin_check_digit.py",
+      "target_name": "test_isin_check_digit_contract",
+      "mapped": true,
+      "mapping_score": 0.5917278911564625
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest",
+      "source_name": "testVALIDATOR_336_ValidCheckDigits",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_cusip_check_digit.py",
+      "target_name": "test_validator_336_check_digit_must_be_numeric",
+      "mapped": true,
+      "mapping_score": 0.7665930719451847
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenEAN13CheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenEAN13CheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenEAN13CheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenEAN13CheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenEAN13CheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenEAN13CheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenEAN13CheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenLuhnCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenLuhnCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenLuhnCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenLuhnCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenLuhnCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenLuhnCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenLuhnCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest",
+      "source_name": "testVALIDATOR_346",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest",
+      "source_name": "testVALIDATOR_346",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.VerhoeffCheckDigitTest",
+      "source_name": "testCalculateInvalid",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.VerhoeffCheckDigitTest",
+      "source_name": "testCalculateValid",
+      "target_path": "tests/org/apache/commons/validator/routines/checkdigit/test_verhoeff_check_digit.py",
+      "target_name": "test_zero_values_are_valid_verhoeff_inputs",
+      "mapped": true,
+      "mapping_score": 0.5579629629629629
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.VerhoeffCheckDigitTest",
+      "source_name": "testIsValidFalse",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.VerhoeffCheckDigitTest",
+      "source_name": "testIsValidTrue",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.VerhoeffCheckDigitTest",
+      "source_name": "testMissingCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.VerhoeffCheckDigitTest",
+      "source_name": "testSerialization",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.routines.checkdigit.VerhoeffCheckDigitTest",
+      "source_name": "testZeroSum",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testClear",
+      "target_path": "tests/org/apache/commons/validator/util/test_flags.py",
+      "target_name": "test_clear_and_all_flags",
+      "mapped": true,
+      "mapping_score": 0.6378922898101511
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testClone",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testEqualsObject",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testGetFlags",
+      "target_path": "tests/org/apache/commons/validator/util/test_flags.py",
+      "target_name": "test_hash_code_and_get_flags",
+      "mapped": true,
+      "mapping_score": 0.6951139646869984
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testHashCode",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testIsOnOff",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testIsOn_isFalseWhenNotAllFlagsInArgumentAreOn",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testIsOn_isTrueWhenHighOrderBitIsSetAndQueried",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testToString",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testTurnOff",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testTurnOffAll",
+      "target_path": "tests/org/apache/commons/validator/util/test_flags.py",
+      "target_name": "test_turn_on_and_off_combinations",
+      "mapped": true,
+      "mapping_score": 0.5945425361155697
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testTurnOnAll",
+      "target_path": null,
+      "target_name": null,
+      "mapped": false,
+      "mapping_score": null
+    },
+    {
+      "source_path": "org.apache.commons.validator.util.FlagsTest",
+      "source_name": "testTurnOnOff",
+      "target_path": "tests/org/apache/commons/validator/test_supplemental_contracts.py",
+      "target_name": "test_flags_turn_on_and_off",
+      "mapped": true,
+      "mapping_score": 0.7425411764705881
+    }
+  ],
+  "generated_target_tests": [
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_aba_number_check_digit.py",
+      "name": "test_aba_number_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_abstract_check_digit.py",
+      "name": "test_utf16_units_positions_and_errors"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_cusip_check_digit.py",
+      "name": "test_cusip_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_ean13_check_digit.py",
+      "name": "test_ean13_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_iban_check_digit.py",
+      "name": "test_reserved_check_digits_and_zero_body_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_iban_check_digit.py",
+      "name": "test_utf16_rearrangement_and_length_errors"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_isbn_check_digit.py",
+      "name": "test_combined_isbn_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_isbn_check_digit.py",
+      "name": "test_utf16_length_dispatch_and_errors"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_luhn_check_digit.py",
+      "name": "test_luhn_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_modulus_ten_aba_check_digit.py",
+      "name": "test_configurable_aba_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_modulus_ten_cusip_check_digit.py",
+      "name": "test_configurable_cusip_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_modulus_ten_ean13_check_digit.py",
+      "name": "test_configurable_ean13_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_modulus_ten_luhn_check_digit.py",
+      "name": "test_configurable_luhn_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_modulus_ten_sedol_check_digit.py",
+      "name": "test_configurable_sedol_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_sedol_check_digit.py",
+      "name": "test_sedol_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/checkdigit/test_verhoeff_check_digit.py",
+      "name": "test_verhoeff_check_digit_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_big_decimal_validator.py",
+      "name": "test_localized_digits_standard_and_scientific_formats"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_big_integer_validator.py",
+      "name": "test_big_integer_common_number_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_byte_validator.py",
+      "name": "test_byte_common_number_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "name": "test_calendar_format_methods_and_calendar_zone_default"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "name": "test_era_year_and_day_of_week_in_month_fields"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "name": "test_java_pattern_strictness_dst_and_locale_week_rules"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_calendar_validator.py",
+      "name": "test_locale_year_width_digits_and_buddhist_calendar"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_code_validator.py",
+      "name": "test_check_digit_is_optional_and_applied_after_normalization"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_code_validator.py",
+      "name": "test_complete_java_pattern_consumer_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_code_validator.py",
+      "name": "test_null_blank_and_java_trim_behavior"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_code_validator.py",
+      "name": "test_regex_capture_normalization_and_alternatives"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_code_validator.py",
+      "name": "test_transformed_constructor_factories_preserve_configuration"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_code_validator.py",
+      "name": "test_utf16_length_before_and_after_normalization"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "name": "test_first_custom_validator_result_and_outer_trim_are_preserved"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "name": "test_generic_validator_checks_only_digits_length_and_luhn"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "name": "test_option_selection_and_declaration_order"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_credit_card_validator.py",
+      "name": "test_scheme_regex_and_luhn_layers"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_currency_validator.py",
+      "name": "test_currency_integer_only_and_explicit_patterns"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_currency_validator.py",
+      "name": "test_currency_invalid_symbols_and_negative_forms"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_date_validator.py",
+      "name": "test_date_comparisons_and_comparison_zone"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_date_validator.py",
+      "name": "test_dateformat_parity_across_deprecated_and_generic_facades"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_date_validator.py",
+      "name": "test_us_short_date_medium_time_locale_provider_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_domain_validator.py",
+      "name": "test_exact_snapshot_sorting_counts_and_defensive_getters"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_domain_validator_startup.py",
+      "name": "test_instance_overrides_replace_but_do_not_mutate_static_snapshot"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_domain_validator_startup.py",
+      "name": "test_startup_plus_minus_replacement_and_precedence"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_double_validator.py",
+      "name": "test_double_common_number_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_email_validator.py",
+      "name": "test_injected_domain_validator_and_constructor_consistency"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_float_validator.py",
+      "name": "test_float_common_number_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_iban_validator.py",
+      "name": "test_custom_registry_replacement_removal_and_isolation"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_iban_validator.py",
+      "name": "test_default_registry_copy_order_and_record_immutability"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_iban_validator.py",
+      "name": "test_default_validator_cannot_be_modified_by_install_or_remove"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_iban_validator.py",
+      "name": "test_utf16_country_and_iban_length_semantics"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_integer_validator.py",
+      "name": "test_integer_transformed_methods_ranges_and_width_edges"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_isbn_validator.py",
+      "name": "test_null_invalid_check_digits_and_singleton_identity"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_isin_validator.py",
+      "name": "test_isin_vectors_with_country_check"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_issn_validator.py",
+      "name": "test_conversion_requires_two_ascii_digits"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_issn_validator.py",
+      "name": "test_extraction_rejects_wrong_prefix_or_length"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_issn_validator.py",
+      "name": "test_utf16_extraction_conversion_and_errors"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_long_validator.py",
+      "name": "test_long_common_number_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_long_validator.py",
+      "name": "test_long_transformed_methods_ranges_and_overflow"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_regex_validator.py",
+      "name": "test_complete_java_pattern_flags_properties_and_control_escapes"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_regex_validator.py",
+      "name": "test_java_pattern_syntax_and_unicode_semantics"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_regex_validator.py",
+      "name": "test_null_zero_group_and_optional_group_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_regex_validator.py",
+      "name": "test_single_regex_validation_groups_and_case_sensitivity"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_short_validator.py",
+      "name": "test_short_common_number_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_allow_two_slashes_and_no_fragments_options"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_complete_java_pattern_consumer_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_count_token_uses_overlapping_matches"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_custom_authority_and_local_url_policy"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_custom_authority_pattern_java_semantics"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_file_scheme_special_cases"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_injected_domain_validator_and_constructor_consistency"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_path_syntax_and_root_traversal"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_ports_ipv4_ipv6_and_userinfo"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/routines/test_url_validator.py",
+      "name": "test_query_uri_escapes_and_fragment_policy"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_boundary_contracts.py",
+      "name": "test_calendar_locale_provider_isolation"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_boundary_contracts.py",
+      "name": "test_deprecated_facades_remain_distinct"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_credit_card_validator.py",
+      "name": "test_deprecated_custom_credit_card_type_extension"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_credit_card_validator.py",
+      "name": "test_deprecated_luhn_rejects_non_digits_and_zero_sum"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_custom_validator_resources.py",
+      "name": "test_custom_configuration_is_packaged_and_loadable"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_custom_validator_resources.py",
+      "name": "test_xml_declared_encoding_and_java_whitespace_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_field.py",
+      "name": "test_dependency_java_trim_tokenizer_and_null_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_field.py",
+      "name": "test_processing_order_and_clone_boundaries"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_foundations.py",
+      "name": "test_arg_defaults_clone_pickle_and_string"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_foundations.py",
+      "name": "test_java_character_numeric_values"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_foundations.py",
+      "name": "test_java_signed_narrowing_boundaries"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_foundations.py",
+      "name": "test_msg_and_var_defaults_clone_pickle_and_string"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_foundations.py",
+      "name": "test_validator_result_status_and_immutable_action_view"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_foundations.py",
+      "name": "test_validator_results_merge_projection_and_clear"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "name": "test_action_dependency_and_method_parameter_token_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "name": "test_every_bundled_configuration_fixture_loads"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "name": "test_form_extension_and_locale_inheritance_order"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "name": "test_javascript_name_locale_utf16_and_path_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "name": "test_javascript_resource_lifecycle"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "name": "test_ordered_multi_file_merge_and_constant_precedence"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "name": "test_safe_relative_entity_import_and_rejections"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "name": "test_schema_version_boundaries_are_enforced"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_framework_contracts.py",
+      "name": "test_typed_dependency_required_and_variable_graphs"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "name": "test_blank_regexp_and_numeric_helpers"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "name": "test_complete_java_pattern_consumer_contract"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "name": "test_deprecated_date_and_email_helpers"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "name": "test_generic_type_floating_conversion"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "name": "test_generic_type_integral_conversion_boundaries"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "name": "test_generic_type_locale_number_conversion"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "name": "test_match_regexp_java_semantics"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_generic_validator.py",
+      "name": "test_plain_lengths_use_java_utf16_units"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_golden_contracts.py",
+      "name": "test_installed_resource_inventory"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_golden_contracts.py",
+      "name": "test_m10_m16_parity_matrix"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_golden_contracts.py",
+      "name": "test_m18_m20_parity_matrix"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_golden_contracts.py",
+      "name": "test_pickle_and_defensive_view_contracts"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "name": "test_action_exception_logging_and_missing_actions"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "name": "test_all_xml_validation_fixtures_are_exercised_deterministically"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "name": "test_exact_dynamic_parameter_ordering"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "name": "test_field_and_action_dependency_short_circuiting"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "name": "test_indexed_page_and_selected_field_execution"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "name": "test_property_and_callable_boundaries"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "name": "test_result_classification_projection_and_only_errors"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "name": "test_translated_runtime_fixture_helpers"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_runtime_contracts.py",
+      "name": "test_url_relative_entities_and_source_compatible_limits"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_supplemental_contracts.py",
+      "name": "test_domain_tld_snapshot_counts_and_defensive_copies"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_supplemental_contracts.py",
+      "name": "test_flags_clone_and_equality"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_supplemental_contracts.py",
+      "name": "test_flags_clone_has_independent_equal_state"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_supplemental_contracts.py",
+      "name": "test_flags_turn_on_and_off_signed_64_bit_values"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_supplemental_contracts.py",
+      "name": "test_iban_and_verhoeff_zero_sum_contracts"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_supplemental_contracts.py",
+      "name": "test_iban_and_verhoeff_zero_value_contracts"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_supplemental_contracts.py",
+      "name": "test_iban_registry_singleton_identity_and_mutation"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/test_url.py",
+      "name": "test_legacy_url_edges"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/util/test_flags.py",
+      "name": "test_is_on_and_off_requires_all_queried_bits"
+    },
+    {
+      "path": "tests/org/apache/commons/validator/util/test_flags.py",
+      "name": "test_signed_long_narrowing_and_binary_string"
+    },
+    {
+      "path": "tests/test_skeleton_smoke.py",
+      "name": "test_mock_boundary_seams"
+    },
+    {
+      "path": "tests/test_skeleton_smoke.py",
+      "name": "test_package_hierarchy_imports"
+    }
+  ]
+}

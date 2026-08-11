@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-08-11T02:08:32.874275Z",
+  "source_root": "/opt/codeweaver-gpt-sol-comparison/runs-infrastructure-failures",
+  "attempts": [
+    {
+      "attempt": "transcript-arguments-schema-20260805",
+      "state_path": "transcript-arguments-schema-20260805/full/alphatrans__commons-fileupload/rep0/recodeagent_run_state.json",
+      "state_sha256": "6dcba69d3a2907ea8689b5e25efc694f624b512345f2b69b9320a7fac2fe9f20",
+      "variant": "full",
+      "project_id": "alphatrans__commons-fileupload",
+      "repetition": 0,
+      "status": "failed",
+      "started_at": "2026-08-05T17:05:17.918559Z",
+      "ended_at": "2026-08-05T17:15:38.950671Z",
+      "returncode": 1,
+      "num_calls": 1,
+      "error": "3.12/site-packages/burr/core/action.py\", line 887, in run_and_update\n    return self._fn(state, **self._bound_params, **run_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/actions.py\", line 108, in analyze\n    _log_agent(__tracer, stage=\"analyze\", prompt=prompt, result=res)\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/actions.py\", line 56, in _log_agent\n    transcript = transcript_from_events(result.events)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/copilot.py\", line 126, in transcript_from_events\n    cmd = args.get(\"command\") or args.get(\"prompt\") or args.get(\"path\") or \"\"\n          ^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'"
+    },
+    {
+      "attempt": "transcript-arguments-schema-20260805",
+      "state_path": "transcript-arguments-schema-20260805/full/crust__2dpartint/rep0/recodeagent_run_state.json",
+      "state_sha256": "9f6b43b3b5a01f89e0051b4f0ea7d410a015af2bb7d837425ab8bc283033fac4",
+      "variant": "full",
+      "project_id": "crust__2dpartint",
+      "repetition": 0,
+      "status": "failed",
+      "started_at": "2026-08-05T17:05:17.917362Z",
+      "ended_at": "2026-08-05T17:15:26.291132Z",
+      "returncode": 1,
+      "num_calls": 1,
+      "error": "3.12/site-packages/burr/core/action.py\", line 887, in run_and_update\n    return self._fn(state, **self._bound_params, **run_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/actions.py\", line 108, in analyze\n    _log_agent(__tracer, stage=\"analyze\", prompt=prompt, result=res)\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/actions.py\", line 56, in _log_agent\n    transcript = transcript_from_events(result.events)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/copilot.py\", line 126, in transcript_from_events\n    cmd = args.get(\"command\") or args.get(\"prompt\") or args.get(\"path\") or \"\"\n          ^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'"
+    },
+    {
+      "attempt": "transcript-arguments-schema-20260805",
+      "state_path": "transcript-arguments-schema-20260805/full/oxidizer__gohistogram/rep0/recodeagent_run_state.json",
+      "state_sha256": "588644e98a4ae7a0c3434784e8f3c2866eff91c5c1089788bb8619dbc9b43d34",
+      "variant": "full",
+      "project_id": "oxidizer__gohistogram",
+      "repetition": 0,
+      "status": "failed",
+      "started_at": "2026-08-05T17:05:17.919825Z",
+      "ended_at": "2026-08-05T17:12:57.721478Z",
+      "returncode": 1,
+      "num_calls": 1,
+      "error": "3.12/site-packages/burr/core/action.py\", line 887, in run_and_update\n    return self._fn(state, **self._bound_params, **run_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/actions.py\", line 108, in analyze\n    _log_agent(__tracer, stage=\"analyze\", prompt=prompt, result=res)\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/actions.py\", line 56, in _log_agent\n    transcript = transcript_from_events(result.events)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/copilot.py\", line 126, in transcript_from_events\n    cmd = args.get(\"command\") or args.get(\"prompt\") or args.get(\"path\") or \"\"\n          ^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'"
+    },
+    {
+      "attempt": "transcript-arguments-schema-20260805",
+      "state_path": "transcript-arguments-schema-20260805/full/skel__bst/rep0/recodeagent_run_state.json",
+      "state_sha256": "c96ed81e230f8a3725c05aa34c0f88cbdefb4ab6fd3c359e81ad855ddea576cd",
+      "variant": "full",
+      "project_id": "skel__bst",
+      "repetition": 0,
+      "status": "failed",
+      "started_at": "2026-08-05T17:05:17.919651Z",
+      "ended_at": "2026-08-05T17:12:04.968903Z",
+      "returncode": 1,
+      "num_calls": 1,
+      "error": "3.12/site-packages/burr/core/action.py\", line 887, in run_and_update\n    return self._fn(state, **self._bound_params, **run_kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/actions.py\", line 108, in analyze\n    _log_agent(__tracer, stage=\"analyze\", prompt=prompt, result=res)\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/actions.py\", line 56, in _log_agent\n    transcript = transcript_from_events(result.events)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/copilot.py\", line 126, in transcript_from_events\n    cmd = args.get(\"command\") or args.get(\"prompt\") or args.get(\"path\") or \"\"\n          ^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'"
+    }
+  ]
+}

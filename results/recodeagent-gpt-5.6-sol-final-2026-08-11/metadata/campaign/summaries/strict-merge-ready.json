@@ -1,0 +1,10 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-08-11T01:42:31.796551Z",
+  "collection_rows": 354,
+  "paper_rows": 54,
+  "generated_test_rows": 354,
+  "heuristic_run_keys": 354,
+  "collection_sha256": "ccc95eccc5aaaa6562f46c9a8ad939a38915b9807e6a4eacc74cd4f89d4b3cf6",
+  "oracle_isolation_repair_sha256": "73aa1d5656075ae277e0304734e41b9386d316fe11f0ccd134b872583d47c4f0"
+}

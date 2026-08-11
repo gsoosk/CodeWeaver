@@ -1,0 +1,431 @@
+{
+  "schema_version": 1,
+  "title": "CodeWeaver with GPT-5.6 Sol: A Reproducible Evaluation on the ReCodeAgent Benchmark",
+  "complete": true,
+  "primary_metrics": [
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 118.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260805,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.5169491525423728,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 61.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.4322033898305085,
+          0.6101694915254238
+        ],
+        "resamples": 5000,
+        "seed": 20260806,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.4266729947793071,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 899.0,
+      "denominator": 2107.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.18642160540135033,
+          0.7528397963180572
+        ],
+        "resamples": 5000,
+        "seed": 20260807,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 14,
+      "capped_pass_counts": 13,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.6324458695458295,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 74.62861260640788,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.5506314168652351,
+          0.7110803728600339
+        ],
+        "resamples": 5000,
+        "seed": 20260808,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    }
+  ],
+  "variability_metrics": [
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "metric": "compilation_success",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 1.0,
+      "sample_sd": 0.0,
+      "ci_95_t": [
+        1.0,
+        1.0
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "metric": "project_pass_all",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.5141242937853107,
+      "sample_sd": 0.0048927988914374936,
+      "ci_95_t": [
+        0.5019699075430806,
+        0.5262786800275407
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "metric": "validated_test_micro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.4252491694352159,
+      "sample_sd": 0.006059395033129414,
+      "ci_95_t": [
+        0.41019679772302653,
+        0.4403015411474053
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "metric": "validated_test_macro_pass_rate",
+      "expected_repetitions": 3,
+      "measured_repetitions": [
+        0,
+        1,
+        2
+      ],
+      "missing_repetitions": [],
+      "partial": false,
+      "status": "measured",
+      "n": 3,
+      "mean": 0.6326201685618252,
+      "sample_sd": 0.004893468608238655,
+      "ci_95_t": [
+        0.6204641186508332,
+        0.6447762184728173
+      ],
+      "variability_status": "measured",
+      "reason": ""
+    }
+  ],
+  "paired_metrics": [
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "all",
+      "metric": "compilation_success",
+      "metric_kind": "binary",
+      "manifest_projects": 118,
+      "raw_intersection_projects": 117,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 117,
+      "cw_yes_rca_no_wins": 37,
+      "rca_yes_cw_no_losses": 0,
+      "ties": 80,
+      "delta_percentage_points": 31.62393162393162,
+      "exact_mcnemar_p_value": 1.4551915228366852e-11,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        23.076923076923077,
+        40.17094017094017
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "all",
+      "metric": "project_pass_all",
+      "metric_kind": "binary",
+      "manifest_projects": 118,
+      "raw_intersection_projects": 117,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 117,
+      "cw_yes_rca_no_wins": 27,
+      "rca_yes_cw_no_losses": 15,
+      "ties": 75,
+      "delta_percentage_points": 10.256410256410255,
+      "exact_mcnemar_p_value": 0.08842954698775429,
+      "exact_test": "two-sided exact binomial McNemar test",
+      "paired_bootstrap_ci_percentage_points": [
+        -0.8547008547008548,
+        21.367521367521366
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "reason": ""
+    },
+    {
+      "comparison": "CodeWeaver rep0 vs released ReCodeAgent replay",
+      "tool": "all",
+      "metric": "validated_test_project_rate",
+      "metric_kind": "continuous_rate",
+      "manifest_projects": 118,
+      "raw_intersection_projects": 117,
+      "excluded_not_genuinely_measured": 0,
+      "status": "measured",
+      "n": 117,
+      "cw_wins": 12,
+      "ties": 75,
+      "rca_losses": 30,
+      "mean_delta": -0.08747705999597125,
+      "mean_delta_percentage_points": -8.747705999597125,
+      "paired_bootstrap_ci_percentage_points": [
+        -17.36082127937907,
+        -0.6173494956623177
+      ],
+      "bootstrap_status": "measured",
+      "bootstrap_reason": "",
+      "numerical_tolerance": 1e-12,
+      "wilcoxon": {
+        "status": "measured",
+        "statistic": 293.5,
+        "p_value": 0.04530786488610505,
+        "reason": ""
+      },
+      "reason": ""
+    }
+  ],
+  "inventory_completeness": {
+    "expected": 590,
+    "measured": 489,
+    "unavailable": 100,
+    "error": 0,
+    "missing": 1,
+    "accounted_missing": 1,
+    "unaccounted_missing": 0,
+    "accounted_cells": 590,
+    "all_expected_cells_accounted_for": true,
+    "accounting_status": "measured",
+    "policy_statement": "Explicit missing failure evidence is accounted_missing and may be accepted for released-artifact completeness; unaccounted_missing must be rejected."
+  },
+  "crust_three_system_overlap": {
+    "status": "measured",
+    "reason": "",
+    "n_triples": 99,
+    "excluded_projects": 1,
+    "cells": [
+      {
+        "codeweaver_rep0": false,
+        "recodeagent_replay": false,
+        "swe_agent_workbook": false,
+        "count": 0,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": false,
+        "recodeagent_replay": false,
+        "swe_agent_workbook": true,
+        "count": 0,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": false,
+        "recodeagent_replay": true,
+        "swe_agent_workbook": false,
+        "count": 0,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": false,
+        "recodeagent_replay": true,
+        "swe_agent_workbook": true,
+        "count": 0,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": true,
+        "recodeagent_replay": false,
+        "swe_agent_workbook": false,
+        "count": 21,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": true,
+        "recodeagent_replay": false,
+        "swe_agent_workbook": true,
+        "count": 16,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": true,
+        "recodeagent_replay": true,
+        "swe_agent_workbook": false,
+        "count": 37,
+        "swe_agent_track": "published_reference_non_replayed"
+      },
+      {
+        "codeweaver_rep0": true,
+        "recodeagent_replay": true,
+        "swe_agent_workbook": true,
+        "count": 25,
+        "swe_agent_track": "published_reference_non_replayed"
+      }
+    ],
+    "swe_agent_track": "published_reference_non_replayed"
+  },
+  "cost_correctness_frontier": {
+    "status": "unavailable",
+    "reason": "fewer than two systems have genuinely measured, same-unit actual costs; missing replay costs were not mapped to zero",
+    "cost_unit": "nano_aiu",
+    "rows": [
+      {
+        "system": "codeweaver",
+        "track": "measured",
+        "repetition": 0,
+        "actual_cost_metric": "total_nano_aiu",
+        "actual_cost_unit": "nano_aiu",
+        "cost_status": "measured",
+        "mean_actual_cost": 2537095697245.7627,
+        "n_cost_projects": 118,
+        "cost_missing_projects": 0,
+        "cost_partial": false,
+        "project_pass_all_rate": 0.5169491525423728,
+        "correctness_status": "measured",
+        "correctness_n_projects": 118,
+        "correctness_excluded_projects": 0,
+        "correctness_partial": false,
+        "published_reference_cost_status": "unavailable",
+        "published_reference_cost_reason": "Workbook/paper cost is not an actual replay cost and is intentionally kept off this measured-cost frontier"
+      },
+      {
+        "system": "recodeagent",
+        "track": "released_artifact_replay",
+        "repetition": 0,
+        "actual_cost_metric": "total_nano_aiu",
+        "actual_cost_unit": "nano_aiu",
+        "cost_status": "unavailable",
+        "mean_actual_cost": null,
+        "n_cost_projects": 0,
+        "cost_missing_projects": 117,
+        "cost_partial": false,
+        "project_pass_all_rate": 0.4188034188034188,
+        "correctness_status": "measured",
+        "correctness_n_projects": 117,
+        "correctness_excluded_projects": 0,
+        "correctness_partial": false,
+        "published_reference_cost_status": "unavailable",
+        "published_reference_cost_reason": "Workbook/paper cost is not an actual replay cost and is intentionally kept off this measured-cost frontier"
+      },
+      {
+        "system": "prior",
+        "track": "released_artifact_replay",
+        "repetition": 0,
+        "actual_cost_metric": "total_nano_aiu",
+        "actual_cost_unit": "nano_aiu",
+        "cost_status": "unavailable",
+        "mean_actual_cost": null,
+        "n_cost_projects": 0,
+        "cost_missing_projects": 18,
+        "cost_partial": false,
+        "project_pass_all_rate": 0.16666666666666666,
+        "correctness_status": "measured",
+        "correctness_n_projects": 18,
+        "correctness_excluded_projects": 0,
+        "correctness_partial": false,
+        "published_reference_cost_status": "unavailable",
+        "published_reference_cost_reason": "Workbook/paper cost is not an actual replay cost and is intentionally kept off this measured-cost frontier"
+      }
+    ]
+  }
+}

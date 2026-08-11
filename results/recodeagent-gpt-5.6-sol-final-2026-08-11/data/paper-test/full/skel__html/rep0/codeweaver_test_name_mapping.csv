@@ -1,0 +1,8 @@
+project,python test path,python test name,javascript test path,javascript test name,verified test,agent test,mismatch
+html,source.py,test,index.js,test,0,1,1
+html,source.py,additional_test,index.js,additional_test,1,1,0
+html,source.py,additional_test2,index.js,additional_test2,1,1,0
+html,source.py,additional_test3,index.js,additional_test3,1,1,0
+html,source.py,additional_test4,index.js,additional_test4,1,1,0
+html,source.py,additional_test5,index.js,additional_test5,1,1,0
+html,source.py,additional_test6,index.js,additional_test6,1,1,0

@@ -1,0 +1,3 @@
+[run] 354 job(s): variants=['full'] projects=118 repetitions=3
+[run] done: {'completed': 37, 'failed': 17, 'running': 300}
+[run] wrote /opt/codeweaver-gpt-sol-comparison/summaries/full-matrix-recovery-2.json

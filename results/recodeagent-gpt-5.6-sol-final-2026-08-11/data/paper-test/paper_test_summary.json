@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-10T22:21:59.064617Z",
+  "protocol": "Merged ReCodeAgent RQ2 AST comparator and generated-test shards",
+  "input_roots": [
+    "/opt/codeweaver-gpt-sol-comparison/paper-partial-success",
+    "/opt/codeweaver-gpt-sol-comparison/paper-delta-filtered"
+  ],
+  "crust_excluded": true,
+  "project_rows": 54,
+  "failures": 0,
+  "expected_static_source_methods": 4416,
+  "observed_static_source_methods": 4416,
+  "expected_runtime_cases": 4452,
+  "observed_runtime_cases": 4452,
+  "mapped_runtime_cases": 2952,
+  "generated_target_test_methods": 1331,
+  "generated_test_project_rows": 354,
+  "generated_test_failures": 0,
+  "codeweaver_generated_tests_expected": 11143,
+  "codeweaver_generated_tests_executed": 9773,
+  "codeweaver_generated_tests_passed": 9758,
+  "coverage_before_measured_projects": 341,
+  "coverage_after_measured_projects": 341,
+  "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+  "embedding_status": "measured",
+  "complete": true
+}

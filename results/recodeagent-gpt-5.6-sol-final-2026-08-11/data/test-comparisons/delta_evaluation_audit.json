@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-10T22:21:59.780707Z",
+  "policy": "Reuse immutable successful evidence from commit 8e7fc42; discard its 25 nonterminal failure placeholders; admit only the exact 25 terminal keys in missing-keys.json; reject overlap, conflict, missing keys, and failure rows.",
+  "source_snapshot_commit": "8e7fc42",
+  "missing_key_count": 25,
+  "collection_rows": 354,
+  "paper_rows": 54,
+  "generated_test_rows": 354,
+  "heuristic_test_rows": 14590,
+  "heuristic_run_keys": 354,
+  "input_hashes": {
+    "/opt/codeweaver-gpt-sol-comparison/shard-metadata/missing-keys.json": {
+      "sha256": "5bceaa8917bf6ee253d684dbb102b98d8415ecb9158398f0dc033095c67ecc8c",
+      "size_bytes": 1918
+    },
+    "/opt/codeweaver-gpt-sol-interim-paper-2026-08-07/test-comparisons/test_comparisons.jsonl": {
+      "sha256": "f35d1a294b11bfa9ab6793e61d3195a72e6c44e1aa024e53341121924fdb7ba5",
+      "size_bytes": 14213879
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-final-shards/shard-2/paper_test_projects.csv": {
+      "sha256": "b0365818fcc38ad22de506f685371f073664b4368139505d6fa15c8859bf47fe",
+      "size_bytes": 4697
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-final-shards/shard-2/generated_test_projects.jsonl": {
+      "sha256": "8e6a772e4efb91151e8ebc7b3146f2abb5d62b1d6a3a3f6bbaa4efb4b2b98513",
+      "size_bytes": 12006
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/alphatrans__commons-csv/paper_test_projects.csv": {
+      "sha256": "72c7018d28587774a8f08ddcc03afc7313b9c2840b07217891168670f26733f7",
+      "size_bytes": 4718
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/alphatrans__commons-csv/generated_test_projects.jsonl": {
+      "sha256": "3968a32124d9a37eb0d67d32171e53b5c4bffc46cf8b9ccc36143596f6da800e",
+      "size_bytes": 7222
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/alphatrans__commons-validator/paper_test_projects.csv": {
+      "sha256": "9d7bab8b95b19da491cc42dbcbda52c75e8f4f02934265d9da731c30ae98db38",
+      "size_bytes": 3441
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/alphatrans__commons-validator/generated_test_projects.jsonl": {
+      "sha256": "16ad663730603ffad66b563bd0ec99879154ee781e63e740b2705b34118f57b5",
+      "size_bytes": 5301
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/skel__heapq/paper_test_projects.csv": {
+      "sha256": "cb63f50abec50d5e21a85f78da4f2bd63ac0e93bfe3051b1482f7a9661296779",
+      "size_bytes": 2344
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/skel__heapq/generated_test_projects.jsonl": {
+      "sha256": "a30370c897b38cc02beb0dcc4d3d0801fcd62c0eecf2e1a3967100936f1491ed",
+      "size_bytes": 3882
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/skel__html/paper_test_projects.csv": {
+      "sha256": "f9f915ae87c3629fbee4a0810a1f1845415648b21390d0a95b47e0a58015c876",
+      "size_bytes": 2490
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/skel__html/generated_test_projects.jsonl": {
+      "sha256": "6e103404ad2b37d6ab0046dea7eefa1cf8e99635c3a1d5b3f66e7d8cf614e130",
+      "size_bytes": 4047
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/skel__rbt/paper_test_projects.csv": {
+      "sha256": "7989a18f421e0866b073e0ca9aab80af82e51a135fa861857a60d4dc35a51d51",
+      "size_bytes": 2491
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/skel__rbt/generated_test_projects.jsonl": {
+      "sha256": "6093942a81c2d64dae1ba55fee42a356b561609488234bd88b10bb57dcbc054f",
+      "size_bytes": 4047
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/skel__strsim/paper_test_projects.csv": {
+      "sha256": "7ff4915bae8a9713df87f86dc5c2676df7c0df15b0cc9a1bb5f4e5a9d4b16042",
+      "size_bytes": 2430
+    },
+    "/opt/codeweaver-gpt-sol-comparison/paper-projects/skel__strsim/generated_test_projects.jsonl": {
+      "sha256": "0c13b79e4df32d76730587b9ebdf66dd034309f4c59a2fed3d49a6a072ebd08c",
+      "size_bytes": 4010
+    },
+    "/opt/codeweaver-gpt-sol-comparison/test-final-shards/shard-2/test_comparisons.jsonl": {
+      "sha256": "6f232c17aad7963657217dbb5e8da12b072e8eeaa4b94a19040a3e43beba4e60",
+      "size_bytes": 273523
+    },
+    "/opt/codeweaver-gpt-sol-comparison/test-projects/alphatrans__commons-csv/test_comparisons.jsonl": {
+      "sha256": "d72cba620dadb11dd92215a87eb79630979051da9f168fcd5d89003be1f8c9ea",
+      "size_bytes": 977665
+    },
+    "/opt/codeweaver-gpt-sol-comparison/test-projects/alphatrans__commons-validator/test_comparisons.jsonl": {
+      "sha256": "70de8e56a113138dd395cf8c1864de8ab7880209295e235c1bc7dbaab86fc6f9",
+      "size_bytes": 699902
+    },
+    "/opt/codeweaver-gpt-sol-comparison/test-projects/skel__heapq/test_comparisons.jsonl": {
+      "sha256": "b36e404b7d448bdd95a80f5562db81e725a4c58270c8127ebb3ebb731abcfe2e",
+      "size_bytes": 34335
+    },
+    "/opt/codeweaver-gpt-sol-comparison/test-projects/skel__html/test_comparisons.jsonl": {
+      "sha256": "a322bb427b6ef64ef95920dc485160c3d419c1bb155e62e709ef546dbcd0ffa6",
+      "size_bytes": 77376
+    },
+    "/opt/codeweaver-gpt-sol-comparison/test-projects/skel__rbt/test_comparisons.jsonl": {
+      "sha256": "59d8f3fb82ac9400efa89f41e46ffe4821dbd982befe33245b0a44688c3485f5",
+      "size_bytes": 98848
+    },
+    "/opt/codeweaver-gpt-sol-comparison/test-projects/skel__strsim/test_comparisons.jsonl": {
+      "sha256": "faeee1b893873bd69e6372cc2efd6d07685e441c03989c7dcbbc085015d9265e",
+      "size_bytes": 131509
+    }
+  }
+}

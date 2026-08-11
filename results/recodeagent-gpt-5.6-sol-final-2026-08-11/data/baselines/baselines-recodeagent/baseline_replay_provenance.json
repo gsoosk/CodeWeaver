@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-11T00:11:36.812223Z",
+  "mode": "post_hoc_artifact_replay",
+  "fresh_llm_rerun": false,
+  "statement": "This is a uniform post-hoc evaluation of released target artifacts. It materializes isolated evaluator workspaces and calls collect.collect_run directly; it does not invoke ReCodeAgent, SWE-agent, another translation system, or any LLM.",
+  "systems": [
+    "recodeagent"
+  ],
+  "jobs": 4,
+  "evaluator_timeout_seconds": 300.0,
+  "roots": {
+    "implementation_root": "/opt/recodeagent-official/ReCodeAgent",
+    "results_root": "/opt/recodeagent-results-artifact/results",
+    "output_root": "/opt/codeweaver-gpt-sol-comparison/baselines-recodeagent-repaired",
+    "keep_materialized_root": null
+  },
+  "inputs": {
+    "manifest": {
+      "path": "/opt/codeweaver-experiments/manifest/manifest.json",
+      "sha256": "e34c01073bc661b6c84b2f52255a1b44714193b004ff9c9d7939098e41d7eec6",
+      "size_bytes": 66584,
+      "status": "measured",
+      "reason": ""
+    },
+    "config": {
+      "path": "/mnt/c/Users/t-fhabibi/CodeWeaver/experiments/recodeagent/experiment-gpt-5.6-sol.toml",
+      "sha256": "e01c408efdf8a513501a9b117135d7a7a8916e954970ae8768ad5a6ad234ca21",
+      "size_bytes": 4067,
+      "status": "measured",
+      "reason": ""
+    },
+    "results_xlsx": {
+      "path": "/opt/recodeagent-official/results.xlsx",
+      "sha256": "3d635fe30ec7a587201f9731cc69cb5d038a58093d1b9e047253eb085b92578e",
+      "size_bytes": 333789,
+      "status": "measured",
+      "reason": ""
+    }
+  },
+  "environment": {
+    "captured_at": "2026-08-10T23:10:43.953188Z",
+    "model": {
+      "value": null,
+      "status": "not_applicable",
+      "reason": "no model specified"
+    },
+    "agent_timeout_seconds": {
+      "value": null,
+      "status": "not_applicable",
+      "reason": "no timeout specified"
+    },
+    "git_sha": {
+      "value": "0a21864ec68989ab4973d8a04ae441b45254365e",
+      "status": "measured",
+      "reason": ""
+    },
+    "codeweaver_package_version": {
+      "value": "0.1.0",
+      "status": "measured",
+      "reason": ""
+    },
+    "copilot_cli_version": {
+      "value": "GitHub Copilot CLI 1.0.79-9.",
+      "status": "measured",
+      "reason": ""
+    },
+    "python_version": {
+      "value": "3.12.3",
+      "status": "measured",
+      "reason": ""
+    },
+    "os": {
+      "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+      "status": "measured",
+      "reason": ""
+    },
+    "hostname": {
+      "value": "CPC-tfhab-FSGML",
+      "status": "measured",
+      "reason": ""
+    },
+    "toolchains": {
+      "rustc": {
+        "value": "rustc 1.92.0-nightly (52618eb33 2025-09-14)",
+        "status": "measured",
+        "reason": ""
+      },
+      "cargo": {
+        "value": "cargo 1.92.0-nightly (24bb93c38 2025-09-10)",
+        "status": "measured",
+        "reason": ""
+      },
+      "node": {
+        "value": "v22.16.0",
+        "status": "measured",
+        "reason": ""
+      },
+      "npm": {
+        "value": "11.4.0",
+        "status": "measured",
+        "reason": ""
+      },
+      "java": {
+        "value": "openjdk version \"21.0.12\" 2026-07-21 LTS",
+        "status": "measured",
+        "reason": ""
+      },
+      "go": {
+        "value": "go version go1.24.4 linux/amd64",
+        "status": "measured",
+        "reason": ""
+      },
+      "git": {
+        "value": "git version 2.43.0",
+        "status": "measured",
+        "reason": ""
+      }
+    }
+  },
+  "artifact_layout_contract": {
+    "implementation_targets": "<implementation-root>/data/tool_projects/{tool}/{project}/{rust|python|javascript}",
+    "recodeagent_targets": "<results-root>/recodeagent_translations/data/tool_projects/{tool}/{project}/{rust|python|javascript}",
+    "reference_results_root": "/opt/recodeagent-results-artifact/results"
+  },
+  "evaluator_entrypoint_adaptations": {
+    "prior_skel": "copy translated.js to index.js in the isolated target, preserving translated.js",
+    "recodeagent_skel": "copy source.js to index.js in the isolated target only when index.js is absent, preserving source.js",
+    "all_other_cases": "none"
+  },
+  "swe_agent_outputs": {
+    "available": false,
+    "statement": "Released SWE-agent CRUST targets are unavailable; implementation rust trees are pristine evaluator scaffolds only and are excluded as candidate outputs."
+  }
+}

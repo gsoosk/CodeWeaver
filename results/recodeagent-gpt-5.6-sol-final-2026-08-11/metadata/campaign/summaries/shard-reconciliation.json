@@ -1,0 +1,4027 @@
+{
+  "schema_version": 4,
+  "generated_at": "2026-08-10T08:32:31.078725Z",
+  "expected_cells": 354,
+  "reconciled_cells": 354,
+  "counts": {
+    "completed": 229,
+    "failed": 125,
+    "timeout": 0
+  },
+  "errors": [],
+  "restart_audits": [
+    "/opt/codeweaver-gpt-sol-comparison/summaries/wsl-restart-recovery.json",
+    "/opt/codeweaver-gpt-sol-comparison/summaries/wsl-restart-recovery-2.json"
+  ],
+  "copy_repair_audit": "/opt/codeweaver-gpt-sol-comparison/summaries/reconciliation-copy-repair.json",
+  "records": [
+    {
+      "project_id": "crust__2dpartint",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__2dpartint/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__2dpartint/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__2dpartint",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__2dpartint/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__2dpartint/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__2dpartint",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__2dpartint/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__2dpartint/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__42-kocaeli-printf",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__42-kocaeli-printf/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__42-kocaeli-printf/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__42-kocaeli-printf",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__42-kocaeli-printf/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__42-kocaeli-printf/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__42-kocaeli-printf",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__42-kocaeli-printf/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__42-kocaeli-printf/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__aes128-simd",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__aes128-simd/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__aes128-simd/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__aes128-simd",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__aes128-simd/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__aes128-simd/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__aes128-simd",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__aes128-simd/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__aes128-simd/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__amp",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__amp/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__amp/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__amp",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__amp/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__amp/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__amp",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__amp/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__amp/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__approxidate",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__approxidate/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__approxidate/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__approxidate",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__approxidate/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__approxidate/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__approxidate",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__approxidate/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__approxidate/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__avalanche",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__avalanche/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__avalanche/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__avalanche",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__avalanche/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__avalanche/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__avalanche",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__avalanche/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__avalanche/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__bhshell",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bhshell/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bhshell/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__bhshell",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bhshell/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bhshell/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__bhshell",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bhshell/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bhshell/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__bigint",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bigint/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bigint/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__bigint",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bigint/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bigint/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__bigint",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bigint/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bigint/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__bitset",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bitset/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bitset/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__bitset",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bitset/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bitset/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__bitset",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bitset/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bitset/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__blt",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__blt/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__blt/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__blt",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__blt/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__blt/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__blt",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__blt/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__blt/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__bostree",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__bostree",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__bostree",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__bostree/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__btree-map",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__btree-map/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__btree-map/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__btree-map",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__btree-map/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__btree-map/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__btree-map",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__btree-map/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__btree-map/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__c-aces",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-aces/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-aces/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__c-aces",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-aces/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-aces/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__c-aces",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-aces/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-aces/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__c-blind-rsa-signatures",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__c-blind-rsa-signatures",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__c-blind-rsa-signatures",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-blind-rsa-signatures/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__c-string",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-string/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-string/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__c-string",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-string/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-string/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__c-string",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-string/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__c-string/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__carrays",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__carrays/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__carrays/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__carrays/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__carrays",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__carrays/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__carrays/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__carrays/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__carrays",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__carrays/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__carrays/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__carrays/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__cfsm",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cfsm/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cfsm/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cfsm/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__cfsm",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cfsm/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cfsm/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cfsm/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__cfsm",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cfsm/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cfsm/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cfsm/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__chtrie",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__chtrie/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__chtrie/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__chtrie/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__chtrie",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__chtrie/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__chtrie/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__chtrie/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__chtrie",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__chtrie/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__chtrie/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__chtrie/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__circularbuffer",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__circularbuffer/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__circularbuffer/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__circularbuffer/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__circularbuffer",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__circularbuffer/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__circularbuffer/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__circularbuffer/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__circularbuffer",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__circularbuffer/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__circularbuffer/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__circularbuffer/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__cissy",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cissy/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cissy/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cissy/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__cissy",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cissy/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cissy/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cissy/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__cissy",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cissy/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cissy/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cissy/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__cjson",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cjson/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cjson/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cjson/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__cjson",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cjson/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cjson/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cjson/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__cjson",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cjson/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cjson/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cjson/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__clhash",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clhash/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__clhash/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clhash/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__clhash",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clhash/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__clhash/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clhash/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__clhash",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clhash/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__clhash/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clhash/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__clog",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clog/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__clog/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clog/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__clog",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clog/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__clog/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clog/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__clog",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clog/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__clog/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__clog/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__coroutine",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__coroutine/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__coroutine/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__coroutine/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__coroutine",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__coroutine/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__coroutine/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__coroutine/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__coroutine",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__coroutine/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__coroutine/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__coroutine/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__cset",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cset/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cset/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cset/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__cset",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cset/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cset/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cset/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__cset",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cset/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__cset/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__cset/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__csyncmers",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__csyncmers/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__csyncmers/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__csyncmers/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__csyncmers",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__csyncmers/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__csyncmers/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__csyncmers/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__csyncmers",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__csyncmers/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__csyncmers/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__csyncmers/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__dict",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__dict/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__dict/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__dict/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__dict",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__dict/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__dict/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__dict/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__dict",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__dict/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__dict/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__dict/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__emlang",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__emlang/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__emlang/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__emlang/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__emlang",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__emlang/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__emlang/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__emlang/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__emlang",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__emlang/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__emlang/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__emlang/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__expr",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__expr/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__expr",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__expr/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__expr",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__expr/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__expr/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fasthamming",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__fasthamming/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fasthamming/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__fasthamming/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fasthamming",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__fasthamming/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fasthamming/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__fasthamming/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fasthamming",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__fasthamming/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fasthamming/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard4/full/crust__fasthamming/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fft",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fft/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fft/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fft/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fft",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fft/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fft/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fft/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fft",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fft/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fft/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fft/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__file2str",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__file2str/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__file2str/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__file2str/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__file2str",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__file2str/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__file2str/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__file2str/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__file2str",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__file2str/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__file2str/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__file2str/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fleur",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fleur/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fleur/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fleur/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fleur",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fleur/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fleur/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fleur/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fleur",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fleur/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fleur/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fleur/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fs_c",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fs_c/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fs_c/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fs_c/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fs_c",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fs_c/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fs_c/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fs_c/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__fs_c",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fs_c/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fs_c/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fs_c/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__fslib",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fslib/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fslib/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fslib/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__fslib",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fslib/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fslib/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fslib/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__fslib",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fslib/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__fslib/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__fslib/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__genetic-neural-network-for-simple-control",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__genetic-neural-network-for-simple-control/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__genetic-neural-network-for-simple-control/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__genetic-neural-network-for-simple-control/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__genetic-neural-network-for-simple-control",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__genetic-neural-network-for-simple-control/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__genetic-neural-network-for-simple-control/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__genetic-neural-network-for-simple-control/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__genetic-neural-network-for-simple-control",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__genetic-neural-network-for-simple-control/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__genetic-neural-network-for-simple-control/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__genetic-neural-network-for-simple-control/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__geofence",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__geofence/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__geofence/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__geofence/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__geofence",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__geofence/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__geofence/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__geofence/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__geofence",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__geofence/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__geofence/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__geofence/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__gfc",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gfc/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__gfc/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gfc/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__gfc",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gfc/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__gfc/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gfc/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__gfc",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gfc/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__gfc/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gfc/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__gorilla-paper-encode",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gorilla-paper-encode/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__gorilla-paper-encode/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gorilla-paper-encode/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__gorilla-paper-encode",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gorilla-paper-encode/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__gorilla-paper-encode/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gorilla-paper-encode/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__gorilla-paper-encode",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gorilla-paper-encode/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__gorilla-paper-encode/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__gorilla-paper-encode/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__graph-recogniser",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__graph-recogniser/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__graph-recogniser/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__graph-recogniser/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__graph-recogniser",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__graph-recogniser/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__graph-recogniser/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__graph-recogniser/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__graph-recogniser",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__graph-recogniser/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__graph-recogniser/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__graph-recogniser/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__hamta",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hamta/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__hamta/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hamta/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__hamta",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hamta/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__hamta/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hamta/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__hamta",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hamta/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__hamta/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hamta/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__holdem-odds",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__holdem-odds/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__holdem-odds/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__holdem-odds/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__holdem-odds",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__holdem-odds/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__holdem-odds/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__holdem-odds/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__holdem-odds",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__holdem-odds/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__holdem-odds/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__holdem-odds/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__hydra",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__hydra/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__hydra",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__hydra/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__hydra",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__hydra/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__hydra/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__impcheck",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__impcheck/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__impcheck",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__impcheck/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__impcheck",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__impcheck/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__impcheck/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__inversion_list",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__inversion_list/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__inversion_list/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__inversion_list/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__inversion_list",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__inversion_list/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__inversion_list/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__inversion_list/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__inversion_list",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__inversion_list/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__inversion_list/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__inversion_list/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__jccc",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__jccc/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__jccc/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__jccc/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__jccc/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__jccc",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__jccc/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__jccc/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__jccc/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__jccc/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__jccc",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__jccc/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__jccc/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__jccc/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__jccc/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__kairocompiler",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kairocompiler/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__kairocompiler/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__kairocompiler/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kairocompiler/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__kairocompiler",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kairocompiler/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__kairocompiler/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__kairocompiler/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kairocompiler/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__kairocompiler",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kairocompiler/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__kairocompiler/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__kairocompiler/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kairocompiler/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__kd3",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kd3/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__kd3/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__kd3/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kd3/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__kd3",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kd3/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__kd3/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__kd3/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kd3/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__kd3",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kd3/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__kd3/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__kd3/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__kd3/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__lambda-calculus-eval",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lambda-calculus-eval/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__lambda-calculus-eval/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__lambda-calculus-eval/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lambda-calculus-eval/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__lambda-calculus-eval",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lambda-calculus-eval/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__lambda-calculus-eval/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__lambda-calculus-eval/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lambda-calculus-eval/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__lambda-calculus-eval",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lambda-calculus-eval/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__lambda-calculus-eval/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__lambda-calculus-eval/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lambda-calculus-eval/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__leftpad",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__leftpad/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__leftpad/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__leftpad/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__leftpad/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__leftpad",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__leftpad/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__leftpad/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__leftpad/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__leftpad/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__leftpad",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__leftpad/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__leftpad/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__leftpad/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__leftpad/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__lib2bit",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lib2bit/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__lib2bit/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__lib2bit/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lib2bit/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__lib2bit",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lib2bit/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__lib2bit/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__lib2bit/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lib2bit/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__lib2bit",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lib2bit/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__lib2bit/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__lib2bit/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__lib2bit/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libbase122",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbase122/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libbase122/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libbase122/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbase122/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libbase122",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbase122/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libbase122/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libbase122/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbase122/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libbase122",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbase122/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libbase122/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libbase122/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbase122/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libbeaufort",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbeaufort/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libbeaufort/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libbeaufort/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbeaufort/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libbeaufort",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbeaufort/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libbeaufort/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libbeaufort/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbeaufort/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libbeaufort",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbeaufort/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libbeaufort/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libbeaufort/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libbeaufort/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libfor",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libfor/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libfor/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libfor/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libfor/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libfor",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libfor/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libfor/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libfor/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libfor/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libfor",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libfor/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libfor/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libfor/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libfor/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libm17",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libm17/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libm17/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libm17/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libm17/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libm17",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libm17/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libm17/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libm17/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libm17/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libm17",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libm17/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libm17/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libm17/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libm17/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libpgn",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpgn/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libpgn/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libpgn/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpgn/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libpgn",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpgn/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libpgn/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libpgn/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpgn/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libpgn",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpgn/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libpgn/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libpgn/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpgn/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libpsbt",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libpsbt/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libpsbt/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libpsbt",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libpsbt/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libpsbt/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libpsbt",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libpsbt/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libpsbt/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libpsbt/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libqueue",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libqueue/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libqueue/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libqueue/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libqueue/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libqueue",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libqueue/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libqueue/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libqueue/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libqueue/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libqueue",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libqueue/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libqueue/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libqueue/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libqueue/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libtinyfseq",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libtinyfseq/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libtinyfseq/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libtinyfseq/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libtinyfseq/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libtinyfseq",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libtinyfseq/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libtinyfseq/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libtinyfseq/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libtinyfseq/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libtinyfseq",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libtinyfseq/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libtinyfseq/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard3/full/crust__libtinyfseq/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard7/full/crust__libtinyfseq/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libutf",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libutf/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libutf/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libutf/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libutf",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libutf/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libutf/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libutf/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libutf",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libutf/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libutf/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libutf/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__libvcd",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libvcd/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libvcd/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libvcd/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libvcd",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libvcd/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libvcd/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libvcd/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libvcd",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libvcd/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libvcd/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libvcd/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libwecan",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libwecan/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libwecan/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libwecan/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libwecan",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libwecan/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libwecan/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libwecan/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__libwecan",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libwecan/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__libwecan/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__libwecan/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__linear-algebra-c",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__linear-algebra-c/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__linear-algebra-c/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__linear-algebra-c/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__linear-algebra-c",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__linear-algebra-c/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__linear-algebra-c/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__linear-algebra-c/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__linear-algebra-c",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__linear-algebra-c/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__linear-algebra-c/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__linear-algebra-c/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__ljmm",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ljmm/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ljmm/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ljmm/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__ljmm",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ljmm/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ljmm/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ljmm/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__ljmm",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ljmm/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ljmm/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ljmm/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__ltre",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ltre/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ltre/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ltre/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__ltre",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ltre/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ltre/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ltre/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__ltre",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ltre/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ltre/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ltre/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__math-library-in-c",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__math-library-in-c/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__math-library-in-c/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__math-library-in-c/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__math-library-in-c",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__math-library-in-c/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__math-library-in-c/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__math-library-in-c/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__math-library-in-c",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__math-library-in-c/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__math-library-in-c/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__math-library-in-c/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__matrix_multiplication",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__matrix_multiplication/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__matrix_multiplication/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__matrix_multiplication/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__matrix_multiplication",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__matrix_multiplication/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__matrix_multiplication/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__matrix_multiplication/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__matrix_multiplication",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__matrix_multiplication/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__matrix_multiplication/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__matrix_multiplication/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__mdb",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mdb/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__mdb/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mdb/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__mdb",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mdb/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__mdb/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mdb/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__mdb",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mdb/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__mdb/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mdb/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__megalania",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__megalania/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__megalania",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__megalania/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__megalania",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__megalania/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__megalania/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__merkle-tree-c",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__merkle-tree-c/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__merkle-tree-c/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__merkle-tree-c/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__merkle-tree-c",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__merkle-tree-c/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__merkle-tree-c/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__merkle-tree-c/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__merkle-tree-c",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__merkle-tree-c/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__merkle-tree-c/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__merkle-tree-c/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__morton",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__morton/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__morton/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__morton/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__morton",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__morton/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__morton/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__morton/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__morton",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__morton/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__morton/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__morton/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__murmurhash_c",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__murmurhash_c/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__murmurhash_c/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__murmurhash_c/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__murmurhash_c",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__murmurhash_c/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__murmurhash_c/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__murmurhash_c/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__murmurhash_c",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__murmurhash_c/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__murmurhash_c/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__murmurhash_c/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__mvptree",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mvptree/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__mvptree/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mvptree/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__mvptree",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mvptree/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__mvptree/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mvptree/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__mvptree",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mvptree/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__mvptree/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__mvptree/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__nandc",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__nandc/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__nandc/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__nandc",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__nandc/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__nandc/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__nandc",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__nandc/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__nandc/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__nandc/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__phills_dht",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__phills_dht/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__phills_dht/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__phills_dht",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__phills_dht/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__phills_dht/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__phills_dht",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__phills_dht/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__phills_dht/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__phills_dht/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__quadtree",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__quadtree/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__quadtree/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__quadtree",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__quadtree/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__quadtree/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__quadtree",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__quadtree/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__quadtree/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__quadtree/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__razz_simulation",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__razz_simulation/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__razz_simulation/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__razz_simulation",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__razz_simulation/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__razz_simulation/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__razz_simulation",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__razz_simulation/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__razz_simulation/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__razz_simulation/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__rbtree-lab",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rbtree-lab/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rbtree-lab/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__rbtree-lab",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rbtree-lab/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rbtree-lab/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__rbtree-lab",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rbtree-lab/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rbtree-lab/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rbtree-lab/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__recordmanager",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__recordmanager/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__recordmanager/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__recordmanager",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__recordmanager/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__recordmanager/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__recordmanager",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__recordmanager/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__recordmanager/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__recordmanager/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__rect_pack_h",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rect_pack_h/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rect_pack_h/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__rect_pack_h",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rect_pack_h/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rect_pack_h/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__rect_pack_h",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rect_pack_h/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rect_pack_h/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rect_pack_h/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__remimu",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__remimu/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__remimu/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__remimu",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__remimu/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__remimu/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__remimu",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__remimu/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__remimu/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__remimu/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__rhbloom",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rhbloom/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rhbloom/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__rhbloom",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rhbloom/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rhbloom/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__rhbloom",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rhbloom/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rhbloom/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rhbloom/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__roaring-bitmap",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__roaring-bitmap/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__roaring-bitmap/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__roaring-bitmap",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__roaring-bitmap/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__roaring-bitmap/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__roaring-bitmap",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__roaring-bitmap/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__roaring-bitmap/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__roaring-bitmap/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__rubiksolver",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rubiksolver/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rubiksolver/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__rubiksolver",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rubiksolver/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rubiksolver/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__rubiksolver",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__rubiksolver/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__rubiksolver/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__rubiksolver/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__satc",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__satc/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__satc/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__satc",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__satc/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__satc/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__satc",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__satc/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__satc/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__satc/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__simple-config",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simple-config/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simple-config/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simple-config",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simple-config/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simple-config/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__simple-config",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simple-config/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simple-config/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-config/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simple-sparsehash/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simple-sparsehash/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simple-sparsehash/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simple-sparsehash/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simple-sparsehash",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simple-sparsehash/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simple-sparsehash/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard8/full/crust__simple-sparsehash/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simple_lang",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simple_lang/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simple_lang/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simple_lang/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simple_lang/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simple_lang",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simple_lang/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simple_lang/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simple_lang/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simple_lang/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simple_lang",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simple_lang/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simple_lang/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simple_lang/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simple_lang/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simplexml",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simplexml/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simplexml/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simplexml/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simplexml/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simplexml",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simplexml/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simplexml/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simplexml/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simplexml/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__simplexml",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simplexml/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__simplexml/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__simplexml/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__simplexml/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__skp",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__skp/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__skp/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__skp/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__skp/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__skp",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__skp/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__skp/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__skp/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__skp/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__skp",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__skp/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__skp/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__skp/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__skp/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__slothlang",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__slothlang/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__slothlang/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__slothlang/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__slothlang/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__slothlang",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__slothlang/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__slothlang/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__slothlang/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__slothlang/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__slothlang",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__slothlang/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__slothlang/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__slothlang/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__slothlang/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__ted",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ted/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ted/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ted/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ted/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__ted",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ted/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ted/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ted/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ted/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__ted",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ted/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ted/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ted/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ted/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__tisp",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__tisp/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__tisp/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__tisp/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__tisp/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__tisp",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__tisp/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__tisp/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__tisp/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__tisp/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__tisp",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__tisp/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__tisp/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__tisp/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__tisp/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__totp",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__totp/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__totp/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__totp/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__totp/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__totp",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__totp/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__totp/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__totp/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__totp/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__totp",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__totp/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__totp/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__totp/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__totp/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__ulidgen",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ulidgen/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ulidgen/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ulidgen/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ulidgen/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__ulidgen",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ulidgen/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ulidgen/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ulidgen/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ulidgen/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__ulidgen",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ulidgen/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__ulidgen/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__ulidgen/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__ulidgen/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__utf8",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__utf8/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__utf8/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__utf8/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__utf8/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__utf8",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__utf8/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__utf8/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__utf8/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__utf8/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__utf8",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__utf8/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__utf8/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__utf8/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__utf8/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__vaultsync",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vaultsync/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__vaultsync/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__vaultsync/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vaultsync/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__vaultsync",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vaultsync/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__vaultsync/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__vaultsync/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vaultsync/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__vaultsync",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vaultsync/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__vaultsync/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__vaultsync/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vaultsync/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__vec",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vec/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__vec/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__vec/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vec/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__vec",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vec/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__vec/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__vec/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vec/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__vec",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vec/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__vec/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__vec/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__vec/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__worsp",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__worsp/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__worsp/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__worsp",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__worsp/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__worsp/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__worsp",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__worsp/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__worsp/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__worsp/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "crust__xopt",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__xopt/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__xopt/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__xopt/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__xopt/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__xopt",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__xopt/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__xopt/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__xopt/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__xopt/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "crust__xopt",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__xopt/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/crust__xopt/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/crust__xopt/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/crust__xopt/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__checkdigit",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__checkdigit/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__checkdigit/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__checkdigit/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__checkdigit/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__checkdigit",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__checkdigit/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__checkdigit/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__checkdigit/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__checkdigit/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__checkdigit",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__checkdigit/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__checkdigit/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__checkdigit/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__checkdigit/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__go-edlib/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__go-edlib/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__go-edlib/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__go-edlib/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__go-edlib",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__go-edlib/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__go-edlib/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__go-edlib/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__gohistogram",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__gohistogram/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__gohistogram/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__gohistogram",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__gohistogram/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__gohistogram/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__gohistogram",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__gohistogram/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__gohistogram/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__gonameparts",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__gonameparts/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__gonameparts/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__gonameparts",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__gonameparts/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__gonameparts/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__gonameparts",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__gonameparts/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__gonameparts/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__gonameparts/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__stats",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__stats/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__stats/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__stats/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__stats/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__stats",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__stats/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__stats/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__stats/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__stats/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__stats",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__stats/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__stats/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__stats/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__stats/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__textrank",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__textrank/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__textrank/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__textrank/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__textrank/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__textrank",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__textrank/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__textrank/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__textrank/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__textrank/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "oxidizer__textrank",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__textrank/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/oxidizer__textrank/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/oxidizer__textrank/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/oxidizer__textrank/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "alphatrans__commons-cli",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-cli/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-cli/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/alphatrans__commons-cli/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-cli/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "alphatrans__commons-cli",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-cli/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-cli/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/alphatrans__commons-cli/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-cli/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "alphatrans__commons-cli",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-cli/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-cli/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/alphatrans__commons-cli/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-cli/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "alphatrans__commons-csv",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-csv/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-csv/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/alphatrans__commons-csv/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-csv/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "alphatrans__commons-csv",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-csv/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-csv/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/alphatrans__commons-csv/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-csv/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "alphatrans__commons-csv",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-csv/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-csv/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/alphatrans__commons-csv/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-csv/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "alphatrans__commons-fileupload",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-fileupload/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-fileupload/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "alphatrans__commons-fileupload",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-fileupload/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-fileupload/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "alphatrans__commons-fileupload",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-fileupload/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-fileupload/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "alphatrans__commons-validator",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-validator/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-validator/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/alphatrans__commons-validator/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-validator/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "alphatrans__commons-validator",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-validator/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-validator/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/alphatrans__commons-validator/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-validator/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "alphatrans__commons-validator",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-validator/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/alphatrans__commons-validator/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/alphatrans__commons-validator/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/alphatrans__commons-validator/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__bst",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__bst/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__bst/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__bst",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__bst/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__bst/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__bst",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__bst/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__bst/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__colorsys",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__colorsys/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__colorsys/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__colorsys/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__colorsys/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__colorsys",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__colorsys/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__colorsys/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__colorsys/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__colorsys/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__colorsys",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__colorsys/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__colorsys/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__colorsys/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__colorsys/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__heapq",
+      "repetition": 0,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__heapq/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__heapq/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__heapq/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__heapq/rep0"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__heapq",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__heapq/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__heapq/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__heapq/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__heapq/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__heapq",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__heapq/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__heapq/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__heapq/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__heapq/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__html",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__html/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__html/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__html/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__html/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__html",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__html/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__html/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__html/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__html/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__html",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__html/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__html/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__html/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__html/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__mathgen",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__mathgen/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__mathgen/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__mathgen/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__mathgen/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__mathgen",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__mathgen/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__mathgen/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__mathgen/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__mathgen/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__mathgen",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__mathgen/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__mathgen/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__mathgen/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__mathgen/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__rbt",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__rbt/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__rbt/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__rbt/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__rbt/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__rbt",
+      "repetition": 1,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__rbt/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__rbt/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__rbt/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__rbt/rep1"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__rbt",
+      "repetition": 2,
+      "status": "completed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__rbt/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__rbt/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__rbt/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__rbt/rep2"
+      ],
+      "initial_status": "completed"
+    },
+    {
+      "project_id": "skel__strsim",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__strsim/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__strsim/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__strsim/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__strsim/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__strsim",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__strsim/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__strsim/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__strsim/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__strsim/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__strsim",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__strsim/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__strsim/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__strsim/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__strsim/rep2"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__toml",
+      "repetition": 0,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__toml/rep0",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__toml/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__toml/rep0",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__toml/rep0"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__toml",
+      "repetition": 1,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__toml/rep1",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__toml/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__toml/rep1",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__toml/rep1"
+      ],
+      "initial_status": "failed"
+    },
+    {
+      "project_id": "skel__toml",
+      "repetition": 2,
+      "status": "failed",
+      "source_run_dir": "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__toml/rep2",
+      "reservation_chain": [
+        "/opt/codeweaver-gpt-sol-comparison/runs/full/skel__toml/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard2/full/skel__toml/rep2",
+        "/opt/codeweaver-gpt-sol-comparison/runs-shard6/full/skel__toml/rep2"
+      ],
+      "initial_status": "failed"
+    }
+  ]
+}

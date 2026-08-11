@@ -1,0 +1,4 @@
+[report] verdict=COMPLETE coverage_fraction=1.0
+[report] wrote /opt/codeweaver-gpt-sol-comparison/report-final/reproducibility_report.md
+[report] wrote /opt/codeweaver-gpt-sol-comparison/report-final/reproducibility_report.pdf
+[report] wrote /opt/codeweaver-gpt-sol-comparison/report-final/manifest_checksum_provenance.json

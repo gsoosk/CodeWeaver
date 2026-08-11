@@ -1,0 +1,8 @@
+/opt/recodeagent-results-artifact/results/recodeagent_translations/data/tool_projects/alphatrans/commons-validator/verified_test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py:31: SyntaxWarning: invalid escape sequence '\@'
+  "0123456789 ABCDEFHIJKLMNOPQRSTUVWXYZ\tabcdefghijklmnopqrstuvwxyz!\@£$%^&*()_+"
+/opt/recodeagent-results-artifact/results/recodeagent_translations/data/tool_projects/alphatrans/commons-validator/verified_test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py:31: SyntaxWarning: invalid escape sequence '\@'
+  "0123456789 ABCDEFHIJKLMNOPQRSTUVWXYZ\tabcdefghijklmnopqrstuvwxyz!\@£$%^&*()_+"
+/opt/recodeagent-results-artifact/results/recodeagent_translations/data/tool_projects/alphatrans/commons-validator/verified_test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py:31: SyntaxWarning: invalid escape sequence '\@'
+  "0123456789 ABCDEFHIJKLMNOPQRSTUVWXYZ\tabcdefghijklmnopqrstuvwxyz!\@£$%^&*()_+"
+[collect] 33 measured run(s) -> /opt/codeweaver-gpt-sol-comparison/collected-shards/small-1/raw_runs.csv
+[collect] 0 unresolved run(s) -> /opt/codeweaver-gpt-sol-comparison/collected-shards/small-1/failures.csv

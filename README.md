@@ -23,6 +23,17 @@ translation: Python→Rust, Java→Go, COBOL→Java, JS→TS, and so on.
 
 ---
 
+## Evaluation artifact
+
+The complete 118-project reproduction of the ReCodeAgent experiments is in
+[`results/recodeagent-gpt-5.6-sol-final-2026-08-11/`](results/recodeagent-gpt-5.6-sol-final-2026-08-11/).
+Start with the [conference paper PDF](results/recodeagent-gpt-5.6-sol-final-2026-08-11/results/report/conference_paper.pdf)
+or the [final verification record](results/recodeagent-gpt-5.6-sol-final-2026-08-11/metadata/final_verification.json).
+The split raw-run archive uses Git LFS; normalized data, tables, figures, and
+PDFs are regular Git files.
+
+---
+
 ## 1. How it works
 
 ```

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "project_id": "skel__colorsys",
+  "paper_runtime_tests": 2,
+  "static_source_methods": 2,
+  "mappings": [
+    {
+      "source_path": "source.py",
+      "source_name": "test_assertions",
+      "target_path": "test/index.test.js",
+      "target_name": "test_assertions",
+      "mapped": true,
+      "mapping_score": 0.916
+    },
+    {
+      "source_path": "source.py",
+      "source_name": "additional_tests",
+      "target_path": "test/index.test.js",
+      "target_name": "additional_tests",
+      "mapped": true,
+      "mapping_score": 0.916
+    }
+  ],
+  "generated_target_tests": []
+}
