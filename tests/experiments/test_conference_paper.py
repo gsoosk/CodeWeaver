@@ -151,6 +151,8 @@ def test_generate_complete_conference_paper(tmp_path: Path, monkeypatch: pytest.
     assert "50.0%" in result["markdown"].read_text(encoding="utf-8")
     assert "300-second" in result["markdown"].read_text(encoding="utf-8")
     assert "300-second" in result["latex"].read_text(encoding="utf-8")
+    assert "target-authored inline Rust tests" in result["markdown"].read_text(encoding="utf-8")
+    assert "117 available ReCodeAgent" in result["latex"].read_text(encoding="utf-8")
     assert "2 exact repository revisions" in result["markdown"].read_text(encoding="utf-8")
     assert "2 exact repository revisions" in result["latex"].read_text(encoding="utf-8")
     assert r"project\_pass\_all" in result["latex"].read_text(encoding="utf-8")

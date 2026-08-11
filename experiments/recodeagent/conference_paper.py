@@ -115,6 +115,23 @@ def build_sections(
         if git_revisions or cli_revisions
         else "No repository or Copilot CLI revision drift was observed."
     )
+    primary_micro = next(
+        (
+            row for row in primary
+            if row.get("metric") == "validated_test_micro_pass_rate"
+        ),
+        {},
+    )
+    capped_primary_projects = int(primary_micro.get("capped_pass_counts") or 0)
+    oracle_isolation_statement = (
+        "The fixed CRUST oracle runs only pristine binary/integration contracts "
+        "and AST-removes target-authored inline Rust tests from a temporary copy. "
+        "All 318 affected CodeWeaver cells and 117 available ReCodeAgent artifacts "
+        "were re-evaluated after this isolation repair; original run outputs remain "
+        "unchanged. Fixed-denominator rate credit is capped per project, affecting "
+        f"{capped_primary_projects} primary-repetition project(s), while raw execution "
+        "counts remain available."
+    )
 
     abstract = (
         f"We evaluate CodeWeaver with GPT-5.6 Sol on the {project_count}-project "
@@ -198,7 +215,7 @@ def build_sections(
             "Three projects with nonterminating stress or FIFO-wait commands use "
             "the collector's 300-second per-command limit; the repair audit "
             "records that no completed normalized row was replaced. "
-            + revision_statement,
+            + oracle_isolation_statement + " " + revision_statement,
         ),
         RD.ReportSection("Artifact completion and claim boundary", verdict_body),
         RD.ReportSection(
@@ -269,7 +286,7 @@ def build_sections(
             "The preregistered repetition prevents post-hoc run selection. Three "
             "independent evaluations required the documented 300-second command "
             "cap after unbounded stress or FIFO-wait tests did not terminate. "
-            + revision_statement,
+            + oracle_isolation_statement + " " + revision_statement,
         ),
         RD.ReportSection(
             "Artifact and reproducibility",
@@ -323,6 +340,23 @@ def build_latex(
         if git_revision_count or cli_revision_count
         else "No repository or Copilot CLI revision drift was observed."
     )
+    primary_micro = next(
+        (
+            row for row in rows
+            if row.get("metric") == "validated_test_micro_pass_rate"
+        ),
+        {},
+    )
+    capped_primary_projects = int(primary_micro.get("capped_pass_counts") or 0)
+    oracle_isolation_threat = (
+        "The fixed CRUST oracle removes target-authored test files and "
+        "AST-strips inline Rust tests only in a temporary evaluator copy. "
+        "All 318 affected CodeWeaver cells and 117 available ReCodeAgent "
+        "artifacts were re-evaluated after this repair; original outputs are "
+        "unchanged. Per-project fixed-denominator pass credit is capped, "
+        f"affecting {capped_primary_projects} primary-repetition projects while "
+        "raw execution counts remain available."
+    )
     return rf"""\documentclass[10pt,twocolumn]{{article}}
 \usepackage[margin=0.75in]{{geometry}}
 \usepackage{{booktabs,graphicx,hyperref,xcolor}}
@@ -368,6 +402,7 @@ unavailable; workbook values are reference-only. Missing costs are not zero.
 Three independent evaluations use a documented 300-second command cap after
 unbounded stress or FIFO-wait tests did not terminate; no completed normalized
 row was replaced. {_latex_escape(revision_threat)}
+{_latex_escape(oracle_isolation_threat)}
 \section{{Reproducibility}}
 The package contains source, raw normalized evidence, filtered run archives,
 provenance, infrastructure audits, and SHA-256 checksums.
