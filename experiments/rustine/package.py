@@ -13,6 +13,10 @@ from typing import Any
 
 from experiments.recodeagent import package_results as PR
 from experiments.rustine import common as C
+from experiments.rustine.evaluate import (
+    GRABC_CONFIGURED_EXECUTION,
+    GRABC_EVALUATION_EXECUTION,
+)
 from experiments.rustine.report import RUSTINE_ARTIFACT_REPOSITORY
 
 EXPECTED_SUBJECT_IDS = set(range(1, 24))
@@ -163,6 +167,29 @@ def validate_completeness(
         report_manifest.get("summary_figure_pdf_status") == C.MEASURED
     )
     evaluation_schema_valid = evaluation.get("schema_version") == 2
+    execution_overrides = evaluation.get("execution_overrides") or {}
+    override_rows = execution_overrides.get("overrides") or []
+    grabc_row = next(
+        (row for row in rows if row.get("subject_id") == 6),
+        {},
+    )
+    grabc_execution = grabc_row.get("contract_execution") or {}
+    execution_override_valid = (
+        execution_overrides.get("schema_version") == 1
+        and execution_overrides.get("subjects_sha256")
+        == (evaluation.get("provenance") or {}).get("harness_config_sha256")
+        and len(override_rows) == 1
+        and override_rows[0].get("subject_id") == 6
+        and override_rows[0].get("configured_value")
+        == GRABC_CONFIGURED_EXECUTION
+        and override_rows[0].get("evaluation_value")
+        == GRABC_EVALUATION_EXECUTION
+        and grabc_execution.get("configured")
+        == GRABC_CONFIGURED_EXECUTION
+        and grabc_execution.get("evaluated")
+        == GRABC_EVALUATION_EXECUTION
+        and grabc_execution.get("override_applied") is True
+    )
 
     def csv_rows(name: str) -> int | None:
         path = report_root / name
@@ -200,6 +227,7 @@ def validate_completeness(
             missing_evaluation_files,
             missing_report_files,
             [] if evaluation_schema_valid else ["evaluation schema"],
+            [] if execution_override_valid else ["evaluation override provenance"],
             [] if report_row_counts_valid else ["report CSV row counts"],
             [] if evaluation_csv_rows_valid else ["evaluation CSV row count"],
         )
@@ -209,6 +237,7 @@ def validate_completeness(
         "expected_runs": 23,
         "evaluation_rows": len(rows),
         "evaluation_schema_valid": evaluation_schema_valid,
+        "execution_override_valid": execution_override_valid,
         "evaluation_csv_rows": evaluation_csv_rows,
         "evaluation_csv_rows_valid": evaluation_csv_rows_valid,
         "report_csv_rows": report_csv_rows,
@@ -474,6 +503,10 @@ def build_package(
     _copy_file(
         repository_root / "experiments" / "rustine" / "experiment.toml",
         output_root / "reproduction" / "experiment.toml",
+    )
+    _copy_file(
+        repository_root / "experiments" / "rustine" / "evaluation_overrides.json",
+        output_root / "reproduction" / "evaluation_overrides.json",
     )
     if artifact_license is not None:
         _copy_file(

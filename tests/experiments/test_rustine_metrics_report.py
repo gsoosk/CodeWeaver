@@ -8,7 +8,11 @@ from types import SimpleNamespace
 from experiments.rustine import common as C
 from experiments.rustine import evaluate as rustine_evaluate
 from experiments.rustine.config import load_subject_config
-from experiments.rustine.evaluate import evaluate_workspace, run_workspace_stage
+from experiments.rustine.evaluate import (
+    evaluate_workspace,
+    load_execution_overrides,
+    run_workspace_stage,
+)
 from experiments.rustine.evaluator import (
     parse_llvm_cov_json,
     parse_newmetrics_output,
@@ -105,21 +109,28 @@ def test_parallel_evaluation_preserves_subject_order(tmp_path, monkeypatch):
         "protocol": {"repetitions": 1},
     }
 
+    executions = {}
+
     def fake_evaluate(subject, _manifest_row, **kwargs):
+        executions[subject["id"]] = kwargs["contract_executions"]
         return {
             "subject_id": subject["id"],
             "workspace": str(kwargs["workspace"]),
         }
 
     monkeypatch.setattr(rustine_evaluate, "evaluate_workspace", fake_evaluate)
+    overrides = load_execution_overrides()
     result = rustine_evaluate.evaluate_runs(
         config=config,
         manifest=manifest,
         runs_root=tmp_path,
         repetitions=1,
         max_workers=4,
+        execution_overrides=overrides,
     )
     assert [row["subject_id"] for row in result["rows"]] == list(range(1, 24))
+    assert executions[6] == [{"target": "grabc", "args": ["-v"], "stdin": None}]
+    assert result["execution_overrides"] == overrides
 
 
 def test_runtime_execution_overlay_preserves_legacy_contract(tmp_path, monkeypatch):
@@ -128,12 +139,19 @@ def test_runtime_execution_overlay_preserves_legacy_contract(tmp_path, monkeypat
     contract_dir.mkdir(parents=True)
     contract_path = contract_dir / "contract.json"
     contract_path.write_text(
-        json.dumps({"schema_version": 1, "executions": None}),
+        json.dumps(
+            {
+                "schema_version": 1,
+                "executions": [
+                    {"target": "test_grabc", "args": ["-v"], "stdin": None}
+                ],
+            }
+        ),
         encoding="utf-8",
     )
     target = workspace / "pipeline" / "target"
     target.mkdir(parents=True)
-    expected = [{"target": "test_grabc", "args": ["-v"], "stdin": None}]
+    expected = [{"target": "grabc", "args": ["-v"], "stdin": None}]
     observed = []
 
     def fake_evaluate_stage(stage, *, target, contract_dir, timeout):
@@ -152,11 +170,14 @@ def test_runtime_execution_overlay_preserves_legacy_contract(tmp_path, monkeypat
         contract_dir=contract_dir,
         timeout=7,
         contract_executions=expected,
+        contract_execution_override=True,
     )
 
     assert result["stage"] == "test"
     assert observed[0]["executions"] == expected
-    assert json.loads(contract_path.read_text(encoding="utf-8"))["executions"] is None
+    assert json.loads(contract_path.read_text(encoding="utf-8"))["executions"] == [
+        {"target": "test_grabc", "args": ["-v"], "stdin": None}
+    ]
 
 
 def test_binary_statistics_are_exact_and_bounded():

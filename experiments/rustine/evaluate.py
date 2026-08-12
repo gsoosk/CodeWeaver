@@ -19,6 +19,13 @@ from experiments.rustine.config import load_subject_config, subjects_by_id
 from experiments.rustine.evaluator import CommandBackend
 
 StageRunner = Callable[..., dict[str, Any]]
+DEFAULT_EXECUTION_OVERRIDES = Path(__file__).with_name("evaluation_overrides.json")
+GRABC_CONFIGURED_EXECUTION = [
+    {"target": "test_grabc", "args": ["-v"], "stdin": None}
+]
+GRABC_EVALUATION_EXECUTION = [
+    {"target": "grabc", "args": ["-v"], "stdin": None}
+]
 SAFETY_HIR_FIELDS = (
     "raw_pointer_declarations",
     "raw_pointer_dereferences",
@@ -26,6 +33,40 @@ SAFETY_HIR_FIELDS = (
     "unsafe_type_casts",
     "unsafe_calls",
 )
+
+
+def load_execution_overrides(
+    path: str | Path = DEFAULT_EXECUTION_OVERRIDES,
+    *,
+    config_path: str | Path = C.DEFAULT_CONFIG,
+) -> dict[str, Any]:
+    data = C.read_json(Path(path))
+    if set(data) != {"schema_version", "subjects_sha256", "overrides"}:
+        raise ValueError("evaluation override keys drifted")
+    if data["schema_version"] != 1:
+        raise ValueError("unsupported evaluation override schema")
+    if data["subjects_sha256"] != C.file_sha256(Path(config_path)):
+        raise ValueError("evaluation overrides do not match the frozen subjects.json")
+    overrides = data["overrides"]
+    if not isinstance(overrides, list) or len(overrides) != 1:
+        raise ValueError("exactly one documented evaluation override is required")
+    override = overrides[0]
+    if set(override) != {
+        "subject_id",
+        "configured_value",
+        "evaluation_value",
+        "reason",
+    }:
+        raise ValueError("evaluation override row keys drifted")
+    if (
+        override["subject_id"] != 6
+        or override["configured_value"] != GRABC_CONFIGURED_EXECUTION
+        or override["evaluation_value"] != GRABC_EVALUATION_EXECUTION
+        or not isinstance(override["reason"], str)
+        or not override["reason"].strip()
+    ):
+        raise ValueError("Grabc production-CLI evaluation override drifted")
+    return data
 
 
 def _load_workspace_evaluator(path: Path):
@@ -43,6 +84,8 @@ def _load_workspace_evaluator(path: Path):
 def _runtime_contract(
     contract_dir: Path,
     executions: list[dict[str, Any]] | None,
+    *,
+    allow_execution_override: bool = False,
 ):
     if not executions:
         yield contract_dir
@@ -51,9 +94,13 @@ def _runtime_contract(
     frozen_executions = lock.get("executions")
     if frozen_executions is not None:
         if frozen_executions != executions:
-            raise ValueError("prepared contract executions differ from subjects.json")
-        yield contract_dir
-        return
+            if not allow_execution_override:
+                raise ValueError(
+                    "prepared contract executions differ from subjects.json"
+                )
+        else:
+            yield contract_dir
+            return
     with TemporaryDirectory(prefix="rustine-runtime-contract-") as scratch:
         runtime_contract = Path(scratch) / "oracle"
         shutil.copytree(contract_dir, runtime_contract)
@@ -70,10 +117,15 @@ def run_workspace_stage(
     contract_dir: Path,
     timeout: float,
     contract_executions: list[dict[str, Any]] | None = None,
+    contract_execution_override: bool = False,
 ) -> dict[str, Any]:
     evaluator_path = workspace / "immutable_evaluator.py"
     module = _load_workspace_evaluator(evaluator_path)
-    with _runtime_contract(contract_dir, contract_executions) as runtime_contract:
+    with _runtime_contract(
+        contract_dir,
+        contract_executions,
+        allow_execution_override=contract_execution_override,
+    ) as runtime_contract:
         return module.evaluate_stage(
             stage, target=target, contract_dir=runtime_contract, timeout=timeout
         )
@@ -222,10 +274,17 @@ def evaluate_workspace(
     measure_coverage: bool = True,
     measure_safety: bool = True,
     stage_runner: StageRunner = run_workspace_stage,
+    contract_executions: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     run_completion, state = _run_completion(workspace)
     integrity = _integrity_measurement(workspace, manifest_row)
     usage = _usage_measurements(workspace)
+    configured_executions = subject["contract"].get("executions")
+    evaluated_executions = (
+        configured_executions
+        if contract_executions is None
+        else contract_executions
+    )
     row: dict[str, Any] = {
         "subject_id": subject["id"],
         "subject": subject["name"],
@@ -241,6 +300,11 @@ def evaluate_workspace(
         "paper_safety": subject["paper_safety"],
         "run_completion": run_completion,
         "contract_integrity": integrity,
+        "contract_execution": {
+            "configured": configured_executions,
+            "evaluated": evaluated_executions,
+            "override_applied": evaluated_executions != configured_executions,
+        },
         "elapsed_seconds": _elapsed_measurement(state),
         **usage,
     }
@@ -288,7 +352,10 @@ def evaluate_workspace(
         "target": target,
         "contract_dir": workspace / "oracle",
         "timeout": timeout,
-        "contract_executions": subject["contract"].get("executions"),
+        "contract_executions": evaluated_executions,
+        "contract_execution_override": (
+            evaluated_executions != configured_executions
+        ),
     }
     build = stage_runner("build", **stage_args)
     tests = stage_runner("test", **stage_args)
@@ -383,9 +450,19 @@ def evaluate_runs(
     measure_safety: bool = True,
     max_workers: int = 1,
     stage_runner: StageRunner = run_workspace_stage,
+    execution_overrides: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     by_subject = subjects_by_id(config)
     manifest_rows = {int(row["subject_id"]): row for row in manifest["projects"]}
+    override_document = execution_overrides or {
+        "schema_version": 1,
+        "subjects_sha256": None,
+        "overrides": [],
+    }
+    overrides_by_subject = {
+        int(row["subject_id"]): row
+        for row in override_document["overrides"]
+    }
     repetitions = repetitions if repetitions is not None else int(
         manifest.get("protocol", {}).get("repetitions", config["protocol"]["repetitions"])
     )
@@ -400,6 +477,7 @@ def evaluate_runs(
 
     def evaluate_one(job):
         subject, manifest_row, workspace, repetition = job
+        override = overrides_by_subject.get(subject["id"])
         return evaluate_workspace(
             subject,
             manifest_row,
@@ -410,6 +488,9 @@ def evaluate_runs(
             measure_coverage=measure_coverage,
             measure_safety=measure_safety,
             stage_runner=stage_runner,
+            contract_executions=(
+                override["evaluation_value"] if override else None
+            ),
         )
 
     if max_workers <= 1:
@@ -425,6 +506,7 @@ def evaluate_runs(
         "protocol": {**config["protocol"], "evaluated_repetitions": repetitions},
         "runs_root": str(runs_root),
         "rows": rows,
+        "execution_overrides": override_document,
         "preparation_provenance": manifest.get("provenance", {}),
         "provenance": {
             **C.collect_provenance(),
@@ -480,6 +562,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--runs-root", required=True)
     parser.add_argument("--out", required=True)
+    parser.add_argument(
+        "--execution-overrides",
+        default=str(DEFAULT_EXECUTION_OVERRIDES),
+    )
     parser.add_argument("--variant", default="full")
     parser.add_argument("--repetitions", type=int)
     parser.add_argument("--timeout", type=float)
@@ -493,6 +579,10 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     config = load_subject_config(args.config)
     manifest = C.read_json(args.manifest)
+    execution_overrides = load_execution_overrides(
+        args.execution_overrides,
+        config_path=args.config,
+    )
     evaluation = evaluate_runs(
         config=config,
         manifest=manifest,
@@ -503,6 +593,7 @@ def main(argv: list[str] | None = None) -> int:
         measure_coverage=not args.no_coverage,
         measure_safety=not args.no_safety,
         max_workers=max(1, args.jobs),
+        execution_overrides=execution_overrides,
     )
     json_path, csv_path = write_evaluation(Path(args.out), evaluation)
     print(f"wrote {json_path} and {csv_path}")

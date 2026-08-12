@@ -83,9 +83,14 @@ file.
   assertion credit for both derived checks is unavailable.
 - Measured workspaces prepared by harness commit `f4c3a0d` omitted the already
   validated Grabc/HT execution arguments from `contract.json`. Independent
-  evaluation verifies the original contract hash, overlays the exact
-  `subjects.json` executions in a temporary copy, and leaves archived run
-  evidence byte-identical. New preparations persist the field directly.
+  evaluation verifies the original contract hash and overlays runtime metadata
+  in a temporary copy, leaving archived run evidence byte-identical. New
+  preparations persist the field directly.
+- `evaluation_overrides.json` corrects Grabc's derived version check to invoke
+  the candidate's production `grabc -v` binary rather than the disclosed
+  `test_grabc` X11 driver, which can print the version without executing
+  candidate code. The original `subjects.json` remains frozen; evaluation JSON
+  records both values and whether the documented override was applied.
 - The artifact does not disclose bzip2's augmented 36-assertion module. Its
   measured oracle is therefore a deterministic CLI compression round trip;
   exact assertion credit remains unavailable.

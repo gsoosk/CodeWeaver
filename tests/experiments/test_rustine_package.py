@@ -11,6 +11,10 @@ from experiments.rustine.package import (
     _test_evidence,
     validate_completeness,
 )
+from experiments.rustine.evaluate import (
+    GRABC_CONFIGURED_EXECUTION,
+    GRABC_EVALUATION_EXECUTION,
+)
 
 
 def _complete_inputs(tmp_path: Path):
@@ -47,6 +51,15 @@ def _complete_inputs(tmp_path: Path):
                 "repetition": 0,
                 "run_completion": C.measurement(C.MEASURED, True),
                 "contract_integrity": C.measurement(C.MEASURED, True),
+                "contract_execution": {
+                    "configured": (
+                        GRABC_CONFIGURED_EXECUTION if subject_id == 6 else None
+                    ),
+                    "evaluated": (
+                        GRABC_EVALUATION_EXECUTION if subject_id == 6 else None
+                    ),
+                    "override_applied": subject_id == 6,
+                },
             }
         )
     for name in REQUIRED_EVALUATION_FILES:
@@ -69,7 +82,23 @@ def _complete_inputs(tmp_path: Path):
             encoding="utf-8",
         )
     return (
-        {"schema_version": 2, "rows": rows},
+        {
+            "schema_version": 2,
+            "rows": rows,
+            "execution_overrides": {
+                "schema_version": 1,
+                "subjects_sha256": "test-subjects-sha",
+                "overrides": [
+                    {
+                        "subject_id": 6,
+                        "configured_value": GRABC_CONFIGURED_EXECUTION,
+                        "evaluation_value": GRABC_EVALUATION_EXECUTION,
+                        "reason": "test",
+                    }
+                ],
+            },
+            "provenance": {"harness_config_sha256": "test-subjects-sha"},
+        },
         {
             "pdf_status": C.MEASURED,
             "summary_figure_pdf_status": C.MEASURED,
@@ -94,6 +123,7 @@ def test_complete_package_gate_requires_all_terminal_integrity_checked_rows(tmp_
     assert result["complete"] is True
     assert result["terminal_runs"] == 23
     assert result["pdf_valid"] is True
+    assert result["execution_override_valid"] is True
 
 
 def test_package_gate_rejects_running_or_tampered_rows(tmp_path):
