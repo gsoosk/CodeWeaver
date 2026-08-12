@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "paper": {
+    "title": "EvoC2Rust: A Skeleton-guided Framework for Project-Level C-to-Rust Translation",
+    "doi": "10.1145/3786583.3786856",
+    "arxiv": "2508.04295v4",
+    "venue": "ICSE-SEIP 2026",
+    "vivo_table4": {
+      "deepseek_v3": {
+        "incremental_compilation_percent": 100.0,
+        "acceptance_precision_percent": 99.83,
+        "acceptance_recall_percent": 99.86,
+        "safe_rate_percent": 98.0
+      },
+      "qwen3_32b": {
+        "incremental_compilation_percent": 87.65,
+        "acceptance_precision_percent": 87.92,
+        "acceptance_recall_percent": 83.45,
+        "safe_rate_percent": 98.22
+      }
+    },
+    "vivo_table5": {
+      "deepseek_v3": {
+        "fill_compilation_percent": 99.07,
+        "test_rate_percent": 98.5
+      },
+      "qwen3_32b": {
+        "fill_compilation_percent": 87.65,
+        "test_rate_percent": 84.57
+      }
+    },
+    "table4_rows": [
+      {"dataset": "Vivo-Bench", "category": "rule_hybrid", "model": null, "method": "C2Rust", "incremental_compilation_percent": 100.0, "acceptance_precision_percent": 100.0, "acceptance_recall_percent": 100.0, "safe_rate_percent": 0.0},
+      {"dataset": "Vivo-Bench", "category": "rule_hybrid", "model": null, "method": "C2SaferRust", "incremental_compilation_percent": 100.0, "acceptance_precision_percent": 100.0, "acceptance_recall_percent": 100.0, "safe_rate_percent": 60.0},
+      {"dataset": "Vivo-Bench", "category": "llm", "model": "DeepSeek-V3", "method": "Self-Repair", "incremental_compilation_percent": 84.21, "acceptance_precision_percent": 92.08, "acceptance_recall_percent": 89.24, "safe_rate_percent": 87.6},
+      {"dataset": "Vivo-Bench", "category": "llm", "model": "DeepSeek-V3", "method": "Tymcrat", "incremental_compilation_percent": 87.35, "acceptance_precision_percent": 92.11, "acceptance_recall_percent": 92.44, "safe_rate_percent": 97.88},
+      {"dataset": "Vivo-Bench", "category": "llm", "model": "DeepSeek-V3", "method": "Direct Prompting", "incremental_compilation_percent": 35.49, "acceptance_precision_percent": 55.15, "acceptance_recall_percent": 51.95, "safe_rate_percent": 77.09},
+      {"dataset": "Vivo-Bench", "category": "llm", "model": "DeepSeek-V3", "method": "EvoC2Rust", "incremental_compilation_percent": 100.0, "acceptance_precision_percent": 99.83, "acceptance_recall_percent": 99.86, "safe_rate_percent": 98.0},
+      {"dataset": "Vivo-Bench", "category": "llm", "model": "Qwen3-32B", "method": "Self-Repair", "incremental_compilation_percent": 52.63, "acceptance_precision_percent": 33.12, "acceptance_recall_percent": 38.36, "safe_rate_percent": 77.57},
+      {"dataset": "Vivo-Bench", "category": "llm", "model": "Qwen3-32B", "method": "Tymcrat", "incremental_compilation_percent": 81.76, "acceptance_precision_percent": 76.82, "acceptance_recall_percent": 74.47, "safe_rate_percent": 87.11},
+      {"dataset": "Vivo-Bench", "category": "llm", "model": "Qwen3-32B", "method": "Direct Prompting", "incremental_compilation_percent": 26.23, "acceptance_precision_percent": 21.72, "acceptance_recall_percent": 27.51, "safe_rate_percent": 89.81},
+      {"dataset": "Vivo-Bench", "category": "llm", "model": "Qwen3-32B", "method": "EvoC2Rust", "incremental_compilation_percent": 87.65, "acceptance_precision_percent": 87.92, "acceptance_recall_percent": 83.45, "safe_rate_percent": 98.22},
+      {"dataset": "C2R-Bench", "category": "rule_hybrid", "model": null, "method": "C2Rust", "incremental_compilation_percent": 99.28, "acceptance_precision_percent": 98.99, "acceptance_recall_percent": 98.98, "safe_rate_percent": 1.83},
+      {"dataset": "C2R-Bench", "category": "rule_hybrid", "model": null, "method": "C2SaferRust", "incremental_compilation_percent": 99.28, "acceptance_precision_percent": 97.47, "acceptance_recall_percent": 97.68, "safe_rate_percent": 48.24},
+      {"dataset": "C2R-Bench", "category": "llm", "model": "DeepSeek-V3", "method": "Self-Repair", "incremental_compilation_percent": 49.21, "acceptance_precision_percent": 72.35, "acceptance_recall_percent": 13.79, "safe_rate_percent": 83.92},
+      {"dataset": "C2R-Bench", "category": "llm", "model": "DeepSeek-V3", "method": "Tymcrat", "incremental_compilation_percent": 72.02, "acceptance_precision_percent": 77.82, "acceptance_recall_percent": 74.94, "safe_rate_percent": 95.92},
+      {"dataset": "C2R-Bench", "category": "llm", "model": "DeepSeek-V3", "method": "Direct Prompting", "incremental_compilation_percent": 56.67, "acceptance_precision_percent": 55.65, "acceptance_recall_percent": 52.7, "safe_rate_percent": 82.43},
+      {"dataset": "C2R-Bench", "category": "llm", "model": "DeepSeek-V3", "method": "EvoC2Rust", "incremental_compilation_percent": 93.84, "acceptance_precision_percent": 97.56, "acceptance_recall_percent": 97.34, "safe_rate_percent": 97.41},
+      {"dataset": "C2R-Bench", "category": "llm", "model": "Qwen3-32B", "method": "Self-Repair", "incremental_compilation_percent": 39.4, "acceptance_precision_percent": 45.38, "acceptance_recall_percent": 10.65, "safe_rate_percent": 87.15},
+      {"dataset": "C2R-Bench", "category": "llm", "model": "Qwen3-32B", "method": "Tymcrat", "incremental_compilation_percent": 70.56, "acceptance_precision_percent": 66.72, "acceptance_recall_percent": 65.91, "safe_rate_percent": 82.75},
+      {"dataset": "C2R-Bench", "category": "llm", "model": "Qwen3-32B", "method": "Direct Prompting", "incremental_compilation_percent": 35.29, "acceptance_precision_percent": 24.01, "acceptance_recall_percent": 30.41, "safe_rate_percent": 93.63},
+      {"dataset": "C2R-Bench", "category": "llm", "model": "Qwen3-32B", "method": "EvoC2Rust", "incremental_compilation_percent": 82.35, "acceptance_precision_percent": 85.75, "acceptance_recall_percent": 82.59, "safe_rate_percent": 97.4}
+    ],
+    "table5_c2r_rows": [
+      {"model": "DeepSeek-V3", "project": "avl", "fill_compilation_percent": 100.0, "test_rate_percent": 92.53},
+      {"model": "DeepSeek-V3", "project": "bzp", "fill_compilation_percent": 95.21, "test_rate_percent": 92.55},
+      {"model": "DeepSeek-V3", "project": "md5", "fill_compilation_percent": 96.55, "test_rate_percent": 86.21},
+      {"model": "DeepSeek-V3", "project": "sha256", "fill_compilation_percent": 100.0, "test_rate_percent": 100.0},
+      {"model": "DeepSeek-V3", "project": "rapidlz", "fill_compilation_percent": 96.05, "test_rate_percent": 92.11},
+      {"model": "DeepSeek-V3", "project": "cmptlz", "fill_compilation_percent": 86.98, "test_rate_percent": 86.35},
+      {"model": "DeepSeek-V3", "project": "Subtotal", "fill_compilation_percent": 92.25, "test_rate_percent": 89.53},
+      {"model": "Qwen3-32B", "project": "avl", "fill_compilation_percent": 97.01, "test_rate_percent": 82.09},
+      {"model": "Qwen3-32B", "project": "bzp", "fill_compilation_percent": 89.36, "test_rate_percent": 88.83},
+      {"model": "Qwen3-32B", "project": "md5", "fill_compilation_percent": 89.66, "test_rate_percent": 89.21},
+      {"model": "Qwen3-32B", "project": "sha256", "fill_compilation_percent": 90.91, "test_rate_percent": 90.91},
+      {"model": "Qwen3-32B", "project": "rapidlz", "fill_compilation_percent": 78.95, "test_rate_percent": 77.63},
+      {"model": "Qwen3-32B", "project": "cmptlz", "fill_compilation_percent": 70.79, "test_rate_percent": 68.89},
+      {"model": "Qwen3-32B", "project": "Subtotal", "fill_compilation_percent": 80.63, "test_rate_percent": 77.91}
+    ],
+    "table6_rows": [
+      {"variant": "EvoC2Rust", "incremental_compilation_percent": 93.84, "safe_rate_percent": 97.41, "fill_compilation_percent": 92.25, "test_rate_percent": 89.53},
+      {"variant": "-w/o Repair#3", "incremental_compilation_percent": 89.57, "safe_rate_percent": 97.4, "fill_compilation_percent": 87.23, "test_rate_percent": 85.37},
+      {"variant": "-w/o Repair#2-3", "incremental_compilation_percent": 75.24, "safe_rate_percent": 97.46, "fill_compilation_percent": 82.21, "test_rate_percent": 80.92},
+      {"variant": "-w/o Repair#1-3", "incremental_compilation_percent": 74.29, "safe_rate_percent": 97.21, "fill_compilation_percent": 81.06, "test_rate_percent": 79.91},
+      {"variant": "-w/o Feature Mapping and Repair#1-3", "incremental_compilation_percent": 56.67, "safe_rate_percent": 82.43, "fill_compilation_percent": 33.0, "test_rate_percent": 30.27}
+    ],
+    "dataset_statistics": {
+      "vivo_bench_paper_test_cases": 113,
+      "vivo_bench_pinned_active_test_functions": 125,
+      "vivo_bench_pinned_disabled_test_functions": 2,
+      "c2r_bench_projects": 6,
+      "c2r_bench_test_cases": 222
+    }
+  },
+  "artifact": {
+    "repository": "https://atomgit.com/vivoblueos2/vivo_blueos_contest2_c2rust",
+    "commit": "c88cef1a1d15079478be14ab361dda8f3b49fee2",
+    "primary_rel_path": "01-BlueOS2_Translation/Input/01-Primary"
+  },
+  "tools": {
+    "c2rust_version": "0.22.1",
+    "c2rust_sha256": "e11377b3102b768cff101b191c29daf1d5dd4449e22af5b61684443a65fd07cb",
+    "rust_toolchain": "nightly-2025-09-15",
+    "cc_version": "1.4.2"
+  },
+  "protocol": {
+    "model": "gpt-5.6-sol",
+    "effort": "max",
+    "agent_timeout_seconds": 5000,
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "repetitions": 3
+  },
+  "subjects": [
+    {
+      "id": 1,
+      "name": "arraylist",
+      "modules": ["arraylist"],
+      "support_modules": ["compare-int"],
+      "test_file": "test/test-arraylist.c",
+      "test_module": "test_arraylist",
+      "loc_source": 496,
+      "test_functions": ["test_arraylist_new_free", "test_arraylist_append", "test_arraylist_prepend", "test_arraylist_insert", "test_arraylist_remove", "test_arraylist_remove_range", "test_arraylist_index_of", "test_arraylist_clear", "test_arraylist_sort"],
+      "c_assertions": 103
+    },
+    {
+      "id": 2,
+      "name": "avl-tree",
+      "modules": ["avl-tree"],
+      "support_modules": ["compare-int"],
+      "test_file": "test/test-avl-tree.c",
+      "test_module": "test_avl_tree",
+      "loc_source": 917,
+      "test_functions": ["test_avl_tree_new", "test_avl_tree_insert_lookup", "test_avl_tree_child", "test_out_of_memory", "test_avl_tree_free", "test_avl_tree_lookup", "test_avl_tree_remove", "test_avl_tree_to_array"],
+      "c_assertions": 36
+    },
+    {
+      "id": 3,
+      "name": "binary-heap",
+      "modules": ["binary-heap"],
+      "support_modules": ["compare-int"],
+      "test_file": "test/test-binary-heap.c",
+      "test_module": "test_binary_heap",
+      "loc_source": 386,
+      "test_functions": ["test_binary_heap_new_free", "test_binary_heap_insert", "test_min_heap", "test_max_heap", "test_out_of_memory"],
+      "c_assertions": 16
+    },
+    {
+      "id": 4,
+      "name": "binomial-heap",
+      "modules": ["binomial-heap"],
+      "support_modules": ["compare-int"],
+      "test_file": "test/test-binomial-heap.c",
+      "test_module": "test_binomial_heap",
+      "loc_source": 628,
+      "test_functions": ["test_binomial_heap_new_free", "test_binomial_heap_insert", "test_min_heap", "test_max_heap", "test_insert_out_of_memory", "test_pop_out_of_memory"],
+      "c_assertions": 16
+    },
+    {
+      "id": 5,
+      "name": "bloom-filter",
+      "modules": ["bloom-filter"],
+      "support_modules": ["hash-string"],
+      "test_file": "test/test-bloom-filter.c",
+      "test_module": "test_bloom_filter",
+      "loc_source": 495,
+      "test_functions": ["test_bloom_filter_new_free", "test_bloom_filter_insert_query", "test_bloom_filter_read_load", "test_bloom_filter_intersection", "test_bloom_filter_union", "test_bloom_filter_mismatch"],
+      "c_assertions": 24
+    },
+    {
+      "id": 6,
+      "name": "compare-functions",
+      "modules": ["compare-int", "compare-pointer", "compare-string"],
+      "support_modules": [],
+      "test_file": "test/test-compare-functions.c",
+      "test_module": "test_compare_functions",
+      "loc_source": 428,
+      "test_functions": ["test_int_compare", "test_int_equal", "test_pointer_compare", "test_pointer_equal", "test_string_compare", "test_string_equal", "test_string_nocase_compare", "test_string_nocase_equal"],
+      "c_assertions": 26
+    },
+    {
+      "id": 7,
+      "name": "hash-functions",
+      "modules": ["hash-int", "hash-pointer", "hash-string"],
+      "support_modules": [],
+      "test_file": "test/test-hash-functions.c",
+      "test_module": "test_hash_functions",
+      "loc_source": 281,
+      "test_functions": ["test_pointer_hash", "test_int_hash", "test_string_hash", "test_string_nocase_hash"],
+      "c_assertions": 11
+    },
+    {
+      "id": 8,
+      "name": "hash-table",
+      "modules": ["hash-table"],
+      "support_modules": ["compare-int", "compare-string", "hash-int", "hash-string"],
+      "test_file": "test/test-hash-table.c",
+      "test_module": "test_hash_table",
+      "loc_source": 788,
+      "test_functions": ["test_hash_table_new_free", "test_hash_table_insert_lookup", "test_hash_table_remove", "test_hash_table_iterating", "test_hash_table_iterating_remove", "test_hash_table_free_functions", "test_hash_table_out_of_memory", "test_hash_iterator_key_pair"],
+      "c_assertions": 41
+    },
+    {
+      "id": 9,
+      "name": "list",
+      "modules": ["list"],
+      "support_modules": ["compare-int"],
+      "test_file": "test/test-list.c",
+      "test_module": "test_list",
+      "loc_source": 899,
+      "test_functions": ["test_list_append", "test_list_prepend", "test_list_free", "test_list_next", "test_list_nth_entry", "test_list_nth_data", "test_list_length", "test_list_remove_entry", "test_list_remove_data", "test_list_sort", "test_list_find_data", "test_list_to_array", "test_list_iterate", "test_list_iterate_bad_remove"],
+      "c_assertions": 90
+    },
+    {
+      "id": 10,
+      "name": "queue",
+      "modules": ["queue"],
+      "support_modules": [],
+      "test_file": "test/test-queue.c",
+      "test_module": "test_queue",
+      "loc_source": 418,
+      "test_functions": ["test_queue_new_free", "test_queue_push_head", "test_queue_pop_head", "test_queue_peek_head", "test_queue_push_tail", "test_queue_pop_tail", "test_queue_peek_tail", "test_queue_is_empty"],
+      "c_assertions": 58
+    },
+    {
+      "id": 11,
+      "name": "rb-tree",
+      "modules": ["rb-tree"],
+      "support_modules": ["compare-int"],
+      "test_file": "test/test-rb-tree.c",
+      "test_module": "test_rb_tree",
+      "loc_source": 803,
+      "test_functions": ["test_rb_tree_new", "test_rb_tree_insert_lookup", "test_rb_tree_child", "test_out_of_memory", "test_rb_tree_free", "test_rb_tree_lookup"],
+      "c_assertions": 22
+    },
+    {
+      "id": 12,
+      "name": "set",
+      "modules": ["set"],
+      "support_modules": ["compare-int", "compare-pointer", "compare-string", "hash-int", "hash-pointer", "hash-string"],
+      "test_file": "test/test-set.c",
+      "test_module": "test_set",
+      "loc_source": 867,
+      "test_functions": ["test_set_new_free", "test_set_insert", "test_set_query", "test_set_remove", "test_set_union", "test_set_intersection", "test_set_to_array", "test_set_iterating", "test_set_iterating_remove", "test_set_free_function", "test_set_out_of_memory"],
+      "c_assertions": 48
+    },
+    {
+      "id": 13,
+      "name": "slist",
+      "modules": ["slist"],
+      "support_modules": ["compare-int"],
+      "test_file": "test/test-slist.c",
+      "test_module": "test_slist",
+      "loc_source": 830,
+      "test_functions": ["test_slist_append", "test_slist_prepend", "test_slist_free", "test_slist_next", "test_slist_nth_entry", "test_slist_nth_data", "test_slist_length", "test_slist_remove_entry", "test_slist_remove_data", "test_slist_sort", "test_slist_find_data", "test_slist_to_array", "test_slist_iterate", "test_slist_iterate_bad_remove"],
+      "c_assertions": 79
+    },
+    {
+      "id": 14,
+      "name": "sortedarray",
+      "modules": ["sortedarray"],
+      "support_modules": ["compare-int"],
+      "test_file": "test/test-sortedarray.c",
+      "test_module": "test_sortedarray",
+      "loc_source": 498,
+      "test_functions": ["test_sortedarray_new_free", "test_sortedarray_insert", "test_sortedarray_remove", "test_sortedarray_remove_range", "test_sortedarray_index_of", "test_sortedarray_index_of_equ_key", "test_sortedarray_get"],
+      "c_assertions": 11
+    },
+    {
+      "id": 15,
+      "name": "trie",
+      "modules": ["trie"],
+      "support_modules": [],
+      "test_file": "test/test-trie.c",
+      "test_module": "test_trie",
+      "loc_source": 765,
+      "test_functions": ["test_trie_new_free", "test_trie_insert", "test_trie_lookup", "test_trie_remove", "test_trie_replace", "test_trie_insert_empty", "test_trie_free_long", "test_trie_negative_keys", "test_trie_insert_binary", "test_trie_insert_out_of_memory", "test_trie_remove_binary"],
+      "c_assertions": 56
+    }
+  ]
+}
