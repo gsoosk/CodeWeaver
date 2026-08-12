@@ -1,0 +1,46 @@
+section,metric,value
+paper,subjects,23
+paper,compilation_success,23
+paper,testable_subjects,21
+paper,fixed_contract_passed,19
+paper,benchmark_test_function_coverage_percent,74.7
+paper,benchmark_test_line_coverage_percent,72.2
+paper,unweighted_subject_mean_function_coverage_percent,68.38095238095238
+paper,unweighted_subject_mean_line_coverage_percent,64.80952380952381
+paper,assertions,"{""executed"": 1221192, ""failed"": 158093, ""passed"": 1063099}"
+paper,assertion_pass_rate_percent,87.0542060544124
+paper,safety,"{""pointer_arithmetic"": 253, ""raw_pointer_declarations"": 198, ""raw_pointer_dereferences"": 126, ""unsafe_calls"": 1825, ""unsafe_lines"": 3430, ""unsafe_type_casts"": 357}"
+codeweaver,rows,23
+codeweaver,run_completed,9
+codeweaver,contract_integrity_passed,23
+codeweaver,compiled,21
+codeweaver,compilation_rate_percent,91.30434782608695
+codeweaver,compilation_rate_wilson_95_percent,"[73.20401892425635, 97.58199955157795]"
+codeweaver,fixed_contract_passed,10
+codeweaver,fixed_contract_rate_percent,47.61904761904762
+codeweaver,fixed_contract_rate_wilson_95_percent,"[28.34400610153417, 67.63046541715558]"
+codeweaver,fixed_contract_measured_rows,21
+codeweaver,mean_function_coverage_percent,78.21997333158342
+codeweaver,function_coverage_measured_rows,10
+codeweaver,mean_line_coverage_percent,76.56366771499444
+codeweaver,line_coverage_measured_rows,10
+codeweaver,aggregate_function_coverage_percent,70.10221465076661
+codeweaver,aggregate_line_coverage_percent,66.31616257088847
+codeweaver,aggregate_coverage_measured_rows,10
+codeweaver,functions_count,1174
+codeweaver,functions_covered,823
+codeweaver,lines_count,16928
+codeweaver,lines_covered,11226
+codeweaver,assertions,"{""executed"": {""credited_rows"": 10, ""inferred_rows"": 9, ""measured_rows"": 1, ""sum"": 7596, ""total_rows"": 23}, ""failed"": {""credited_rows"": 10, ""inferred_rows"": 9, ""measured_rows"": 1, ""sum"": 1, ""total_rows"": 23}, ""passed"": {""credited_rows"": 10, ""inferred_rows"": 9, ""measured_rows"": 1, ""sum"": 7595, ""total_rows"": 23}}"
+codeweaver,assertion_pass_rate_percent,99.98683517640863
+codeweaver,elapsed_seconds_sum,122759.311898
+codeweaver,elapsed_seconds_median,3665.460067
+codeweaver,elapsed_measured_rows,23
+codeweaver,output_tokens_sum,6499312
+codeweaver,output_tokens_measured_rows,23
+codeweaver,nano_aiu_sum,56669462375000
+codeweaver,nano_aiu_measured_rows,23
+codeweaver,premium_requests_sum,0
+codeweaver,premium_requests_measured_rows,23
+codeweaver,safety,"{""pointer_arithmetic"": {""measured_rows"": 19, ""status"": ""partial"", ""sum"": 0, ""total_rows"": 23}, ""raw_pointer_declarations"": {""measured_rows"": 19, ""status"": ""partial"", ""sum"": 99, ""total_rows"": 23}, ""raw_pointer_dereferences"": {""measured_rows"": 19, ""status"": ""partial"", ""sum"": 3, ""total_rows"": 23}, ""unsafe_calls"": {""measured_rows"": 19, ""status"": ""partial"", ""sum"": 125, ""total_rows"": 23}, ""unsafe_lines"": {""measured_rows"": 19, ""status"": ""partial"", ""sum"": 476, ""total_rows"": 23}, ""unsafe_type_casts"": {""measured_rows"": 19, ""status"": ""partial"", ""sum"": 4, ""total_rows"": 23}}"
+codeweaver,paired_statistics,"{""compilation"": {""both_fail"": 0, ""both_pass"": 21, ""codeweaver_only"": 0, ""mcnemar_exact_p"": 0.5, ""pairs"": 23, ""rustine_only"": 2}, ""fixed_contract"": {""both_fail"": 2, ""both_pass"": 10, ""codeweaver_only"": 0, ""mcnemar_exact_p"": 0.00390625, ""pairs"": 21, ""rustine_only"": 9}}"

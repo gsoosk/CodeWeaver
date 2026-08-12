@@ -1,0 +1,471 @@
+{
+  "artifact": {
+    "commit": "774ff51e48d4d3a6a73e4864689a042fc1028fc0",
+    "commit_verified": true,
+    "license": "MIT",
+    "repository": "https://github.com/Intelligent-CAT-Lab/Rustine",
+    "worktree_clean": true
+  },
+  "completeness": {
+    "complete": true,
+    "contract_integrity_failures": [],
+    "duplicate_keys": [],
+    "evaluation_csv_rows": 23,
+    "evaluation_csv_rows_valid": true,
+    "evaluation_rows": 23,
+    "evaluation_schema_valid": true,
+    "execution_git_shas": [
+      "e841d2fae8ff75199584ac351d355fa0e61c864e"
+    ],
+    "execution_override_valid": true,
+    "execution_revision_consistent": true,
+    "expected_runs": 23,
+    "extra_keys": [],
+    "missing_evaluation_files": [],
+    "missing_keys": [],
+    "missing_report_files": [],
+    "nonterminal_runs": [],
+    "pdf_status": "measured",
+    "pdf_valid": true,
+    "report_csv_rows": {
+      "safety.csv": 23,
+      "statistics.csv": 2,
+      "validation.csv": 23
+    },
+    "report_row_counts_valid": true,
+    "run_completion_mismatches": [],
+    "run_status_counts": {
+      "completed": 9,
+      "failed": 14
+    },
+    "states": [
+      {
+        "app_id": "full-1-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-11T23:45:00.792115Z",
+        "error": "",
+        "returncode": 0,
+        "started_at": "2026-08-11T23:20:38.518830Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/1/rep0/recodeagent_run_state.json",
+        "state_sha256": "e5abb6d74908341f1081eec620c94ac52647d91fcaa333699b1fcfb8fb641766",
+        "status": "completed",
+        "subject_id": 1
+      },
+      {
+        "app_id": "full-2-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T00:23:37.020183Z",
+        "error": "",
+        "returncode": 0,
+        "started_at": "2026-08-11T23:47:21.760482Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/2/rep0/recodeagent_run_state.json",
+        "state_sha256": "7e3e381eae57184f6b3e6829375c5f495667c19d398c067183f8715d243d0970",
+        "status": "completed",
+        "subject_id": 2
+      },
+      {
+        "app_id": "full-3-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T00:46:45.772714Z",
+        "error": "",
+        "returncode": 0,
+        "started_at": "2026-08-11T23:47:21.760711Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/3/rep0/recodeagent_run_state.json",
+        "state_sha256": "fcabaa9c325f158acb8763bc152bbb37b7802ccd90e34551cf28ea8d48129c73",
+        "status": "completed",
+        "subject_id": 3
+      },
+      {
+        "app_id": "full-4-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T00:28:11.032553Z",
+        "error": "[codeweaver] project=Rustine 4: quadtree app_id=full-4-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/4/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-11T23:47:21.761079Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/4/rep0/recodeagent_run_state.json",
+        "state_sha256": "ef0b958659fa96db293b26607f0d98942f7d5c9dddf19fa816441620b4404bb0",
+        "status": "failed",
+        "subject_id": 4
+      },
+      {
+        "app_id": "full-5-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T00:25:29.649245Z",
+        "error": "[codeweaver] project=Rustine 5: buffer app_id=full-5-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/5/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-11T23:47:21.763918Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/5/rep0/recodeagent_run_state.json",
+        "state_sha256": "2785dbba9b913ef05f901bc44f531ba497de32044fa334c385c9eb13a3a537ee",
+        "status": "failed",
+        "subject_id": 5
+      },
+      {
+        "app_id": "full-6-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T03:26:13.062988Z",
+        "error": "[codeweaver] project=Rustine 6: grabc app_id=full-6-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/6/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T00:23:37.023826Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/6/rep0/recodeagent_run_state.json",
+        "state_sha256": "8763e6c42c3bddf39a9e9b5a853b986509b7d29fadb58d296e02611aafe9e4bb",
+        "status": "failed",
+        "subject_id": 6
+      },
+      {
+        "app_id": "full-7-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T01:51:48.752447Z",
+        "error": "",
+        "returncode": 0,
+        "started_at": "2026-08-12T00:25:29.653462Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/7/rep0/recodeagent_run_state.json",
+        "state_sha256": "a061b5be7f7c0edd1e23848ad4f0bb4f5b9497181a91f2bec1cd1f9687bbcc61",
+        "status": "completed",
+        "subject_id": 7
+      },
+      {
+        "app_id": "full-8-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T02:01:08.667445Z",
+        "error": "",
+        "returncode": 0,
+        "started_at": "2026-08-12T00:28:11.037175Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/8/rep0/recodeagent_run_state.json",
+        "state_sha256": "7912f81299d1a1f33f835f5026238b2bc37aaf0297530491b50366ee4d27b18f",
+        "status": "completed",
+        "subject_id": 8
+      },
+      {
+        "app_id": "full-9-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T01:41:41.627038Z",
+        "error": "[codeweaver] project=Rustine 9: genann app_id=full-9-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/9/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T00:46:45.776050Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/9/rep0/recodeagent_run_state.json",
+        "state_sha256": "545901bba5632204bd2b24015163d5fb017e4c46f5a5212cb09acf499f0ce6fa",
+        "status": "failed",
+        "subject_id": 9
+      },
+      {
+        "app_id": "full-10-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T00:37:33.939432Z",
+        "error": "[codeweaver] project=Rustine 10: ht app_id=full-10-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/10/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T00:03:26.532674Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/10/rep0/recodeagent_run_state.json",
+        "state_sha256": "ab1b0e69ef20b83e84b1f49609c9dbba9d24557b92c0f8851ab4de436b9f6843",
+        "status": "failed",
+        "subject_id": 10
+      },
+      {
+        "app_id": "full-11-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T00:49:34.476132Z",
+        "error": "[codeweaver] project=Rustine 11: robotfindskitten app_id=full-11-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/11/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T00:03:26.533033Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/11/rep0/recodeagent_run_state.json",
+        "state_sha256": "3e752693552d7321b82693a2897b9b9f83660bda76700e5a9c0762a23f342610",
+        "status": "failed",
+        "subject_id": 11
+      },
+      {
+        "app_id": "full-12-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T01:43:54.696867Z",
+        "error": "",
+        "returncode": 0,
+        "started_at": "2026-08-12T00:37:33.942247Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/12/rep0/recodeagent_run_state.json",
+        "state_sha256": "06660bb030c707e6ffdb0525c12919412907c3e82b541ed5a7d10d33eff28ef2",
+        "status": "completed",
+        "subject_id": 12
+      },
+      {
+        "app_id": "full-13-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T03:46:16.732692Z",
+        "error": "",
+        "returncode": 0,
+        "started_at": "2026-08-12T00:49:34.479523Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/13/rep0/recodeagent_run_state.json",
+        "state_sha256": "56f53cd4b992b2729d66a1afaa3508abab531a656993d07862697b2fb92443dd",
+        "status": "completed",
+        "subject_id": 13
+      },
+      {
+        "app_id": "full-14-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T03:39:41.901243Z",
+        "error": "",
+        "returncode": 0,
+        "started_at": "2026-08-12T01:41:41.630859Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/14/rep0/recodeagent_run_state.json",
+        "state_sha256": "b13adb355e7ddf515a393933e0fb1d91be72b81aa52f8e422518dbb6585a91f4",
+        "status": "completed",
+        "subject_id": 14
+      },
+      {
+        "app_id": "full-15-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T02:26:36.246149Z",
+        "error": "[codeweaver] project=Rustine 15: libtree app_id=full-15-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/15/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T01:43:54.700389Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/15/rep0/recodeagent_run_state.json",
+        "state_sha256": "8e7e5884ba5bc4fc493cd7d9a67d4e471a787aedac76c8c1022e8efeca505116",
+        "status": "failed",
+        "subject_id": 15
+      },
+      {
+        "app_id": "full-16-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T01:29:17.283224Z",
+        "error": "",
+        "returncode": 0,
+        "started_at": "2026-08-11T23:50:30.546909Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/16/rep0/recodeagent_run_state.json",
+        "state_sha256": "9b442e7bd099d5af4323f5fdd0f17f8b34ce0689f07126640e667c3fe484970e",
+        "status": "completed",
+        "subject_id": 16
+      },
+      {
+        "app_id": "full-17-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T00:43:00.984616Z",
+        "error": "[codeweaver] project=Rustine 17: libzahl app_id=full-17-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/17/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-11T23:50:30.546725Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/17/rep0/recodeagent_run_state.json",
+        "state_sha256": "ab129da4c2fc58baa66aae2105aa242e0ae11918942b1f3ec87081de394be621",
+        "status": "failed",
+        "subject_id": 17
+      },
+      {
+        "app_id": "full-18-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T03:00:00.161667Z",
+        "error": "[codeweaver] project=Rustine 18: zopfli app_id=full-18-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/18/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=8\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=True\n    M7  iter=1  passed=True\n    M8  iter=1  passed=False\n    M8  iter=2  passed=False\n    M8  iter=3  passed=False\n    M8  iter=4  passed=False\n    M8  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T00:43:00.987705Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/18/rep0/recodeagent_run_state.json",
+        "state_sha256": "9875bc1eeb7e97bcb4a34248503070f4e920b7a33a4e8b7f96ed6ff587f670b7",
+        "status": "failed",
+        "subject_id": 18
+      },
+      {
+        "app_id": "full-19-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T04:46:16.284560Z",
+        "error": "ck=False db=/opt/codeweaver-rustine/runs/full/19/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=12\n    M0  iter=1  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=True\n    M7  iter=1  passed=True\n    M8  iter=1  passed=True\n    M9  iter=1  passed=True\n    M10  iter=1  passed=True\n    M11  iter=1  passed=True\n    M12  iter=1  passed=False\n    M12  iter=2  passed=False\n    M12  iter=3  passed=False\n    M12  iter=4  passed=False\n    M12  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T01:29:17.286259Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/19/rep0/recodeagent_run_state.json",
+        "state_sha256": "acfbbd77bf8419d1465773269614e2faf3638d7bd3983da47b3544bde26c4b59",
+        "status": "failed",
+        "subject_id": 19
+      },
+      {
+        "app_id": "full-20-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T02:39:08.203984Z",
+        "error": "[codeweaver] project=Rustine 20: lodepng app_id=full-20-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/20/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T01:51:48.755996Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/20/rep0/recodeagent_run_state.json",
+        "state_sha256": "79c36e9ea27c5c4a5cc4c133f2a862c60a3f117f20f3c58ec9a607b1f4ab6ae2",
+        "status": "failed",
+        "subject_id": 20
+      },
+      {
+        "app_id": "full-21-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T06:49:32.950604Z",
+        "error": "estone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=22\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=True\n    M7  iter=1  passed=True\n    M8  iter=1  passed=True\n    M9  iter=1  passed=True\n    M10  iter=1  passed=True\n    M11  iter=1  passed=True\n    M12  iter=1  passed=True\n    M13  iter=1  passed=True\n    M14  iter=1  passed=True\n    M15  iter=1  passed=True\n    M16  iter=1  passed=True\n    M17  iter=1  passed=True\n    M18  iter=1  passed=True\n    M19  iter=1  passed=True\n    M20  iter=1  passed=True\n    M21  iter=1  passed=True\n    M22  iter=1  passed=True",
+        "returncode": 1,
+        "started_at": "2026-08-12T02:01:08.670663Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/21/rep0/recodeagent_run_state.json",
+        "state_sha256": "cfad5a81a363a7512bb8355fb79224b88a262e0b874711ba9be47eecae97348f",
+        "status": "failed",
+        "subject_id": 21
+      },
+      {
+        "app_id": "full-22-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T03:43:15.488929Z",
+        "error": "[codeweaver] project=Rustine 22: binn app_id=full-22-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/22/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T02:39:08.206481Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/22/rep0/recodeagent_run_state.json",
+        "state_sha256": "535a0a00e1045b1ec5723783e404fce5a5bdb8135821f30e8ed18a5b830f7e25",
+        "status": "failed",
+        "subject_id": 22
+      },
+      {
+        "app_id": "full-23-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "e841d2fae8ff75199584ac351d355fa0e61c864e",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T04:01:05.633069Z",
+        "error": "[codeweaver] project=Rustine 23: tulpindicator app_id=full-23-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/23/rep0/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0\n    M0  iter=1  passed=False\n    M0  iter=2  passed=False\n    M0  iter=3  passed=False\n    M0  iter=4  passed=False\n    M0  iter=5  passed=False",
+        "returncode": 1,
+        "started_at": "2026-08-12T03:00:00.173002Z",
+        "state_path": "/opt/codeweaver-rustine/runs/full/23/rep0/recodeagent_run_state.json",
+        "state_sha256": "dba11a7005f24de8581bd6d207a690f5052883971c694551b9b94bfa1a2c322b",
+        "status": "failed",
+        "subject_id": 23
+      }
+    ],
+    "summary_figure_pdf_status": "measured",
+    "summary_figure_pdf_valid": true,
+    "terminal_runs": 23
+  },
+  "copied_file_counts": {
+    "campaign_metadata": 10,
+    "evaluation": 2,
+    "report": 10,
+    "source_snapshot": 171
+  },
+  "generated_at": "2026-08-12T08:26:02.421677+00:00",
+  "infrastructure_archives": [
+    {
+      "attempt": "20260811-missing-burr",
+      "file_count": 15,
+      "parts": [
+        {
+          "bytes": 13335,
+          "path": "20260811-missing-burr.tar.gz",
+          "sha256": "352c4470128a3a7f707bcc75a0bce026f5d16b09d60e11606a6d9953c050a4d7"
+        }
+      ],
+      "source": "/opt/codeweaver-rustine/runs-infrastructure-failures/20260811-missing-burr"
+    },
+    {
+      "attempt": "20260811-missing-burr-tracking",
+      "file_count": 16,
+      "parts": [
+        {
+          "bytes": 14571,
+          "path": "20260811-missing-burr-tracking.tar.gz",
+          "sha256": "32f5084186c1bd3e7ae285d6616dd47bc3f9583ecd7e01de57dcdcb9bf4997ce"
+        }
+      ],
+      "source": "/opt/codeweaver-rustine/runs-infrastructure-failures/20260811-missing-burr-tracking"
+    },
+    {
+      "attempt": "20260811-no-pythonpath",
+      "file_count": 15,
+      "parts": [
+        {
+          "bytes": 12651,
+          "path": "20260811-no-pythonpath.tar.gz",
+          "sha256": "8465161a18fdb62b6a594d95944ae0165f67e9da25faa647b8a7a7dc763b3669"
+        }
+      ],
+      "source": "/opt/codeweaver-rustine/runs-infrastructure-failures/20260811-no-pythonpath"
+    }
+  ],
+  "infrastructure_failure_rows": 3,
+  "paper": {
+    "arxiv_id": "2511.20617v1",
+    "title": "Translating Large-Scale C Repositories to Idiomatic Rust",
+    "url": "https://arxiv.org/abs/2511.20617"
+  },
+  "protocol": {
+    "agent_timeout_seconds": 5000,
+    "cargo_llvm_cov_version": "0.8.7",
+    "cargo_newmetrics_sha256": "235e5515186bcbe1a455339c524a9e33f8223fffa5fec2f8293cee11c1afc2bb",
+    "effort": "max",
+    "evaluated_repetitions": 1,
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "model": "gpt-5.6-sol",
+    "repetitions": 1,
+    "rust_toolchain": "nightly-2025-05-13"
+  },
+  "raw_archive": {
+    "file_count": 2479,
+    "parts": [
+      {
+        "bytes": 94371840,
+        "path": "full.tar.gz.part-000",
+        "sha256": "1f5990c51b6ab5a11d7441c620b4835ca62c86afc1b281646939afb654b2eb36"
+      },
+      {
+        "bytes": 92680800,
+        "path": "full.tar.gz.part-001",
+        "sha256": "3dcc85e23853455c4bbf42ed16ee7851f2f700fc894998207b59f7e7f0ceab26"
+      }
+    ],
+    "source": "/opt/codeweaver-rustine/runs/full"
+  },
+  "schema_version": 1,
+  "source_provenance": {
+    "git_branch": "experiments",
+    "git_commit": "fa1b39f482a926957b56a71a52d8f2c241fb72a8",
+    "repository": "https://github.com/gsoosk/CodeWeaver",
+    "tracked_status": [],
+    "tracked_worktree_clean": true
+  },
+  "test_evidence": {
+    "complete": true,
+    "environment_lock_sha256": "e29543365a247758c6bc92f0b1391fe3778432209aeaabba43ffb488ae9d5978",
+    "errors": 0,
+    "failures": 0,
+    "junit_sha256": "aff66a7c0fd0381a141a17427f79ef695f8ba9f1465c7bd4357d4535597e2609",
+    "passed": 943,
+    "skipped": 17,
+    "tests": 960
+  },
+  "tool": {
+    "bytes": 1026856,
+    "name": "cargo-newmetrics",
+    "sha256": "235e5515186bcbe1a455339c524a9e33f8223fffa5fec2f8293cee11c1afc2bb"
+  }
+}

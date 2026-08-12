@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\begin{document}
+\section*{CodeWeaver on Rustine's 23-repository C-to-Rust benchmark}
+Source: \texttt{https://arxiv.org/abs/2511.20617}. Only this 23-subject paired experiment is compared; the older 118-project matrix is not directly comparable.
+\begin{abstract}
+We evaluate CodeWeaver with GPT-5.6 Sol on the same 23 C-to-Rust subjects used by Rustine. To prevent target leakage, CodeWeaver receives only disclosed C inputs, Rust skeletons, and immutable test contracts; Rustine production translations remain excluded. Independent evaluation finds 21/23 compiling CodeWeaver translations and 10/21 fixed-contract passes. Rustine's published reference reports 23/23 compilation and 19/21 complete test-suite passes. Exact measured, inferred, unavailable, and not-applicable states remain distinct throughout the artifact.
+\end{abstract}
+\subsection*{Aggregate summary}
+\begin{tabular}{lrr}
+\toprule Metric & Rustine paper & CodeWeaver measured\\\midrule
+Compilation & 23/23 & 21/23\\
+Fixed-contract pass & 19/21 & 10/21\\
+Mean function coverage & 68.4\% & 78.2\%\\
+Mean line coverage & 64.8\% & 76.6\%\\
+\bottomrule
+\end{tabular}
+\subsection*{Validation: paper Table 2 extended with CodeWeaver}
+\scriptsize
+\begin{longtable}{r l r l r l r l l l}
+ID & Subject & R comp & CW comp & R func & CW func & R line & CW line & R E/P/F & CW E/P/F\\\hline
+1 & qsort & 100 & pass & 100 & 80.0 & 92 & 95.16129032258064 & 21/21/0 & 21*/21*/0*\\
+2 & bst & 100 & pass & 92 & 87.5 & 95 & 90.12345679012346 & 6/6/0 & 6*/6*/0*\\
+3 & rgba & 100 & pass & 99 & 92.0 & 93 & 85.65737051792829 & 20/20/0 & 20*/20*/0*\\
+4 & quadtree & 100 & pass & 91 & error & 83 & error & 34/34/0 & unavailable/unavailable/unavailable\\
+5 & buffer & 100 & pass & 91 & error & 88 & error & 54/54/0 & unavailable/unavailable/unavailable\\
+6 & grabc & 100 & pass & 11 & error & 10 & error & 4/4/0 & unavailable/unavailable/unavailable\\
+7 & urlparser & 100 & pass & 75 & 85.71428571428571 & 74 & 84.61538461538461 & 46/46/0 & 46*/46*/0*\\
+8 & xzoom & 100 & pass & N/A & not\_applicable & N/A & not\_applicable & N/A & not\_applicable/not\_applicable/not\_applicable\\
+9 & genann & 100 & pass & 84 & error & 79 & error & 521556/521556/0 & unavailable/unavailable/unavailable\\
+10 & ht & 100 & pass & 61 & error & 67 & error & 1/1/0 & unavailable/unavailable/unavailable\\
+11 & robotfindskitten & 100 & pass & 63 & error & 61 & error & 47/47/0 & unavailable/unavailable/unavailable\\
+12 & libcsv & 100 & pass & 45 & 62.96296296296296 & 52 & 66.36085626911316 & 7406/7406/0 & 7406*/7406*/0*\\
+13 & avl-tree & 100 & pass & 29 & 75.4601226993865 & 31 & 70.06864988558353 & 12/12/0 & 12*/12*/0*\\
+14 & libopenaptx & 100 & pass & 95 & 94.54545454545455 & 81 & 86.08515057113188 & 9/9/0 & 9*/9*/0*\\
+15 & libtree & 100 & pass & 82 & error & 75 & error & 121/121/0 & unavailable/unavailable/unavailable\\
+16 & opl & 100 & pass & 45 & 61.61616161616162 & 44 & 57.05601389491967 & 14/14/0 & 14*/14*/0*\\
+17 & libzahl & 100 & pass & 87 & error & 60 & error & 1570/1570/0 & unavailable/unavailable/unavailable\\
+18 & zopfli & 100 & pass & 92 & 85.95744680851064 & 84 & 77.22595078299776 & 40/40/0 & 40*/40*/0*\\
+19 & snudown & 100 & pass & N/A & not\_applicable & N/A & not\_applicable & N/A & not\_applicable/not\_applicable/not\_applicable\\
+20 & lodepng & 100 & fail & 61 & error & 60 & error & 683994/526159/157835 & unavailable/unavailable/unavailable\\
+21 & bzip2 & 100 & pass & 13 & 56.44329896907217 & 12 & 53.28255350018136 & 36/36/0 & unavailable/unavailable/unavailable\\
+22 & binn & 100 & fail & 55 & error & 60 & error & 1949/1949/0 & unavailable/unavailable/unavailable\\
+23 & tulpindicator & 100 & pass & 65 & error & 60 & error & 4252/3994/258 & 22/21/1\\
+\end{longtable}
+\subsection*{Safety: paper Table 3 extended with CodeWeaver}
+\begin{landscape}
+\begin{longtable}{r l r r r r r r r r r r r r }
+ID & Subject & \multicolumn{2}{c}{Ptr arith} & \multicolumn{2}{c}{Raw decl} & \multicolumn{2}{c}{Raw deref} & \multicolumn{2}{c}{Unsafe lines} & \multicolumn{2}{c}{Unsafe casts} & \multicolumn{2}{c}{Unsafe calls}\\\hline
+1 & qsort & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+2 & bst & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+3 & rgba & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+4 & quadtree & 0 & 0 & 4 & 0 & 2 & 0 & 26 & 0 & 0 & 0 & 8 & 0\\
+5 & buffer & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+6 & grabc & 0 & 0 & 15 & 2 & 7 & 0 & 112 & 4 & 15 & 0 & 51 & 0\\
+7 & urlparser & 0 & 0 & 0 & 0 & 0 & 0 & 4 & 0 & 2 & 0 & 3 & 0\\
+8 & xzoom & 21 & 0 & 21 & 11 & 17 & 0 & 453 & 426 & 57 & 3 & 274 & 88\\
+9 & genann & 0 & 0 & 1 & 0 & 4 & 0 & 43 & 0 & 8 & 0 & 21 & 0\\
+10 & ht & 1 & 0 & 1 & 0 & 0 & 0 & 7 & 0 & 0 & 0 & 9 & 0\\
+11 & robotfindskitten & 0 & unavailable & 1 & error & 0 & error & 20 & error & 1 & error & 8 & error\\
+12 & libcsv & 4 & 0 & 6 & 0 & 8 & 0 & 113 & 9 & 2 & 0 & 41 & 7\\
+13 & avl-tree & 0 & unavailable & 15 & error & 12 & error & 93 & error & 5 & error & 45 & error\\
+14 & libopenaptx & 7 & 0 & 1 & 0 & 0 & 0 & 5 & 0 & 2 & 0 & 2 & 0\\
+15 & libtree & 22 & 0 & 8 & 0 & 4 & 0 & 162 & 0 & 25 & 0 & 131 & 0\\
+16 & opl & 12 & unavailable & 0 & error & 0 & error & 5 & error & 0 & error & 5 & error\\
+17 & libzahl & 12 & 0 & 6 & 85 & 1 & 0 & 1731 & 0 & 8 & 0 & 658 & 0\\
+18 & zopfli & 3 & 0 & 1 & 0 & 0 & 0 & 8 & 0 & 1 & 0 & 5 & 0\\
+19 & snudown & 2 & 0 & 8 & 0 & 0 & 0 & 52 & 0 & 17 & 0 & 38 & 0\\
+20 & lodepng & 90 & unavailable & 27 & error & 17 & error & 117 & error & 11 & error & 39 & error\\
+21 & bzip2 & 7 & 0 & 19 & 1 & 20 & 3 & 114 & 37 & 47 & 1 & 130 & 30\\
+22 & binn & 56 & 0 & 57 & 0 & 20 & 0 & 331 & 0 & 140 & 0 & 335 & 0\\
+23 & tulpindicator & 15 & 0 & 7 & 0 & 14 & 0 & 34 & 0 & 16 & 0 & 22 & 0\\
+\end{longtable}
+\end{landscape}
+\end{document}

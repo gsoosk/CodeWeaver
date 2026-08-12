@@ -1,0 +1,35 @@
+{
+  "files": {
+    "aggregate_json": "aggregate.json",
+    "latex": "comparison.tex",
+    "markdown": "comparison.md",
+    "pdf": "comparison.pdf",
+    "safety_csv": "safety.csv",
+    "statistics_csv": "statistics.csv",
+    "summary_csv": "summary.csv",
+    "summary_figure_pdf": "summary_figure.pdf",
+    "validation_csv": "validation.csv"
+  },
+  "generated_at": "2026-08-12T08:23:43.784425+00:00",
+  "paper_url": "https://arxiv.org/abs/2511.20617",
+  "pdf_status": "measured",
+  "provenance": {
+    "generated_at": "2026-08-12T08:23:43.784461+00:00",
+    "harness_config_sha256": "cd52b1dfae899829b5a773364de985dab134015cc8a6347b0e95b42a9fe74389",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3"
+  },
+  "schema_version": 1,
+  "sha256": {
+    "aggregate_json": "a820a67c8dc3c56d5b5e62d1d9d43e42600760045dd5af188e11c280bfab71bf",
+    "latex": "a50a8bdf52483f097bb49a8593665c183b3c20c6377888ea5f84093b0402f6a0",
+    "markdown": "2c6796513235d1d12fd4752e99a94c44b241f13f13c273bf0da5f140ab4027a1",
+    "pdf": "c9c0f7f35cd1aee5cc6e47989d2edbb3f1b45a136161feb5244b14d3483fdfe9",
+    "safety_csv": "a26dda151a0bc4e013f89733f4f0b0676315800d06ed42d6fb03b9eae7b1d765",
+    "statistics_csv": "7e6660063fd71692d9200431d34975e08c93629ab037afce1828e70e5eac88b6",
+    "summary_csv": "65a5d6f04d826c8c38f362735313bb361e2273fa941f949c6a8076e28965f24e",
+    "summary_figure_pdf": "47d8235ff2ef2f0557bad6c1776b76e597c3f5355dab04fa97686231e19f6684",
+    "validation_csv": "2385b0c305d71f679e794cba4de71c3597487c49262790f5ebc03328428ecfee"
+  },
+  "summary_figure_pdf_status": "measured"
+}

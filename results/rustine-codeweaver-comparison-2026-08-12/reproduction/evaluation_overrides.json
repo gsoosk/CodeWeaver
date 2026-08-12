@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "subjects_sha256": "cd52b1dfae899829b5a773364de985dab134015cc8a6347b0e95b42a9fe74389",
+  "overrides": [
+    {
+      "subject_id": 6,
+      "configured_value": [
+        {
+          "target": "test_grabc",
+          "args": [
+            "-v"
+          ],
+          "stdin": null
+        }
+      ],
+      "evaluation_value": [
+        {
+          "target": "grabc",
+          "args": [
+            "-v"
+          ],
+          "stdin": null
+        }
+      ],
+      "reason": "Run the candidate production CLI rather than the disclosed X11 test driver, which can satisfy the version check without executing candidate code."
+    }
+  ]
+}

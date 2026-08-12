@@ -1,0 +1,50 @@
+[
+  {
+    "attempt": "20260811-missing-burr",
+    "classification": "infrastructure_pre_model",
+    "copilot_log_count": 0,
+    "ended_at": "2026-08-11T23:14:35.385343Z",
+    "error": "ror: [Errno 2] No such file or directory: '/opt/codeweaver-rustine/runs/full/1/rep0/-m'\n\nOriginal exception was:\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/__main__.py\", line 7, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/cli.py\", line 306, in main\n    return args.func(args)\n           ^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/cli.py\", line 29, in _cmd_run\n    from .app import build_application\n  File \"/mnt/c/Users/t-fhabibi/CodeWeaver/codeweaver/app.py\", line 20, in <module>\n    import burr.core\nModuleNotFoundError: No module named 'burr'",
+    "num_calls": 1,
+    "project_id": "1",
+    "repetition": 0,
+    "returncode": 1,
+    "started_at": "2026-08-11T23:14:33.131476Z",
+    "state_path": "20260811-missing-burr/full/1/rep0/recodeagent_run_state.json",
+    "state_sha256": "061f0fa37614587e0de8d7268b8eed02d12cc25f2c20b446b36c0d0e8a25106d",
+    "status": "failed",
+    "variant": "full"
+  },
+  {
+    "attempt": "20260811-missing-burr-tracking",
+    "classification": "infrastructure_pre_model",
+    "copilot_log_count": 0,
+    "ended_at": "2026-08-11T23:18:33.313508Z",
+    "error": "stine/venv/lib/python3.12/site-packages/burr/tracking/client.py\", line 71, in <module>\n    from burr.tracking.common.models import (\n  File \"/opt/codeweaver-rustine/venv/lib/python3.12/site-packages/burr/tracking/common/models.py\", line 30, in <module>\n    require_plugin(\n  File \"/opt/codeweaver-rustine/venv/lib/python3.12/site-packages/burr/integrations/base.py\", line 20, in require_plugin\n    raise ImportError(\nImportError: Missing plugin tracking! To use the tracking plugin, you must install the 'extras' target [tracking] with burr[tracking] (replace with your package manager of choice). Note that, if you're using poetry, you cannot install burr with burr[start], so you'll have to install the components individually. See https://burr.apache.org/getting_started/install/ for more details.",
+    "num_calls": 1,
+    "project_id": "1",
+    "repetition": 0,
+    "returncode": 1,
+    "started_at": "2026-08-11T23:18:31.004838Z",
+    "state_path": "20260811-missing-burr-tracking/full/1/rep0/recodeagent_run_state.json",
+    "state_sha256": "98019243d8a9abfec5ae912350c334e976bea80e03f3a13411eb59a2cbc13ba1",
+    "status": "failed",
+    "variant": "full"
+  },
+  {
+    "attempt": "20260811-no-pythonpath",
+    "classification": "infrastructure_pre_model",
+    "copilot_log_count": 0,
+    "ended_at": "2026-08-11T23:11:55.805845Z",
+    "error": "/usr/bin/python3: No module named codeweaver",
+    "num_calls": 1,
+    "project_id": "1",
+    "repetition": 0,
+    "returncode": 1,
+    "started_at": "2026-08-11T23:11:53.730732Z",
+    "state_path": "20260811-no-pythonpath/full/1/rep0/recodeagent_run_state.json",
+    "state_sha256": "1ac0db4c14405472796eef492e9408f2bb90f6de6efe21102da84d3891778407",
+    "status": "failed",
+    "variant": "full"
+  }
+]

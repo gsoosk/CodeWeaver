@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "test_comparison.schema.json",
+  "title": "ReCodeAgent RQ2 per-test comparison row",
+  "description": "One source-test -> translated-test mapping/comparison row, as written by test_compare.py. RQ2 requires every source developer test to be accounted for (mapped or explicitly not-mapped) -- a source test is never silently dropped. Qwen embedding cosine similarity is optional and reports embedding_status='unavailable' with no fabricated value when sentence-transformers/the embedding model is not installed.",
+  "type": "object",
+  "required": [
+    "project_id", "tool", "mapped", "mapping_status"
+  ],
+  "properties": {
+    "project_id": {"type": "string"},
+    "tool": {"type": "string", "enum": ["crust", "oxidizer", "alphatrans", "skel"]},
+    "variant": {"type": "string"},
+    "repetition": {"type": "integer"},
+    "source_test_name": {
+      "type": ["string", "null"],
+      "description": "null only for a 'generated' row (a target test with no source counterpart)."
+    },
+    "source_test_file": {"type": ["string", "null"]},
+    "mapped": {
+      "type": "boolean",
+      "description": "Whether this source test was matched to exactly one translated/generated target test."
+    },
+    "mapping_status": {
+      "type": "string",
+      "enum": ["measured", "missing", "unavailable", "error", "not_applicable"]
+    },
+    "mapping_reason": {"type": "string"},
+    "mapping_confidence": {"type": ["number", "null"]},
+    "translated_test_name": {"type": ["string", "null"]},
+    "translated_test_file": {"type": ["string", "null"]},
+    "test_origin": {
+      "type": ["string", "null"],
+      "enum": ["translated", "generated", null],
+      "description": "'translated' = mapped 1:1 from a source developer test; 'generated' = a target test CodeWeaver wrote with no source counterpart (counted separately, never merged into 'translated')."
+    },
+    "assertion_count_source": {"type": ["integer", "null"]},
+    "assertion_count_translated": {"type": ["integer", "null"]},
+    "assertion_count_match": {"type": ["boolean", "null"]},
+    "assert_equal_expected_value_source": {"type": ["string", "number", "boolean", "null"]},
+    "assert_equal_expected_value_translated": {"type": ["string", "number", "boolean", "null"]},
+    "assert_equal_expected_value_equivalent": {"type": ["boolean", "null"]},
+    "assert_equal_value_type": {
+      "type": ["string", "null"],
+      "enum": ["string", "int", "float", "bool", null]
+    },
+    "assertion_type_source": {
+      "type": ["string", "null"],
+      "enum": ["equal", "true", "false", "other", null]
+    },
+    "assertion_type_translated": {
+      "type": ["string", "null"],
+      "enum": ["equal", "true", "false", "other", null]
+    },
+    "assertion_type_match": {"type": ["boolean", "null"]},
+    "embedding_cosine_similarity": {"type": ["number", "null"]},
+    "embedding_status": {"type": "string", "enum": ["measured", "unavailable", "error"]},
+    "embedding_reason": {"type": "string"},
+    "loc_source": {"type": ["integer", "null"]},
+    "loc_translated": {"type": ["integer", "null"]},
+    "method_invocation_count_source": {"type": ["integer", "null"]},
+    "method_invocation_count_translated": {"type": ["integer", "null"]}
+  },
+  "additionalProperties": true
+}

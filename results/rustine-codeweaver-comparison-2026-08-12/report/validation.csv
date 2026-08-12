@@ -1,0 +1,300 @@
+subject_id,subject,variant,repetition,codeweaver_pipeline_status,codeweaver_pipeline_error,paper_compilation_percent,paper_function_coverage_percent,paper_line_coverage_percent,paper_assertions_executed,paper_assertions_passed,paper_assertions_failed,codeweaver_run_completion,codeweaver_run_completion_status,codeweaver_run_completion_reason,codeweaver_contract_integrity,codeweaver_contract_integrity_status,codeweaver_contract_integrity_reason,codeweaver_compilation,codeweaver_compilation_status,codeweaver_compilation_reason,codeweaver_fixed_contract_tests,codeweaver_fixed_contract_tests_status,codeweaver_fixed_contract_tests_reason,codeweaver_function_coverage_percent,codeweaver_function_coverage_percent_status,codeweaver_function_coverage_percent_reason,codeweaver_line_coverage_percent,codeweaver_line_coverage_percent_status,codeweaver_line_coverage_percent_reason,codeweaver_assertions_executed,codeweaver_assertions_executed_status,codeweaver_assertions_executed_reason,codeweaver_assertions_passed,codeweaver_assertions_passed_status,codeweaver_assertions_passed_reason,codeweaver_assertions_failed,codeweaver_assertions_failed_status,codeweaver_assertions_failed_reason
+1,qsort,full,0,completed,,100,100,92,21,21,0,True,measured,,True,measured,,True,measured,,True,measured,,80.0,measured,,95.16129032258064,measured,,21,inferred,all fixed checks passed; value is credited from the paper denominator,21,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator
+2,bst,full,0,completed,,100,92,95,6,6,0,True,measured,,True,measured,,True,measured,,True,measured,,87.5,measured,,90.12345679012346,measured,,6,inferred,all fixed checks passed; value is credited from the paper denominator,6,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator
+3,rgba,full,0,completed,,100,99,93,20,20,0,True,measured,,True,measured,,True,measured,,True,measured,,92.0,measured,,85.65737051792829,measured,,20,inferred,all fixed checks passed; value is credited from the paper denominator,20,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator
+4,quadtree,full,0,failed,"[codeweaver] project=Rustine 4: quadtree app_id=full-4-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/4/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,91,83,34,34,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 4: quadtree app_id=full-4-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/4/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator
+5,buffer,full,0,failed,"[codeweaver] project=Rustine 5: buffer app_id=full-5-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/5/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,91,88,54,54,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 5: buffer app_id=full-5-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/5/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator
+6,grabc,full,0,failed,"[codeweaver] project=Rustine 6: grabc app_id=full-6-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/6/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,11,10,4,4,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 6: grabc app_id=full-6-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/6/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,"                found `unsafe extern ""C"" fn(*mut _XDisplay, u64, i32, *mut _XEvent)`",,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible
+7,urlparser,full,0,completed,,100,75,74,46,46,0,True,measured,,True,measured,,True,measured,,True,measured,,85.71428571428571,measured,,84.61538461538461,measured,,46,inferred,all fixed checks passed; value is credited from the paper denominator,46,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator
+8,xzoom,full,0,completed,,100,,,,,,True,measured,,True,measured,,True,measured,,,not_applicable,paper/artifact provides no tests,,not_applicable,coverage is N/A without a test contract,,not_applicable,coverage is N/A without a test contract,,not_applicable,subject has no test contract,,not_applicable,subject has no test contract,,not_applicable,subject has no test contract
+9,genann,full,0,failed,"[codeweaver] project=Rustine 9: genann app_id=full-9-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/9/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,84,79,521556,521556,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 9: genann app_id=full-9-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/9/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator
+10,ht,full,0,failed,"[codeweaver] project=Rustine 10: ht app_id=full-10-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/10/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,61,67,1,1,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 10: ht app_id=full-10-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/10/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible
+11,robotfindskitten,full,0,failed,"[codeweaver] project=Rustine 11: robotfindskitten app_id=full-11-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/11/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,63,61,47,47,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 11: robotfindskitten app_id=full-11-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/11/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator
+12,libcsv,full,0,completed,,100,45,52,7406,7406,0,True,measured,,True,measured,,True,measured,,True,measured,,62.96296296296296,measured,,66.36085626911316,measured,,7406,inferred,all fixed checks passed; value is credited from the paper denominator,7406,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator
+13,avl-tree,full,0,completed,,100,29,31,12,12,0,True,measured,,True,measured,,True,measured,,True,measured,,75.4601226993865,measured,,70.06864988558353,measured,,12,inferred,all fixed checks passed; value is credited from the paper denominator,12,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator
+14,libopenaptx,full,0,completed,,100,95,81,9,9,0,True,measured,,True,measured,,True,measured,,True,measured,,94.54545454545455,measured,,86.08515057113188,measured,,9,inferred,all fixed checks passed; value is credited from the paper denominator,9,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator
+15,libtree,full,0,failed,"[codeweaver] project=Rustine 15: libtree app_id=full-15-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/15/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,82,75,121,121,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 15: libtree app_id=full-15-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/15/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator
+16,opl,full,0,completed,,100,45,44,14,14,0,True,measured,,True,measured,,True,measured,,True,measured,,61.61616161616162,measured,,57.05601389491967,measured,,14,inferred,all fixed checks passed; value is credited from the paper denominator,14,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator
+17,libzahl,full,0,failed,"[codeweaver] project=Rustine 17: libzahl app_id=full-17-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/17/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,87,60,1570,1570,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 17: libzahl app_id=full-17-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/17/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator
+18,zopfli,full,0,failed,"[codeweaver] project=Rustine 18: zopfli app_id=full-18-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/18/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=8
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=False
+    M8  iter=2  passed=False
+    M8  iter=3  passed=False
+    M8  iter=4  passed=False
+    M8  iter=5  passed=False",100,92,84,40,40,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 18: zopfli app_id=full-18-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/18/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=8
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=False
+    M8  iter=2  passed=False
+    M8  iter=3  passed=False
+    M8  iter=4  passed=False
+    M8  iter=5  passed=False",True,measured,,True,measured,,True,measured,,85.95744680851064,measured,,77.22595078299776,measured,,40,inferred,all fixed checks passed; value is credited from the paper denominator,40,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator
+19,snudown,full,0,failed,"ck=False db=/opt/codeweaver-rustine/runs/full/19/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=12
+    M0  iter=1  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    M11  iter=1  passed=True
+    M12  iter=1  passed=False
+    M12  iter=2  passed=False
+    M12  iter=3  passed=False
+    M12  iter=4  passed=False
+    M12  iter=5  passed=False",100,,,,,,False,measured,"run state status='failed': ck=False db=/opt/codeweaver-rustine/runs/full/19/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=12
+    M0  iter=1  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    M11  iter=1  passed=True
+    M12  iter=1  passed=False
+    M12  iter=2  passed=False
+    M12  iter=3  passed=False
+    M12  iter=4  passed=False
+    M12  iter=5  passed=False",True,measured,,True,measured,,,not_applicable,paper/artifact provides no tests,,not_applicable,coverage is N/A without a test contract,,not_applicable,coverage is N/A without a test contract,,not_applicable,subject has no test contract,,not_applicable,subject has no test contract,,not_applicable,subject has no test contract
+20,lodepng,full,0,failed,"[codeweaver] project=Rustine 20: lodepng app_id=full-20-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/20/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,61,60,683994,526159,157835,False,measured,"run state status='failed': [codeweaver] project=Rustine 20: lodepng app_id=full-20-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/20/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,False,measured,error: could not compile `lodepngrs` (lib test) due to 1 previous error; 127 warnings emitted,False,measured,error: could not compile `lodepngrs` (lib) due to 1 previous error; 127 warnings emitted,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator
+21,bzip2,full,0,failed,"estone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=22
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    M11  iter=1  passed=True
+    M12  iter=1  passed=True
+    M13  iter=1  passed=True
+    M14  iter=1  passed=True
+    M15  iter=1  passed=True
+    M16  iter=1  passed=True
+    M17  iter=1  passed=True
+    M18  iter=1  passed=True
+    M19  iter=1  passed=True
+    M20  iter=1  passed=True
+    M21  iter=1  passed=True
+    M22  iter=1  passed=True",100,13,12,36,36,0,False,measured,"run state status='failed': estone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=22
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    M11  iter=1  passed=True
+    M12  iter=1  passed=True
+    M13  iter=1  passed=True
+    M14  iter=1  passed=True
+    M15  iter=1  passed=True
+    M16  iter=1  passed=True
+    M17  iter=1  passed=True
+    M18  iter=1  passed=True
+    M19  iter=1  passed=True
+    M20  iter=1  passed=True
+    M21  iter=1  passed=True
+    M22  iter=1  passed=True",True,measured,,True,measured,,True,measured,,56.44329896907217,measured,,53.28255350018136,measured,,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible
+22,binn,full,0,failed,"[codeweaver] project=Rustine 22: binn app_id=full-22-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/22/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,55,60,1949,1949,0,False,measured,"run state status='failed': [codeweaver] project=Rustine 22: binn app_id=full-22-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/22/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,False,measured,error: could not compile `binrs` (lib test) due to 2 previous errors; 245 warnings emitted,False,measured,error: could not compile `binrs` (lib) due to 2 previous errors; 245 warnings emitted,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator
+23,tulpindicator,full,0,failed,"[codeweaver] project=Rustine 23: tulpindicator app_id=full-23-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/23/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",100,65,60,4252,3994,258,False,measured,"run state status='failed': [codeweaver] project=Rustine 23: tulpindicator app_id=full-23-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/23/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,  |     ^^^^^^^^^^^^^^^^^^^^^^^^,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,22,measured,,21,measured,,1,measured,

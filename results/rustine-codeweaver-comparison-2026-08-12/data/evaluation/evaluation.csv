@@ -1,0 +1,300 @@
+subject_id,subject,variant,repetition,loc,pipeline_status,pipeline_error,run_completion,run_completion_status,run_completion_reason,contract_integrity,contract_integrity_status,contract_integrity_reason,compilation,compilation_status,compilation_reason,fixed_contract_tests,fixed_contract_tests_status,fixed_contract_tests_reason,function_coverage_percent,function_coverage_percent_status,function_coverage_percent_reason,line_coverage_percent,line_coverage_percent_status,line_coverage_percent_reason,elapsed_seconds,elapsed_seconds_status,elapsed_seconds_reason,input_tokens,input_tokens_status,input_tokens_reason,output_tokens,output_tokens_status,output_tokens_reason,nano_aiu,nano_aiu_status,nano_aiu_reason,premium_requests,premium_requests_status,premium_requests_reason,assertions_executed,assertions_executed_status,assertions_executed_reason,assertions_passed,assertions_passed_status,assertions_passed_reason,assertions_failed,assertions_failed_status,assertions_failed_reason,pointer_arithmetic,pointer_arithmetic_status,pointer_arithmetic_reason,raw_pointer_declarations,raw_pointer_declarations_status,raw_pointer_declarations_reason,raw_pointer_dereferences,raw_pointer_dereferences_status,raw_pointer_dereferences_reason,unsafe_lines,unsafe_lines_status,unsafe_lines_reason,unsafe_type_casts,unsafe_type_casts_status,unsafe_type_casts_reason,unsafe_calls,unsafe_calls_status,unsafe_calls_reason
+1,qsort,full,0,27,completed,,True,measured,,True,measured,,True,measured,,True,measured,,80.0,measured,,95.16129032258064,measured,,1462.273285,measured,,,unavailable,Copilot logs did not expose input tokens,78987,measured,,585346275000,measured,,0,measured,,21,inferred,all fixed checks passed; value is credited from the paper denominator,21,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+2,bst,full,0,65,completed,,True,measured,,True,measured,,True,measured,,True,measured,,87.5,measured,,90.12345679012346,measured,,2175.259701,measured,,,unavailable,Copilot logs did not expose input tokens,121571,measured,,859388625000,measured,,0,measured,,6,inferred,all fixed checks passed; value is credited from the paper denominator,6,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+3,rgba,full,0,411,completed,,True,measured,,True,measured,,True,measured,,True,measured,,92.0,measured,,85.65737051792829,measured,,3564.012003,measured,,,unavailable,Copilot logs did not expose input tokens,204654,measured,,1701151825000,measured,,0,measured,,20,inferred,all fixed checks passed; value is credited from the paper denominator,20,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+4,quadtree,full,0,437,failed,"[codeweaver] project=Rustine 4: quadtree app_id=full-4-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/4/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 4: quadtree app_id=full-4-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/4/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,2449.271474,measured,,,unavailable,Copilot logs did not expose input tokens,136047,measured,,1069858900000,measured,,0,measured,,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+5,buffer,full,0,452,failed,"[codeweaver] project=Rustine 5: buffer app_id=full-5-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/5/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 5: buffer app_id=full-5-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/5/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,2287.885327,measured,,,unavailable,Copilot logs did not expose input tokens,133156,measured,,1045385825000,measured,,0,measured,,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+6,grabc,full,0,490,failed,"[codeweaver] project=Rustine 6: grabc app_id=full-6-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/6/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 6: grabc app_id=full-6-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/6/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,"                found `unsafe extern ""C"" fn(*mut _XDisplay, u64, i32, *mut _XEvent)`",,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,10956.039162,measured,,,unavailable,Copilot logs did not expose input tokens,131331,measured,,1195495150000,measured,,0,measured,,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,2,measured,,0,measured,,4,measured,,0,measured,,0,measured,
+7,urlparser,full,0,563,completed,,True,measured,,True,measured,,True,measured,,True,measured,,85.71428571428571,measured,,84.61538461538461,measured,,5179.098985,measured,,,unavailable,Copilot logs did not expose input tokens,307166,measured,,2519902725000,measured,,0,measured,,46,inferred,all fixed checks passed; value is credited from the paper denominator,46,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+8,xzoom,full,0,659,completed,,True,measured,,True,measured,,True,measured,,,not_applicable,paper/artifact provides no tests,,not_applicable,coverage is N/A without a test contract,,not_applicable,coverage is N/A without a test contract,5577.63027,measured,,,unavailable,Copilot logs did not expose input tokens,326019,measured,,2455862350000,measured,,0,measured,,,not_applicable,subject has no test contract,,not_applicable,subject has no test contract,,not_applicable,subject has no test contract,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,11,measured,,0,measured,,426,measured,,3,measured,,88,measured,
+9,genann,full,0,690,failed,"[codeweaver] project=Rustine 9: genann app_id=full-9-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/9/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 9: genann app_id=full-9-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/9/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,3295.850988,measured,,,unavailable,Copilot logs did not expose input tokens,178006,measured,,1355837625000,measured,,0,measured,,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+10,ht,full,0,699,failed,"[codeweaver] project=Rustine 10: ht app_id=full-10-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/10/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 10: ht app_id=full-10-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/10/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,2047.406758,measured,,,unavailable,Copilot logs did not expose input tokens,122448,measured,,917753550000,measured,,0,measured,,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+11,robotfindskitten,full,0,838,failed,"[codeweaver] project=Rustine 11: robotfindskitten app_id=full-11-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/11/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 11: robotfindskitten app_id=full-11-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/11/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,2767.943099,measured,,,unavailable,Copilot logs did not expose input tokens,157856,measured,,1291065625000,measured,,0,measured,,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,cargo-newmetrics did not expose a rustc-HIR pointer count,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors
+12,libcsv,full,0,1035,completed,,True,measured,,True,measured,,True,measured,,True,measured,,62.96296296296296,measured,,66.36085626911316,measured,,3980.75462,measured,,,unavailable,Copilot logs did not expose input tokens,239615,measured,,1977802725000,measured,,0,measured,,7406,inferred,all fixed checks passed; value is credited from the paper denominator,7406,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,9,measured,,0,measured,,7,measured,
+13,avl-tree,full,0,1170,completed,,True,measured,,True,measured,,True,measured,,True,measured,,75.4601226993865,measured,,70.06864988558353,measured,,10602.253169,measured,,,unavailable,Copilot logs did not expose input tokens,492456,measured,,4559613400000,measured,,0,measured,,12,inferred,all fixed checks passed; value is credited from the paper denominator,12,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator,,unavailable,cargo-newmetrics did not expose a rustc-HIR pointer count,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors
+14,libopenaptx,full,0,1333,completed,,True,measured,,True,measured,,True,measured,,True,measured,,94.54545454545455,measured,,86.08515057113188,measured,,7080.270384,measured,,,unavailable,Copilot logs did not expose input tokens,409513,measured,,3577891825000,measured,,0,measured,,9,inferred,all fixed checks passed; value is credited from the paper denominator,9,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+15,libtree,full,0,1412,failed,"[codeweaver] project=Rustine 15: libtree app_id=full-15-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/15/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 15: libtree app_id=full-15-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/15/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,2561.54576,measured,,,unavailable,Copilot logs did not expose input tokens,146198,measured,,1425497775000,measured,,0,measured,,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+16,opl,full,0,1642,completed,,True,measured,,True,measured,,True,measured,,True,measured,,61.61616161616162,measured,,57.05601389491967,measured,,5926.736315,measured,,,unavailable,Copilot logs did not expose input tokens,320117,measured,,3324744575000,measured,,0,measured,,14,inferred,all fixed checks passed; value is credited from the paper denominator,14,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator,,unavailable,cargo-newmetrics did not expose a rustc-HIR pointer count,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors
+17,libzahl,full,0,2575,failed,"[codeweaver] project=Rustine 17: libzahl app_id=full-17-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/17/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 17: libzahl app_id=full-17-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/17/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,3150.437891,measured,,,unavailable,Copilot logs did not expose input tokens,180685,measured,,1577946800000,measured,,0,measured,,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,85,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+18,zopfli,full,0,2937,failed,"[codeweaver] project=Rustine 18: zopfli app_id=full-18-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/18/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=8
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=False
+    M8  iter=2  passed=False
+    M8  iter=3  passed=False
+    M8  iter=4  passed=False
+    M8  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 18: zopfli app_id=full-18-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/18/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=8
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=False
+    M8  iter=2  passed=False
+    M8  iter=3  passed=False
+    M8  iter=4  passed=False
+    M8  iter=5  passed=False",True,measured,,True,measured,,True,measured,,85.95744680851064,measured,,77.22595078299776,measured,,8219.173962,measured,,,unavailable,Copilot logs did not expose input tokens,471443,measured,,4170650850000,measured,,0,measured,,40,inferred,all fixed checks passed; value is credited from the paper denominator,40,inferred,all fixed checks passed; value is credited from the paper denominator,0,inferred,all fixed checks passed; value is credited from the paper denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+19,snudown,full,0,5271,failed,"ck=False db=/opt/codeweaver-rustine/runs/full/19/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=12
+    M0  iter=1  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    M11  iter=1  passed=True
+    M12  iter=1  passed=False
+    M12  iter=2  passed=False
+    M12  iter=3  passed=False
+    M12  iter=4  passed=False
+    M12  iter=5  passed=False",False,measured,"run state status='failed': ck=False db=/opt/codeweaver-rustine/runs/full/19/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=12
+    M0  iter=1  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    M11  iter=1  passed=True
+    M12  iter=1  passed=False
+    M12  iter=2  passed=False
+    M12  iter=3  passed=False
+    M12  iter=4  passed=False
+    M12  iter=5  passed=False",True,measured,,True,measured,,,not_applicable,paper/artifact provides no tests,,not_applicable,coverage is N/A without a test contract,,not_applicable,coverage is N/A without a test contract,11818.998301,measured,,,unavailable,Copilot logs did not expose input tokens,681049,measured,,5744705875000,measured,,0,measured,,,not_applicable,subject has no test contract,,not_applicable,subject has no test contract,,not_applicable,subject has no test contract,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+20,lodepng,full,0,5606,failed,"[codeweaver] project=Rustine 20: lodepng app_id=full-20-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/20/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 20: lodepng app_id=full-20-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/20/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,False,measured,error: could not compile `lodepngrs` (lib test) due to 1 previous error; 127 warnings emitted,False,measured,error: could not compile `lodepngrs` (lib) due to 1 previous error; 127 warnings emitted,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,2839.447988,measured,,,unavailable,Copilot logs did not expose input tokens,165332,measured,,1551335500000,measured,,0,measured,,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,cargo-newmetrics did not expose a rustc-HIR pointer count,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors,,error,error: could not compile `zerocopy` (lib) due to 3 previous errors
+21,bzip2,full,0,5861,failed,"estone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=22
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    M11  iter=1  passed=True
+    M12  iter=1  passed=True
+    M13  iter=1  passed=True
+    M14  iter=1  passed=True
+    M15  iter=1  passed=True
+    M16  iter=1  passed=True
+    M17  iter=1  passed=True
+    M18  iter=1  passed=True
+    M19  iter=1  passed=True
+    M20  iter=1  passed=True
+    M21  iter=1  passed=True
+    M22  iter=1  passed=True",False,measured,"run state status='failed': estone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=22
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    M11  iter=1  passed=True
+    M12  iter=1  passed=True
+    M13  iter=1  passed=True
+    M14  iter=1  passed=True
+    M15  iter=1  passed=True
+    M16  iter=1  passed=True
+    M17  iter=1  passed=True
+    M18  iter=1  passed=True
+    M19  iter=1  passed=True
+    M20  iter=1  passed=True
+    M21  iter=1  passed=True
+    M22  iter=1  passed=True",True,measured,,True,measured,,True,measured,,56.44329896907217,measured,,53.28255350018136,measured,,17304.279941,measured,,,unavailable,Copilot logs did not expose input tokens,1066046,measured,,9895435775000,measured,,0,measured,,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible,,unavailable,exact executed assertion count is not defensible,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,1,measured,,3,measured,,37,measured,,1,measured,,30,measured,
+22,binn,full,0,6361,failed,"[codeweaver] project=Rustine 22: binn app_id=full-22-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/22/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 22: binn app_id=full-22-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/22/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,False,measured,error: could not compile `binrs` (lib test) due to 2 previous errors; 245 warnings emitted,False,measured,error: could not compile `binrs` (lib) due to 2 previous errors; 245 warnings emitted,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,3847.282448,measured,,,unavailable,Copilot logs did not expose input tokens,209958,measured,,1812941325000,measured,,0,measured,,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,,unavailable,a failed/partial run cannot be mapped to the paper assertion denominator,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
+23,tulpindicator,full,0,13200,failed,"[codeweaver] project=Rustine 23: tulpindicator app_id=full-23-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/23/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",False,measured,"run state status='failed': [codeweaver] project=Rustine 23: tulpindicator app_id=full-23-rep0 mock=False db=/opt/codeweaver-rustine/runs/full/23/rep0/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=0
+    M0  iter=1  passed=False
+    M0  iter=2  passed=False
+    M0  iter=3  passed=False
+    M0  iter=4  passed=False
+    M0  iter=5  passed=False",True,measured,,True,measured,,False,measured,  |     ^^^^^^^^^^^^^^^^^^^^^^^^,,error,instrumented fixed contract did not pass,,error,instrumented fixed contract did not pass,3665.460067,measured,,,unavailable,Copilot logs did not expose input tokens,219659,measured,,2053847475000,measured,,0,measured,,22,measured,,21,measured,,1,measured,,0,measured,Rustine rustc-HIR cargo-newmetrics library-target measurement,0,measured,,0,measured,,0,measured,,0,measured,,0,measured,
