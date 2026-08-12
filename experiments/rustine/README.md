@@ -81,6 +81,11 @@ file.
   uses a deterministic stdin-driven `demo` check because the artifact exposes
   samples/benchmarks rather than its reported one-assertion oracle. Exact
   assertion credit for both derived checks is unavailable.
+- Measured workspaces prepared by harness commit `f4c3a0d` omitted the already
+  validated Grabc/HT execution arguments from `contract.json`. Independent
+  evaluation verifies the original contract hash, overlays the exact
+  `subjects.json` executions in a temporary copy, and leaves archived run
+  evidence byte-identical. New preparations persist the field directly.
 - The artifact does not disclose bzip2's augmented 36-assertion module. Its
   measured oracle is therefore a deterministic CLI compression round trip;
   exact assertion credit remains unavailable.

@@ -8,7 +8,9 @@ import json
 import os
 import shutil
 from concurrent.futures import ThreadPoolExecutor
+from contextlib import contextmanager
 from pathlib import Path
+from tempfile import TemporaryDirectory
 from typing import Any, Callable
 
 from experiments.recodeagent.common import parse_copilot_jsonl, summarize_copilot_events
@@ -37,6 +39,29 @@ def _load_workspace_evaluator(path: Path):
     return module
 
 
+@contextmanager
+def _runtime_contract(
+    contract_dir: Path,
+    executions: list[dict[str, Any]] | None,
+):
+    if not executions:
+        yield contract_dir
+        return
+    lock = C.read_json(contract_dir / "contract.json")
+    frozen_executions = lock.get("executions")
+    if frozen_executions is not None:
+        if frozen_executions != executions:
+            raise ValueError("prepared contract executions differ from subjects.json")
+        yield contract_dir
+        return
+    with TemporaryDirectory(prefix="rustine-runtime-contract-") as scratch:
+        runtime_contract = Path(scratch) / "oracle"
+        shutil.copytree(contract_dir, runtime_contract)
+        lock["executions"] = executions
+        C.atomic_write_json(runtime_contract / "contract.json", lock)
+        yield runtime_contract
+
+
 def run_workspace_stage(
     stage: str,
     *,
@@ -44,12 +69,14 @@ def run_workspace_stage(
     target: Path,
     contract_dir: Path,
     timeout: float,
+    contract_executions: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     evaluator_path = workspace / "immutable_evaluator.py"
     module = _load_workspace_evaluator(evaluator_path)
-    return module.evaluate_stage(
-        stage, target=target, contract_dir=contract_dir, timeout=timeout
-    )
+    with _runtime_contract(contract_dir, contract_executions) as runtime_contract:
+        return module.evaluate_stage(
+            stage, target=target, contract_dir=runtime_contract, timeout=timeout
+        )
 
 
 def _run_completion(workspace: Path) -> tuple[dict[str, Any], dict[str, Any] | None]:
@@ -261,6 +288,7 @@ def evaluate_workspace(
         "target": target,
         "contract_dir": workspace / "oracle",
         "timeout": timeout,
+        "contract_executions": subject["contract"].get("executions"),
     }
     build = stage_runner("build", **stage_args)
     tests = stage_runner("test", **stage_args)

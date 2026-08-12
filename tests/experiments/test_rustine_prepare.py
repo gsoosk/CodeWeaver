@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import json
 from pathlib import Path
 
@@ -53,7 +54,10 @@ def test_prepare_copies_only_fixed_contract_and_loadable_codeweaver_config(tmp_p
     workspace_root = tmp_path / "workspaces"
     _synthetic_qsort_artifact(artifact)
     config = load_subject_config()
-    subject = config["subjects"][0]
+    subject = copy.deepcopy(config["subjects"][0])
+    subject["contract"]["executions"] = [
+        {"target": "test", "args": ["--version"], "stdin": None}
+    ]
 
     marker = prepare_subject(
         subject,
@@ -76,6 +80,10 @@ def test_prepare_copies_only_fixed_contract_and_loadable_codeweaver_config(tmp_p
     assert "pub mod test;" in (
         workspace / "scaffold" / "src" / "lib.rs"
     ).read_text(encoding="utf-8")
+    contract = json.loads(
+        (workspace / "oracle" / "contract.json").read_text(encoding="utf-8")
+    )
+    assert contract["executions"] == subject["contract"]["executions"]
 
     cargo = (workspace / "scaffold" / "Cargo.toml").read_text(encoding="utf-8")
     assert 'name = "qsortrs"' in cargo

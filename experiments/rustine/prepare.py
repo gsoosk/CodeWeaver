@@ -463,6 +463,7 @@ def prepare_subject(
         "external_assets": external_assets,
         "support_files": support_files,
         "targets": list(subject["contract"]["targets"]),
+        "executions": subject["contract"].get("executions"),
         "assertion_credit": subject["contract"]["assertion_credit"],
         "success_regex": subject["contract"].get("success_regex"),
         "failure_regex": subject["contract"].get("failure_regex"),

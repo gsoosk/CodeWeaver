@@ -3,11 +3,12 @@ from __future__ import annotations
 import json
 import shutil
 from pathlib import Path
+from types import SimpleNamespace
 
 from experiments.rustine import common as C
 from experiments.rustine import evaluate as rustine_evaluate
 from experiments.rustine.config import load_subject_config
-from experiments.rustine.evaluate import evaluate_workspace
+from experiments.rustine.evaluate import evaluate_workspace, run_workspace_stage
 from experiments.rustine.evaluator import (
     parse_llvm_cov_json,
     parse_newmetrics_output,
@@ -119,6 +120,43 @@ def test_parallel_evaluation_preserves_subject_order(tmp_path, monkeypatch):
         max_workers=4,
     )
     assert [row["subject_id"] for row in result["rows"]] == list(range(1, 24))
+
+
+def test_runtime_execution_overlay_preserves_legacy_contract(tmp_path, monkeypatch):
+    workspace = tmp_path / "run"
+    contract_dir = workspace / "oracle"
+    contract_dir.mkdir(parents=True)
+    contract_path = contract_dir / "contract.json"
+    contract_path.write_text(
+        json.dumps({"schema_version": 1, "executions": None}),
+        encoding="utf-8",
+    )
+    target = workspace / "pipeline" / "target"
+    target.mkdir(parents=True)
+    expected = [{"target": "test_grabc", "args": ["-v"], "stdin": None}]
+    observed = []
+
+    def fake_evaluate_stage(stage, *, target, contract_dir, timeout):
+        observed.append(json.loads((contract_dir / "contract.json").read_text()))
+        return {"stage": stage, "target": str(target), "timeout": timeout}
+
+    monkeypatch.setattr(
+        rustine_evaluate,
+        "_load_workspace_evaluator",
+        lambda _path: SimpleNamespace(evaluate_stage=fake_evaluate_stage),
+    )
+    result = run_workspace_stage(
+        "test",
+        workspace=workspace,
+        target=target,
+        contract_dir=contract_dir,
+        timeout=7,
+        contract_executions=expected,
+    )
+
+    assert result["stage"] == "test"
+    assert observed[0]["executions"] == expected
+    assert json.loads(contract_path.read_text(encoding="utf-8"))["executions"] is None
 
 
 def test_binary_statistics_are_exact_and_bounded():
