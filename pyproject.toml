@@ -8,7 +8,7 @@ license = { text = "MIT" }
 authors = [{ name = "CodeWeaver contributors" }]
 keywords = ["llm", "agents", "code-translation", "migration", "recodeagent", "burr", "copilot"]
 dependencies = [
-    "apache-burr>=0.42.0",
+    "apache-burr[tracking]>=0.42.0",
 ]
 
 [project.optional-dependencies]

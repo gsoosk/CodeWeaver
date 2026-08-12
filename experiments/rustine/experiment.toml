@@ -1,0 +1,9 @@
+# Frozen CodeWeaver protocol for the Rustine same-subject comparison.
+
+[protocol]
+model = "gpt-5.6-sol"
+effort_default = "max"
+agent_timeout_seconds = 5000
+max_iter = 5
+max_parity_rounds = 3
+repetitions = 1

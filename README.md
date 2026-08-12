@@ -33,6 +33,13 @@ The raw-run archive is stored as 28 numbered regular-Git parts in
 [`raw-run-archives/`](results/recodeagent-gpt-5.6-sol-final-2026-08-11/raw-run-archives/);
 normalized data, tables, figures, and PDFs are regular Git files as well.
 
+The leakage-aware, same-subject comparison with Rustine
+([arXiv:2511.20617](https://arxiv.org/abs/2511.20617)) is in
+[`results/rustine-codeweaver-comparison-2026-08-12/`](results/rustine-codeweaver-comparison-2026-08-12/).
+Start with the [comparison PDF](results/rustine-codeweaver-comparison-2026-08-12/report/comparison.pdf),
+the [headline figure](results/rustine-codeweaver-comparison-2026-08-12/report/summary_figure.pdf),
+or the [final verification record](results/rustine-codeweaver-comparison-2026-08-12/metadata/final_verification.json).
+
 ---
 
 ## 1. How it works

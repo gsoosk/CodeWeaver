@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "paper": {
+    "arxiv_id": "2511.20617v1",
+    "title": "Translating Large-Scale C Repositories to Idiomatic Rust",
+    "url": "https://arxiv.org/abs/2511.20617"
+  },
+  "artifact": {
+    "commit": "774ff51e48d4d3a6a73e4864689a042fc1028fc0",
+    "license": "MIT"
+  },
+  "protocol": {
+    "model": "gpt-5.6-sol",
+    "effort": "max",
+    "agent_timeout_seconds": 5000,
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "repetitions": 1,
+    "rust_toolchain": "nightly-2025-05-13",
+    "cargo_llvm_cov_version": "0.8.7",
+    "cargo_newmetrics_sha256": "235e5515186bcbe1a455339c524a9e33f8223fffa5fec2f8293cee11c1afc2bb"
+  },
+  "subjects": [
+    {
+      "id": 1, "name": "qsort", "artifact_dir": "qsort", "loc": 27,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": [], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 100, "line_coverage_percent": 92, "assertions_executed": 21, "assertions_passed": 21, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 0, "raw_pointer_declarations": 0, "raw_pointer_dereferences": 0, "unsafe_lines": 0, "unsafe_type_casts": 0, "unsafe_calls": 0}
+    },
+    {
+      "id": 2, "name": "bst", "artifact_dir": "bst", "loc": 65,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": [], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 92, "line_coverage_percent": 95, "assertions_executed": 6, "assertions_passed": 6, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 0, "raw_pointer_declarations": 0, "raw_pointer_dereferences": 0, "unsafe_lines": 0, "unsafe_type_casts": 0, "unsafe_calls": 0}
+    },
+    {
+      "id": 3, "name": "rgba", "artifact_dir": "rgba", "loc": 411,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": [], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 99, "line_coverage_percent": 93, "assertions_executed": 20, "assertions_passed": 20, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 0, "raw_pointer_declarations": 0, "raw_pointer_dereferences": 0, "unsafe_lines": 0, "unsafe_type_casts": 0, "unsafe_calls": 0}
+    },
+    {
+      "id": 4, "name": "quadtree", "artifact_dir": "quadtree-0.1.0", "loc": 437,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": [], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 91, "line_coverage_percent": 83, "assertions_executed": 34, "assertions_passed": 34, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 0, "raw_pointer_declarations": 4, "raw_pointer_dereferences": 2, "unsafe_lines": 26, "unsafe_type_casts": 0, "unsafe_calls": 8}
+    },
+    {
+      "id": 5, "name": "buffer", "artifact_dir": "buffer-0.4.0", "loc": 452,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": [], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 91, "line_coverage_percent": 88, "assertions_executed": 54, "assertions_passed": 54, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 1, "raw_pointer_declarations": 0, "raw_pointer_dereferences": 0, "unsafe_lines": 0, "unsafe_type_casts": 0, "unsafe_calls": 0}
+    },
+    {
+      "id": 6, "name": "grabc", "artifact_dir": "grabc", "loc": 490,
+      "contract": {"kind": "rust_binary", "files": ["src/test_grabc.rs", "src/test_grabc_main.rs"], "assets": [], "targets": ["test_grabc"], "test_dependencies": ["lazy_static", "libc"], "assertion_credit": "unavailable", "executions": [{"target": "test_grabc", "args": ["-v"], "stdin": null}], "success_regex": "grabc v1\\.0\\.2", "failure_regex": null},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 11, "line_coverage_percent": 10, "assertions_executed": 4, "assertions_passed": 4, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 0, "raw_pointer_declarations": 15, "raw_pointer_dereferences": 7, "unsafe_lines": 112, "unsafe_type_casts": 15, "unsafe_calls": 51}
+    },
+    {
+      "id": 7, "name": "urlparser", "artifact_dir": "url_parser", "loc": 563,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": [], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 75, "line_coverage_percent": 74, "assertions_executed": 46, "assertions_passed": 46, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 0, "raw_pointer_declarations": 0, "raw_pointer_dereferences": 0, "unsafe_lines": 4, "unsafe_type_casts": 2, "unsafe_calls": 3}
+    },
+    {
+      "id": 8, "name": "xzoom", "artifact_dir": "xzoom", "loc": 659,
+      "contract": {"kind": "none", "files": [], "assets": [], "targets": [], "test_dependencies": [], "assertion_credit": "not_applicable"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": null, "line_coverage_percent": null, "assertions_executed": null, "assertions_passed": null, "assertions_failed": null},
+      "paper_safety": {"pointer_arithmetic": 21, "raw_pointer_declarations": 21, "raw_pointer_dereferences": 17, "unsafe_lines": 453, "unsafe_type_casts": 57, "unsafe_calls": 274}
+    },
+    {
+      "id": 9, "name": "genann", "artifact_dir": "genann", "loc": 690,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": ["persist.txt"], "targets": ["test"], "test_dependencies": ["lazy_static"], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 84, "line_coverage_percent": 79, "assertions_executed": 521556, "assertions_passed": 521556, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 0, "raw_pointer_declarations": 1, "raw_pointer_dereferences": 4, "unsafe_lines": 43, "unsafe_type_casts": 8, "unsafe_calls": 21}
+    },
+    {
+      "id": 10, "name": "ht", "artifact_dir": "ht", "loc": 699,
+      "contract": {"kind": "rust_binary", "files": ["src/lsearch.rs", "src/bsearch_main.rs", "src/dump.rs", "src/perfset.rs", "src/perflbh_main.rs", "src/perfget.rs", "src/demo.rs", "src/stats_main.rs"], "assets": [], "targets": ["lsearch", "bsearch", "dump", "perfset", "perflbh", "perfget", "demo", "stats"], "test_dependencies": ["lazy_static"], "assertion_credit": "unavailable", "executions": [{"target": "demo", "args": [], "stdin": "alpha beta alpha\n"}], "success_regex": "(?ms)(?=.*^alpha 2$)(?=.*^beta 1$)(?=.*^2$)", "failure_regex": null},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 61, "line_coverage_percent": 67, "assertions_executed": 1, "assertions_passed": 1, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 1, "raw_pointer_declarations": 1, "raw_pointer_dereferences": 0, "unsafe_lines": 7, "unsafe_type_casts": 0, "unsafe_calls": 9}
+    },
+    {
+      "id": 11, "name": "robotfindskitten", "artifact_dir": "robotfindskitten", "loc": 838,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": ["lazy_static", "ncurses", "rand"], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 63, "line_coverage_percent": 61, "assertions_executed": 47, "assertions_passed": 47, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 0, "raw_pointer_declarations": 1, "raw_pointer_dereferences": 0, "unsafe_lines": 20, "unsafe_type_casts": 1, "unsafe_calls": 8}
+    },
+    {
+      "id": 12, "name": "libcsv", "artifact_dir": "libcsv", "loc": 1035,
+      "contract": {"kind": "rust_binary", "files": ["src/test_csv.rs", "src/test_csv_main.rs"], "assets": [], "targets": ["test_csv"], "test_dependencies": [], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 45, "line_coverage_percent": 52, "assertions_executed": 7406, "assertions_passed": 7406, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 4, "raw_pointer_declarations": 6, "raw_pointer_dereferences": 8, "unsafe_lines": 113, "unsafe_type_casts": 2, "unsafe_calls": 41}
+    },
+    {
+      "id": 13, "name": "avl-tree", "artifact_dir": "avl-tree", "loc": 1170,
+      "contract": {"kind": "rust_binary", "files": ["src/avl_test.rs", "src/avl_test_main.rs"], "assets": [], "targets": ["avl_test"], "test_dependencies": ["lazy_static", "rand"], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 29, "line_coverage_percent": 31, "assertions_executed": 12, "assertions_passed": 12, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 0, "raw_pointer_declarations": 15, "raw_pointer_dereferences": 12, "unsafe_lines": 93, "unsafe_type_casts": 5, "unsafe_calls": 45}
+    },
+    {
+      "id": 14, "name": "libopenaptx", "artifact_dir": "libopenaptx", "loc": 1333,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": [], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 95, "line_coverage_percent": 81, "assertions_executed": 9, "assertions_passed": 9, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 7, "raw_pointer_declarations": 1, "raw_pointer_dereferences": 0, "unsafe_lines": 5, "unsafe_type_casts": 2, "unsafe_calls": 2}
+    },
+    {
+      "id": 15, "name": "libtree", "artifact_dir": "libtree-3.1.1", "loc": 1412,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": ["libc"], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 82, "line_coverage_percent": 75, "assertions_executed": 121, "assertions_passed": 121, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 22, "raw_pointer_declarations": 8, "raw_pointer_dereferences": 4, "unsafe_lines": 162, "unsafe_type_casts": 25, "unsafe_calls": 131}
+    },
+    {
+      "id": 16, "name": "opl", "artifact_dir": "opl", "loc": 1642,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": ["lazy_static", "rand"], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 45, "line_coverage_percent": 44, "assertions_executed": 14, "assertions_passed": 14, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 12, "raw_pointer_declarations": 0, "raw_pointer_dereferences": 0, "unsafe_lines": 5, "unsafe_type_casts": 0, "unsafe_calls": 5}
+    },
+    {
+      "id": 17, "name": "libzahl", "artifact_dir": "libzahl-1.0", "loc": 2575,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs", "src/zbtest.rs", "src/zptest.rs"], "assets": [], "targets": ["test"], "test_dependencies": ["lazy_static", "libc"], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 87, "line_coverage_percent": 60, "assertions_executed": 1570, "assertions_passed": 1570, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 12, "raw_pointer_declarations": 6, "raw_pointer_dereferences": 1, "unsafe_lines": 1731, "unsafe_type_casts": 8, "unsafe_calls": 658}
+    },
+    {
+      "id": 18, "name": "zopfli", "artifact_dir": "zopfli", "loc": 2937,
+      "contract": {"kind": "rust_binary", "files": ["src/test_zopfli.rs", "src/test_zopfli_main.rs"], "assets": [], "targets": ["test_zopfli"], "test_dependencies": ["lazy_static"], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 92, "line_coverage_percent": 84, "assertions_executed": 40, "assertions_passed": 40, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 3, "raw_pointer_declarations": 1, "raw_pointer_dereferences": 0, "unsafe_lines": 8, "unsafe_type_casts": 1, "unsafe_calls": 5}
+    },
+    {
+      "id": 19, "name": "snudown", "artifact_dir": "snudown", "loc": 5271,
+      "contract": {"kind": "none", "files": [], "assets": [], "targets": [], "test_dependencies": [], "assertion_credit": "not_applicable"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": null, "line_coverage_percent": null, "assertions_executed": null, "assertions_passed": null, "assertions_failed": null},
+      "paper_safety": {"pointer_arithmetic": 2, "raw_pointer_declarations": 8, "raw_pointer_dereferences": 0, "unsafe_lines": 52, "unsafe_type_casts": 17, "unsafe_calls": 38}
+    },
+    {
+      "id": 20, "name": "lodepng", "artifact_dir": "lodepng", "loc": 5606,
+      "contract": {"kind": "rust_binary", "files": ["src/test.rs", "src/test_main.rs"], "assets": [], "targets": ["test"], "test_dependencies": ["lazy_static", "rand"], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 61, "line_coverage_percent": 60, "assertions_executed": 683994, "assertions_passed": 526159, "assertions_failed": 157835},
+      "paper_safety": {"pointer_arithmetic": 90, "raw_pointer_declarations": 27, "raw_pointer_dereferences": 17, "unsafe_lines": 117, "unsafe_type_casts": 11, "unsafe_calls": 39}
+    },
+    {
+      "id": 21, "name": "bzip2", "artifact_dir": "bzip2", "loc": 5861,
+      "contract": {"kind": "derived_cli_roundtrip", "files": [], "assets": [], "targets": ["bzip2"], "test_dependencies": [], "assertion_credit": "unavailable"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 13, "line_coverage_percent": 12, "assertions_executed": 36, "assertions_passed": 36, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 7, "raw_pointer_declarations": 19, "raw_pointer_dereferences": 20, "unsafe_lines": 114, "unsafe_type_casts": 47, "unsafe_calls": 130}
+    },
+    {
+      "id": 22, "name": "binn", "artifact_dir": "binn-3.0", "loc": 6361,
+      "contract": {"kind": "rust_binary", "files": ["src/test_binn.rs", "src/test_binn2.rs", "src/test_binn_main.rs"], "assets": [], "targets": ["test_binn"], "test_dependencies": ["lazy_static", "libc"], "assertion_credit": "pass_all_paper_denominator"},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 55, "line_coverage_percent": 60, "assertions_executed": 1949, "assertions_passed": 1949, "assertions_failed": 0},
+      "paper_safety": {"pointer_arithmetic": 56, "raw_pointer_declarations": 57, "raw_pointer_dereferences": 20, "unsafe_lines": 331, "unsafe_type_casts": 140, "unsafe_calls": 335}
+    },
+    {
+      "id": 23, "name": "tulpindicator", "artifact_dir": "tulipindicators", "loc": 13200,
+      "contract": {"kind": "rust_binary", "files": ["src/smoke.rs", "src/smoke_main.rs"], "assets": [], "targets": ["smoke"], "test_dependencies": ["lazy_static"], "assertion_credit": "ti_summary", "success_regex": "ALL TESTS PASSED \\((\\d+)/(\\d+)\\)", "failure_regex": "(\\d+) TESTS FAILED \\(of (\\d+)\\)", "external_assets": [{"path": "tests/untest.txt", "url": "https://raw.githubusercontent.com/TulipCharts/tulipindicators/be18abb13e075ba866898dcc7cb52399603302a6/tests/untest.txt", "sha256": "fa6b35c2869bb0dcfa1ef3f039cc9b6fcc5622b369283b806aed02623621bdcd", "source_commit": "be18abb13e075ba866898dcc7cb52399603302a6", "license": "LGPL-3.0-or-later"}, {"path": "tests/atoz.txt", "url": "https://raw.githubusercontent.com/TulipCharts/tulipindicators/be18abb13e075ba866898dcc7cb52399603302a6/tests/atoz.txt", "sha256": "aaa64533b26ed4ea356aeda3ccbb27f6e5911f5a68a76c6e88d9a64ab7e75d16", "source_commit": "be18abb13e075ba866898dcc7cb52399603302a6", "license": "LGPL-3.0-or-later"}, {"path": "tests/extra.txt", "url": "https://raw.githubusercontent.com/TulipCharts/tulipindicators/be18abb13e075ba866898dcc7cb52399603302a6/tests/extra.txt", "sha256": "fa8d84a336acc3c22ebd836ce382b771e07874a5d5d6c39c86338ff3053ec375", "source_commit": "be18abb13e075ba866898dcc7cb52399603302a6", "license": "LGPL-3.0-or-later"}, {"path": "tests/candles.txt", "url": "https://raw.githubusercontent.com/TulipCharts/tulipindicators/be18abb13e075ba866898dcc7cb52399603302a6/tests/candles.txt", "sha256": "8e986e20d49f0e8ff0af4e699ee0b7b509559f8beffdd07329154800c7ca7836", "source_commit": "be18abb13e075ba866898dcc7cb52399603302a6", "license": "LGPL-3.0-or-later"}, {"path": "third_party/tulipindicators-LICENSE-LGPL-3.0.txt", "url": "https://raw.githubusercontent.com/TulipCharts/tulipindicators/be18abb13e075ba866898dcc7cb52399603302a6/LICENSE", "sha256": "97628afebc60f026f5c2b25d7491c46a5c4ee61f693e7cfa07fbd2c03605979b", "source_commit": "be18abb13e075ba866898dcc7cb52399603302a6", "license": "LGPL-3.0-or-later"}]},
+      "paper_validation": {"compilation_percent": 100, "function_coverage_percent": 65, "line_coverage_percent": 60, "assertions_executed": 4252, "assertions_passed": 3994, "assertions_failed": 258},
+      "paper_safety": {"pointer_arithmetic": 15, "raw_pointer_declarations": 7, "raw_pointer_dereferences": 14, "unsafe_lines": 34, "unsafe_type_casts": 16, "unsafe_calls": 22}
+    }
+  ]
+}
