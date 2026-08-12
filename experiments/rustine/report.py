@@ -628,9 +628,9 @@ def _summary_markdown(aggregate: dict[str, Any]) -> str:
         ],
         [
             "Assertion pass rate",
-            f"{paper['assertion_pass_rate_percent']:.1f}%",
+            f"{paper['assertion_pass_rate_percent']:.2f}%",
             (
-                f"{codeweaver['assertion_pass_rate_percent']:.1f}% "
+                f"{codeweaver['assertion_pass_rate_percent']:.2f}% "
                 f"({codeweaver['assertions']['executed']['credited_rows']} credited runs)"
                 if codeweaver["assertion_pass_rate_percent"] is not None
                 else "unavailable"
