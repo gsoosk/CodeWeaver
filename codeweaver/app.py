@@ -20,9 +20,22 @@ from pathlib import Path
 import burr.core
 from burr.core import ApplicationBuilder, default, expr
 from burr.core.persistence import SQLLitePersister
+from burr.tracking.client import LocalTrackingClient
 
 from . import actions, config as C, state as S
 from .config import Config
+
+
+def _build_local_tracker(
+    project: str, storage_dir: str | Path = "~/.burr"
+) -> LocalTrackingClient:
+    tracker = LocalTrackingClient(
+        project=project, storage_dir=str(storage_dir)
+    )
+    # Burr uses a check-then-create sequence for this shared project directory.
+    # Pre-creating it with exist_ok avoids races between parallel app launches.
+    Path(tracker.storage_dir).mkdir(parents=True, exist_ok=True)
+    return tracker
 
 
 def build_application(cfg: Config, app_id: str, max_iter: int | None = None,
@@ -63,6 +76,7 @@ def build_application(cfg: Config, app_id: str, max_iter: int | None = None,
 
     persister = SQLLitePersister.from_values(db_path=db_path, table_name="codeweaver_state")
     persister.initialize()
+    tracker = _build_local_tracker(cfg.slug)
 
     actions_map = dict(
         analyze=actions.analyze,
@@ -118,6 +132,6 @@ def build_application(cfg: Config, app_id: str, max_iter: int | None = None,
         )
         .with_state_persister(persister)
         .with_identifiers(app_id=app_id)
-        .with_tracker("local", project=cfg.slug)   # Burr telemetry UI
+        .with_tracker(tracker)   # Burr telemetry UI
         .build()
     )

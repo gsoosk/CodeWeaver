@@ -40,6 +40,13 @@ Start with the [comparison PDF](results/rustine-codeweaver-comparison-2026-08-12
 the [headline figure](results/rustine-codeweaver-comparison-2026-08-12/report/summary_figure.pdf),
 or the [final verification record](results/rustine-codeweaver-comparison-2026-08-12/metadata/final_verification.json).
 
+The leakage-safe reproduction of the publicly executable EvoC2Rust experiments
+([DOI:10.1145/3786583.3786856](https://doi.org/10.1145/3786583.3786856)) is in
+[`results/evoc2rust-codeweaver-comparison-2026-08-13/`](results/evoc2rust-codeweaver-comparison-2026-08-13/).
+Start with the [comparison PDF](results/evoc2rust-codeweaver-comparison-2026-08-13/report/comparison.pdf),
+the [headline figure](results/evoc2rust-codeweaver-comparison-2026-08-13/report/summary_figure.pdf),
+or the [final verification record](results/evoc2rust-codeweaver-comparison-2026-08-13/metadata/final_verification.json).
+
 ---
 
 ## 1. How it works

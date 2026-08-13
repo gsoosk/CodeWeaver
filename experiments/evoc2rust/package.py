@@ -334,6 +334,8 @@ def _readme(
     aggregate: dict[str, Any],
     completeness: dict[str, Any],
     archive: dict[str, Any],
+    infrastructure_archive: dict[str, Any] | None,
+    campaign_file_count: int,
 ) -> str:
     distributions = aggregate["distributions"]
     return f"""# CodeWeaver - EvoC2Rust Vivo-Bench comparison
@@ -350,11 +352,14 @@ Vivo-Bench revision.
 - Mean TestRate: {distributions['test_rate_percent']['mean']:.2f}%
 - Mean SafeRate: {distributions['safe_rate_percent']['mean']:.2f}%
 - Raw archive files: {archive['file_count']}
+- Campaign metadata files: {campaign_file_count}
+- Infrastructure-failure evidence: {"archived separately" if infrastructure_archive else "not supplied"}
 
 Read `report/comparison.pdf` first. Exact tables and figures are under
 `report/`, normalized measurements under `data/evaluation/`, immutable
 prepared contracts under `reproduction/prepared-workspaces/`, and provenance
-under `metadata/`.
+under `metadata/`. Pre-model failures excluded from the measured matrix are
+preserved under `infrastructure-failure-archives/`.
 
 The paper reports 113 Vivo-Bench test cases; the pinned public revision enables
 125 test functions. The report preserves this denominator drift. C2R-Bench,
@@ -397,9 +402,17 @@ def build_package(
     c2rust_binary: Path | None = None,
     artifact_license: Path | None = None,
     execution_python: Path | None = None,
+    campaign_metadata_root: Path | None = None,
+    infrastructure_failures_root: Path | None = None,
     max_part_bytes: int = 90 * 1024 * 1024,
     require_complete: bool = False,
 ) -> dict[str, Any]:
+    for label, root in (
+        ("campaign metadata", campaign_metadata_root),
+        ("infrastructure failures", infrastructure_failures_root),
+    ):
+        if root is not None and not root.is_dir():
+            raise FileNotFoundError(f"{label} directory is absent: {root}")
     if output_root.exists() and any(output_root.iterdir()):
         raise FileExistsError(f"output directory is not empty: {output_root}")
     output_root.mkdir(parents=True, exist_ok=True)
@@ -442,6 +455,14 @@ def build_package(
         ),
         "source_snapshot": PR._copy_repository_snapshot(
             repository_root, output_root / "reproduction/source"
+        ),
+        "campaign_metadata": (
+            PR._copy_tree(
+                campaign_metadata_root,
+                output_root / "metadata/campaign",
+            )
+            if campaign_metadata_root is not None
+            else 0
         ),
     }
     for name in ("subjects.json", "experiment.toml", "README.md"):
@@ -496,6 +517,18 @@ def build_package(
         prefix="full",
         max_part_bytes=max_part_bytes,
     )
+    infrastructure_archive = (
+        _archive(
+            infrastructure_failures_root,
+            output_root
+            / "infrastructure-failure-archives"
+            / "excluded-attempts.tar.gz",
+            prefix="infrastructure-failures",
+            max_part_bytes=max_part_bytes,
+        )
+        if infrastructure_failures_root is not None
+        else None
+    )
     manifest = {
         "schema_version": 1,
         "generated_at": C.utcnow_iso(),
@@ -506,6 +539,7 @@ def build_package(
         "completeness": completeness,
         "copied_file_counts": copied,
         "raw_archive": raw_archive,
+        "infrastructure_failure_archive": infrastructure_archive,
         "tool": tool,
     }
     C.atomic_write_json(
@@ -513,7 +547,13 @@ def build_package(
     )
     C.atomic_write_text(
         output_root / "README.md",
-        _readme(aggregate, completeness, raw_archive),
+        _readme(
+            aggregate,
+            completeness,
+            raw_archive,
+            infrastructure_archive,
+            copied["campaign_metadata"],
+        ),
     )
     final = {
         "schema_version": 1,
@@ -537,6 +577,17 @@ def build_package(
         == b"%PDF-",
         "raw_archive_files": raw_archive["file_count"],
         "raw_archive_parts": len(raw_archive["parts"]),
+        "infrastructure_failure_archive_files": (
+            infrastructure_archive["file_count"]
+            if infrastructure_archive is not None
+            else 0
+        ),
+        "infrastructure_failure_archive_parts": (
+            len(infrastructure_archive["parts"])
+            if infrastructure_archive is not None
+            else 0
+        ),
+        "campaign_metadata_files": copied["campaign_metadata"],
         "source_commit": source["git_commit"],
         "tool": tool,
     }
@@ -558,6 +609,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--c2rust-binary")
     parser.add_argument("--artifact-license")
     parser.add_argument("--execution-python")
+    parser.add_argument("--campaign-metadata-root")
+    parser.add_argument("--infrastructure-failures-root")
     parser.add_argument("--max-part-bytes", type=int, default=90 * 1024 * 1024)
     parser.add_argument("--require-complete", action="store_true")
     return parser
@@ -583,6 +636,16 @@ def main(argv: list[str] | None = None) -> int:
         execution_python=(
             Path(args.execution_python).resolve()
             if args.execution_python
+            else None
+        ),
+        campaign_metadata_root=(
+            Path(args.campaign_metadata_root).resolve()
+            if args.campaign_metadata_root
+            else None
+        ),
+        infrastructure_failures_root=(
+            Path(args.infrastructure_failures_root).resolve()
+            if args.infrastructure_failures_root
             else None
         ),
         max_part_bytes=args.max_part_bytes,

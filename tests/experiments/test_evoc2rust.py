@@ -24,6 +24,9 @@ from experiments.evoc2rust.prepare import (
 )
 from experiments.evoc2rust.report import (
     aggregate_results,
+    render_latex,
+    table4_rows,
+    table5_rows,
     write_reports,
 )
 
@@ -293,6 +296,21 @@ def test_report_aggregates_three_repetitions_and_writes_tables(
     assert sum(1 for _ in csv_rows(tmp_path / "table4_extended.csv")) == 24
     assert sum(1 for _ in csv_rows(tmp_path / "table5_extended.csv")) == 20
     assert "113 Vivo-Bench" in (tmp_path / "comparison.md").read_text()
+
+
+def test_report_latex_tables_declare_their_exact_column_counts():
+    config, evaluation = _evaluation_fixture()
+    aggregate = aggregate_results(evaluation)
+    repetitions = aggregate["repetitions"]
+    latex = render_latex(
+        config,
+        aggregate,
+        table4_rows(config, repetitions, aggregate),
+        table5_rows(config, repetitions, aggregate),
+    )
+    assert r"\begin{tabular}{llrrr}" in latex
+    assert r"\begin{tabular}{llrr}" in latex
+    assert r"\begin{tabular}{rrrrr}" in latex
 
 
 def csv_rows(path: Path):

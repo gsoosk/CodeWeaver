@@ -526,7 +526,7 @@ def render_latex(
         r"\section{Results}",
         r"\begin{table}[h]\centering",
         r"\caption{EvoC2Rust Table 4 extension on Vivo-Bench.}",
-        r"\begin{tabular}{llllrr}\toprule",
+        r"\begin{tabular}{llrrr}\toprule",
         r"Model & Method & IComp & Acc-P/R & Safe\\\midrule",
     ]
     for row in table4:

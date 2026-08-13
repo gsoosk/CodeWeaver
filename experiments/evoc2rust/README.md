@@ -78,9 +78,21 @@ python -m experiments.evoc2rust evaluate \
 python -m experiments.evoc2rust report \
   --evaluation /opt/codeweaver-evoc2rust/evaluation/evaluation.json \
   --out /opt/codeweaver-evoc2rust/report
+
+python -m experiments.evoc2rust package \
+  --repository-root /mnt/c/Users/t-fhabibi/CodeWeaver \
+  --workspace-root /opt/codeweaver-evoc2rust/workspaces \
+  --runs-root /opt/codeweaver-evoc2rust/runs \
+  --evaluation-root /opt/codeweaver-evoc2rust/evaluation \
+  --report-root /opt/codeweaver-evoc2rust/report \
+  --campaign-metadata-root /opt/codeweaver-evoc2rust/campaign \
+  --infrastructure-failures-root /opt/codeweaver-evoc2rust/infrastructure-failures \
+  --c2rust-binary /opt/codeweaver-evoc2rust/tools/bin/c2rust \
+  --out /mnt/c/Users/t-fhabibi/CodeWeaver/results/evoc2rust-codeweaver-comparison-2026-08-13 \
+  --require-complete
 ```
 
 The report emits exact CSV/JSON data, Markdown, publication-ready LaTeX, a
 human-readable PDF, and two PDF figures. Packaging additionally preserves the
-prepared immutable contracts, filtered raw trajectories, tool provenance, and
-SHA-256 checksums.
+prepared immutable contracts, filtered raw trajectories, campaign metadata,
+excluded infrastructure failures, tool provenance, and SHA-256 checksums.
