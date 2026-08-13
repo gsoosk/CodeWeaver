@@ -1,0 +1,999 @@
+{
+  "generated_at": "2026-08-12T19:09:50.673224Z",
+  "jobs": 45,
+  "by_status": {
+    "dry_run": 45
+  },
+  "results": [
+    {
+      "variant": "full",
+      "project_id": "1",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/1/rep0",
+      "app_id": "full-1-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/1/codeweaver.toml",
+          "--app-id",
+          "full-1-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "1",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/1/rep1",
+      "app_id": "full-1-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/1/codeweaver.toml",
+          "--app-id",
+          "full-1-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "1",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/1/rep2",
+      "app_id": "full-1-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/1/codeweaver.toml",
+          "--app-id",
+          "full-1-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "2",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/2/rep0",
+      "app_id": "full-2-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/2/codeweaver.toml",
+          "--app-id",
+          "full-2-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "2",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/2/rep1",
+      "app_id": "full-2-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/2/codeweaver.toml",
+          "--app-id",
+          "full-2-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "2",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/2/rep2",
+      "app_id": "full-2-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/2/codeweaver.toml",
+          "--app-id",
+          "full-2-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "3",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/3/rep0",
+      "app_id": "full-3-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/3/codeweaver.toml",
+          "--app-id",
+          "full-3-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "3",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/3/rep1",
+      "app_id": "full-3-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/3/codeweaver.toml",
+          "--app-id",
+          "full-3-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "3",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/3/rep2",
+      "app_id": "full-3-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/3/codeweaver.toml",
+          "--app-id",
+          "full-3-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "4",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/4/rep0",
+      "app_id": "full-4-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/4/codeweaver.toml",
+          "--app-id",
+          "full-4-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "4",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/4/rep1",
+      "app_id": "full-4-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/4/codeweaver.toml",
+          "--app-id",
+          "full-4-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "4",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/4/rep2",
+      "app_id": "full-4-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/4/codeweaver.toml",
+          "--app-id",
+          "full-4-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "5",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/5/rep0",
+      "app_id": "full-5-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/5/codeweaver.toml",
+          "--app-id",
+          "full-5-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "5",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/5/rep1",
+      "app_id": "full-5-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/5/codeweaver.toml",
+          "--app-id",
+          "full-5-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "5",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/5/rep2",
+      "app_id": "full-5-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/5/codeweaver.toml",
+          "--app-id",
+          "full-5-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "6",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/6/rep0",
+      "app_id": "full-6-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/6/codeweaver.toml",
+          "--app-id",
+          "full-6-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "6",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/6/rep1",
+      "app_id": "full-6-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/6/codeweaver.toml",
+          "--app-id",
+          "full-6-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "6",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/6/rep2",
+      "app_id": "full-6-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/6/codeweaver.toml",
+          "--app-id",
+          "full-6-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "7",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/7/rep0",
+      "app_id": "full-7-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/7/codeweaver.toml",
+          "--app-id",
+          "full-7-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "7",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/7/rep1",
+      "app_id": "full-7-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/7/codeweaver.toml",
+          "--app-id",
+          "full-7-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "7",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/7/rep2",
+      "app_id": "full-7-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/7/codeweaver.toml",
+          "--app-id",
+          "full-7-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "8",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/8/rep0",
+      "app_id": "full-8-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/8/codeweaver.toml",
+          "--app-id",
+          "full-8-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "8",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/8/rep1",
+      "app_id": "full-8-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/8/codeweaver.toml",
+          "--app-id",
+          "full-8-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "8",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/8/rep2",
+      "app_id": "full-8-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/8/codeweaver.toml",
+          "--app-id",
+          "full-8-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "9",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/9/rep0",
+      "app_id": "full-9-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/9/codeweaver.toml",
+          "--app-id",
+          "full-9-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "9",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/9/rep1",
+      "app_id": "full-9-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/9/codeweaver.toml",
+          "--app-id",
+          "full-9-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "9",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/9/rep2",
+      "app_id": "full-9-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/9/codeweaver.toml",
+          "--app-id",
+          "full-9-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "10",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/10/rep0",
+      "app_id": "full-10-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/10/codeweaver.toml",
+          "--app-id",
+          "full-10-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "10",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/10/rep1",
+      "app_id": "full-10-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/10/codeweaver.toml",
+          "--app-id",
+          "full-10-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "10",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/10/rep2",
+      "app_id": "full-10-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/10/codeweaver.toml",
+          "--app-id",
+          "full-10-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "11",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/11/rep0",
+      "app_id": "full-11-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/11/codeweaver.toml",
+          "--app-id",
+          "full-11-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "11",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/11/rep1",
+      "app_id": "full-11-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/11/codeweaver.toml",
+          "--app-id",
+          "full-11-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "11",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/11/rep2",
+      "app_id": "full-11-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/11/codeweaver.toml",
+          "--app-id",
+          "full-11-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "12",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/12/rep0",
+      "app_id": "full-12-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/12/codeweaver.toml",
+          "--app-id",
+          "full-12-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "12",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/12/rep1",
+      "app_id": "full-12-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/12/codeweaver.toml",
+          "--app-id",
+          "full-12-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "12",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/12/rep2",
+      "app_id": "full-12-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/12/codeweaver.toml",
+          "--app-id",
+          "full-12-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "13",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/13/rep0",
+      "app_id": "full-13-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/13/codeweaver.toml",
+          "--app-id",
+          "full-13-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "13",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/13/rep1",
+      "app_id": "full-13-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/13/codeweaver.toml",
+          "--app-id",
+          "full-13-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "13",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/13/rep2",
+      "app_id": "full-13-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/13/codeweaver.toml",
+          "--app-id",
+          "full-13-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "14",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/14/rep0",
+      "app_id": "full-14-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/14/codeweaver.toml",
+          "--app-id",
+          "full-14-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "14",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/14/rep1",
+      "app_id": "full-14-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/14/codeweaver.toml",
+          "--app-id",
+          "full-14-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "14",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/14/rep2",
+      "app_id": "full-14-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/14/codeweaver.toml",
+          "--app-id",
+          "full-14-rep2"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "15",
+      "repetition": 0,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/15/rep0",
+      "app_id": "full-15-rep0",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/15/codeweaver.toml",
+          "--app-id",
+          "full-15-rep0"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "15",
+      "repetition": 1,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/15/rep1",
+      "app_id": "full-15-rep1",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/15/codeweaver.toml",
+          "--app-id",
+          "full-15-rep1"
+        ]
+      }
+    },
+    {
+      "variant": "full",
+      "project_id": "15",
+      "repetition": 2,
+      "workspace_dir": "/opt/codeweaver-evoc2rust/runs/full/15/rep2",
+      "app_id": "full-15-rep2",
+      "status": "dry_run",
+      "plan": {
+        "variant": "full",
+        "kind": "cli",
+        "argv": [
+          "/opt/codeweaver-rustine/test-venv/bin/python",
+          "-m",
+          "codeweaver",
+          "run",
+          "--config",
+          "/opt/codeweaver-evoc2rust/workspaces/15/codeweaver.toml",
+          "--app-id",
+          "full-15-rep2"
+        ]
+      }
+    }
+  ]
+}

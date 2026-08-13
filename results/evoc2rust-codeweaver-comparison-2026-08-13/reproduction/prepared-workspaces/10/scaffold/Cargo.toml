@@ -1,0 +1,13 @@
+[package]
+name = "vivo_subject_10"
+version = "0.1.0"
+edition = "2021"
+publish = false
+autobins = false
+
+[lib]
+name = "vivo_subject_10"
+path = "src/lib.rs"
+
+[build-dependencies]
+cc = "=1.4.2"

@@ -1,0 +1,17 @@
+{
+  "brief_sha256": "dc7844161a1928a78bbf010269c7c8a6e91f62fa76eac697ce34d50d0a11ae57",
+  "config_sha256": "9e9272b0b6a31b5c51e4da3610a66887c410159d70f7c2b5434afd5185901e46",
+  "contract_sha256": "818f7a4999f5dc051e0d1f2cdb7d8cba0994240561314f6da17b395b4f896a83",
+  "evaluator_sha256": "c422f0daa5f50c5c4e46216e0c7f1e9b466accf2cd58d0eab6217bdc604514b8",
+  "function_counts": {
+    "sortedarray": 17
+  },
+  "ground_truth_excluded": true,
+  "preparation_schema": 1,
+  "prepared_at": "2026-08-12T18:57:21.654844+00:00",
+  "prepared_dir": "/opt/codeweaver-evoc2rust/workspaces/14",
+  "scaffold_sha256": "25c310cdcd703b7210190fbe1c19982976cb565071a7c7f0851514c3192c81e1",
+  "source_sha256": "b9d0a852013ccac07bafc205770006ec86fba0cfe9d55d7cc2facdfd8237a2fe",
+  "subject_id": 14,
+  "subject_name": "sortedarray"
+}

@@ -1,0 +1,54 @@
+{
+  "c_assertions": 48,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_12",
+  "file_sha256": {
+    "Cargo.lock": "4ee7ecf766a53f5b88bb807c9963e059a3c29794f0600e4ba34e026285f8cbe4",
+    "support/src/compare-int.c": "77def65f7cb39e788a7e4e3721ade2da1c254cfc22c8ae029506c1d2576e71d3",
+    "support/src/compare-int.h": "e0e5507b984e208529b31c9555f9ba28f9ee7a395af4e7a33218ee45519eef8c",
+    "support/src/compare-pointer.c": "b0f580a90fd8244989268534488957660ea22355a7c39eb2976b4f6655993bfa",
+    "support/src/compare-pointer.h": "10502fde856aaca3d7b4c5c18357eee970664c2ff736cbf72567760f280aa1ba",
+    "support/src/compare-string.c": "14f8a3ccae70f1822340d39cacb5ee5fc2ec2df1b20c9996e6d3499fb829e94d",
+    "support/src/compare-string.h": "72138e4b78f22e1ee241ab54edc04ddd9a5d04b6e803a199835d88f93c172a13",
+    "support/src/hash-int.c": "4f2dc9cc01e8bee3bf40785a68ab0174aa02324f62c9ca1696989c6012c29814",
+    "support/src/hash-int.h": "da75ebecbfe475a6f3f7310bd715ac2947b5d9205c283783b08b352e23eec09c",
+    "support/src/hash-pointer.c": "b8bb2bdc3cced313738c0dfc82242a6e6e72e07d651f34fd2de33afd81318d11",
+    "support/src/hash-pointer.h": "b3609946fac4561bdd06b5fd43a6c626cb8521194a2361bf0ebc480ccfdd45be",
+    "support/src/hash-string.c": "d9314e1a545ca2c0480d1508645d34b7efc7b50d7d07a2a1045c1873d1dbb03b",
+    "support/src/hash-string.h": "9ad22eea0569730341459874554c5d6b29acd2520b19b338f25cb051fa6eed99",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "484a27fa7c1e53f75e904a0f54e42796a868185e6cac2314f143d22ab2d51c82",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 867,
+  "modules": [
+    "set"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 12,
+  "subject_name": "set",
+  "support_modules": [
+    "compare-int",
+    "compare-pointer",
+    "compare-string",
+    "hash-int",
+    "hash-pointer",
+    "hash-string"
+  ],
+  "test_functions": [
+    "test_set_new_free",
+    "test_set_insert",
+    "test_set_query",
+    "test_set_remove",
+    "test_set_union",
+    "test_set_intersection",
+    "test_set_to_array",
+    "test_set_iterating",
+    "test_set_iterating_remove",
+    "test_set_free_function",
+    "test_set_out_of_memory"
+  ],
+  "test_module": "test_set"
+}

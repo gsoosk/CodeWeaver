@@ -1,0 +1,4 @@
+/opt/codeweaver-rustine/test-venv/bin/python -m pytest -q tests --junitxml=/opt/codeweaver-evoc2rust/campaign/full-test-results.xml
+953 passed, 17 skipped in 43.15s
+/opt/codeweaver-rustine/test-venv/bin/python -m pytest -q tests/experiments/test_evoc2rust.py
+9 passed in 0.95s

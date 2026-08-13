@@ -1,0 +1,6 @@
+variant,incremental_compilation_percent,safe_rate_percent,fill_compilation_percent,test_rate_percent,provenance
+EvoC2Rust,93.84,97.41,92.25,89.53,paper reference
+-w/o Repair#3,89.57,97.4,87.23,85.37,paper reference
+-w/o Repair#2-3,75.24,97.46,82.21,80.92,paper reference
+-w/o Repair#1-3,74.29,97.21,81.06,79.91,paper reference
+-w/o Feature Mapping and Repair#1-3,56.67,82.43,33.0,30.27,paper reference

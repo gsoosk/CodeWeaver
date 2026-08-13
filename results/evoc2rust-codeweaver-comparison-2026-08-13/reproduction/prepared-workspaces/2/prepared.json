@@ -1,0 +1,17 @@
+{
+  "brief_sha256": "b3b308a20ecea20e96ec5c022507261a7603af0e437b0061a798277086c440fa",
+  "config_sha256": "7dccb30e4fcc5cf273f9428a805591ad00c8b3a4dfd322690020b46549919334",
+  "contract_sha256": "4fffca1d6d188c0f3937fd64cdf6f47e9668953806849bb1d44d394c23428465",
+  "evaluator_sha256": "c422f0daa5f50c5c4e46216e0c7f1e9b466accf2cd58d0eab6217bdc604514b8",
+  "function_counts": {
+    "avl-tree": 30
+  },
+  "ground_truth_excluded": true,
+  "preparation_schema": 1,
+  "prepared_at": "2026-08-12T18:57:19.721882+00:00",
+  "prepared_dir": "/opt/codeweaver-evoc2rust/workspaces/2",
+  "scaffold_sha256": "194f353ac0206f0baf835ff3c8bbd89d11fa9663dbb2796a50c9cc0baec3c651",
+  "source_sha256": "fe419faa985b3e5fe420e891501710b7fd180dace90bf1f384fecf7f73d8f54f",
+  "subject_id": 2,
+  "subject_name": "avl-tree"
+}

@@ -1,0 +1,25 @@
+dataset,category,model,method,incremental_compilation_percent,acceptance_precision_percent,acceptance_recall_percent,safe_rate_percent,provenance
+Vivo-Bench,rule_hybrid,,C2Rust,100.0,100.0,100.0,0.0,paper
+Vivo-Bench,rule_hybrid,,C2SaferRust,100.0,100.0,100.0,60.0,paper
+Vivo-Bench,llm,DeepSeek-V3,Self-Repair,84.21,92.08,89.24,87.6,paper
+Vivo-Bench,llm,DeepSeek-V3,Tymcrat,87.35,92.11,92.44,97.88,paper
+Vivo-Bench,llm,DeepSeek-V3,Direct Prompting,35.49,55.15,51.95,77.09,paper
+Vivo-Bench,llm,DeepSeek-V3,EvoC2Rust,100.0,99.83,99.86,98.0,paper
+Vivo-Bench,llm,Qwen3-32B,Self-Repair,52.63,33.12,38.36,77.57,paper
+Vivo-Bench,llm,Qwen3-32B,Tymcrat,81.76,76.82,74.47,87.11,paper
+Vivo-Bench,llm,Qwen3-32B,Direct Prompting,26.23,21.72,27.51,89.81,paper
+Vivo-Bench,llm,Qwen3-32B,EvoC2Rust,87.65,87.92,83.45,98.22,paper
+C2R-Bench,rule_hybrid,,C2Rust,99.28,98.99,98.98,1.83,paper
+C2R-Bench,rule_hybrid,,C2SaferRust,99.28,97.47,97.68,48.24,paper
+C2R-Bench,llm,DeepSeek-V3,Self-Repair,49.21,72.35,13.79,83.92,paper
+C2R-Bench,llm,DeepSeek-V3,Tymcrat,72.02,77.82,74.94,95.92,paper
+C2R-Bench,llm,DeepSeek-V3,Direct Prompting,56.67,55.65,52.7,82.43,paper
+C2R-Bench,llm,DeepSeek-V3,EvoC2Rust,93.84,97.56,97.34,97.41,paper
+C2R-Bench,llm,Qwen3-32B,Self-Repair,39.4,45.38,10.65,87.15,paper
+C2R-Bench,llm,Qwen3-32B,Tymcrat,70.56,66.72,65.91,82.75,paper
+C2R-Bench,llm,Qwen3-32B,Direct Prompting,35.29,24.01,30.41,93.63,paper
+C2R-Bench,llm,Qwen3-32B,EvoC2Rust,82.35,85.75,82.59,97.4,paper
+Vivo-Bench (pinned revision),llm,gpt-5.6-sol,CodeWeaver repetition 1,100.0,,,31.206556696752774,measured
+Vivo-Bench (pinned revision),llm,gpt-5.6-sol,CodeWeaver repetition 2,100.0,,,35.49860441512307,measured
+Vivo-Bench (pinned revision),llm,gpt-5.6-sol,CodeWeaver repetition 3,100.0,,,26.06732554056088,measured
+Vivo-Bench (pinned revision),llm,gpt-5.6-sol,CodeWeaver mean,100.0,,,30.92416221747891,derived from measured repetitions

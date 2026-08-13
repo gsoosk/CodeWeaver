@@ -1,0 +1,45 @@
+{
+  "c_assertions": 41,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_08",
+  "file_sha256": {
+    "Cargo.lock": "3e46bbb5ede582911b846d01ab5b056baa61c77ab14c474de750c0827d382e79",
+    "support/src/compare-int.c": "77def65f7cb39e788a7e4e3721ade2da1c254cfc22c8ae029506c1d2576e71d3",
+    "support/src/compare-int.h": "e0e5507b984e208529b31c9555f9ba28f9ee7a395af4e7a33218ee45519eef8c",
+    "support/src/compare-string.c": "14f8a3ccae70f1822340d39cacb5ee5fc2ec2df1b20c9996e6d3499fb829e94d",
+    "support/src/compare-string.h": "72138e4b78f22e1ee241ab54edc04ddd9a5d04b6e803a199835d88f93c172a13",
+    "support/src/hash-int.c": "4f2dc9cc01e8bee3bf40785a68ab0174aa02324f62c9ca1696989c6012c29814",
+    "support/src/hash-int.h": "da75ebecbfe475a6f3f7310bd715ac2947b5d9205c283783b08b352e23eec09c",
+    "support/src/hash-string.c": "d9314e1a545ca2c0480d1508645d34b7efc7b50d7d07a2a1045c1873d1dbb03b",
+    "support/src/hash-string.h": "9ad22eea0569730341459874554c5d6b29acd2520b19b338f25cb051fa6eed99",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "a5a33418a22129fb83df7d4c18b267c340926280b9146a5eb99a4ab261ecfb54",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 788,
+  "modules": [
+    "hash-table"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 8,
+  "subject_name": "hash-table",
+  "support_modules": [
+    "compare-int",
+    "compare-string",
+    "hash-int",
+    "hash-string"
+  ],
+  "test_functions": [
+    "test_hash_table_new_free",
+    "test_hash_table_insert_lookup",
+    "test_hash_table_remove",
+    "test_hash_table_iterating",
+    "test_hash_table_iterating_remove",
+    "test_hash_table_free_functions",
+    "test_hash_table_out_of_memory",
+    "test_hash_iterator_key_pair"
+  ],
+  "test_module": "test_hash_table"
+}

@@ -1,0 +1,21 @@
+dataset,model,project,fill_compilation_percent,test_rate_percent,provenance
+Vivo-Bench,DeepSeek-V3,19 projects,99.07,98.5,paper
+Vivo-Bench,Qwen3-32B,19 projects,87.65,84.57,paper
+C2R-Bench,DeepSeek-V3,avl,100.0,92.53,paper
+C2R-Bench,DeepSeek-V3,bzp,95.21,92.55,paper
+C2R-Bench,DeepSeek-V3,md5,96.55,86.21,paper
+C2R-Bench,DeepSeek-V3,sha256,100.0,100.0,paper
+C2R-Bench,DeepSeek-V3,rapidlz,96.05,92.11,paper
+C2R-Bench,DeepSeek-V3,cmptlz,86.98,86.35,paper
+C2R-Bench,DeepSeek-V3,Subtotal,92.25,89.53,paper
+C2R-Bench,Qwen3-32B,avl,97.01,82.09,paper
+C2R-Bench,Qwen3-32B,bzp,89.36,88.83,paper
+C2R-Bench,Qwen3-32B,md5,89.66,89.21,paper
+C2R-Bench,Qwen3-32B,sha256,90.91,90.91,paper
+C2R-Bench,Qwen3-32B,rapidlz,78.95,77.63,paper
+C2R-Bench,Qwen3-32B,cmptlz,70.79,68.89,paper
+C2R-Bench,Qwen3-32B,Subtotal,80.63,77.91,paper
+Vivo-Bench (pinned revision),gpt-5.6-sol,CodeWeaver repetition 1,100.0,100.0,measured
+Vivo-Bench (pinned revision),gpt-5.6-sol,CodeWeaver repetition 2,100.0,100.0,measured
+Vivo-Bench (pinned revision),gpt-5.6-sol,CodeWeaver repetition 3,100.0,100.0,measured
+Vivo-Bench (pinned revision),gpt-5.6-sol,CodeWeaver mean,100.0,100.0,derived from measured repetitions

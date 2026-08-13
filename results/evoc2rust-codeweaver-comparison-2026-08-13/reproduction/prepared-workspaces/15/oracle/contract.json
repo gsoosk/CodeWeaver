@@ -1,0 +1,35 @@
+{
+  "c_assertions": 56,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_15",
+  "file_sha256": {
+    "Cargo.lock": "c28f3d601858def44a89e041a9e83fe419a4c2f4472a1ce91e6abe273e3d83c4",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "785943d842a667838245908f9f3f162af31d417b3841877593ca02206a1862e7",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 765,
+  "modules": [
+    "trie"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 15,
+  "subject_name": "trie",
+  "support_modules": [],
+  "test_functions": [
+    "test_trie_new_free",
+    "test_trie_insert",
+    "test_trie_lookup",
+    "test_trie_remove",
+    "test_trie_replace",
+    "test_trie_insert_empty",
+    "test_trie_free_long",
+    "test_trie_negative_keys",
+    "test_trie_insert_binary",
+    "test_trie_insert_out_of_memory",
+    "test_trie_remove_binary"
+  ],
+  "test_module": "test_trie"
+}

@@ -1,0 +1,19 @@
+{
+  "brief_sha256": "a9a35493ef3d63331f017b0654a450d480d4166475c9405940ee04fc3fdd0ed9",
+  "config_sha256": "478dae72ad62ed39c96ac2c0aa55352452cb4a5720c8047a02ea926fd5a5880a",
+  "contract_sha256": "134ad9e4fe2d82e63fe6da1b7cb84c18cbbaf0243f784f5bcc159141800795fa",
+  "evaluator_sha256": "c422f0daa5f50c5c4e46216e0c7f1e9b466accf2cd58d0eab6217bdc604514b8",
+  "function_counts": {
+    "hash-int": 1,
+    "hash-pointer": 1,
+    "hash-string": 2
+  },
+  "ground_truth_excluded": true,
+  "preparation_schema": 1,
+  "prepared_at": "2026-08-12T18:57:20.528845+00:00",
+  "prepared_dir": "/opt/codeweaver-evoc2rust/workspaces/7",
+  "scaffold_sha256": "195f1d445ee70a9ce35883ef9c919b294eec2b52be19644058e1a3808c4abe2a",
+  "source_sha256": "4097ee13f0ebe93bb9ab71c1933c9457f4640bcc17d18c78c1316eb239d26096",
+  "subject_id": 7,
+  "subject_name": "hash-functions"
+}

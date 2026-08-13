@@ -1,0 +1,37 @@
+{
+  "c_assertions": 103,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_01",
+  "file_sha256": {
+    "Cargo.lock": "6ed4a8b9f45bf242f0aba3cb4ed515f16db4cca46f87e7d832b3bf9d7a3bc670",
+    "support/src/compare-int.c": "77def65f7cb39e788a7e4e3721ade2da1c254cfc22c8ae029506c1d2576e71d3",
+    "support/src/compare-int.h": "e0e5507b984e208529b31c9555f9ba28f9ee7a395af4e7a33218ee45519eef8c",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "9bf956514eb783b4bc5458cb50e03d0b4a603294a0342a9f77ad8c435816ccc7",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 496,
+  "modules": [
+    "arraylist"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 1,
+  "subject_name": "arraylist",
+  "support_modules": [
+    "compare-int"
+  ],
+  "test_functions": [
+    "test_arraylist_new_free",
+    "test_arraylist_append",
+    "test_arraylist_prepend",
+    "test_arraylist_insert",
+    "test_arraylist_remove",
+    "test_arraylist_remove_range",
+    "test_arraylist_index_of",
+    "test_arraylist_clear",
+    "test_arraylist_sort"
+  ],
+  "test_module": "test_arraylist"
+}

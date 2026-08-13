@@ -1,0 +1,42 @@
+{
+  "c_assertions": 90,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_09",
+  "file_sha256": {
+    "Cargo.lock": "e7a25abf1e5ff9cc3ffa07534bccb145e6e437f93e43055c958263934b22bb5e",
+    "support/src/compare-int.c": "77def65f7cb39e788a7e4e3721ade2da1c254cfc22c8ae029506c1d2576e71d3",
+    "support/src/compare-int.h": "e0e5507b984e208529b31c9555f9ba28f9ee7a395af4e7a33218ee45519eef8c",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "225c59ffd51872e2a4fbf0215189b520406b6b025c1a99b370fc25b9c7817413",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 899,
+  "modules": [
+    "list"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 9,
+  "subject_name": "list",
+  "support_modules": [
+    "compare-int"
+  ],
+  "test_functions": [
+    "test_list_append",
+    "test_list_prepend",
+    "test_list_free",
+    "test_list_next",
+    "test_list_nth_entry",
+    "test_list_nth_data",
+    "test_list_length",
+    "test_list_remove_entry",
+    "test_list_remove_data",
+    "test_list_sort",
+    "test_list_find_data",
+    "test_list_to_array",
+    "test_list_iterate",
+    "test_list_iterate_bad_remove"
+  ],
+  "test_module": "test_list"
+}

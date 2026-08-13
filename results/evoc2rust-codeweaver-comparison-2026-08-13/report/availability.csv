@@ -1,0 +1,8 @@
+rq,surface,status,reason
+RQ1,Vivo-Bench ICompRate,measured,cumulative replacement with C fallback
+RQ1,Vivo-Bench AccRate-P/R,unavailable,human-corrected Rust references are unreleased
+RQ1,Vivo-Bench SafeRate,measured,candidate production Rust only
+RQ2,Vivo-Bench FCompRate/TestRate,measured,19 modules and 125 active pinned tests
+RQ1/RQ2,C2R-Bench,unavailable,"C2R-Bench sources, tests, and corrected Rust references are unreleased"
+RQ3,EvoC2Rust ablations,reference_only,"implementation, feature mappings, repairs, and C2R-Bench are unreleased"
+RQ4,scale and time figures,reference_only,requires unreleased C2R projects and EvoC2Rust runtime traces

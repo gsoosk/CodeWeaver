@@ -1,0 +1,17 @@
+{
+  "brief_sha256": "6788ad32b93b40342c843c0a52e8e4b8e0d8c7c0cfb487f0213f98906d2d1f5d",
+  "config_sha256": "d3e916bb5e24c3e1598fc876570e3ddb30dc2cd39c8b8dff4a939c1d4a5edf90",
+  "contract_sha256": "166241f0cbc739f4d75791bdf4985665e2ec255b481d2a1f19f0956cb24968ba",
+  "evaluator_sha256": "c422f0daa5f50c5c4e46216e0c7f1e9b466accf2cd58d0eab6217bdc604514b8",
+  "function_counts": {
+    "binomial-heap": 17
+  },
+  "ground_truth_excluded": true,
+  "preparation_schema": 1,
+  "prepared_at": "2026-08-12T18:57:20.036057+00:00",
+  "prepared_dir": "/opt/codeweaver-evoc2rust/workspaces/4",
+  "scaffold_sha256": "15f2a93c28170a6cf29e4e9349ae67b0a6cf55ba23bac35c2397232efe2b32a5",
+  "source_sha256": "5e39655540b8c066aa03e2ff72a1f9cdb04b4dd8e13ed908d5b3b4f1fc3461b1",
+  "subject_id": 4,
+  "subject_name": "binomial-heap"
+}

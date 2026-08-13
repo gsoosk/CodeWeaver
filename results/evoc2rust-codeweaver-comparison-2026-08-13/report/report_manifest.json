@@ -1,0 +1,46 @@
+{
+  "files": [
+    "aggregate.json",
+    "availability.csv",
+    "comparison.md",
+    "comparison.pdf",
+    "comparison.tex",
+    "fixed_tests.csv",
+    "integration_steps.csv",
+    "module_results.csv",
+    "repetition_metrics.csv",
+    "repetitions_figure.pdf",
+    "summary_figure.pdf",
+    "table4_extended.csv",
+    "table5_extended.csv",
+    "table6_reference.csv"
+  ],
+  "generated_at": "2026-08-13T04:00:32.695704+00:00",
+  "paper_doi": "10.1145/3786583.3786856",
+  "pdf_status": "measured",
+  "provenance": {
+    "generated_at": "2026-08-13T04:00:32.697034+00:00",
+    "harness_config_sha256": "58a24231d9b512b15783953b2dc11faac6ed6391cd867243980b6c2b872ae0d8",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3"
+  },
+  "repetitions_figure_pdf_status": "measured",
+  "schema_version": 1,
+  "sha256": {
+    "aggregate.json": "de032f3c030307152bbd0e0eab1b24bcac3d31c69d31ed20199011d01145313b",
+    "availability.csv": "27ba2dcb3a1fc8e71f51b41f6c1fffe7f8720ef68a346e56bf4a299d31d304a7",
+    "comparison.md": "ab58f6cdc9d13ec635b7dab28735cddf9bebd53b6bb43efec7b6b6f891376641",
+    "comparison.pdf": "fc5634d9eaf87712da11d7d623cef3ede64fbdbe30ef00cbf26c7474f02ab193",
+    "comparison.tex": "5ccc1fded3378b3a61f37e202a55dcf1a6e7694aa0df5eab8f7e8afd7943e88e",
+    "fixed_tests.csv": "d46c4b160d34ade579b8466df898d39d482c76063b505e2e0d9719b57348938f",
+    "integration_steps.csv": "fe42d4d3b2afbd3326c0d7a2f8f2e41dc0dcccc9bca0fc1f6f6daa958f982abb",
+    "module_results.csv": "b32dbbf277bfaefd4476706f13352f2a250a62e4a9faeecebc80ee7283a654f8",
+    "repetition_metrics.csv": "357d33d0b8b7946ed398e0f074927a25ff8c36573b4e5dbd300e5b94af2bcb5e",
+    "repetitions_figure.pdf": "3dee4765652dd925ac500dc14297a61f52b457b87a2965cd6953c27ccb8e91cb",
+    "summary_figure.pdf": "219f24bb5e3e7e9aed378e17b5249a73f7168b198fdaeba2979ff85811cba6e5",
+    "table4_extended.csv": "31083a3a6f5574b91e59488b73ec1ab3cef8b79832d0d272f8c769d3d2510319",
+    "table5_extended.csv": "0ad54b0b0ecb65c94fdba64cd832108def9614e69af94f0bf9950295b477dacc",
+    "table6_reference.csv": "804a5667fe94c8bb6566d5b56929b4069ccffdd39aacab831ebee6643450a0ad"
+  },
+  "summary_figure_pdf_status": "measured"
+}

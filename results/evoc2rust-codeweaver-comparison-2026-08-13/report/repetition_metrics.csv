@@ -1,0 +1,4 @@
+repetition,terminal_runs,integrity_passed,compiling_groups,groups,compiling_modules,module_denominator,fill_compilation_percent,fixed_contract_groups_passed,tests_passed,test_denominator,test_rate_percent,safe_lines,total_rust_lines,safe_rate_percent,incremental_compilation_percent,incrementally_accepted_modules,elapsed_seconds,output_tokens,nano_aiu,premium_requests
+0,15,15,15,15,19,19,100.0,15,125,125,100.0,6016,19278,31.206556696752774,100.0,19,40384.49345,2655593,22777705575000,9
+1,15,15,15,15,19,19,100.0,15,125,125,100.0,6995,19705,35.49860441512307,100.0,19,43315.655909,2754294,23858720825000,8
+2,15,15,15,15,19,19,100.0,15,125,125,100.0,5196,19933,26.06732554056088,100.0,19,39081.923227,2586987,22129249525000,8

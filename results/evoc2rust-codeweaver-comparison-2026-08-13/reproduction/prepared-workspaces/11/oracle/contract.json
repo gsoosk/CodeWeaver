@@ -1,0 +1,34 @@
+{
+  "c_assertions": 22,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_11",
+  "file_sha256": {
+    "Cargo.lock": "2ae747e43153c71ef9b54a13b8f4f26dde11e3d6a6f6b5e9397f7ebf4f3594ee",
+    "support/src/compare-int.c": "77def65f7cb39e788a7e4e3721ade2da1c254cfc22c8ae029506c1d2576e71d3",
+    "support/src/compare-int.h": "e0e5507b984e208529b31c9555f9ba28f9ee7a395af4e7a33218ee45519eef8c",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "ed44e94a41badb8b1489de4745b50f041ce76fcc8ea9128f5edab37337b70a90",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 803,
+  "modules": [
+    "rb-tree"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 11,
+  "subject_name": "rb-tree",
+  "support_modules": [
+    "compare-int"
+  ],
+  "test_functions": [
+    "test_rb_tree_new",
+    "test_rb_tree_insert_lookup",
+    "test_rb_tree_child",
+    "test_out_of_memory",
+    "test_rb_tree_free",
+    "test_rb_tree_lookup"
+  ],
+  "test_module": "test_rb_tree"
+}

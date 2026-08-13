@@ -1,0 +1,4 @@
+repetition,module_denominator,accepted_module_count,incremental_compilation_percent,accepted_modules
+0,19,19,100.0,"arraylist,avl-tree,binary-heap,binomial-heap,bloom-filter,compare-int,compare-pointer,compare-string,hash-int,hash-pointer,hash-string,hash-table,list,queue,rb-tree,set,slist,sortedarray,trie"
+1,19,19,100.0,"arraylist,avl-tree,binary-heap,binomial-heap,bloom-filter,compare-int,compare-pointer,compare-string,hash-int,hash-pointer,hash-string,hash-table,list,queue,rb-tree,set,slist,sortedarray,trie"
+2,19,19,100.0,"arraylist,avl-tree,binary-heap,binomial-heap,bloom-filter,compare-int,compare-pointer,compare-string,hash-int,hash-pointer,hash-string,hash-table,list,queue,rb-tree,set,slist,sortedarray,trie"

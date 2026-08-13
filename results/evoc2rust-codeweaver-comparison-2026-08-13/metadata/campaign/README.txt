@@ -1,0 +1,1 @@
+Campaign-level evidence for the EvoC2Rust Vivo-Bench reproduction. Initial infrastructure failures are excluded from measured aggregates and retained in the separate infrastructure archive; run-inventory.csv enumerates all 45 terminal measured cells.

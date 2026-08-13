@@ -1,0 +1,1162 @@
+{
+  "artifact": {
+    "commit": "c88cef1a1d15079478be14ab361dda8f3b49fee2",
+    "commit_verified": true,
+    "primary_rel_path": "01-BlueOS2_Translation/Input/01-Primary",
+    "repository": "https://atomgit.com/vivoblueos2/vivo_blueos_contest2_c2rust",
+    "worktree_clean": true
+  },
+  "completeness": {
+    "calibration_valid": true,
+    "complete": true,
+    "contract_integrity_failures": [],
+    "csv_counts": {
+      "availability.csv": 7,
+      "evaluation.csv": 45,
+      "integration.csv": 3,
+      "integration_steps.csv": 45,
+      "module_results.csv": 45,
+      "repetition_metrics.csv": 3,
+      "table4_extended.csv": 24,
+      "table5_extended.csv": 20,
+      "table6_reference.csv": 5
+    },
+    "csv_counts_valid": true,
+    "duplicate_keys": [],
+    "evaluation_rows": 45,
+    "execution_git_shas": [
+      "96a89524d70169f190727bf7e277ef086171605f"
+    ],
+    "execution_revision_consistent": true,
+    "expected_runs": 45,
+    "expected_test_rows_valid": true,
+    "extra_keys": [],
+    "integration_repetitions": [
+      0,
+      1,
+      2
+    ],
+    "missing_evaluation_files": [],
+    "missing_keys": [],
+    "missing_report_files": [],
+    "nonterminal_runs": [],
+    "pdfs": {
+      "comparison.pdf": true,
+      "repetitions_figure.pdf": true,
+      "summary_figure.pdf": true
+    },
+    "report_statuses_valid": true,
+    "run_status_counts": {
+      "completed": 45
+    },
+    "states": [
+      {
+        "app_id": "full-1-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T20:37:27.861461Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T19:35:41.561891Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/1/rep0/recodeagent_run_state.json",
+        "state_sha256": "16e0b9f211ba6807c2bdddaaca8349755c741c2fb60899862238a0fdb45c8912",
+        "status": "completed",
+        "subject_id": 1
+      },
+      {
+        "app_id": "full-1-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T21:31:13.875405Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T20:40:27.375871Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/1/rep1/recodeagent_run_state.json",
+        "state_sha256": "a2a7b376e59667d470a9b17cbeab63648d42b34949718400d7fc3b5648c16e63",
+        "status": "completed",
+        "subject_id": 1
+      },
+      {
+        "app_id": "full-1-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T21:28:44.097755Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-12T20:40:27.375574Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/1/rep2/recodeagent_run_state.json",
+        "state_sha256": "4c9ada00d83b4413dc381cbfde9d1f2950a36f7d165f308f12141b0d114029cd",
+        "status": "completed",
+        "subject_id": 1
+      },
+      {
+        "app_id": "full-2-rep0",
+        "attempt": 2,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T03:07:58.316085Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-13T02:26:28.362896Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/2/rep0/recodeagent_run_state.json",
+        "state_sha256": "e935329e8c7750a7fb9a30c4cfa28932208c95b97e088ca35eec8e3d95c27b5c",
+        "status": "completed",
+        "subject_id": 2
+      },
+      {
+        "app_id": "full-2-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T21:35:17.802850Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T20:40:27.376984Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/2/rep1/recodeagent_run_state.json",
+        "state_sha256": "956ce77e55e4390cef984f5cb59bd4a6fae2f5598db8c3fc5594ff10a8402c88",
+        "status": "completed",
+        "subject_id": 2
+      },
+      {
+        "app_id": "full-2-rep2",
+        "attempt": 2,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T03:43:09.074200Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-13T03:07:58.323210Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/2/rep2/recodeagent_run_state.json",
+        "state_sha256": "e887c8615e6d3a153b7bb128a5b0481d2d0f1eacbe42af09faa24ba373e9e32c",
+        "status": "completed",
+        "subject_id": 2
+      },
+      {
+        "app_id": "full-3-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T21:37:35.474718Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T20:40:27.380592Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/3/rep0/recodeagent_run_state.json",
+        "state_sha256": "cbdb357d49fe9c7e7c04f4cac93d1ea7fca29898747ccef943478f27de052d16",
+        "status": "completed",
+        "subject_id": 3
+      },
+      {
+        "app_id": "full-3-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T21:33:48.959863Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T20:40:30.376543Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/3/rep1/recodeagent_run_state.json",
+        "state_sha256": "a500772744377e64dd28841ef44f6b2ad8bed3ec7d623b85fb968771ae39510b",
+        "status": "completed",
+        "subject_id": 3
+      },
+      {
+        "app_id": "full-3-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T21:34:12.118190Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-12T20:40:30.386654Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/3/rep2/recodeagent_run_state.json",
+        "state_sha256": "4d26cf5c20aa8a6a5e7f4e6df70e007d8a89368f849e0a9ee47888628258fb49",
+        "status": "completed",
+        "subject_id": 3
+      },
+      {
+        "app_id": "full-4-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T22:13:25.255220Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T21:28:44.103720Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/4/rep0/recodeagent_run_state.json",
+        "state_sha256": "cd9721aaebad40e07162141d4db53f6903ef46d04897487afa902ff679d2ffad",
+        "status": "completed",
+        "subject_id": 4
+      },
+      {
+        "app_id": "full-4-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T22:55:24.191494Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T21:31:13.878282Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/4/rep1/recodeagent_run_state.json",
+        "state_sha256": "203ee0080f47dd440af11ebc53f8f1a2db2d152a4c4af1a0d9d8244c5d9f15fb",
+        "status": "completed",
+        "subject_id": 4
+      },
+      {
+        "app_id": "full-4-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T22:26:42.418076Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-12T21:33:48.962810Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/4/rep2/recodeagent_run_state.json",
+        "state_sha256": "6fd2757bb98e07edf2bbddbbb59d8eaf618a7dae7af69db5ca2cd8d7f284c04b",
+        "status": "completed",
+        "subject_id": 4
+      },
+      {
+        "app_id": "full-5-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T22:18:46.836669Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T21:34:12.120650Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/5/rep0/recodeagent_run_state.json",
+        "state_sha256": "625b9a09309fef321e7c161638bc4e46c3e98fd8c6cb1d9389a244509a1bd6cf",
+        "status": "completed",
+        "subject_id": 5
+      },
+      {
+        "app_id": "full-5-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T22:31:36.273264Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T21:35:17.805398Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/5/rep1/recodeagent_run_state.json",
+        "state_sha256": "e1b3e8cddcfda3d5e86bfc8b9d56a3c9125b905b2d55503c5b6807619682f666",
+        "status": "completed",
+        "subject_id": 5
+      },
+      {
+        "app_id": "full-5-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T22:28:11.665576Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-12T21:37:35.478437Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/5/rep2/recodeagent_run_state.json",
+        "state_sha256": "9a372c928516722927a3ffaa9443f28b7d21889fdd680bb8095ebbcaafa5020d",
+        "status": "completed",
+        "subject_id": 5
+      },
+      {
+        "app_id": "full-6-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T22:52:18.173252Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T22:13:25.258475Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/6/rep0/recodeagent_run_state.json",
+        "state_sha256": "c71186406a1b35cf4092f900e68d9b76a70aeaaee305c4150699c1bea702d01d",
+        "status": "completed",
+        "subject_id": 6
+      },
+      {
+        "app_id": "full-6-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T23:01:00.902783Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T22:18:46.839192Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/6/rep1/recodeagent_run_state.json",
+        "state_sha256": "9024a338521534fcf9fc912ea81c095b13859d8ad335a2c9f4af4f59fba96ed9",
+        "status": "completed",
+        "subject_id": 6
+      },
+      {
+        "app_id": "full-6-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T23:01:39.867806Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-12T22:26:42.422817Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/6/rep2/recodeagent_run_state.json",
+        "state_sha256": "ee7cd0671099a03e8158d8b7250a63e87664702ffed48c0b34fe94db71756e7f",
+        "status": "completed",
+        "subject_id": 6
+      },
+      {
+        "app_id": "full-7-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T22:58:41.152957Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T22:28:11.668044Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/7/rep0/recodeagent_run_state.json",
+        "state_sha256": "d7e7cbf37387b6310bfe6221d288dede6318cbfd9fb811c84ade242bc355314a",
+        "status": "completed",
+        "subject_id": 7
+      },
+      {
+        "app_id": "full-7-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T23:01:15.867464Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T22:31:36.275984Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/7/rep1/recodeagent_run_state.json",
+        "state_sha256": "ea4122a426286b0fe475af8a54133041593f322077e5be063b3414be00ea5c1c",
+        "status": "completed",
+        "subject_id": 7
+      },
+      {
+        "app_id": "full-7-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T23:20:54.232531Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-12T22:52:18.176281Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/7/rep2/recodeagent_run_state.json",
+        "state_sha256": "4e7c9688fb7b1cfe3c644b2f8d7c33ff34bb7509cf723e5796d53a2f053aa4f9",
+        "status": "completed",
+        "subject_id": 7
+      },
+      {
+        "app_id": "full-8-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T23:36:19.138362Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T22:55:24.196442Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/8/rep0/recodeagent_run_state.json",
+        "state_sha256": "69ed0aa37bde636b8b6bfccf8481ab441af0b7e41f8095ac0ec09d44b4dcae41",
+        "status": "completed",
+        "subject_id": 8
+      },
+      {
+        "app_id": "full-8-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T23:47:13.163843Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T22:58:41.155349Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/8/rep1/recodeagent_run_state.json",
+        "state_sha256": "e0aec75737cf1fdca95b49f5862601b7bfdfc6ef517b6d71cf14e347ce83db24",
+        "status": "completed",
+        "subject_id": 8
+      },
+      {
+        "app_id": "full-8-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T23:50:32.965625Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-12T23:01:00.906200Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/8/rep2/recodeagent_run_state.json",
+        "state_sha256": "769ac180a0fc1c393aba4ed4893ce396907ccaaf98441e9154899a7aaa74d51f",
+        "status": "completed",
+        "subject_id": 8
+      },
+      {
+        "app_id": "full-9-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T23:42:27.337796Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T23:01:15.869917Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/9/rep0/recodeagent_run_state.json",
+        "state_sha256": "39a57e5a6919552b0defa7b9904c71f822a8c58cd7078fbc9b4abca58ca355f3",
+        "status": "completed",
+        "subject_id": 9
+      },
+      {
+        "app_id": "full-9-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-12T23:50:33.769259Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T23:01:39.870414Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/9/rep1/recodeagent_run_state.json",
+        "state_sha256": "6f1d77b589c5bcac79eedcb0d997e12ae0d181b0b75826ccf481dc65dda0454a",
+        "status": "completed",
+        "subject_id": 9
+      },
+      {
+        "app_id": "full-9-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T00:00:26.605856Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-12T23:20:54.235706Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/9/rep2/recodeagent_run_state.json",
+        "state_sha256": "8de4f6ab654d24aed6ff5f5046a4a3389ab49ce495148bf17383e1b1f3e9fa30",
+        "status": "completed",
+        "subject_id": 9
+      },
+      {
+        "app_id": "full-10-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T00:12:10.847929Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T23:36:19.141255Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/10/rep0/recodeagent_run_state.json",
+        "state_sha256": "4602575680c31ae9ac7480d13c54cdf0292df796e5e4178585bb4798fda22e46",
+        "status": "completed",
+        "subject_id": 10
+      },
+      {
+        "app_id": "full-10-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T00:12:40.896546Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T23:42:27.340141Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/10/rep1/recodeagent_run_state.json",
+        "state_sha256": "beee86a73413bd8be9302cdf5aab303a40d5ace56e6692a2ad4875a1d23be4b5",
+        "status": "completed",
+        "subject_id": 10
+      },
+      {
+        "app_id": "full-10-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T00:13:54.006121Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-12T23:47:13.166780Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/10/rep2/recodeagent_run_state.json",
+        "state_sha256": "6b2b61280e7be54f428ba749d10e35b8cef7cea10da2ec29c27d1b2f031420e4",
+        "status": "completed",
+        "subject_id": 10
+      },
+      {
+        "app_id": "full-11-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T00:39:21.415001Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-12T23:50:32.968343Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/11/rep0/recodeagent_run_state.json",
+        "state_sha256": "14c9f921a8175b4a3ab9005471e12a0cd9ee4b661d1bcdcc0ce56ce237905018",
+        "status": "completed",
+        "subject_id": 11
+      },
+      {
+        "app_id": "full-11-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T00:42:36.796724Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-12T23:50:33.772245Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/11/rep1/recodeagent_run_state.json",
+        "state_sha256": "a4012f0a7285807c335ee310567d686384cce486aa9e3ca974db020b5b16929d",
+        "status": "completed",
+        "subject_id": 11
+      },
+      {
+        "app_id": "full-11-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T00:51:03.963015Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-13T00:00:26.608744Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/11/rep2/recodeagent_run_state.json",
+        "state_sha256": "d28b4d9881ad0b06b936d4ba8aba5a16c538e563c897fc106040498c5e51f82f",
+        "status": "completed",
+        "subject_id": 11
+      },
+      {
+        "app_id": "full-12-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T00:58:40.250057Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-13T00:12:10.851804Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/12/rep0/recodeagent_run_state.json",
+        "state_sha256": "e7caed3cf1227e3c86051e12018583740e378bc2efd407077e006b97ba983f9c",
+        "status": "completed",
+        "subject_id": 12
+      },
+      {
+        "app_id": "full-12-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T00:51:52.173322Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-13T00:12:40.898991Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/12/rep1/recodeagent_run_state.json",
+        "state_sha256": "59e605fb3a72a17d9298ca3cfd625c2fb1a552cb991518291a324040ff9729b8",
+        "status": "completed",
+        "subject_id": 12
+      },
+      {
+        "app_id": "full-12-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T01:07:26.252438Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-13T00:13:54.009094Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/12/rep2/recodeagent_run_state.json",
+        "state_sha256": "e05807a19f834ab5245ebd27a2ff2dfb754b739b9a98b6c65fb88a826434ac0c",
+        "status": "completed",
+        "subject_id": 12
+      },
+      {
+        "app_id": "full-13-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T01:27:41.203884Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-13T00:39:21.417937Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/13/rep0/recodeagent_run_state.json",
+        "state_sha256": "e0536215c119bf058269a47bbca7b927ccfeaca5d65e7d006a33ec7da4c44edd",
+        "status": "completed",
+        "subject_id": 13
+      },
+      {
+        "app_id": "full-13-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T01:28:16.338304Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-13T00:42:36.799611Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/13/rep1/recodeagent_run_state.json",
+        "state_sha256": "85454aeae00be8446329c14df8a104a78fc2e631e770b292b78d2195a1786aab",
+        "status": "completed",
+        "subject_id": 13
+      },
+      {
+        "app_id": "full-13-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T01:38:01.043878Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-13T00:51:03.965798Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/13/rep2/recodeagent_run_state.json",
+        "state_sha256": "6e73d4d8c6054f789860cbfd81cb6e5c21896cc7b2e90972d28c683f9701c48a",
+        "status": "completed",
+        "subject_id": 13
+      },
+      {
+        "app_id": "full-14-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T01:31:51.891554Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-13T00:51:52.176479Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/14/rep0/recodeagent_run_state.json",
+        "state_sha256": "db77d369996f1925b4f02ba4fd94b7b37a771f0beee782c4528f9c48917c01e1",
+        "status": "completed",
+        "subject_id": 14
+      },
+      {
+        "app_id": "full-14-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T01:32:54.624115Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-13T00:58:40.252925Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/14/rep1/recodeagent_run_state.json",
+        "state_sha256": "40f97d25962ec8efad3db4670d887b02d6c051fe37e515a3baecd3de77dea622",
+        "status": "completed",
+        "subject_id": 14
+      },
+      {
+        "app_id": "full-14-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T01:47:02.772022Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-13T01:07:26.255223Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/14/rep2/recodeagent_run_state.json",
+        "state_sha256": "9b788ecbfac4104e420f46b80df99bd8a9776d6680133a2d68c00c05be4861d8",
+        "status": "completed",
+        "subject_id": 14
+      },
+      {
+        "app_id": "full-15-rep0",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T02:20:07.623807Z",
+        "error": "",
+        "repetition": 0,
+        "returncode": 0,
+        "started_at": "2026-08-13T01:27:41.206857Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/15/rep0/recodeagent_run_state.json",
+        "state_sha256": "a750c986659487ecc8e33c31e51ba03f859db51848136e9c42ef03b8a11627ff",
+        "status": "completed",
+        "subject_id": 15
+      },
+      {
+        "app_id": "full-15-rep1",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T02:20:06.379624Z",
+        "error": "",
+        "repetition": 1,
+        "returncode": 0,
+        "started_at": "2026-08-13T01:28:16.341021Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/15/rep1/recodeagent_run_state.json",
+        "state_sha256": "fce9b9dc0901b1d4a86ce7e789e279b545f6ebbd37961891af12585542bf1b76",
+        "status": "completed",
+        "subject_id": 15
+      },
+      {
+        "app_id": "full-15-rep2",
+        "attempt": 1,
+        "codeweaver_git_sha": "96a89524d70169f190727bf7e277ef086171605f",
+        "copilot_cli_version": "GitHub Copilot CLI 1.0.79.",
+        "ended_at": "2026-08-13T02:12:33.007534Z",
+        "error": "",
+        "repetition": 2,
+        "returncode": 0,
+        "started_at": "2026-08-13T01:31:51.894068Z",
+        "state_path": "/opt/codeweaver-evoc2rust/runs/full/15/rep2/recodeagent_run_state.json",
+        "state_sha256": "91514486b5743749a5e361bf9106a56735233365e40c23b8a0e67176ccd69269",
+        "status": "completed",
+        "subject_id": 15
+      }
+    ],
+    "terminal_measurement_failures": [],
+    "terminal_runs": 45
+  },
+  "copied_file_counts": {
+    "campaign_metadata": 13,
+    "evaluation": 3,
+    "prepared_workspaces": 434,
+    "report": 15,
+    "source_snapshot": 190
+  },
+  "generated_at": "2026-08-13T04:21:37.366307+00:00",
+  "infrastructure_failure_archive": {
+    "file_count": 60,
+    "parts": [
+      {
+        "bytes": 30650,
+        "path": "excluded-attempts.tar.gz",
+        "sha256": "c2bd5c2d8ecb3bb0b841268d3e8e13a6d398abbf7879985e0ba8359648f4a202"
+      }
+    ],
+    "source": "/opt/codeweaver-evoc2rust/infrastructure-failures"
+  },
+  "paper": {
+    "arxiv": "2508.04295v4",
+    "dataset_statistics": {
+      "c2r_bench_projects": 6,
+      "c2r_bench_test_cases": 222,
+      "vivo_bench_paper_test_cases": 113,
+      "vivo_bench_pinned_active_test_functions": 125,
+      "vivo_bench_pinned_disabled_test_functions": 2
+    },
+    "doi": "10.1145/3786583.3786856",
+    "table4_rows": [
+      {
+        "acceptance_precision_percent": 100.0,
+        "acceptance_recall_percent": 100.0,
+        "category": "rule_hybrid",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 100.0,
+        "method": "C2Rust",
+        "model": null,
+        "safe_rate_percent": 0.0
+      },
+      {
+        "acceptance_precision_percent": 100.0,
+        "acceptance_recall_percent": 100.0,
+        "category": "rule_hybrid",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 100.0,
+        "method": "C2SaferRust",
+        "model": null,
+        "safe_rate_percent": 60.0
+      },
+      {
+        "acceptance_precision_percent": 92.08,
+        "acceptance_recall_percent": 89.24,
+        "category": "llm",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 84.21,
+        "method": "Self-Repair",
+        "model": "DeepSeek-V3",
+        "safe_rate_percent": 87.6
+      },
+      {
+        "acceptance_precision_percent": 92.11,
+        "acceptance_recall_percent": 92.44,
+        "category": "llm",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 87.35,
+        "method": "Tymcrat",
+        "model": "DeepSeek-V3",
+        "safe_rate_percent": 97.88
+      },
+      {
+        "acceptance_precision_percent": 55.15,
+        "acceptance_recall_percent": 51.95,
+        "category": "llm",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 35.49,
+        "method": "Direct Prompting",
+        "model": "DeepSeek-V3",
+        "safe_rate_percent": 77.09
+      },
+      {
+        "acceptance_precision_percent": 99.83,
+        "acceptance_recall_percent": 99.86,
+        "category": "llm",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 100.0,
+        "method": "EvoC2Rust",
+        "model": "DeepSeek-V3",
+        "safe_rate_percent": 98.0
+      },
+      {
+        "acceptance_precision_percent": 33.12,
+        "acceptance_recall_percent": 38.36,
+        "category": "llm",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 52.63,
+        "method": "Self-Repair",
+        "model": "Qwen3-32B",
+        "safe_rate_percent": 77.57
+      },
+      {
+        "acceptance_precision_percent": 76.82,
+        "acceptance_recall_percent": 74.47,
+        "category": "llm",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 81.76,
+        "method": "Tymcrat",
+        "model": "Qwen3-32B",
+        "safe_rate_percent": 87.11
+      },
+      {
+        "acceptance_precision_percent": 21.72,
+        "acceptance_recall_percent": 27.51,
+        "category": "llm",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 26.23,
+        "method": "Direct Prompting",
+        "model": "Qwen3-32B",
+        "safe_rate_percent": 89.81
+      },
+      {
+        "acceptance_precision_percent": 87.92,
+        "acceptance_recall_percent": 83.45,
+        "category": "llm",
+        "dataset": "Vivo-Bench",
+        "incremental_compilation_percent": 87.65,
+        "method": "EvoC2Rust",
+        "model": "Qwen3-32B",
+        "safe_rate_percent": 98.22
+      },
+      {
+        "acceptance_precision_percent": 98.99,
+        "acceptance_recall_percent": 98.98,
+        "category": "rule_hybrid",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 99.28,
+        "method": "C2Rust",
+        "model": null,
+        "safe_rate_percent": 1.83
+      },
+      {
+        "acceptance_precision_percent": 97.47,
+        "acceptance_recall_percent": 97.68,
+        "category": "rule_hybrid",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 99.28,
+        "method": "C2SaferRust",
+        "model": null,
+        "safe_rate_percent": 48.24
+      },
+      {
+        "acceptance_precision_percent": 72.35,
+        "acceptance_recall_percent": 13.79,
+        "category": "llm",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 49.21,
+        "method": "Self-Repair",
+        "model": "DeepSeek-V3",
+        "safe_rate_percent": 83.92
+      },
+      {
+        "acceptance_precision_percent": 77.82,
+        "acceptance_recall_percent": 74.94,
+        "category": "llm",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 72.02,
+        "method": "Tymcrat",
+        "model": "DeepSeek-V3",
+        "safe_rate_percent": 95.92
+      },
+      {
+        "acceptance_precision_percent": 55.65,
+        "acceptance_recall_percent": 52.7,
+        "category": "llm",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 56.67,
+        "method": "Direct Prompting",
+        "model": "DeepSeek-V3",
+        "safe_rate_percent": 82.43
+      },
+      {
+        "acceptance_precision_percent": 97.56,
+        "acceptance_recall_percent": 97.34,
+        "category": "llm",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 93.84,
+        "method": "EvoC2Rust",
+        "model": "DeepSeek-V3",
+        "safe_rate_percent": 97.41
+      },
+      {
+        "acceptance_precision_percent": 45.38,
+        "acceptance_recall_percent": 10.65,
+        "category": "llm",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 39.4,
+        "method": "Self-Repair",
+        "model": "Qwen3-32B",
+        "safe_rate_percent": 87.15
+      },
+      {
+        "acceptance_precision_percent": 66.72,
+        "acceptance_recall_percent": 65.91,
+        "category": "llm",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 70.56,
+        "method": "Tymcrat",
+        "model": "Qwen3-32B",
+        "safe_rate_percent": 82.75
+      },
+      {
+        "acceptance_precision_percent": 24.01,
+        "acceptance_recall_percent": 30.41,
+        "category": "llm",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 35.29,
+        "method": "Direct Prompting",
+        "model": "Qwen3-32B",
+        "safe_rate_percent": 93.63
+      },
+      {
+        "acceptance_precision_percent": 85.75,
+        "acceptance_recall_percent": 82.59,
+        "category": "llm",
+        "dataset": "C2R-Bench",
+        "incremental_compilation_percent": 82.35,
+        "method": "EvoC2Rust",
+        "model": "Qwen3-32B",
+        "safe_rate_percent": 97.4
+      }
+    ],
+    "table5_c2r_rows": [
+      {
+        "fill_compilation_percent": 100.0,
+        "model": "DeepSeek-V3",
+        "project": "avl",
+        "test_rate_percent": 92.53
+      },
+      {
+        "fill_compilation_percent": 95.21,
+        "model": "DeepSeek-V3",
+        "project": "bzp",
+        "test_rate_percent": 92.55
+      },
+      {
+        "fill_compilation_percent": 96.55,
+        "model": "DeepSeek-V3",
+        "project": "md5",
+        "test_rate_percent": 86.21
+      },
+      {
+        "fill_compilation_percent": 100.0,
+        "model": "DeepSeek-V3",
+        "project": "sha256",
+        "test_rate_percent": 100.0
+      },
+      {
+        "fill_compilation_percent": 96.05,
+        "model": "DeepSeek-V3",
+        "project": "rapidlz",
+        "test_rate_percent": 92.11
+      },
+      {
+        "fill_compilation_percent": 86.98,
+        "model": "DeepSeek-V3",
+        "project": "cmptlz",
+        "test_rate_percent": 86.35
+      },
+      {
+        "fill_compilation_percent": 92.25,
+        "model": "DeepSeek-V3",
+        "project": "Subtotal",
+        "test_rate_percent": 89.53
+      },
+      {
+        "fill_compilation_percent": 97.01,
+        "model": "Qwen3-32B",
+        "project": "avl",
+        "test_rate_percent": 82.09
+      },
+      {
+        "fill_compilation_percent": 89.36,
+        "model": "Qwen3-32B",
+        "project": "bzp",
+        "test_rate_percent": 88.83
+      },
+      {
+        "fill_compilation_percent": 89.66,
+        "model": "Qwen3-32B",
+        "project": "md5",
+        "test_rate_percent": 89.21
+      },
+      {
+        "fill_compilation_percent": 90.91,
+        "model": "Qwen3-32B",
+        "project": "sha256",
+        "test_rate_percent": 90.91
+      },
+      {
+        "fill_compilation_percent": 78.95,
+        "model": "Qwen3-32B",
+        "project": "rapidlz",
+        "test_rate_percent": 77.63
+      },
+      {
+        "fill_compilation_percent": 70.79,
+        "model": "Qwen3-32B",
+        "project": "cmptlz",
+        "test_rate_percent": 68.89
+      },
+      {
+        "fill_compilation_percent": 80.63,
+        "model": "Qwen3-32B",
+        "project": "Subtotal",
+        "test_rate_percent": 77.91
+      }
+    ],
+    "table6_rows": [
+      {
+        "fill_compilation_percent": 92.25,
+        "incremental_compilation_percent": 93.84,
+        "safe_rate_percent": 97.41,
+        "test_rate_percent": 89.53,
+        "variant": "EvoC2Rust"
+      },
+      {
+        "fill_compilation_percent": 87.23,
+        "incremental_compilation_percent": 89.57,
+        "safe_rate_percent": 97.4,
+        "test_rate_percent": 85.37,
+        "variant": "-w/o Repair#3"
+      },
+      {
+        "fill_compilation_percent": 82.21,
+        "incremental_compilation_percent": 75.24,
+        "safe_rate_percent": 97.46,
+        "test_rate_percent": 80.92,
+        "variant": "-w/o Repair#2-3"
+      },
+      {
+        "fill_compilation_percent": 81.06,
+        "incremental_compilation_percent": 74.29,
+        "safe_rate_percent": 97.21,
+        "test_rate_percent": 79.91,
+        "variant": "-w/o Repair#1-3"
+      },
+      {
+        "fill_compilation_percent": 33.0,
+        "incremental_compilation_percent": 56.67,
+        "safe_rate_percent": 82.43,
+        "test_rate_percent": 30.27,
+        "variant": "-w/o Feature Mapping and Repair#1-3"
+      }
+    ],
+    "title": "EvoC2Rust: A Skeleton-guided Framework for Project-Level C-to-Rust Translation",
+    "venue": "ICSE-SEIP 2026",
+    "vivo_table4": {
+      "deepseek_v3": {
+        "acceptance_precision_percent": 99.83,
+        "acceptance_recall_percent": 99.86,
+        "incremental_compilation_percent": 100.0,
+        "safe_rate_percent": 98.0
+      },
+      "qwen3_32b": {
+        "acceptance_precision_percent": 87.92,
+        "acceptance_recall_percent": 83.45,
+        "incremental_compilation_percent": 87.65,
+        "safe_rate_percent": 98.22
+      }
+    },
+    "vivo_table5": {
+      "deepseek_v3": {
+        "fill_compilation_percent": 99.07,
+        "test_rate_percent": 98.5
+      },
+      "qwen3_32b": {
+        "fill_compilation_percent": 87.65,
+        "test_rate_percent": 84.57
+      }
+    }
+  },
+  "protocol": {
+    "agent_timeout_seconds": 5000,
+    "effort": "max",
+    "evaluated_repetitions": 3,
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "model": "gpt-5.6-sol",
+    "repetitions": 3
+  },
+  "raw_archive": {
+    "file_count": 3515,
+    "parts": [
+      {
+        "bytes": 94371840,
+        "path": "full.tar.gz.part-000",
+        "sha256": "cf5d8741ace30ce4509c47a94749e283047014af84f13861fe44093265083da2"
+      },
+      {
+        "bytes": 94371840,
+        "path": "full.tar.gz.part-001",
+        "sha256": "92d3de47a253f2ed98eae6867060c49cfb2915b8d61068650f2be7e12fbdc3d1"
+      },
+      {
+        "bytes": 62611835,
+        "path": "full.tar.gz.part-002",
+        "sha256": "bc55ab0abea0fde1047ed7f69620b7f0c009f899e0a448fa4b13a318b8cd6f01"
+      }
+    ],
+    "source": "/opt/codeweaver-evoc2rust/runs/full"
+  },
+  "schema_version": 1,
+  "source_provenance": {
+    "git_branch": "experiments",
+    "git_commit": "7a8e09e50a3b90d03a630d0d09a42dc14b24ed0d",
+    "repository": "https://github.com/gsoosk/CodeWeaver",
+    "tracked_status": [],
+    "tracked_worktree_clean": true
+  },
+  "tool": {
+    "bytes": 1239328,
+    "expected_from_evaluation": null,
+    "license": {
+      "path": "reproduction/tools/C2RUST-LICENSE",
+      "sha256": "c1ebce33b803b1aa025c0bab591db51bdbe04d2e31436ccbccd378c2a6f1e40c"
+    },
+    "matches_frozen_hash": true,
+    "name": "c2rust",
+    "sha256": "e11377b3102b768cff101b191c29daf1d5dd4449e22af5b61684443a65fd07cb"
+  }
+}

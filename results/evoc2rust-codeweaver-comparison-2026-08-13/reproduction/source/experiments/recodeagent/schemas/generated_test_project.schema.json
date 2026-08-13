@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "generated_test_project.schema.json",
+  "title": "CodeWeaver generated-test project result",
+  "type": "object",
+  "required": [
+    "variant",
+    "repetition",
+    "project_id",
+    "tool",
+    "project",
+    "generated_target_test_methods",
+    "generated_tests_expected",
+    "generated_tests_expected_status",
+    "generated_tests_executed",
+    "generated_tests_executed_status",
+    "generated_tests_passed",
+    "generated_tests_passed_status",
+    "generated_tests_failed",
+    "generated_tests_failed_status",
+    "generated_tests_not_executed",
+    "generated_tests_not_executed_status",
+    "generated_tests_pass_rate_status",
+    "coverage_before",
+    "coverage_before_status",
+    "coverage_after",
+    "coverage_after_status"
+  ],
+  "properties": {
+    "variant": {"type": "string"},
+    "repetition": {"type": "integer", "minimum": 0},
+    "project_id": {"type": "string"},
+    "tool": {"type": "string", "enum": ["crust", "oxidizer", "alphatrans", "skel"]},
+    "project": {"type": "string"},
+    "generated_target_test_methods": {"type": "integer", "minimum": 0},
+    "generated_tests_expected": {"type": ["integer", "null"], "minimum": 0},
+    "generated_tests_executed": {"type": ["integer", "null"], "minimum": 0},
+    "generated_tests_passed": {"type": ["integer", "null"], "minimum": 0},
+    "generated_tests_failed": {"type": ["integer", "null"], "minimum": 0},
+    "generated_tests_not_executed": {"type": ["integer", "null"], "minimum": 0},
+    "generated_tests_pass_rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "generated_tests_expected_status": {"type": "string"},
+    "generated_tests_executed_status": {"type": "string"},
+    "generated_tests_passed_status": {"type": "string"},
+    "generated_tests_failed_status": {"type": "string"},
+    "generated_tests_not_executed_status": {"type": "string"},
+    "generated_tests_pass_rate_status": {"type": "string"}
+    ,
+    "coverage_before": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Production-line coverage from the independent developer-test oracle before adding CodeWeaver-authored generated tests."
+    },
+    "coverage_before_status": {"type": "string"},
+    "coverage_after": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Production-line coverage from the same independent developer oracle plus only independently classified CodeWeaver-authored generated tests."
+    },
+    "coverage_after_status": {"type": "string"}
+  },
+  "additionalProperties": true
+}

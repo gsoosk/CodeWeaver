@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{booktabs,longtable,graphicx}
+\title{Leakage-Safe Reproduction of EvoC2Rust with CodeWeaver}
+\author{CodeWeaver Experimental Artifact}
+\begin{document}
+\maketitle
+\begin{abstract}
+We reproduce the publicly executable portion of EvoC2Rust on the paper's disclosed Vivo-Bench repository and compare three independent CodeWeaver gpt-5.6-sol runs. Across repetitions, mean ICompRate is 100.00\% +/- 0.00 pp, mean FCompRate is 100.00\% +/- 0.00 pp, mean TestRate is 100.00\% +/- 0.00 pp, and mean SafeRate is 30.92\% +/- 4.72 pp. AccRate-P/R, the six-project C2R-Bench experiment, ablations, and scale experiments cannot be independently rerun because their required artifacts are not public; published values remain reference-only.
+\end{abstract}
+\section{Method}
+The benchmark is pinned at AtomGit commit `c88cef1a1d15079478be14ab361dda8f3b49fee2`. C2Rust 0.22.1 derives only ABI signatures and immutable Rust test contracts; all generated production bodies are stripped before model access. The contracts were calibrated against both the original C and full C2Rust implementations (125/125 active functions), while stripped scaffolds pass 0/125. Each fixed test runs in a separate process. FCompRate credits every module in a group only when the independently restored crate builds. ICompRate follows the paper's incremental strategy: groups are inserted in frozen order into a cumulative project, and failed groups fall back to original C. SafeRate is the line-weighted share of nonblank production Rust lines outside unsafe functions or blocks. Three repetitions use GPT-5.6 Sol at maximum effort, five repair iterations, three parity rounds, and a 5,000-second agent timeout.
+\section{Results}
+\begin{table}[h]\centering
+\caption{EvoC2Rust Table 4 extension on Vivo-Bench.}
+\begin{tabular}{llrrr}\toprule
+Model & Method & IComp & Acc-P/R & Safe\\\midrule
+DeepSeek-V3 & EvoC2Rust & 100.00\% & 99.83\%/99.86\% & 98.00\%\\
+Qwen3-32B & EvoC2Rust & 87.65\% & 87.92\%/83.45\% & 98.22\%\\
+gpt-5.6-sol & CodeWeaver repetition 1 & 100.00\% & N/A/N/A & 31.21\%\\
+gpt-5.6-sol & CodeWeaver repetition 2 & 100.00\% & N/A/N/A & 35.50\%\\
+gpt-5.6-sol & CodeWeaver repetition 3 & 100.00\% & N/A/N/A & 26.07\%\\
+gpt-5.6-sol & CodeWeaver mean & 100.00\% & N/A/N/A & 30.92\%\\
+\bottomrule\end{tabular}\end{table}
+\begin{table}[h]\centering
+\caption{EvoC2Rust Table 5 extension on Vivo-Bench.}
+\begin{tabular}{llrr}\toprule
+Model & System/run & FComp & Test\\\midrule
+DeepSeek-V3 & 19 projects & 99.07\% & 98.50\%\\
+Qwen3-32B & 19 projects & 87.65\% & 84.57\%\\
+gpt-5.6-sol & CodeWeaver repetition 1 & 100.00\% & 100.00\%\\
+gpt-5.6-sol & CodeWeaver repetition 2 & 100.00\% & 100.00\%\\
+gpt-5.6-sol & CodeWeaver repetition 3 & 100.00\% & 100.00\%\\
+gpt-5.6-sol & CodeWeaver mean & 100.00\% & 100.00\%\\
+\bottomrule\end{tabular}\end{table}
+\section{Repetitions}
+\begin{tabular}{rrrrr}\toprule
+Rep & IComp & FComp & Test & Safe\\\midrule
+1 & 100.00\% & 100.00\% & 100.00\% & 31.21\%\\
+2 & 100.00\% & 100.00\% & 100.00\% & 35.50\%\\
+3 & 100.00\% & 100.00\% & 100.00\% & 26.07\%\\
+\bottomrule\end{tabular}
+\section{Threats to Validity}
+The paper reports 113 Vivo-Bench test cases, while the pinned public revision enables 125 test functions and disables 2 additional `rb-tree` functions. CodeWeaver therefore uses a 125-test denominator and does not relabel it as the paper's 113-test denominator. Models also differ (GPT-5.6 Sol versus DeepSeek-V3/Qwen3-32B), and the CodeWeaver architecture is not an EvoC2Rust implementation. SafeRate is comparable in intent but the paper does not release its exact analyzer. Published reference values and new measurements are never pooled.
+\end{document}

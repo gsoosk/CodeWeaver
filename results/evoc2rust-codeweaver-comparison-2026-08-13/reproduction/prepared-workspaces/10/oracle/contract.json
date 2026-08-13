@@ -1,0 +1,32 @@
+{
+  "c_assertions": 58,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_10",
+  "file_sha256": {
+    "Cargo.lock": "294b6611c1c0b27a3af12b0a1e97f5251ed044b65e8d73a53af8acfa189e8265",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "087a3105884d99930abff4a09d0c7993ab3c724de86047a93e9e3fb11899a380",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 418,
+  "modules": [
+    "queue"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 10,
+  "subject_name": "queue",
+  "support_modules": [],
+  "test_functions": [
+    "test_queue_new_free",
+    "test_queue_push_head",
+    "test_queue_pop_head",
+    "test_queue_peek_head",
+    "test_queue_push_tail",
+    "test_queue_pop_tail",
+    "test_queue_peek_tail",
+    "test_queue_is_empty"
+  ],
+  "test_module": "test_queue"
+}

@@ -1,0 +1,17 @@
+{
+  "brief_sha256": "ed1c0d4184c4e17ff8f9cbc4828a3c32552f1d958b3f042739333f1a14811b76",
+  "config_sha256": "5d1f3b09f7d105398d9df65fc42d64c32f2150f5ed057043302151320ba29bec",
+  "contract_sha256": "be6e3d052b587a6b2e454168b5220b4e726f8837e56b4dfe17cef10d3d588595",
+  "evaluator_sha256": "c422f0daa5f50c5c4e46216e0c7f1e9b466accf2cd58d0eab6217bdc604514b8",
+  "function_counts": {
+    "rb-tree": 31
+  },
+  "ground_truth_excluded": true,
+  "preparation_schema": 1,
+  "prepared_at": "2026-08-12T18:57:21.209623+00:00",
+  "prepared_dir": "/opt/codeweaver-evoc2rust/workspaces/11",
+  "scaffold_sha256": "0298328fe9954ab12576c9baf91ab766d1cff76091c3ab81a9d3485cfbc5f2e0",
+  "source_sha256": "a7aef7cf76488ca9b27ce72236f8a3704eb8eba50e6b444458d125dab1144b49",
+  "subject_id": 11,
+  "subject_name": "rb-tree"
+}

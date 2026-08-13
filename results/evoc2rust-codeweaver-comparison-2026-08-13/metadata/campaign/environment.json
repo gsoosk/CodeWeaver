@@ -1,0 +1,70 @@
+{
+  "c2rust_sha256": "e11377b3102b768cff101b191c29daf1d5dd4449e22af5b61684443a65fd07cb",
+  "c2rust_version": {
+    "argv": [
+      "/opt/codeweaver-evoc2rust/tools/bin/c2rust",
+      "--version"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "C2Rust 0.22.1"
+  },
+  "cargo": {
+    "argv": [
+      "/root/.cargo/bin/cargo",
+      "--version"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "cargo 1.92.0-nightly (24bb93c38 2025-09-10)"
+  },
+  "copilot_cli": {
+    "argv": [
+      "/usr/local/bin/copilot",
+      "--version"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "GitHub Copilot CLI 1.0.79.\nRun 'copilot update' to check for updates."
+  },
+  "python": {
+    "argv": [
+      "/opt/codeweaver-rustine/test-venv/bin/python",
+      "--version"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Python 3.12.3"
+  },
+  "repository_head": {
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "7a8e09e50a3b90d03a630d0d09a42dc14b24ed0d"
+  },
+  "repository_status": {
+    "argv": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "rustc": {
+    "argv": [
+      "/root/.cargo/bin/rustc",
+      "+nightly-2025-09-15",
+      "--version"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "rustc 1.92.0-nightly (52618eb33 2025-09-14)"
+  },
+  "schema_version": 1
+}

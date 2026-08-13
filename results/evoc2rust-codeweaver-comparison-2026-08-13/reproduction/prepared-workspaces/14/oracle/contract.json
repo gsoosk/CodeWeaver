@@ -1,0 +1,35 @@
+{
+  "c_assertions": 11,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_14",
+  "file_sha256": {
+    "Cargo.lock": "b8b50f2be77235423d06efc3b24932ac53f97f91b9aa3e81e09ec6e2e6d11e45",
+    "support/src/compare-int.c": "77def65f7cb39e788a7e4e3721ade2da1c254cfc22c8ae029506c1d2576e71d3",
+    "support/src/compare-int.h": "e0e5507b984e208529b31c9555f9ba28f9ee7a395af4e7a33218ee45519eef8c",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "97e34e795d5c2c497950f7298a16a6916534251f35d2464da5cbeaec67333e06",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 498,
+  "modules": [
+    "sortedarray"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 14,
+  "subject_name": "sortedarray",
+  "support_modules": [
+    "compare-int"
+  ],
+  "test_functions": [
+    "test_sortedarray_new_free",
+    "test_sortedarray_insert",
+    "test_sortedarray_remove",
+    "test_sortedarray_remove_range",
+    "test_sortedarray_index_of",
+    "test_sortedarray_index_of_equ_key",
+    "test_sortedarray_get"
+  ],
+  "test_module": "test_sortedarray"
+}

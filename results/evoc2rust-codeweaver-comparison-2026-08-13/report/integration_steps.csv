@@ -1,0 +1,1150 @@
+repetition,accepted,accepted_module_count_after_step,diagnostic_tail,modules,output_sha256,returncode,subject,subject_id,timed_out
+0,True,1,"Compiling find-msvc-tools v0.1.10
+   Compiling shlex v2.0.1
+   Compiling cc v1.4.2
+   Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.48s",arraylist,67b50686cf16dbeae589b271ab65238e0da79740047491ffb85b88c0c277fa0b,0,arraylist,1,False
+0,True,2,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.68s",avl-tree,c654b7fd4e67553b9e1bc3a777e1f3fc61e79459493647e2e26a736c7f4d0818,0,avl-tree,2,False
+0,True,3,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.64s",binary-heap,1f25a17337623c4886ccb9f0745a886656482ee8311f85a5c5bbcba21dd666d0,0,binary-heap,3,False
+0,True,4,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.77s",binomial-heap,a7692f13a87a256095ce29425f5526b98affc44081931cad910851423ddb6f6d,0,binomial-heap,4,False
+0,True,5,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.95s",bloom-filter,664889d9141b3172f49657459d1cf7cb1a009fe48e6241b2f541a6649c321d4f,0,bloom-filter,5,False
+0,True,8,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.27s","compare-int,compare-pointer,compare-string",d906dd1347dacb544f54ccf9bc9a0475ab95dc6d40bbb5208ea76270df2bebaf,0,compare-functions,6,False
+0,True,11,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.29s","hash-int,hash-pointer,hash-string",530405a77616b167d2d05c34ed7d5064f347ce655e507c9f630705dc23c0ffe9,0,hash-functions,7,False
+0,True,12,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.01s",hash-table,e8aa2192aecea782bf36054f6885215ecee59c21b932f76934ece866c5c5349b,0,hash-table,8,False
+0,True,13,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.97s",list,331f7d1ccb152adfa056e358d14d29d18e14310689239b2bec76717cd1ed284e,0,list,9,False
+0,True,14,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.03s",queue,d9c678a5045cd91cc6802ee6068a818cd0efe16c17139b125ba1b2e288d03e80,0,queue,10,False
+0,True,15,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.81s",rb-tree,7b24a193d99193cc48f12623af6f12b21fdd2644712950cf59ccd7bb495fc8c0,0,rb-tree,11,False
+0,True,16,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.91s",set,c8dafdba093b2a5d015363a4af82544afb055f514acc30ea992b05100ff34604,0,set,12,False
+0,True,17,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.70s",slist,8f4e6f90cc8ccb5590715910ad9a38e715593a6422e84f2963d98b6b17a69ec0,0,slist,13,False
+0,True,18,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.69s",sortedarray,20c744461c5e9784ae6a06f49173be9580a5f795ecd72b597e4c6c73f6f0f507,0,sortedarray,14,False
+0,True,19,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep0-4mywc57d/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.44s",trie,2cf6bb6d3473f31c4849070ebaf81eb7c91d8e689b3334380d759e8f9d9f456c,0,trie,15,False
+1,True,1,"Compiling find-msvc-tools v0.1.10
+   Compiling shlex v2.0.1
+   Compiling cc v1.4.2
+   Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.37s",arraylist,38cc5348f34a143d2e8073f224b51ea686396459ae9dd2f3e2da96399cb5ff9c,0,arraylist,1,False
+1,True,2,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.46s",avl-tree,1ec4377f318019f89ceb841eec7a91885274ac6efe919e36ec0c96ff5ab32cf0,0,avl-tree,2,False
+1,True,3,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.63s",binary-heap,b4abef2b893f1254dcee8e7f01aafc64d6f9e0c4e84a3ea7d0160208b7f40f29,0,binary-heap,3,False
+1,True,4,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.03s",binomial-heap,7b3e48cb123da3eb4e300633293e9403b79f1645733590887120b99591ea5947,0,binomial-heap,4,False
+1,True,5,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.11s",bloom-filter,fd4478ac6ed0e3d20cec52d32b39f6d50e146f925ee0aaa85274316dd5ec0c11,0,bloom-filter,5,False
+1,True,8,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.40s","compare-int,compare-pointer,compare-string",f13ed1e06dfe6b6d1db4bba330e91b5d19f03565222e3054f3a20625efd6526e,0,compare-functions,6,False
+1,True,11,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.39s","hash-int,hash-pointer,hash-string",f8638ee6010095985c96b7cabb1d8328cc75c943f46f5bebb5625f2cdb239a39,0,hash-functions,7,False
+1,True,12,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.23s",hash-table,67049392d7abe1acafc27053b7f959266fa8b0ee9bad18244e43e339aab0d616,0,hash-table,8,False
+1,True,13,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.03s",list,7b3e48cb123da3eb4e300633293e9403b79f1645733590887120b99591ea5947,0,list,9,False
+1,True,14,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.02s",queue,75245152e2bcf79ea3c5b7d0628f33fa07a3f362331d8d58a5b398a1c454f7f0,0,queue,10,False
+1,True,15,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.71s",rb-tree,f89d5c51a30a1c8faf34a370dd11dfd27c7008644bf28b16fef33d4051b31af0,0,rb-tree,11,False
+1,True,16,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.63s",set,a4ff73eee86a6ea75a6664ffc69a06309f2b58d8a0917ffd9f4672c8856104bc,0,set,12,False
+1,True,17,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.63s",slist,a4ff73eee86a6ea75a6664ffc69a06309f2b58d8a0917ffd9f4672c8856104bc,0,slist,13,False
+1,True,18,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.28s",sortedarray,11f4550dc6724654a14bfe86b5e5f8782abb06c9845dbf95b4c271bc0b34170c,0,sortedarray,14,False
+1,True,19,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep1-aza23cwp/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.47s",trie,0cb0db7c0db9a5b21e4c1fcc4bddcdf15551c4404e6c96fbf9f5509e0fcd8df0,0,trie,15,False
+2,True,1,"Compiling find-msvc-tools v0.1.10
+   Compiling shlex v2.0.1
+   Compiling cc v1.4.2
+   Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.41s",arraylist,cefa4645a73e625553287285c325c735790f3665f128387e1fb3b17ba8ed3d08,0,arraylist,1,False
+2,True,2,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.65s",avl-tree,09922d1fb406428568b564974f41606756f51d25067e63d7b118224ca2a89042,0,avl-tree,2,False
+2,True,3,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.83s",binary-heap,810fdd39e1f7a0634580321953610accbd4d5474db977851e3aadd2d0456d696,0,binary-heap,3,False
+2,True,4,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.96s",binomial-heap,9dad591381a9b28d15b60228412c4143f7bbc5871a552a63d273663c760e1795,0,binomial-heap,4,False
+2,True,5,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.99s",bloom-filter,8cec8651b7808fc8c8fa98d9b0b71e7ce6e42c66f8b31e190fd2a522c747da7e,0,bloom-filter,5,False
+2,True,8,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.30s","compare-int,compare-pointer,compare-string",6a6b79d452ac3c47bd76591c60bc28b594a0415d82fd52ca4140acd9de66ef6d,0,compare-functions,6,False
+2,True,11,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.24s","hash-int,hash-pointer,hash-string",48c0e17227bf8f2804f4057e2bc64e6b2d0fafbbb3eacfc8536e4c153b519706,0,hash-functions,7,False
+2,True,12,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.20s",hash-table,fcb1884bdc7f29631685dbbc7e36b7b67020a19953162198bd83b7342a98593a,0,hash-table,8,False
+2,True,13,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.01s",list,3ac09c1a66f91f78292d4a64b2138acb37858fd01b45ef9609588bfceb7ab561,0,list,9,False
+2,True,14,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_remove_node':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:34: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                          ~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:446:52: warning: unused parameter 'node' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   446 | void rb_tree_remove_node(RBTree *tree, RBTreeNode *node)
+warning: vivo_subject_01@0.1.0:       |                                        ~~~~~~~~~~~~^~~~
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c: In function 'rb_tree_to_array':
+warning: vivo_subject_01@0.1.0: fixed/c/rb-tree.c:497:39: warning: unused parameter 'tree' [-Wunused-parameter]
+warning: vivo_subject_01@0.1.0:   497 | RBTreeValue *rb_tree_to_array(RBTree *tree)
+warning: vivo_subject_01@0.1.0:       |                               ~~~~~~~~^~~~
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.06s",queue,68f26006e6f946ce4d1201aa402fbf82b15a14f3be7e0edd2ce2af6ca2c66a99,0,queue,10,False
+2,True,15,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.68s",rb-tree,cc9e708ae85257d214a8e4b82a6ac4627d557e8c01ebe3cd267dec5c50fdf7ef,0,rb-tree,11,False
+2,True,16,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.61s",set,fba65526af25b7e286eb108263e7bca56cff378907c0b34c34d6a6950a250aa5,0,set,12,False
+2,True,17,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.73s",slist,83d58534324c870358f66ce7b65cf37424db4a640f141311f36fbdb9f90dccb0,0,slist,13,False
+2,True,18,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.97s",sortedarray,6d8b2a77a23aa51aa5490a063c3b32081ce48e8150b26d62309c294df777b4f3,0,sortedarray,14,False
+2,True,19,"Compiling vivo_subject_01 v0.1.0 (/tmp/evoc2rust-integration-rep2-xtteqv73/project)
+warning: the feature `label_break_value` has been stable since 1.65.0 and no longer requires an attribute to enable
+ --> src/lib.rs:8:12
+  |
+8 | #![feature(label_break_value)]
+  |            ^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: the feature `raw_ref_op` has been stable since 1.82.0 and no longer requires an attribute to enable
+ --> src/lib.rs:9:12
+  |
+9 | #![feature(raw_ref_op)]
+  |            ^^^^^^^^^^
+
+warning: `vivo_subject_01` (lib) generated 2 warnings
+warning: `vivo_subject_01` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.43s",trie,7911df9c046b37433797483839adac714c85951efcbf2ea8f1d52cb99a4a48ac,0,trie,15,False

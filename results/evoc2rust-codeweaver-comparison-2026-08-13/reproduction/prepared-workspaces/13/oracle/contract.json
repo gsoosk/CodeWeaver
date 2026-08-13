@@ -1,0 +1,42 @@
+{
+  "c_assertions": 79,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_13",
+  "file_sha256": {
+    "Cargo.lock": "b9c6a81843d9fb6bd05f21eee97bcf2b692f52c09c8b280b68a5db2d039ae9b7",
+    "support/src/compare-int.c": "77def65f7cb39e788a7e4e3721ade2da1c254cfc22c8ae029506c1d2576e71d3",
+    "support/src/compare-int.h": "e0e5507b984e208529b31c9555f9ba28f9ee7a395af4e7a33218ee45519eef8c",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "26e2acd95011d0d1c22beabf73968b90a58be380bdd5b90bbb78237c47a81c44",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 830,
+  "modules": [
+    "slist"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 13,
+  "subject_name": "slist",
+  "support_modules": [
+    "compare-int"
+  ],
+  "test_functions": [
+    "test_slist_append",
+    "test_slist_prepend",
+    "test_slist_free",
+    "test_slist_next",
+    "test_slist_nth_entry",
+    "test_slist_nth_data",
+    "test_slist_length",
+    "test_slist_remove_entry",
+    "test_slist_remove_data",
+    "test_slist_sort",
+    "test_slist_find_data",
+    "test_slist_to_array",
+    "test_slist_iterate",
+    "test_slist_iterate_bad_remove"
+  ],
+  "test_module": "test_slist"
+}

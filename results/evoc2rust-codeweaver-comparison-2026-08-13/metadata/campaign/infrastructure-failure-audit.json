@@ -1,0 +1,45 @@
+{
+  "excluded_attempts": [
+    {
+      "archive_source": "infrastructure-failures/auth-pre-model-pilot",
+      "classification": "infrastructure_authentication",
+      "counted_as_measurement": false,
+      "evidence_state_sha256": "a84e66c94d962d026c332f6a7d01922c543ad850ed1f083d250a40a088fac5f6",
+      "id": "auth-pre-model-pilot",
+      "phase": "pre_model"
+    },
+    {
+      "archive_source": "infrastructure-failures/burr-storage-race-2026-08-12/project-2-rep0-attempt1",
+      "classification": "infrastructure_burr_storage_race",
+      "counted_as_measurement": false,
+      "evidence_state_sha256": "722fd16602aa1a25ba6e702854d9c84768d4fe77f608e3171cde661f58e7a64a",
+      "final_attempt": 2,
+      "final_status": "completed",
+      "id": "project-2-rep0-attempt1",
+      "phase": "pre_model"
+    },
+    {
+      "archive_source": "infrastructure-failures/burr-storage-race-2026-08-12/project-2-rep2-attempt1",
+      "classification": "infrastructure_burr_storage_race",
+      "counted_as_measurement": false,
+      "evidence_state_sha256": "f013358eb4b167487227b3e50cbdeb58bfa157c3bb791ff5b9be108ae57d2590",
+      "final_attempt": 2,
+      "final_status": "completed",
+      "id": "project-2-rep2-attempt1",
+      "phase": "pre_model"
+    }
+  ],
+  "final_attempt_counts": {
+    "attempt_1": 43,
+    "attempt_2": 2
+  },
+  "policy": "Retry only failures proven to occur before any model response; preserve genuine model failures and timeouts as measured outcomes.",
+  "schema_version": 1,
+  "terminal_matrix": {
+    "completed": 45,
+    "expected": 45,
+    "failed": 0,
+    "genuine_model_failures": 0,
+    "timeout": 0
+  }
+}

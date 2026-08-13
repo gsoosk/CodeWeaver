@@ -1,0 +1,34 @@
+{
+  "c_assertions": 26,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_06",
+  "file_sha256": {
+    "Cargo.lock": "e99032dc606ac87b6ff2b48d8e92ee01c914ce36b57acbb86ecd5531c5ee391d",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "306621381390a91e1d026dfad489304ec6c57357c878de92b4673be5c02ddd08",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 428,
+  "modules": [
+    "compare-int",
+    "compare-pointer",
+    "compare-string"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 6,
+  "subject_name": "compare-functions",
+  "support_modules": [],
+  "test_functions": [
+    "test_int_compare",
+    "test_int_equal",
+    "test_pointer_compare",
+    "test_pointer_equal",
+    "test_string_compare",
+    "test_string_equal",
+    "test_string_nocase_compare",
+    "test_string_nocase_equal"
+  ],
+  "test_module": "test_compare_functions"
+}

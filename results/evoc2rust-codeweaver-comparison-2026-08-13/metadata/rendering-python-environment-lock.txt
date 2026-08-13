@@ -1,0 +1,6 @@
+beautifulsoup4==4.15.0
+charset-normalizer==3.4.9
+pillow==12.3.0
+reportlab==5.0.0
+soupsieve==2.9.2
+typing_extensions==4.16.0

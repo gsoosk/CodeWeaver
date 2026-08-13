@@ -1,0 +1,30 @@
+{
+  "c_assertions": 11,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_07",
+  "file_sha256": {
+    "Cargo.lock": "fc0fe52d8a30bd353d71ed9e6f5e5b28b259383183fa157ccfe14a55cee13d06",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "fa539f5aa87f0c1899af117d0f96ff94f6513c2b8427dce17532cb2e0eb1f11e",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 281,
+  "modules": [
+    "hash-int",
+    "hash-pointer",
+    "hash-string"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 7,
+  "subject_name": "hash-functions",
+  "support_modules": [],
+  "test_functions": [
+    "test_pointer_hash",
+    "test_int_hash",
+    "test_string_hash",
+    "test_string_nocase_hash"
+  ],
+  "test_module": "test_hash_functions"
+}

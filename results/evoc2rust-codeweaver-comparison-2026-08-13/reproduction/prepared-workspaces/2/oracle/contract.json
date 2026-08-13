@@ -1,0 +1,36 @@
+{
+  "c_assertions": 36,
+  "cc_version": "1.4.2",
+  "crate_name": "vivo_subject_02",
+  "file_sha256": {
+    "Cargo.lock": "ff4f78e176507bfd8d8e85247eb97d6559d4b3ae828819571bbca7fb382ad942",
+    "support/src/compare-int.c": "77def65f7cb39e788a7e4e3721ade2da1c254cfc22c8ae029506c1d2576e71d3",
+    "support/src/compare-int.h": "e0e5507b984e208529b31c9555f9ba28f9ee7a395af4e7a33218ee45519eef8c",
+    "support/test/alloc-testing.h": "8f8144a30cbd372eda0d2ada01622033457df3bd424fbd1b155394d0cd7c04e0",
+    "tests/alloc_testing.rs": "712b234e4679505650cb788f0efc2a095dac25274801bed17ee1c30d68a860e7",
+    "tests/fixed_test.rs": "27f29426f58b416b2e59461b4dd5758ff18ec798874190c5676bdb12ebe10a0b",
+    "tests/framework.rs": "42188953cf7cfd05db98d911b2881f3044db559c13408e64173ac73bc32914c7"
+  },
+  "loc_source": 917,
+  "modules": [
+    "avl-tree"
+  ],
+  "rust_toolchain": "nightly-2025-09-15",
+  "schema_version": 1,
+  "subject_id": 2,
+  "subject_name": "avl-tree",
+  "support_modules": [
+    "compare-int"
+  ],
+  "test_functions": [
+    "test_avl_tree_new",
+    "test_avl_tree_insert_lookup",
+    "test_avl_tree_child",
+    "test_out_of_memory",
+    "test_avl_tree_free",
+    "test_avl_tree_lookup",
+    "test_avl_tree_remove",
+    "test_avl_tree_to_array"
+  ],
+  "test_module": "test_avl_tree"
+}
