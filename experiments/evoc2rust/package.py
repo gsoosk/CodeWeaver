@@ -400,6 +400,7 @@ def build_package(
     report_root: Path,
     output_root: Path,
     c2rust_binary: Path | None = None,
+    c2rust_license: Path | None = None,
     artifact_license: Path | None = None,
     execution_python: Path | None = None,
     campaign_metadata_root: Path | None = None,
@@ -413,6 +414,12 @@ def build_package(
     ):
         if root is not None and not root.is_dir():
             raise FileNotFoundError(f"{label} directory is absent: {root}")
+    for label, path in (
+        ("C2Rust license", c2rust_license),
+        ("benchmark license", artifact_license),
+    ):
+        if path is not None and not path.is_file():
+            raise FileNotFoundError(f"{label} file is absent: {path}")
     if output_root.exists() and any(output_root.iterdir()):
         raise FileExistsError(f"output directory is not empty: {output_root}")
     output_root.mkdir(parents=True, exist_ok=True)
@@ -495,10 +502,24 @@ def build_package(
             ),
             "expected_from_evaluation": expected,
         }
+        if c2rust_license is not None:
+            PR._copy_file(
+                c2rust_license,
+                output_root / "reproduction/tools/C2RUST-LICENSE",
+            )
+            tool["license"] = {
+                "path": "reproduction/tools/C2RUST-LICENSE",
+                "sha256": C.file_sha256(c2rust_license),
+            }
     if require_complete and (
-        tool is None or not tool["matches_frozen_hash"]
+        tool is None
+        or not tool["matches_frozen_hash"]
+        or "license" not in tool
     ):
-        raise RuntimeError("the pinned C2Rust binary is absent or mismatched")
+        raise RuntimeError(
+            "the pinned C2Rust binary or its redistribution license is "
+            "absent or mismatched"
+        )
 
     C.atomic_write_json(
         output_root / "metadata/source_provenance.json", source
@@ -607,6 +628,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--report-root", required=True)
     parser.add_argument("--out", required=True)
     parser.add_argument("--c2rust-binary")
+    parser.add_argument("--c2rust-license")
     parser.add_argument("--artifact-license")
     parser.add_argument("--execution-python")
     parser.add_argument("--campaign-metadata-root")
@@ -627,6 +649,11 @@ def main(argv: list[str] | None = None) -> int:
         output_root=Path(args.out).resolve(),
         c2rust_binary=(
             Path(args.c2rust_binary).resolve() if args.c2rust_binary else None
+        ),
+        c2rust_license=(
+            Path(args.c2rust_license).resolve()
+            if args.c2rust_license
+            else None
         ),
         artifact_license=(
             Path(args.artifact_license).resolve()

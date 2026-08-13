@@ -88,6 +88,8 @@ python -m experiments.evoc2rust package \
   --campaign-metadata-root /opt/codeweaver-evoc2rust/campaign \
   --infrastructure-failures-root /opt/codeweaver-evoc2rust/infrastructure-failures \
   --c2rust-binary /opt/codeweaver-evoc2rust/tools/bin/c2rust \
+  --c2rust-license experiments/evoc2rust/C2RUST-LICENSE \
+  --artifact-license experiments/evoc2rust/VIVO-BENCH-LICENSE \
   --out /mnt/c/Users/t-fhabibi/CodeWeaver/results/evoc2rust-codeweaver-comparison-2026-08-13 \
   --require-complete
 ```
@@ -96,3 +98,5 @@ The report emits exact CSV/JSON data, Markdown, publication-ready LaTeX, a
 human-readable PDF, and two PDF figures. Packaging additionally preserves the
 prepared immutable contracts, filtered raw trajectories, campaign metadata,
 excluded infrastructure failures, tool provenance, and SHA-256 checksums.
+The package also carries the redistribution notices for the pinned C2Rust
+binary and the permissively licensed Vivo-Bench C sources and tests.
