@@ -1,0 +1,9 @@
+{
+  "build_cells": 12,
+  "exact_subjects": 4,
+  "fixed_runtime_cases_expected": 3543,
+  "fixed_runtime_cases_passed": 1130,
+  "measured_rows": 12,
+  "paper_subjects_total": 10,
+  "pass_all_cells": 0
+}

@@ -1,0 +1,35 @@
+{
+  "artifact_head": "f9f89ea27ca886571a5e59a8bb9a25deab5bd1c2",
+  "artifact_repository": "https://github.com/DeepSoftwareAnalytics/RepoTransBench",
+  "artifact_v1_tag_commit": "7c096b0c89699266144953bfbf3770cc7ca2fc61",
+  "codeweaver_source": {
+    "git_commit": "b1411056e47d48750d15ad59d1356beebdf2a66e",
+    "repository": "https://github.com/gsoosk/CodeWeaver"
+  },
+  "current_release_asset": "HTTP 404 during acquisition",
+  "generated_at": "2026-08-15T03:42:30.916629Z",
+  "historical_source_archive": "Google Drive object unavailable",
+  "paper": {
+    "paper_id": "arXiv:2412.17744",
+    "paper_url": "https://arxiv.org/abs/2412.17744",
+    "title": "RepoTransBench"
+  },
+  "protocol": {
+    "agent_timeout_seconds": 5000,
+    "effort_default": "max",
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "model": "gpt-5.6-sol",
+    "repetitions": 3
+  },
+  "source_commits": {
+    "fastly/Avalanche": "92a8b44c07c2d40bd5e4efeb8eb3411dc875bc20",
+    "gnebehay/parser": "1b9f61157d13e72a1e649adbbbca997a4c159b92",
+    "neural-dialogue-metrics/Distinct-N": "e94edcb2e1d2230ff9e0f1821387d7f6d7af0c4f"
+  },
+  "source_repositories": {
+    "fastly/Avalanche": "https://github.com/fastly/Avalanche",
+    "gnebehay/parser": "https://github.com/gnebehay/parser",
+    "neural-dialogue-metrics/Distinct-N": "https://github.com/neural-dialogue-metrics/Distinct-N"
+  }
+}

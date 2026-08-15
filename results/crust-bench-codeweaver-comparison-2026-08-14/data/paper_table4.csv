@@ -1,0 +1,14 @@
+model,base_build,base_test,compiler_build,compiler_test,test_build,test_test
+OpenAI o3,35,19,68,31,63,48
+Claude Opus 4,43,22,78,29,65,40
+OpenAI o1,32,15,69,28,54,37
+Claude 3.7,26,13,54,23,49,32
+Claude 3.5,26,11,49,21,38,24
+o1-mini,19,9,47,16,27,21
+GPT-4o,18,7,52,18,42,22
+Gemini 1.5 Pro,11,3,35,11,30,14
+Virtuoso (Distilled Deepseek V3),2,2,21,6,10,6
+Deepseek-Coder-32B,1,0,2,0,2,0
+QwQ-32B-Preview,1,0,1,0,1,0
+Qwen-2.5-Coder-32B,0,0,0,0,0,0
+Adapted SWE-agent (Claude-3.7),41,32,,,,

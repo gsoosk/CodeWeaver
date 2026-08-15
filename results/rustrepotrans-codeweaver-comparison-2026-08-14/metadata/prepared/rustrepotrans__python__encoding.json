@@ -1,0 +1,34 @@
+{
+  "artifact_commit": "7026a8a9c8d4a524cbb554ff9b8100df4020114c",
+  "campaign": "rustrepotrans",
+  "dependency_file_sha256": "8ca53b8f31ef70a2f85048dc29a981b8dd42fcdd523f7c06b0331686fb26e846",
+  "golden_target_excluded": true,
+  "golden_target_sha256": "563a4ae255eec49cbde46bf25d622739736c17e5bc1846ddabaf3aa2e5755851",
+  "negative_control_failed_tests": 13,
+  "oracle_expected_tests": 64,
+  "prepared_at": "2026-08-14T19:08:24.569501Z",
+  "schema_version": 1,
+  "source_function_sha256": "fd46c4f37cdad12edc111581b2b0bf3f89ff4e87c744745d373c613effeadd0f",
+  "subject": {
+    "build_command": [
+      "cargo",
+      "check"
+    ],
+    "expected_tests": 64,
+    "id": "rustrepotrans__python__encoding",
+    "name": "charset-normalizer:CharsetMatch::encoding",
+    "negative_control_failed_tests": 13,
+    "pair_directory": "rust__python",
+    "project": "charset-normalizer",
+    "source_language": "Python",
+    "target_license": "MIT",
+    "target_rel_path": "src/entity.rs",
+    "task_file": "projects__charset-normalizer__rust__src__entity__.rs__function__11.txt",
+    "test_command": [
+      "cargo",
+      "test"
+    ]
+  },
+  "target_signature": "pub fn encoding(&self) -> &str",
+  "task_file_sha256": "b3b0dfa89d0b80b0b70db1a9cbc2bd27cbf44e83ba9b394289b6b3d82f26fe0e"
+}

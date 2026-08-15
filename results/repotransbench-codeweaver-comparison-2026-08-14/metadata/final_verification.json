@@ -1,0 +1,198 @@
+{
+  "archive_inventory": {
+    "infrastructure_failures": {
+      "file_count": 14,
+      "parts": [
+        {
+          "bytes": 3833,
+          "path": "infrastructure-failure-archives/python-module-pre-model.tar.gz",
+          "sha256": "b6d9367a9234655c3613bbf96a7596d14b2d12da673b0e2de926c7c9293e6cf2"
+        }
+      ],
+      "source": "/opt/codeweaver-related-papers/campaign/infrastructure-failures/python-module-pre-model"
+    },
+    "raw_runs": {
+      "file_count": 625,
+      "parts": [
+        {
+          "bytes": 45000000,
+          "path": "raw-run-archives/full.tar.gz.part-000",
+          "sha256": "40cdcb2474cf67bddddfe23c6fa1c84cd69ce121070dd89aa305c54188b5a6da"
+        },
+        {
+          "bytes": 27873235,
+          "path": "raw-run-archives/full.tar.gz.part-001",
+          "sha256": "bfd593e98296e2509d62a4b32b8dde5491c83a3dbf45ba3a068b505d91bac68a"
+        }
+      ],
+      "source": "/opt/codeweaver-related-papers/campaign/repotransbench/runs",
+      "withheld_scaffold_files": 11
+    }
+  },
+  "archive_valid": true,
+  "artifact": "repotransbench-codeweaver-comparison-2026-08-14",
+  "comparison_pdf_sha256": "dd4ed3aeee1ff041a7809b6a3cfc309016dd5229b2b5b3c127b785604bdfc035",
+  "complete": true,
+  "evaluation_statuses": [
+    "measured"
+  ],
+  "execution_git_shas": [
+    "eafdd3c0c28bdb733a7c68f161a5241930eb2a87"
+  ],
+  "execution_revision_consistent": true,
+  "expected_raw_rows": 9,
+  "generated_at": "2026-08-15T03:44:08.450522Z",
+  "missing_files": [],
+  "new_measurements_valid": true,
+  "observed_raw_rows": 9,
+  "pdfs": {
+    "report/comparison.pdf": true,
+    "report/figure.pdf": true
+  },
+  "provenance_valid": true,
+  "raw_keys_valid": true,
+  "run_statuses": [
+    "completed",
+    "failed"
+  ],
+  "run_statuses_valid": true,
+  "schema_version": 1,
+  "state_statuses_valid": true,
+  "states": [
+    {
+      "app_id": "full-repotransbench__parser-rep0",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T22:35:53.845935Z",
+      "error": "",
+      "repetition": 0,
+      "returncode": 0,
+      "started_at": "2026-08-14T20:50:31.342991Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__parser/rep0/recodeagent_run_state.json",
+      "state_sha256": "b74e01903c8f6c5950f3d3695d5ca3b4921e8243a357d171da41b3360a1b2397",
+      "status": "completed",
+      "subject_id": "repotransbench__parser"
+    },
+    {
+      "app_id": "full-repotransbench__parser-rep1",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T23:06:53.514330Z",
+      "error": "rser-rep1 mock=False db=/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__parser/rep1/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=12\n    M0  iter=1  passed=False\n    M0  iter=2  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=False\n    M3  iter=2  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=True\n    M7  iter=1  passed=True\n    M8  iter=1  passed=True\n    M9  iter=1  passed=True\n    M10  iter=1  passed=True\n    M11  iter=1  passed=True\n    M12  iter=1  passed=True",
+      "repetition": 1,
+      "returncode": 1,
+      "started_at": "2026-08-14T20:50:31.343395Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__parser/rep1/recodeagent_run_state.json",
+      "state_sha256": "66b6a01b59241f0b9b68daf13d2413f1d947cac9eb1ec560c1759e7937d59e46",
+      "status": "failed",
+      "subject_id": "repotransbench__parser"
+    },
+    {
+      "app_id": "full-repotransbench__parser-rep2",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-15T00:55:49.573459Z",
+      "error": "rser-rep2 mock=False db=/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__parser/rep2/pipeline/burr.db\n[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 => resumed, not restarted)\n[codeweaver] finished at terminal: done, history, milestone_idx, report, parity_complete, parity_report -> {}: done=False milestone_idx=13\n    M0  iter=1  passed=False\n    M0  iter=2  passed=True\n    M1  iter=1  passed=True\n    M2  iter=1  passed=True\n    M3  iter=1  passed=True\n    M4  iter=1  passed=True\n    M5  iter=1  passed=True\n    M6  iter=1  passed=True\n    M7  iter=1  passed=True\n    M8  iter=1  passed=True\n    M9  iter=1  passed=True\n    M10  iter=1  passed=True\n    M11  iter=1  passed=True\n    M12  iter=1  passed=True\n    M13  iter=1  passed=True",
+      "repetition": 2,
+      "returncode": 1,
+      "started_at": "2026-08-14T22:35:53.859107Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__parser/rep2/recodeagent_run_state.json",
+      "state_sha256": "067c3a3fdc51332987fbcbaa5d1f2d2f35bb5fcd0c3c8f2585b897664b896a86",
+      "status": "failed",
+      "subject_id": "repotransbench__parser"
+    },
+    {
+      "app_id": "full-repotransbench__avalanche-rep0",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-15T01:47:10.998074Z",
+      "error": "",
+      "repetition": 0,
+      "returncode": 0,
+      "started_at": "2026-08-14T23:06:53.517657Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__avalanche/rep0/recodeagent_run_state.json",
+      "state_sha256": "1bc0ec879f75e4467a8091810609a59a8379c2362733444beaaacf50be3f5226",
+      "status": "completed",
+      "subject_id": "repotransbench__avalanche"
+    },
+    {
+      "app_id": "full-repotransbench__avalanche-rep1",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.81-0.",
+      "ended_at": "2026-08-15T03:00:12.350383Z",
+      "error": "",
+      "repetition": 1,
+      "returncode": 0,
+      "started_at": "2026-08-15T00:55:49.576779Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__avalanche/rep1/recodeagent_run_state.json",
+      "state_sha256": "4e3464b8112875ffd5ed09d05e3cbad782517d0a8ea0b860455781dcb38e254f",
+      "status": "completed",
+      "subject_id": "repotransbench__avalanche"
+    },
+    {
+      "app_id": "full-repotransbench__avalanche-rep2",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.81-0.",
+      "ended_at": "2026-08-15T02:41:52.814177Z",
+      "error": "",
+      "repetition": 2,
+      "returncode": 0,
+      "started_at": "2026-08-15T01:47:11.001242Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__avalanche/rep2/recodeagent_run_state.json",
+      "state_sha256": "bdfa975437da7781a2f85c52f4594574cceca17f1922689943562a897cccc14f",
+      "status": "completed",
+      "subject_id": "repotransbench__avalanche"
+    },
+    {
+      "app_id": "full-repotransbench__distinct-n-rep0",
+      "attempt": 2,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T20:45:21.185478Z",
+      "error": "",
+      "repetition": 0,
+      "returncode": 0,
+      "started_at": "2026-08-14T19:46:52.284150Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__distinct-n/rep0/recodeagent_run_state.json",
+      "state_sha256": "548478326f1ed72e01730f03739cb96011874fb24b246eaab2e9646b8e3c8ec8",
+      "status": "completed",
+      "subject_id": "repotransbench__distinct-n"
+    },
+    {
+      "app_id": "full-repotransbench__distinct-n-rep1",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.81-0.",
+      "ended_at": "2026-08-15T03:15:10.322050Z",
+      "error": "",
+      "repetition": 1,
+      "returncode": 0,
+      "started_at": "2026-08-15T02:41:52.817577Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__distinct-n/rep1/recodeagent_run_state.json",
+      "state_sha256": "3ee2160f4bf8a3be0f81c11e04f602b8688add1d12bfade021957075b3a2dc9e",
+      "status": "completed",
+      "subject_id": "repotransbench__distinct-n"
+    },
+    {
+      "app_id": "full-repotransbench__distinct-n-rep2",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.81-0.",
+      "ended_at": "2026-08-15T03:31:15.033145Z",
+      "error": "",
+      "repetition": 2,
+      "returncode": 0,
+      "started_at": "2026-08-15T03:00:12.356072Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/repotransbench/runs/full/repotransbench__distinct-n/rep2/recodeagent_run_state.json",
+      "state_sha256": "ed672c71c99483222fe872e5ec1afa951e2968c22bf352c28a74f0e1f86429df",
+      "status": "completed",
+      "subject_id": "repotransbench__distinct-n"
+    }
+  ]
+}

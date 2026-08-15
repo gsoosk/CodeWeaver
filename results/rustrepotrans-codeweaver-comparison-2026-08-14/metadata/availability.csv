@@ -1,0 +1,5 @@
+surface,status,reason,measurement_track
+three language-stratified tasks,measured,licensed target projects and non-vacuous fixed tests,CodeWeaver three-repetition
+full 375-task benchmark,not_measured,bounded stratified reproduction,published reference only
+benchmark task redistribution,withheld,no visible repository-level license,hash/provenance only
+pre-model launcher failures,excluded_with_evidence,interpreter/wrapper failures occurred before model access,infrastructure-failure archive

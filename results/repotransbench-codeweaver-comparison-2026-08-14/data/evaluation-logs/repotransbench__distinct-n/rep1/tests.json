@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "mvn",
+    "-q",
+    "-B",
+    "test"
+  ],
+  "cwd": "/tmp/repotransbench-eval-d4bnfffs/project",
+  "ended_at": "2026-08-15T03:33:08.430687Z",
+  "returncode": 0,
+  "started_at": "2026-08-15T03:33:04.924360Z",
+  "timed_out": false
+}

@@ -1,0 +1,41 @@
+{
+  "artifact_commit": "7026a8a9c8d4a524cbb554ff9b8100df4020114c",
+  "campaign": "rustrepotrans",
+  "dependency_file_sha256": "e412ef79a7d95b9ab997052ae7c44130872cee2e6e95216ecd9b43e86b901a23",
+  "golden_target_excluded": true,
+  "golden_target_sha256": "c8a1224d6b4fe257ce6e42ce8ad2dafa9f709f5d57065be54a8a39bbfd491387",
+  "negative_control_failed_tests": 50,
+  "oracle_expected_tests": 284,
+  "prepared_at": "2026-08-14T19:08:23.737677Z",
+  "schema_version": 1,
+  "source_function_sha256": "ad5adb9c7a5aa4c09627f1a88e0e2e749b3b88008ed1d6e742ae41948f74770d",
+  "subject": {
+    "build_command": [
+      "cargo",
+      "+nightly-2025-09-15",
+      "check",
+      "--all",
+      "--all-features"
+    ],
+    "expected_tests": 284,
+    "id": "rustrepotrans__c__clean",
+    "name": "incubator-milagro-crypto:RAND::clean",
+    "negative_control_failed_tests": 50,
+    "pair_directory": "rust__c",
+    "project": "incubator-milagro-crypto",
+    "source_language": "C",
+    "target_license": "Apache-2.0",
+    "target_rel_path": "src/rand.rs",
+    "task_file": "projects__incubator-milagro-crypto__rust__src__rand__.rs__function__2.txt",
+    "test_command": [
+      "cargo",
+      "+nightly-2025-09-15",
+      "test",
+      "--all",
+      "--all-features",
+      "--release"
+    ]
+  },
+  "target_signature": "pub fn clean(&mut self)",
+  "task_file_sha256": "2d8dcf6c3a4324cc14fe938b3ff14d2fa901d2a1a1ccf0ef80e426f9fe660954"
+}

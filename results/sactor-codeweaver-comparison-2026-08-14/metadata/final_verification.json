@@ -1,0 +1,31 @@
+{
+  "archive_inventory": null,
+  "archive_valid": true,
+  "artifact": "sactor-codeweaver-comparison-2026-08-14",
+  "comparison_pdf_sha256": "69e2921d4f469e0e9b52b99d002dba163c5cdb451fb433c900f96fbb34b96709",
+  "complete": true,
+  "evaluation_statuses": [
+    ""
+  ],
+  "execution_git_shas": [],
+  "execution_revision_consistent": true,
+  "expected_raw_rows": 150,
+  "generated_at": "2026-08-15T03:44:03.911028Z",
+  "missing_files": [],
+  "new_measurements_valid": true,
+  "observed_raw_rows": 150,
+  "pdfs": {
+    "report/comparison.pdf": true,
+    "report/figure.pdf": true
+  },
+  "provenance_valid": true,
+  "raw_keys_valid": true,
+  "run_statuses": [
+    "completed",
+    "failed"
+  ],
+  "run_statuses_valid": true,
+  "schema_version": 1,
+  "state_statuses_valid": true,
+  "states": []
+}

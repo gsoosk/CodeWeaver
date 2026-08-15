@@ -1,0 +1,4 @@
+surface,status,reason,measurement_track
+100-project build and fixed tests,measured,exact subjects and fixed project contracts,CodeWeaver three-repetition
+paper single-shot/compiler/test-repair controls,reference_only,different model and protocol,published Table 4
+manual error taxonomy,not_recreated,would require new blinded human coding,unavailable

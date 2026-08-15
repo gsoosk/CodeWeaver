@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "mvn",
+    "-q",
+    "-B",
+    "-DskipTests",
+    "package"
+  ],
+  "cwd": "/tmp/repotransbench-eval-fwk7qky9/project",
+  "ended_at": "2026-08-15T03:32:35.038061Z",
+  "returncode": 0,
+  "started_at": "2026-08-15T03:32:30.901139Z",
+  "timed_out": false
+}

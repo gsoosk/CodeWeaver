@@ -1,0 +1,5 @@
+model,pass_at_1,dsr_at_1
+DeepSeek-R1,51.5,62.1
+DeepSeek-V3,50.1,58.7
+Claude-3.5,43.5,56.5
+Qwen-2.5-coder-32B,34.4,38.9

@@ -1,0 +1,23 @@
+{
+  "artifact_files": {
+    "comparison_pdf": "report/comparison.pdf",
+    "figure_pdf": "report/figure.pdf",
+    "figure_svg": "report/figure.svg",
+    "normalized_data": "data/"
+  },
+  "generated_at": "2026-08-15T03:42:31.130565Z",
+  "paper": {
+    "paper_id": "arXiv:2412.17744",
+    "paper_url": "https://arxiv.org/abs/2412.17744",
+    "title": "RepoTransBench"
+  },
+  "protocol": {
+    "agent_timeout_seconds": 5000,
+    "effort_default": "max",
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "model": "gpt-5.6-sol",
+    "repetitions": 3
+  },
+  "schema_version": 1
+}

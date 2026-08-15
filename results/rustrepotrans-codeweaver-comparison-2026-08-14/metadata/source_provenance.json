@@ -1,0 +1,24 @@
+{
+  "artifact_commit": "7026a8a9c8d4a524cbb554ff9b8100df4020114c",
+  "artifact_repository": "https://github.com/SYSUSELab/RustRepoTrans",
+  "codeweaver_source": {
+    "git_commit": "b1411056e47d48750d15ad59d1356beebdf2a66e",
+    "repository": "https://github.com/gsoosk/CodeWeaver"
+  },
+  "generated_at": "2026-08-15T03:42:47.305204Z",
+  "golden_target_policy": "hash then exclude before model access",
+  "paper": {
+    "paper_id": "arXiv:2411.13990",
+    "paper_url": "https://arxiv.org/abs/2411.13990",
+    "title": "RustRepoTrans"
+  },
+  "protocol": {
+    "agent_timeout_seconds": 5000,
+    "effort_default": "max",
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "model": "gpt-5.6-sol",
+    "repetitions": 3
+  },
+  "toolchain_note": "incubator-milagro-crypto was evaluated with nightly-2025-09-15 because its artifact omitted Cargo.lock and current resolution exceeds declared rustc 1.77.1"
+}

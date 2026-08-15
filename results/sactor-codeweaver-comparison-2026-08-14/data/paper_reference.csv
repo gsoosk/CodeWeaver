@@ -1,0 +1,8 @@
+metric,value
+unidiomatic_function_success,81.57
+unidiomatic_sample_success,64.0
+idiomatic_function_success,42.93
+idiomatic_sample_success_conditional,25.0
+idiomatic_unsafe_free,100.0
+samples,50
+idiomatic_samples,32

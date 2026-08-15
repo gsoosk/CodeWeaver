@@ -1,0 +1,6 @@
+surface,status,reason,measurement_track
+three historical Python-to-Java subjects,measured,licensed sources and meaningful released fixed tests,CodeWeaver three-repetition
+historical 100-project benchmark,subset_only,advertised source archive unavailable,published v1 reference
+"current 1,897-project benchmark",unavailable,advertised release asset returned HTTP 404,published current-paper reference
+released scaffold/test redistribution,withheld,no visible RepoTransBench repository-level license,path/hash manifest only
+pre-model launcher failures,excluded_with_evidence,interpreter/wrapper failures occurred before model access,infrastructure-failure archive

@@ -1,0 +1,84 @@
+
+running 52 tests
+test tests::cd::test_characters_popularity_compare ... ok
+test tests::cd::test_filter_alt_coherence_matches ... ok
+test tests::cd::test_alpha_unicode_split ... ok
+test tests::cd::test_merge_coherence_ratios ... ok
+test tests::detection_base::test_empty ... ok
+test tests::cd::test_encoding_unicode_range ... ok
+test tests::cd::test_alphabet_languages ... ok
+test tests::detection_base::test_empty_but_with_bom_or_sig ... ok
+test tests::cd::test_encoding_languages ... ok
+test tests::detection_edge_case::test_undefined_unicode_ranges ... ok
+test tests::cd::test_unicode_range_languages ... ok
+test tests::entity::test_charset_matches ... ok
+test tests::detection_base::test_content_with_bom_or_sig ... ok
+test tests::md::test_is_cjk ... ok
+test tests::md::test_is_emoticon ... ok
+test tests::cd::test_coherence_ratio ... ok
+test tests::detection_base::test_unicode_ranges_property ... ok
+test tests::md::test_is_case_variable ... ok
+test tests::md::test_is_latin ... ok
+test tests::md::test_is_hiragana ... ok
+test tests::md::test_is_katakana ... ok
+test tests::md::test_is_hangul ... ok
+test tests::md::test_is_separator ... ok
+test tests::md::test_is_punctuation ... ok
+test tests::md::test_is_unprintable ... ok
+test tests::md::test_is_symbol ... ok
+test tests::md::test_is_thai ... ok
+test tests::utils::test_decode_test ... ok
+test tests::md::test_is_accentuated ... ok
+test tests::utils::test_cp_similarity ... ok
+test tests::utils::test_iana_name ... ok
+test tests::utils::test_identify_sig_or_bom ... ok
+test tests::utils::test_is_ascii ... ok
+test tests::utils::test_is_cp_similar ... ok
+test tests::utils::test_is_multi_byte_encoding ... ok
+test tests::utils::test_is_suspiciously_successive_range ... ok
+test tests::utils::test_any_specified_encoding ... ok
+test tests::utils::test_is_unicode_range_secondary ... ok
+test tests::utils::test_range_scan ... ok
+test tests::utils::test_remove_accent ... ok
+test tests::utils::test_decode_wrong_chunks ... ok
+test tests::utils::test_unicode_range ... ok
+test tests::detection_base::test_obviously_ascii_content ... ok
+test tests::detection_base::test_obviously_utf8_content ... ok
+test tests::md::test_mess_ratio ... ok
+test tests::detection_base::test_mb_cutting_chk ... ok
+test tests::detection_large_payload::test_large_payload_ascii_sig_basic_entry ... ok
+test tests::detection_large_payload::test_large_payload_utf8_sig_basic_entry ... ok
+test tests::detection_full::test_elementary_detection ... ok
+test tests::detection_large_payload::test_misleading_large_sequence ... ok
+test tests::detection_full::test_largesets ... ok
+test tests::md::test_datasets_mess_ratio ... ok
+
+test result: ok. 52 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 19.88s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 10 tests
+test test_cli_force_replace_without_replace ... ok
+test test_cli_replace_without_normalize ... ok
+test test_cli_non_existent_file ... ok
+test test_cli_version_output_success ... ok
+test test_cli_single_file ... ok
+test test_cli_single_file_normalize ... ok
+test test_cli_single_verbose_file ... ok
+test test_cli_multiple_files ... ok
+test test_cli_multiple_files_with_minimal_output ... ok
+test test_cli_multiple_files_with_alternative ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+
+running 2 tests
+test src/lib.rs - (line 29) ... ok
+test src/lib.rs - (line 43) ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.23s
+

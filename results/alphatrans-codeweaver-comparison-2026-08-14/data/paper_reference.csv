@@ -1,0 +1,5 @@
+project,paper_subject,amf,syntax_percent,tpr_percent
+commons-cli,cli,273,100.0,10.08
+commons-csv,csv,235,98.72,0.0
+commons-fileupload,fileupload,192,100.0,63.44
+commons-validator,validator,646,99.23,11.7

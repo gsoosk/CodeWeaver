@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "cargo",
+    "+nightly-2025-09-15",
+    "check",
+    "--all",
+    "--all-features"
+  ],
+  "cwd": "/tmp/rustrepotrans-eval-0v3leaxm/project",
+  "ended_at": "2026-08-14T23:25:09.627730Z",
+  "returncode": 0,
+  "started_at": "2026-08-14T23:24:59.637281Z",
+  "timed_out": false
+}

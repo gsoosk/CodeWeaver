@@ -1,0 +1,5 @@
+project,paper_subject,paper_amf,paper_syntax_percent,paper_fragment_tpr_percent,codeweaver_build_cells,codeweaver_pass_all_cells,codeweaver_tests_passed,codeweaver_tests_expected
+commons-cli,cli,273,100.0,10.08,3,0,1103,1143
+commons-csv,csv,235,98.72,0.0,3,0,0,894
+commons-fileupload,fileupload,192,100.0,63.44,3,0,27,117
+commons-validator,validator,646,99.23,11.7,3,0,0,1389

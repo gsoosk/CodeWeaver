@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "cargo",
+    "check"
+  ],
+  "cwd": "/tmp/rustrepotrans-eval-mw_vl4e8/project",
+  "ended_at": "2026-08-14T23:29:21.063376Z",
+  "returncode": 0,
+  "started_at": "2026-08-14T23:29:07.428239Z",
+  "timed_out": false
+}

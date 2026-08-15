@@ -1,0 +1,1 @@
+The exact CodeWeaver, runner, agent-profile, and related-paper harness sources are under `source/`. See `source/experiments/related_papers/README.md`, then run `python -m experiments.related_papers --help` from that snapshot. External benchmark repositories and licensed contracts are acquired separately and verified by commit/hash.

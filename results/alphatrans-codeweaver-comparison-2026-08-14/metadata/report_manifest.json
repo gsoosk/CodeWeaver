@@ -1,0 +1,23 @@
+{
+  "artifact_files": {
+    "comparison_pdf": "report/comparison.pdf",
+    "figure_pdf": "report/figure.pdf",
+    "figure_svg": "report/figure.svg",
+    "normalized_data": "data/"
+  },
+  "generated_at": "2026-08-15T03:41:58.021452Z",
+  "paper": {
+    "paper_id": "arXiv:2410.24117 / DOI 10.1145/3729379",
+    "paper_url": "https://arxiv.org/abs/2410.24117",
+    "title": "AlphaTrans"
+  },
+  "protocol": {
+    "agent_timeout_seconds": 5000,
+    "effort_default": "max",
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "model": "gpt-5.6-sol",
+    "repetitions": 3
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,10 @@
+{
+  "build_passed": 9,
+  "campaign": "repotransbench",
+  "complete": true,
+  "expected_rows": 9,
+  "generated_at": "2026-08-15T03:33:15.723927Z",
+  "measured": 9,
+  "pass_all": 9,
+  "rows": 9
+}

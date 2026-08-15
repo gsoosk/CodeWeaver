@@ -1,0 +1,41 @@
+{
+  "artifact_commit": "7026a8a9c8d4a524cbb554ff9b8100df4020114c",
+  "campaign": "rustrepotrans",
+  "dependency_file_sha256": "a05c64f5adf2c02cf53530d5001b4d785a274c2f5d43ac12057a3ace5dc0bf22",
+  "golden_target_excluded": true,
+  "golden_target_sha256": "17c12f2f8fbd6edf83a9507533aa53fb3b94a4ecfe1e1fc070488054fe4dabd6",
+  "negative_control_failed_tests": 73,
+  "oracle_expected_tests": 284,
+  "prepared_at": "2026-08-14T19:08:23.773574Z",
+  "schema_version": 1,
+  "source_function_sha256": "1989b09459eba6f4b6f1ccf53be64f57f7e064d85a6905f969341146c47f8e15",
+  "subject": {
+    "build_command": [
+      "cargo",
+      "+nightly-2025-09-15",
+      "check",
+      "--all",
+      "--all-features"
+    ],
+    "expected_tests": 284,
+    "id": "rustrepotrans__java__set",
+    "name": "incubator-milagro-crypto:big::set",
+    "negative_control_failed_tests": 73,
+    "pair_directory": "rust__java",
+    "project": "incubator-milagro-crypto",
+    "source_language": "Java",
+    "target_license": "Apache-2.0",
+    "target_rel_path": "src/big.rs",
+    "task_file": "projects__incubator-milagro-crypto__rust__src__big__.rs__function__11.txt",
+    "test_command": [
+      "cargo",
+      "+nightly-2025-09-15",
+      "test",
+      "--all",
+      "--all-features",
+      "--release"
+    ]
+  },
+  "target_signature": "pub fn set(&mut self, i: usize, x: Chunk)",
+  "task_file_sha256": "24a7acd8f007b7e1045cbc25a7091bd3550bb6c46f2c978abfb38fd12ad5f671"
+}

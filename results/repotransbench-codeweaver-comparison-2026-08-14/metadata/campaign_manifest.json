@@ -1,0 +1,31 @@
+{
+  "campaign": "repotransbench",
+  "generated_at": "2026-08-14T19:08:23.619098Z",
+  "projects": [
+    {
+      "id": "repotransbench__parser",
+      "prepared_dir": "/opt/codeweaver-related-papers/campaign/repotransbench/workspaces/repotransbench__parser",
+      "project": "gnebehay/parser",
+      "source_language": "Python",
+      "target_language": "Java",
+      "tool": "repotransbench"
+    },
+    {
+      "id": "repotransbench__avalanche",
+      "prepared_dir": "/opt/codeweaver-related-papers/campaign/repotransbench/workspaces/repotransbench__avalanche",
+      "project": "fastly/Avalanche",
+      "source_language": "Python",
+      "target_language": "Java",
+      "tool": "repotransbench"
+    },
+    {
+      "id": "repotransbench__distinct-n",
+      "prepared_dir": "/opt/codeweaver-related-papers/campaign/repotransbench/workspaces/repotransbench__distinct-n",
+      "project": "neural-dialogue-metrics/Distinct-N",
+      "source_language": "Python",
+      "target_language": "Java",
+      "tool": "repotransbench"
+    }
+  ],
+  "schema_version": 1
+}

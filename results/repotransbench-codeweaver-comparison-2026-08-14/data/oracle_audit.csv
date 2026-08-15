@@ -1,0 +1,8 @@
+subject,released_tests,golden_status,oracle_status,selected
+gnebehay/parser,7,pass,meaningful,True
+fastly/Avalanche,27,pass,meaningful,True
+neural-dialogue-metrics/Distinct-N,3,pass,meaningful,True
+susam/mintotp,8,"fail: 1 failure, 7 errors",invalid golden,False
+sbyrnes321/numericalunits,13,fail: 5 failures,environment/golden incompatible,False
+dwyl/english-words,5,fail: 5 missing-file errors,incomplete release,False
+Yelp/ephemeral-port-reserve,4,pass,vacuous: tests do not call translation,False

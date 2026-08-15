@@ -1,0 +1,30 @@
+{
+  "codeweaver_source": {
+    "git_commit": "b1411056e47d48750d15ad59d1356beebdf2a66e",
+    "repository": "https://github.com/gsoosk/CodeWeaver"
+  },
+  "generated_at": "2026-08-15T03:41:50.436982Z",
+  "manifest_projects": 100,
+  "paper": {
+    "paper_id": "arXiv:2504.15254",
+    "paper_url": "https://arxiv.org/abs/2504.15254",
+    "title": "CRUST-Bench"
+  },
+  "protocol": {
+    "agent_timeout_seconds": 5000,
+    "effort_default": "max",
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "model": "gpt-5.6-sol",
+    "repetitions": 3
+  },
+  "reused_campaign": "results/recodeagent-gpt-5.6-sol-final-2026-08-11",
+  "reused_campaign_evidence": {
+    "artifact": "results/recodeagent-gpt-5.6-sol-final-2026-08-11",
+    "final_verification_sha256": "dbff2f96f339828fcdf706708707d50f2f46f2d6c8f1b57ad475aba54aae07fa",
+    "normalized_raw_runs_sha256": "88b2e43df9a83731eeda675d2de518af2e78bd5e9496ffd1951954b6f60ba46f",
+    "status": "verified"
+  },
+  "upstream_commit": "4b4702544b800a3821feea128c5b9e413665dc83",
+  "upstream_repository": "https://github.com/anirudhkhatry/CRUST-bench"
+}

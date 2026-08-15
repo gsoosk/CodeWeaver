@@ -1,0 +1,192 @@
+{
+  "archive_inventory": {
+    "infrastructure_failures": {
+      "file_count": 14,
+      "parts": [
+        {
+          "bytes": 3833,
+          "path": "infrastructure-failure-archives/python-module-pre-model.tar.gz",
+          "sha256": "ed0146e4415dfb36472b0db86ebe35aae6bd21c275aa827b2c7c3216e2118736"
+        }
+      ],
+      "source": "/opt/codeweaver-related-papers/campaign/infrastructure-failures/python-module-pre-model"
+    },
+    "raw_runs": {
+      "file_count": 320,
+      "parts": [
+        {
+          "bytes": 19113358,
+          "path": "raw-run-archives/full.tar.gz",
+          "sha256": "0c44a33dea1264ae64a562f5fe914a3018dcf42a86ec3b89e468351224f48c05"
+        }
+      ],
+      "source": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs",
+      "withheld_scaffold_files": 726
+    }
+  },
+  "archive_valid": true,
+  "artifact": "rustrepotrans-codeweaver-comparison-2026-08-14",
+  "comparison_pdf_sha256": "8e717159403cf17060180f96fb7b9d47706cf038fcb6b243d15d56d56f2c2726",
+  "complete": true,
+  "evaluation_statuses": [
+    "measured"
+  ],
+  "execution_git_shas": [
+    "eafdd3c0c28bdb733a7c68f161a5241930eb2a87"
+  ],
+  "execution_revision_consistent": true,
+  "expected_raw_rows": 9,
+  "generated_at": "2026-08-15T03:44:20.495122Z",
+  "missing_files": [],
+  "new_measurements_valid": true,
+  "observed_raw_rows": 9,
+  "pdfs": {
+    "report/comparison.pdf": true,
+    "report/figure.pdf": true
+  },
+  "provenance_valid": true,
+  "raw_keys_valid": true,
+  "run_statuses": [
+    "completed"
+  ],
+  "run_statuses_valid": true,
+  "schema_version": 1,
+  "state_statuses_valid": true,
+  "states": [
+    {
+      "app_id": "full-rustrepotrans__c__clean-rep0",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T21:29:29.539634Z",
+      "error": "",
+      "repetition": 0,
+      "returncode": 0,
+      "started_at": "2026-08-14T20:50:31.342924Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__c__clean/rep0/recodeagent_run_state.json",
+      "state_sha256": "8852cc5b70f624511d59522f5146bebf0d2ca06a1d40526a78228ef6381e689c",
+      "status": "completed",
+      "subject_id": "rustrepotrans__c__clean"
+    },
+    {
+      "app_id": "full-rustrepotrans__c__clean-rep1",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T21:25:44.084385Z",
+      "error": "",
+      "repetition": 1,
+      "returncode": 0,
+      "started_at": "2026-08-14T20:50:31.343099Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__c__clean/rep1/recodeagent_run_state.json",
+      "state_sha256": "3eb58eab0bb1d55775cdca447c8ce17738d9b0c777591e004d228d3e78a58d4f",
+      "status": "completed",
+      "subject_id": "rustrepotrans__c__clean"
+    },
+    {
+      "app_id": "full-rustrepotrans__c__clean-rep2",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T21:56:40.928018Z",
+      "error": "",
+      "repetition": 2,
+      "returncode": 0,
+      "started_at": "2026-08-14T21:25:44.088020Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__c__clean/rep2/recodeagent_run_state.json",
+      "state_sha256": "5b6d7f0f355a6d1be8bbd649e35e3b3a19569bd59800ebe2b0568c94773ed3cb",
+      "status": "completed",
+      "subject_id": "rustrepotrans__c__clean"
+    },
+    {
+      "app_id": "full-rustrepotrans__java__set-rep0",
+      "attempt": 2,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T20:23:21.225857Z",
+      "error": "",
+      "repetition": 0,
+      "returncode": 0,
+      "started_at": "2026-08-14T19:46:52.285921Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__java__set/rep0/recodeagent_run_state.json",
+      "state_sha256": "b784457d04718504748b9a20d0b715fb4dc394ae17ace09b09056ee4e99d0aba",
+      "status": "completed",
+      "subject_id": "rustrepotrans__java__set"
+    },
+    {
+      "app_id": "full-rustrepotrans__java__set-rep1",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T22:06:18.039165Z",
+      "error": "",
+      "repetition": 1,
+      "returncode": 0,
+      "started_at": "2026-08-14T21:29:29.544590Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__java__set/rep1/recodeagent_run_state.json",
+      "state_sha256": "6dd7ce4840ceac2209a2bb903c3219acafd633c27d05b5bd15f6cdbcc70f2097",
+      "status": "completed",
+      "subject_id": "rustrepotrans__java__set"
+    },
+    {
+      "app_id": "full-rustrepotrans__java__set-rep2",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T22:32:51.970446Z",
+      "error": "",
+      "repetition": 2,
+      "returncode": 0,
+      "started_at": "2026-08-14T21:56:40.938851Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__java__set/rep2/recodeagent_run_state.json",
+      "state_sha256": "6f79cf49db07881f96b677f39472be9713cbebb3662d122b6d8c6666668900e0",
+      "status": "completed",
+      "subject_id": "rustrepotrans__java__set"
+    },
+    {
+      "app_id": "full-rustrepotrans__python__encoding-rep0",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T22:30:00.708882Z",
+      "error": "",
+      "repetition": 0,
+      "returncode": 0,
+      "started_at": "2026-08-14T22:06:18.043033Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__python__encoding/rep0/recodeagent_run_state.json",
+      "state_sha256": "7835c3b158297433d0bafa670d9b4632f9a419947d71274a27635392ac43b381",
+      "status": "completed",
+      "subject_id": "rustrepotrans__python__encoding"
+    },
+    {
+      "app_id": "full-rustrepotrans__python__encoding-rep1",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T22:56:23.710157Z",
+      "error": "",
+      "repetition": 1,
+      "returncode": 0,
+      "started_at": "2026-08-14T22:30:00.717476Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__python__encoding/rep1/recodeagent_run_state.json",
+      "state_sha256": "46c38b287bc77bf0b1cab1f63e478beaa6ba84f28724fae0301a9066e7028f16",
+      "status": "completed",
+      "subject_id": "rustrepotrans__python__encoding"
+    },
+    {
+      "app_id": "full-rustrepotrans__python__encoding-rep2",
+      "attempt": 1,
+      "codeweaver_git_sha": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.80.",
+      "ended_at": "2026-08-14T22:57:20.012971Z",
+      "error": "",
+      "repetition": 2,
+      "returncode": 0,
+      "started_at": "2026-08-14T22:32:51.974072Z",
+      "state_path": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__python__encoding/rep2/recodeagent_run_state.json",
+      "state_sha256": "39286fb34ce0cce8e97d071b5aca5b65daa04d36349e6de3ba9e9889641b1188",
+      "status": "completed",
+      "subject_id": "rustrepotrans__python__encoding"
+    }
+  ]
+}

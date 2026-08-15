@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[margin=0.7in]{geometry}
+
+\usepackage{booktabs}
+
+\begin{document}
+
+\section*{CodeWeaver comparison with AlphaTrans}
+
+Four of AlphaTrans's ten exact Java projects were already measured in the published CodeWeaver matrix. All 12 translations compiled; none passed every available fixed runtime case. Across repetitions, 1130/3543 fixed cases passed. AlphaTrans's fragment-level TPR is preserved separately because it is not the same unit or denominator as CodeWeaver's project-test execution.
+
+\subsection*{Exact-subject comparison}
+
+\begin{tabular}{lrrrr}
+\toprule
+Project & AlphaTrans syntax & AlphaTrans TPR & CW builds & CW fixed tests \\
+\midrule
+commons-cli & 100.00\% & 10.08\% & 3/3 & 1103/1143 (96.50\%) \\
+commons-csv & 98.72\% & 0.00\% & 3/3 & 0/894 (0.00\%) \\
+commons-fileupload & 100.00\% & 63.44\% & 3/3 & 27/117 (23.08\%) \\
+commons-validator & 99.23\% & 11.70\% & 3/3 & 0/1389 (0.00\%) \\
+\bottomrule
+\end{tabular}
+
+\subsection*{CodeWeaver repetitions}
+
+\begin{tabular}{lrrrr}
+\toprule
+Rep & Build & Pass all & Fixed tests & Test rate \\
+\midrule
+1 & 4/4 & 0/4 & 379/1181 & 32.09\% \\
+2 & 4/4 & 0/4 & 373/1181 & 31.58\% \\
+3 & 4/4 & 0/4 & 378/1181 & 32.01\% \\
+\bottomrule
+\end{tabular}
+
+\end{document}

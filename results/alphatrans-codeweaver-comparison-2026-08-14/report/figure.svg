@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620">
+<rect width="100%" height="100%" fill="white"/>
+<text x="90" y="35" font-family="sans-serif" font-size="22" font-weight="bold">CodeWeaver comparison with AlphaTrans</text>
+<line x1="90" y1="540.0" x2="940" y2="540.0" stroke="#d9d9d9"/>
+<text x="78" y="544.0" text-anchor="end" font-family="sans-serif" font-size="12">0</text>
+<line x1="90" y1="450.0" x2="940" y2="450.0" stroke="#d9d9d9"/>
+<text x="78" y="454.0" text-anchor="end" font-family="sans-serif" font-size="12">20</text>
+<line x1="90" y1="360.0" x2="940" y2="360.0" stroke="#d9d9d9"/>
+<text x="78" y="364.0" text-anchor="end" font-family="sans-serif" font-size="12">40</text>
+<line x1="90" y1="270.0" x2="940" y2="270.0" stroke="#d9d9d9"/>
+<text x="78" y="274.0" text-anchor="end" font-family="sans-serif" font-size="12">60</text>
+<line x1="90" y1="180.0" x2="940" y2="180.0" stroke="#d9d9d9"/>
+<text x="78" y="184.0" text-anchor="end" font-family="sans-serif" font-size="12">80</text>
+<line x1="90" y1="90.0" x2="940" y2="90.0" stroke="#d9d9d9"/>
+<text x="78" y="94.0" text-anchor="end" font-family="sans-serif" font-size="12">100</text>
+<rect x="119.75" y="494.64" width="68.85000000000001" height="45.36" fill="#4c78a8"/>
+<text x="154.175" y="489.64" text-anchor="middle" font-family="sans-serif" font-size="10">10.1</text>
+<rect x="332.25" y="540.0" width="68.85000000000001" height="0.0" fill="#4c78a8"/>
+<text x="366.675" y="535.0" text-anchor="middle" font-family="sans-serif" font-size="10">0.0</text>
+<rect x="544.75" y="254.51999999999998" width="68.85000000000001" height="285.48" fill="#4c78a8"/>
+<text x="579.175" y="249.51999999999998" text-anchor="middle" font-family="sans-serif" font-size="10">63.4</text>
+<rect x="757.25" y="487.35" width="68.85000000000001" height="52.65" fill="#4c78a8"/>
+<text x="791.675" y="482.35" text-anchor="middle" font-family="sans-serif" font-size="10">11.7</text>
+<rect x="196.25" y="105.74803149606299" width="68.85000000000001" height="434.251968503937" fill="#f58518"/>
+<text x="230.675" y="100.74803149606299" text-anchor="middle" font-family="sans-serif" font-size="10">96.5</text>
+<rect x="408.75" y="540.0" width="68.85000000000001" height="0.0" fill="#f58518"/>
+<text x="443.175" y="535.0" text-anchor="middle" font-family="sans-serif" font-size="10">0.0</text>
+<rect x="621.25" y="436.15384615384613" width="68.85000000000001" height="103.84615384615385" fill="#f58518"/>
+<text x="655.675" y="431.15384615384613" text-anchor="middle" font-family="sans-serif" font-size="10">23.1</text>
+<rect x="833.75" y="540.0" width="68.85000000000001" height="0.0" fill="#f58518"/>
+<text x="868.175" y="535.0" text-anchor="middle" font-family="sans-serif" font-size="10">0.0</text>
+<text x="196.25" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">commons-cli</text>
+<text x="408.75" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">commons-csv</text>
+<text x="621.25" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">commons-fileupload</text>
+<text x="833.75" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">commons-validator</text>
+<rect x="90" y="52" width="13" height="10" fill="#4c78a8"/>
+<text x="108" y="62" font-family="sans-serif" font-size="12">AlphaTrans fragment TPR</text>
+<rect x="304" y="52" width="13" height="10" fill="#f58518"/>
+<text x="322" y="62" font-family="sans-serif" font-size="12">CodeWeaver fixed tests</text>
+</svg>

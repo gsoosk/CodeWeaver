@@ -1,0 +1,31 @@
+{
+  "campaign": "rustrepotrans",
+  "generated_at": "2026-08-14T19:08:24.569910Z",
+  "projects": [
+    {
+      "id": "rustrepotrans__c__clean",
+      "prepared_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/workspaces/rustrepotrans__c__clean",
+      "project": "incubator-milagro-crypto:RAND::clean",
+      "source_language": "C",
+      "target_language": "Rust",
+      "tool": "rustrepotrans"
+    },
+    {
+      "id": "rustrepotrans__java__set",
+      "prepared_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/workspaces/rustrepotrans__java__set",
+      "project": "incubator-milagro-crypto:big::set",
+      "source_language": "Java",
+      "target_language": "Rust",
+      "tool": "rustrepotrans"
+    },
+    {
+      "id": "rustrepotrans__python__encoding",
+      "prepared_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/workspaces/rustrepotrans__python__encoding",
+      "project": "charset-normalizer:CharsetMatch::encoding",
+      "source_language": "Python",
+      "target_language": "Rust",
+      "tool": "rustrepotrans"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,15 @@
+{
+  "benchmark_tasks": 375,
+  "build_cells": 9,
+  "byte_identical_to_withheld_golden_cells": 4,
+  "golden_target_bodies_exposed_to_model": false,
+  "measured_rows": 9,
+  "pass_all_cells": 9,
+  "pipeline_terminal_cells": 9,
+  "selected_tasks": 3,
+  "source_languages": [
+    "C",
+    "Java",
+    "Python"
+  ]
+}

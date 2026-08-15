@@ -1,0 +1,10 @@
+subject_id,repetition,released_files,generated_files,byte_identical_files,full_implementation_byte_identical
+repotransbench__parser,0,4,8,1,False
+repotransbench__parser,1,4,5,0,False
+repotransbench__parser,2,4,7,0,False
+repotransbench__avalanche,0,5,14,0,False
+repotransbench__avalanche,1,5,15,0,False
+repotransbench__avalanche,2,5,16,0,False
+repotransbench__distinct-n,0,1,2,0,False
+repotransbench__distinct-n,1,1,2,0,False
+repotransbench__distinct-n,2,1,3,0,False

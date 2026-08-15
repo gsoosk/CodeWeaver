@@ -1,0 +1,30 @@
+{
+  "artifact_tag": "v1.0",
+  "artifact_tag_commit": "7c096b0c89699266144953bfbf3770cc7ca2fc61",
+  "campaign": "repotransbench",
+  "current_release_status": "advertised GitHub asset returned HTTP 404",
+  "historical_source_archive_status": "advertised Google Drive object unavailable",
+  "oracle_expected_tests": 27,
+  "prepared_at": "2026-08-14T19:08:23.567297Z",
+  "released_implementation_excluded": true,
+  "released_implementation_hashes": {
+    "src/main/java/Latency.java": "024ae02322965dd0b71ac65bf5a9555855636c0347002b6894da78ec42d0f854",
+    "src/main/java/PacketLoss.java": "2feb0dc9c579a33a391b6c286145c3b6642c186b7736c329cdc074aa4cbc5be1",
+    "src/main/java/Partition.java": "61f5db1fe2e0b48ab5ef156bcfea5b2f5b34a9834a393881d0eb6f5164f387ce",
+    "src/main/java/Reorder.java": "fa6a4c88a154738a9191849c9bcaa1150467c549561ce26767d7c44eaef6d4fb",
+    "src/main/java/Settings.java": "b78c35d032c75bf0783fda97c639df331a8a9b58f097975b4591c74ee22f629f"
+  },
+  "released_target_tree": "repos/java_repos/FastlyAvalancheJava",
+  "released_target_tree_oid": "c4385dfa6f48997c8cf28dcbe0dfc72347131dd6",
+  "schema_version": 1,
+  "source_license_file": "LICENSE",
+  "subject": {
+    "id": "repotransbench__avalanche",
+    "name": "fastly/Avalanche",
+    "source_commit": "92a8b44c07c2d40bd5e4efeb8eb3411dc875bc20",
+    "source_directory": "fastly_Avalanche",
+    "source_license": "MIT",
+    "target_tree": "FastlyAvalancheJava",
+    "tests": 27
+  }
+}

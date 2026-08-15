@@ -1,0 +1,641 @@
+{
+  "generated_at": "2026-08-14T22:57:20.016417Z",
+  "jobs": 9,
+  "by_status": {
+    "completed": 9
+  },
+  "results": [
+    {
+      "variant": "full",
+      "project_id": "rustrepotrans__c__clean",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-rustrepotrans__c__clean-rep0",
+      "workspace_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__c__clean/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__c__clean/rep0/codeweaver.toml",
+        "--app-id",
+        "full-rustrepotrans__c__clean-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-14T20:50:31.342743Z",
+      "updated_at": "2026-08-14T21:29:29.539675Z",
+      "started_at": "2026-08-14T20:50:31.342924Z",
+      "ended_at": "2026-08-14T21:29:29.539634Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-14T20:50:31.342937Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.80.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "rustrepotrans__c__clean",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-rustrepotrans__c__clean-rep1",
+      "workspace_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__c__clean/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__c__clean/rep1/codeweaver.toml",
+        "--app-id",
+        "full-rustrepotrans__c__clean-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-14T20:50:31.343046Z",
+      "updated_at": "2026-08-14T21:25:44.084417Z",
+      "started_at": "2026-08-14T20:50:31.343099Z",
+      "ended_at": "2026-08-14T21:25:44.084385Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-14T20:50:31.343108Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.80.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "rustrepotrans__c__clean",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-rustrepotrans__c__clean-rep2",
+      "workspace_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__c__clean/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__c__clean/rep2/codeweaver.toml",
+        "--app-id",
+        "full-rustrepotrans__c__clean-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-14T21:25:44.087976Z",
+      "updated_at": "2026-08-14T21:56:40.928077Z",
+      "started_at": "2026-08-14T21:25:44.088020Z",
+      "ended_at": "2026-08-14T21:56:40.928018Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-14T21:25:44.088082Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.80.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "rustrepotrans__java__set",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-rustrepotrans__java__set-rep0",
+      "workspace_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__java__set/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__java__set/rep0/codeweaver.toml",
+        "--app-id",
+        "full-rustrepotrans__java__set-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 2,
+      "created_at": "2026-08-14T19:20:14.171523Z",
+      "updated_at": "2026-08-14T20:23:21.225893Z",
+      "started_at": "2026-08-14T19:46:52.285921Z",
+      "ended_at": "2026-08-14T20:23:21.225857Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-14T19:46:52.285951Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.80.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1,
+      "skipped": true,
+      "skip_reason": "already completed"
+    },
+    {
+      "variant": "full",
+      "project_id": "rustrepotrans__java__set",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-rustrepotrans__java__set-rep1",
+      "workspace_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__java__set/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__java__set/rep1/codeweaver.toml",
+        "--app-id",
+        "full-rustrepotrans__java__set-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-14T21:29:29.544535Z",
+      "updated_at": "2026-08-14T22:06:18.039266Z",
+      "started_at": "2026-08-14T21:29:29.544590Z",
+      "ended_at": "2026-08-14T22:06:18.039165Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-14T21:29:29.544621Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.80.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "rustrepotrans__java__set",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-rustrepotrans__java__set-rep2",
+      "workspace_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__java__set/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__java__set/rep2/codeweaver.toml",
+        "--app-id",
+        "full-rustrepotrans__java__set-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-14T21:56:40.938756Z",
+      "updated_at": "2026-08-14T22:32:51.970503Z",
+      "started_at": "2026-08-14T21:56:40.938851Z",
+      "ended_at": "2026-08-14T22:32:51.970446Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-14T21:56:40.938979Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.80.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "rustrepotrans__python__encoding",
+      "repetition": 0,
+      "status": "completed",
+      "app_id": "full-rustrepotrans__python__encoding-rep0",
+      "workspace_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__python__encoding/rep0",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__python__encoding/rep0/codeweaver.toml",
+        "--app-id",
+        "full-rustrepotrans__python__encoding-rep0"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-14T22:06:18.042972Z",
+      "updated_at": "2026-08-14T22:30:00.708921Z",
+      "started_at": "2026-08-14T22:06:18.043033Z",
+      "ended_at": "2026-08-14T22:30:00.708882Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-14T22:06:18.043080Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.80.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "rustrepotrans__python__encoding",
+      "repetition": 1,
+      "status": "completed",
+      "app_id": "full-rustrepotrans__python__encoding-rep1",
+      "workspace_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__python__encoding/rep1",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__python__encoding/rep1/codeweaver.toml",
+        "--app-id",
+        "full-rustrepotrans__python__encoding-rep1"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-14T22:30:00.717404Z",
+      "updated_at": "2026-08-14T22:56:23.710190Z",
+      "started_at": "2026-08-14T22:30:00.717476Z",
+      "ended_at": "2026-08-14T22:56:23.710157Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-14T22:30:00.717523Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.80.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    },
+    {
+      "variant": "full",
+      "project_id": "rustrepotrans__python__encoding",
+      "repetition": 2,
+      "status": "completed",
+      "app_id": "full-rustrepotrans__python__encoding-rep2",
+      "workspace_dir": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__python__encoding/rep2",
+      "argv": [
+        "/opt/codeweaver-venv/bin/python",
+        "-m",
+        "codeweaver",
+        "run",
+        "--config",
+        "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs/full/rustrepotrans__python__encoding/rep2/codeweaver.toml",
+        "--app-id",
+        "full-rustrepotrans__python__encoding-rep2"
+      ],
+      "returncode": 0,
+      "attempt": 1,
+      "created_at": "2026-08-14T22:32:51.973994Z",
+      "updated_at": "2026-08-14T22:57:20.013041Z",
+      "started_at": "2026-08-14T22:32:51.974072Z",
+      "ended_at": "2026-08-14T22:57:20.012971Z",
+      "timeout_seconds": null,
+      "error": "",
+      "provenance": {
+        "captured_at": "2026-08-14T22:32:51.974187Z",
+        "model": {
+          "value": "gpt-5.6-sol",
+          "status": "measured",
+          "reason": ""
+        },
+        "agent_timeout_seconds": {
+          "value": 5000.0,
+          "status": "measured",
+          "reason": ""
+        },
+        "git_sha": {
+          "value": "eafdd3c0c28bdb733a7c68f161a5241930eb2a87",
+          "status": "measured",
+          "reason": ""
+        },
+        "codeweaver_package_version": {
+          "value": "0.1.0",
+          "status": "measured",
+          "reason": ""
+        },
+        "copilot_cli_version": {
+          "value": "GitHub Copilot CLI 1.0.80.",
+          "status": "measured",
+          "reason": ""
+        },
+        "python_version": {
+          "value": "3.12.3",
+          "status": "measured",
+          "reason": ""
+        },
+        "os": {
+          "value": "Linux 6.18.33.2-microsoft-standard-WSL2 (x86_64)",
+          "status": "measured",
+          "reason": ""
+        },
+        "hostname": {
+          "value": "CPC-tfhab-FSGML",
+          "status": "measured",
+          "reason": ""
+        }
+      },
+      "num_calls": 1
+    }
+  ]
+}

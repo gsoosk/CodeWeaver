@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\usepackage[margin=0.7in]{geometry}
+
+\usepackage{booktabs}
+
+\begin{document}
+
+\section*{CodeWeaver comparison with RepoTransBench}
+
+RepoTransBench's currently advertised 1,897-repository asset returned HTTP 404, and its historical Python source archive was unavailable. We reconstructed three licensed historical v1.0 Python-to-Java subjects from pinned upstream repositories and evaluated nine CodeWeaver cells against 37 released fixed tests. Seven cells reached CodeWeaver's own terminal-success state; all nine independently built and passed every fixed test. Results are a measured, stratified subset—not a full-current-benchmark claim.
+
+\subsection*{Measured three-project subset}
+
+\begin{tabular}{lrrrrr}
+\toprule
+Run & Pipeline terminal & SR & CR & APR & AMPR \\
+\midrule
+CodeWeaver rep 1 & 3/3 & 3/3 (100.00\%) & 3/3 (100.00\%) & 100.00\% & 100.00\% \\
+CodeWeaver rep 2 & 2/3 & 3/3 (100.00\%) & 3/3 (100.00\%) & 100.00\% & 100.00\% \\
+CodeWeaver rep 3 & 2/3 & 3/3 (100.00\%) & 3/3 (100.00\%) & 100.00\% & 100.00\% \\
+\bottomrule
+\end{tabular}
+
+\subsection*{Historical v1 full-benchmark references}
+
+\begin{tabular}{lrrr}
+\toprule
+Model & Success@1 & Build@1 & APR \\
+\midrule
+Llama-3.1-8B-Inst & 0.00\% & 0.00\% & 0.00\% \\
+Llama-3.1-70B-Inst & 1.33\% & 2.67\% & 1.30\% \\
+Llama-3.1-405B-Inst & 2.67\% & 5.67\% & 4.70\% \\
+DeepSeek-V2.5 & 3.00\% & 12.00\% & 6.20\% \\
+GPT-3.5-Turbo & 0.67\% & 2.33\% & 1.10\% \\
+GPT-4 & 2.33\% & 4.33\% & 2.00\% \\
+GPT-4o & 4.00\% & 9.00\% & 6.40\% \\
+Claude-3.5-Sonnet & 7.33\% & 28.33\% & 16.50\% \\
+CodeLlama-34B-Inst & 0.00\% & 0.37\% & 0.00\% \\
+Codestral-22B & 2.08\% & 5.90\% & 2.60\% \\
+DeepSeek-Coder-V2-Inst & 4.86\% & 16.84\% & 8.40\% \\
+\bottomrule
+\end{tabular}
+
+\subsection*{Current paper Python-to-Java references}
+
+\begin{tabular}{lrrrr}
+\toprule
+Model & SR & CR & APR & AMPR \\
+\midrule
+Qwen3 & 0.60\% & 1.20\% & 1.20\% & 1.20\% \\
+Qwen3-think & 1.20\% & 1.20\% & 1.70\% & 1.20\% \\
+DeepSeek & 1.80\% & 2.90\% & 2.30\% & 1.80\% \\
+DeepSeek-R & 0.00\% & 0.00\% & 0.00\% & 0.00\% \\
+Claude & 5.80\% & 8.80\% & 8.20\% & 8.20\% \\
+Gemini & 0.00\% & 0.00\% & 0.00\% & 0.00\% \\
+GPT-4.1 & 7.00\% & 7.00\% & 9.00\% & 7.00\% \\
+o3-mini & 1.80\% & 1.80\% & 1.80\% & 1.80\% \\
+\bottomrule
+\end{tabular}
+
+\end{document}

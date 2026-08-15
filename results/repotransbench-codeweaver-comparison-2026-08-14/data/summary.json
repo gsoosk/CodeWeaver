@@ -1,0 +1,12 @@
+{
+  "build_cells": 9,
+  "current_paper_subjects": 1897,
+  "fixed_tests_per_repetition": 37,
+  "full_implementation_byte_identical_cells": 0,
+  "measured_rows": 9,
+  "pass_all_cells": 9,
+  "pipeline_terminal_cells": 7,
+  "released_historical_subjects": 100,
+  "released_implementations_exposed_to_model": false,
+  "selected_subjects": 3
+}

@@ -1,0 +1,29 @@
+{
+  "artifact_tag": "v1.0",
+  "artifact_tag_commit": "7c096b0c89699266144953bfbf3770cc7ca2fc61",
+  "campaign": "repotransbench",
+  "current_release_status": "advertised GitHub asset returned HTTP 404",
+  "historical_source_archive_status": "advertised Google Drive object unavailable",
+  "oracle_expected_tests": 7,
+  "prepared_at": "2026-08-14T19:08:23.529739Z",
+  "released_implementation_excluded": true,
+  "released_implementation_hashes": {
+    "src/main/java/Compute.java": "8bf49de751759c1b1b4e2003915d48f93a86b5a24e51fecadf1b364cc540348c",
+    "src/main/java/Node.java": "860974fddd0c90bedcd16faa07ee14dbba88150527092f171bb84940071559d2",
+    "src/main/java/Parser.java": "7a44d70fb498d0e0ddf5db9af858141f1167d6c27460fe2523b981ab79d59a9e",
+    "src/main/java/TokenType.java": "84ea8712ee1da0d7ad0492d515b9a9567fed569136e83771c3852a53cad96266"
+  },
+  "released_target_tree": "repos/java_repos/GnebehayParserJava",
+  "released_target_tree_oid": "597bfa1f2e30fa6d5efddb1d59d34b6413ecccb9",
+  "schema_version": 1,
+  "source_license_file": "LICENSE",
+  "subject": {
+    "id": "repotransbench__parser",
+    "name": "gnebehay/parser",
+    "source_commit": "1b9f61157d13e72a1e649adbbbca997a4c159b92",
+    "source_directory": "gnebehay_parser",
+    "source_license": "MIT",
+    "target_tree": "GnebehayParserJava",
+    "tests": 7
+  }
+}

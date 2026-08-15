@@ -1,0 +1,10 @@
+build,build_returncode,campaign,candidate_status,evaluation_status,expected_tests,generated_files,pass_all,repetition,run_status,source_language,subject,subject_id,target_language,test_modules_passed,test_modules_total,test_returncode,tests_errors,tests_failed,tests_not_executed,tests_passed,tests_skipped,tests_total
+True,0,repotransbench,evaluated,measured,7,8,True,0,completed,Python,gnebehay/parser,repotransbench__parser,Java,2,2,0,0,0,0,7,0,7
+True,0,repotransbench,evaluated,measured,7,5,True,1,failed,Python,gnebehay/parser,repotransbench__parser,Java,2,2,0,0,0,0,7,0,7
+True,0,repotransbench,evaluated,measured,7,7,True,2,failed,Python,gnebehay/parser,repotransbench__parser,Java,2,2,0,0,0,0,7,0,7
+True,0,repotransbench,evaluated,measured,27,14,True,0,completed,Python,fastly/Avalanche,repotransbench__avalanche,Java,5,5,0,0,0,0,27,0,27
+True,0,repotransbench,evaluated,measured,27,15,True,1,completed,Python,fastly/Avalanche,repotransbench__avalanche,Java,5,5,0,0,0,0,27,0,27
+True,0,repotransbench,evaluated,measured,27,16,True,2,completed,Python,fastly/Avalanche,repotransbench__avalanche,Java,5,5,0,0,0,0,27,0,27
+True,0,repotransbench,evaluated,measured,3,2,True,0,completed,Python,neural-dialogue-metrics/Distinct-N,repotransbench__distinct-n,Java,1,1,0,0,0,0,3,0,3
+True,0,repotransbench,evaluated,measured,3,2,True,1,completed,Python,neural-dialogue-metrics/Distinct-N,repotransbench__distinct-n,Java,1,1,0,0,0,0,3,0,3
+True,0,repotransbench,evaluated,measured,3,3,True,2,completed,Python,neural-dialogue-metrics/Distinct-N,repotransbench__distinct-n,Java,1,1,0,0,0,0,3,0,3

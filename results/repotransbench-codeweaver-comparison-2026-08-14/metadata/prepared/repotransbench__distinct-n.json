@@ -1,0 +1,26 @@
+{
+  "artifact_tag": "v1.0",
+  "artifact_tag_commit": "7c096b0c89699266144953bfbf3770cc7ca2fc61",
+  "campaign": "repotransbench",
+  "current_release_status": "advertised GitHub asset returned HTTP 404",
+  "historical_source_archive_status": "advertised Google Drive object unavailable",
+  "oracle_expected_tests": 3,
+  "prepared_at": "2026-08-14T19:08:23.615448Z",
+  "released_implementation_excluded": true,
+  "released_implementation_hashes": {
+    "src/main/java/DistinctN.java": "65921e9849ccc563d588cde94ed62bb85e357d8d68f9286ae40a03c5c1794f48"
+  },
+  "released_target_tree": "repos/java_repos/NeuraldialoguemetricsDistinctnJava",
+  "released_target_tree_oid": "56c148f9aeeac76b37011bf32141ffd1a4c2cf96",
+  "schema_version": 1,
+  "source_license_file": "LICENSE",
+  "subject": {
+    "id": "repotransbench__distinct-n",
+    "name": "neural-dialogue-metrics/Distinct-N",
+    "source_commit": "e94edcb2e1d2230ff9e0f1821387d7f6d7af0c4f",
+    "source_directory": "neural-dialogue-metrics_Distinct-N",
+    "source_license": "MIT",
+    "target_tree": "NeuraldialoguemetricsDistinctnJava",
+    "tests": 3
+  }
+}

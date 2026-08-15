@@ -1,0 +1,211 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "raw_run.schema.json",
+  "title": "ReCodeAgent raw run row",
+  "description": "One normalized, independently-measured (variant, project, repetition) row, as written by collect.py to raw_runs.csv / raw_runs.jsonl. Every metric follows the Measurement convention (<key>, <key>_status, <key>_reason) so 'missing'/'unavailable'/'not_applicable' never collapses into 0 or success -- see common.Measurement/Status. Runs that never reached a terminal state, or that could not be opened at all, do NOT appear here (see failures.schema-equivalent failures.csv) -- they are never zero-filled into this table.",
+  "type": "object",
+  "required": [
+    "variant", "project_id", "tool", "repetition", "workspace_dir", "collected_at", "run_status"
+  ],
+  "properties": {
+    "variant": {
+      "type": "string",
+      "enum": ["full", "noanalyzer", "noplanning", "novalidator", "baseagent-condensed", "baseagent-concat"]
+    },
+    "project_id": {"type": "string"},
+    "tool": {"type": "string", "enum": ["crust", "oxidizer", "alphatrans", "skel"]},
+    "repetition": {"type": "integer"},
+    "workspace_dir": {"type": "string"},
+    "app_id": {"type": ["string", "null"]},
+    "collected_at": {"type": "string"},
+    "run_status": {
+      "type": "string", "enum": ["completed", "failed", "timeout"],
+      "description": "Verbatim from run.py's own persisted state -- collect.py never re-derives it."
+    },
+    "run_error": {"type": "string"},
+    "run_started_at": {"type": ["string", "null"]},
+    "run_ended_at": {"type": ["string", "null"]},
+    "build": {"type": ["boolean", "null"]},
+    "build_status": {"type": "string"},
+    "build_reason": {"type": "string"},
+    "dev_tests_total": {"type": ["integer", "null"]},
+    "dev_tests_total_status": {"type": "string"},
+    "dev_tests_passed": {"type": ["integer", "null"]},
+    "dev_tests_failed": {"type": ["integer", "null"]},
+    "dev_test_pass_rate": {"type": ["number", "null"]},
+    "translated_tests_total": {
+      "type": ["integer", "null"],
+      "description": "Alias of dev_tests_total: CodeWeaver's OWN translated developer tests, run against its own produced target -- self-graded, NOT the paper's independently validated oracle (see validated_tests_executed)."
+    },
+    "translated_tests_total_status": {"type": "string"},
+    "translated_tests_passed": {"type": ["integer", "null"]},
+    "translated_tests_failed": {"type": ["integer", "null"]},
+    "translated_tests_pass_rate": {
+      "type": ["number", "null"],
+      "description": "Unchanged formula (passed/total, i.e. relative to what actually ran) -- kept as-is for compatibility. See validated_tests_pass_rate for the paper-equivalent passed/expected reading; this field is NOT that."
+    },
+    "translated_tests_expected": {
+      "type": ["integer", "null"],
+      "description": "Best-effort 'where possible' expected/discovered-vs-executed analogue for the translated-test family: reuses the same static target_test_count/target_test_counts discovery already computed for function_translation_ratio as the denominator. Read BEFORE and independently of whether the translated-test run itself executed; null/not-measured only when that static discovery itself is not measured (never a fabricated 0)."
+    },
+    "translated_tests_expected_status": {"type": "string"},
+    "translated_tests_not_executed": {
+      "type": ["integer", "null"],
+      "description": "max(0, translated_tests_expected - translated_tests_total): how many of the statically-discovered target tests never actually ran (e.g. a build failure). A non-measured translated_tests_total still yields a real, measured value here equal to the full expected count -- never a fabricated 0 -- with a reason naming the real underlying failure."
+    },
+    "translated_tests_not_executed_status": {"type": "string"},
+    "validated_tests_expected": {
+      "type": ["integer", "null"],
+      "description": "The paper's own FIXED, oracle-known TPR denominator: a static test-function/#[test]-attribute count over the independent oracle's own files ALONE (CRUST: pristine scaffold contract paths; Oxidizer: reference *_test.rs oracle files; AlphaTrans: reference verified_test/*.py; SKEL: all test_name_mapping.csv rows, because 'verified test' is a prior-system outcome rather than a selector). Available BEFORE and INDEPENDENTLY of any CodeWeaver translation/build attempt, so it stays measured even when validated_tests_executed reports a build/import failure -- see validated_tests_pass_rate, which is deliberately passed/expected (this field), NEVER passed/executed."
+    },
+    "validated_tests_expected_status": {"type": "string"},
+    "validated_tests_executed": {
+      "type": ["integer", "null"],
+      "description": "Renamed from validated_tests_total: how many independent-oracle tests actually ran -- evaluated in a temporary directory. CRUST uses the pristine scaffold; Oxidizer/AlphaTrans use *_test.rs / verified_test. SKEL AST-extracts every CSV-listed JavaScript test from javascript/source.js and runs an ESM-compatible harness against CodeWeaver's own target. Only builtins, safe Node imports, target exports, pinned test fixtures, and provably pure literal data may be rebound; executable reference production helpers are never copied. Missing dependencies/artifacts or a wholly blocked inventory is unavailable, never a fabricated zero."
+    },
+    "validated_tests_executed_status": {"type": "string"},
+    "validated_tests_passed": {"type": ["integer", "null"]},
+    "validated_tests_failed": {"type": ["integer", "null"]},
+    "validated_tests_not_executed": {
+      "type": ["integer", "null"],
+      "description": "max(0, validated_tests_expected - validated_tests_executed), clamped at 0 (a static expected counter can occasionally under-count relative to what a real run reports as executed, e.g. CRUST's whole-crate cargo test also running the target's own embedded #[test]s). A non-measured validated_tests_executed (build/import failure) still yields a real, measured value here equal to the FULL expected count -- literally none of them ran -- with a reason naming the real underlying failure, never a fabricated 0."
+    },
+    "validated_tests_not_executed_status": {"type": "string"},
+    "validated_tests_pass_rate": {
+      "type": ["number", "null"],
+      "description": "The paper's own TPR formula: validated_tests_passed / validated_tests_expected -- a FIXED, oracle-known denominator -- NEVER /validated_tests_executed. Matches the paper's own worked example of passed=1,822 over expected=2,107 despite only TE=1,970 tests executing. A non-measured validated_tests_passed (build/import failure) is treated as a ZERO numerator contribution (never excluded as an undefined row), with the reason naming the real underlying failure so a build failure is never mistaken for a genuine all-failing execution. Requires validated_tests_expected to be measured and non-zero; propagates its own non-measured status/reason otherwise (a build failure is never presented as a measured 0.0 rate)."
+    },
+    "project_pass_all": {
+      "type": ["boolean", "null"],
+      "description": "True only when the target builds and the fixed independent oracle has zero failed and zero not-executed tests. Extra target-authored tests may make passed exceed the fixed expected denominator and do not invalidate success."
+    },
+    "project_pass_all_status": {"type": "string"},
+    "validated_tests_expected_native": {
+      "type": ["integer", "null"],
+      "description": "CRUST only: the NATIVE half of validated_tests_expected -- a static #[test]-attribute count over the pristine scaffold's own Cargo contract paths, PLUS one additional count for every detected 'binary assertion harness' (a src/bin/*.rs file with zero #[test] attributes, e.g. the real CRUST libfor project's src/bin/test.rs, whose own process exit code is the test verdict and which plain cargo test never discovers/runs at all). Naive static counting over the real 100 CRUST scaffolds is known to disagree with the paper's own bookkeeping in BOTH directions (e.g. the real 2dpartint/holdem-odds projects' scaffolds have MORE regex-discoverable #[test] functions than the paper counts, while libfor's scaffold would have FEWER without the binary-harness count) -- this field is only ever used as a labeled FALLBACK for validated_tests_expected (see validated_tests_expected_source) when no paper-aligned figure is available, and must never be presented as equal to validated_tests_expected_paper. not_applicable for every other tool, whose validated_tests_expected already reflects a single, un-split oracle-derived denominator."
+    },
+    "validated_tests_expected_native_status": {"type": "string"},
+    "validated_tests_expected_paper": {
+      "type": ["integer", "null"],
+      "description": "CRUST only: the paper's own AUTHORITATIVE, hand-curated per-project expected-test-count, read from either the official results.xlsx's own 'sweagent crust - tool test' sheet or an explicit JSON/CSV reference-inventory file via --crust-paper-expected-tests. unavailable (never a silent 0/fallback) when that flag is omitted, the file can't be parsed, or the project isn't found in it -- a genuinely separate, optional input from validated_tests_expected_native. not_applicable for every other tool."
+    },
+    "validated_tests_expected_paper_status": {"type": "string"},
+    "validated_tests_expected_source": {
+      "type": ["string", "null"],
+      "enum": ["paper", "native", null],
+      "description": "CRUST only: which of validated_tests_expected_native/_paper was used to compute the COMBINED validated_tests_expected above. The paper-aligned figure (validated_tests_expected_paper) is ALWAYS preferred when measured; the native static count is only ever a labeled fallback. not_applicable for every other tool."
+    },
+    "validated_tests_expected_source_status": {"type": "string"},
+    "oracle_integrity": {
+      "type": ["string", "null"],
+      "enum": ["pristine", "mutated", "not_copied", null],
+      "description": "CRUST only: hash-comparison of the target's copy of the scaffold's own Cargo contract paths against the pristine scaffold itself. not_applicable (see oracle_integrity_status) for every other tool, which exposes no immutable-input scaffold to the translating agent at all."
+    },
+    "oracle_integrity_status": {"type": "string"},
+    "baseline_build": {"type": ["boolean", "null"]},
+    "baseline_build_status": {"type": "string"},
+    "coverage_before": {
+      "type": ["number", "null"],
+      "description": "Independent developer-test production-line coverage before adding generated tests. For non-CRUST tools this raw row contains the shared developer-only baseline; paper_test_compare.py recomputes and records the authoritative pair beside the independently classified CodeWeaver-authored generated tests."
+    },
+    "coverage_before_status": {"type": "string"},
+    "coverage_after": {
+      "type": ["number", "null"],
+      "description": "Independent developer tests plus CodeWeaver-authored generated tests. CRUST can be measured during collection from scaffold differences; for non-CRUST tools this remains unavailable here until paper_test_compare.py classifies generated target tests and writes the authoritative value to generated_test_projects."
+    },
+    "coverage_after_status": {"type": "string"},
+    "standardized_coverage_before": {
+      "type": ["number", "null"],
+      "description": "Developer-only baseline from the cross-system official ReCodeAgent generated-harness adapter. Defined for Oxidizer, AlphaTrans, and SKEL; structurally separate from CodeWeaver-authored generated-test coverage."
+    },
+    "standardized_coverage_before_status": {"type": "string"},
+    "standardized_coverage_after": {
+      "type": ["number", "null"],
+      "description": "Developer oracle plus the official ReCodeAgent-generated standardized harness, not CodeWeaver-authored tests. Never used as the paper-equivalent CodeWeaver coverage_after value."
+    },
+    "standardized_coverage_after_status": {"type": "string"},
+    "target_function_count": {"type": ["integer", "null"]},
+    "target_test_count": {"type": ["integer", "null"]},
+    "source_function_count": {"type": ["integer", "null"]},
+    "function_translation_ratio": {"type": ["number", "null"]},
+    "function_validation_total": {
+      "type": ["integer", "null"],
+      "description": "Execution-based per-function validation (where an adapter provides one) -- structurally distinct from function_translation_ratio (a symbol/completeness ratio), which is NEVER relabeled as validation. CRUST: not_applicable (whole-crate granularity only, per the paper). Oxidizer: reference rust/tests non-'_test.rs' harness files under --reference-results-root. AlphaTrans/SKEL: no reusable per-function harness is known -- always unavailable."
+    },
+    "function_validation_total_status": {"type": "string"},
+    "function_validation_passed": {"type": ["integer", "null"]},
+    "function_validation_failed": {"type": ["integer", "null"]},
+    "function_validation_expected": {
+      "type": ["integer", "null"],
+      "description": "Paper Table 1's fixed per-project Exercised-function denominator (1,397 total across Oxidizer, AlphaTrans, and SKEL). not_applicable for CRUST, which the paper excludes from function-level validation."
+    },
+    "function_validation_expected_status": {"type": "string"},
+    "function_validation_not_executed": {
+      "type": ["integer", "null"],
+      "description": "max(0, function_validation_expected - function_validation_total). When no reliable per-function adapter exists, all expected functions remain explicitly not executed rather than disappearing from the denominator."
+    },
+    "function_validation_not_executed_status": {"type": "string"},
+    "function_validation_pass_rate": {"type": ["number", "null"]},
+    "function_validation_paper_pass_rate": {
+      "type": ["number", "null"],
+      "description": "function_validation_passed / function_validation_expected, using the paper's fixed 1,397-function denominator. The existing function_validation_pass_rate remains the executed-relative diagnostic."
+    },
+    "function_validation_paper_pass_rate_status": {"type": "string"},
+    "function_harness_tests_total": {
+      "type": ["integer", "null"],
+      "description": "Standardized GENERATED function/test-harness execution, distinct from function_validation_total. CRUST: not_applicable. Oxidizer: each official *generated*.rs integration binary runs independently. AlphaTrans: each pinned official generated agent_test file runs independently with support fixtures. SKEL: the fixed 306-case inventory after safely rebinding official generated scripts to CodeWeaver's target; an early-aborting script yields unavailable case counts rather than a fabricated file count."
+    },
+    "function_harness_tests_total_status": {"type": "string"},
+    "function_harness_tests_passed": {"type": ["integer", "null"]},
+    "function_harness_tests_failed": {"type": ["integer", "null"]},
+    "function_harness_tests_expected": {
+      "type": ["integer", "null"],
+      "description": "Paper-aligned fixed generated-test inventory for the standardized Oxidizer, AlphaTrans, and SKEL harnesses (1,704 non-CRUST cases total)."
+    },
+    "function_harness_tests_expected_status": {"type": "string"},
+    "function_harness_tests_not_executed": {"type": ["integer", "null"]},
+    "function_harness_tests_not_executed_status": {"type": "string"},
+    "function_harness_tests_pass_rate": {"type": ["number", "null"]},
+    "function_harness_tests_paper_pass_rate": {
+      "type": ["number", "null"],
+      "description": "function_harness_tests_passed / function_harness_tests_expected; unlike the executed-relative pass rate, blocked collection contributes zero against the fixed denominator."
+    },
+    "function_harness_tests_paper_pass_rate_status": {"type": "string"},
+    "stub_marker_count": {"type": ["integer", "null"]},
+    "stub_marker_count_status": {"type": "string"},
+    "ablation_skipped_stage": {
+      "type": ["string", "null"],
+      "enum": ["analyze", "plan", "validate", null],
+      "description": "Which single CodeWeaver stage this run deliberately skipped via CodeWeaver core's own CODEWEAVER_SKIP_STAGES instrumentation (noanalyzer/noplanning/novalidator only; the flag is default-off and experiment-only). null for full and both baseagent-* variants, which set no such flag at all. Every other Burr milestone/repair/parity graph behavior is unaffected by this flag."
+    },
+    "milestones_total": {"type": ["integer", "null"]},
+    "milestones_passed": {"type": ["integer", "null"]},
+    "milestone_granularity": {"type": ["string", "null"], "enum": ["real", "single-synthetic", null]},
+    "trajectory_precision": {"type": "string", "enum": ["exact", "lower_bound", "unavailable"]},
+    "nc": {"type": ["integer", "null"]},
+    "tec": {"type": ["integer", "null"]},
+    "lc": {"type": ["integer", "null"]},
+    "all": {"type": ["integer", "null"]},
+    "sec_json": {"type": "string"},
+    "elapsed_seconds": {"type": ["number", "null"]},
+    "tool_invocations_precision": {"type": "string", "enum": ["exact", "lower_bound", "unavailable"]},
+    "total_tool_invocations": {"type": ["integer", "null"]},
+    "total_assistant_turns": {"type": ["integer", "null"]},
+    "total_premium_requests": {"type": ["integer", "null"]},
+    "total_nano_aiu": {"type": ["integer", "null"]},
+    "nano_aiu_status": {"type": "string"},
+    "total_session_duration_ms": {"type": ["integer", "null"]},
+    "tool_counts_json": {"type": "string"},
+    "tokens_status": {"type": "string", "enum": ["measured", "unavailable"]},
+    "total_input_tokens": {"type": ["integer", "null"]},
+    "input_tokens_status": {"type": "string"},
+    "total_output_tokens": {"type": ["integer", "null"]},
+    "output_tokens_status": {"type": "string"},
+    "model": {"type": ["string", "null"]},
+    "agent_timeout_seconds": {"type": ["number", "null"]},
+    "git_sha": {"type": ["string", "null"]},
+    "codeweaver_package_version": {"type": ["string", "null"]},
+    "copilot_cli_version": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

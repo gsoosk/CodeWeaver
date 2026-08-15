@@ -1,0 +1,10 @@
+{
+  "build_passed": 9,
+  "campaign": "rustrepotrans",
+  "complete": true,
+  "expected_rows": 9,
+  "generated_at": "2026-08-14T23:31:43.754369Z",
+  "measured": 9,
+  "pass_all": 9,
+  "rows": 9
+}
