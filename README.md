@@ -47,6 +47,23 @@ Start with the [comparison PDF](results/evoc2rust-codeweaver-comparison-2026-08-
 the [headline figure](results/evoc2rust-codeweaver-comparison-2026-08-13/report/summary_figure.pdf),
 or the [final verification record](results/evoc2rust-codeweaver-comparison-2026-08-13/metadata/final_verification.json).
 
+Five additional related-paper comparisons are published as separate,
+checksum-verified artifacts:
+
+| Paper | CodeWeaver scope | Result |
+|---|---|---|
+| CRUST-Bench ([arXiv:2504.15254](https://arxiv.org/abs/2504.15254)) | Exact 100-project benchmark, 3 repetitions | [`results/crust-bench-codeweaver-comparison-2026-08-14/`](results/crust-bench-codeweaver-comparison-2026-08-14/) |
+| AlphaTrans ([arXiv:2410.24117](https://arxiv.org/abs/2410.24117)) | Four exact shared subjects, 3 repetitions | [`results/alphatrans-codeweaver-comparison-2026-08-14/`](results/alphatrans-codeweaver-comparison-2026-08-14/) |
+| SACTOR ([arXiv:2503.12511](https://arxiv.org/abs/2503.12511)) | Exact 50-project CRUST subset, 3 repetitions | [`results/sactor-codeweaver-comparison-2026-08-14/`](results/sactor-codeweaver-comparison-2026-08-14/) |
+| RepoTransBench ([arXiv:2412.17744](https://arxiv.org/abs/2412.17744)) | Three-project historical v1.0 subset, 3 repetitions | [`results/repotransbench-codeweaver-comparison-2026-08-14/`](results/repotransbench-codeweaver-comparison-2026-08-14/) |
+| RustRepoTrans ([arXiv:2411.13990](https://arxiv.org/abs/2411.13990)) | Three-task language-stratified slice, 3 repetitions | [`results/rustrepotrans-codeweaver-comparison-2026-08-14/`](results/rustrepotrans-codeweaver-comparison-2026-08-14/) |
+
+Each directory contains normalized raw data, paper reference tables, a
+comparison PDF, PDF/SVG figures, provenance, licenses, and a final verification
+record. RepoTransBench and RustRepoTrans also contain filtered raw-run archives.
+The reports preserve metric and availability boundaries rather than treating
+the two bounded slices as full-benchmark reproductions.
+
 ---
 
 ## 1. How it works

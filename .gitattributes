@@ -1,3 +1,8 @@
 results/recodeagent-gpt-5.6-sol-final-2026-08-11/** -text -diff
 results/rustine-codeweaver-comparison-2026-08-12/** -text -diff
 results/evoc2rust-codeweaver-comparison-2026-08-13/** -text -diff
+results/crust-bench-codeweaver-comparison-2026-08-14/** -text -diff
+results/alphatrans-codeweaver-comparison-2026-08-14/** -text -diff
+results/sactor-codeweaver-comparison-2026-08-14/** -text -diff
+results/repotransbench-codeweaver-comparison-2026-08-14/** -text -diff
+results/rustrepotrans-codeweaver-comparison-2026-08-14/** -text -diff
