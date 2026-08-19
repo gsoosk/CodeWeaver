@@ -195,10 +195,11 @@ Validate the {work_target}:
 each failing test's name + assertion.
   2. End-to-end layer (authoritative oracle): run `{validate}`. Its cumulative \
 gate for this milestone is {gate_desc}. A build failure counts as a validation \
-failure.
+failure.{skip_note}
 
 Write {report} as JSON: {report_shape}. `passed` is true ONLY if BOTH layers \
-fully pass. For each failing test give an actionable entry: the layer, test id, \
+fully pass. For each failing test give an actionable entry: the layer, the exact \
+test id (so it can be recorded for deferral if this milestone is later skipped), \
 the assertion essence, the likely output-contract or behavior at fault, and a \
 repair hint naming the probable source fragment / target module. End by stating \
 the per-layer pass/fail + counts, the combined verdict, and the top failures \
@@ -291,6 +292,8 @@ def context(cfg: Config, **runtime: Any) -> dict[str, str]:
         "gate_desc": "",
         "repair_clause": "",
         "scope_mode_note": "",
+        "skips": "[]",
+        "skip_note": "",
     }
     ctx.update({k: str(v) for k, v in runtime.items()})
     return ctx
@@ -308,7 +311,13 @@ def translate_runtime(cfg: Config, milestone, report: dict) -> dict[str, str]:
     repair_clause = ""
     if mode == "REPAIR":
         repair_clause = (
-            f"Fix exactly these validation failures: {json.dumps(failures)}."
+            f"The Validator reported these failures: {json.dumps(failures)}. Do NOT "
+            "patch blindly: first investigate WHY each fails -- re-read the failing "
+            "tests to see what behavior/output they require, and decide whether each "
+            "is a bug in the translated code OR functionality that was never "
+            "translated (if so, port the missing source logic). Confirm ALL "
+            "functionality this milestone's tests need is translated, then fix the "
+            "root cause faithfully."
         )
     return {
         "milestone_id": milestone.id,
@@ -320,14 +329,28 @@ def translate_runtime(cfg: Config, milestone, report: dict) -> dict[str, str]:
     }
 
 
-def validate_runtime(cfg: Config, milestone) -> dict[str, str]:
-    gate = milestones.gate_string(cfg, milestone.id)
+def validate_runtime(cfg: Config, milestone, skips: list[str] | None = None) -> dict[str, str]:
+    skips = [s for s in (skips or []) if s]
+    gate = milestones.gate_string(cfg, milestone.id, skips=skips)
+    skip_note = ""
+    if skips:
+        excl = milestones.skip_exclusion(cfg, skips)
+        skip_note = (
+            f" NOTE: {len(skips)} test(s) are known-failing and DEFERRED by earlier "
+            f"milestones (skip-on-give-up): {json.dumps(skips)}. "
+            + (f"They are already deselected in the gate above ({excl}); "
+               if excl else
+               "Deselect them from your test selection; ")
+            + "do NOT count them as failures and do NOT force-run them."
+        )
     return {
         "milestone_id": milestone.id,
         "milestone_title": milestone.title,
         "milestone_goal": milestone.goal,
         "gate": gate,
         "gate_desc": gate or "(deploy/smoke only -- no test selector)",
+        "skips": json.dumps(skips),
+        "skip_note": skip_note,
     }
 
 

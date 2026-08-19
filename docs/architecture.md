@@ -21,63 +21,97 @@ The key idea is a strict separation:
 ```
 analyze ─▶ scope ─▶ plan ─▶ select_milestone ─▶ translate ─▶ validate ─▶ parity ─▶ terminal
              ▲                     ▲                 ▲            │           │
-             │ parity incomplete   │ next milestone  │ repair     │           │
-             │ (schedule gaps)     │                 │            ▼           ▼
+             │ parity gaps         │ concluded &     │ repair     │           │ retry deferred
+             │ (re-scope)          │ more milestones  │ (budget)   │           │ (select_milestone)
              └─────────────────────┴─────────────────┴────────────┘   complete / out of rounds
 ```
+
+A milestone **concludes** when `validate` either passes it OR exhausts the repair
+budget (`iter_count >= max_iter`). With **skip-on-give-up** (default), give-up does
+not fail the run: the stuck milestone is skipped and the loop advances.
 
 Transitions (see `codeweaver/app.py`):
 
 - `translate → validate` always.
 - `validate → translate` when `not milestone_passed and iter_count < max_iter`
-  (repair the current milestone).
-- `validate → select_milestone` when `milestone_passed and milestone_idx < last_idx`
-  (advance to the next milestone).
-- **(parity on)** `validate → parity` when `milestone_passed and milestone_idx >= last_idx`
-  (all milestones passed → run the final parity check).
-- `validate → terminal` otherwise (budget exhausted → gave up; or, with parity off,
-  the last milestone passed).
+  (repair the current milestone). Checked first, so it wins while budget remains.
+- `validate → select_milestone` when `milestone_concluded and milestone_idx < last_idx`
+  (advance — the milestone passed, or was skipped after give-up).
+- **(parity on)** `validate → parity` when `milestone_concluded and milestone_idx >= last_idx`
+  (last milestone concluded → run the final parity check).
+- **(parity on)** `parity → select_milestone` when `retry_pending`
+  (a deferred-test retry milestone was appended → run it).
 - **(parity on)** `parity → scope` when `not parity_complete and parity_round < max_parity_rounds`
-  (gaps found → back to the milestone generator to schedule them).
+  (gaps found → back to the milestone generator).
 - **(parity on)** `parity → terminal` otherwise (parity complete, or out of rounds).
+- `validate → terminal` (default) — parity off & last milestone concluded → terminal
+  (`done` set in `validate`); OR give-up with `skip_on_give_up=false` (not concluded)
+  → terminal with `done=False` (legacy hard fail).
 
-`select_milestone` is pure bookkeeping: it advances `milestone_idx` after a pass
-and resets the per-milestone repair counter and pass flag.
+`select_milestone` is pure bookkeeping: it advances `milestone_idx` when the current
+milestone **concluded**, and resets the per-milestone counters/flags.
+
+## Skip-on-give-up & the deferred-test retry (`skips.json`)
+
+When `validate` exhausts `max_iter` on a milestone (`skip_on_give_up=true`, default):
+
+1. the milestone is marked **concluded** and added to `state['skipped']`; its history
+   entry carries `gave_up=true`;
+2. its still-failing test ids are written to **`skips.json`** (`tests_to_skip`);
+3. every later milestone's gate **deselects** those tests via
+   `cfg.skip_exclude_template` (rendered into the `{skip_exclude}` slot of
+   `gate_template`), and they are surfaced to the Validator/Translator as
+   "known-failing, deferred — do not count as failures";
+4. after the last milestone, the **parity verifier** revisits `skips.json`: any test
+   not yet retried gets **one dedicated retry milestone** (`origin="retry"`) that
+   re-enables it (`_begin_retry` removes it from `tests_to_skip`, records it in
+   `retried`), and the graph loops back via `retry_pending`. If the retry passes, the
+   test is recovered; if it still fails, the give-up path re-adds it — now a
+   **permanent skip** (`retried ∩ tests_to_skip`).
+
+With `skip_on_give_up=false` the give-up path leaves the milestone un-concluded, so
+the default `validate → terminal` edge fires and the run hard-fails (`done=False`),
+matching the pre-V2 behavior.
 
 ## The `scope` stage (milestone generator)
 
 `scope` runs between `analyze` and `plan` whenever milestones are auto-generated OR
 the parity loop is enabled (`include_scope = cfg.auto_milestones or cfg.parity_check`).
-It has three modes (`codeweaver/actions.py:scope`):
+Modes (`codeweaver/actions.py:scope`):
 
 - **Declared milestones, first pass** → *passthrough*: keep the config's matrix and
   persist it to `milestones.json` (so parity rounds have a base). No LLM call.
-- **No declared milestones, first pass** → the Scoper writes a cumulative matrix to
-  `milestones.json`; the action loads it into the active `Config`
-  (`load_generated_milestones`) and updates `num_milestones` / `last_idx`.
-- **Parity re-entry** (`parity_round > 0`) → the Scoper runs in *incremental* mode:
-  it reads `parity.json`, appends new milestones for the reported gaps (preserving
-  the existing ids), and the action reloads the extended matrix.
+- **No declared milestones, first pass** → the Scoper writes a cumulative matrix;
+  the action loads it and sets `num_milestones`/`last_idx`, starting at `M0`.
+- **Parity re-entry** (`parity_round > 0`) → *incremental*: the Scoper reads
+  `parity.json`, appends milestones for the gaps (preserving existing ids), and the
+  action points `milestone_idx` at the first newly-appended milestone.
 
-If the scoper ever produces nothing usable, a minimal fallback matrix keeps the run
-alive instead of crashing. `state.current_milestone` clamps the index defensively so
-a matrix that grows between rounds can never be indexed out of range.
+`state.current_milestone` clamps the index defensively so a matrix that grows
+between rounds can never be indexed out of range.
 
 ## The parity loop (the `parity` stage)
 
 When `cfg.parity_check` is on, a **`parity`** action closes the workflow. After the
-last milestone passes, the Parity Verifier compares the source against the final
+last milestone concludes, the Parity Verifier compares the source against the final
 translation and writes a verdict to `parity.json`
-(`{complete, translated, missing, notes}`). The action sets `parity_complete`,
-increments `parity_round`, and sets `done = parity_complete` — so the run reports
-success **only** when parity is verified complete. If incomplete and rounds remain,
-the graph routes back to `scope`, which schedules the gaps as new milestones; the
-milestone loop implements + validates them and parity re-checks. The
-`max_parity_rounds` bound guarantees termination.
+(`{complete, translated, missing, notes}`). The action increments `parity_round`,
+handles deferred-test retries (above), and otherwise sets `done = parity_complete`
+— so the run reports success **only** when parity is verified complete. If incomplete
+and rounds remain, the graph routes back to `scope` to schedule the gaps. The
+`max_parity_rounds` bound (shared by re-scope and retry) guarantees termination.
 
 **Resume:** `build_application` reloads `milestones.json` from disk before running,
-so a crashed run resumes with the correct (possibly parity-extended) matrix without
-re-scoping.
+so a crashed run resumes with the correct (parity-extended / retry-extended) matrix.
+
+**Start from an existing pipeline:** `run --start-milestone Mx` bootstraps a NEW
+app-id from existing artifacts (`analysis.md`, `milestones.json`, `plan.json`, the
+working copy), marks analyze/scope/plan done, and enters the loop at `Mx`
+(`state_from_existing_pipeline`).
+
+**Optional telemetry:** the Burr tracker is enabled only when the
+`apache-burr[tracking]` extra is importable and `CODEWEAVER_NO_TRACKER` is unset
+(`tracker_enabled()`); otherwise the run proceeds without the UI instead of crashing.
 
 ## State (`codeweaver/state.py`)
 
@@ -87,13 +121,15 @@ Burr's `State` is an immutable dict. The schema:
 |-----|---------|
 | `milestone_idx` / `num_milestones` / `last_idx` | position in the milestone matrix |
 | `iter_count` / `max_iter` | repair attempts on the current milestone / the budget |
-| `milestone_passed` | did the last `validate` pass? |
+| `milestone_passed` / `milestone_concluded` | did the last `validate` pass? / did the milestone conclude (passed OR gave up)? |
 | `report` | last validation report (cleared on pass) |
 | `analysis_done` / `milestones_done` / `plan_done` | one-shot stage completion flags |
-| `parity_round` / `max_parity_rounds` | parity → scope iterations spent / the bound |
+| `skipped` | milestone ids skipped after exhausting the repair budget |
+| `parity_round` / `max_parity_rounds` | parity iterations spent (re-scope + retry) / the bound |
 | `parity_complete` / `parity_report` | did the last parity check pass? / its verdict |
-| `history` | append-only `{milestone, iter, passed}` log |
-| `done` | pipeline finished successfully (parity complete, or last milestone passed when parity is off) |
+| `retry_pending` | did parity append a deferred-test retry milestone to run next? |
+| `history` | append-only `{milestone, iter, passed, gave_up, retry_for}` log |
+| `done` | pipeline finished successfully (parity complete, or — parity off — all milestones passed with no skips) |
 | `last_agent` | most recently run agent |
 
 ## File-based hand-off
@@ -161,10 +197,11 @@ copilot -p <prompt> --agent <name> --model <model> --reasoning-effort <effort>
 Set `CODEWEAVER_MOCK=1` (or `codeweaver check`) to replace Copilot with a mock that
 writes the same artifacts a real agent would. Validator and parity outcomes are
 scriptable (`CODEWEAVER_MOCK_FAIL`, `CODEWEAVER_CRASH_AT`,
-`CODEWEAVER_MOCK_PARITY_INCOMPLETE`, `CODEWEAVER_MOCK_MILESTONES`) so the five core
-behaviors — happy path, repair loop, budget exhaustion, cross-process crash-resume,
-and the parity loop (parity incomplete → new milestones → complete) — can be
-verified deterministically with no LLM cost.
+`CODEWEAVER_MOCK_PARITY_INCOMPLETE`, `CODEWEAVER_MOCK_MILESTONES`,
+`CODEWEAVER_MOCK_RETRY_FAIL`) so the six core behaviors — happy path, repair loop,
+**skip-on-give-up**, cross-process crash-resume, the parity loop (incomplete → new
+milestones → complete), and the **deferred-test retry** (skip → retry milestone →
+recover or permanent-skip) — can be verified deterministically with no LLM cost.
 
 ## Persistence & resume (`codeweaver/app.py`)
 

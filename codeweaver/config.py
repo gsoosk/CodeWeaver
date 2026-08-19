@@ -37,6 +37,7 @@ class Milestone:
     goal: str
     tests: list[str] = field(default_factory=list)
     marker: str = ""          # optional extra selector (e.g. a pytest -m marker)
+    origin: str = "scoper"    # "scoper" (initial) | "parity" (gap re-scope) | "retry" (deferred-test retry)
 
 
 @dataclass(frozen=True)
@@ -73,17 +74,29 @@ class Config:
     report_artifact: str = "report.json"
     milestones_artifact: str = "milestones.json"   # written by the scope stage (auto milestones)
     parity_artifact: str = "parity.json"           # written by the parity stage
+    skips_artifact: str = "skips.json"             # deferred known-failing tests (skip-on-give-up)
 
     # validation commands (shell, run by the agents; support {placeholders})
     build_check_cmd: str = ""
     unit_test_cmd: str = ""
     validate_cmd: str = ""
     gate_template: str = "{tests_or}"     # how cumulative tests become a gate string
+    # Optional exclusion clause appended to a milestone's gate to DESELECT tests
+    # that earlier milestones gave up on (recorded in skips.json). Runner-specific;
+    # supports the same {tests_or}/{tests_space}/{tests_csv} placeholders over the
+    # SKIP list. Empty -> skips are only surfaced to the agent in the prompt, not
+    # mechanically excluded (e.g. pytest: 'and not ({tests_or})').
+    skip_exclude_template: str = ""
 
     # execution
     model: ModelConfig = field(default_factory=ModelConfig)
     milestones: list[Milestone] = field(default_factory=list)
     max_iter: int = 5
+    # Skip-on-give-up: when a milestone exhausts max_iter it is SKIPPED (recorded in
+    # state['skipped'] + skips.json) and the loop advances, instead of hard-failing
+    # the run; the untranslated behaviour is caught by the parity verifier, which
+    # gives deferred tests one retry milestone. Set False to hard-fail on give-up.
+    skip_on_give_up: bool = True
     # Final parity check: after all milestones pass, a parity verifier compares the
     # source with the translation; if incomplete, the milestone generator adds new
     # milestones and the loop repeats. The run terminates successfully only when
@@ -152,6 +165,10 @@ class Config:
     def parity_path(self) -> Path:
         return self.artifact_path(self.parity_artifact)
 
+    @property
+    def skips_path(self) -> Path:
+        return self.artifact_path(self.skips_artifact)
+
     def load_generated_milestones(self) -> int:
         """Populate ``self.milestones`` from the scope stage's artifact
         (``milestones_artifact``). Accepts either a bare JSON array of milestone
@@ -174,7 +191,7 @@ class Config:
         can append to, and so the matrix survives a resume."""
         data = [
             {"id": m.id, "title": m.title, "goal": m.goal,
-             "tests": list(m.tests), "marker": m.marker}
+             "tests": list(m.tests), "marker": m.marker, "origin": m.origin}
             for m in self.milestones
         ]
         self.milestones_path.parent.mkdir(parents=True, exist_ok=True)
@@ -237,6 +254,7 @@ def _milestones_from(raw: Any) -> list[Milestone]:
                 goal=str(m.get("goal", "")),
                 tests=[str(t) for t in (m.get("tests") or [])],
                 marker=str(m.get("marker", "")),
+                origin=str(m.get("origin", "scoper")),
             )
         )
     return out
@@ -305,13 +323,16 @@ def load(config_path: str | os.PathLike) -> Config:
         report_artifact=str(paths.get("report_artifact", "report.json")),
         milestones_artifact=str(paths.get("milestones_artifact", "milestones.json")),
         parity_artifact=str(paths.get("parity_artifact", "parity.json")),
+        skips_artifact=str(paths.get("skips_artifact", "skips.json")),
         build_check_cmd=str(cmds.get("build_check", "")),
         unit_test_cmd=str(cmds.get("unit_test", "")),
         validate_cmd=str(cmds.get("validate", "")),
         gate_template=str(validation.get("gate_template", "{tests_or}")),
+        skip_exclude_template=str(validation.get("skip_exclude_template", "")),
         model=model,
         milestones=_milestones_from(raw.get("milestones")),
         max_iter=int(exec_raw.get("max_iter", 5)),
+        skip_on_give_up=bool(exec_raw.get("skip_on_give_up", True)),
         parity_check=bool(exec_raw.get("parity_check", True)),
         max_parity_rounds=int(exec_raw.get("max_parity_rounds", 3)),
         db_path=str(exec_raw.get("db_path", "")),

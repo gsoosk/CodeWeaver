@@ -69,6 +69,14 @@ the **scope** stage decomposes the port into a cumulative milestone matrix
 (`milestones.json`) up front. Declare `[[milestones]]` yourself to seed the plan;
 the parity loop can still extend it.
 
+**Skip-on-give-up (progress over perfection).** If a milestone can't be fixed within
+`max_iter`, CodeWeaver **skips** it instead of failing the whole run: the still-failing
+tests are recorded in `skips.json`, deselected from later milestone gates, and the
+loop advances. After the last milestone, the parity verifier gives each deferred test
+**one retry milestone** — recovering it if possible, or marking it a permanent skip.
+Untranslated behavior surfaces as a parity gap → re-scope. Set
+`[execution].skip_on_give_up = false` for the legacy hard-fail behavior.
+
 **Two validation layers** (faithful to the paper's Part B): fast **unit tests**
 against mocked boundaries *plus* a fixed, authoritative **end-to-end oracle** that
 is never translated or modified. **Milestones are cumulative**: a milestone must

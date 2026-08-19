@@ -26,9 +26,14 @@ def _cmd_run(args) -> int:
         os.environ["CODEWEAVER_MOCK"] = "1"
 
     from . import config as C
-    from .app import build_application
+    from .app import build_application, state_from_existing_pipeline
 
     cfg = C.load(args.config)
+    if args.pipeline_dir:
+        os.environ["CODEWEAVER_PIPELINE_DIR"] = str(args.pipeline_dir)
+        cfg.pipeline_dir = str(args.pipeline_dir)
+    if args.max_parity_rounds is not None:
+        cfg.max_parity_rounds = args.max_parity_rounds
     # let the mock discover the artifact names + pipeline dir
     os.environ.setdefault("CODEWEAVER_PIPELINE_DIR", str(cfg.pipeline_path))
     os.environ["CODEWEAVER_ANALYSIS_ARTIFACT"] = cfg.analysis_artifact
@@ -36,20 +41,58 @@ def _cmd_run(args) -> int:
     os.environ["CODEWEAVER_REPORT_ARTIFACT"] = cfg.report_artifact
     os.environ["CODEWEAVER_MILESTONES_ARTIFACT"] = cfg.milestones_artifact
     os.environ["CODEWEAVER_PARITY_ARTIFACT"] = cfg.parity_artifact
+    os.environ["CODEWEAVER_SKIPS_ARTIFACT"] = cfg.skips_artifact
 
     app_id = args.app_id or f"{cfg.slug}-{uuid.uuid4().hex[:8]}"
     db_path = args.db or cfg.resolved_db_path
-    app = build_application(cfg, app_id, max_iter=args.max_iter, db_path=args.db)
+    max_iter = args.max_iter if args.max_iter is not None else cfg.max_iter
+
+    bootstrap_state = None
+    entrypoint = "analyze"
+    if args.start_milestone:
+        try:
+            bootstrap_state = state_from_existing_pipeline(
+                cfg, args.start_milestone, max_iter=max_iter,
+                max_parity_rounds=cfg.max_parity_rounds)
+        except ValueError as e:
+            print(f"[codeweaver] error: {e}", file=sys.stderr)
+            return 2
+        entrypoint = "select_milestone"
+
+    app = build_application(cfg, app_id, max_iter=max_iter, db_path=args.db,
+                            bootstrap_state=bootstrap_state,
+                            default_entrypoint=entrypoint)
 
     mock_on = os.environ.get("CODEWEAVER_MOCK") == "1"
     print(f"[codeweaver] project={cfg.name} app_id={app_id} mock={mock_on} db={db_path}")
+    if args.start_milestone:
+        if app.state["last_agent"] == "pipeline-bootstrap":
+            print(f"[codeweaver] starting from existing artifacts at {args.start_milestone}; "
+                  "analyze/scope/plan are skipped")
+        else:
+            print(f"[codeweaver] persisted state exists for app_id={app_id}; resuming it "
+                  f"(--start-milestone only initializes a NEW app-id)")
     print(f"[codeweaver] loaded state at startup: milestone_idx={app.state['milestone_idx']} "
-          f"history_len={len(app.state['history'])}  (idx>0 => resumed, not restarted)")
+          f"history_len={len(app.state['history'])}  (idx>0 or history => resumed, not restarted)")
     last_action, _result, final_state = app.run(halt_after=["terminal"])
+    skipped = final_state.get("skipped") or []
     print(f"[codeweaver] finished at {last_action}: done={final_state['done']} "
-          f"milestone_idx={final_state['milestone_idx']}")
+          f"milestone_idx={final_state['milestone_idx']} "
+          f"parity_round={final_state.get('parity_round', 0)} "
+          f"parity_complete={final_state.get('parity_complete', False)} "
+          f"skipped={skipped or '[]'}")
     for h in final_state["history"]:
-        print(f"    {h['milestone']}  iter={h['iter']}  passed={h['passed']}")
+        flag = "  GAVE-UP/SKIPPED" if h.get("gave_up") else ""
+        if h.get("retry_for"):
+            flag += f"  [retry for {h['retry_for']}]"
+        print(f"    {h['milestone']}  iter={h['iter']}  passed={h['passed']}{flag}")
+    if skipped:
+        print(f"[codeweaver] WARNING: {len(skipped)} milestone(s) skipped after exhausting the "
+              f"repair budget: {skipped}. The parity verifier gave deferred tests one retry.")
+    from .actions import _permanent_skips
+    perm = _permanent_skips()
+    if perm:
+        print(f"[codeweaver] PERMANENTLY SKIPPED (failed even after a retry milestone): {perm}")
     return 0 if final_state["done"] else 1
 
 
@@ -83,7 +126,8 @@ def _cmd_check(args) -> int:
     def reset():
         purge = [pipeline / "burr.db",
                  pipeline / ".mock_parity_attempts",
-                 pipeline / cfg.parity_artifact]
+                 pipeline / cfg.parity_artifact,
+                 pipeline / cfg.skips_artifact]
         purge += list(pipeline.glob(".mock_attempts_*"))
         # The milestone matrix is regenerated per run whenever scope is active
         # (auto milestones, or the parity loop that can append to it).
@@ -100,7 +144,8 @@ def _cmd_check(args) -> int:
                 "CODEWEAVER_PLAN_ARTIFACT": cfg.plan_artifact,
                 "CODEWEAVER_REPORT_ARTIFACT": cfg.report_artifact,
                 "CODEWEAVER_MILESTONES_ARTIFACT": cfg.milestones_artifact,
-                "CODEWEAVER_PARITY_ARTIFACT": cfg.parity_artifact}
+                "CODEWEAVER_PARITY_ARTIFACT": cfg.parity_artifact,
+                "CODEWEAVER_SKIPS_ARTIFACT": cfg.skips_artifact}
 
     if cfg.auto_milestones:
         print(f"[check] config declares no milestones -> scope stage will generate them "
@@ -114,7 +159,7 @@ def _cmd_check(args) -> int:
     print(f"\n===== 2) REPAIR LOOP - {first} fails once, then passes =====")
     reset(); _run_pipeline(args.config, "chk-repair", {**base_env, "CODEWEAVER_MOCK_FAIL": f"{first}:1"})
 
-    print(f"\n===== 3) BUDGET EXHAUSTION - {mid_ms} always fails (max-iter 3) -> give up =====")
+    print(f"\n===== 3) SKIP-ON-GIVE-UP - {mid_ms} always fails (max-iter 3) -> skipped, run continues =====")
     reset(); _run_pipeline(args.config, "chk-giveup", {**base_env, "CODEWEAVER_MOCK_FAIL": f"{mid_ms}:99"}, max_iter=3)
 
     print(f"\n===== 4) CRASH-RESUME - crash at {mid_ms}, resume SAME app-id =====")
@@ -127,12 +172,17 @@ def _cmd_check(args) -> int:
         print("\n===== 5) PARITY LOOP - parity incomplete twice, adds milestones, then completes =====")
         reset(); _run_pipeline(args.config, "chk-parity", {**base_env, "CODEWEAVER_MOCK_PARITY_INCOMPLETE": "2"})
 
+        print(f"\n===== 6) DEFERRED-TEST RETRY - {mid_ms} skipped -> parity retry milestone recovers it =====")
+        reset(); _run_pipeline(args.config, "chk-retry", {**base_env, "CODEWEAVER_MOCK_FAIL": f"{mid_ms}:99"}, max_iter=3)
+
     reset()
     print("\nAll orchestrator checks ran. Verify above:")
-    print(f"  1 done=True (all pass)   2 {first} iter1=False then iter2=True   3 done=False (gave up)")
+    print(f"  1 done=True (all pass)   2 {first} iter1=False then iter2=True")
+    print(f"  3 {mid_ms} GAVE-UP/SKIPPED, run continues (skipped=[{mid_ms}])")
     print(f"  4 process-2 'loaded state ... milestone_idx>0' => resumed, not restarted")
     if cfg.parity_check:
         print("  5 two extra milestones appear, then done=True after parity completes")
+        print(f"  6 {mid_ms} skipped -> a 'Retry deferred tests' milestone runs -> done=True")
     return 0
 
 
@@ -211,7 +261,9 @@ validate   = "bash tools/validate.sh {{milestone}}"
 
 [validation]
 # How a milestone's cumulative test list becomes the gate string in `validate`.
-gate_template = '-k "{{tests_or}}"'
+# {{skip_exclude}} deselects tests deferred by skip-on-give-up (see below).
+gate_template = '-k "({{tests_or}}){{skip_exclude}}"'
+skip_exclude_template = ' and not ({{tests_or}})'
 
 [model]
 default = "claude-opus-4.8"
@@ -222,12 +274,17 @@ scoper = "max"
 planner = "max"
 translator = "max"
 validator = "high"
+parity = "max"
 
 [execution]
 max_iter = 5
-# After all milestones pass, a parity verifier compares the source with the
-# translation; if incomplete, the milestone generator schedules the gaps and the
-# loop repeats until parity is verified complete. Set false for legacy behavior.
+# When a milestone exhausts max_iter, SKIP it (record its failing tests in
+# skips.json, deselect them from later gates, advance) instead of hard-failing; the
+# parity verifier gives each deferred test one retry milestone. false = hard fail.
+skip_on_give_up = true
+# After all milestones conclude, a parity verifier compares source vs. translation;
+# if incomplete, the milestone generator schedules the gaps and the loop repeats
+# until parity is verified complete. Set false for legacy finish-on-last-milestone.
 parity_check = true
 max_parity_rounds = 3
 
@@ -277,6 +334,13 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--config", "-c", required=True, help="project config (codeweaver.toml)")
     r.add_argument("--app-id", default=None, help="run id; reuse to resume a crashed run")
     r.add_argument("--max-iter", type=int, default=None, help="repair budget per milestone")
+    r.add_argument("--max-parity-rounds", type=int, default=None,
+                   help="outer-loop budget: max parity re-scope rounds before failing")
+    r.add_argument("--pipeline-dir", default=None,
+                   help="override the pipeline artifact directory")
+    r.add_argument("--start-milestone", default=None, metavar="Mx",
+                   help="start a NEW app-id from an existing pipeline at this milestone "
+                        "(requires analysis/milestones/plan artifacts; skips analyze/scope/plan)")
     r.add_argument("--db", default=None, help="SQLite persistence path override")
     r.add_argument("--mock", action="store_true", help="offline: mock agents (no Copilot)")
     r.set_defaults(func=_cmd_run)

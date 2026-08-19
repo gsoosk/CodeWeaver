@@ -40,19 +40,26 @@ validate   = "bash tools/validate_on_dut.sh {milestone}"
 
 [validation]
 # xcvrd-tests/run.sh runs `pytest <dir> <args>`; select modules with a -k expression.
-gate_template = '-k "{tests_or}"'
+# {skip_exclude} deselects tests deferred by skip-on-give-up (rendered INSIDE the -k).
+gate_template = '-k "({tests_or}){skip_exclude}"'
+skip_exclude_template = ' and not ({tests_or})'
 
 [model]
 default = "claude-opus-4.8"
 effort_default = "high"
 [model.effort]
 analyzer = "max"
+scoper = "max"
 planner = "max"
 translator = "max"
 validator = "high"
+parity = "max"
 
 [execution]
-max_iter = 5
+max_iter = 10
+skip_on_give_up = true
+parity_check = true
+max_parity_rounds = 3
 
 [[milestones]]
 id = "M0"

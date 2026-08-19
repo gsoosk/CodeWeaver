@@ -34,6 +34,7 @@ def _artifact_names() -> dict[str, str]:
         "report": os.environ.get("CODEWEAVER_REPORT_ARTIFACT", "report.json"),
         "milestones": os.environ.get("CODEWEAVER_MILESTONES_ARTIFACT", "milestones.json"),
         "parity": os.environ.get("CODEWEAVER_PARITY_ARTIFACT", "parity.json"),
+        "skips": os.environ.get("CODEWEAVER_SKIPS_ARTIFACT", "skips.json"),
     }
 
 
@@ -146,12 +147,29 @@ def respond(agent_name: str, prompt: str) -> str:
         mid = _extract_milestone(prompt)
         if os.environ.get("CODEWEAVER_CRASH_AT") == mid:
             raise RuntimeError(f"(mock) simulated crash at {mid}")
+        # A "Retry deferred tests" milestone can be forced to keep failing (to
+        # exercise the permanent-skip path) via CODEWEAVER_MOCK_RETRY_FAIL=1.
+        is_retry = "retry deferred tests" in (prompt or "").lower()
+        retry_fail = is_retry and os.environ.get("CODEWEAVER_MOCK_RETRY_FAIL") == "1"
         budget = _fail_budget().get(mid, 0)
         cnt_file = pdir / f".mock_attempts_{mid}"
         attempts = int(cnt_file.read_text()) if cnt_file.exists() else 0
         attempts += 1
         cnt_file.write_text(str(attempts))
-        passed = attempts > budget
+        passed = (attempts > budget) and not retry_fail
+        # On failure, emit an e2e failure carrying a pytest-style node id so the
+        # skip-on-give-up path can record it in skips.json. For a FAILING retry
+        # milestone, report the deferred test ids being retried (read from
+        # skips.json 'retried') so they become PERMANENT skips.
+        fail_tests = [f"test_{mid}.py::test_{mid}"]
+        if is_retry and retry_fail:
+            try:
+                sk = json.loads((pdir / names["skips"]).read_text(encoding="utf-8"))
+                retried = [t for t in sk.get("retried", []) if isinstance(t, str) and t]
+                if retried:
+                    fail_tests = retried
+            except (ValueError, OSError):
+                pass
         report = {
             "milestone": mid,
             "passed": passed,
@@ -160,10 +178,11 @@ def respond(agent_name: str, prompt: str) -> str:
                 "e2e": {"total": 2, "passed": 2 if passed else 1, "failed": 0 if passed else 1},
             },
             "failures": [] if passed else [
-                {"layer": "unit", "test": f"{mid}::mock",
+                {"layer": "e2e", "test": t,
                  "symptom": f"(mock) {mid} attempt {attempts} <= budget {budget}",
                  "likely_cause": "scripted mock failure",
                  "repair_hint": "increment attempt counter"}
+                for t in fail_tests
             ],
         }
         (pdir / names["report"]).write_text(json.dumps(report, indent=2), encoding="utf-8")

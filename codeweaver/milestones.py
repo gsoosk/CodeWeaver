@@ -41,11 +41,17 @@ def cumulative_tests(cfg: Config, mid: str) -> list[str]:
     return tokens
 
 
-def gate_string(cfg: Config, mid: str) -> str:
+def gate_string(cfg: Config, mid: str, skips: list[str] | None = None) -> str:
     """Render the cumulative gate for ``mid`` via ``cfg.gate_template``.
 
-    Placeholders: ``{tests_or}`` (" or "-joined), ``{tests_space}`` (space-joined),
-    ``{tests_csv}`` (comma-joined), ``{marker}`` (this milestone's marker).
+    Placeholders in ``gate_template``: ``{tests_or}`` (" or "-joined),
+    ``{tests_space}`` (space-joined), ``{tests_csv}`` (comma-joined), ``{marker}``
+    (this milestone's marker), and ``{skip_exclude}`` -- the deselection clause for
+    deferred/known-failing tests (skip-on-give-up), rendered from
+    ``cfg.skip_exclude_template``. Put ``{skip_exclude}`` INSIDE the selector so it
+    composes correctly (e.g. pytest ``-k "{tests_or}{skip_exclude}"`` with
+    ``skip_exclude_template = ' and not ({tests_or})'``). When there are no
+    ``skips`` or no ``skip_exclude_template``, ``{skip_exclude}`` renders empty.
     Returns "" when the milestone has no cumulative tests (e.g. a skeleton gate).
     """
     tokens = cumulative_tests(cfg, mid)
@@ -56,6 +62,21 @@ def gate_string(cfg: Config, mid: str) -> str:
         tests_space=" ".join(tokens),
         tests_csv=",".join(tokens),
         marker=by_id(cfg, mid).marker,
+        skip_exclude=skip_exclusion(cfg, skips or []),
+    )
+
+
+def skip_exclusion(cfg: Config, skips: list[str]) -> str:
+    """Render the deselection clause for deferred/known-failing tests from
+    ``cfg.skip_exclude_template`` (placeholders {tests_or}/{tests_space}/{tests_csv}
+    over the SKIP tokens), or "" when there are no skips / no template."""
+    skips = [s for s in (skips or []) if s]
+    if not skips or not cfg.skip_exclude_template:
+        return ""
+    return cfg.skip_exclude_template.format(
+        tests_or=" or ".join(skips),
+        tests_space=" ".join(skips),
+        tests_csv=",".join(skips),
     )
 
 
