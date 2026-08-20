@@ -5,9 +5,12 @@ import argparse
 import sys
 from collections.abc import Callable
 
-from . import evaluate, package, prepare, report
+from . import actor_li, analysis, citation_report, evaluate, package, prepare, report
 
 COMMANDS: dict[str, tuple[str, Callable[[list[str] | None], int]]] = {
+    "analyze": ("derive static Clippy measurements", analysis.main),
+    "actor-li": ("run the ACToR absolute-micro campaign", actor_li.main),
+    "citations": ("build the citation-complete artifact", citation_report.main),
     "prepare": ("prepare leakage-safe benchmark workspaces", prepare.main),
     "evaluate": ("independently evaluate generated translations", evaluate.main),
     "report": ("render the five publication artifacts", report.main),

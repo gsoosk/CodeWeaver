@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import importlib.metadata
 import json
 import math
@@ -23,12 +24,13 @@ from .config import (
     REPOTRANSBENCH_SUBJECTS,
     REPOTRANSBENCH_V1_RESULTS,
     RUSTREPOTRANS_SUBJECTS,
-    RUSTREPOTRANS_TABLE3,
+    RUSTREPOTRANS_RQ1_REFERENCE,
     SACTOR_REFERENCE,
     SACTOR_SUBJECTS,
     UPSTREAM_COMMITS,
     UPSTREAM_REPOSITORIES,
 )
+from .paper_reference_data import PAPER_SURFACES, REFERENCE_TABLES
 
 RESULT_NAMES = {
     "crust": "crust-bench-codeweaver-comparison-2026-08-14",
@@ -36,6 +38,7 @@ RESULT_NAMES = {
     "sactor": "sactor-codeweaver-comparison-2026-08-14",
     "repotransbench": "repotransbench-codeweaver-comparison-2026-08-14",
     "rustrepotrans": "rustrepotrans-codeweaver-comparison-2026-08-14",
+    "citations": "crust-citation-complete-codeweaver-2026-08-18",
 }
 
 PAPER_METADATA = {
@@ -63,6 +66,11 @@ PAPER_METADATA = {
         "title": "RustRepoTrans",
         "paper_url": "https://arxiv.org/abs/2411.13990",
         "paper_id": "arXiv:2411.13990",
+    },
+    "citations": {
+        "title": "the complete CRUST-Bench citation corpus",
+        "paper_url": "https://arxiv.org/abs/2504.15254",
+        "paper_id": "30-record citation census as of 2026-08-18",
     },
 }
 
@@ -98,6 +106,341 @@ def _mean_sd(values: list[float]) -> tuple[float, float, float]:
     multiplier = 4.303 if len(values) == 3 else 1.96
     ci = multiplier * sd / math.sqrt(len(values)) if len(values) > 1 else 0.0
     return mean, sd, ci
+
+
+def _fieldnames(rows: list[dict[str, Any]]) -> list[str]:
+    fields: list[str] = []
+    for row in rows:
+        for field in row:
+            if field not in fields:
+                fields.append(field)
+    return fields
+
+
+def _tree_identity(root: Path) -> tuple[str, int]:
+    digest = hashlib.sha256()
+    files = sorted(path for path in root.rglob("*") if path.is_file())
+    for path in files:
+        relative = path.relative_to(root).as_posix().encode("utf-8")
+        digest.update(len(relative).to_bytes(8, "big"))
+        digest.update(relative)
+        with path.open("rb") as handle:
+            for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                digest.update(chunk)
+    return digest.hexdigest(), len(files)
+
+
+def _write_paper_reference_bundle(root: Path, key: str) -> list[dict[str, str]]:
+    surfaces = PAPER_SURFACES[key]
+    C.write_csv(
+        root / "data" / "paper_surface_inventory.csv",
+        surfaces,
+        ["surface", "caption", "denominator", "metrics", "artifact_status"],
+    )
+    for filename, rows in REFERENCE_TABLES[key].items():
+        C.write_csv(
+            root / "data" / "paper-reference" / filename,
+            rows,
+            _fieldnames(rows),
+        )
+    return surfaces
+
+
+TELEMETRY_STATUS_FIELDS = {
+    "elapsed_seconds": "elapsed_seconds_status",
+    "total_input_tokens": "input_tokens_status",
+    "total_output_tokens": "output_tokens_status",
+    "total_nano_aiu": "nano_aiu_status",
+}
+
+
+def _measured_numbers(rows: list[dict[str, Any]], field: str) -> list[float]:
+    status_field = TELEMETRY_STATUS_FIELDS.get(field, f"{field}_status")
+    return [
+        float(row[field])
+        for row in rows
+        if row.get(field) not in ("", None)
+        and row.get(status_field, "measured") == "measured"
+    ]
+
+
+def _availability(measured: int, total: int) -> str:
+    if measured == total:
+        return "measured"
+    if measured:
+        return "partial"
+    return "unavailable"
+
+
+def _telemetry_summaries(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    summaries: list[dict[str, Any]] = []
+    repetitions = sorted({int(row["repetition"]) for row in rows})
+    selections = [
+        (f"repetition_{repetition + 1}", [
+            row for row in rows if int(row["repetition"]) == repetition
+        ])
+        for repetition in repetitions
+    ]
+    selections.append(("all_measured_cells", rows))
+    for label, selected in selections:
+        elapsed = _measured_numbers(selected, "elapsed_seconds")
+        output_tokens = _measured_numbers(selected, "total_output_tokens")
+        nano_aiu = _measured_numbers(selected, "total_nano_aiu")
+        input_tokens = _measured_numbers(selected, "total_input_tokens")
+        premium_requests = [
+            _number(row, "total_premium_requests")
+            for row in selected
+            if row.get("total_premium_requests") not in ("", None)
+        ]
+        assistant_turns = [
+            _number(row, "total_assistant_turns")
+            for row in selected
+            if row.get("total_assistant_turns") not in ("", None)
+        ]
+        tool_invocations = [
+            _number(row, "total_tool_invocations")
+            for row in selected
+            if row.get("total_tool_invocations") not in ("", None)
+            and row.get("tool_invocations_precision") == "exact"
+        ]
+        summaries.append(
+            {
+                "scope": label,
+                "cells": len(selected),
+                "elapsed_hours": sum(elapsed) / 3600 if elapsed else None,
+                "elapsed_measured_cells": len(elapsed),
+                "elapsed_status": _availability(len(elapsed), len(selected)),
+                "mean_elapsed_minutes": (
+                    statistics.mean(elapsed) / 60 if elapsed else None
+                ),
+                "assistant_turns": (
+                    sum(assistant_turns) if assistant_turns else None
+                ),
+                "assistant_turn_measured_cells": len(assistant_turns),
+                "assistant_turn_status": _availability(
+                    len(assistant_turns), len(selected)
+                ),
+                "tool_invocations": (
+                    sum(tool_invocations) if tool_invocations else None
+                ),
+                "tool_invocation_exact_cells": len(tool_invocations),
+                "tool_invocation_status": _availability(
+                    len(tool_invocations), len(selected)
+                ),
+                "premium_requests": (
+                    sum(premium_requests) if premium_requests else None
+                ),
+                "premium_request_measured_cells": len(premium_requests),
+                "premium_request_status": _availability(
+                    len(premium_requests), len(selected)
+                ),
+                "aiu": sum(nano_aiu) / 1_000_000_000 if nano_aiu else None,
+                "aiu_measured_cells": len(nano_aiu),
+                "aiu_status": _availability(len(nano_aiu), len(selected)),
+                "output_tokens": int(sum(output_tokens)) if output_tokens else None,
+                "output_token_measured_cells": len(output_tokens),
+                "output_token_status": _availability(
+                    len(output_tokens), len(selected)
+                ),
+                "input_tokens": int(sum(input_tokens)) if input_tokens else None,
+                "input_token_status": (
+                    _availability(len(input_tokens), len(selected))
+                ),
+                "input_token_measured_cells": len(input_tokens),
+            }
+        )
+    return summaries
+
+
+def _coverage_summaries(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result: list[dict[str, Any]] = []
+    fields = (
+        "coverage_before",
+        "coverage_after",
+        "standardized_coverage_before",
+        "standardized_coverage_after",
+    )
+    for repetition in sorted({int(row["repetition"]) for row in rows}):
+        selected = [
+            row for row in rows if int(row["repetition"]) == repetition
+        ]
+        for field in fields:
+            values = _measured_numbers(selected, field)
+            if values:
+                result.append(
+                    {
+                        "repetition": repetition + 1,
+                        "metric": field,
+                        "measured_cells": len(values),
+                        "mean_percent": statistics.mean(values),
+                        "minimum_percent": min(values),
+                        "maximum_percent": max(values),
+                    }
+                )
+    return result
+
+
+def _write_derived_telemetry(
+    root: Path, rows: list[dict[str, Any]]
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    telemetry = _telemetry_summaries(rows)
+    coverage = _coverage_summaries(rows)
+    C.write_csv(
+        root / "data" / "codeweaver_telemetry.csv",
+        telemetry,
+        _fieldnames(telemetry),
+    )
+    C.write_csv(
+        root / "data" / "codeweaver_coverage.csv",
+        coverage,
+        _fieldnames(coverage),
+    )
+    return telemetry, coverage
+
+
+def _telemetry_display(rows: list[dict[str, Any]]) -> list[list[Any]]:
+    def display(
+        value: Any,
+        status: str,
+        *,
+        digits: int | None = None,
+    ) -> str:
+        if value is None:
+            return f"N/A ({status})"
+        rendered = f"{float(value):.{digits}f}" if digits is not None else str(value)
+        return rendered if status == "measured" else f"{rendered} ({status})"
+
+    return [
+        [
+            row["scope"].replace("_", " "),
+            row["cells"],
+            display(row["elapsed_hours"], row["elapsed_status"], digits=2),
+            display(row["assistant_turns"], row["assistant_turn_status"]),
+            display(row["tool_invocations"], row["tool_invocation_status"]),
+            display(row["premium_requests"], row["premium_request_status"]),
+            display(row["aiu"], row["aiu_status"], digits=2),
+            display(row["output_tokens"], row["output_token_status"]),
+            display(row["input_tokens"], row["input_token_status"]),
+        ]
+        for row in rows
+    ]
+
+
+def _coverage_display(rows: list[dict[str, Any]]) -> list[list[Any]]:
+    return [
+        [
+            row["repetition"],
+            row["metric"],
+            row["measured_cells"],
+            f"{row['mean_percent']:.2f}%",
+            f"{row['minimum_percent']:.2f}%",
+            f"{row['maximum_percent']:.2f}%",
+        ]
+        for row in rows
+    ]
+
+
+def _attach_clippy(
+    root: Path,
+    rows: list[dict[str, str]] | None,
+    *,
+    project_ids: set[str] | None = None,
+) -> tuple[list[dict[str, Any]], list[list[Any]]]:
+    if rows is None:
+        return [], []
+    selected = [
+        row
+        for row in rows
+        if project_ids is None or row["project_id"] in project_ids
+    ]
+    sanitized_fields = [
+        "project_id",
+        "repetition",
+        "status",
+        "returncode",
+        "timed_out",
+        "target_function_count",
+        "warnings",
+        "errors",
+        "lint_alerts",
+        "lint_alerts_per_function",
+        "diagnostic_codes_json",
+    ]
+    C.write_csv(
+        root / "data" / "codeweaver_clippy.csv",
+        selected,
+        sanitized_fields,
+    )
+    summaries: list[dict[str, Any]] = []
+    for repetition in sorted({int(row["repetition"]) for row in selected}):
+        repetition_rows = [
+            row
+            for row in selected
+            if int(row["repetition"]) == repetition
+        ]
+        measured = [
+            row
+            for row in repetition_rows
+            if row.get("status") == "measured"
+        ]
+        incomplete = [
+            row for row in repetition_rows if row.get("status") != "measured"
+        ]
+        functions = sum(_number(row, "target_function_count") for row in measured)
+        alerts = sum(_number(row, "lint_alerts") for row in measured)
+        summaries.append(
+            {
+                "repetition": repetition + 1,
+                "complete_cells": len(measured),
+                "incomplete_cells": len(incomplete),
+                "warning_free_cells": sum(
+                    _number(row, "warnings") == 0
+                    and _number(row, "errors") == 0
+                    for row in measured
+                ),
+                "warnings": sum(_number(row, "warnings") for row in measured),
+                "errors": sum(_number(row, "errors") for row in measured),
+                "excluded_incomplete_warnings": sum(
+                    _number(row, "warnings") for row in incomplete
+                ),
+                "excluded_incomplete_errors": sum(
+                    _number(row, "errors") for row in incomplete
+                ),
+                "mean_alerts_per_project": (
+                    statistics.mean(_number(row, "lint_alerts") for row in measured)
+                    if measured
+                    else None
+                ),
+                "alerts_per_function": alerts / functions if functions else None,
+            }
+        )
+    C.write_csv(
+        root / "data" / "codeweaver_clippy_summary.csv",
+        summaries,
+        _fieldnames(summaries),
+    )
+    display = [
+        [
+            row["repetition"],
+            row["complete_cells"],
+            row["incomplete_cells"],
+            row["warning_free_cells"],
+            row["warnings"],
+            row["errors"],
+            (
+                f"{row['mean_alerts_per_project']:.2f}"
+                if row["mean_alerts_per_project"] is not None
+                else "N/A"
+            ),
+            (
+                f"{row['alerts_per_function']:.3f}"
+                if row["alerts_per_function"] is not None
+                else "N/A"
+            ),
+        ]
+        for row in summaries
+    ]
+    return summaries, display
 
 
 def _markdown_table(headers: list[str], rows: list[list[Any]]) -> str:
@@ -335,12 +678,74 @@ def _write_report_files(
     availability: list[dict[str, Any]],
 ) -> None:
     metadata = PAPER_METADATA[key]
+    tables = list(tables)
+    if key in PAPER_SURFACES:
+        surfaces = _write_paper_reference_bundle(root, key)
+        tables.append(
+            (
+                "Complete source-paper surface audit",
+                ["Surface", "Denominator", "Metrics", "Artifact status"],
+                [
+                    [
+                        row["surface"],
+                        row["denominator"],
+                        row["metrics"],
+                        row["artifact_status"],
+                    ]
+                    for row in surfaces
+                ],
+            )
+        )
     repository_root = Path(__file__).resolve().parents[2]
+    worktree_status = C.git_output(
+        repository_root,
+        "-c",
+        "core.autocrlf=true",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all",
+        "--",
+        "agents",
+        "codeweaver",
+        "experiments/recodeagent",
+        "experiments/related_papers",
+        "tests/experiments/test_related_papers.py",
+        "LICENSE",
+        "README.md",
+        "pyproject.toml",
+    )
+    tracked_patch = C.git_output(
+        repository_root,
+        "-c",
+        "core.autocrlf=true",
+        "diff",
+        "--binary",
+        "HEAD",
+        "--",
+        "agents",
+        "codeweaver",
+        "experiments/recodeagent",
+        "experiments/related_papers",
+        "tests/experiments/test_related_papers.py",
+        "LICENSE",
+        "README.md",
+        "pyproject.toml",
+    )
     provenance = {
         **provenance,
         "codeweaver_source": {
             "repository": "https://github.com/gsoosk/CodeWeaver",
-            "git_commit": C.git_output(repository_root, "rev-parse", "HEAD"),
+            "base_git_commit": C.git_output(
+                repository_root, "rev-parse", "HEAD"
+            ),
+            "source_worktree_clean": not bool(worktree_status),
+            "source_worktree_entry_count": len(worktree_status.splitlines()),
+            "source_worktree_status_sha256": C.sha256_text(worktree_status),
+            "tracked_source_patch_sha256": C.sha256_text(tracked_patch),
+            "identity_policy": (
+                "the reproduction snapshot tree hash identifies the exact "
+                "evaluated harness; the Git commit is its base revision"
+            ),
         },
     }
     if key in {"crust", "alphatrans", "sactor"}:
@@ -376,6 +781,8 @@ def _write_report_files(
         "## Artifact map",
         "",
         "- `data/`: normalized measurements and paper reference values.",
+        "- `data/paper-reference/`: structured references for omitted source-paper tables.",
+        "- `data/paper_surface_inventory.csv`: every source-paper evaluation surface and status.",
         "- `report/comparison.pdf`: human-readable result paper.",
         "- `report/figure.pdf` and `report/figure.svg`: publication figure.",
         "- `metadata/`: provenance, availability, and checksums.",
@@ -420,7 +827,6 @@ def _write_report_files(
         categories=categories,
         series=series,
     )
-    C.atomic_write_json(root / "metadata" / "source_provenance.json", provenance)
     try:
         reportlab_version = importlib.metadata.version("reportlab")
     except importlib.metadata.PackageNotFoundError:
@@ -484,6 +890,15 @@ finally { $out.Dispose() }
 tar -xzf full.tar.gz
 ```
 """
+    elif key == "citations":
+        raw_archive_note = r"""
+The `paper-profiles/` directory contains one PDF/Markdown evidence profile and
+complete empirical-surface inventory for each included work. When the ACToR
+campaign is supplied, `data/actor-li/` contains all normalized measurements,
+generated candidates, post-run public oracle snapshots, and qualification
+logs; `raw-run-archives/` contains filtered run states and agent trajectories.
+Benchmark inputs are excluded from model-readable workspaces during execution.
+"""
     readme = f"""\
 # {title}
 
@@ -535,6 +950,14 @@ sha256sum -c metadata/checksums.sha256
         "External benchmark repositories and licensed contracts are acquired "
         "separately and verified by commit/hash.\n",
     )
+    snapshot_sha256, snapshot_files = _tree_identity(snapshot)
+    provenance["codeweaver_source"].update(
+        {
+            "snapshot_tree_sha256": snapshot_sha256,
+            "snapshot_files": snapshot_files,
+        }
+    )
+    C.atomic_write_json(root / "metadata" / "source_provenance.json", provenance)
     codeweaver_license = repository_root / "LICENSE"
     if not codeweaver_license.is_file():
         raise FileNotFoundError(f"CodeWeaver license missing: {codeweaver_license}")
@@ -589,7 +1012,16 @@ def _rep_summaries(rows: list[dict[str, str]], expected_key: str) -> list[dict[s
     for repetition in range(3):
         selected = [row for row in rows if int(row["repetition"]) == repetition]
         expected = sum(_number(row, expected_key) for row in selected)
-        passed = sum(_number(row, "validated_tests_passed") for row in selected)
+        observed_passed = sum(
+            _number(row, "validated_tests_passed") for row in selected
+        )
+        passed = sum(
+            min(
+                _number(row, "validated_tests_passed"),
+                _number(row, expected_key),
+            )
+            for row in selected
+        )
         summaries.append(
             {
                 "repetition": repetition + 1,
@@ -597,6 +1029,7 @@ def _rep_summaries(rows: list[dict[str, str]], expected_key: str) -> list[dict[s
                 "builds": sum(_bool(row.get("build")) for row in selected),
                 "pass_all": sum(_bool(row.get("project_pass_all")) for row in selected),
                 "tests_passed": passed,
+                "tests_observed_passed": observed_passed,
                 "tests_expected": expected,
                 "test_rate_percent": 100.0 * passed / expected if expected else None,
             }
@@ -608,6 +1041,7 @@ def build_crust(
     output_root: Path,
     raw_rows: list[dict[str, str]],
     manifest: dict[str, Any],
+    clippy_rows: list[dict[str, str]] | None = None,
 ) -> Path:
     root = output_root / RESULT_NAMES["crust"]
     rows = _historical_rows(raw_rows, "crust")
@@ -708,6 +1142,8 @@ def build_crust(
             "confidence_interval_95_pp": ci,
         },
     )
+    telemetry, coverage = _write_derived_telemetry(root, rows)
+    _, clippy_display = _attach_clippy(root, clippy_rows)
     abstract = (
         f"On all 100 exact CRUST-Bench subjects, 300/300 CodeWeaver cells "
         f"compiled and {sum(row['pass_all'] for row in summaries)}/300 passed "
@@ -735,7 +1171,44 @@ def build_crust(
     tables = [
         ("Exact CodeWeaver measurements", exact_headers, exact_rows),
         ("Published CRUST-Bench Table 4", paper_headers, paper_rows),
+        (
+            "CodeWeaver execution and model-use telemetry",
+            [
+                "Scope",
+                "Cells",
+                "Elapsed h",
+                "Assistant turns",
+                "Tool calls",
+                "Premium requests",
+                "AIU",
+                "Output tokens",
+                "Input tokens",
+            ],
+            _telemetry_display(telemetry),
+        ),
+        (
+            "CodeWeaver coverage measurements",
+            ["Rep", "Metric", "Cells", "Mean", "Min", "Max"],
+            _coverage_display(coverage),
+        ),
     ]
+    if clippy_display:
+        tables.append(
+            (
+                "CodeWeaver final-output Clippy measurements",
+                [
+                    "Rep",
+                    "Complete",
+                    "Incomplete",
+                    "Warning-free",
+                    "Warnings",
+                    "Errors",
+                    "Alerts/project",
+                    "Alerts/function",
+                ],
+                clippy_display,
+            )
+        )
     _write_report_files(
         root,
         key="crust",
@@ -880,6 +1353,7 @@ def build_alphatrans(output_root: Path, raw_rows: list[dict[str, str]]) -> Path:
             "fixed_runtime_cases_expected": total_expected,
         },
     )
+    telemetry, coverage = _write_derived_telemetry(root, rows)
     abstract = (
         "Four of AlphaTrans's ten exact Java projects were already measured in "
         "the published CodeWeaver matrix. All 12 translations compiled; none "
@@ -913,6 +1387,26 @@ def build_alphatrans(output_root: Path, raw_rows: list[dict[str, str]]) -> Path:
             "CodeWeaver repetitions",
             ["Rep", "Build", "Pass all", "Fixed tests", "Test rate"],
             rep_rows,
+        ),
+        (
+            "CodeWeaver execution and model-use telemetry",
+            [
+                "Scope",
+                "Cells",
+                "Elapsed h",
+                "Assistant turns",
+                "Tool calls",
+                "Premium requests",
+                "AIU",
+                "Output tokens",
+                "Input tokens",
+            ],
+            _telemetry_display(telemetry),
+        ),
+        (
+            "CodeWeaver standardized coverage measurements",
+            ["Rep", "Metric", "Cells", "Mean", "Min", "Max"],
+            _coverage_display(coverage),
         ),
     ]
     _write_report_files(
@@ -1012,6 +1506,7 @@ def build_sactor(
     output_root: Path,
     raw_rows: list[dict[str, str]],
     historical_runs_root: Path,
+    clippy_rows: list[dict[str, str]] | None = None,
 ) -> Path:
     root = output_root / RESULT_NAMES["sactor"]
     ids = {f"crust__{subject}" for subject in SACTOR_SUBJECTS}
@@ -1085,6 +1580,8 @@ def build_sactor(
             ),
         },
     )
+    telemetry, coverage = _write_derived_telemetry(root, rows)
+    _, clippy_display = _attach_clippy(root, clippy_rows, project_ids=ids)
     abstract = (
         "SACTOR's Appendix Table 14 identifies an exact 50-project CRUST-Bench "
         "subset, enabling an exact-subject CodeWeaver re-analysis. All 150 "
@@ -1117,11 +1614,48 @@ def build_sactor(
             display_rows,
         ),
         (
-            "SACTOR Table 2 comparison boundary",
+            "SACTOR v3 CRUST-Bench function-level comparison boundary",
             ["System", "Unit", "Function success", "Complete samples", "Unsafe-free", "Note"],
             reference_rows,
         ),
+        (
+            "CodeWeaver execution and model-use telemetry",
+            [
+                "Scope",
+                "Cells",
+                "Elapsed h",
+                "Assistant turns",
+                "Tool calls",
+                "Premium requests",
+                "AIU",
+                "Output tokens",
+                "Input tokens",
+            ],
+            _telemetry_display(telemetry),
+        ),
+        (
+            "CodeWeaver coverage measurements",
+            ["Rep", "Metric", "Cells", "Mean", "Min", "Max"],
+            _coverage_display(coverage),
+        ),
     ]
+    if clippy_display:
+        tables.append(
+            (
+                "CodeWeaver final-output Clippy comparison",
+                [
+                    "Rep",
+                    "Complete",
+                    "Incomplete",
+                    "Warning-free",
+                    "Warnings",
+                    "Errors",
+                    "Alerts/project",
+                    "Alerts/function",
+                ],
+                clippy_display,
+            )
+        )
     _write_report_files(
         root,
         key="sactor",
@@ -1549,7 +2083,22 @@ def build_rustrepotrans(output_root: Path, campaign_root: Path) -> Path:
     ]
     paper_rows = [
         [row["model"], _percent(row["pass_at_1"]), _percent(row["dsr_at_1"])]
-        for row in RUSTREPOTRANS_TABLE3
+        for row in RUSTREPOTRANS_RQ1_REFERENCE
+    ]
+    artifact_reference_rows = [
+        {
+            **row,
+            "source_kind": "released artifact RQ1 aggregation",
+            "source_url": (
+                "https://github.com/SYSUSELab/RustRepoTrans/tree/"
+                f"{UPSTREAM_COMMITS['rustrepotrans']}/results/rq1"
+            ),
+            "paper_mapping": (
+                "main RQ1 figure; Figure 5 in the cached 2026 paper revision "
+                "and Figure 4 in arXiv v4"
+            ),
+        }
+        for row in RUSTREPOTRANS_RQ1_REFERENCE
     ]
     subject_rows: list[list[Any]] = []
     for subject in RUSTREPOTRANS_SUBJECTS:
@@ -1577,10 +2126,13 @@ def build_rustrepotrans(output_root: Path, campaign_root: Path) -> Path:
         summaries,
         list(summaries[0]),
     )
+    obsolete_reference = root / "data" / "paper_table3.csv"
+    if obsolete_reference.is_file():
+        obsolete_reference.unlink()
     C.write_csv(
-        root / "data" / "paper_table3.csv",
-        RUSTREPOTRANS_TABLE3,
-        list(RUSTREPOTRANS_TABLE3[0]),
+        root / "data" / "artifact_rq1_main_results.csv",
+        artifact_reference_rows,
+        _fieldnames(artifact_reference_rows),
     )
     C.write_csv(
         root / "data" / "subject_lock.csv",
@@ -1687,7 +2239,7 @@ def build_rustrepotrans(output_root: Path, campaign_root: Path) -> Path:
             subject_rows,
         ),
         (
-            "Published full-benchmark references",
+            "Released artifact RQ1 / paper main-figure references",
             ["Model", "Pass@1", "DSR@1"],
             paper_rows,
         ),
@@ -1726,6 +2278,10 @@ def build_rustrepotrans(output_root: Path, campaign_root: Path) -> Path:
             "paper": PAPER_METADATA["rustrepotrans"],
             "artifact_repository": UPSTREAM_REPOSITORIES["rustrepotrans"],
             "artifact_commit": UPSTREAM_COMMITS["rustrepotrans"],
+            "reference_source": (
+                "released results/rq1 aggregation at the pinned artifact commit; "
+                "not paper Table 3"
+            ),
             "protocol": PROTOCOL,
             "golden_target_policy": "hash then exclude before model access",
             "toolchain_note": (
@@ -1771,13 +2327,20 @@ def build_all(
     historical_runs_root: Path,
     campaign_root: Path,
     output_root: Path,
+    clippy_csv: Path | None = None,
 ) -> list[Path]:
     raw_rows = _load_csv(historical_raw)
     manifest = C.read_json(historical_manifest)
+    clippy_rows = _load_csv(clippy_csv) if clippy_csv is not None else None
     roots = [
-        build_crust(output_root, raw_rows, manifest),
+        build_crust(output_root, raw_rows, manifest, clippy_rows),
         build_alphatrans(output_root, raw_rows),
-        build_sactor(output_root, raw_rows, historical_runs_root),
+        build_sactor(
+            output_root,
+            raw_rows,
+            historical_runs_root,
+            clippy_rows,
+        ),
         build_repotransbench(output_root, campaign_root / "repotransbench"),
         build_rustrepotrans(output_root, campaign_root / "rustrepotrans"),
     ]
@@ -1791,6 +2354,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--historical-runs-root", required=True)
     parser.add_argument("--campaign-root", required=True)
     parser.add_argument("--output-root", required=True)
+    parser.add_argument("--clippy-csv")
     return parser
 
 
@@ -1802,6 +2366,7 @@ def main(argv: list[str] | None = None) -> int:
         historical_runs_root=Path(args.historical_runs_root),
         campaign_root=Path(args.campaign_root),
         output_root=Path(args.output_root),
+        clippy_csv=Path(args.clippy_csv) if args.clippy_csv else None,
     )
     print("\n".join(str(root) for root in roots))
     return 0
