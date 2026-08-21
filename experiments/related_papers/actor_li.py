@@ -26,7 +26,16 @@ from .evaluate import _mask_rust
 ARTIFACT_COMMIT = "7427da3d3dfb3c0985aafe86df87f815fa3f08d1"
 TERMINAL_STATUSES = {"completed", "failed", "timeout"}
 CAMPAIGN_SEAL = "campaign-seal.json"
-CANDIDATE_EXCLUDED_DIRS = {"target", "seed_oracle", ".git"}
+CANDIDATE_EXCLUDED_DIRS = {
+    ".cargo",
+    ".git",
+    "debug",
+    "release",
+    "seed_oracle",
+    "target",
+    "tmp",
+}
+CANDIDATE_EXCLUDED_FILES = {".rustc_info.json", "CACHEDIR.TAG"}
 CANDIDATE_NATIVE_SUFFIXES = {
     ".a",
     ".c",
@@ -702,11 +711,15 @@ def _candidate_payload_files(candidate: Path) -> list[Path]:
         directory = pending.pop()
         for path in sorted(directory.iterdir(), reverse=True):
             relative = path.relative_to(candidate)
+            if directory == candidate and (
+                path.name in CANDIDATE_EXCLUDED_DIRS
+                or path.name in CANDIDATE_EXCLUDED_FILES
+            ):
+                continue
             if path.is_symlink():
                 raise ValueError(f"candidate symlink rejected: {relative}")
             if path.is_dir():
-                if path.name not in CANDIDATE_EXCLUDED_DIRS:
-                    pending.append(path)
+                pending.append(path)
                 continue
             if not path.is_file():
                 raise ValueError(f"candidate special file rejected: {relative}")

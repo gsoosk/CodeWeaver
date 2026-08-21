@@ -243,14 +243,18 @@ def test_actor_li_candidate_copy_rejects_links_native_code_and_delegation(
     candidate = run / "pipeline" / "target"
     _write(candidate / "Cargo.toml", "[package]\nname='candidate'\nversion='0.1.0'\n")
     _write(candidate / "src" / "main.rs", "fn main() {}\n")
+    _write(candidate / ".cargo" / "config.toml", "[build]\ntarget-dir='.'\n")
     _write(candidate / "seed_oracle" / "subject.c", "int main(void) { return 0; }\n")
     _write(candidate / "target" / "release" / "subject", "binary\n")
+    (candidate / "release").symlink_to("target/release", target_is_directory=True)
     actor_li._validate_candidate_root(candidate, run)
     copied = tmp_path / "copied"
     actor_li._copy_candidate_payload(candidate, copied)
     assert (copied / "src" / "main.rs").is_file()
     assert not (copied / "seed_oracle").exists()
     assert not (copied / "target").exists()
+    assert not (copied / "release").exists()
+    assert not (copied / ".cargo").exists()
 
     _write(
         candidate / "src" / "main.rs",
