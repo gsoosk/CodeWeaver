@@ -866,7 +866,7 @@ def _copy_actor_li_evidence(
             runs_root,
             root / "raw-run-archives" / "actor-li.tar.gz",
             prefix="actor-li-runs",
-            max_part_bytes=90_000_000,
+            max_part_bytes=45_000_000,
             predicate=_related_run_file,
         )
         verify_archive(archive_inventory, "filtered run")
@@ -882,7 +882,7 @@ def _copy_actor_li_evidence(
                 / "infrastructure-failure-archives"
                 / "actor-li-pre-model.tar.gz",
                 prefix="actor-li-infrastructure-failures",
-                max_part_bytes=90_000_000,
+                max_part_bytes=45_000_000,
                 predicate=_related_run_file,
             )
             verify_archive(infrastructure_archive, "infrastructure-failure")
