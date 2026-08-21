@@ -940,14 +940,59 @@ def _write_paper_profiles(
     lac2r: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
     evidence_by_study = {row["study"].lower(): row for row in evidence}
+    actor_li_profile_rows = [
+        {
+            "subject": row["subject"],
+            "cells": row["cells"],
+            "build": f"{row['build_cells']}/{row['cells']}",
+            "pass_all": f"{row['pass_all_cells']}/{row['cells']}",
+            "safe_pass_all": (
+                f"{row['safe_pass_all_cells']}/{row['cells']}"
+            ),
+            "hidden_tests": (
+                f"{row['tests_passed']}/{row['tests_expected']}"
+            ),
+            "test_rate_percent": f"{float(row['test_rate_percent']):.2f}%",
+        }
+        for row in actor_li_aggregate
+    ]
+    actor_li_profile_telemetry = [
+        {
+            "subject": row["subject"],
+            "elapsed_hours": (
+                f"{float(row['elapsed_seconds']) / 3600:.2f}"
+                if row.get("elapsed_seconds") not in ("", None)
+                else "unavailable"
+            ),
+            "aiu": (
+                f"{float(row['nano_aiu']) / 1_000_000_000:.3f}"
+                if row.get("nano_aiu") not in ("", None)
+                else "unavailable"
+            ),
+            "premium_requests": (
+                row["premium_requests"]
+                if row.get("premium_requests") not in ("", None)
+                else "unavailable"
+            ),
+            "output_tokens": (
+                row["output_tokens"]
+                if row.get("output_tokens") not in ("", None)
+                else f"unavailable ({row.get('output_tokens_status', 'unknown')})"
+            ),
+        }
+        for row in actor_li_aggregate
+    ]
     extra: dict[str, list[tuple[str, list[dict[str, Any]]]]] = {
         "orbit": [("CodeWeaver exact 24-project summary", orbit_summary)],
         "actor-schesch-ernst": [
             ("CodeWeaver public-artifact 95-project overlap", actor_public_summary)
         ],
         "actor-li": (
-            [("CodeWeaver six-program hidden-oracle result", actor_li_aggregate)]
-            if actor_li_aggregate
+            [
+                ("CodeWeaver six-program hidden-oracle result", actor_li_profile_rows),
+                ("CodeWeaver execution telemetry", actor_li_profile_telemetry),
+            ]
+            if actor_li_profile_rows
             else []
         ),
         "lac2r": [("CodeWeaver name-overlap audit", lac2r)],
@@ -995,12 +1040,14 @@ def _write_paper_profiles(
             ),
             None,
         )
+        reason = inclusion["reason"]
+        reason_sentence = reason[:1].upper() + reason[1:]
         abstract = (
             f"This profile audits every empirical surface identified for "
             f"{inclusion['title']} and records the maximum scientifically "
             "defensible CodeWeaver comparison. "
             f"Status: {inclusion['codeweaver_status']}. "
-            f"{inclusion['reason']}."
+            f"{reason_sentence}."
         )
         sections = [
             (
