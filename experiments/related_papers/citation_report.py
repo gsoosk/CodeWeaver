@@ -1435,7 +1435,7 @@ def build(
         (
             "Census method",
             "The primary citation graph was Semantic Scholar's complete 30-record "
-            "edge list as of 18 August 2026, cross-checked against OpenAlex, arXiv, "
+            f"edge list as of {CENSUS_DATE}, cross-checked against OpenAlex, arXiv, "
             "publisher pages, and artifact repositories. InariRoll was resolved as "
             "a Hayroll duplicate, and two title variants were resolved as one "
             "Schesch/Ernst ACTOR paper.",
@@ -1571,6 +1571,11 @@ def build(
             "citation_source": (
                 "Semantic Scholar graph API for arXiv:2504.15254; "
                 "30 records reconciled with primary papers and artifacts"
+            ),
+            "citation_api_url": (
+                "https://api.semanticscholar.org/graph/v1/paper/"
+                "ARXIV:2504.15254/citations?limit=100&fields="
+                "paperId,title,year,externalIds,url"
             ),
             "historical_raw": str(historical_raw),
             "historical_raw_sha256": C.sha256_file(historical_raw),
