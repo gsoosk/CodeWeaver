@@ -528,6 +528,55 @@ def test_actor_li_publication_recomputes_evidence_and_rejects_tampering(
         citation_report._validate_actor_li_evaluation(evaluation)
 
 
+def test_actor_profile_does_not_conflate_sactor_evidence(tmp_path, monkeypatch):
+    def fake_pdf(path, **_kwargs):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"%PDF-1.4\n%%EOF\n")
+
+    monkeypatch.setattr(citation_report, "_render_pdf", fake_pdf)
+    citation_report._write_paper_profiles(
+        tmp_path,
+        evidence=[
+            {
+                "study": "SACTOR exact subset",
+                "headline": "150/150 build; 92/150 pass all",
+                "result_path": (
+                    "results/sactor-codeweaver-comparison-2026-08-14"
+                ),
+            }
+        ],
+        orbit_summary=[],
+        actor_public_summary=[],
+        actor_li_aggregate=[
+            {
+                "subject": "ALL",
+                "cells": 18,
+                "build_cells": 18,
+                "pass_all_cells": 14,
+                "safe_pass_all_cells": 14,
+                "tests_passed": 1362,
+                "tests_expected": 1476,
+                "test_rate_percent": 92.276,
+                "elapsed_seconds": 82_872.5,
+                "nano_aiu": 19_765_291_250_000,
+                "premium_requests": 337,
+                "output_tokens": "",
+                "output_tokens_status": "unavailable",
+            }
+        ],
+        lac2r=[],
+    )
+    actor = (
+        tmp_path / "paper-profiles" / "actor-li" / "comparison.md"
+    ).read_text(encoding="utf-8")
+    sactor = (
+        tmp_path / "paper-profiles" / "sactor" / "comparison.md"
+    ).read_text(encoding="utf-8")
+    assert "18/18 build; 14/18 pass all" in actor
+    assert "150/150 build" not in actor
+    assert "150/150 build; 92/150 pass all" in sactor
+
+
 def test_golden_rust_body_is_replaced_and_leakage_is_rejected(tmp_path):
     target = """\
 impl Big {

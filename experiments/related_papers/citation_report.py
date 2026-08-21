@@ -940,6 +940,12 @@ def _write_paper_profiles(
     lac2r: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
     evidence_by_study = {row["study"].lower(): row for row in evidence}
+    profile_studies = {
+        "evoc2rust": "evoc2rust public vivo-bench",
+        "recodeagent": "recodeagent",
+        "rustine": "rustine",
+        "sactor": "sactor exact subset",
+    }
     actor_li_profile_rows = [
         {
             "subject": row["subject"],
@@ -977,11 +983,15 @@ def _write_paper_profiles(
             "output_tokens": (
                 row["output_tokens"]
                 if row.get("output_tokens") not in ("", None)
-                else f"unavailable ({row.get('output_tokens_status', 'unknown')})"
+                else row.get("output_tokens_status", "unavailable")
             ),
         }
         for row in actor_li_aggregate
     ]
+    actor_li_all = next(
+        (row for row in actor_li_profile_rows if row["subject"] == "ALL"),
+        None,
+    )
     extra: dict[str, list[tuple[str, list[dict[str, Any]]]]] = {
         "orbit": [("CodeWeaver exact 24-project summary", orbit_summary)],
         "actor-schesch-ernst": [
@@ -1031,14 +1041,8 @@ def _write_paper_profiles(
                 continue
             headers, display = _display_rows(rows)
             tables.append((filename.removesuffix(".csv"), headers, display))
-        existing = next(
-            (
-                row
-                for label, row in evidence_by_study.items()
-                if key in label
-                or inclusion["title"].lower() in label
-            ),
-            None,
+        existing = evidence_by_study.get(
+            profile_studies.get(key, ""),
         )
         reason = inclusion["reason"]
         reason_sentence = reason[:1].upper() + reason[1:]
@@ -1049,6 +1053,23 @@ def _write_paper_profiles(
             f"Status: {inclusion['codeweaver_status']}. "
             f"{reason_sentence}."
         )
+        if key == "actor-li" and actor_li_all:
+            existing_result = (
+                f"{actor_li_all['build']} build; "
+                f"{actor_li_all['pass_all']} pass all; "
+                f"{actor_li_all['hidden_tests']} hidden cases passed "
+                "(results/crust-citation-complete-codeweaver-2026-08-20/"
+                "data/actor-li)."
+            )
+        elif existing:
+            existing_result = (
+                f"{existing['headline']} ({existing['result_path']})."
+            )
+        else:
+            existing_result = (
+                inclusion["existing_result"]
+                or "No separate compatible CodeWeaver result package."
+            )
         sections = [
             (
                 "Evidence boundary",
@@ -1058,14 +1079,7 @@ def _write_paper_profiles(
             ),
             (
                 "Existing result",
-                (
-                    f"{existing['headline']} ({existing['result_path']})."
-                    if existing
-                    else (
-                        inclusion["existing_result"]
-                        or "No separate compatible CodeWeaver result package."
-                    )
-                ),
+                existing_result,
             ),
         ]
         markdown = [f"# {inclusion['title']}: CodeWeaver evidence profile", ""]
