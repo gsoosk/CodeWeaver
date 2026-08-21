@@ -304,8 +304,11 @@ def verify_result(
     )
     provenance_path = root / "metadata" / "source_provenance.json"
     provenance = C.read_json(provenance_path) if provenance_path.is_file() else {}
+    source_identity = provenance.get("codeweaver_source") or {}
     provenance_valid = bool(
-        (provenance.get("codeweaver_source") or {}).get("git_commit")
+        source_identity.get("base_git_commit")
+        and len(source_identity.get("snapshot_tree_sha256", "")) == 64
+        and int(source_identity.get("snapshot_files", 0)) > 0
     )
     if key in {"crust", "alphatrans", "sactor"}:
         provenance_valid = provenance_valid and (
