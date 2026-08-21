@@ -1302,6 +1302,16 @@ def evaluate_campaign(
         output_root=output_root,
         repetitions=repetitions,
     )
+    for derived_directory in (
+        "generated",
+        "logs",
+        "negative-control-logs",
+        "oracle-contracts",
+        "oracle-qualification",
+    ):
+        path = output_root / derived_directory
+        if path.exists():
+            shutil.rmtree(path)
     shutil.copy2(
         artifact_root / "LICENSE",
         output_root / "metadata" / "ACToR-MIT.txt",
