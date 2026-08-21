@@ -1,0 +1,12 @@
+[package]
+name = "actor-li-csplit"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "csplit"
+path = "src/main.rs"
+
+[dependencies]
+onig = { version = "6.5.3", default-features = false }

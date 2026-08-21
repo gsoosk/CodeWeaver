@@ -61,9 +61,24 @@ The reconstructed Python sources and generated Java files are covered by their u
 | GPT-4.1 | 7.00% | 7.00% | 9.00% | 7.00% |
 | o3-mini | 1.80% | 1.80% | 1.80% | 1.80% |
 
+## Complete source-paper surface audit
+
+| Surface | Denominator | Metrics | Artifact status |
+| --- | --- | --- | --- |
+| Table I | 1,897 translations | samples, tokens, lines, functions, classes, imports | structured_reference |
+| Table II | 970 projects / 1,897 translations | cross-file, intra-file, line and branch coverage | structured_reference |
+| Table III | 8 models | provider, size, context, release date | documented_reference |
+| Table IV | 1,897 translations | SR, CR, APR, AMPR for TranslationOnly, ErrorFeedback, RepoTransAgent | structured_reference |
+| Table V | 1,897 translations / 13 pairs | SR, CR, APR, AMPR for 8 models | paper_reference_python_java_and_surface_inventory |
+| Figure 4 | successful versus failed translations | cross/intra-file dependencies, LoC, functions, classes | paper_only |
+| Figures 5-9 / RQ4 | three experiment rounds | configuration, understanding, incomplete generation, language features, encoding | structured_reference_categories |
+| Historical v1 leaderboard | 100 projects | Success@1, Build@1, APR | structured_reference |
+
 ## Artifact map
 
 - `data/`: normalized measurements and paper reference values.
+- `data/paper-reference/`: structured references for omitted source-paper tables.
+- `data/paper_surface_inventory.csv`: every source-paper evaluation surface and status.
 - `report/comparison.pdf`: human-readable result paper.
 - `report/figure.pdf` and `report/figure.svg`: publication figure.
 - `metadata/`: provenance, availability, and checksums.

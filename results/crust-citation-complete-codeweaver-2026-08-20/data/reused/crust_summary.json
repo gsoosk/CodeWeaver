@@ -1,0 +1,12 @@
+{
+  "build_cells": 300,
+  "confidence_interval_95_pp": 2.48433820832296,
+  "mean_project_pass_rate_percent": 55.0,
+  "measured_rows": 300,
+  "pass_all_cells": 165,
+  "projects": 100,
+  "projects_passing_all": 45,
+  "projects_passing_any": 62,
+  "repetitions": 3,
+  "sample_sd_pp": 1.0
+}

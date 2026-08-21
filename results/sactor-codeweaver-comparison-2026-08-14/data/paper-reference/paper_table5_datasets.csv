@@ -1,0 +1,5 @@
+dataset,size,tests,line_coverage_percent,function_coverage_percent
+TransCoder-IR,100,present,97.97,99.5
+Project CodeNet,100,generated,94.37,100
+CRUST-Bench subset,50,present,76.18,80.98
+libogg,1,present,83.3,75.3

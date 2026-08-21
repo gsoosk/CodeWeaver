@@ -4,12 +4,12 @@
       "file_count": 14,
       "parts": [
         {
-          "bytes": 3833,
+          "bytes": 3891,
           "path": "infrastructure-failure-archives/python-module-pre-model.tar.gz",
-          "sha256": "b6d9367a9234655c3613bbf96a7596d14b2d12da673b0e2de926c7c9293e6cf2"
+          "sha256": "2b0213c18b1ed63d71ebcbb5ccb06f16b00745645b4c70dbaa17385ab209b5b5"
         }
       ],
-      "source": "/opt/codeweaver-related-papers/campaign/infrastructure-failures/python-module-pre-model"
+      "source": "/opt/codeweaver-related-papers/campaign/infrastructure-failures"
     },
     "raw_runs": {
       "file_count": 625,
@@ -17,7 +17,7 @@
         {
           "bytes": 45000000,
           "path": "raw-run-archives/full.tar.gz.part-000",
-          "sha256": "40cdcb2474cf67bddddfe23c6fa1c84cd69ce121070dd89aa305c54188b5a6da"
+          "sha256": "24af8a9135c552bdb51a98ba3b07418f67698451e3c5a5eda6b8466eb02893ac"
         },
         {
           "bytes": 27873235,
@@ -31,7 +31,7 @@
   },
   "archive_valid": true,
   "artifact": "repotransbench-codeweaver-comparison-2026-08-14",
-  "comparison_pdf_sha256": "dd4ed3aeee1ff041a7809b6a3cfc309016dd5229b2b5b3c127b785604bdfc035",
+  "comparison_pdf_sha256": "60a1deefe385c46d7d4e7a204cd10b271aa09891db72431b48fe2931317cf814",
   "complete": true,
   "evaluation_statuses": [
     "measured"
@@ -41,7 +41,7 @@
   ],
   "execution_revision_consistent": true,
   "expected_raw_rows": 9,
-  "generated_at": "2026-08-15T03:44:08.450522Z",
+  "generated_at": "2026-08-21T03:05:44.624827Z",
   "missing_files": [],
   "new_measurements_valid": true,
   "observed_raw_rows": 9,

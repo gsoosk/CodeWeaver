@@ -1,0 +1,11 @@
+lac2r_subject,rustine_subject,name_overlap,identity_status,codeweaver_compile,codeweaver_fixed_contract
+bzip2,bzip2,True,name overlap only; revisions and contracts not proven identical,True,True
+genann,genann,True,name overlap only; revisions and contracts not proven identical,True,False
+lil,,False,no retained Rustine subject,,
+urlparser,urlparser,True,name overlap only; revisions and contracts not proven identical,True,True
+grabc,grabc,True,name overlap only; revisions and contracts not proven identical,True,False
+tulip-indicators,tulpindicator,True,name overlap only; revisions and contracts not proven identical,True,False
+optipng,,False,no retained Rustine subject,,
+qsort,qsort,True,name overlap only; revisions and contracts not proven identical,True,True
+snudown,snudown,True,name overlap only; revisions and contracts not proven identical,True,
+xzoom,xzoom,True,name overlap only; revisions and contracts not proven identical,True,

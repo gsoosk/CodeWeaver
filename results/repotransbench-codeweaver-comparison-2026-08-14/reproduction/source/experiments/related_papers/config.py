@@ -248,7 +248,7 @@ SACTOR_REFERENCE = {
     "idiomatic_samples": 32,
 }
 
-RUSTREPOTRANS_TABLE3 = [
+RUSTREPOTRANS_RQ1_REFERENCE = [
     {"model": "DeepSeek-R1", "pass_at_1": 51.5, "dsr_at_1": 62.1},
     {"model": "DeepSeek-V3", "pass_at_1": 50.1, "dsr_at_1": 58.7},
     {"model": "Claude-3.5", "pass_at_1": 43.5, "dsr_at_1": 56.5},

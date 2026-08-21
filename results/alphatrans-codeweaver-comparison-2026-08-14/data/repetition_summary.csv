@@ -1,4 +1,4 @@
-repetition,projects,builds,pass_all,tests_passed,tests_expected,test_rate_percent
-1,4,4,0,379,1181,32.091447925486875
-2,4,4,0,373,1181,31.583403895004235
-3,4,4,0,378,1181,32.00677392040644
+repetition,projects,builds,pass_all,tests_passed,tests_observed_passed,tests_expected,test_rate_percent
+1,4,4,0,379,379,1181,32.091447925486875
+2,4,4,0,373,373,1181,31.583403895004235
+3,4,4,0,378,378,1181,32.00677392040644

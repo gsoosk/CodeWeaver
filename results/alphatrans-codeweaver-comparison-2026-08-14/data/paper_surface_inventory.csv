@@ -1,0 +1,10 @@
+surface,caption,denominator,metrics,artifact_status
+Table 1,"Program transformation, automated type resolution, and skeleton validation","10 projects / 1,797 types","classes, methods, tests, method coverage, ATR, SV, fragments",structured_reference
+Table 2,Repository-level compositional translation effectiveness,"10 projects / 4,654 application-method fragments","syntax, source coverage, GraalVM outcomes, translated-test outcomes, TPR",structured_reference_summary_and_four_project_comparison
+RQ2 human study,Translation bugs and fixes,4 projects / 2 developers,"hours, additions, deletions, bug examples",structured_reference
+Figure 6,Impact of test decomposition,eligible decomposed tests in 9 projects,selected/fail/success ratios and fragment pass-rate distribution,structured_reference_summary
+Table 3,Impact of test augmentation,10 projects,"coverage, decomposed tests, methods per test, TPR+, ATP+",structured_reference_summary
+Table 4,Ablation of program transformation,10 projects,GraalVM and translated-test outcomes,structured_reference_summary
+Table 5,GPT-4o compositional translation and validation,10 projects,"syntax, GraalVM, translated tests, functional equivalence, cost",structured_reference_summary
+Table 6,Ablation of program decomposition,782 files,"context overflow, syntax errors, Graal success, TPR",structured_reference_summary
+Figure 7,Functional-equivalence overlap between LLMs,application-method fragments,DeepSeek-Coder and GPT-4o overlap,structured_reference_summary

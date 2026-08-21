@@ -1,0 +1,4 @@
+system,public_artifact_projects,paper_projects,paper_membership_status,build_successes,test_successes,fixed_tests_passed,fixed_tests_expected
+CodeWeaver repetition 1,95,87,unresolved; not treated as the paper's 87-project slice,95,56,425,564
+CodeWeaver repetition 2,95,87,unresolved; not treated as the paper's 87-project slice,95,55,433,564
+CodeWeaver repetition 3,95,87,unresolved; not treated as the paper's 87-project slice,95,54,403,564

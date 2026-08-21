@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "all"
+  ],
+  "cwd": "/tmp/actor-li-test-eval-1bwpw6ix/oracle",
+  "ended_at": "2026-08-21T02:34:42.391814Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:34:41.576381Z",
+  "timed_out": false
+}

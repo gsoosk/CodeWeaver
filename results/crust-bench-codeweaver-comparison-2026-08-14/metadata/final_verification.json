@@ -2,7 +2,7 @@
   "archive_inventory": null,
   "archive_valid": true,
   "artifact": "crust-bench-codeweaver-comparison-2026-08-14",
-  "comparison_pdf_sha256": "f9d826c7921419193b6f3a0d22ad4f75ad8049231815463f6ca29106044d24ad",
+  "comparison_pdf_sha256": "3a7b5dac3c4a49f5a321ff49e11e7ee303b12411e45e56d3237a3041c040788d",
   "complete": true,
   "evaluation_statuses": [
     ""
@@ -10,7 +10,7 @@
   "execution_git_shas": [],
   "execution_revision_consistent": true,
   "expected_raw_rows": 300,
-  "generated_at": "2026-08-15T03:43:55.942333Z",
+  "generated_at": "2026-08-21T03:05:28.698354Z",
   "missing_files": [],
   "new_measurements_valid": true,
   "observed_raw_rows": 300,

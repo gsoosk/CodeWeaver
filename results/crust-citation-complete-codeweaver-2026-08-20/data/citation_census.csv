@@ -1,0 +1,31 @@
+record_id,canonical_key,title,classification,paper_id,source_url,resolution
+orbit,orbit,ORBIT: Guided Agentic Orchestration for Autonomous C-to-Rust Transpilation,in_scope,arXiv:2604.12048,https://arxiv.org/abs/2604.12048,unique work
+sactor,sactor,SACTOR: LLM-Driven Correct and Idiomatic C to Rust Translation with Static Analysis and FFI-Based Verification,in_scope,arXiv:2503.12511 / ACL 2026,https://arxiv.org/abs/2503.12511,unique work; canonical v3
+rustine,rustine,Rustine: Translating Large-Scale C Repositories to Idiomatic Rust,in_scope,arXiv:2511.20617,https://arxiv.org/abs/2511.20617,unique work
+evoc2rust,evoc2rust,EvoC2Rust: Skeleton-guided Project-Level C-to-Rust Translation,in_scope,arXiv:2508.04295 / DOI 10.1145/3786583.3786856,https://arxiv.org/abs/2508.04295,unique work
+rustprint,rustprint,Documentation-Guided Agentic Codebase Migration from C to Rust,in_scope,arXiv:2605.14634,https://arxiv.org/abs/2605.14634,unique work; system name RustPrint
+recodeagent,recodeagent,ReCodeAgent: Multi-Agent Workflow for Language-agnostic Translation and Validation of Large-scale Repositories,in_scope,arXiv:2604.07341,https://arxiv.org/abs/2604.07341,unique work
+deptrans,deptrans,Dependency-Guided Repository-Level C-to-Rust Translation with Reinforcement Alignment,in_scope,arXiv:2604.02852 / DOI 10.1145/3803437.3805266,https://arxiv.org/abs/2604.02852,unique work; system name DepTrans
+ptrtrans,ptrtrans,PtrTrans: Project-Level C-to-Rust Translation via Pointer Knowledge Graphs,in_scope,arXiv:2510.10956 / DOI 10.1145/3808169,https://arxiv.org/abs/2510.10956,unique work
+and-inator,and-inator,"&inator: Correct, Precise C-to-Rust Interface Translation",in_scope,arXiv:2604.17261 / DOI 10.1145/3808270,https://arxiv.org/abs/2604.17261,unique work
+rustassure,rustassure,RustAssure: Differential Symbolic Testing for LLM-Transpiled C-to-Rust Code,in_scope,arXiv:2510.07604 / ASE 2025,https://arxiv.org/abs/2510.07604,unique work
+actor-li,actor-li,ACToR: Adversarial Agent Collaboration for Correctness Improvements of C to Safe Rust,in_scope,arXiv:2510.03879,https://arxiv.org/abs/2510.03879,unique work
+matchfixagent,matchfixagent,MatchFixAgent: Language-Agnostic Autonomous Repository-Level Code Translation Validation and Repair,in_scope,arXiv:2509.16187,https://arxiv.org/abs/2509.16187,unique work
+lac2r,lac2r,LAC2R: Search-Based Multi-Trajectory Refinement for Safe C-to-Rust Translation,in_scope,arXiv:2505.15858,https://arxiv.org/abs/2505.15858,unique work; does not evaluate on CRUST-Bench
+qwen3-finetune,qwen3-finetune,Fine-Tuning Qwen3-27B for C-to-Rust Code Translation,in_scope,arXiv:2608.13681,https://arxiv.org/abs/2608.13681,unique work
+hayroll,hayroll,Hayroll: A Modular Wrapper for Translating C Macros and Conditional Compilation to Rust,in_scope,DOI 10.1145/3808276,https://doi.org/10.1145/3808276,unique work
+cnnotator,cnnotator,CNnotator: LLM-Guided Memory Safety Annotation Synthesis,in_scope,arXiv:2606.21822 / DOI 10.1145/3786180.3788313,https://arxiv.org/abs/2606.21822,unique work
+tram,tram,TRAM: Advancing Automated In-Isolation Validation in Repository-Level Code Translation,in_scope,arXiv:2511.21878,https://arxiv.org/abs/2511.21878,unique work
+formal-compositional,formal-compositional,LLM-Based Code Translation Needs Formal Compositional Reasoning,in_scope,UC Berkeley EECS-2025-174,https://www2.eecs.berkeley.edu/Pubs/TechRpts/2025/EECS-2025-174.html,distinct technical report; withdrawn ICLR 2026 submission
+actor-schesch-ernst,actor-schesch-ernst,Agentic translation of C to Rust,in_scope,IEEE S&P 2026,https://homes.cs.washington.edu/~mernst/pubs/c-to-rust-ieeesp2026-abstract.html,distinct work by Schesch and Ernst; system name ACTOR
+taco,taco,TACO: Self-Evolving Terminal-Agent Observational Context Compression,tangential,arXiv:2604.19572,https://arxiv.org/abs/2604.19572,unique work; empirically evaluates CRUST-Bench
+generative-compilation,generative-compilation,Generative Compilation: On-the-Fly Compiler Feedback,tangential,arXiv:2607.13921,https://arxiv.org/abs/2607.13921,unique work
+seta,seta,SETA: Scaling Environments for Terminal Agents,tangential,arXiv:2607.10891,https://arxiv.org/abs/2607.10891,unique work
+rustmizan,rustmizan,RustMizan: Contamination-Aware Rust Vulnerability Benchmark,tangential,arXiv:2607.04729,https://arxiv.org/abs/2607.04729,unique work
+cangjiebench,cangjiebench,CangjieBench: LLMs on a Low-Resource Language,tangential,arXiv:2603.14501,https://arxiv.org/abs/2603.14501,unique work
+interop-seams,interop-seams,Fortifying the Seams Between C/C++ and Rust: Bugs in Interop Tools,tangential,DOI 10.1145/3795532,https://doi.org/10.1145/3795532,unique work
+ai4code-security-sok,ai4code-security-sok,SoK: Understanding (New) Security Issues Across AI4Code Use Cases,tangential,arXiv:2512.18456,https://arxiv.org/abs/2512.18456,unique work
+agentic-se-survey,agentic-se-survey,A Comprehensive Survey on Benchmarks and Solutions in Software Engineering of LLM-Empowered Agentic Systems,tangential,arXiv:2510.09721,https://arxiv.org/abs/2510.09721,unique work
+osvbench,osvbench,OSVBench: Benchmarking LLMs on Specification Generation for OS Verification,out_of_scope,arXiv:2504.20964,https://arxiv.org/abs/2504.20964,unique work; specification generation rather than migration
+inariroll-index,hayroll,InariRoll: A Modular Wrapper for Translating C Macros and Conditional Compilation to Rust,duplicate,Semantic Scholar CorpusId 290188505,https://doi.org/10.1145/3808276,duplicate record for Hayroll
+agentic-c-rust-index,actor-schesch-ernst,Agentic C to Rust translation,duplicate,Semantic Scholar CorpusId 290624980,https://homes.cs.washington.edu/~mernst/pubs/c-to-rust-ieeesp2026-abstract.html,duplicate title record for Schesch and Ernst ACTOR

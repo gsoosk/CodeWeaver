@@ -1,0 +1,7 @@
+repetition,metric,measured_cells,mean_percent,minimum_percent,maximum_percent
+1,coverage_before,96,56.86079364455521,0.0,100.0
+1,coverage_after,96,57.80777125778247,0.0,100.0
+2,coverage_before,96,59.216640702786286,0.0,100.0
+2,coverage_after,96,59.671825338127356,0.0,100.0
+3,coverage_before,96,57.246331095026406,0.0,100.0
+3,coverage_after,96,58.282112369807,4.577464788732394,100.0

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "clean"
+  ],
+  "cwd": "/tmp/actor-li-printf-oracle-haiqe_ks/printf",
+  "ended_at": "2026-08-21T02:30:49.744085Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:30:49.737651Z",
+  "timed_out": false
+}

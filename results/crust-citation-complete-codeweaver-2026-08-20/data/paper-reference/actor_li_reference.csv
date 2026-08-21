@@ -1,0 +1,10 @@
+surface,scope,system,metric,value,uncertainty
+micro evaluation,6 utilities / 3 runs,ACToR Claude Code Sonnet 4.5,hidden-test pass percent,97.0,SD 1.9 pp
+micro evaluation,6 utilities,naive Claude Code Sonnet 4.5,hidden-test pass percent,89.2,
+micro evaluation,6 utilities / 10 iterations,ACToR Claude Code Sonnet 4.5,hidden-test pass percent,98.2,
+macro evaluation,57 BSD utilities,coverage baseline,relative pass percent,58.4,
+macro evaluation,57 BSD utilities,ACToR,relative pass percent,95.1,
+C2SaferRust augmentation,7 executables,C2SaferRust,pass percent,76.3,
+C2SaferRust augmentation,7 executables,C2SaferRust + ACToR,pass percent,92.9,
+cost,57 BSD utilities,coverage baseline,USD,808,
+cost,57 BSD utilities,ACToR,USD,1634,

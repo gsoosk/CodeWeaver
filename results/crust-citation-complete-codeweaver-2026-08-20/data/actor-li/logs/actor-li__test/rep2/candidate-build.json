@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "--release"
+  ],
+  "cwd": "/tmp/actor-li-test-eval-k0mnfjip/candidate",
+  "ended_at": "2026-08-21T02:34:42.789775Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:34:38.469833Z",
+  "timed_out": false
+}

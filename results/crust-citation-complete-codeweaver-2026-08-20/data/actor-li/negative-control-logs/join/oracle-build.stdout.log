@@ -1,0 +1,2 @@
+gcc -Wall -Wextra -O2 -std=c99 -o join join.c 
+gcc -Wall -Wextra -g -O0 -fprofile-arcs -ftest-coverage -std=c99 -o join.ref join.c 

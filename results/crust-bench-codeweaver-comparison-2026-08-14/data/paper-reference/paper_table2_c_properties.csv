@@ -1,0 +1,7 @@
+metric,average,maximum
+Test cases,76.4,952
+Test files,3.0,19
+Test coverage percent,67,100
+Lines of code,958,25436
+Pointer dereferences,264,12664
+Functions,34.6,418

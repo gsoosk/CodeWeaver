@@ -1,0 +1,23 @@
+   Compiling actor-li-printf v0.1.0 (/tmp/actor-li-printf-eval-zgxaghw4/candidate)
+warning: function `render_fixed` is never used
+   --> src/format.rs:348:15
+    |
+348 | pub(crate) fn render_fixed<W: Write + ?Sized>(
+    |               ^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `render_general` is never used
+   --> src/format.rs:407:15
+    |
+407 | pub(crate) fn render_general<W: Write + ?Sized>(
+    |               ^^^^^^^^^^^^^^
+
+warning: function `render_hex_float` is never used
+   --> src/format.rs:416:15
+    |
+416 | pub(crate) fn render_hex_float<W: Write + ?Sized>(
+    |               ^^^^^^^^^^^^^^^^
+
+warning: `actor-li-printf` (lib) generated 3 warnings
+    Finished `release` profile [optimized] target(s) in 1.29s

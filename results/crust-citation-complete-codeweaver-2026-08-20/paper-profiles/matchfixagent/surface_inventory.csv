@@ -1,0 +1,4 @@
+key,surface,denominator,metrics,status
+matchfixagent,Validation evaluation,repository translation pairs,verdict coverage and agreement,reference_only_not_comparable
+matchfixagent,Repair evaluation,inequivalent translation pairs,repair success versus baseline,reference_only_not_comparable
+matchfixagent,Ablation,paper evaluation set,verdict accuracy and token use without analyses/test generation,reference_only_not_comparable

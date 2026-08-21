@@ -1,0 +1,5 @@
+model,pass_at_1,dsr_at_1,source_kind,source_url,paper_mapping
+DeepSeek-R1,51.5,62.1,released artifact RQ1 aggregation,https://github.com/SYSUSELab/RustRepoTrans/tree/7026a8a9c8d4a524cbb554ff9b8100df4020114c/results/rq1,main RQ1 figure; Figure 5 in the cached 2026 paper revision and Figure 4 in arXiv v4
+DeepSeek-V3,50.1,58.7,released artifact RQ1 aggregation,https://github.com/SYSUSELab/RustRepoTrans/tree/7026a8a9c8d4a524cbb554ff9b8100df4020114c/results/rq1,main RQ1 figure; Figure 5 in the cached 2026 paper revision and Figure 4 in arXiv v4
+Claude-3.5,43.5,56.5,released artifact RQ1 aggregation,https://github.com/SYSUSELab/RustRepoTrans/tree/7026a8a9c8d4a524cbb554ff9b8100df4020114c/results/rq1,main RQ1 figure; Figure 5 in the cached 2026 paper revision and Figure 4 in arXiv v4
+Qwen-2.5-coder-32B,34.4,38.9,released artifact RQ1 aggregation,https://github.com/SYSUSELab/RustRepoTrans/tree/7026a8a9c8d4a524cbb554ff9b8100df4020114c/results/rq1,main RQ1 figure; Figure 5 in the cached 2026 paper revision and Figure 4 in arXiv v4

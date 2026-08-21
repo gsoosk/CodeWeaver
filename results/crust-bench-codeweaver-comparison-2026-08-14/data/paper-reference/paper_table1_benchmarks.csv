@@ -1,0 +1,8 @@
+benchmark,projects,multi_file,average_loc,rust_interface,rust_tests
+CROWN,20,True,31.7K,False,False
+TransCoder-Rust,520,False,108,False,False
+FLOURINE,112,False,68,False,False
+C2SaferRust,7,True,9.3K,False,False
+SYZYGY,1,True,2.5K,False,False
+LAERTES,17,True,24K,False,False
+CRUST-Bench,100,True,958,True,True

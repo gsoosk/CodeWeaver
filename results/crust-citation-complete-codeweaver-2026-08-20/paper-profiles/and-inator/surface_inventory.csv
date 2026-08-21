@@ -1,0 +1,3 @@
+key,surface,denominator,metrics,status
+and-inator,Interface grammar/type table,supported C/Rust type forms,"ownership, borrowing, mutability, lifetimes",reference_only_not_comparable
+and-inator,CRUST-Bench interface evaluation,CRUST-Bench C inputs/interfaces,interface correctness and precision,reference_only_not_comparable

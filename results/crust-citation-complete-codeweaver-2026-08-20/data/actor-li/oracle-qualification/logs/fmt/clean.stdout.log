@@ -1,0 +1,1 @@
+rm -f fmt fmt.ref *.gcda *.gcno *.gcov

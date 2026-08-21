@@ -1,0 +1,321 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  Validating file ending of tests03.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl tests03.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+  Processing tests03.jsonl...
+Loaded 100 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-expr-eval-5z48hv81/sandbox/isolated-candidate with ./expr.ref
+Running 100 tests...
+
+FAIL: add_positive
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: add_pos_neg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: add_negative
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: add_zero
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: add_large
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: sub_equal
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: sub_negative
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: sub_from_zero
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: sub_zero
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: sub_larger
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mul_positive
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mul_zero
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: mul_one
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mul_negative
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mul_pos_neg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: div_simple
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: div_one
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: div_negative
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: div_pos_neg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: div_truncation
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mod_simple
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mod_zero_result
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: mod_neg_dividend
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mod_neg_divisor
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mod_both_neg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: div_by_zero
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: mod_by_zero
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: mul_overflow
+  Reference exit: 3, Test exit: 1
+  Output differs
+FAIL: add_overflow
+  Reference exit: 3, Test exit: 1
+  Output differs
+FAIL: sub_overflow
+  Reference exit: 3, Test exit: 1
+  Output differs
+FAIL: div_overflow
+  Reference exit: 3, Test exit: 1
+  Output differs
+FAIL: eq_int_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: eq_int_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: lt_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: lt_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: gt_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: gt_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: le_equal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: le_less
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: le_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: ge_equal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: ge_greater
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: ge_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: ne_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: ne_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: str_eq_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: str_eq_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: str_lt
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: str_gt
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: str_le
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: str_ge
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: str_ne_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: str_ne_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: empty_str_eq
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: empty_vs_nonempty
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: and_true_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: and_true_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: and_false_true
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: and_false_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: or_true_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: or_true_false
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: or_false_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: or_false_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: regex_simple
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: regex_partial
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: regex_no_match
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: regex_dot
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: regex_star
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: regex_char_class
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: regex_group_capture
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: regex_group_no_match
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: regex_empty_pattern
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: regex_empty_string
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: paren_simple
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: paren_nested
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: precedence_mul_add
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: precedence_div_sub
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: precedence_paren
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: complex_precedence
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: str_to_int
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: int_to_str
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mixed_type
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: str_num_add
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: leading_zeros
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: single_operand
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: negative_number
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: zero_operand
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: large_positive
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: large_negative
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: single_char_str
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: str_with_spaces
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: invalid_add_operand
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: invalid_mul_operand
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: invalid_div_operand
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: unmatched_right_paren
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: unmatched_left_paren
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: missing_operand
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: invalid_operator
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: empty_expression
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: double_operator
+  Reference exit: 2, Test exit: 1
+  Output differs
+
+Results: 0 passed, 100 failed out of 100 tests
+WARNING: None of the tests resulted in normal exit (exit code 0) of the tested program
+Some tests failed!

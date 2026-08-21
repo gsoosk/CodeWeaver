@@ -1,0 +1,6 @@
+key,surface,denominator,metrics,status
+actor-schesch-ernst,Figure 3,338 TRACTOR cases x 11 systems,"compiles, passes, LoC, unsafe percent",exact_reference_public_artifact
+actor-schesch-ernst,Figures 4-5,failure classes and 382 output files,failure and unsafe root-cause taxonomy,exact_reference_public_artifact
+actor-schesch-ernst,Figure 6,87 CRUST-Bench projects x systems/settings,"builds, tests, LoC, unsafe percent",exact_reference_denominator_unresolved_separate_public_95_overlap
+actor-schesch-ernst,Figure 7,TRACTOR and two CRUST-Bench modes,prompt-sensitivity ablations,exact_reference_public_artifact
+actor-schesch-ernst,Cost analysis,"CRUST-Bench, TRACTOR and ablations","USD, minutes and per-kLoC cost",exact_reference_public_artifact

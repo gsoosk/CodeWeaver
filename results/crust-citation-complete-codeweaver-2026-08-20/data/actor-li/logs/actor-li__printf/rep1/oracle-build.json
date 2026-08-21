@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "all"
+  ],
+  "cwd": "/tmp/actor-li-printf-eval-zgxaghw4/oracle",
+  "ended_at": "2026-08-21T02:34:17.149720Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:34:16.413226Z",
+  "timed_out": false
+}

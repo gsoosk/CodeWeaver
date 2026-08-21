@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "--release"
+  ],
+  "cwd": "/tmp/actor-li-csplit-eval-pq4_dyp6/candidate",
+  "ended_at": "2026-08-21T02:33:42.859797Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:33:25.110633Z",
+  "timed_out": false
+}

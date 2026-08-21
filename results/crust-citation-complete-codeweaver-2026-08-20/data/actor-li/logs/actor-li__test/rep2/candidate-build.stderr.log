@@ -1,0 +1,6 @@
+   Compiling libc v0.2.189
+   Compiling cfg-if v1.0.4
+   Compiling bitflags v1.3.2
+   Compiling nix v0.26.4
+   Compiling actor-li-test v0.1.0 (/tmp/actor-li-test-eval-k0mnfjip/candidate)
+    Finished `release` profile [optimized] target(s) in 4.30s

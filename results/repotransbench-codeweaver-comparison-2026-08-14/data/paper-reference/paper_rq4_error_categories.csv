@@ -1,0 +1,6 @@
+category,name,frequency,examples
+E1,Configuration file issues,not reported,"dependencies, versions, build files, platform configuration"
+E2,Limited understanding ability,not reported,"duplicate definitions, imports, repository structure, scope"
+E3,Incomplete generation,not reported,"truncation, imports, class/struct bodies"
+E4,Language feature issues,not reported,"static context, access control, keywords and modifiers"
+E5,Encoding issues,not reported,non-ASCII characters and compiler encoding

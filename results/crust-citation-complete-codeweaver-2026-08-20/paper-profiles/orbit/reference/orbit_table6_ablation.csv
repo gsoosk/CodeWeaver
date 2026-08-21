@@ -1,0 +1,13 @@
+project,configuration,function_coverage_percent,test_coverage_percent,build,test
+CircularBuffer,base,100,0,True,True
+CircularBuffer,without interface,100,90.9,True,True
+CircularBuffer,without mapping,100,,True,True
+CircularBuffer,full,100,,True,True
+LTRE,base,64.4,3.0,True,True
+LTRE,without interface,82.2,12.2,True,True
+LTRE,without mapping,93.3,,True,True
+LTRE,full,100,,True,False
+libm17,base,84.1,0,False,False
+libm17,without interface,100,100,True,True
+libm17,without mapping,100,,True,True
+libm17,full,100,,True,True

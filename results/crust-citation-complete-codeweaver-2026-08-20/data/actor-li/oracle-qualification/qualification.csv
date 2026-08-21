@@ -1,0 +1,7 @@
+subject,expected_tests,loaded,passed,failed,total,build_returncode,comparison_returncode,qualified,candidate_runtime_isolated,validation_tree_sha256
+csplit,70,70,70,0,70,0,0,True,True,aaef144f371b9d302086af6c8bccd38a65ea73e3d971301840569c7e4f4f3dc7
+expr,100,100,100,0,100,0,0,True,True,1a904742d3255948dec9490d5568c9112dce0e1caa20099e5a67f091541aa9b6
+fmt,66,66,66,0,66,0,0,True,True,d223f262716adec2c79f83ca4b630dd43ceb7214b04511a29cf918ef3eec7a22
+join,84,84,84,0,84,0,0,True,True,8140b03251f0d82554fcaf36db3703569fc70ff0c6fcba6f3aef8a991140ceb0
+printf,83,83,83,0,83,0,0,True,True,6bbc968bd598b387724d69c660469906d82711a781b66343cdab393c261c782b
+test,89,89,89,0,89,0,0,True,True,5a5a7b5e6e390654a71eb2624fb5d664f5a109125dfe2769fb58f3a26c9bd77f

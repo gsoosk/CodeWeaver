@@ -1,0 +1,9 @@
+surface,status,reason,measurement_track
+30-record citation census,measured,complete Semantic Scholar citation graph and deduplication,citation census
+ORBIT 24-project CRUST-Bench subset,measured_existing_slice,all names map exactly to frozen CodeWeaver rows,CodeWeaver three-repetition
+existing ReCodeAgent/SACTOR/Rustine/EvoC2Rust evidence,reused_verified,previous packages contain provenance and independent oracles,published CodeWeaver artifacts
+Li et al. ACToR six-program absolute experiment,measured,18 independently evaluated cells against a qualified 492-case fixed differential oracle,CodeWeaver three-repetition hidden oracle
+Li et al. ACToR 57-program macro experiment,blocked,relative cross-testing requires unreleased ACToR and coverage-baseline outputs and their generated tests,reference only
+Schesch/Ernst ACTOR CRUST result,reference_87_and_measured_public_95_overlap,paper denominator is 87 but pinned artifact exposes 95 directories without the exact paper exclusion set,separate paper reference / public overlap
+unreleased citer benchmarks,blocked,"exact sources, revisions, or fixed contracts unavailable",reference only
+task-incompatible citer evaluations,not_comparable,different output unit or validation metric,reference only

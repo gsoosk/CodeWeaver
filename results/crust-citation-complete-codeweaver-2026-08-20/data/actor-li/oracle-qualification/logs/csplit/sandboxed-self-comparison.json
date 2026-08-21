@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "bash",
+    "./testcmp.sh",
+    "compare",
+    "/tmp/actor-li-csplit-oracle-fjscg22x/sandbox/isolated-candidate"
+  ],
+  "cwd": "/tmp/actor-li-csplit-oracle-fjscg22x/csplit",
+  "ended_at": "2026-08-21T02:29:52.298715Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:29:38.152463Z",
+  "timed_out": false
+}

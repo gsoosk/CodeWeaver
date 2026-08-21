@@ -1,0 +1,7 @@
+subject,expected_tests,loaded,passed,failed,total,candidate_build_returncode,oracle_build_returncode,comparison_returncode,candidate_runtime_isolated,discriminating
+csplit,70,70,1,69,70,0,0,1,True,True
+expr,100,100,0,100,100,0,0,1,True,True
+fmt,66,66,0,66,66,0,0,1,True,True
+join,84,84,0,84,84,0,0,1,True,True
+printf,83,83,0,83,83,0,0,1,True,True
+test,89,89,0,89,89,0,0,1,True,True

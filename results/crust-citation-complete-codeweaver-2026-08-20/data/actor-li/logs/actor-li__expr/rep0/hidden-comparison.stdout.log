@@ -1,0 +1,120 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  Validating file ending of tests03.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl tests03.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+  Processing tests03.jsonl...
+Loaded 100 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-expr-eval-wrbsp4xk/sandbox/isolated-candidate with ./expr.ref
+Running 100 tests...
+
+PASS: add_positive
+PASS: add_pos_neg
+PASS: add_negative
+PASS: add_zero
+PASS: add_large
+PASS: sub_equal
+PASS: sub_negative
+PASS: sub_from_zero
+PASS: sub_zero
+PASS: sub_larger
+PASS: mul_positive
+PASS: mul_zero
+PASS: mul_one
+PASS: mul_negative
+PASS: mul_pos_neg
+PASS: div_simple
+PASS: div_one
+PASS: div_negative
+PASS: div_pos_neg
+PASS: div_truncation
+PASS: mod_simple
+PASS: mod_zero_result
+PASS: mod_neg_dividend
+PASS: mod_neg_divisor
+PASS: mod_both_neg
+PASS: div_by_zero
+PASS: mod_by_zero
+PASS: mul_overflow
+PASS: add_overflow
+PASS: sub_overflow
+PASS: div_overflow
+PASS: eq_int_true
+PASS: eq_int_false
+PASS: lt_true
+PASS: lt_false
+PASS: gt_true
+PASS: gt_false
+PASS: le_equal
+PASS: le_less
+PASS: le_false
+PASS: ge_equal
+PASS: ge_greater
+PASS: ge_false
+PASS: ne_true
+PASS: ne_false
+PASS: str_eq_true
+PASS: str_eq_false
+PASS: str_lt
+PASS: str_gt
+PASS: str_le
+PASS: str_ge
+PASS: str_ne_true
+PASS: str_ne_false
+PASS: empty_str_eq
+PASS: empty_vs_nonempty
+PASS: and_true_true
+PASS: and_true_false
+PASS: and_false_true
+PASS: and_false_false
+PASS: or_true_true
+PASS: or_true_false
+PASS: or_false_true
+PASS: or_false_false
+PASS: regex_simple
+PASS: regex_partial
+PASS: regex_no_match
+PASS: regex_dot
+PASS: regex_star
+PASS: regex_char_class
+PASS: regex_group_capture
+PASS: regex_group_no_match
+PASS: regex_empty_pattern
+PASS: regex_empty_string
+PASS: paren_simple
+PASS: paren_nested
+PASS: precedence_mul_add
+PASS: precedence_div_sub
+PASS: precedence_paren
+PASS: complex_precedence
+PASS: str_to_int
+PASS: int_to_str
+PASS: mixed_type
+PASS: str_num_add
+PASS: leading_zeros
+PASS: single_operand
+PASS: negative_number
+PASS: zero_operand
+PASS: large_positive
+PASS: large_negative
+PASS: single_char_str
+PASS: str_with_spaces
+PASS: invalid_add_operand
+PASS: invalid_mul_operand
+PASS: invalid_div_operand
+PASS: unmatched_right_paren
+PASS: unmatched_left_paren
+PASS: missing_operand
+PASS: invalid_operator
+PASS: empty_expression
+PASS: double_operator
+
+Results: 100 passed, 0 failed out of 100 tests
+All tests passed!

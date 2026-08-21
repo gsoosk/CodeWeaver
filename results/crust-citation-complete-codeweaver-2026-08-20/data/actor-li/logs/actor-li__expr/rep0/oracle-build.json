@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "all"
+  ],
+  "cwd": "/tmp/actor-li-expr-eval-wrbsp4xk/oracle",
+  "ended_at": "2026-08-21T02:33:30.031413Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:33:28.827543Z",
+  "timed_out": false
+}

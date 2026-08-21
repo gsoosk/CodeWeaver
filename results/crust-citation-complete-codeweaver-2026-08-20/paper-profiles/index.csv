@@ -1,0 +1,21 @@
+schema_version,generated_at,key,paper_id,source_url,status,surface_rows,structured_reference_tables,pdf
+1,2026-08-21T03:07:36.594143Z,orbit,arXiv:2604.12048,https://arxiv.org/abs/2604.12048,measured_existing_slice,6,4,comparison.pdf
+1,2026-08-21T03:07:36.682341Z,sactor,arXiv:2503.12511v3,https://arxiv.org/abs/2503.12511,exact_existing_result,3,0,comparison.pdf
+1,2026-08-21T03:07:36.775321Z,rustine,arXiv:2511.20617,https://arxiv.org/abs/2511.20617,exact_existing_result,3,0,comparison.pdf
+1,2026-08-21T03:07:36.865007Z,evoc2rust,arXiv:2508.04295v4,https://arxiv.org/abs/2508.04295,partial_existing_result,4,0,comparison.pdf
+1,2026-08-21T03:07:36.994727Z,rustprint,arXiv:2605.14634,https://arxiv.org/abs/2605.14634,public_artifact_new_run_required,4,1,comparison.pdf
+1,2026-08-21T03:07:37.086578Z,recodeagent,arXiv:2604.07341,https://arxiv.org/abs/2604.07341,exact_existing_result,2,0,comparison.pdf
+1,2026-08-21T03:07:37.203270Z,deptrans,arXiv:2604.02852,https://arxiv.org/abs/2604.02852,blocked,3,1,comparison.pdf
+1,2026-08-21T03:07:37.330509Z,ptrtrans,arXiv:2510.10956,https://arxiv.org/abs/2510.10956,public_artifact_license_restricted,3,1,comparison.pdf
+1,2026-08-21T03:07:37.417664Z,and-inator,arXiv:2604.17261,https://arxiv.org/abs/2604.17261,not_comparable,2,0,comparison.pdf
+1,2026-08-21T03:07:37.531903Z,rustassure,arXiv:2510.07604,https://arxiv.org/abs/2510.07604,public_artifact_metric_mismatch,1,1,comparison.pdf
+1,2026-08-21T03:07:37.684899Z,actor-li,arXiv:2510.03879,https://arxiv.org/abs/2510.03879,exact_micro_campaign_and_blocked_macro,3,1,comparison.pdf
+1,2026-08-21T03:07:37.774079Z,matchfixagent,arXiv:2509.16187,https://arxiv.org/abs/2509.16187,not_comparable,3,0,comparison.pdf
+1,2026-08-21T03:07:37.876367Z,lac2r,arXiv:2505.15858,https://arxiv.org/abs/2505.15858,reference_only,5,0,comparison.pdf
+1,2026-08-21T03:07:37.966485Z,qwen3-finetune,arXiv:2608.13681,https://arxiv.org/abs/2608.13681,not_comparable,4,0,comparison.pdf
+1,2026-08-21T03:07:38.054354Z,hayroll,DOI 10.1145/3808276,https://doi.org/10.1145/3808276,not_comparable,2,0,comparison.pdf
+1,2026-08-21T03:07:38.144341Z,cnnotator,arXiv:2606.21822,https://arxiv.org/abs/2606.21822,not_comparable,1,0,comparison.pdf
+1,2026-08-21T03:07:38.231579Z,tram,arXiv:2511.21878,https://arxiv.org/abs/2511.21878,not_comparable,2,0,comparison.pdf
+1,2026-08-21T03:07:38.316933Z,formal-compositional,EECS-2025-174,https://www2.eecs.berkeley.edu/Pubs/TechRpts/2025/EECS-2025-174.html,not_comparable,1,0,comparison.pdf
+1,2026-08-21T03:07:38.610329Z,actor-schesch-ernst,IEEE S&P 2026,https://homes.cs.washington.edu/~mernst/pubs/c-to-rust-ieeesp2026-abstract.html,reference_87_and_measured_public_95_overlap,5,6,comparison.pdf
+1,2026-08-21T03:07:38.701057Z,taco,arXiv:2604.19572,https://arxiv.org/abs/2604.19572,reference_only,3,0,comparison.pdf

@@ -1,0 +1,3 @@
+stage,samples,per_sample_sr_percent,successful_functions,functions,aggregate_sr_percent,full_samples,full_sample_percent,average_lint_per_function
+Unidiomatic,50,85.15,788,966,81.57,32,64.0,2.96
+Idiomatic conditional,32,51.85,249,580,42.93,8,25.0,0.28

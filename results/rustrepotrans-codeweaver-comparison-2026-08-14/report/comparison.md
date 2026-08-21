@@ -36,7 +36,7 @@ The RustRepoTrans repository has no visible repository-level license, so benchma
 | Java | incubator-milagro-crypto:big::set | 3/3 | 3/3 | 852/852 | 3/3 | 73 |
 | Python | charset-normalizer:CharsetMatch::encoding | 3/3 | 3/3 | 192/192 | 1/3 | 13 |
 
-## Published full-benchmark references
+## Released artifact RQ1 / paper main-figure references
 
 | Model | Pass@1 | DSR@1 |
 | --- | --- | --- |
@@ -45,9 +45,25 @@ The RustRepoTrans repository has no visible repository-level license, so benchma
 | Claude-3.5 | 43.50% | 56.50% |
 | Qwen-2.5-coder-32B | 34.40% | 38.90% |
 
+## Complete source-paper surface audit
+
+| Surface | Denominator | Metrics | Artifact status |
+| --- | --- | --- | --- |
+| Table I | 7 datasets | tokens, tasks, languages, dependencies, Rust, tests, verified goldens | structured_reference |
+| Table II | 7 models | type, openness, reasoning, release date, size | documented_reference |
+| Figure 5 | 375 tasks | initial and self-debugging accuracy | structured_reference |
+| Table III | 300 versus 375 tasks | Pass@1 and DSR@1 | structured_reference |
+| RQ3 | 375 tasks | performance under dependency context | paper_only |
+| Table IV | 1,748 failed translations | compilation, runtime, functional, non-termination | structured_reference |
+| Table V | 1,614 compile-failing translations | top ten rustc codes and frequencies | structured_reference |
+| Figures 6-8 | 1,610 categorized causes | 10 causes in 3 supercategories; Cohen kappa 0.885 | structured_reference |
+| RQ5 | released per-model result records | robustness and identification success | released_artifact_reference |
+
 ## Artifact map
 
 - `data/`: normalized measurements and paper reference values.
+- `data/paper-reference/`: structured references for omitted source-paper tables.
+- `data/paper_surface_inventory.csv`: every source-paper evaluation surface and status.
 - `report/comparison.pdf`: human-readable result paper.
 - `report/figure.pdf` and `report/figure.svg`: publication figure.
 - `metadata/`: provenance, availability, and checksums.

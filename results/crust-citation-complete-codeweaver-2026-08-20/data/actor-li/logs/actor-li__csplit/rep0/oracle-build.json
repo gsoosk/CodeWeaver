@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "all"
+  ],
+  "cwd": "/tmp/actor-li-csplit-eval-rwj0pi2q/oracle",
+  "ended_at": "2026-08-21T02:33:33.626818Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:33:32.645911Z",
+  "timed_out": false
+}

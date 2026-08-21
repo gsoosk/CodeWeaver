@@ -1,0 +1,11 @@
+supercategory,cause,count
+Failing to Understand Differences Between Languages,Function Differences Misinterpretation,633
+Failing to Understand Differences Between Languages,Variable Differences Misinterpretation,437
+Failing to Understand Differences Between Languages,Data Type Differences Misinterpretation,56
+Failing to Understand Differences Between Languages,Dependency Resolution Differences Misinterpretation,79
+Failing to Understand Differences Between Languages,Syntactic Differences Misinterpretation,23
+Failing to Understand Target Language Features,Data Type Misinterpretation,253
+Failing to Understand Target Language Features,Variable State Misinterpretation,53
+Failing to Understand Target Language Features,Context Misinterpretation,13
+Others,Function Signature Inconsistencies,45
+Others,Missing Punctuation Marks,18

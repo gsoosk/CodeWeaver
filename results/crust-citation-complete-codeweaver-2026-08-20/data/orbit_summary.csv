@@ -1,0 +1,6 @@
+system,projects,build_successes,test_successes,test_success_percent,fixed_tests_passed,fixed_tests_expected,fixed_test_rate_percent,protocol
+ORBIT expert interfaces,24,24,22,91.6666666667,,,,paper reference; apparent single run
+ORBIT generated interfaces,24,24,22,91.6666666667,,,,paper reference; apparent single run
+CodeWeaver repetition 1,24,24,11,45.833333333333336,97,188,51.59574468085106,"CodeWeaver multi-stage, 5 repairs, 3 parity rounds"
+CodeWeaver repetition 2,24,24,11,45.833333333333336,95,188,50.53191489361702,"CodeWeaver multi-stage, 5 repairs, 3 parity rounds"
+CodeWeaver repetition 3,24,24,11,45.833333333333336,79,188,42.02127659574468,"CodeWeaver multi-stage, 5 repairs, 3 parity rounds"

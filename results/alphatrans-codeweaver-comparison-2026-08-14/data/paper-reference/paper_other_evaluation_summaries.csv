@@ -1,0 +1,17 @@
+surface,metric,value,unit
+Figure 6 test decomposition,pass rate among decomposed fragments of otherwise failing tests,62.41,percent
+Table 3 test augmentation,developer method coverage,56.57,percent
+Table 3 test augmentation,EvoSuite method coverage,66.87,percent
+Table 3 test augmentation,TPR gain,5.85,percentage points
+Table 3 test augmentation,ATP gain,2.11,percentage points
+Table 4 transformation ablation,Graal success without transformation,4.58,percent
+Table 4 transformation ablation,ATP without transformation,0.81,percent
+Table 4 transformation ablation,TPR without transformation,3.05,percent
+Table 5 GPT-4o,functional equivalence,27.95,percent
+Table 5 GPT-4o,total cost,143.95,USD
+Table 5 GPT-4o,mean cost per project,14.39,USD
+Table 6 decomposition ablation,files,782,files
+Table 6 decomposition ablation,DeepSeek over-context files,71,files
+Table 6 decomposition ablation,syntactically incorrect files,167,files
+Table 6 decomposition ablation,Graal-validated files,20,files
+Table 6 decomposition ablation,translated-test pass rate,0,percent

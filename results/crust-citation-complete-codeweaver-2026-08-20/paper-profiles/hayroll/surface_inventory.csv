@@ -1,0 +1,3 @@
+key,surface,denominator,metrics,status
+hayroll,CRUST-Bench macro/config evaluation,paper-selected CRUST inputs,macro and conditional-compilation reconstruction,public_artifact_not_comparable
+hayroll,LibmCS and zlib evaluation,two macro-heavy systems,translation and macro preservation,public_artifact_not_comparable

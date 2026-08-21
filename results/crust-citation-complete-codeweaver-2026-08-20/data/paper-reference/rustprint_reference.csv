@@ -1,0 +1,16 @@
+surface,system,metric,value,denominator
+Table 1,RustPrint Kimi,compiled repositories,8,8
+Table 1,RustPrint GPT-5.4,compiled repositories,8,8
+Table 1,Self-Repair,compiled repositories,0,8
+Table 1,EvoC2Rust,compiled repositories,0,8
+Table 1,C2Rust,compiled repositories,8,8
+Table 1,Claude Code,compiled repositories,8,8
+Table 2,RustPrint GPT-5.4,aggregate cross-test TPR percent,98.7,16 cells
+Table 2,RustPrint Kimi,aggregate cross-test TPR percent,95.17,16 cells
+Table 2,Claude Code,aggregate cross-test TPR percent,79.85,16 cells
+Figure 2,RustPrint Kimi,feature conservation percent,93.26,8 repositories
+Figure 2,RustPrint GPT-5.4,feature conservation percent,97.76,8 repositories
+Figure 2,Claude Code Kimi,feature conservation percent,52.52,8 repositories
+Figure 2,Claude Code GPT-5.4,feature conservation percent,48.87,8 repositories
+Figure 4,RustPrint Kimi,SafeRate A/F percent,96.23/96.19,8 repositories
+Figure 4,RustPrint GPT-5.4,SafeRate A/F percent,99.41/98.47,8 repositories

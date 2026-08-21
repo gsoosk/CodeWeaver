@@ -1,0 +1,10 @@
+   Compiling lexical-util v1.0.7
+   Compiling libc v0.2.189
+   Compiling lexical-parse-integer v1.0.6
+   Compiling lexical-write-integer v1.0.6
+   Compiling lexical-parse-float v1.0.6
+   Compiling lexical-write-float v1.0.6
+   Compiling lexical-core v1.0.6
+   Compiling fish-printf v0.2.1
+   Compiling actor-li-printf v0.1.0 (/tmp/actor-li-printf-eval-hgpusgw7/candidate)
+    Finished `release` profile [optimized] target(s) in 4.20s

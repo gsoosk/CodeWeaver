@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "--release"
+  ],
+  "cwd": "/tmp/actor-li-join-negative-w9bny5qp/candidate",
+  "ended_at": "2026-08-21T02:32:19.156449Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:32:18.795389Z",
+  "timed_out": false
+}

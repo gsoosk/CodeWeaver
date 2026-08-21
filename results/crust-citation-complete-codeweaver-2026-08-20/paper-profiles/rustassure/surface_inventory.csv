@@ -1,0 +1,2 @@
+key,surface,denominator,metrics,status
+rustassure,Main differential-symbolic evaluation,5 real applications/libraries,89.8% function compilation and 69.9% symbolic-return equivalence,aggregate_reference_public_read_only

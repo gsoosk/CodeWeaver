@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620">
+<rect width="100%" height="100%" fill="white"/>
+<text x="90" y="35" font-family="sans-serif" font-size="22" font-weight="bold">CodeWeaver on ACToR's fixed hidden oracle</text>
+<line x1="90" y1="540.0" x2="940" y2="540.0" stroke="#d9d9d9"/>
+<text x="78" y="544.0" text-anchor="end" font-family="sans-serif" font-size="12">0</text>
+<line x1="90" y1="450.0" x2="940" y2="450.0" stroke="#d9d9d9"/>
+<text x="78" y="454.0" text-anchor="end" font-family="sans-serif" font-size="12">20</text>
+<line x1="90" y1="360.0" x2="940" y2="360.0" stroke="#d9d9d9"/>
+<text x="78" y="364.0" text-anchor="end" font-family="sans-serif" font-size="12">40</text>
+<line x1="90" y1="270.0" x2="940" y2="270.0" stroke="#d9d9d9"/>
+<text x="78" y="274.0" text-anchor="end" font-family="sans-serif" font-size="12">60</text>
+<line x1="90" y1="180.0" x2="940" y2="180.0" stroke="#d9d9d9"/>
+<text x="78" y="184.0" text-anchor="end" font-family="sans-serif" font-size="12">80</text>
+<line x1="90" y1="90.0" x2="940" y2="90.0" stroke="#d9d9d9"/>
+<text x="78" y="94.0" text-anchor="end" font-family="sans-serif" font-size="12">100</text>
+<rect x="109.83333333333333" y="92.14285714285717" width="30.599999999999994" height="447.85714285714283" fill="#4c78a8"/>
+<text x="125.13333333333333" y="87.14285714285717" text-anchor="middle" font-family="sans-serif" font-size="10">99.5</text>
+<rect x="251.5" y="239.99999999999994" width="30.599999999999994" height="300.00000000000006" fill="#4c78a8"/>
+<text x="266.8" y="234.99999999999994" text-anchor="middle" font-family="sans-serif" font-size="10">66.7</text>
+<rect x="393.16666666666663" y="90.0" width="30.599999999999994" height="450.0" fill="#4c78a8"/>
+<text x="408.46666666666664" y="85.0" text-anchor="middle" font-family="sans-serif" font-size="10">100.0</text>
+<rect x="534.8333333333334" y="93.57142857142861" width="30.599999999999994" height="446.4285714285714" fill="#4c78a8"/>
+<text x="550.1333333333333" y="88.57142857142861" text-anchor="middle" font-family="sans-serif" font-size="10">99.2</text>
+<rect x="676.5" y="109.87951807228922" width="30.599999999999994" height="430.1204819277108" fill="#4c78a8"/>
+<text x="691.8" y="104.87951807228922" text-anchor="middle" font-family="sans-serif" font-size="10">95.6</text>
+<rect x="818.1666666666666" y="90.0" width="30.599999999999994" height="450.0" fill="#4c78a8"/>
+<text x="833.4666666666666" y="85.0" text-anchor="middle" font-family="sans-serif" font-size="10">100.0</text>
+<rect x="143.83333333333331" y="239.99999999999994" width="30.599999999999994" height="300.00000000000006" fill="#f58518"/>
+<text x="159.13333333333333" y="234.99999999999994" text-anchor="middle" font-family="sans-serif" font-size="10">66.7</text>
+<rect x="285.5" y="239.99999999999994" width="30.599999999999994" height="300.00000000000006" fill="#f58518"/>
+<text x="300.8" y="234.99999999999994" text-anchor="middle" font-family="sans-serif" font-size="10">66.7</text>
+<rect x="427.16666666666663" y="90.0" width="30.599999999999994" height="450.0" fill="#f58518"/>
+<text x="442.46666666666664" y="85.0" text-anchor="middle" font-family="sans-serif" font-size="10">100.0</text>
+<rect x="568.8333333333334" y="239.99999999999994" width="30.599999999999994" height="300.00000000000006" fill="#f58518"/>
+<text x="584.1333333333333" y="234.99999999999994" text-anchor="middle" font-family="sans-serif" font-size="10">66.7</text>
+<rect x="710.5" y="239.99999999999994" width="30.599999999999994" height="300.00000000000006" fill="#f58518"/>
+<text x="725.8" y="234.99999999999994" text-anchor="middle" font-family="sans-serif" font-size="10">66.7</text>
+<rect x="852.1666666666666" y="90.0" width="30.599999999999994" height="450.0" fill="#f58518"/>
+<text x="867.4666666666666" y="85.0" text-anchor="middle" font-family="sans-serif" font-size="10">100.0</text>
+<rect x="177.83333333333331" y="239.99999999999994" width="30.599999999999994" height="300.00000000000006" fill="#54a24b"/>
+<text x="193.13333333333333" y="234.99999999999994" text-anchor="middle" font-family="sans-serif" font-size="10">66.7</text>
+<rect x="319.5" y="239.99999999999994" width="30.599999999999994" height="300.00000000000006" fill="#54a24b"/>
+<text x="334.8" y="234.99999999999994" text-anchor="middle" font-family="sans-serif" font-size="10">66.7</text>
+<rect x="461.16666666666663" y="90.0" width="30.599999999999994" height="450.0" fill="#54a24b"/>
+<text x="476.46666666666664" y="85.0" text-anchor="middle" font-family="sans-serif" font-size="10">100.0</text>
+<rect x="602.8333333333334" y="239.99999999999994" width="30.599999999999994" height="300.00000000000006" fill="#54a24b"/>
+<text x="618.1333333333333" y="234.99999999999994" text-anchor="middle" font-family="sans-serif" font-size="10">66.7</text>
+<rect x="744.5" y="239.99999999999994" width="30.599999999999994" height="300.00000000000006" fill="#54a24b"/>
+<text x="759.8" y="234.99999999999994" text-anchor="middle" font-family="sans-serif" font-size="10">66.7</text>
+<rect x="886.1666666666666" y="90.0" width="30.599999999999994" height="450.0" fill="#54a24b"/>
+<text x="901.4666666666666" y="85.0" text-anchor="middle" font-family="sans-serif" font-size="10">100.0</text>
+<text x="160.83333333333331" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">csplit</text>
+<text x="302.5" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">expr</text>
+<text x="444.16666666666663" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">fmt</text>
+<text x="585.8333333333333" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">join</text>
+<text x="727.5" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">printf</text>
+<text x="869.1666666666666" y="564" text-anchor="middle" font-family="sans-serif" font-size="11">test</text>
+<rect x="90" y="52" width="13" height="10" fill="#4c78a8"/>
+<text x="108" y="62" font-family="sans-serif" font-size="12">Hidden-test rate</text>
+<rect x="248" y="52" width="13" height="10" fill="#f58518"/>
+<text x="266" y="62" font-family="sans-serif" font-size="12">Pass-all cells</text>
+<rect x="390" y="52" width="13" height="10" fill="#54a24b"/>
+<text x="408" y="62" font-family="sans-serif" font-size="12">Safe pass-all cells</text>
+</svg>

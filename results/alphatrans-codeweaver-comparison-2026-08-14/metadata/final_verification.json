@@ -2,7 +2,7 @@
   "archive_inventory": null,
   "archive_valid": true,
   "artifact": "alphatrans-codeweaver-comparison-2026-08-14",
-  "comparison_pdf_sha256": "62c1a7a062cca8c5c6eeec09a2c202a8eff9fc952747e7553b665e96cc1c8b60",
+  "comparison_pdf_sha256": "bf1a4bf204692633df9438109d42a9fc026503e5da7937c8b137cea40a226d9e",
   "complete": true,
   "evaluation_statuses": [
     ""
@@ -10,7 +10,7 @@
   "execution_git_shas": [],
   "execution_revision_consistent": true,
   "expected_raw_rows": 12,
-  "generated_at": "2026-08-15T03:43:59.869167Z",
+  "generated_at": "2026-08-21T03:05:33.816878Z",
   "missing_files": [],
   "new_measurements_valid": true,
   "observed_raw_rows": 12,

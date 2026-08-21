@@ -1,0 +1,9 @@
+dataset,samples,tokens,lines,functions,classes,imports
+TransCoder-test,868,127,12,1,0,0
+CodeNet,200,99,12,1,0,0
+Avatar,250,175,18,1,0,1
+HumanEval-X,164,65,8,1,0,0
+G-TransEval,400,90,10,1,0,0
+xCodeEval,1942,209,22,1,0,1
+CodeTransOcean,1029,253,24,2,0,1
+RepoTransBench,1897,23966,2394,177,35,163

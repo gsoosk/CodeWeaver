@@ -4,12 +4,12 @@
       "file_count": 14,
       "parts": [
         {
-          "bytes": 3833,
+          "bytes": 3891,
           "path": "infrastructure-failure-archives/python-module-pre-model.tar.gz",
-          "sha256": "ed0146e4415dfb36472b0db86ebe35aae6bd21c275aa827b2c7c3216e2118736"
+          "sha256": "00f6101ddab174187de47b1a8a4a425110852faedf0c28bca4d961527329e59c"
         }
       ],
-      "source": "/opt/codeweaver-related-papers/campaign/infrastructure-failures/python-module-pre-model"
+      "source": "/opt/codeweaver-related-papers/campaign/infrastructure-failures"
     },
     "raw_runs": {
       "file_count": 320,
@@ -17,7 +17,7 @@
         {
           "bytes": 19113358,
           "path": "raw-run-archives/full.tar.gz",
-          "sha256": "0c44a33dea1264ae64a562f5fe914a3018dcf42a86ec3b89e468351224f48c05"
+          "sha256": "fa02fe74f218047fb7e8fe0556af3d1900230515c247e6a8354a87f25b180064"
         }
       ],
       "source": "/opt/codeweaver-related-papers/campaign/rustrepotrans/runs",
@@ -26,7 +26,7 @@
   },
   "archive_valid": true,
   "artifact": "rustrepotrans-codeweaver-comparison-2026-08-14",
-  "comparison_pdf_sha256": "8e717159403cf17060180f96fb7b9d47706cf038fcb6b243d15d56d56f2c2726",
+  "comparison_pdf_sha256": "061df7e0f107ad781457f9d454ac82aa6defe8c5f15ef7653864e3fd02feb457",
   "complete": true,
   "evaluation_statuses": [
     "measured"
@@ -36,7 +36,7 @@
   ],
   "execution_revision_consistent": true,
   "expected_raw_rows": 9,
-  "generated_at": "2026-08-15T03:44:20.495122Z",
+  "generated_at": "2026-08-21T03:05:58.694578Z",
   "missing_files": [],
   "new_measurements_valid": true,
   "observed_raw_rows": 9,

@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-08-21T03:07:37.966485Z",
+  "key": "qwen3-finetune",
+  "paper_id": "arXiv:2608.13681",
+  "pdf": "comparison.pdf",
+  "schema_version": 1,
+  "source_url": "https://arxiv.org/abs/2608.13681",
+  "status": "not_comparable",
+  "structured_reference_tables": 0,
+  "surface_rows": 4
+}

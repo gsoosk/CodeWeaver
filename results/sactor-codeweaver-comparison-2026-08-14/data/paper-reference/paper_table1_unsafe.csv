@@ -1,0 +1,12 @@
+method,dataset,success_percent,unsafe_free_percent,average_unsafe_percent
+C2Rust,TransCoder-IR,100,0,100
+C2Rust,CodeNet,100,0,75.9
+Crown,TransCoder-IR,100,0,100
+Crown,CodeNet,100,0,75.9
+C2SaferRust,TransCoder-IR,90,45.6,10.8
+C2SaferRust,CodeNet,93,0,75.8
+Vert,TransCoder-IR,92,95.7,1.6
+SACTOR unidiomatic,TransCoder-IR,84,3.6,91.7
+SACTOR unidiomatic,CodeNet,84,1.1,42.7
+SACTOR idiomatic,TransCoder-IR,80,100,0
+SACTOR idiomatic,CodeNet,79,100,0

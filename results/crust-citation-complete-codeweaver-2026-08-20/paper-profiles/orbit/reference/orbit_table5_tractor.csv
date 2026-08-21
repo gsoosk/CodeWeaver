@@ -1,0 +1,14 @@
+kind,program,performers_passing,performers_total,orbit_result,vector_pass_percent
+exec,016_switch-arith,3,6,Pass,100
+exec,042_float_union,3,6,Pass,100
+exec,033_bitfield,3,6,Pass,100
+exec,030_int_underflow,2,6,Pass,100
+exec,002_stdin_echo,3,6,Partial,75
+lib,read_scalefactors_lib,3,6,Pass,100
+lib,004_loop_lib,2,6,Pass,100
+lib,read_side_info_lib,4,6,Pass,100
+lib,wcscat_lib,4,6,Pass,100
+lib,update_frame_header_lib,4,6,Pass,100
+lib,030_int_underflow_lib,2,6,Fail,0
+lib,contrast_ratio_lib,3,6,Partial,62.5
+lib,hex2bin_lib,2,6,Fail,0

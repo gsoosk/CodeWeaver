@@ -1,0 +1,8 @@
+study,scope,measured_cells,headline,result_path
+ReCodeAgent,118 projects / four language pairs,complete published reproduction,"full raw data, baselines, ablations, tables, figures, and PDF",results/recodeagent-gpt-5.6-sol-final-2026-08-11
+CRUST-Bench,100 projects x 3 repetitions,300,300/300 build; 165/300 pass all,results/crust-bench-codeweaver-comparison-2026-08-14
+SACTOR exact subset,50 projects x 3 repetitions,150,150/150 build; 92/150 pass all,results/sactor-codeweaver-comparison-2026-08-14
+Rustine,23 projects x 1 repetition,23,21/23 compile; 10/21 fixed-contract pass,results/rustine-codeweaver-comparison-2026-08-12
+EvoC2Rust public Vivo-Bench,15 groups / 19 modules x 3 repetitions,45,"100% incremental compilation, fill compilation, and fixed-test rate; mean SafeRate 30.92%",results/evoc2rust-codeweaver-comparison-2026-08-13
+RepoTransBench historical slice,3 projects x 3 repetitions,9,9/9 independently build and pass all fixed tests,results/repotransbench-codeweaver-comparison-2026-08-14
+RustRepoTrans language slice,3 tasks x 3 repetitions,9,9/9 independently build and pass all fixed tests,results/rustrepotrans-codeweaver-comparison-2026-08-14

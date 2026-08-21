@@ -1,0 +1,5 @@
+scope,cells,elapsed_hours,elapsed_measured_cells,elapsed_status,mean_elapsed_minutes,assistant_turns,assistant_turn_measured_cells,assistant_turn_status,tool_invocations,tool_invocation_exact_cells,tool_invocation_status,premium_requests,premium_request_measured_cells,premium_request_status,aiu,aiu_measured_cells,aiu_status,output_tokens,output_token_measured_cells,output_token_status,input_tokens,input_token_status,input_token_measured_cells
+repetition_1,4,16.933555314722224,4,measured,254.00332972083334,5325,4,measured,9273,4,measured,33,4,measured,29125.470075,4,measured,3376395,4,measured,,unavailable,0
+repetition_2,4,16.37022042583333,4,measured,245.5533063875,5253,4,measured,9069,4,measured,0,4,measured,28834.5614,4,measured,3194237,4,measured,,unavailable,0
+repetition_3,4,14.507633420833333,4,measured,217.6145013125,5203,4,measured,8791,4,measured,0,4,measured,26315.458125,4,measured,3188225,4,measured,,unavailable,0
+all_measured_cells,12,47.81140916138889,12,measured,239.05704580694444,15781,12,measured,27133,12,measured,33,12,measured,84275.4896,12,measured,9758857,12,measured,,unavailable,0

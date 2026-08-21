@@ -1,0 +1,10 @@
+surface,caption,denominator,metrics,artifact_status
+Table I,Code-translation benchmark comparison,7 datasets,"tokens, tasks, languages, dependencies, Rust, tests, verified goldens",structured_reference
+Table II,Studied LLMs,7 models,"type, openness, reasoning, release date, size",documented_reference
+Figure 5,Pass@1 and one-round DSR@1,375 tasks,initial and self-debugging accuracy,structured_reference
+Table III,CodeTransOcean versus RustRepoTrans,300 versus 375 tasks,Pass@1 and DSR@1,structured_reference
+RQ3,Repository-context/dependency effectiveness,375 tasks,performance under dependency context,paper_only
+Table IV,Error-outcome distribution,"1,748 failed translations","compilation, runtime, functional, non-termination",structured_reference
+Table V,Top Rust compiler errors,"1,614 compile-failing translations",top ten rustc codes and frequencies,structured_reference
+Figures 6-8,Manual error-cause taxonomy and distributions,"1,610 categorized causes",10 causes in 3 supercategories; Cohen kappa 0.885,structured_reference
+RQ5,Noise robustness and syntactical-difference identification,released per-model result records,robustness and identification success,released_artifact_reference

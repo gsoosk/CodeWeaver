@@ -1,0 +1,4 @@
+key,surface,denominator,metrics,status
+sactor,Figures 2-3,100 TransCoder-IR + 100 CodeNet programs,success through six attempts and Clippy alerts,exact_existing_result
+sactor,Tables 1-3,"two 100-program sets, CRUST-Bench-50, libogg-77","unsafe code, translation success, lints and attempts",exact_existing_result
+sactor,Tables 5-9 and Figure 8,"paper datasets, models and ablations","dataset, model, failure, cost, feedback and CRUST-Bench baseline comparisons",exact_existing_result

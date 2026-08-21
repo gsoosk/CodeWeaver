@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "--release"
+  ],
+  "cwd": "/tmp/actor-li-join-eval-9oefgrbf/candidate",
+  "ended_at": "2026-08-21T02:33:56.394801Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:33:54.995148Z",
+  "timed_out": false
+}

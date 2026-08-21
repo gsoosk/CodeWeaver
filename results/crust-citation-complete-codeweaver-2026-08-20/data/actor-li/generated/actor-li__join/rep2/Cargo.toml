@@ -1,0 +1,11 @@
+[package]
+name = "actor-li-join"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "join"
+path = "src/main.rs"
+
+[dependencies]

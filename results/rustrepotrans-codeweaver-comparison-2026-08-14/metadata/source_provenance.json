@@ -2,10 +2,17 @@
   "artifact_commit": "7026a8a9c8d4a524cbb554ff9b8100df4020114c",
   "artifact_repository": "https://github.com/SYSUSELab/RustRepoTrans",
   "codeweaver_source": {
-    "git_commit": "b1411056e47d48750d15ad59d1356beebdf2a66e",
-    "repository": "https://github.com/gsoosk/CodeWeaver"
+    "base_git_commit": "20dd65859a8d3fbaa9316ddeae0f8ea64bccda75",
+    "identity_policy": "the reproduction snapshot tree hash identifies the exact evaluated harness; the Git commit is its base revision",
+    "repository": "https://github.com/gsoosk/CodeWeaver",
+    "snapshot_files": 68,
+    "snapshot_tree_sha256": "21a1d26845d4986c6f224f6b6064278ac62f6a1b92e9681b8062a2dcfed30fe5",
+    "source_worktree_clean": true,
+    "source_worktree_entry_count": 0,
+    "source_worktree_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tracked_source_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
-  "generated_at": "2026-08-15T03:42:47.305204Z",
+  "generated_at": "2026-08-21T03:04:51.304547Z",
   "golden_target_policy": "hash then exclude before model access",
   "paper": {
     "paper_id": "arXiv:2411.13990",
@@ -20,5 +27,6 @@
     "model": "gpt-5.6-sol",
     "repetitions": 3
   },
+  "reference_source": "released results/rq1 aggregation at the pinned artifact commit; not paper Table 3",
   "toolchain_note": "incubator-milagro-crypto was evaluated with nightly-2025-09-15 because its artifact omitted Cargo.lock and current resolution exceeds declared rustc 1.77.1"
 }

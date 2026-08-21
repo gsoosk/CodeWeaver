@@ -1,0 +1,6 @@
+configuration,tractor_passes,tractor_denominator,crust_no_tests_passes,crust_test_repair_passes,crust_denominator
+ACTOR Claude,319,338,56,75,87
+without subtask,313,338,56,79,87
+without iteration,249,338,31,73,87
+without features,204,338,55,76,87
+minimal,171,338,41,75,87

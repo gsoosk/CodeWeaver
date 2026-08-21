@@ -1,0 +1,11 @@
+model,dataset,tokens,average_queries
+Claude 3.5,TransCoder-IR,4595.33,5.15
+Claude 3.5,CodeNet,3080.28,3.15
+Gemini 2.0,TransCoder-IR,3343.12,4.24
+Gemini 2.0,CodeNet,2209.38,2.39
+Llama 3.3,TransCoder-IR,4622.8,5.39
+Llama 3.3,CodeNet,4456.84,3.8
+GPT-4o,TransCoder-IR,2651.21,4.24
+GPT-4o,CodeNet,2565.36,2.95
+DeepSeek-R1,TransCoder-IR,17895.52,4.77
+DeepSeek-R1,CodeNet,13592.61,3.11

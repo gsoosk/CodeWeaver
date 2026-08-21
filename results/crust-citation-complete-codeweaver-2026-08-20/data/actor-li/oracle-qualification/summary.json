@@ -1,0 +1,90 @@
+{
+  "artifact_commit": "7427da3d3dfb3c0985aafe86df87f815fa3f08d1",
+  "expected_tests": 492,
+  "generated_at": "2026-08-21T02:31:26.494686Z",
+  "passed_tests": 492,
+  "qualified_subjects": 6,
+  "rows": [
+    {
+      "build_returncode": 0,
+      "candidate_runtime_isolated": true,
+      "comparison_returncode": 0,
+      "expected_tests": 70,
+      "failed": 0,
+      "loaded": 70,
+      "passed": 70,
+      "qualified": true,
+      "subject": "csplit",
+      "total": 70,
+      "validation_tree_sha256": "aaef144f371b9d302086af6c8bccd38a65ea73e3d971301840569c7e4f4f3dc7"
+    },
+    {
+      "build_returncode": 0,
+      "candidate_runtime_isolated": true,
+      "comparison_returncode": 0,
+      "expected_tests": 100,
+      "failed": 0,
+      "loaded": 100,
+      "passed": 100,
+      "qualified": true,
+      "subject": "expr",
+      "total": 100,
+      "validation_tree_sha256": "1a904742d3255948dec9490d5568c9112dce0e1caa20099e5a67f091541aa9b6"
+    },
+    {
+      "build_returncode": 0,
+      "candidate_runtime_isolated": true,
+      "comparison_returncode": 0,
+      "expected_tests": 66,
+      "failed": 0,
+      "loaded": 66,
+      "passed": 66,
+      "qualified": true,
+      "subject": "fmt",
+      "total": 66,
+      "validation_tree_sha256": "d223f262716adec2c79f83ca4b630dd43ceb7214b04511a29cf918ef3eec7a22"
+    },
+    {
+      "build_returncode": 0,
+      "candidate_runtime_isolated": true,
+      "comparison_returncode": 0,
+      "expected_tests": 84,
+      "failed": 0,
+      "loaded": 84,
+      "passed": 84,
+      "qualified": true,
+      "subject": "join",
+      "total": 84,
+      "validation_tree_sha256": "8140b03251f0d82554fcaf36db3703569fc70ff0c6fcba6f3aef8a991140ceb0"
+    },
+    {
+      "build_returncode": 0,
+      "candidate_runtime_isolated": true,
+      "comparison_returncode": 0,
+      "expected_tests": 83,
+      "failed": 0,
+      "loaded": 83,
+      "passed": 83,
+      "qualified": true,
+      "subject": "printf",
+      "total": 83,
+      "validation_tree_sha256": "6bbc968bd598b387724d69c660469906d82711a781b66343cdab393c261c782b"
+    },
+    {
+      "build_returncode": 0,
+      "candidate_runtime_isolated": true,
+      "comparison_returncode": 0,
+      "expected_tests": 89,
+      "failed": 0,
+      "loaded": 89,
+      "passed": 89,
+      "qualified": true,
+      "subject": "test",
+      "total": 89,
+      "validation_tree_sha256": "5a5a7b5e6e390654a71eb2624fb5d664f5a109125dfe2769fb58f3a26c9bd77f"
+    }
+  ],
+  "schema_version": 1,
+  "status": "passed",
+  "subjects": 6
+}

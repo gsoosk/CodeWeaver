@@ -1,0 +1,2 @@
+backbone,baseline_accuracy_percent,taco_accuracy_percent,accuracy_delta_pp,baseline_tokens_thousands,taco_tokens_thousands,token_reduction_percent,denominator,metric
+MiniMax-M2.5,47.0,48.05,1.05,163.53,134.97,17.5,not stated in Table 1,terminal-agent task accuracy

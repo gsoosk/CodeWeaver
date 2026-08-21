@@ -1,0 +1,61 @@
+key,surface,denominator,metrics,status
+orbit,Table 1,7 prior/system rows,"dataset, programs, projects above 1K LoC, median/mean LoC",exact_reference
+orbit,Table 2,24 CRUST-Bench projects,"LoC, functions, files, tests",exact_reference
+orbit,Table 3,24 CRUST-Bench projects,"C2Rust translation/build/test, CRUST-Bench reference build/test, ORBIT expert/generated build/test",exact_reference_and_codeweaver_slice
+orbit,Table 4,24 CRUST-Bench projects,"pointer dereferences, pointer arithmetic, unsafe LoC, unsafe percent, LoC for four systems",exact_reference
+orbit,Table 5,13 TRACTOR programs,"performance pass fraction, ORBIT result, vector pass rate",exact_reference
+orbit,Table 6,3 CRUST-Bench programs x 4 ablations,"function coverage, test coverage, build and test",exact_reference
+rustine,Table 1,23 repositories,benchmark coverage,exact_existing_result
+rustine,Table 2,23 repositories / 21 testable,"compilation, function/line coverage, assertions",exact_existing_result
+rustine,Table 3,23 repositories,"pointer arithmetic, raw pointers, unsafe lines/casts/calls",exact_existing_result
+sactor,Figures 2-3,100 TransCoder-IR + 100 CodeNet programs,success through six attempts and Clippy alerts,exact_existing_result
+sactor,Tables 1-3,"two 100-program sets, CRUST-Bench-50, libogg-77","unsafe code, translation success, lints and attempts",exact_existing_result
+sactor,Tables 5-9 and Figure 8,"paper datasets, models and ablations","dataset, model, failure, cost, feedback and CRUST-Bench baseline comparisons",exact_existing_result
+evoc2rust,Table 4,Vivo-Bench and unreleased C2R-Bench,"ICompRate, AccRate-P/R, SafeRate",public_subset_existing_result
+evoc2rust,Table 5,Vivo-Bench modules and unreleased projects,FCompRate and TestRate,public_subset_existing_result
+evoc2rust,Table 6,paper ablation configurations,"skeleton, mapping, repair ablations",reference_only_unreleased_inputs
+evoc2rust,RQ4 figures,six industrial projects,scale and elapsed time,blocked_unreleased
+rustprint,Benchmark statistics,8 repositories / 11K-84K LoC,repository size and documentation,reference_only
+rustprint,Table 1,8 CodeWikiBench repositories x 5 systems,compilation,exact_reference_public_artifact
+rustprint,Table 2,8 repositories x 2 cross-generated test suites,true-positive rate,exact_reference_public_artifact
+rustprint,Figures 2 and 4,8 repositories x systems/backbones,feature preservation and SafeRate,exact_reference_public_artifact
+recodeagent,Full paper evaluation,118 projects / 4 language pairs / 6 languages,"build, project tests, generated tests, coverage, cost",exact_existing_result
+recodeagent,Multi-agent ablation,paper ablation campaign,test-pass decrease without specialization,exact_existing_result
+deptrans,Benchmark statistics,145 repository instances / 85K training samples,dependencies and project characteristics,blocked_unreleased
+deptrans,Main comparison,145 instances,60.7% compilation and 43.5% computational accuracy,abstract_reference_only
+deptrans,Huawei case study,15 internal projects,successful builds,blocked_internal
+ptrtrans,Tables 1-2,16 Crown projects,subject size and fuzz-test coverage,exact_reference_public_read_only
+ptrtrans,Tables 3-4,16 Crown projects,"lints, unsafe usage, compiled and equivalent functions",exact_reference_public_read_only
+ptrtrans,Table 5,10 small Crown projects x 5 ablations,compiled and equivalent functions,exact_reference_public_read_only
+and-inator,Interface grammar/type table,supported C/Rust type forms,"ownership, borrowing, mutability, lifetimes",reference_only_not_comparable
+and-inator,CRUST-Bench interface evaluation,CRUST-Bench C inputs/interfaces,interface correctness and precision,reference_only_not_comparable
+rustassure,Main differential-symbolic evaluation,5 real applications/libraries,89.8% function compilation and 69.9% symbolic-return equivalence,aggregate_reference_public_read_only
+actor-li,Figures 2 and 4,6 micro + 57 BSD CLI utilities,hidden/differential-test pass by 7 configurations,exact_micro_codeweaver_campaign_and_reference_only_macro
+actor-li,C2SaferRust augmentation,7 standalone executables,differential-test pass,exact_reference_public_artifact
+actor-li,Stability and cost ablations,3 runs and iteration/test/seed configurations,"mean, standard deviation, accuracy and cost",exact_reference_public_artifact
+matchfixagent,Validation evaluation,repository translation pairs,verdict coverage and agreement,reference_only_not_comparable
+matchfixagent,Repair evaluation,inequivalent translation pairs,repair success versus baseline,reference_only_not_comparable
+matchfixagent,Ablation,paper evaluation set,verdict accuracy and token use without analyses/test generation,reference_only_not_comparable
+lac2r,Table 2,7 GNU coreutils programs,"safety ratio, compile/repair/test rates, queries, tokens, lints",reference_only
+lac2r,Table 3,10 Laertes programs,"safety ratio, compile/repair/test rates, queries, tokens, lints",reference_only_name_overlap_only
+lac2r,Table 4,124 TRACTOR public programs,"safety, compile/pass, lints, queries, tokens",reference_only
+lac2r,Table 5,coreutils,homogeneous versus heterogeneous LLM ablation,reference_only
+lac2r,Figures 6-8,three benchmark families,"safety, compilation, idiomaticity",reference_only
+qwen3-finetune,C2Rust main result,200 CodeNet programs / 5 seeds,"six-attempt success mean, standard deviation, bootstrap CI",public_artifact_reference_not_crust
+qwen3-finetune,Baseline comparison,200 CodeNet programs,"Qwen base, MiniMax, GLM, Claude success",public_artifact_reference_not_crust
+qwen3-finetune,SWE-bench Verified,SWE-bench Verified,Pass@1,public_artifact_reference_not_comparable
+qwen3-finetune,Training curriculum,three stages,"examples, epochs, learning rates, sequence length and hardware",public_artifact_reference
+hayroll,CRUST-Bench macro/config evaluation,paper-selected CRUST inputs,macro and conditional-compilation reconstruction,public_artifact_not_comparable
+hayroll,LibmCS and zlib evaluation,two macro-heavy systems,translation and macro preservation,public_artifact_not_comparable
+cnnotator,Annotation-synthesis evaluation,small/medium C programs,first-attempt and three-attempt CN/Fulminate success,reference_only_not_comparable
+tram,AlphaTrans benchmark evaluation,"10 Java projects / 17,874 fragments",translation and in-isolation mock validation,reference_only_partial_subject_overlap
+tram,Validation mechanism evaluation,translated focal methods,return values and side-effect equivalence,reference_only_not_metric_aligned
+formal-compositional,Empirical evaluation,none,position paper; no quantitative tables,not_applicable
+actor-schesch-ernst,Figure 3,338 TRACTOR cases x 11 systems,"compiles, passes, LoC, unsafe percent",exact_reference_public_artifact
+actor-schesch-ernst,Figures 4-5,failure classes and 382 output files,failure and unsafe root-cause taxonomy,exact_reference_public_artifact
+actor-schesch-ernst,Figure 6,87 CRUST-Bench projects x systems/settings,"builds, tests, LoC, unsafe percent",exact_reference_denominator_unresolved_separate_public_95_overlap
+actor-schesch-ernst,Figure 7,TRACTOR and two CRUST-Bench modes,prompt-sensitivity ablations,exact_reference_public_artifact
+actor-schesch-ernst,Cost analysis,"CRUST-Bench, TRACTOR and ablations","USD, minutes and per-kLoC cost",exact_reference_public_artifact
+taco,Table 1,6 terminal-agent benchmarks,baseline/TACO accuracy and token consumption,exact_reference_not_metric_aligned
+taco,Table 2,TerminalBench 1.0/2.0 across about 9 models,terminal-agent performance,reference_only_not_metric_aligned
+taco,Appendix ablations,terminal-agent benchmark runs,"freeze rules, disable global evolution, best-of-K, compression overhead",reference_only_not_metric_aligned

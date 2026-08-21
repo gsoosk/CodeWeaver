@@ -1,0 +1,9 @@
+source_language,projects,samples,cross_file_dependencies,intra_file_dependencies,line_coverage_percent,branch_coverage_percent
+C,122,244,64.3,2494.4,91.71,63.59
+C++,181,181,94.9,2401.3,86.2,58.98
+C#,97,97,31.1,600.9,83.52,80.21
+Java,146,438,156.9,1286.5,73.21,66.86
+JavaScript,189,189,27.0,707.5,93.56,88.12
+Matlab,64,64,2.1,1609.5,61.33,55.99
+Python,171,684,128.1,1006.1,81.29,79.26
+Overall,970,1897,87.9,1443.7,81.89,72.61

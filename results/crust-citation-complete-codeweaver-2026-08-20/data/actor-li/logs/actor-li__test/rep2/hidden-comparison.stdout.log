@@ -1,0 +1,107 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+Loaded 89 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-test-eval-k0mnfjip/sandbox/isolated-candidate with ./test.ref
+Running 89 tests...
+
+PASS: no_args
+PASS: single_empty_string
+PASS: single_non_empty_string
+PASS: negation_empty_string
+PASS: negation_non_empty_string
+PASS: binary_operation
+PASS: negated_binary_operation
+PASS: file_existence_existing
+PASS: file_existence_non_existent
+PASS: regular_file_test
+PASS: directory_not_regular_file
+PASS: directory_test
+PASS: file_not_directory
+PASS: symlink_with_h
+PASS: symlink_with_L
+PASS: regular_file_not_symlink
+PASS: named_pipe_test
+PASS: regular_file_not_pipe
+PASS: character_device_test
+PASS: regular_file_not_char_device
+PASS: block_device_test
+PASS: regular_file_not_block_device
+PASS: regular_file_not_socket
+PASS: readable_file_test
+PASS: writable_file_test
+PASS: executable_file_test
+PASS: non_readable_file_test
+PASS: non_zero_file_size
+PASS: zero_file_size
+PASS: file_owned_by_effective_user
+PASS: file_owned_by_effective_group
+PASS: setuid_bit_test
+PASS: setuid_bit_test_regular_file
+PASS: setgid_bit_test
+PASS: setgid_bit_test_regular_file
+PASS: sticky_bit_test
+PASS: sticky_bit_test_regular_file
+PASS: empty_string_with_z
+PASS: non_empty_string_with_z
+PASS: non_empty_string_with_n
+PASS: empty_string_with_n
+PASS: terminal_test_fd0
+PASS: terminal_test_fd1
+PASS: terminal_test_invalid_fd
+PASS: string_equality
+PASS: string_inequality
+PASS: string_less_than
+PASS: string_greater_than
+PASS: string_equality_false
+PASS: integer_equality
+PASS: integer_inequality
+PASS: integer_greater_than
+PASS: integer_greater_than_or_equal
+PASS: integer_less_than
+PASS: integer_less_than_or_equal
+PASS: integer_equality_leading_zeros
+PASS: integer_with_whitespace
+PASS: negative_numbers
+PASS: large_numbers
+PASS: newer_than_test
+PASS: older_than_test
+PASS: same_file_equal_files
+PASS: hard_link_equal_files
+PASS: different_files_not_equal
+PASS: and_operation_true
+PASS: and_operation_false
+PASS: or_operation_true
+PASS: or_operation_false
+PASS: negation_true
+PASS: negation_false
+PASS: simple_parentheses
+PASS: complex_parentheses_with_and
+PASS: complex_parentheses_with_or
+PASS: missing_argument_for_binary_operator
+PASS: single_unary_operator
+PASS: invalid_number_for_terminal_test
+PASS: negative_number_for_terminal_test
+PASS: too_large_number_for_terminal_test
+PASS: missing_closing_parenthesis
+PASS: invalid_integer_comparison
+PASS: unknown_operand
+PASS: multiple_and_operations
+PASS: multiple_or_operations
+PASS: mixed_and_or_operations
+PASS: string_with_spaces
+PASS: string_with_special_characters
+PASS: empty_string_comparison
+PASS: string_vs_empty
+PASS: bracket_command_simulation
+
+Results: 89 passed, 0 failed out of 89 tests
+All tests passed!

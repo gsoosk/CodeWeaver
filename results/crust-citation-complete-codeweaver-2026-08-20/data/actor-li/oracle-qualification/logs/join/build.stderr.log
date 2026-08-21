@@ -1,0 +1,22 @@
+join.c: In function ‘main’:
+join.c:139:65: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+  139 |                         if (mbtowc(tabchar, optarg, MB_CUR_MAX) !=
+      |                                                                 ^~
+join.c: In function ‘mbssep’:
+join.c:333:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+  333 |         for (i = 0; i < ndelim; i++) {
+      |                       ^
+join.c:338:31: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+  338 |                 for (i = 0; i < ndelim; i++) {
+      |                               ^
+join.c: In function ‘main’:
+join.c:139:65: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+  139 |                         if (mbtowc(tabchar, optarg, MB_CUR_MAX) !=
+      |                                                                 ^~
+join.c: In function ‘mbssep’:
+join.c:333:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+  333 |         for (i = 0; i < ndelim; i++) {
+      |                       ^
+join.c:338:31: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+  338 |                 for (i = 0; i < ndelim; i++) {
+      |                               ^

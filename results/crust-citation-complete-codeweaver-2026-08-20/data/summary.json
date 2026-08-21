@@ -1,0 +1,145 @@
+{
+  "actor_li": {
+    "aggregate": {
+      "build_cells": 18,
+      "cells": 18,
+      "elapsed_seconds": 82872.499704,
+      "elapsed_seconds_measured_cells": 18,
+      "elapsed_seconds_status": "measured",
+      "measured_cells": 18,
+      "nano_aiu": 19765291250000,
+      "nano_aiu_measured_cells": 18,
+      "nano_aiu_status": "measured",
+      "output_tokens": null,
+      "output_tokens_measured_cells": 0,
+      "output_tokens_status": "unavailable",
+      "pass_all_cells": 14,
+      "premium_requests": 337,
+      "premium_requests_measured_cells": 18,
+      "premium_requests_status": "measured",
+      "safe_cells": 18,
+      "safe_pass_all_cells": 14,
+      "self_contained_cells": 18,
+      "subject": "ALL",
+      "test_rate_percent": 92.27642276422765,
+      "tests_expected": 1476,
+      "tests_passed": 1362
+    },
+    "artifact_commit": "7427da3d3dfb3c0985aafe86df87f815fa3f08d1",
+    "build_passed": 18,
+    "campaign": "actor-li-absolute-micro",
+    "candidate_runtime_isolation": "mount-pid-namespace-chroot-no-capabilities",
+    "complete": true,
+    "expected_rows": 18,
+    "generated_at": "2026-08-21T02:37:32.054592Z",
+    "measured": 18,
+    "negative_control_discriminating_subjects": 6,
+    "negative_control_subjects": 6,
+    "negative_control_tests_expected": 492,
+    "negative_control_tests_passed": 1,
+    "oracle_qualification": "passed",
+    "oracle_runtime_normalization": "testcmp.sh CRLF/CR line endings converted to LF in temporary execution copies; published snapshots preserve artifact bytes",
+    "pass_all": 14,
+    "published_oracle_contract_files": 47,
+    "published_oracle_contract_subjects": 6,
+    "rows": 18,
+    "safe_pass_all": 14,
+    "safe_rust": 18,
+    "schema_version": 1,
+    "sealed_cells": 18,
+    "self_contained": 18,
+    "tests_expected": 1476,
+    "tests_passed": 1362
+  },
+  "actor_li_raw_archive": {
+    "file_count": 894,
+    "infrastructure_failures": {
+      "file_count": 675,
+      "parts": [
+        {
+          "bytes": 111809,
+          "path": "infrastructure-failure-archives/actor-li-pre-model.tar.gz",
+          "sha256": "c13e6d7f8f8ecf62ff0be78458a50e256ba81f2368c714aeea073770976877c2"
+        }
+      ],
+      "source": "/opt/codeweaver-related-papers/campaign/actor-li/infrastructure-failures"
+    },
+    "parts": [
+      {
+        "bytes": 45000000,
+        "path": "raw-run-archives/actor-li.tar.gz.part-000",
+        "sha256": "66a41e12b4f7a4a08a0ba75808cb669f1f185fcf165fc4d73bd178db9bc4fdc2"
+      },
+      {
+        "bytes": 45000000,
+        "path": "raw-run-archives/actor-li.tar.gz.part-001",
+        "sha256": "1af351505425fb945fff1df2339ab10662b64147175ed88bc10ceb6416d5491b"
+      },
+      {
+        "bytes": 45000000,
+        "path": "raw-run-archives/actor-li.tar.gz.part-002",
+        "sha256": "374ac2a72988f192b5d5c76e24c2021b75189607faa08d8f409335b4176a6679"
+      },
+      {
+        "bytes": 45000000,
+        "path": "raw-run-archives/actor-li.tar.gz.part-003",
+        "sha256": "466264b9cfc81bfc8469f8164e412e9e93c930fb96a9609513e4436ac46c8e89"
+      },
+      {
+        "bytes": 45000000,
+        "path": "raw-run-archives/actor-li.tar.gz.part-004",
+        "sha256": "288cca95babbf058dd71e2e31912b843701204e466b55b2db2eaa4084ebe2c43"
+      },
+      {
+        "bytes": 45000000,
+        "path": "raw-run-archives/actor-li.tar.gz.part-005",
+        "sha256": "df1dd885a4b85e563f7c851124aa5342a3b5edec826aca511990d45c91ff6295"
+      },
+      {
+        "bytes": 13009546,
+        "path": "raw-run-archives/actor-li.tar.gz.part-006",
+        "sha256": "c048efa4a67eca47af052d22139194af18a9b14cb83bd61bad0f230c5c458c40"
+      }
+    ],
+    "source": "/opt/codeweaver-related-papers/campaign/actor-li/runs"
+  },
+  "actor_schesch_ernst": {
+    "comparison_policy": "paper-87 references and public-artifact-95 CodeWeaver overlap are reported separately",
+    "excluded_from_public_overlap": [
+      "crust__bitset",
+      "crust__clog",
+      "crust__genetic-neural-network-for-simple-control",
+      "crust__holdem-odds",
+      "crust__vaultsync"
+    ],
+    "paper_crust_denominator": 87,
+    "paper_membership_recoverable": false,
+    "public_overlap_codeweaver_cells": 285,
+    "public_result_directories": 95
+  },
+  "census_date": "2026-08-20",
+  "classification_counts": {
+    "duplicate": 2,
+    "in_scope": 19,
+    "out_of_scope": 1,
+    "tangential": 8
+  },
+  "comparison_matrix_rows": 20,
+  "empirical_surface_rows": 60,
+  "orbit": {
+    "codeweaver_build_cells": 72,
+    "codeweaver_mean_project_pass_percent": 45.833333333333336,
+    "codeweaver_pass_all_cells": 33,
+    "orbit_expert_builds": 24,
+    "orbit_expert_test_successes": 22,
+    "orbit_generated_builds": 24,
+    "orbit_generated_test_successes": 22,
+    "subjects": 24
+  },
+  "paper_profiles": 20,
+  "policy": "new scores are published only for exact retained subjects with fixed oracles; all other works are explicit reference-only, not-comparable, or blocked records",
+  "semantic_scholar_records": 30,
+  "structured_reference_tables": 14,
+  "taco_included_as_empirical_tangential_work": true,
+  "unique_in_scope_works": 19
+}

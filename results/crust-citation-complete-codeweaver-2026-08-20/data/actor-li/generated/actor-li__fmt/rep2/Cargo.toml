@@ -1,0 +1,12 @@
+[package]
+name = "actor-li-fmt"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "fmt"
+path = "src/main.rs"
+
+[dependencies]
+unicode-width = "=0.2.1"

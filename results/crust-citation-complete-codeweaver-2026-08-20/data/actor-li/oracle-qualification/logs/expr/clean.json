@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "clean"
+  ],
+  "cwd": "/tmp/actor-li-expr-oracle-6ibc8di8/expr",
+  "ended_at": "2026-08-21T02:29:52.683342Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:29:52.676998Z",
+  "timed_out": false
+}

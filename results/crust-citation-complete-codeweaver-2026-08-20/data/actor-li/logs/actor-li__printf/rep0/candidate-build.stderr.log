@@ -1,0 +1,4 @@
+   Compiling libc v0.2.189
+   Compiling fish-printf v0.2.1
+   Compiling actor-li-printf v0.1.0 (/tmp/actor-li-printf-eval-ihz2lh63/candidate)
+    Finished `release` profile [optimized] target(s) in 3.26s

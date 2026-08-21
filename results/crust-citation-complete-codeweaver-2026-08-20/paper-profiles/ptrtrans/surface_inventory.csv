@@ -1,0 +1,4 @@
+key,surface,denominator,metrics,status
+ptrtrans,Tables 1-2,16 Crown projects,subject size and fuzz-test coverage,exact_reference_public_read_only
+ptrtrans,Tables 3-4,16 Crown projects,"lints, unsafe usage, compiled and equivalent functions",exact_reference_public_read_only
+ptrtrans,Table 5,10 small Crown projects x 5 ablations,compiled and equivalent functions,exact_reference_public_read_only

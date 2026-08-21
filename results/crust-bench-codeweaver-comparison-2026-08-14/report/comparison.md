@@ -16,9 +16,9 @@ CRUST-Bench's Table 4 reports pass rates under single-shot, compiler repair, tes
 
 | Run | Build | Pass all | Fixed tests | Test rate |
 | --- | --- | --- | --- | --- |
-| CodeWeaver rep 1 | 100/100 | 56/100 (56.00%) | 500/623 | 80.26% |
-| CodeWeaver rep 2 | 100/100 | 55/100 (55.00%) | 507/623 | 81.38% |
-| CodeWeaver rep 3 | 100/100 | 54/100 (54.00%) | 464/623 | 74.48% |
+| CodeWeaver rep 1 | 100/100 | 56/100 (56.00%) | 447/623 | 71.75% |
+| CodeWeaver rep 2 | 100/100 | 55/100 (55.00%) | 454/623 | 72.87% |
+| CodeWeaver rep 3 | 100/100 | 54/100 (54.00%) | 423/623 | 67.90% |
 | CodeWeaver mean | 100.00% | 55.00% +/- 1.00 pp | three independent repetitions | 95% t-CI +/- 2.48 pp |
 
 ## Published CRUST-Bench Table 4
@@ -39,9 +39,53 @@ CRUST-Bench's Table 4 reports pass rates under single-shot, compiler repair, tes
 | Qwen-2.5-Coder-32B | 0.00% | 0.00% | 0.00% | 0.00% | 0.00% | 0.00% |
 | Adapted SWE-agent (Claude-3.7) | 41.00% | 32.00% | N/A | N/A | N/A | N/A |
 
+## CodeWeaver execution and model-use telemetry
+
+| Scope | Cells | Elapsed h | Assistant turns | Tool calls | Premium requests | AIU | Output tokens | Input tokens |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| repetition 1 | 100 | 157.28 | 47620 | 75442 | 1438 | 225874.65 | 27560480 | N/A (unavailable) |
+| repetition 2 | 100 | 168.33 | 50605 | 80319 | 1503 | 240674.81 | 29239390 | N/A (unavailable) |
+| repetition 3 | 100 | 143.57 | 47989 | 76484 | 1390 | 229364.16 | 27616255 | N/A (unavailable) |
+| all measured cells | 300 | 469.18 | 146214 | 232245 | 4331 | 695913.62 | 84416125 | N/A (unavailable) |
+
+## CodeWeaver coverage measurements
+
+| Rep | Metric | Cells | Mean | Min | Max |
+| --- | --- | --- | --- | --- | --- |
+| 1 | coverage_before | 96 | 56.86% | 0.00% | 100.00% |
+| 1 | coverage_after | 96 | 57.81% | 0.00% | 100.00% |
+| 2 | coverage_before | 96 | 59.22% | 0.00% | 100.00% |
+| 2 | coverage_after | 96 | 59.67% | 0.00% | 100.00% |
+| 3 | coverage_before | 96 | 57.25% | 0.00% | 100.00% |
+| 3 | coverage_after | 96 | 58.28% | 4.58% | 100.00% |
+
+## CodeWeaver final-output Clippy measurements
+
+| Rep | Complete | Incomplete | Warning-free | Warnings | Errors | Alerts/project | Alerts/function |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 96 | 4 | 1 | 1959 | 0 | 20.41 | 0.183 |
+| 2 | 95 | 5 | 1 | 1827 | 0 | 19.23 | 0.166 |
+| 3 | 92 | 8 | 0 | 2002 | 0 | 21.76 | 0.187 |
+
+## Complete source-paper surface audit
+
+| Surface | Denominator | Metrics | Artifact status |
+| --- | --- | --- | --- |
+| Table 1 | 7 benchmarks | projects, multi-file, average LoC, Rust interface, Rust tests | structured_reference |
+| Figure 2 | 100 projects | seven application categories | structured_reference |
+| Table 2 | 100 projects | tests, files, coverage, LoC, pointer dereferences, functions | structured_reference |
+| Table 3 | 299 files / 3,085 functions | files, functions, arguments, ownership/type features | structured_reference |
+| Table 4 | 100 projects | build and test success | structured_reference_and_codeweaver_comparison |
+| Table 5 | percent of 100 projects | mismatch, borrow, missing, unimplemented, trait, arguments, unsafe | structured_reference |
+| Appendix A | 100 projects | representativeness and limitations | documented_reference |
+| Appendix B | 10-project pilot; six model calls per task | qualitative winner; numeric cells not reported | documented_reference |
+| Appendix E Table 6 | adapted SWE-agent experiment | build/test by step budget | paper_only |
+
 ## Artifact map
 
 - `data/`: normalized measurements and paper reference values.
+- `data/paper-reference/`: structured references for omitted source-paper tables.
+- `data/paper_surface_inventory.csv`: every source-paper evaluation surface and status.
 - `report/comparison.pdf`: human-readable result paper.
 - `report/figure.pdf` and `report/figure.svg`: publication figure.
 - `metadata/`: provenance, availability, and checksums.

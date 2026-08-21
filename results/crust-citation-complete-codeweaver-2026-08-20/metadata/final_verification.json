@@ -1,0 +1,15 @@
+{
+  "actor_li_evidence_verified": true,
+  "actor_li_rows": 18,
+  "actor_public_overlap_rows": 95,
+  "citation_records": 30,
+  "generated_at": "2026-08-21T03:08:27.348379Z",
+  "inclusion_rows": 20,
+  "missing": [],
+  "orbit_rows": 24,
+  "paper_profiles": 20,
+  "pdf_files": 24,
+  "pdf_valid": true,
+  "status": "passed",
+  "surface_rows": 60
+}

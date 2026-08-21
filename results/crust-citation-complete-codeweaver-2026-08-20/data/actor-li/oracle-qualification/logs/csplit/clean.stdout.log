@@ -1,0 +1,1 @@
+rm -f csplit csplit.ref *.gcda *.gcno *.gcov *.profdata *.profraw

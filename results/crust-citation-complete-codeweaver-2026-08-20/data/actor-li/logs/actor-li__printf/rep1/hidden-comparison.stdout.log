@@ -1,0 +1,123 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+Loaded 83 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-printf-eval-zgxaghw4/sandbox/isolated-candidate with ./printf.ref
+Running 83 tests...
+
+PASS: simple_string
+PASS: decimal_integer
+PASS: hex_integer
+FAIL: floating_point
+  Reference exit: 0, Test exit: 1
+  Output differs
+PASS: percent_sign
+PASS: octal_escape
+PASS: hex_escape
+PASS: backslash_escape
+PASS: single_quote_escape
+PASS: double_quote_escape
+PASS: alert_escape
+PASS: backspace_escape
+PASS: escape_char
+PASS: form_feed_escape
+PASS: carriage_return_escape
+PASS: vertical_tab_escape
+PASS: missing_format_char
+PASS: invalid_directive
+PASS: invalid_integer
+PASS: no_arguments
+PASS: null_escape
+PASS: unknown_escape
+PASS: expected_numeric
+PASS: not_completely_converted
+PASS: numeric_range_error
+PASS: char_format
+PASS: char_no_arg
+PASS: null_char
+PASS: char_empty_string
+PASS: char_from_null
+PASS: field_width_arg
+PASS: precision_arg
+PASS: width_precision_args
+PASS: width_zero
+PASS: precision_zero
+PASS: both_zero
+PASS: octal_format
+PASS: unsigned_format
+PASS: uppercase_hex
+PASS: scientific_lower
+PASS: scientific_upper
+FAIL: general_float_lower
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: fixed_point_upper
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: hex_float_lower
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: hex_float_width
+  Reference exit: 0, Test exit: 1
+  Output differs
+PASS: escape_string_octal
+PASS: escape_string_hex
+PASS: escape_string_mixed
+PASS: escape_string_c_term
+PASS: complex_b_octal
+PASS: complex_b_hex
+PASS: char_literal_int
+PASS: char_literal_unsigned
+FAIL: char_literal_float
+  Reference exit: 0, Test exit: 1
+  Output differs
+PASS: multi_char_literal
+PASS: char_literal_quotes
+PASS: empty_char_literal
+PASS: double_dash_option
+PASS: zero_integer
+FAIL: zero_float
+  Reference exit: 0, Test exit: 1
+  Output differs
+PASS: zero_octal
+PASS: zero_hex
+PASS: zero_unsigned
+PASS: int_no_arg
+PASS: string_no_arg
+FAIL: float_no_arg
+  Reference exit: 0, Test exit: 1
+  Output differs
+PASS: string_from_null
+PASS: int_from_null
+PASS: unsigned_from_null
+FAIL: float_from_null
+  Reference exit: 0, Test exit: 1
+  Output differs
+PASS: format_reuse_multi
+PASS: format_reuse_insufficient
+PASS: mixed_format_insufficient
+PASS: negative_hex
+PASS: negative_octal
+PASS: negative_unsigned
+PASS: very_large_int
+FAIL: very_small_float
+  Reference exit: 0, Test exit: 1
+  Output differs
+PASS: very_large_float
+FAIL: float_many_decimals
+  Reference exit: 0, Test exit: 1
+  Output differs
+PASS: format_with_flags
+PASS: format_precision_dot
+PASS: empty_string
+
+Results: 72 passed, 11 failed out of 83 tests
+Some tests failed!

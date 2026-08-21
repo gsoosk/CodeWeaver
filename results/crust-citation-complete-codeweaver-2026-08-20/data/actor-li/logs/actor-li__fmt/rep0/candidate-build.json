@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "--release"
+  ],
+  "cwd": "/tmp/actor-li-fmt-eval-41w635st/candidate",
+  "ended_at": "2026-08-21T02:33:55.815935Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:33:53.038882Z",
+  "timed_out": false
+}

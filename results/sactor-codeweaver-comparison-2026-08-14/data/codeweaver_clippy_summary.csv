@@ -1,0 +1,4 @@
+repetition,complete_cells,incomplete_cells,warning_free_cells,warnings,errors,excluded_incomplete_warnings,excluded_incomplete_errors,mean_alerts_per_project,alerts_per_function
+1,48,2,0,693,0,59,8,14.4375,0.1761118170266836
+2,48,2,1,627,0,55,6,13.0625,0.16118251928020566
+3,48,2,0,601,0,62,6,12.520833333333334,0.16125570163670513

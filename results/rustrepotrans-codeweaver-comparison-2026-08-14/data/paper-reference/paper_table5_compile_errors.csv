@@ -1,0 +1,11 @@
+rustc_code,frequency,description
+E0599,4079,method unavailable on type
+E0425,2095,unresolved name
+E0308,1035,type mismatch
+E0277,976,trait not implemented
+E0609,906,nonexistent struct field
+E0433,639,"undeclared crate, module, or type"
+E0061,343,wrong argument count
+E0252,290,duplicate import name
+E0432,287,unresolved import
+E0616,187,private struct field

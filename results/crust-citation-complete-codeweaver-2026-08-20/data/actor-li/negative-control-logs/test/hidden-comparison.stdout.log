@@ -1,0 +1,286 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+Loaded 89 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-test-negative-y_6r4v41/sandbox/isolated-candidate with ./test.ref
+Running 89 tests...
+
+FAIL: no_args
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: single_empty_string
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: single_non_empty_string
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: negation_empty_string
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: negation_non_empty_string
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: binary_operation
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: negated_binary_operation
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: file_existence_existing
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: file_existence_non_existent
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: regular_file_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: directory_not_regular_file
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: directory_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: file_not_directory
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: symlink_with_h
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: symlink_with_L
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: regular_file_not_symlink
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: named_pipe_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: regular_file_not_pipe
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: character_device_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: regular_file_not_char_device
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: block_device_test
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: regular_file_not_block_device
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: regular_file_not_socket
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: readable_file_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: writable_file_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: executable_file_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: non_readable_file_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: non_zero_file_size
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: zero_file_size
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: file_owned_by_effective_user
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: file_owned_by_effective_group
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: setuid_bit_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: setuid_bit_test_regular_file
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: setgid_bit_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: setgid_bit_test_regular_file
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: sticky_bit_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: sticky_bit_test_regular_file
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: empty_string_with_z
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: non_empty_string_with_z
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: non_empty_string_with_n
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: empty_string_with_n
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: terminal_test_fd0
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: terminal_test_fd1
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: terminal_test_invalid_fd
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: string_equality
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: string_inequality
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: string_less_than
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: string_greater_than
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: string_equality_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: integer_equality
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: integer_inequality
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: integer_greater_than
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: integer_greater_than_or_equal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: integer_less_than
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: integer_less_than_or_equal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: integer_equality_leading_zeros
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: integer_with_whitespace
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: negative_numbers
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: large_numbers
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: newer_than_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: older_than_test
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: same_file_equal_files
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: hard_link_equal_files
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: different_files_not_equal
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: and_operation_true
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: and_operation_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: or_operation_true
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: or_operation_false
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: negation_true
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: negation_false
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: simple_parentheses
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: complex_parentheses_with_and
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: complex_parentheses_with_or
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: missing_argument_for_binary_operator
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: single_unary_operator
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: invalid_number_for_terminal_test
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: negative_number_for_terminal_test
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: too_large_number_for_terminal_test
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: missing_closing_parenthesis
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: invalid_integer_comparison
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: unknown_operand
+  Reference exit: 2, Test exit: 1
+  Output differs
+FAIL: multiple_and_operations
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: multiple_or_operations
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: mixed_and_or_operations
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: string_with_spaces
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: string_with_special_characters
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: empty_string_comparison
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: string_vs_empty
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: bracket_command_simulation
+  Reference exit: 0, Test exit: 1
+  Output differs
+
+Results: 0 passed, 89 failed out of 89 tests
+WARNING: None of the tests resulted in normal exit (exit code 0) of the tested program
+Some tests failed!

@@ -1,0 +1,106 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  Validating file ending of tests03.jsonl...
+  Validating file ending of tests04.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl tests03.jsonl tests04.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+  Processing tests03.jsonl...
+  Processing tests04.jsonl...
+Loaded 84 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-join-oracle-afprt8av/sandbox/isolated-candidate with ./join.ref
+Running 84 tests...
+
+PASS: test1
+PASS: test2
+PASS: test3
+PASS: test4
+PASS: test5
+PASS: test6
+PASS: test7
+PASS: test8
+PASS: test9
+PASS: test10
+PASS: test11
+PASS: test12
+PASS: test13
+PASS: test14
+PASS: test15
+PASS: test16
+PASS: test17
+PASS: test18
+PASS: test19
+PASS: test20
+PASS: test21
+PASS: test22
+PASS: test23
+PASS: test24
+PASS: test25
+PASS: test26
+PASS: test27
+PASS: test28
+PASS: test29
+PASS: test30
+PASS: test31
+PASS: test32
+PASS: test33
+PASS: test34
+PASS: test35
+PASS: test36
+PASS: test37
+PASS: test38
+PASS: test39
+PASS: test40
+PASS: test41
+PASS: test42
+PASS: test43
+PASS: test44
+PASS: test45
+PASS: test46
+PASS: test47
+PASS: test48
+PASS: test49
+PASS: test50
+PASS: test51
+PASS: test52
+PASS: test53
+PASS: test54
+PASS: test55
+PASS: test56
+PASS: test57
+PASS: test58
+PASS: test59
+PASS: test60
+PASS: test61
+PASS: test62
+PASS: test63
+PASS: test64
+PASS: test65
+PASS: test66
+PASS: test67
+PASS: test68
+PASS: test69
+PASS: test70
+PASS: test71
+PASS: test72
+PASS: test73
+PASS: test74
+PASS: test75
+PASS: test_file_check
+PASS: test1_file_check
+PASS: test3_file_check
+PASS: test7_file_check
+PASS: test19_file_check
+PASS: test46_file_check
+PASS: test_multiple_files
+PASS: test_with_error_check
+PASS: test_tab_output_validation
+
+Results: 84 passed, 0 failed out of 84 tests
+All tests passed!

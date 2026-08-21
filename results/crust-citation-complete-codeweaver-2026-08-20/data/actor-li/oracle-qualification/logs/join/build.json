@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "all"
+  ],
+  "cwd": "/tmp/actor-li-join-oracle-afprt8av/join",
+  "ended_at": "2026-08-21T02:30:28.167816Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:30:27.448988Z",
+  "timed_out": false
+}

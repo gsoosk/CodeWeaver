@@ -1,0 +1,2 @@
+gcc -Wall -Wextra -O2 -std=c99 -o csplit csplit.c
+gcc -Wall -Wextra -g -O0 -fprofile-arcs -ftest-coverage -std=c99 -o csplit.ref csplit.c

@@ -1,9 +1,16 @@
 {
   "codeweaver_source": {
-    "git_commit": "b1411056e47d48750d15ad59d1356beebdf2a66e",
-    "repository": "https://github.com/gsoosk/CodeWeaver"
+    "base_git_commit": "20dd65859a8d3fbaa9316ddeae0f8ea64bccda75",
+    "identity_policy": "the reproduction snapshot tree hash identifies the exact evaluated harness; the Git commit is its base revision",
+    "repository": "https://github.com/gsoosk/CodeWeaver",
+    "snapshot_files": 68,
+    "snapshot_tree_sha256": "21a1d26845d4986c6f224f6b6064278ac62f6a1b92e9681b8062a2dcfed30fe5",
+    "source_worktree_clean": true,
+    "source_worktree_entry_count": 0,
+    "source_worktree_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tracked_source_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
-  "generated_at": "2026-08-15T03:41:50.436982Z",
+  "generated_at": "2026-08-21T03:03:33.856776Z",
   "manifest_projects": 100,
   "paper": {
     "paper_id": "arXiv:2504.15254",

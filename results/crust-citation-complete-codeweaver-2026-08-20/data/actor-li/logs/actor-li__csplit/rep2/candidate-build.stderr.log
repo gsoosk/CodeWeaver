@@ -1,0 +1,13 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling find-msvc-tools v0.1.11
+   Compiling shlex v2.0.1
+   Compiling pkg-config v0.3.34
+   Compiling bitflags v2.13.1
+   Compiling once_cell v1.21.4
+   Compiling cc v1.4.3
+   Compiling onig_sys v69.9.3
+   Compiling onig v6.5.3
+   Compiling actor-li-csplit v0.1.0 (/tmp/actor-li-csplit-eval-pq4_dyp6/candidate)
+    Finished `release` profile [optimized] target(s) in 17.73s

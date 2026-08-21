@@ -1,0 +1,15 @@
+surface,configuration,unidiomatic_success,idiomatic_success,denominator
+Figure 8,Llama 3.3 TransCoder-IR without feedback,57,46,100
+Figure 8,Llama 3.3 TransCoder-IR with feedback,76,64,100
+Figure 8,GPT-4o TransCoder-IR without feedback,87,83,100
+Figure 8,GPT-4o TransCoder-IR with feedback,84,80,100
+Figure 8,Llama 3.3 CodeNet without feedback,62,59,100
+Figure 8,Llama 3.3 CodeNet with feedback,83,76,100
+Figure 8,GPT-4o CodeNet without feedback,82,77,100
+Figure 8,GPT-4o CodeNet with feedback,84,79,100
+Table 9,Trivial one-step,77,12,966 functions / 50 samples
+Table 9,Trivial one-step encourage unsafe,207,20,966 functions / 50 samples
+Table 10,SACTOR with Crown,,41,77 libogg functions
+Table 10,SACTOR without Crown,,34,77 libogg functions
+Table 12,Baseline stage 1,77,,77 libogg functions
+Table 12,Prompt avoids unsafe,66,,77 libogg functions

@@ -1,0 +1,7 @@
+   Compiling libc v0.2.189
+   Compiling cfg_aliases v0.2.2
+   Compiling bitflags v2.13.1
+   Compiling cfg-if v1.0.4
+   Compiling nix v0.29.0
+   Compiling actor-li-test v0.1.0 (/tmp/actor-li-test-eval-1bwpw6ix/candidate)
+    Finished `release` profile [optimized] target(s) in 5.04s

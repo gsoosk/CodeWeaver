@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "all"
+  ],
+  "cwd": "/tmp/actor-li-test-negative-y_6r4v41/oracle",
+  "ended_at": "2026-08-21T02:32:59.207820Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:32:58.504443Z",
+  "timed_out": false
+}

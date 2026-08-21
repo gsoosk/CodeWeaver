@@ -1,0 +1,4 @@
+key,surface,denominator,metrics,status
+actor-li,Figures 2 and 4,6 micro + 57 BSD CLI utilities,hidden/differential-test pass by 7 configurations,exact_micro_codeweaver_campaign_and_reference_only_macro
+actor-li,C2SaferRust augmentation,7 standalone executables,differential-test pass,exact_reference_public_artifact
+actor-li,Stability and cost ablations,3 runs and iteration/test/seed configurations,"mean, standard deviation, accuracy and cost",exact_reference_public_artifact

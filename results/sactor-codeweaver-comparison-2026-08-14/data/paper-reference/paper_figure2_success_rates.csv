@@ -1,0 +1,11 @@
+dataset,model,unidiomatic_percent,idiomatic_percent
+TransCoder-IR,Claude 3.5,55,54
+TransCoder-IR,Gemini 2.0,78,75
+TransCoder-IR,Llama 3.3,76,64
+TransCoder-IR,GPT-4o,84,80
+TransCoder-IR,DeepSeek-R1,94,93
+CodeNet,Claude 3.5,86,83
+CodeNet,Gemini 2.0,78,74
+CodeNet,Llama 3.3,83,76
+CodeNet,GPT-4o,84,79
+CodeNet,DeepSeek-R1,86,84

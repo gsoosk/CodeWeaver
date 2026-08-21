@@ -1,0 +1,16 @@
+test.c: In function ‘primary’:
+test.c:363:32: warning: comparison between ‘enum token’ and ‘enum token_types’ [-Wenum-compare]
+  363 |         if(t_lex_type(t_wp[1]) == BINOP) {
+      |                                ^~
+test.c: In function ‘binop’:
+test.c:495:1: warning: control reaches end of non-void function [-Wreturn-type]
+  495 | }
+      | ^
+test.c: In function ‘primary’:
+test.c:363:32: warning: comparison between ‘enum token’ and ‘enum token_types’ [-Wenum-compare]
+  363 |         if(t_lex_type(t_wp[1]) == BINOP) {
+      |                                ^~
+test.c: In function ‘binop’:
+test.c:495:1: warning: control reaches end of non-void function [-Wreturn-type]
+  495 | }
+      | ^

@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "--release"
+  ],
+  "cwd": "/tmp/actor-li-csplit-negative-ycic87dd/candidate",
+  "ended_at": "2026-08-21T02:31:28.097648Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:31:26.732442Z",
+  "timed_out": false
+}

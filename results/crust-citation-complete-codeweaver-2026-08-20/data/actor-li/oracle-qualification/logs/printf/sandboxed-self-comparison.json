@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "bash",
+    "./testcmp.sh",
+    "compare",
+    "/tmp/actor-li-printf-oracle-haiqe_ks/sandbox/isolated-candidate"
+  ],
+  "cwd": "/tmp/actor-li-printf-oracle-haiqe_ks/printf",
+  "ended_at": "2026-08-21T02:31:06.063727Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:30:50.687613Z",
+  "timed_out": false
+}

@@ -1,0 +1,268 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+Loaded 83 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-printf-negative-aamux0al/sandbox/isolated-candidate with ./printf.ref
+Running 83 tests...
+
+FAIL: simple_string
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: decimal_integer
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: hex_integer
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: floating_point
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: percent_sign
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: octal_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: hex_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: backslash_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: single_quote_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: double_quote_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: alert_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: backspace_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: escape_char
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: form_feed_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: carriage_return_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: vertical_tab_escape
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: missing_format_char
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: invalid_directive
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: invalid_integer
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: no_arguments
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: null_escape
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: unknown_escape
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: expected_numeric
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: not_completely_converted
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: numeric_range_error
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: char_format
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: char_no_arg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: null_char
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: char_empty_string
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: char_from_null
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: field_width_arg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: precision_arg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: width_precision_args
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: width_zero
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: precision_zero
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: both_zero
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: octal_format
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: unsigned_format
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: uppercase_hex
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: scientific_lower
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: scientific_upper
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: general_float_lower
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: fixed_point_upper
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: hex_float_lower
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: hex_float_width
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: escape_string_octal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: escape_string_hex
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: escape_string_mixed
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: escape_string_c_term
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: complex_b_octal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: complex_b_hex
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: char_literal_int
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: char_literal_unsigned
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: char_literal_float
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: multi_char_literal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: char_literal_quotes
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: empty_char_literal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: double_dash_option
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: zero_integer
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: zero_float
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: zero_octal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: zero_hex
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: zero_unsigned
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: int_no_arg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: string_no_arg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: float_no_arg
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: string_from_null
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: int_from_null
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: unsigned_from_null
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: float_from_null
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: format_reuse_multi
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: format_reuse_insufficient
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mixed_format_insufficient
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: negative_hex
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: negative_octal
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: negative_unsigned
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: very_large_int
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: very_small_float
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: very_large_float
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: float_many_decimals
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: format_with_flags
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: format_precision_dot
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: empty_string
+  Reference exit: 0, Test exit: 1
+  Output differs
+
+Results: 0 passed, 83 failed out of 83 tests
+WARNING: None of the tests resulted in normal exit (exit code 0) of the tested program
+Some tests failed!

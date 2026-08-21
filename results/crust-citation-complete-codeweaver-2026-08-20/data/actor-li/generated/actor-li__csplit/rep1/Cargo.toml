@@ -1,0 +1,13 @@
+[package]
+name = "actor-li-csplit"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "csplit"
+path = "src/main.rs"
+
+[dependencies]
+posix-regex = "0.1.4"
+tempfile = "3.27"

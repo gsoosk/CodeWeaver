@@ -1,0 +1,274 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  Validating file ending of tests03.jsonl...
+  Validating file ending of tests04.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl tests03.jsonl tests04.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+  Processing tests03.jsonl...
+  Processing tests04.jsonl...
+Loaded 84 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-join-negative-w9bny5qp/sandbox/isolated-candidate with ./join.ref
+Running 84 tests...
+
+FAIL: test1
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test2
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test3
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test4
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test5
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test6
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test7
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test8
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test9
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test10
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test11
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test12
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test13
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test14
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test15
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test16
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test17
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test18
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test19
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test20
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test21
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test22
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test23
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test24
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test25
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test26
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test27
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test28
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test29
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test30
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test31
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test32
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test33
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test34
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test35
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test36
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test37
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test38
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test39
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test40
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test41
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test42
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test43
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test44
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test45
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test46
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test47
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test48
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test49
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test50
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test51
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test52
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test53
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test54
+  Reference exit: 1, Test exit: 1
+  Output differs
+FAIL: test55
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test56
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test57
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test58
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test59
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test60
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test61
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test62
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test63
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test64
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test65
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test66
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test67
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test68
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test69
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test70
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test71
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test72
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test73
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test74
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test75
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test_file_check
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test1_file_check
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test3_file_check
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test7_file_check
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test19_file_check
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test46_file_check
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test_multiple_files
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: test_with_error_check
+  Reference exit: 0, Test exit: 0
+  Output differs
+FAIL: test_tab_output_validation
+  Reference exit: 0, Test exit: 1
+  Output differs
+
+Results: 0 passed, 84 failed out of 84 tests
+Some tests failed!

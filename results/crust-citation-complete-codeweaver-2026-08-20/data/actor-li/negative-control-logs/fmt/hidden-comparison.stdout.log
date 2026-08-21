@@ -1,0 +1,217 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+Loaded 66 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-fmt-negative-d64o406n/sandbox/isolated-candidate with ./fmt.ref
+Running 66 tests...
+
+FAIL: simple_line_break
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: preserve_indentation
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: tab_expansion
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: center_text
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mail_header
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: no_formatting
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: center_text_tabs
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: center_invalid_utf8
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: tab_indentation
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: file_processing
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: custom_sentence_enders
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: output_tab_width
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: coalesce_spaces
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: numeric_width_option
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: numeric_width_dash
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: goal_max_length
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: wide_characters
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mixed_ascii_wide
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mail_header_continuation
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: multiple_mail_headers
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: non_header_after_header
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: invalid_mail_header
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: multiple_paragraphs
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: indented_paragraphs
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: blank_lines_preservation
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: custom_sentence_enders2
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: no_double_space
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: question_mark_sentence
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: troff_commands_preserved
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: format_troff_enabled
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: dot_line_start
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: tab_expansion_custom
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: tab_middle_word
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: multiple_tabs
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: output_tab_conversion
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: center_short_line
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: center_long_line
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: center_with_tabs
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: coalesce_multiple_spaces
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: coalesce_sentence_end
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mixed_whitespace_coalescing
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: very_long_word
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: single_character_lines
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: only_whitespace
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: leading_trailing_spaces
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: backspace_handling
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: center_custom_tab
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: multiple_input_files
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: very_long_line
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: control_chars_stripped
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: carriage_return
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mixed_control_chars
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: single_digit_width
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: double_digit_width
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: unicode_file_processing
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: mixed_whitespace_norm
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: sentence_detection_file
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: goal_word_boundary
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: max_length_constraint
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: tab_width_edge_case
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: large_tab_width
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: output_tab_large_indent
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: center_odd_width
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: center_exact_fit
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: coalesce_line_boundaries
+  Reference exit: 0, Test exit: 1
+  Output differs
+FAIL: multiple_sentence_enders
+  Reference exit: 0, Test exit: 1
+  Output differs
+
+Results: 0 passed, 66 failed out of 66 tests
+WARNING: None of the tests resulted in normal exit (exit code 0) of the tested program
+Some tests failed!

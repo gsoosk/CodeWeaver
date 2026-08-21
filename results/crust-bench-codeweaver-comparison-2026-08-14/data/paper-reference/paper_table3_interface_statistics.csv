@@ -1,0 +1,8 @@
+metric,total,average,maximum
+Interface files,299,3.0,21
+Interface functions,3085,30.9,415
+Function arguments,5716,57.2,1484
+Functions with reference arguments,,56%,
+Custom types in arguments,,44%,
+Custom types in return types,,50%,
+Functions with mutable references,,30%,

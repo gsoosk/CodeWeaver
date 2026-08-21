@@ -1,0 +1,134 @@
+{
+  "cell_count": 18,
+  "cells": [
+    {
+      "repetition": 0,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__csplit/rep0/recodeagent_run_state.json",
+      "state_sha256": "b9e42bb9dc9deded08089d180c9938c26461ca4ea69cb119d82c2f0c25f2cd1f",
+      "status": "timeout",
+      "subject_id": "actor-li__csplit"
+    },
+    {
+      "repetition": 1,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__csplit/rep1/recodeagent_run_state.json",
+      "state_sha256": "d46a02a3118705d890d9c94ad51568fae866edb90a79ac1e3a6fe82419ab2fd3",
+      "status": "timeout",
+      "subject_id": "actor-li__csplit"
+    },
+    {
+      "repetition": 2,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__csplit/rep2/recodeagent_run_state.json",
+      "state_sha256": "ff64d780bf5955262fdd241607a170c4ca06fb85f509bf92e6a5aba6b2dd63d8",
+      "status": "timeout",
+      "subject_id": "actor-li__csplit"
+    },
+    {
+      "repetition": 0,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__expr/rep0/recodeagent_run_state.json",
+      "state_sha256": "0188d1608abb6102629454f904f502fd8224dacbaaf592ded3485d4c59e4ec55",
+      "status": "timeout",
+      "subject_id": "actor-li__expr"
+    },
+    {
+      "repetition": 1,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__expr/rep1/recodeagent_run_state.json",
+      "state_sha256": "b043db65a884b5428fb2f973f35d62f35cd1ff54378ae396dea1ae139249a3bc",
+      "status": "timeout",
+      "subject_id": "actor-li__expr"
+    },
+    {
+      "repetition": 2,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__expr/rep2/recodeagent_run_state.json",
+      "state_sha256": "70d5eee0d94dfedce5d545c00e8a6e502e981f9d57de976cc9f3f5040523c737",
+      "status": "failed",
+      "subject_id": "actor-li__expr"
+    },
+    {
+      "repetition": 0,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__fmt/rep0/recodeagent_run_state.json",
+      "state_sha256": "6de26fd941529c95797eb5fe04ebebb8ee89f782848eb8ab1dcaf924e0de9336",
+      "status": "timeout",
+      "subject_id": "actor-li__fmt"
+    },
+    {
+      "repetition": 1,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__fmt/rep1/recodeagent_run_state.json",
+      "state_sha256": "9f06eaea724bce909f522b50a3cb9e23e242eb832b993d81dd1d9ff13a3ce6f2",
+      "status": "timeout",
+      "subject_id": "actor-li__fmt"
+    },
+    {
+      "repetition": 2,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__fmt/rep2/recodeagent_run_state.json",
+      "state_sha256": "1adda796634e09cb29d6935a27c1e98df0308524ac99f55e9ba83edd9d1dcb7c",
+      "status": "failed",
+      "subject_id": "actor-li__fmt"
+    },
+    {
+      "repetition": 0,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__join/rep0/recodeagent_run_state.json",
+      "state_sha256": "4ac9f133d41e0b3ab5403aecef4b0f300f7c4a24a8f18aeb1015158ea684fefa",
+      "status": "timeout",
+      "subject_id": "actor-li__join"
+    },
+    {
+      "repetition": 1,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__join/rep1/recodeagent_run_state.json",
+      "state_sha256": "0437ed9b228134a43621a15625bebaf8fd98984632c65d30ca4a4951e2ee95f0",
+      "status": "timeout",
+      "subject_id": "actor-li__join"
+    },
+    {
+      "repetition": 2,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__join/rep2/recodeagent_run_state.json",
+      "state_sha256": "c715e8d3047b23a2011a7ef67afd52b8d14566c29159cac7273e17d54114c10e",
+      "status": "timeout",
+      "subject_id": "actor-li__join"
+    },
+    {
+      "repetition": 0,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__printf/rep0/recodeagent_run_state.json",
+      "state_sha256": "fb7dcbcb28d5d5c1419c2ab17613c22015d32f2b265df55cb6dd7f8d8d95da60",
+      "status": "timeout",
+      "subject_id": "actor-li__printf"
+    },
+    {
+      "repetition": 1,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__printf/rep1/recodeagent_run_state.json",
+      "state_sha256": "2ea972d0755d105721aa79c2b2cd147097f7c51e6b1679c2381006a1022a8552",
+      "status": "timeout",
+      "subject_id": "actor-li__printf"
+    },
+    {
+      "repetition": 2,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__printf/rep2/recodeagent_run_state.json",
+      "state_sha256": "2e0f96eeda2b039944302e2d9f3952a4b4a6901e76255ff514f9d028764a72d2",
+      "status": "timeout",
+      "subject_id": "actor-li__printf"
+    },
+    {
+      "repetition": 0,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__test/rep0/recodeagent_run_state.json",
+      "state_sha256": "3d2705fa665268d51f7a41e4b4144607631d0ac64e88bbc7073ccad8c84ae8cd",
+      "status": "completed",
+      "subject_id": "actor-li__test"
+    },
+    {
+      "repetition": 1,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__test/rep1/recodeagent_run_state.json",
+      "state_sha256": "bfba00e3ed9eb7776b423c33d65b1481f739199956d781a74bc271455cf41d5e",
+      "status": "completed",
+      "subject_id": "actor-li__test"
+    },
+    {
+      "repetition": 2,
+      "state_path": "/opt/codeweaver-related-papers/campaign/actor-li/runs/full/actor-li__test/rep2/recodeagent_run_state.json",
+      "state_sha256": "ea9edc93868a981d3cf95cae8e266ce8ce4a7c9290b777edd699e3a7dddbfd24",
+      "status": "completed",
+      "subject_id": "actor-li__test"
+    }
+  ],
+  "purpose": "permanently closes this campaign to further model runs before hidden-oracle evaluation",
+  "schema_version": 1,
+  "sealed_at": "2026-08-21T02:12:10.359252Z"
+}

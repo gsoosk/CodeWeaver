@@ -1,0 +1,40 @@
+expr.c: In function ‘to_string’:
+expr.c:209:32: warning: format ‘%lld’ expects argument of type ‘long long int’, but argument 3 has type ‘int64_t’ {aka ‘long int’} [-Wformat=]
+  209 |         if (asprintf(&tmp, "%lld", vp->u.i) == -1)
+      |                             ~~~^   ~~~~~~~
+      |                                |        |
+      |                                |        int64_t {aka long int}
+      |                                long long int
+      |                             %ld
+expr.c: In function ‘main’:
+expr.c:567:28: warning: format ‘%lld’ expects argument of type ‘long long int’, but argument 2 has type ‘int64_t’ {aka ‘long int’} [-Wformat=]
+  567 |                 printf("%lld\n", vp->u.i);
+      |                         ~~~^     ~~~~~~~
+      |                            |          |
+      |                            |          int64_t {aka long int}
+      |                            long long int
+      |                         %ld
+expr.c: In function ‘eval6’:
+expr.c:288:1: warning: control reaches end of non-void function [-Wreturn-type]
+  288 | }
+      | ^
+expr.c: In function ‘to_string’:
+expr.c:209:32: warning: format ‘%lld’ expects argument of type ‘long long int’, but argument 3 has type ‘int64_t’ {aka ‘long int’} [-Wformat=]
+  209 |         if (asprintf(&tmp, "%lld", vp->u.i) == -1)
+      |                             ~~~^   ~~~~~~~
+      |                                |        |
+      |                                |        int64_t {aka long int}
+      |                                long long int
+      |                             %ld
+expr.c: In function ‘main’:
+expr.c:567:28: warning: format ‘%lld’ expects argument of type ‘long long int’, but argument 2 has type ‘int64_t’ {aka ‘long int’} [-Wformat=]
+  567 |                 printf("%lld\n", vp->u.i);
+      |                         ~~~^     ~~~~~~~
+      |                            |          |
+      |                            |          int64_t {aka long int}
+      |                            long long int
+      |                         %ld
+expr.c: In function ‘eval6’:
+expr.c:288:1: warning: control reaches end of non-void function [-Wreturn-type]
+  288 | }
+      | ^

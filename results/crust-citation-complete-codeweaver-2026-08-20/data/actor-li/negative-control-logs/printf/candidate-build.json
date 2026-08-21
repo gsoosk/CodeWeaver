@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "--release"
+  ],
+  "cwd": "/tmp/actor-li-printf-negative-aamux0al/candidate",
+  "ended_at": "2026-08-21T02:32:41.688576Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:32:41.316605Z",
+  "timed_out": false
+}

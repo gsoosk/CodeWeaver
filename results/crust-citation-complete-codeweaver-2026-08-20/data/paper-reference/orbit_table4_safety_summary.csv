@@ -1,0 +1,5 @@
+system,scope,mean_unsafe_percent,zero_unsafe_projects,pointer_declarations,pointer_dereferences,note
+C2Rust,15 compiling projects,69.6,,,,range 20.4%-97.4%
+CRUST-Bench,11 compiling projects,0.68,8,,,"nonzero: razz_simulation, lambda-calculus-eval, libm17"
+ORBIT expert,24 projects,0.06,19,35,5,
+ORBIT generated,24 projects,0.11,21,58,6,

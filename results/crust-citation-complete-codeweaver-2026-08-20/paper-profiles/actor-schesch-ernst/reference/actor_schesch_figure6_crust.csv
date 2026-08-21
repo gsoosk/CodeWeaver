@@ -1,0 +1,12 @@
+system,setting,denominator,builds,tests,loc,unsafe_percent
+ACTOR Kiro,no benchmark tests,87,82,56,43000,1
+C2Rust/Laertes/C2SaferRust/SmartC2Rust,no benchmark tests,87,0,0,,
+GPT-5.4,no benchmark tests,87,82,50,57000,0
+Kimi K2.5,no benchmark tests,87,46,31,28000,0
+Gemini 3.1 Pro,no benchmark tests,87,11,8,15000,0
+ACTOR Kiro,test repair,87,87,82,52000,1
+ACTOR Claude,test repair,87,85,75,45000,0
+ACTOR Codex,test repair,87,87,81,48000,1
+GPT-5.4,test repair,87,79,64,58000,0
+Kimi K2.5,test repair,87,45,39,28000,0
+Gemini 3.1 Pro,test repair,87,8,7,15000,0

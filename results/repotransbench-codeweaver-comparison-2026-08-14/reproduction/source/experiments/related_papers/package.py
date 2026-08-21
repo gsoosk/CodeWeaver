@@ -20,6 +20,7 @@ EXPECTED_RAW_ROWS = {
     "repotransbench": 9,
     "rustrepotrans": 9,
 }
+PAPER_RESULT_KEYS = tuple(EXPECTED_RAW_ROWS)
 TERMINAL_STATUSES = {"completed", "failed", "timeout"}
 REQUIRED_FILES = {
     "README.md",
@@ -304,8 +305,11 @@ def verify_result(
     )
     provenance_path = root / "metadata" / "source_provenance.json"
     provenance = C.read_json(provenance_path) if provenance_path.is_file() else {}
+    source_identity = provenance.get("codeweaver_source") or {}
     provenance_valid = bool(
-        (provenance.get("codeweaver_source") or {}).get("git_commit")
+        source_identity.get("base_git_commit")
+        and len(source_identity.get("snapshot_tree_sha256", "")) == 64
+        and int(source_identity.get("snapshot_files", 0)) > 0
     )
     if key in {"crust", "alphatrans", "sactor"}:
         provenance_valid = provenance_valid and (
@@ -408,7 +412,8 @@ def package_all(
         )
     verified: list[Path] = []
     failures: list[str] = []
-    for key, result_name in RESULT_NAMES.items():
+    for key in PAPER_RESULT_KEYS:
+        result_name = RESULT_NAMES[key]
         root = output_root / result_name
         campaign = (
             campaign_root / key

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "all"
+  ],
+  "cwd": "/tmp/actor-li-fmt-negative-d64o406n/oracle",
+  "ended_at": "2026-08-21T02:32:04.643544Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:32:03.940787Z",
+  "timed_out": false
+}

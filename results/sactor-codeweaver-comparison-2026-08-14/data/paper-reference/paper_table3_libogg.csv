@@ -1,0 +1,5 @@
+stage,model,success_percent,average_lint_per_function,average_attempts
+Unidiomatic,GPT-4o,100,1.45,1.52
+Idiomatic,GPT-4o,53,0.28,2.0
+Unidiomatic,GPT-5,100,1.45,1.04
+Idiomatic,GPT-5,78,0.23,1.25

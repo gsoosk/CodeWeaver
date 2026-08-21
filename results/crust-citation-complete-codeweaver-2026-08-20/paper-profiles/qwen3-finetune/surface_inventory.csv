@@ -1,0 +1,5 @@
+key,surface,denominator,metrics,status
+qwen3-finetune,C2Rust main result,200 CodeNet programs / 5 seeds,"six-attempt success mean, standard deviation, bootstrap CI",public_artifact_reference_not_crust
+qwen3-finetune,Baseline comparison,200 CodeNet programs,"Qwen base, MiniMax, GLM, Claude success",public_artifact_reference_not_crust
+qwen3-finetune,SWE-bench Verified,SWE-bench Verified,Pass@1,public_artifact_reference_not_comparable
+qwen3-finetune,Training curriculum,three stages,"examples, epochs, learning rates, sequence length and hardware",public_artifact_reference

@@ -1,0 +1,5 @@
+key,surface,denominator,metrics,status
+evoc2rust,Table 4,Vivo-Bench and unreleased C2R-Bench,"ICompRate, AccRate-P/R, SafeRate",public_subset_existing_result
+evoc2rust,Table 5,Vivo-Bench modules and unreleased projects,FCompRate and TestRate,public_subset_existing_result
+evoc2rust,Table 6,paper ablation configurations,"skeleton, mapping, repair ablations",reference_only_unreleased_inputs
+evoc2rust,RQ4 figures,six industrial projects,scale and elapsed time,blocked_unreleased

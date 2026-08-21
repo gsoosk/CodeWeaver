@@ -1,0 +1,52 @@
+{
+  "file_count": 894,
+  "infrastructure_failures": {
+    "file_count": 675,
+    "parts": [
+      {
+        "bytes": 111809,
+        "path": "infrastructure-failure-archives/actor-li-pre-model.tar.gz",
+        "sha256": "c13e6d7f8f8ecf62ff0be78458a50e256ba81f2368c714aeea073770976877c2"
+      }
+    ],
+    "source": "/opt/codeweaver-related-papers/campaign/actor-li/infrastructure-failures"
+  },
+  "parts": [
+    {
+      "bytes": 45000000,
+      "path": "raw-run-archives/actor-li.tar.gz.part-000",
+      "sha256": "66a41e12b4f7a4a08a0ba75808cb669f1f185fcf165fc4d73bd178db9bc4fdc2"
+    },
+    {
+      "bytes": 45000000,
+      "path": "raw-run-archives/actor-li.tar.gz.part-001",
+      "sha256": "1af351505425fb945fff1df2339ab10662b64147175ed88bc10ceb6416d5491b"
+    },
+    {
+      "bytes": 45000000,
+      "path": "raw-run-archives/actor-li.tar.gz.part-002",
+      "sha256": "374ac2a72988f192b5d5c76e24c2021b75189607faa08d8f409335b4176a6679"
+    },
+    {
+      "bytes": 45000000,
+      "path": "raw-run-archives/actor-li.tar.gz.part-003",
+      "sha256": "466264b9cfc81bfc8469f8164e412e9e93c930fb96a9609513e4436ac46c8e89"
+    },
+    {
+      "bytes": 45000000,
+      "path": "raw-run-archives/actor-li.tar.gz.part-004",
+      "sha256": "288cca95babbf058dd71e2e31912b843701204e466b55b2db2eaa4084ebe2c43"
+    },
+    {
+      "bytes": 45000000,
+      "path": "raw-run-archives/actor-li.tar.gz.part-005",
+      "sha256": "df1dd885a4b85e563f7c851124aa5342a3b5edec826aca511990d45c91ff6295"
+    },
+    {
+      "bytes": 13009546,
+      "path": "raw-run-archives/actor-li.tar.gz.part-006",
+      "sha256": "c048efa4a67eca47af052d22139194af18a9b14cb83bd61bad0f230c5c458c40"
+    }
+  ],
+  "source": "/opt/codeweaver-related-papers/campaign/actor-li/runs"
+}

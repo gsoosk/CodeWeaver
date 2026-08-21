@@ -1,0 +1,4 @@
+key,surface,denominator,metrics,status
+rustine,Table 1,23 repositories,benchmark coverage,exact_existing_result
+rustine,Table 2,23 repositories / 21 testable,"compilation, function/line coverage, assertions",exact_existing_result
+rustine,Table 3,23 repositories,"pointer arithmetic, raw pointers, unsafe lines/casts/calls",exact_existing_result

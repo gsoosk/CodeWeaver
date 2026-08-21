@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "cargo",
+    "build",
+    "--release"
+  ],
+  "cwd": "/tmp/actor-li-printf-eval-ihz2lh63/candidate",
+  "ended_at": "2026-08-21T02:34:18.164819Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:34:14.876287Z",
+  "timed_out": false
+}

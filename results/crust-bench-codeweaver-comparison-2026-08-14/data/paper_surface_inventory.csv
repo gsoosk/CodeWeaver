@@ -1,0 +1,10 @@
+surface,caption,denominator,metrics,artifact_status
+Table 1,Comparison of C-to-Rust transpilation benchmarks,7 benchmarks,"projects, multi-file, average LoC, Rust interface, Rust tests",structured_reference
+Figure 2,Application types,100 projects,seven application categories,structured_reference
+Table 2,Properties of C code,100 projects,"tests, files, coverage, LoC, pointer dereferences, functions",structured_reference
+Table 3,Statistics of the Rust interface,"299 files / 3,085 functions","files, functions, arguments, ownership/type features",structured_reference
+Table 4,Pass rates under single-shot and repair settings,100 projects,build and test success,structured_reference_and_codeweaver_comparison
+Table 5,Error breakdown for models and configurations,percent of 100 projects,"mismatch, borrow, missing, unimplemented, trait, arguments, unsafe",structured_reference
+Appendix A,Test-coverage discussion,100 projects,representativeness and limitations,documented_reference
+Appendix B,Greedy self-repair versus sample-and-repair,10-project pilot; six model calls per task,qualitative winner; numeric cells not reported,documented_reference
+Appendix E Table 6,SWE-agent pass rates by maximum steps,adapted SWE-agent experiment,build/test by step budget,paper_only

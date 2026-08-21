@@ -1,0 +1,17 @@
+surface,caption,denominator,metrics,artifact_status
+Figure 2,Success rates on TransCoder-IR and CodeNet,100 + 100 programs,unidiomatic and idiomatic SR through six attempts for five models,structured_reference
+Figure 3,Clippy lint alerts,TransCoder-IR and CodeNet,warnings plus errors across six systems,paper_only
+Table 1,Unsafe code statistics,TransCoder-IR and CodeNet,"success, unsafe-free, average unsafe",structured_reference
+Table 2,CRUST-Bench function-level translation,50 samples / 966 functions; conditional 32 / 580,"per-sample, aggregate, full success, lint/function",structured_reference_and_codeweaver_comparison
+Table 3,libogg function translation,77 functions,"success, lint/function, attempts for GPT-4o and GPT-5",structured_reference
+Table 5,Evaluation-dataset summary,four datasets/codebases,"size, preprocessing, tests, line/function coverage",structured_reference
+Table 6,LLM configurations,six models,"version, size, temperature",documented_reference
+Table 7 / Figure 7,Failure categories and counts,TransCoder-IR and CodeNet failures,six and seven failure categories by model,structured_reference_categories
+Table 8,Cost analysis,successful idiomatic translations,tokens and average queries per program/model/dataset,structured_reference
+Figure 8,Feedback-mechanism ablation,100 programs per dataset,with/without feedback for Llama 3.3 and GPT-4o,structured_reference_summary
+Table 9,Plain LLM versus SACTOR on CRUST-Bench,50 samples / 966 functions,function/sample success and Clippy,structured_reference
+Table 10,Crown ablation on libogg,77 functions,idiomatic successes and relative drop,structured_reference
+Tables 11-12,Unsafe-prompt ablations on libogg,77 functions,"success, Clippy, hidden unsafe dereferences, unsafe fraction",structured_reference
+Figure 9,Temperature sensitivity,100 programs per dataset,"success at temperatures 0.0, 0.5, 1.0",structured_reference_summary
+Table 13,SPEC-driven harness coverage,supported representation patterns,unidiomatic/idiomatic harness coverage,paper_only
+Table 14,CRUST-Bench per-sample outcomes,50 named samples,unidiomatic/idiomatic function success and primary failure,subset_lock_and_paper_reference

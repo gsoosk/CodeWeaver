@@ -1,0 +1,92 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  Validating file ending of tests03.jsonl...
+  Validating file ending of tests04.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl tests03.jsonl tests04.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+  Processing tests03.jsonl...
+  Processing tests04.jsonl...
+Loaded 70 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-csplit-oracle-fjscg22x/sandbox/isolated-candidate with ./csplit.ref
+Running 70 tests...
+
+PASS: split_by_line_number
+PASS: split_by_regex
+PASS: suffix_length_option
+PASS: prefix_option
+PASS: invalid_line_number
+PASS: regex_no_match
+PASS: keep_flag
+PASS: suppress_flag
+PASS: repetition_pattern
+PASS: positive_offset_regex
+PASS: percent_regexp_pattern
+PASS: bad_line_number
+PASS: stdin_input
+PASS: missing_input_file
+PASS: invalid_suffix_length
+PASS: zero_suffix_length
+PASS: negative_suffix_length
+PASS: very_long_filename
+PASS: nonexistent_input_file
+PASS: suffix_overflow
+PASS: invalid_repetition
+PASS: negative_repetition
+PASS: unrecognized_pattern
+PASS: regex_missing_trailing
+PASS: regex_invalid_offset
+PASS: regex_bad_pattern
+PASS: negative_offset_regex
+PASS: backwards_line_number
+PASS: zero_line_number
+PASS: empty_input_file
+PASS: single_line_file
+PASS: multiple_patterns_line
+PASS: multiple_patterns_regex
+PASS: regex_with_special_chars
+PASS: large_line_numbers
+PASS: regex_case_sensitive
+PASS: regex_line_boundary
+PASS: very_long_lines
+PASS: mixed_line_endings
+PASS: percent_pattern_no_match
+PASS: multiple_repetitions
+PASS: zero_repetition
+PASS: max_files_limit
+PASS: combined_flags
+PASS: regex_dot_metachar
+PASS: regex_star_quantifier
+PASS: regex_plus_quantifier
+PASS: regex_character_class
+PASS: regex_escaped_chars
+PASS: line_with_only_newline
+PASS: large_repetition_count
+PASS: pattern_at_eof
+PASS: mixed_patterns
+PASS: whitespace_in_regex
+PASS: multiline_pattern_match
+PASS: unicode_characters
+PASS: pattern_first_line
+PASS: alternation_in_regex
+PASS: all_flags_combined
+PASS: regex_word_boundary
+PASS: regex_case_insensitive_chars
+PASS: empty_pattern_match
+PASS: pattern_with_numbers
+PASS: consecutive_patterns
+PASS: line_number_edge_case
+PASS: regex_with_tabs
+PASS: multiple_consecutive_splits
+PASS: percent_pattern_boundary
+PASS: regex_anchored_start
+PASS: regex_anchored_end
+
+Results: 70 passed, 0 failed out of 70 tests
+All tests passed!

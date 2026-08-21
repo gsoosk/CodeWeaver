@@ -1,0 +1,6 @@
+key,surface,denominator,metrics,status
+lac2r,Table 2,7 GNU coreutils programs,"safety ratio, compile/repair/test rates, queries, tokens, lints",reference_only
+lac2r,Table 3,10 Laertes programs,"safety ratio, compile/repair/test rates, queries, tokens, lints",reference_only_name_overlap_only
+lac2r,Table 4,124 TRACTOR public programs,"safety, compile/pass, lints, queries, tokens",reference_only
+lac2r,Table 5,coreutils,homogeneous versus heterogeneous LLM ablation,reference_only
+lac2r,Figures 6-8,three benchmark families,"safety, compilation, idiomaticity",reference_only

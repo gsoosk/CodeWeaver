@@ -16,13 +16,13 @@ SACTOR's Appendix Table 14 identifies an exact 50-project CRUST-Bench subset, en
 \toprule
 Run & Build & Pass all & Fixed tests & Unsafe-free & SafeRate \\
 \midrule
-CodeWeaver rep 1 & 50/50 & 31/50 (62.00\%) & 297/319 (93.10\%) & 41/50 & 99.83\% \\
-CodeWeaver rep 2 & 50/50 & 31/50 (62.00\%) & 304/319 (95.30\%) & 43/50 & 99.77\% \\
-CodeWeaver rep 3 & 50/50 & 30/50 (60.00\%) & 285/319 (89.34\%) & 40/50 & 99.68\% \\
+CodeWeaver rep 1 & 50/50 & 31/50 (62.00\%) & 268/319 (84.01\%) & 41/50 & 99.83\% \\
+CodeWeaver rep 2 & 50/50 & 31/50 (62.00\%) & 278/319 (87.15\%) & 43/50 & 99.77\% \\
+CodeWeaver rep 3 & 50/50 & 30/50 (60.00\%) & 261/319 (81.82\%) & 40/50 & 99.68\% \\
 \bottomrule
 \end{tabular}
 
-\subsection*{SACTOR Table 2 comparison boundary}
+\subsection*{SACTOR v3 CRUST-Bench function-level comparison boundary}
 
 \begin{tabular}{lrrrrr}
 \toprule
@@ -33,6 +33,71 @@ SACTOR idiomatic & function, conditional & 42.93\% & 8/32 (25.00\%) & 100\% & 32
 CodeWeaver rep 1 & whole project & N/A & 31/50 & 41/50 & 99.83\% \\
 CodeWeaver rep 2 & whole project & N/A & 31/50 & 43/50 & 99.77\% \\
 CodeWeaver rep 3 & whole project & N/A & 30/50 & 40/50 & 99.68\% \\
+\bottomrule
+\end{tabular}
+
+\subsection*{CodeWeaver execution and model-use telemetry}
+
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Scope & Cells & Elapsed h & Assistant turns & Tool calls & Premium requests & AIU & Output tokens & Input tokens \\
+\midrule
+repetition 1 & 50 & 68.29 & 20716 & 32556 & 660 & 94632.82 & 11808699 & N/A (unavailable) \\
+repetition 2 & 50 & 64.56 & 19378 & 30588 & 608 & 87893.54 & 11209964 & N/A (unavailable) \\
+repetition 3 & 50 & 63.99 & 19108 & 30395 & 625 & 85477.36 & 10752289 & N/A (unavailable) \\
+all measured cells & 150 & 196.85 & 59202 & 93539 & 1893 & 268003.71 & 33770952 & N/A (unavailable) \\
+\bottomrule
+\end{tabular}
+
+\subsection*{CodeWeaver coverage measurements}
+
+\begin{tabular}{lrrrrr}
+\toprule
+Rep & Metric & Cells & Mean & Min & Max \\
+\midrule
+1 & coverage\_before & 48 & 64.21\% & 4.19\% & 100.00\% \\
+1 & coverage\_after & 48 & 64.25\% & 4.19\% & 100.00\% \\
+2 & coverage\_before & 49 & 67.94\% & 3.62\% & 100.00\% \\
+2 & coverage\_after & 49 & 68.12\% & 3.62\% & 100.00\% \\
+3 & coverage\_before & 49 & 64.29\% & 4.58\% & 100.00\% \\
+3 & coverage\_after & 49 & 64.33\% & 4.58\% & 100.00\% \\
+\bottomrule
+\end{tabular}
+
+\subsection*{CodeWeaver final-output Clippy comparison}
+
+\begin{tabular}{lrrrrrrr}
+\toprule
+Rep & Complete & Incomplete & Warning-free & Warnings & Errors & Alerts/project & Alerts/function \\
+\midrule
+1 & 48 & 2 & 0 & 693 & 0 & 14.44 & 0.176 \\
+2 & 48 & 2 & 1 & 627 & 0 & 13.06 & 0.161 \\
+3 & 48 & 2 & 0 & 601 & 0 & 12.52 & 0.161 \\
+\bottomrule
+\end{tabular}
+
+\subsection*{Complete source-paper surface audit}
+
+\begin{tabular}{lrrr}
+\toprule
+Surface & Denominator & Metrics & Artifact status \\
+\midrule
+Figure 2 & 100 + 100 programs & unidiomatic and idiomatic SR through six attempts for five models & structured\_reference \\
+Figure 3 & TransCoder-IR and CodeNet & warnings plus errors across six systems & paper\_only \\
+Table 1 & TransCoder-IR and CodeNet & success, unsafe-free, average unsafe & structured\_reference \\
+Table 2 & 50 samples / 966 functions; conditional 32 / 580 & per-sample, aggregate, full success, lint/function & structured\_reference\_and\_codeweaver\_comparison \\
+Table 3 & 77 functions & success, lint/function, attempts for GPT-4o and GPT-5 & structured\_reference \\
+Table 5 & four datasets/codebases & size, preprocessing, tests, line/function coverage & structured\_reference \\
+Table 6 & six models & version, size, temperature & documented\_reference \\
+Table 7 / Figure 7 & TransCoder-IR and CodeNet failures & six and seven failure categories by model & structured\_reference\_categories \\
+Table 8 & successful idiomatic translations & tokens and average queries per program/model/dataset & structured\_reference \\
+Figure 8 & 100 programs per dataset & with/without feedback for Llama 3.3 and GPT-4o & structured\_reference\_summary \\
+Table 9 & 50 samples / 966 functions & function/sample success and Clippy & structured\_reference \\
+Table 10 & 77 functions & idiomatic successes and relative drop & structured\_reference \\
+Tables 11-12 & 77 functions & success, Clippy, hidden unsafe dereferences, unsafe fraction & structured\_reference \\
+Figure 9 & 100 programs per dataset & success at temperatures 0.0, 0.5, 1.0 & structured\_reference\_summary \\
+Table 13 & supported representation patterns & unidiomatic/idiomatic harness coverage & paper\_only \\
+Table 14 & 50 named samples & unidiomatic/idiomatic function success and primary failure & subset\_lock\_and\_paper\_reference \\
 \bottomrule
 \end{tabular}
 

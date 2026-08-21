@@ -1,0 +1,8 @@
+system,dataset,programs,percent_over_1kloc,median_loc,mean_loc
+RustMap,"Rosetta Code, Bzip2",126,~1,~80,~145
+Syzygy,"Zopfli, URL parser",2,50,2700,2700
+EvoC2Rust,"C2R-Bench, Vivo-Bench",25,~8,~400,~600
+RustAssure,5 C libraries,5,20,405,~900
+SmartC2Rust,"GitHub, prior studies",21,~24,502,~1000
+VERT,TransCoder-IR,534,0,~100,~120
+ORBIT,CRUST-Bench,24,91.7,1354,1603

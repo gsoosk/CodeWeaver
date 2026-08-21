@@ -1,0 +1,4 @@
+paper,scope,metric,value,status
+DepTrans,145 repository instances,compilation success percent,60.7,abstract aggregate; benchmark unreleased
+DepTrans,145 repository instances,computational accuracy percent,43.5,abstract aggregate; benchmark unreleased
+DepTrans,15 industrial projects,successful builds,7,internal Huawei subjects unreleased

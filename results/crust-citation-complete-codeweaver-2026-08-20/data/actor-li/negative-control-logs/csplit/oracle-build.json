@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "all"
+  ],
+  "cwd": "/tmp/actor-li-csplit-negative-ycic87dd/oracle",
+  "ended_at": "2026-08-21T02:31:28.776947Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:31:28.097676Z",
+  "timed_out": false
+}

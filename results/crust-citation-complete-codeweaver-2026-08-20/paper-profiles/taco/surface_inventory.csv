@@ -1,0 +1,4 @@
+key,surface,denominator,metrics,status
+taco,Table 1,6 terminal-agent benchmarks,baseline/TACO accuracy and token consumption,exact_reference_not_metric_aligned
+taco,Table 2,TerminalBench 1.0/2.0 across about 9 models,terminal-agent performance,reference_only_not_metric_aligned
+taco,Appendix ablations,terminal-agent benchmark runs,"freeze rules, disable global evolution, best-of-K, compression overhead",reference_only_not_metric_aligned

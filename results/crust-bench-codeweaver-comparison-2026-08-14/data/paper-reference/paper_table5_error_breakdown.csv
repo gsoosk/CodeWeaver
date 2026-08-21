@@ -1,0 +1,26 @@
+model,configuration,mismatch,borrow,missing,unimplemented,trait,arguments,unsafe
+OpenAI o3,base,13,21,8,34,4,0,1
+OpenAI o3,repair,9,2,2,27,4,2,0
+Claude Opus 4,base,28,29,7,13,14,1,6
+Claude Opus 4,repair,11,3,2,5,1,3,0
+OpenAI o1,base,30,42,13,14,17,3,0
+OpenAI o1,repair,8,9,2,11,0,1,0
+Claude 3.7,base,15,18,4,44,10,0,0
+Claude 3.7,repair,4,4,4,46,1,1,0
+Claude 3.5,base,24,27,23,37,14,4,0
+Claude 3.5,repair,22,6,16,55,5,5,0
+o1-mini,base,46,34,40,28,34,5,0
+o1-mini,repair,21,13,10,29,1,6,0
+GPT-4o,base,48,35,25,20,22,4,1
+GPT-4o,repair,12,20,10,26,6,2,0
+Gemini 1.5 Pro,base,40,24,23,33,17,2,1
+Gemini 1.5 Pro,repair,18,13,7,35,8,3,1
+Virtuoso (Distilled Deepseek V3),base,60,26,19,45,33,12,0
+Virtuoso (Distilled Deepseek V3),repair,38,23,17,50,15,9,0
+Deepseek-Coder-32B,base,36,13,56,49,22,3,4
+Deepseek-Coder-32B,repair,28,8,59,36,10,5,2
+QwQ-32B-Preview,base,9,2,9,94,5,1,0
+QwQ-32B-Preview,repair,13,2,9,92,3,2,0
+Qwen-2.5-Coder-32B,base,7,0,32,76,1,0,1
+Qwen-2.5-Coder-32B,repair,5,0,9,96,0,0,0
+Adapted SWE-agent,agent,15,17,4,44,8,1,0

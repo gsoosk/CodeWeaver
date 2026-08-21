@@ -1,0 +1,6 @@
+system,scope,cost_usd,minutes,cost_per_kloc_usd,minutes_per_kloc
+ACTOR Kiro,CRUST-Bench,67,,1.57,19
+ACTOR Kiro,TRACTOR,93,,1.97,34
+ACTOR Kiro,largest P01 case,3.61,76,,
+Claude Code,TRACTOR,570,,,
+all configurations,full ablation,2900,,,

@@ -1,0 +1,5 @@
+key,surface,denominator,metrics,status
+rustprint,Benchmark statistics,8 repositories / 11K-84K LoC,repository size and documentation,reference_only
+rustprint,Table 1,8 CodeWikiBench repositories x 5 systems,compilation,exact_reference_public_artifact
+rustprint,Table 2,8 repositories x 2 cross-generated test suites,true-positive rate,exact_reference_public_artifact
+rustprint,Figures 2 and 4,8 repositories x systems/backbones,feature preservation and SafeRate,exact_reference_public_artifact

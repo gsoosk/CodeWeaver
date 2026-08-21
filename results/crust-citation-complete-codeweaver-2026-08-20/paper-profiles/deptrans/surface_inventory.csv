@@ -1,0 +1,4 @@
+key,surface,denominator,metrics,status
+deptrans,Benchmark statistics,145 repository instances / 85K training samples,dependencies and project characteristics,blocked_unreleased
+deptrans,Main comparison,145 instances,60.7% compilation and 43.5% computational accuracy,abstract_reference_only
+deptrans,Huawei case study,15 internal projects,successful builds,blocked_internal

@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-08-11T02:18:06.482435Z",
+  "status": "VERIFIED_COMPLETE",
+  "source_commit": "b53ab7af33af7d125de703d5801e78da422f09b1",
+  "source_status_clean": true,
+  "source_patch_empty": true,
+  "completion_verdict": {
+    "complete": true,
+    "reasons": [],
+    "coverage_fraction": 1.0
+  },
+  "evidence_counts": {
+    "normalized_rows": 354,
+    "paper_rows": 54,
+    "generated_test_rows": 354,
+    "heuristic_run_keys": 354,
+    "unresolved_failure_rows": 0,
+    "validated_rates_above_one": 0
+  },
+  "headline_primary_metrics": [
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "compilation_success",
+      "status": "measured",
+      "value": 1.0,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 118.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "resamples": 5000,
+        "seed": 20260805,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "project_pass_all",
+      "status": "measured",
+      "value": 0.5169491525423728,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 61.0,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.4322033898305085,
+          0.6101694915254238
+        ],
+        "resamples": 5000,
+        "seed": 20260806,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "validated_test_micro_pass_rate",
+      "status": "measured",
+      "value": 0.4266729947793071,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 899.0,
+      "denominator": 2107.0,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.18642160540135033,
+          0.7528397963180572
+        ],
+        "resamples": 5000,
+        "seed": 20260807,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 14,
+      "capped_pass_counts": 13,
+      "reason": ""
+    },
+    {
+      "system": "codeweaver",
+      "tool": "all",
+      "repetition": 0,
+      "metric": "validated_test_macro_pass_rate",
+      "status": "measured",
+      "value": 0.6324458695458295,
+      "n_projects": 118,
+      "input_rows": 118,
+      "excluded_projects": 0,
+      "partial": false,
+      "numerator": 74.62861260640788,
+      "denominator": 118,
+      "bootstrap": {
+        "status": "measured",
+        "ci_95": [
+          0.5506314168652351,
+          0.7110803728600339
+        ],
+        "resamples": 5000,
+        "seed": 20260808,
+        "reason": ""
+      },
+      "zero_numerator_substitutions": 0,
+      "capped_pass_counts": 0,
+      "reason": ""
+    }
+  ],
+  "system_comparison_completeness": {
+    "expected": 590,
+    "measured": 489,
+    "unavailable": 100,
+    "error": 0,
+    "missing": 1,
+    "accounted_missing": 1,
+    "unaccounted_missing": 0,
+    "accounted_cells": 590,
+    "all_expected_cells_accounted_for": true,
+    "accounting_status": "measured",
+    "policy_statement": "Explicit missing failure evidence is accounted_missing and may be accepted for released-artifact completeness; unaccounted_missing must be rejected."
+  },
+  "pdfs": {
+    "count": 11,
+    "all_pdf_signatures_valid": true,
+    "paths": [
+      "results/analysis/figure7_ablation.pdf",
+      "results/analysis/figure8_cost_tools.pdf",
+      "results/analysis/paper_tables_side_by_side.pdf",
+      "results/analysis/table1_effectiveness.pdf",
+      "results/analysis/table1_paper_reference.pdf",
+      "results/analysis/table2_test_translation.pdf",
+      "results/analysis/table_function_validation.pdf",
+      "results/analysis/table_generated_tests.pdf",
+      "results/report/conference_paper.pdf",
+      "results/report/reproducibility_report.pdf",
+      "results/system-comparison/system_comparison.pdf"
+    ]
+  },
+  "raw_archive": {
+    "parts": 28,
+    "members": 30410,
+    "symlink_members": [
+      "lrwxrwxrwx nobody/root       0 2026-08-10 23:19 full/crust__fs_c/rep0/pipeline/target/tmp/symlink -> ./tmp/file",
+      "lrwxrwxrwx root/root         0 2026-08-07 18:59 full/crust__fs_c/rep0/scaffold/tmp/symlink -> ./tmp/file",
+      "lrwxrwxrwx root/root         0 2026-08-05 20:14 full/crust__fs_c/rep1/pipeline/target/tmp/symlink -> ./tmp/file",
+      "lrwxrwxrwx root/root         0 2026-08-07 19:00 full/crust__fs_c/rep1/scaffold/tmp/symlink -> ./tmp/file",
+      "lrwxrwxrwx root/root         0 2026-08-07 19:00 full/crust__fs_c/rep2/scaffold/tmp/symlink -> ./tmp/file"
+    ]
+  },
+  "repair_audits_sha256": {
+    "oracle_isolation": "73aa1d5656075ae277e0304734e41b9386d316fe11f0ccd134b872583d47c4f0",
+    "baseline_oracle_isolation": "5ffac7227938866f228e1d2d10f8d895237b064d06ada1d10b59a88e10c405d1",
+    "revision_drift": "7ada0fed120d0b85153922c8f1bc45ddf5cefca02e83db304755948f51a2e651",
+    "embedding_resource": "52efdeae9853dd28621c9ba7c3dfa7b4b4f4e0d30000184dea55929ab8b301d9",
+    "collection_timeout": "4991969c4a79bda033a2f461a907e5b26d5cd2e83a657b61539d02d5158a43fc"
+  },
+  "verification_steps": {
+    "pre_metadata_checksums_verified": true,
+    "split_archive_streamed": true,
+    "final_checksums_verified": true
+  },
+  "package_log": "metadata/campaign/logs/final-package-rebuild.console.log"
+}

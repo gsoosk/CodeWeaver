@@ -1,0 +1,130 @@
+{
+  "cost": {
+    "nano_aiu": 68765675925000,
+    "output_tokens": 7996874,
+    "premium_requests": 25
+  },
+  "distributions": {
+    "fill_compilation_percent": {
+      "maximum": 100.0,
+      "mean": 100.0,
+      "minimum": 100.0,
+      "sample_sd": 0.0,
+      "values": [
+        100.0,
+        100.0,
+        100.0
+      ]
+    },
+    "incremental_compilation_percent": {
+      "maximum": 100.0,
+      "mean": 100.0,
+      "minimum": 100.0,
+      "sample_sd": 0.0,
+      "values": [
+        100.0,
+        100.0,
+        100.0
+      ]
+    },
+    "safe_rate_percent": {
+      "maximum": 35.49860441512307,
+      "mean": 30.92416221747891,
+      "minimum": 26.06732554056088,
+      "sample_sd": 4.721976840676374,
+      "values": [
+        31.206556696752774,
+        35.49860441512307,
+        26.06732554056088
+      ]
+    },
+    "test_rate_percent": {
+      "maximum": 100.0,
+      "mean": 100.0,
+      "minimum": 100.0,
+      "sample_sd": 0.0,
+      "values": [
+        100.0,
+        100.0,
+        100.0
+      ]
+    }
+  },
+  "elapsed_seconds_sum": 122782.072586,
+  "integrity_passed": 45,
+  "repetitions": [
+    {
+      "compiling_groups": 15,
+      "compiling_modules": 19,
+      "elapsed_seconds": 40384.49345,
+      "fill_compilation_percent": 100.0,
+      "fixed_contract_groups_passed": 15,
+      "groups": 15,
+      "incremental_compilation_percent": 100.0,
+      "incrementally_accepted_modules": 19,
+      "integrity_passed": 15,
+      "module_denominator": 19,
+      "nano_aiu": 22777705575000,
+      "output_tokens": 2655593,
+      "premium_requests": 9,
+      "repetition": 0,
+      "safe_lines": 6016,
+      "safe_rate_percent": 31.206556696752774,
+      "terminal_runs": 15,
+      "test_denominator": 125,
+      "test_rate_percent": 100.0,
+      "tests_passed": 125,
+      "total_rust_lines": 19278
+    },
+    {
+      "compiling_groups": 15,
+      "compiling_modules": 19,
+      "elapsed_seconds": 43315.655909,
+      "fill_compilation_percent": 100.0,
+      "fixed_contract_groups_passed": 15,
+      "groups": 15,
+      "incremental_compilation_percent": 100.0,
+      "incrementally_accepted_modules": 19,
+      "integrity_passed": 15,
+      "module_denominator": 19,
+      "nano_aiu": 23858720825000,
+      "output_tokens": 2754294,
+      "premium_requests": 8,
+      "repetition": 1,
+      "safe_lines": 6995,
+      "safe_rate_percent": 35.49860441512307,
+      "terminal_runs": 15,
+      "test_denominator": 125,
+      "test_rate_percent": 100.0,
+      "tests_passed": 125,
+      "total_rust_lines": 19705
+    },
+    {
+      "compiling_groups": 15,
+      "compiling_modules": 19,
+      "elapsed_seconds": 39081.923227,
+      "fill_compilation_percent": 100.0,
+      "fixed_contract_groups_passed": 15,
+      "groups": 15,
+      "incremental_compilation_percent": 100.0,
+      "incrementally_accepted_modules": 19,
+      "integrity_passed": 15,
+      "module_denominator": 19,
+      "nano_aiu": 22129249525000,
+      "output_tokens": 2586987,
+      "premium_requests": 8,
+      "repetition": 2,
+      "safe_lines": 5196,
+      "safe_rate_percent": 26.06732554056088,
+      "terminal_runs": 15,
+      "test_denominator": 125,
+      "test_rate_percent": 100.0,
+      "tests_passed": 125,
+      "total_rust_lines": 19933
+    }
+  ],
+  "runs_expected": 45,
+  "runs_observed": 45,
+  "schema_version": 1,
+  "terminal_runs": 45
+}

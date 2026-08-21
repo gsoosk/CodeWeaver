@@ -1,0 +1,84 @@
+Validating JSONL files...
+  Validating file ending of tests00.jsonl...
+  Validating file ending of tests01.jsonl...
+  Validating file ending of tests02.jsonl...
+  All JSONL files are properly formatted
+Loading tests from: tests00.jsonl tests01.jsonl tests02.jsonl
+  Processing tests00.jsonl...
+  Processing tests01.jsonl...
+  Processing tests02.jsonl...
+Loaded 66 tests total
+Loading normalization rules from: norm_rules.jsonl
+  Loaded 2 normalization rules successfully
+Comparing /tmp/actor-li-fmt-eval-fvqgnye0/sandbox/isolated-candidate with ./fmt.ref
+Running 66 tests...
+
+PASS: simple_line_break
+PASS: preserve_indentation
+PASS: tab_expansion
+PASS: center_text
+PASS: mail_header
+PASS: no_formatting
+PASS: center_text_tabs
+PASS: center_invalid_utf8
+PASS: tab_indentation
+PASS: file_processing
+PASS: custom_sentence_enders
+PASS: output_tab_width
+PASS: coalesce_spaces
+PASS: numeric_width_option
+PASS: numeric_width_dash
+PASS: goal_max_length
+PASS: wide_characters
+PASS: mixed_ascii_wide
+PASS: mail_header_continuation
+PASS: multiple_mail_headers
+PASS: non_header_after_header
+PASS: invalid_mail_header
+PASS: multiple_paragraphs
+PASS: indented_paragraphs
+PASS: blank_lines_preservation
+PASS: custom_sentence_enders2
+PASS: no_double_space
+PASS: question_mark_sentence
+PASS: troff_commands_preserved
+PASS: format_troff_enabled
+PASS: dot_line_start
+PASS: tab_expansion_custom
+PASS: tab_middle_word
+PASS: multiple_tabs
+PASS: output_tab_conversion
+PASS: center_short_line
+PASS: center_long_line
+PASS: center_with_tabs
+PASS: coalesce_multiple_spaces
+PASS: coalesce_sentence_end
+PASS: mixed_whitespace_coalescing
+PASS: very_long_word
+PASS: single_character_lines
+PASS: only_whitespace
+PASS: leading_trailing_spaces
+PASS: backspace_handling
+PASS: center_custom_tab
+PASS: multiple_input_files
+PASS: very_long_line
+PASS: control_chars_stripped
+PASS: carriage_return
+PASS: mixed_control_chars
+PASS: single_digit_width
+PASS: double_digit_width
+PASS: unicode_file_processing
+PASS: mixed_whitespace_norm
+PASS: sentence_detection_file
+PASS: goal_word_boundary
+PASS: max_length_constraint
+PASS: tab_width_edge_case
+PASS: large_tab_width
+PASS: output_tab_large_indent
+PASS: center_odd_width
+PASS: center_exact_fit
+PASS: coalesce_line_boundaries
+PASS: multiple_sentence_enders
+
+Results: 66 passed, 0 failed out of 66 tests
+All tests passed!

@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-08-21T03:07:38.610329Z",
+  "key": "actor-schesch-ernst",
+  "paper_id": "IEEE S&P 2026",
+  "pdf": "comparison.pdf",
+  "schema_version": 1,
+  "source_url": "https://homes.cs.washington.edu/~mernst/pubs/c-to-rust-ieeesp2026-abstract.html",
+  "status": "reference_87_and_measured_public_95_overlap",
+  "structured_reference_tables": 6,
+  "surface_rows": 5
+}

@@ -1,0 +1,7 @@
+key,surface,denominator,metrics,status
+orbit,Table 1,7 prior/system rows,"dataset, programs, projects above 1K LoC, median/mean LoC",exact_reference
+orbit,Table 2,24 CRUST-Bench projects,"LoC, functions, files, tests",exact_reference
+orbit,Table 3,24 CRUST-Bench projects,"C2Rust translation/build/test, CRUST-Bench reference build/test, ORBIT expert/generated build/test",exact_reference_and_codeweaver_slice
+orbit,Table 4,24 CRUST-Bench projects,"pointer dereferences, pointer arithmetic, unsafe LoC, unsafe percent, LoC for four systems",exact_reference
+orbit,Table 5,13 TRACTOR programs,"performance pass fraction, ORBIT result, vector pass rate",exact_reference
+orbit,Table 6,3 CRUST-Bench programs x 4 ablations,"function coverage, test coverage, build and test",exact_reference

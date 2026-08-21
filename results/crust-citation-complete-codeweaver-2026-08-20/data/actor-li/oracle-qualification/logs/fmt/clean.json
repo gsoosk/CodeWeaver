@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "make",
+    "clean"
+  ],
+  "cwd": "/tmp/actor-li-fmt-oracle-mrl6w1js/fmt",
+  "ended_at": "2026-08-21T02:30:12.376662Z",
+  "returncode": 0,
+  "started_at": "2026-08-21T02:30:12.369844Z",
+  "timed_out": false
+}

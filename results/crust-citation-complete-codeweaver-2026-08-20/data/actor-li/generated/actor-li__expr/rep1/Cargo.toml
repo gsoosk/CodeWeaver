@@ -1,0 +1,12 @@
+[package]
+name = "actor-li-expr"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "expr"
+path = "src/main.rs"
+
+[dependencies]
+posix-regex = "=0.1.4"

@@ -1,0 +1,8 @@
+subject,cells,measured_cells,build_cells,pass_all_cells,safe_cells,self_contained_cells,safe_pass_all_cells,tests_passed,tests_expected,test_rate_percent,elapsed_seconds,elapsed_seconds_status,elapsed_seconds_measured_cells,output_tokens,output_tokens_status,output_tokens_measured_cells,nano_aiu,nano_aiu_status,nano_aiu_measured_cells,premium_requests,premium_requests_status,premium_requests_measured_cells
+csplit,3,3,3,2,3,3,2,209,210,99.52380952380952,15004.836213,measured,3,,unavailable,0,4909659150000,measured,3,49,measured,3
+expr,3,3,3,2,3,3,2,200,300,66.66666666666667,12716.259332,measured,3,,unavailable,0,4231304600000,measured,3,61,measured,3
+fmt,3,3,3,3,3,3,3,198,198,100.0,13044.542535999999,measured,3,,unavailable,0,2542231025000,measured,3,53,measured,3
+join,3,3,3,2,3,3,2,250,252,99.2063492063492,15003.756046,measured,3,,unavailable,0,3105142750000,measured,3,59,measured,3
+printf,3,3,3,2,3,3,2,238,249,95.58232931726907,15003.278583,measured,3,,unavailable,0,2609612637500,measured,3,55,measured,3
+test,3,3,3,3,3,3,3,267,267,100.0,12099.826994,measured,3,,unavailable,0,2367341087500,measured,3,60,measured,3
+ALL,18,18,18,14,18,18,14,1362,1476,92.27642276422765,82872.499704,measured,18,,unavailable,0,19765291250000,measured,18,337,measured,18

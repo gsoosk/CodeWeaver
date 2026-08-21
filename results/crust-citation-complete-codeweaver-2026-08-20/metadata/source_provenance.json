@@ -1,0 +1,41 @@
+{
+  "actor_li_evaluation": {
+    "artifact_commit": "7427da3d3dfb3c0985aafe86df87f815fa3f08d1",
+    "path": "/opt/codeweaver-related-papers/campaign/actor-li/evaluation",
+    "summary_sha256": "b00f20ecc62e87296f774e64d415b13dff96140cda599ecce16a17a2cd16cb54"
+  },
+  "actor_schesch_artifact": {
+    "commit": "55502661b2bff3019d3c1e72481f7b99cc247aaa",
+    "paper_crust_denominator": 87,
+    "public_crust_result_directories": 95,
+    "repository": "https://github.com/UW-HARVEST/ACTOR",
+    "results_submodule_commit": "b3fd93fcff6da0570ca00d59223b3edac15077eb"
+  },
+  "census_date": "2026-08-20",
+  "citation_api_url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2504.15254/citations?limit=100&fields=paperId,title,year,externalIds,url",
+  "citation_source": "Semantic Scholar graph API for arXiv:2504.15254; 30 records reconciled with primary papers and artifacts",
+  "codeweaver_source": {
+    "base_git_commit": "20dd65859a8d3fbaa9316ddeae0f8ea64bccda75",
+    "identity_policy": "the reproduction snapshot tree hash identifies the exact evaluated harness; the Git commit is its base revision",
+    "repository": "https://github.com/gsoosk/CodeWeaver",
+    "snapshot_files": 68,
+    "snapshot_tree_sha256": "21a1d26845d4986c6f224f6b6064278ac62f6a1b92e9681b8062a2dcfed30fe5",
+    "source_worktree_clean": true,
+    "source_worktree_entry_count": 0,
+    "source_worktree_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tracked_source_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "generated_at": "2026-08-21T03:07:38.756593Z",
+  "historical_raw": "results/recodeagent-gpt-5.6-sol-final-2026-08-11/data/collected/raw_runs.csv",
+  "historical_raw_sha256": "88b2e43df9a83731eeda675d2de518af2e78bd5e9496ffd1951954b6f60ba46f",
+  "orbit_source": "https://arxiv.org/abs/2604.12048",
+  "protocol": {
+    "agent_timeout_seconds": 5000,
+    "effort_default": "max",
+    "max_iter": 5,
+    "max_parity_rounds": 3,
+    "model": "gpt-5.6-sol",
+    "repetitions": 3
+  },
+  "taco_source": "https://arxiv.org/abs/2604.19572"
+}

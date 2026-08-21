@@ -1,0 +1,12 @@
+root_cause,count
+C string/pointer conversion,2194
+raw-pointer signatures/casts,5957
+pointer arithmetic,3931
+C ABI preservation,1648
+ptr read/write/copy,527
+FFI calls,208
+mutable global,116
+uninitialized structs,70
+bridging raw pointers,60
+function-pointer dispatch,36
+other,44
