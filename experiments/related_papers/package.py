@@ -20,6 +20,7 @@ EXPECTED_RAW_ROWS = {
     "repotransbench": 9,
     "rustrepotrans": 9,
 }
+PAPER_RESULT_KEYS = tuple(EXPECTED_RAW_ROWS)
 TERMINAL_STATUSES = {"completed", "failed", "timeout"}
 REQUIRED_FILES = {
     "README.md",
@@ -411,7 +412,8 @@ def package_all(
         )
     verified: list[Path] = []
     failures: list[str] = []
-    for key, result_name in RESULT_NAMES.items():
+    for key in PAPER_RESULT_KEYS:
+        result_name = RESULT_NAMES[key]
         root = output_root / result_name
         campaign = (
             campaign_root / key

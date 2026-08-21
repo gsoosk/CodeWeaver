@@ -17,6 +17,7 @@ from experiments.related_papers import report
 from experiments.related_papers.analysis import _diagnostics
 from experiments.related_papers.common import run_command
 from experiments.related_papers.package import (
+    PAPER_RESULT_KEYS,
     _archive,
     _archive_valid,
     _related_run_file,
@@ -40,6 +41,13 @@ def _write(path: Path, text: str) -> None:
 
 
 def test_frozen_protocol_and_subject_locks_reject_drift(monkeypatch):
+    assert set(PAPER_RESULT_KEYS) == {
+        "crust",
+        "alphatrans",
+        "sactor",
+        "repotransbench",
+        "rustrepotrans",
+    }
     assert len(config.REPOTRANSBENCH_SUBJECTS) == 3
     assert sum(row["tests"] for row in config.REPOTRANSBENCH_SUBJECTS) == 37
     assert {row["source_language"] for row in config.RUSTREPOTRANS_SUBJECTS} == {
