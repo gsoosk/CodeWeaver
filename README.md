@@ -64,15 +64,15 @@ record. RepoTransBench and RustRepoTrans also contain filtered raw-run archives.
 
 The citation-complete expansion across every migration-relevant CRUST-Bench
 citer is in
-[`results/crust-citation-complete-codeweaver-2026-08-18/`](results/crust-citation-complete-codeweaver-2026-08-18/).
+[`results/crust-citation-complete-codeweaver-2026-08-20/`](results/crust-citation-complete-codeweaver-2026-08-20/).
 It includes the 30-record citation census, 20 paper-specific PDF profiles, the
 exact ORBIT-24 comparison, the separately labeled ACTOR public-95 overlap, and
 the leakage-safe 18-cell ACToR micro campaign with its 492-case fixed oracle.
 ACToR candidates are scored only after the model matrix is permanently sealed,
 inside a namespace/chroot that hides reference assets and system executables.
 Start with the
-[comparison PDF](results/crust-citation-complete-codeweaver-2026-08-18/report/comparison.pdf)
-or [final verification](results/crust-citation-complete-codeweaver-2026-08-18/metadata/final_verification.json).
+[comparison PDF](results/crust-citation-complete-codeweaver-2026-08-20/report/comparison.pdf)
+or [final verification](results/crust-citation-complete-codeweaver-2026-08-20/metadata/final_verification.json).
 The reports preserve metric and availability boundaries rather than treating
 the two bounded slices as full-benchmark reproductions.
 

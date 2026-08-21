@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 
-CENSUS_DATE = "2026-08-18"
+CENSUS_DATE = "2026-08-20"
 
 CITATION_RECORDS: list[dict[str, str]] = [
     {
@@ -428,7 +428,7 @@ INCLUSION_MATRIX: list[dict[str, str]] = [
             "metric is relative cross-testing without released fixed outputs/tests"
         ),
         "existing_result": (
-            "results/crust-citation-complete-codeweaver-2026-08-18/"
+            "results/crust-citation-complete-codeweaver-2026-08-20/"
             "data/actor-li"
         ),
     },

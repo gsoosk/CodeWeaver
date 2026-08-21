@@ -38,7 +38,7 @@ RESULT_NAMES = {
     "sactor": "sactor-codeweaver-comparison-2026-08-14",
     "repotransbench": "repotransbench-codeweaver-comparison-2026-08-14",
     "rustrepotrans": "rustrepotrans-codeweaver-comparison-2026-08-14",
-    "citations": "crust-citation-complete-codeweaver-2026-08-18",
+    "citations": "crust-citation-complete-codeweaver-2026-08-20",
 }
 
 PAPER_METADATA = {
@@ -70,7 +70,7 @@ PAPER_METADATA = {
     "citations": {
         "title": "the complete CRUST-Bench citation corpus",
         "paper_url": "https://arxiv.org/abs/2504.15254",
-        "paper_id": "30-record citation census as of 2026-08-18",
+        "paper_id": "30-record citation census as of 2026-08-20",
     },
 }
 
