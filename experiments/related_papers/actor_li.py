@@ -767,7 +767,12 @@ def _copy_candidate_payload(candidate: Path, destination: Path) -> None:
 
 
 def _rust_source_metrics(candidate: Path) -> tuple[int, int, int]:
-    files = sorted(candidate.rglob("*.rs"))
+    files = [
+        path
+        for path in sorted(candidate.rglob("*.rs"))
+        if path.relative_to(candidate).parts[0]
+        not in {"benches", "examples", "tests"}
+    ]
     unsafe_count = 0
     delegation_count = 0
     for path in files:

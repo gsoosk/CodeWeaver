@@ -257,6 +257,11 @@ def test_actor_li_candidate_copy_rejects_links_native_code_and_delegation(
     assert not (copied / ".cargo").exists()
 
     _write(
+        candidate / "tests" / "cli.rs",
+        "fn test_cli() { std::process::Command::new(\"candidate\").status(); }\n",
+    )
+    assert actor_li._rust_source_metrics(candidate)[2] == 0
+    _write(
         candidate / "src" / "main.rs",
         "fn main() { std::process::Command::new(\"subject\").status(); }\n",
     )
