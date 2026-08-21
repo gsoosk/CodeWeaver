@@ -189,7 +189,7 @@ def analyze(
         "rows": len(results),
         "measured_rows": len(measured),
         "incomplete_rows": len(incomplete),
-        "clean_rows": len(measured),
+        "complete_rows": len(measured),
         "warning_total": sum(int(row["warnings"]) for row in measured),
         "error_total": sum(int(row["errors"]) for row in measured),
         "incomplete_warning_diagnostics": sum(
