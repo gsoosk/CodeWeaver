@@ -49,7 +49,11 @@ Transitions (see `codeweaver/app.py`):
   → terminal with `done=False` (legacy hard fail).
 
 `select_milestone` is pure bookkeeping: it advances `milestone_idx` when the current
-milestone **concluded**, and resets the per-milestone counters/flags.
+milestone **concluded**, and resets the per-milestone counters/flags — including
+`report`. Clearing `report` matters after a give-up: `validate` keeps the failing
+report so the (never-taken) repair path could use it, so without the reset the next
+milestone's **first** `translate` would see stale failures and wrongly run in REPAIR
+mode instead of IMPLEMENT.
 
 ## Skip-on-give-up & the deferred-test retry (`skips.json`)
 
@@ -57,11 +61,20 @@ When `validate` exhausts `max_iter` on a milestone (`skip_on_give_up=true`, defa
 
 1. the milestone is marked **concluded** and added to `state['skipped']`; its history
    entry carries `gave_up=true`;
-2. its still-failing test ids are written to **`skips.json`** (`tests_to_skip`);
+2. its still-failing test ids are written to **`skips.json`** (`tests_to_skip`).
+   The report is LLM-written, so the ids are extracted tolerantly: dict entries with
+   any of `test`/`nodeid`/`name`/`id`, or plain strings; `layer="unit"` entries are
+   ignored (unit tests aren't gate selections); an **unlabelled** entry counts only
+   if it matches `cfg.gate_test_id_pattern` (when set). If nothing is extracted, the
+   milestone's own `tests` tokens are deferred instead — a give-up always defers
+   *something*, otherwise the next milestone would re-run the same failures and burn
+   its whole budget;
 3. every later milestone's gate **deselects** those tests via
    `cfg.skip_exclude_template` (rendered into the `{skip_exclude}` slot of
    `gate_template`), and they are surfaced to the Validator/Translator as
-   "known-failing, deferred — do not count as failures";
+   "known-failing, deferred — do not count as failures". The recorded ids are first
+   normalised into runner-safe selector tokens via `cfg.skip_token_pattern` (pytest
+   `-k` only accepts bare words — a malformed selector would fail the whole gate);
 4. after the last milestone, the **parity verifier** revisits `skips.json`: any test
    not yet retried gets **one dedicated retry milestone** (`origin="retry"`) that
    re-enables it (`_begin_retry` removes it from `tests_to_skip`, records it in
@@ -107,7 +120,13 @@ so a crashed run resumes with the correct (parity-extended / retry-extended) mat
 **Start from an existing pipeline:** `run --start-milestone Mx` bootstraps a NEW
 app-id from existing artifacts (`analysis.md`, `milestones.json`, `plan.json`, the
 working copy), marks analyze/scope/plan done, and enters the loop at `Mx`
-(`state_from_existing_pipeline`).
+(`state_from_existing_pipeline`). `run --start-parity` is the companion entry: it
+skips analyze/scope/plan **and the whole milestone loop** and goes straight to the
+parity verifier — useful for re-grading a translation as it stands (e.g. after a
+manual fix) without re-running any milestone. Internally it is the same helper with
+`milestone_id=None`: the state sits on the last milestone marked passed/concluded,
+so the outer loop still works from there (gaps → re-scope, retry milestone →
+`select_milestone` advances cleanly). The two flags are mutually exclusive.
 
 **Optional telemetry:** the Burr tracker is enabled only when the
 `apache-burr[tracking]` extra is importable and `CODEWEAVER_NO_TRACKER` is unset

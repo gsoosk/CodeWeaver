@@ -10,6 +10,9 @@ can be exercised:
                          FAIL the first N validate attempts, e.g. "M1:1,M3:2" ->
                          M1 fails once then passes, M3 fails twice then passes.
                          Default: all pass.
+  CODEWEAVER_MOCK_FAIL_STYLE  shape of the validator's failure entries:
+                         labelled (default) | nolayer | string | unit. Drives the
+                         tolerant gate-layer id extraction in actions.py.
   CODEWEAVER_CRASH_AT    a milestone id: raise before writing the verdict (to
                          exercise crash-resume).
 """
@@ -58,6 +61,34 @@ def _load_milestones(path) -> list:
     except (ValueError, OSError):
         return []
     return raw.get("milestones") if isinstance(raw, dict) else (raw or [])
+
+
+def _failure_entries(fail_tests: list[str], mid: str, attempts: int, budget: int) -> list:
+    """Validator failure entries in one of several real-world shapes.
+
+    CODEWEAVER_MOCK_FAIL_STYLE exercises the tolerant extractor in actions.py:
+      labelled (default)  {"layer": "e2e", "test": ...}   -- the well-formed shape
+      nolayer             {"nodeid": ...} with no "layer" -- id must be recognised
+      string              a plain string per failure      -- id must be mined out
+      unit                {"layer": "unit", ...}          -- must be IGNORED
+    """
+    style = os.environ.get("CODEWEAVER_MOCK_FAIL_STYLE", "labelled").strip().lower()
+    symptom = f"(mock) {mid} attempt {attempts} <= budget {budget}"
+    if style == "string":
+        return [f"FAILED {t} - {symptom}" for t in fail_tests]
+    out = []
+    for t in fail_tests:
+        if style == "nolayer":
+            out.append({"nodeid": t, "symptom": symptom,
+                        "repair_hint": "increment attempt counter"})
+        elif style == "unit":
+            out.append({"layer": "unit", "test": f"mod::tests::{mid}",
+                        "symptom": symptom, "repair_hint": "increment attempt counter"})
+        else:
+            out.append({"layer": "e2e", "test": t, "symptom": symptom,
+                        "likely_cause": "scripted mock failure",
+                        "repair_hint": "increment attempt counter"})
+    return out
 
 
 def respond(agent_name: str, prompt: str) -> str:
@@ -140,8 +171,14 @@ def respond(agent_name: str, prompt: str) -> str:
         return f"mock planner: wrote {names['plan']}"
 
     if agent_name == "translator":
-        (pdir / "translate.marker").write_text("mock translated\n", encoding="utf-8")
-        return "mock translator: filled skeleton"
+        # Record "<milestone>:<mode>" per invocation so a check scenario can assert
+        # that every milestone STARTS in IMPLEMENT mode (a stale report leaking from
+        # a previous give-up would wrongly show REPAIR on the first attempt).
+        mid = _extract_milestone(prompt)
+        mode = "REPAIR" if re.search(r"\bMode:\s*REPAIR\b", prompt or "") else "IMPLEMENT"
+        with (pdir / "translate.marker").open("a", encoding="utf-8") as fh:
+            fh.write(f"{mid}:{mode}\n")
+        return f"mock translator: filled skeleton ({mid}:{mode})"
 
     if agent_name == "validator":
         mid = _extract_milestone(prompt)
@@ -177,13 +214,7 @@ def respond(agent_name: str, prompt: str) -> str:
                 "unit": {"total": 3, "passed": 3 if passed else 1, "failed": 0 if passed else 2},
                 "e2e": {"total": 2, "passed": 2 if passed else 1, "failed": 0 if passed else 1},
             },
-            "failures": [] if passed else [
-                {"layer": "e2e", "test": t,
-                 "symptom": f"(mock) {mid} attempt {attempts} <= budget {budget}",
-                 "likely_cause": "scripted mock failure",
-                 "repair_hint": "increment attempt counter"}
-                for t in fail_tests
-            ],
+            "failures": [] if passed else _failure_entries(fail_tests, mid, attempts, budget),
         }
         (pdir / names["report"]).write_text(json.dumps(report, indent=2), encoding="utf-8")
         return f"mock validator: {mid} {'PASS' if passed else 'FAIL'} (attempt {attempts})"

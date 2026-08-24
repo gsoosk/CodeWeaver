@@ -48,13 +48,20 @@ def tracker_enabled() -> bool:
         return False
 
 
-def state_from_existing_pipeline(cfg: Config, milestone_id: str,
+def state_from_existing_pipeline(cfg: Config, milestone_id: str | None,
                                  max_iter: int, max_parity_rounds: int) -> dict:
-    """Bootstrap a NEW run from existing pipeline artifacts, entering at ``milestone_id``.
+    """Bootstrap a NEW run from existing pipeline artifacts.
 
-    Skips analyze/scope/plan by marking them done and jumping the loop head to the
-    named milestone. Requires the analysis, milestones, and plan artifacts (and the
-    working copy, when the config declares one)."""
+    Two entry points, both skipping analyze/scope/plan by marking them done:
+
+    * ``milestone_id="Mx"`` -- enter the milestone loop at ``Mx``.
+    * ``milestone_id=None`` -- PARITY entry: skip the milestone loop entirely and
+      go straight to the parity verifier. The state sits on the LAST milestone and
+      marks it passed/concluded, so the outer loop still works from there (gaps ->
+      re-scope, or an appended retry milestone -> select_milestone advances cleanly).
+
+    Requires the analysis, milestones, and plan artifacts (and the working copy,
+    when the config declares one)."""
     required = [cfg.analysis_path, cfg.milestones_path, cfg.plan_path]
     wc = cfg.working_copy_path
     if wc is not None:
@@ -67,11 +74,18 @@ def state_from_existing_pipeline(cfg: Config, milestone_id: str,
 
     cfg.load_generated_milestones()
     ms = cfg.milestones
-    idx = next((i for i, m in enumerate(ms) if m.id == milestone_id), None)
-    if idx is None:
-        ids = ", ".join(m.id for m in ms)
-        raise ValueError(
-            f"milestone {milestone_id!r} is not in {cfg.milestones_path} (available: {ids})")
+    if not ms:
+        raise ValueError(f"no milestones found in {cfg.milestones_path}")
+
+    parity_entry = milestone_id is None
+    if parity_entry:
+        idx = len(ms) - 1                # sit on the last milestone, already concluded
+    else:
+        idx = next((i for i, m in enumerate(ms) if m.id == milestone_id), None)
+        if idx is None:
+            ids = ", ".join(m.id for m in ms)
+            raise ValueError(
+                f"milestone {milestone_id!r} is not in {cfg.milestones_path} (available: {ids})")
 
     st = S.initial_state(cfg, max_iter=max_iter)
     st.update({
@@ -82,6 +96,10 @@ def state_from_existing_pipeline(cfg: Config, milestone_id: str,
         "analysis_done": True,
         "milestones_done": True,
         "plan_done": True,
+        # Parity entry: present the last milestone as already passed + concluded so
+        # the graph's post-parity transitions behave exactly as in a normal run.
+        "milestone_passed": parity_entry,
+        "milestone_concluded": parity_entry,
         "last_agent": "pipeline-bootstrap",
     })
     return st

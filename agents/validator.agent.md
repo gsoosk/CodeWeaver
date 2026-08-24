@@ -57,7 +57,19 @@ from the milestone id — you just run it.
    essence, the **likely output-contract or behavior at fault**, and a **repair
    hint** naming the probable source fragment / target module (cross-reference the
    analysis + plan artifacts and the source).
-4. **Verify the testbed is healthy** after the e2e run (any reversible deploy is
+
+   **Always set `layer`** on every failure entry (`"unit"` or `"e2e"`). The
+   orchestrator uses it to decide which failures are gate selections it can defer;
+   an unlabelled failure may be dropped or mis-attributed.
+4. **A SKIPPED test is NOT a pass.** Some tests self-skip when their prerequisites
+   are absent (a missing fixture/service, an unprovisioned device or module, a
+   feature flag, an unset environment variable, a platform guard). Check the
+   runner's summary for skipped/ignored tests. For each one: perform the setup the
+   test needs so it **actually runs**, then re-run. If it still cannot be made to
+   run, **report it explicitly** — list it with its skip reason and count it as a
+   failure of your verdict rather than silently treating it as passing. Never
+   report a run as green when part of the gate never executed.
+5. **Verify the testbed is healthy** after the e2e run (any reversible deploy is
    restored). If the environment was left dirty, say so prominently.
 
 ## Rules (hard boundaries)
@@ -66,6 +78,9 @@ from the milestone id — you just run it.
   artifact** (plus read logs).
 - Do not "fix" a failing test by weakening it or changing the oracle — report the
   failure with a repair hint instead.
+- Do not re-add or force-run a test the orchestrator deliberately **deselected**
+  (the prompt lists them as deferred/known-failing); those are excluded on purpose.
+  This is different from a test that self-skips, which you must set up and run.
 - Be precise and honest — the whole pipeline trusts your verdict. End by stating the
   milestone, the per-layer pass/fail + counts, the combined verdict, the top
-  failures with repair hints, and the testbed health.
+  failures with repair hints, any test you could not make run, and the testbed health.

@@ -87,6 +87,19 @@ class Config:
     # SKIP list. Empty -> skips are only surfaced to the agent in the prompt, not
     # mechanically excluded (e.g. pytest: 'and not ({tests_or})').
     skip_exclude_template: str = ""
+    # Optional regex that recognises a GATE-LAYER (e2e) test id inside a validator
+    # report entry that did not label its layer. Runner-specific; when set, an
+    # unlabelled failure only becomes a deferred skip if it matches, so ids from
+    # another layer (e.g. unit-test paths) are never mistaken for gate selections.
+    # Empty -> any unlabelled failure id is accepted (best effort).
+    # Example (pytest): '[\\w./\\\\-]+\\.py::[\\w\\[\\].-]+'
+    gate_test_id_pattern: str = ""
+    # Optional regex that extracts the SELECTOR TOKEN a deferred test id contributes
+    # to skip_exclude_template. Group 1 when the pattern has one, else the whole
+    # match; a test id that does not match is dropped rather than emitted, since a
+    # malformed selector can make the runner error out and fail the whole gate.
+    # Empty -> ids are used verbatim. Example (pytest -k): '([^:\\[/\\\\]+?)(?:\\[|$)'
+    skip_token_pattern: str = ""
 
     # execution
     model: ModelConfig = field(default_factory=ModelConfig)
@@ -329,6 +342,8 @@ def load(config_path: str | os.PathLike) -> Config:
         validate_cmd=str(cmds.get("validate", "")),
         gate_template=str(validation.get("gate_template", "{tests_or}")),
         skip_exclude_template=str(validation.get("skip_exclude_template", "")),
+        gate_test_id_pattern=str(validation.get("gate_test_id_pattern", "")),
+        skip_token_pattern=str(validation.get("skip_token_pattern", "")),
         model=model,
         milestones=_milestones_from(raw.get("milestones")),
         max_iter=int(exec_raw.get("max_iter", 5)),

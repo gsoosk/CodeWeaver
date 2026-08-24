@@ -15,6 +15,7 @@ Stage -> ReCodeAgent mapping:
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 from burr.core import action
@@ -128,14 +129,74 @@ def _permanent_skips() -> list[str]:
     return [t for t in data["tests_to_skip"] if t in retried]
 
 
-def _failing_test_ids(report: dict) -> list[str]:
-    """Test ids from a report's failures (any layer), for the skip record."""
+# Keys a validator agent might use for the failing test's identifier.
+_TEST_ID_KEYS = ("test", "test_id", "testid", "nodeid", "node_id", "name", "id")
+
+
+def _failing_test_ids(report: dict, cfg=None) -> list[str]:
+    """Gate-layer test ids from a validator report's failures, for the skip record.
+
+    Deliberately tolerant: the report is written by an LLM agent, so ``failures``
+    entries may be dicts (with varying key names) or plain strings, and ``layer``
+    may be missing entirely. Rules:
+
+      * an entry explicitly labelled ``layer="unit"`` is IGNORED -- unit tests are
+        not selected by the validate gate, so deselecting them there is meaningless;
+      * an entry explicitly labelled with any other layer (e.g. ``"e2e"``)
+        contributes its id verbatim -- trust the agent's own labelling;
+      * an UNLABELLED entry contributes its id only if it matches
+        ``cfg.gate_test_id_pattern`` (when that runner-specific regex is
+        configured), so ids from another layer are never mistaken for gate
+        selections. With no pattern configured we cannot tell the layers apart
+        generically, so the id is accepted best-effort.
+
+    Returns de-duplicated ids in report order.
+    """
+    pattern = None
+    if cfg is not None and cfg.gate_test_id_pattern:
+        try:
+            pattern = re.compile(cfg.gate_test_id_pattern)
+        except re.error as e:
+            print(f"[codeweaver] warning: invalid gate_test_id_pattern "
+                  f"{cfg.gate_test_id_pattern!r}: {e}; accepting unlabelled ids")
+
     out: list[str] = []
+
+    def _add(val: str) -> None:
+        val = (val or "").strip()
+        if val and val not in out:
+            out.append(val)
+
+    def _mine(text: str) -> str:
+        """The gate-layer id inside free-form text, or '' when there is none."""
+        if pattern is None:
+            return ""
+        m = pattern.search(text or "")
+        return m.group(0) if m else ""
+
     for f in (report or {}).get("failures", []) or []:
-        if isinstance(f, dict) and f.get("test"):
-            t = str(f["test"])
-            if t not in out:
-                out.append(t)
+        if isinstance(f, dict):
+            layer = str(f.get("layer", "")).strip().lower()
+            if layer == "unit":
+                continue
+            raw = ""
+            for k in _TEST_ID_KEYS:
+                v = f.get(k)
+                if isinstance(v, str) and v.strip():
+                    raw = v.strip()
+                    break
+            if layer:
+                # Labelled as a gate layer: take the id, or mine it out of the whole
+                # entry if the id key was missing / oddly named.
+                _add(raw or _mine(json.dumps(f)))
+                continue
+            # Unlabelled: gate it on the runner's id pattern when one is configured.
+            if pattern is None:
+                _add(raw)
+            else:
+                _add(_mine(raw) or _mine(json.dumps(f)))
+        elif isinstance(f, str):
+            _add(_mine(f) if pattern is not None else f)
     return out
 
 
@@ -350,7 +411,8 @@ def parity(state, __tracer) -> dict:
 
 @action(
     reads=["milestone_idx", "milestone_concluded"],
-    writes=["milestone_idx", "iter_count", "milestone_passed", "milestone_concluded"],
+    writes=["milestone_idx", "iter_count", "milestone_passed", "milestone_concluded",
+            "report"],
 )
 def select_milestone(state) -> dict:
     """Loop head: initialise (from plan/scope) or advance (after a milestone concludes).
@@ -360,13 +422,20 @@ def select_milestone(state) -> dict:
     milestone is skipped rather than failing the run (its untranslated behaviour is
     caught by the parity verifier). On first entry (from plan, after a re-scope, or
     a parity retry) ``milestone_concluded`` is False, so we start the current
-    milestone without advancing. Always reset the per-milestone counters/flags.
+    milestone without advancing.
+
+    Always reset the PER-MILESTONE state: the repair counter, the passed/concluded
+    flags, AND ``report``. Clearing the report matters after a GIVE-UP: validate
+    keeps the failing report so the (never-taken) repair path could use it, so
+    without clearing it here the next milestone's FIRST translate would see stale
+    failures and wrongly run in REPAIR mode instead of IMPLEMENT.
     """
     idx = state["milestone_idx"]
     if state["milestone_concluded"]:      # re-entered after this milestone concluded
         idx += 1
     return state.update(milestone_idx=idx, iter_count=0,
-                        milestone_passed=False, milestone_concluded=False)
+                        milestone_passed=False, milestone_concluded=False,
+                        report={})
 
 
 @action(reads=["milestone_idx", "iter_count", "report"], writes=["last_agent"])
@@ -419,9 +488,21 @@ def validate(state, __tracer) -> dict:
 
     newly_skipped: list[str] = []
     if gave_up:
-        newly_skipped = _failing_test_ids(report)
+        newly_skipped = _failing_test_ids(report, cfg)
+        if not newly_skipped:
+            # The validator's report named no gate-layer test id (or only unit
+            # failures). Fall back to this milestone's OWN selector tokens so the
+            # stuck gate still gets deselected -- otherwise every later milestone
+            # would keep re-running it and burn its whole repair budget again.
+            newly_skipped = [t for t in m.tests if t]
+            if newly_skipped:
+                print(f"[codeweaver] {m.id} gave up but the report named no gate-layer "
+                      f"test id; deferring its own test selector(s): {newly_skipped}")
         if newly_skipped:
             _add_skips(newly_skipped)
+        else:
+            print(f"[codeweaver] WARNING: {m.id} gave up but no test could be identified "
+                  "to defer; later milestones may re-run its failures.")
 
     _log_agent(__tracer, stage=f"validate:{m.id}", prompt=prompt, result=res)
     if __tracer is not None:

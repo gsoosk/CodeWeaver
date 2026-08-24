@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import subprocess
 import sys
@@ -49,7 +50,16 @@ def _cmd_run(args) -> int:
 
     bootstrap_state = None
     entrypoint = "analyze"
-    if args.start_milestone:
+    partway = args.start_milestone or ("parity" if args.start_parity else None)
+    if args.start_milestone and args.start_parity:
+        print("[codeweaver] error: --start-milestone and --start-parity are mutually "
+              "exclusive", file=sys.stderr)
+        return 2
+    if args.start_parity and not cfg.parity_check:
+        print("[codeweaver] error: --start-parity needs the parity stage "
+              "(execution.parity_check = true)", file=sys.stderr)
+        return 2
+    if partway:
         try:
             bootstrap_state = state_from_existing_pipeline(
                 cfg, args.start_milestone, max_iter=max_iter,
@@ -57,7 +67,7 @@ def _cmd_run(args) -> int:
         except ValueError as e:
             print(f"[codeweaver] error: {e}", file=sys.stderr)
             return 2
-        entrypoint = "select_milestone"
+        entrypoint = "parity" if args.start_parity else "select_milestone"
 
     app = build_application(cfg, app_id, max_iter=max_iter, db_path=args.db,
                             bootstrap_state=bootstrap_state,
@@ -65,13 +75,18 @@ def _cmd_run(args) -> int:
 
     mock_on = os.environ.get("CODEWEAVER_MOCK") == "1"
     print(f"[codeweaver] project={cfg.name} app_id={app_id} mock={mock_on} db={db_path}")
-    if args.start_milestone:
+    if partway:
+        where = ("the parity verifier" if args.start_parity
+                 else f"milestone {args.start_milestone}")
         if app.state["last_agent"] == "pipeline-bootstrap":
-            print(f"[codeweaver] starting from existing artifacts at {args.start_milestone}; "
-                  "analyze/scope/plan are skipped")
+            skipped_stages = ("analyze/scope/plan and the milestone loop"
+                              if args.start_parity else "analyze/scope/plan")
+            print(f"[codeweaver] starting from existing artifacts at {where}; "
+                  f"{skipped_stages} are skipped")
         else:
+            flag = "--start-parity" if args.start_parity else "--start-milestone"
             print(f"[codeweaver] persisted state exists for app_id={app_id}; resuming it "
-                  f"(--start-milestone only initializes a NEW app-id)")
+                  f"({flag} only initializes a NEW app-id)")
     print(f"[codeweaver] loaded state at startup: milestone_idx={app.state['milestone_idx']} "
           f"history_len={len(app.state['history'])}  (idx>0 or history => resumed, not restarted)")
     last_action, _result, final_state = app.run(halt_after=["terminal"])
@@ -99,7 +114,8 @@ def _cmd_run(args) -> int:
 # --------------------------------------------------------------------------- #
 # check  (offline mock smoke: happy / repair / budget / resume)
 # --------------------------------------------------------------------------- #
-def _run_pipeline(config_path: str, app_id: str, extra_env: dict, max_iter=None) -> int:
+def _run_pipeline(config_path: str, app_id: str, extra_env: dict, max_iter=None,
+                  extra_args: list[str] | None = None) -> int:
     env = dict(os.environ)
     env["CODEWEAVER_MOCK"] = "1"
     env.update({k: str(v) for k, v in extra_env.items()})
@@ -107,7 +123,51 @@ def _run_pipeline(config_path: str, app_id: str, extra_env: dict, max_iter=None)
            "--app-id", app_id, "--mock"]
     if max_iter is not None:
         cmd += ["--max-iter", str(max_iter)]
+    cmd += extra_args or []
     return subprocess.run(cmd, env=env).returncode
+
+
+def _assert_implement_first(pipeline) -> None:
+    """Every milestone's FIRST translate must run in IMPLEMENT mode.
+
+    A give-up leaves the failing report in state; if select_milestone does not clear
+    it, the NEXT milestone's first translate wrongly starts in REPAIR mode.
+    """
+    marker = pipeline / "translate.marker"
+    if not marker.exists():
+        print("  [check] WARNING: no translate.marker to verify translate modes")
+        return
+    seen, bad = set(), []
+    for line in marker.read_text(encoding="utf-8").splitlines():
+        if ":" not in line:
+            continue
+        mid, mode = line.rsplit(":", 1)
+        if mid not in seen:
+            seen.add(mid)
+            if mode != "IMPLEMENT":
+                bad.append(line)
+    if bad:
+        print(f"  [check] FAIL: milestone(s) started in REPAIR mode (stale report): {bad}")
+    else:
+        print(f"  [check] OK: all {len(seen)} milestone(s) started in IMPLEMENT mode")
+
+
+def _report_skips(cfg, label: str) -> None:
+    """Show what a give-up actually deferred, and the gate clause it renders to."""
+    from . import milestones as M
+
+    try:
+        data = json.loads((cfg.pipeline_path / cfg.skips_artifact).read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        print(f"  [check] FAIL ({label}): no {cfg.skips_artifact} written by the give-up path")
+        return
+    ids = [t for t in data.get("tests_to_skip", []) if t] or \
+          [t for t in data.get("retried", []) if t]
+    if not ids:
+        print(f"  [check] FAIL ({label}): {cfg.skips_artifact} recorded no deferred test")
+        return
+    clause = M.skip_exclusion(cfg, ids) or "(no skip_exclude_template -> agent-only)"
+    print(f"  [check] OK ({label}): deferred {ids} -> gate clause: {clause}")
 
 
 def _cmd_check(args) -> int:
@@ -125,6 +185,7 @@ def _cmd_check(args) -> int:
 
     def reset():
         purge = [pipeline / "burr.db",
+                 pipeline / "translate.marker",
                  pipeline / ".mock_parity_attempts",
                  pipeline / cfg.parity_artifact,
                  pipeline / cfg.skips_artifact]
@@ -161,6 +222,16 @@ def _cmd_check(args) -> int:
 
     print(f"\n===== 3) SKIP-ON-GIVE-UP - {mid_ms} always fails (max-iter 3) -> skipped, run continues =====")
     reset(); _run_pipeline(args.config, "chk-giveup", {**base_env, "CODEWEAVER_MOCK_FAIL": f"{mid_ms}:99"}, max_iter=3)
+    _assert_implement_first(pipeline)
+    _report_skips(cfg, "3")
+
+    for style in ("nolayer", "string", "unit"):
+        print(f"\n===== 3{style[0]}) FAILURE SHAPE '{style}' - {mid_ms} gives up; tests still deferred =====")
+        reset(); _run_pipeline(args.config, f"chk-shape-{style}",
+                               {**base_env, "CODEWEAVER_MOCK_FAIL": f"{mid_ms}:99",
+                                "CODEWEAVER_MOCK_FAIL_STYLE": style}, max_iter=3)
+        _assert_implement_first(pipeline)
+        _report_skips(cfg, f"3{style[0]}")
 
     print(f"\n===== 4) CRASH-RESUME - crash at {mid_ms}, resume SAME app-id =====")
     reset()
@@ -175,6 +246,11 @@ def _cmd_check(args) -> int:
         print(f"\n===== 6) DEFERRED-TEST RETRY - {mid_ms} skipped -> parity retry milestone recovers it =====")
         reset(); _run_pipeline(args.config, "chk-retry", {**base_env, "CODEWEAVER_MOCK_FAIL": f"{mid_ms}:99"}, max_iter=3)
 
+        print("\n===== 7) --start-parity - re-grade an existing pipeline at the parity verifier =====")
+        # Produce a clean set of artifacts, then enter at parity only (no milestone loop).
+        reset(); _run_pipeline(args.config, "chk-happy2", base_env)
+        _run_pipeline(args.config, "chk-startparity", base_env, extra_args=["--start-parity"])
+
     reset()
     print("\nAll orchestrator checks ran. Verify above:")
     print(f"  1 done=True (all pass)   2 {first} iter1=False then iter2=True")
@@ -183,6 +259,7 @@ def _cmd_check(args) -> int:
     if cfg.parity_check:
         print("  5 two extra milestones appear, then done=True after parity completes")
         print(f"  6 {mid_ms} skipped -> a 'Retry deferred tests' milestone runs -> done=True")
+        print("  7 history is PARITY only (no milestone rows) => the milestone loop was skipped")
     return 0
 
 
@@ -264,6 +341,14 @@ validate   = "bash tools/validate.sh {{milestone}}"
 # {{skip_exclude}} deselects tests deferred by skip-on-give-up (see below).
 gate_template = '-k "({{tests_or}}){{skip_exclude}}"'
 skip_exclude_template = ' and not ({{tests_or}})'
+# Runner-specific regex recognising a GATE-LAYER test id in a validator report entry
+# that did not label its layer, so ids from another layer (e.g. Rust unit-test paths)
+# are never mistaken for gate selections. Empty -> accept any unlabelled id.
+gate_test_id_pattern = '[\\w./\\\\-]+\\.py::[\\w\\[\\].-]+'
+# Runner-specific regex extracting the selector TOKEN a deferred test id contributes
+# to skip_exclude_template. pytest -k only accepts bare words, so map
+# "tests/test_dom.py::test_x[case]" -> "test_x". Empty -> use ids verbatim.
+skip_token_pattern = '([^:\\[/\\\\]+?)(?:\\[|$)'
 
 [model]
 default = "claude-opus-4.8"
@@ -341,6 +426,10 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--start-milestone", default=None, metavar="Mx",
                    help="start a NEW app-id from an existing pipeline at this milestone "
                         "(requires analysis/milestones/plan artifacts; skips analyze/scope/plan)")
+    r.add_argument("--start-parity", action="store_true",
+                   help="start a NEW app-id from an existing pipeline directly at the parity "
+                        "verifier, skipping analyze/scope/plan AND the milestone loop "
+                        "(re-grade a translation as it stands); excludes --start-milestone")
     r.add_argument("--db", default=None, help="SQLite persistence path override")
     r.add_argument("--mock", action="store_true", help="offline: mock agents (no Copilot)")
     r.set_defaults(func=_cmd_run)

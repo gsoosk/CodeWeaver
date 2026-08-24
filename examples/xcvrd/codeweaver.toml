@@ -43,6 +43,12 @@ validate   = "bash tools/validate_on_dut.sh {milestone}"
 # {skip_exclude} deselects tests deferred by skip-on-give-up (rendered INSIDE the -k).
 gate_template = '-k "({tests_or}){skip_exclude}"'
 skip_exclude_template = ' and not ({tests_or})'
+# The e2e layer is pytest, the unit layer is Rust: only a pytest node id
+# ('<file>.py::<test>') counts as a gate selection, so a Rust unit-test path
+# ('dom::tests::publishes') is never deferred by mistake.
+gate_test_id_pattern = '[\w./\\-]+\.py::[\w\[\].-]+'
+# pytest -k only accepts bare words: 'tests/test_dom.py::test_x[Ethernet0]' -> 'test_x'.
+skip_token_pattern = '([^:\[/\\]+?)(?:\[|$)'
 
 [model]
 default = "claude-opus-4.8"

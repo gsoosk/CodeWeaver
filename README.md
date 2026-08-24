@@ -124,13 +124,19 @@ codeweaver run --config codeweaver.toml --app-id port-001 --max-iter 5
 # Resume a crashed run: re-run with the SAME --app-id (SQLite persister continues)
 codeweaver run --config codeweaver.toml --app-id port-001
 
+# Start partway from an existing pipeline (NEW app-id; skips analyze/scope/plan)
+codeweaver run --config codeweaver.toml --start-milestone M4   # enter the loop at M4
+codeweaver run --config codeweaver.toml --start-parity         # re-grade at the parity verifier
+
 # Telemetry UI (project = your config's slug)
 burr
 ```
 
-`codeweaver check` exercises the four behaviors offline against the mock agent:
-**happy path**, **repair loop**, **budget exhaustion**, and cross-process
-**crash-resume** — no Copilot required.
+`codeweaver check` exercises the pipeline's behaviors offline against the mock
+agent — **happy path**, **repair loop**, **skip-on-give-up** (including the
+tolerant handling of differently-shaped validator reports), cross-process
+**crash-resume**, the **parity loop**, the **deferred-test retry**, and
+**`--start-parity`** — no Copilot required.
 
 ---
 

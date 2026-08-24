@@ -71,11 +71,33 @@ working copy.
 |-----|---------|---------|
 | `gate_template` | `{tests_or}` | how a milestone's **cumulative** test list becomes the gate string. Placeholders: `{tests_or}` (" or "-joined), `{tests_space}` (space-joined), `{tests_csv}` (comma-joined), `{marker}` (this milestone's marker), `{skip_exclude}` (the deferred-test deselection clause — see below). |
 | `skip_exclude_template` | "" | (skip-on-give-up) how the deferred/known-failing **skip** list renders into `{skip_exclude}` inside the gate. Same `{tests_or}`/`{tests_space}`/`{tests_csv}` placeholders, but over the SKIP tokens. Empty → skips are only surfaced to the agent textually, not mechanically deselected. |
+| `gate_test_id_pattern` | "" | regex recognising a **gate-layer** test id inside a validator failure entry that did **not** label its `layer`. Prevents ids from another layer (e.g. a Rust unit-test path) being mistaken for a gate selection. Empty → any unlabelled id is accepted (best effort). |
+| `skip_token_pattern` | "" | regex extracting the **selector token** a deferred test id contributes to `skip_exclude_template` — group 1 when the pattern has one, else the whole match. An id that doesn't match is dropped rather than emitted malformed. Empty → ids are used verbatim. |
 
 Examples: pytest `-k` → `'-k "({tests_or}){skip_exclude}"'` with
 `skip_exclude_template = ' and not ({tests_or})'`; `go test -run` →
 `'-run {tests_or}'`; `cargo test` names → `'{tests_space}'`; ctest →
 `'-R "{tests_or}"'`.
+
+### Making deferred tests deselectable
+
+A recorded skip is a test *id* as the Validator reported it (e.g. the pytest node id
+`tests/test_dom.py::test_x[case]`), but a selector clause usually needs a bare token
+— pytest `-k` only accepts identifier-ish words, and a malformed `-k` makes pytest
+error out and fails the whole gate. The two patterns above bridge that gap:
+
+```toml
+[validation]
+gate_template         = '-k "({tests_or}){skip_exclude}"'
+skip_exclude_template = ' and not ({tests_or})'
+# only a pytest node id counts as a gate selection ('mod::tests::x' is ignored)
+gate_test_id_pattern  = '[\w./\\-]+\.py::[\w\[\].-]+'
+# 'tests/test_dom.py::test_x[case]' -> 'test_x'
+skip_token_pattern    = '([^:\[/\\]+?)(?:\[|$)'
+```
+
+Both are optional. Leave them empty when your runner accepts full test ids in its
+selector, or when the project has a single test layer.
 
 ## `[model]`
 
@@ -111,6 +133,15 @@ whole run. Instead:
 4. untranslated behavior that has no test surfaces as a parity **gap** → re-scope.
 
 The run still terminates on completeness (parity), not on "the tests we ran pass".
+
+**Which failures get deferred.** The Validator's report is written by an LLM, so
+failure entries are read tolerantly — dicts with any of `test`/`nodeid`/`name`/`id`,
+or plain strings. An entry labelled `layer = "unit"` is ignored (unit tests aren't
+gate selections); any other labelled entry is trusted; an **unlabelled** entry only
+counts if it matches `gate_test_id_pattern` (when configured). If a give-up report
+names no gate-layer test at all, the milestone's **own `tests` tokens** are deferred
+instead — a give-up always defers *something*, otherwise the next milestone would
+burn its whole repair budget on the same failures.
 
 ## `[[milestones]]`
 
