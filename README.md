@@ -207,7 +207,10 @@ See [`docs/config.md`](docs/config.md) for the full reference,
 [`docs/architecture.md`](docs/architecture.md) for the design, and
 [`docs/related-work.md`](docs/related-work.md) for a literature review positioning
 CodeWeaver against ~60 related papers (code translation, multi-agent code gen,
-agentic SE, self-repair) and its predecessor **ReCodeAgent**. Full worked
+agentic SE, self-repair) and its predecessor **ReCodeAgent**. [`idea.md`](idea.md)
+is the canonical method + evaluation-plan brief, and
+[`PAPER_INSTRUCTIONS.md`](PAPER_INSTRUCTIONS.md) is the brief handed to a research
+agent for running the experiments and writing the paper. Full worked
 examples live in [`examples/`](examples/):
 
 - **`examples/minimal/`** — a tiny Python→Rust library port (drives `codeweaver check`).
