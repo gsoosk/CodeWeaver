@@ -216,9 +216,11 @@ examples live in [`examples/`](examples/):
 - **`examples/minimal/`** — a tiny Python→Rust library port (drives `codeweaver check`).
 - **`examples/auto-milestones/`** — same, but with **no `[[milestones]]`** — the
   scope stage generates them (offline, the mock scoper emits `M0..M2`).
-- **`examples/crust-bench/`** — run CodeWeaver on a [CRUST-Bench](https://arxiv.org/abs/2504.15254)
-  **C → safe-Rust** transpilation task (retargetable to any of the 100 benchmark
-  projects via `setup`; auto-milestones + parity; validated by `cargo test`).
+- **`examples/alphatrans/`** — repository-level **Java → Python** on an
+  [AlphaTrans](https://arxiv.org/abs/2410.24117) subject project (FSE 2025), with a
+  provided Python interface skeleton and a **fixed, human-written pytest oracle that
+  is held out from the agents** (staged into a throwaway tree and SHA256-verified on
+  every scored run). Auto-milestones + parity; no JDK/Docker needed.
 - **`examples/commons-validator/`** — translate [Apache Commons Validator](https://github.com/apache/commons-validator)'s
   `routines` package (validators + check-digit algorithms) from **Java → idiomatic
   Python** (auto-milestones + parity; validated by translated `unittest` tests).
