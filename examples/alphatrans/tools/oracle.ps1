@@ -143,7 +143,35 @@ if (-not $All -and -not $Gate.Trim()) {
 }
 
 $pytestArgs = @()
-if ($Gate.Trim()) { $pytestArgs = @("-k", $Gate) }
+$selectedFiles = @()
+if ($Gate.Trim()) {
+    # Resolve each mechanical <Class>Test token to the oracle test FILE.
+    #
+    # We deliberately do NOT use `pytest -k <token>`: -k matches by SUBSTRING, so a
+    # token like "OptionTest" also selects "ArgumentIsOptionTest" and
+    # "PatternOptionBuilderTest", dragging later milestones' tests into an earlier
+    # milestone's gate and failing it for work it was never asked to do.
+    # Selecting explicit file paths is exact.
+    $tokens = @($Gate -split '\s+or\s+|\s+' | ForEach-Object { $_.Trim() } | Where-Object { $_ -and $_ -notin @('or','and','not') })
+    $unresolved = @()
+    foreach ($tok in ($tokens | Select-Object -Unique)) {
+        $hit = Get-ChildItem (Join-Path $staging "src\test") -Recurse -Filter "$tok.py" -ErrorAction SilentlyContinue
+        if ($hit) { $selectedFiles += ($hit | ForEach-Object { $_.FullName.Substring($staging.Length + 1) }) }
+        else      { $unresolved += $tok }
+    }
+    if ($unresolved.Count -gt 0) {
+        Write-Host "[oracle] note     : $($unresolved.Count) gate token(s) matched no oracle test file (no obligation): $($unresolved -join ', ')"
+    }
+    if ($selectedFiles.Count -eq 0) {
+        Write-Host "[oracle] source   : $srcMain"
+        Write-Host "[oracle] gate     : $Gate"
+        Write-Host "[oracle] result   : gate selected no oracle tests -> no obligation for this milestone"
+        Write-Host "[oracle] exitcode : 0"
+        if (-not $KeepStaging -and (Test-Path $staging)) { Remove-Item -Recurse -Force $staging }
+        exit 0
+    }
+    $pytestArgs += ($selectedFiles | Select-Object -Unique)
+}
 
 # Deselect the environment-broken baseline: tests that fail even against AlphaTrans's
 # own manually verified translation (locale/timezone-sensitive cases in
@@ -155,6 +183,19 @@ $excluded = @()
 if (-not $RecordExclusions -and (Test-Path $exclusionFile)) {
     $excluded = @(Get-Content $exclusionFile | Where-Object { $_.Trim() -and -not $_.StartsWith("#") })
     foreach ($nodeid in $excluded) { $pytestArgs += @("--deselect", $nodeid.Trim()) }
+}
+
+# Deselect tests deferred by skip-on-give-up. CodeWeaver records these in
+# pipeline/skips.json; deselecting them keeps a permanently-failing early test from
+# dragging every later milestone to its repair budget.
+$skipsFile = Join-Path $example "pipeline\skips.json"
+$deferred = @()
+if (-not $RecordExclusions -and (Test-Path $skipsFile)) {
+    try {
+        $skipsJson = Get-Content $skipsFile -Raw | ConvertFrom-Json
+        $deferred = @($skipsJson.tests_to_skip | Where-Object { $_ -and "$_".Contains("::") })
+        foreach ($nodeid in $deferred) { $pytestArgs += @("--deselect", "$nodeid".Trim()) }
+    } catch { }
 }
 
 Push-Location $staging

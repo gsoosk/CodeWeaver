@@ -42,9 +42,15 @@ unit_test   = "python -m pytest pipeline/project/tests -q"
 validate    = "pwsh -NoProfile -File tools/oracle.ps1 -Gate \"{gate}\""
 
 [validation]
-# Cumulative gate -> a pytest -k expression (OR-joined test class/function selectors).
-gate_template = "{tests_or}"
-skip_exclude_template = " and not ({tests_or})"
+# Cumulative gate -> space-separated mechanical <Class>Test tokens. tools/oracle.ps1
+# resolves each token to the exact oracle test FILE. It deliberately does not use
+# `pytest -k`, whose SUBSTRING matching would let "OptionTest" also select
+# "ArgumentIsOptionTest" and "PatternOptionBuilderTest" — dragging later milestones'
+# tests into an earlier gate and failing it for work it was never asked to do.
+gate_template = "{tests_space}"
+# Deferred (skip-on-give-up) tests are deselected by the harness, which reads
+# pipeline/skips.json directly and passes --deselect for each node id.
+skip_exclude_template = ""
 
 [model]
 default = "claude-opus-4.8"
