@@ -77,7 +77,35 @@ for pkg in "$STAGING/src" "$STAGING/src/main" "$STAGING/src/test"; do
   [ -f "$pkg/__init__.py" ] || : > "$pkg/__init__.py"
 done
 
-# 5. Run pytest. Deselect the environment-broken baseline (tests that fail against
+# 5. Resolve each mechanical <Class>Test token to the exact oracle test FILE.
+#    We deliberately do NOT use `pytest -k`: -k matches by SUBSTRING, so a token like
+#    "OptionTest" also selects "ArgumentIsOptionTest" and "PatternOptionBuilderTest",
+#    dragging later milestones' tests into an earlier milestone's gate and failing it
+#    for work it was never asked to do.
+SELECT=()
+if [ -n "${GATE// /}" ]; then
+  UNRESOLVED=""
+  for tok in $(echo "$GATE" | tr ' ' '\n' | grep -vE '^(or|and|not)$' | sort -u); do
+    [ -z "$tok" ] && continue
+    hits="$(find "$STAGING/src/test" -type f -name "$tok.py" 2>/dev/null || true)"
+    if [ -n "$hits" ]; then
+      while IFS= read -r h; do SELECT+=("${h#$STAGING/}"); done <<< "$hits"
+    else
+      UNRESOLVED="$UNRESOLVED $tok"
+    fi
+  done
+  [ -n "$UNRESOLVED" ] && echo "[oracle] note     : gate token(s) matched no oracle test file (no obligation):$UNRESOLVED"
+  if [ ${#SELECT[@]} -eq 0 ]; then
+    echo "[oracle] source   : $SRC_MAIN"
+    echo "[oracle] gate     : $GATE"
+    echo "[oracle] result   : gate selected no oracle tests -> no obligation for this milestone"
+    echo "[oracle] exitcode : 0"
+    [ "$KEEP_STAGING" -eq 1 ] || rm -rf "$STAGING"
+    exit 0
+  fi
+fi
+
+# 6. Run pytest. Deselect the environment-broken baseline (tests that fail against
 #    the golden translation too), unless we are recording that baseline right now.
 EXCL_FILE="$ORACLE_MASTER/baseline_excluded.txt"
 DESELECT=()
@@ -90,7 +118,22 @@ if [ "$RECORD_EXCLUSIONS" -eq 0 ] && [ -f "$EXCL_FILE" ]; then
   done < "$EXCL_FILE"
 fi
 
-OUT="$(cd "$STAGING" && PYTHONPATH="$STAGING" python3 -m pytest ${GATE:+-k "$GATE"} "${DESELECT[@]}" 2>&1)"
+# Deselect tests deferred by skip-on-give-up (CodeWeaver records them here).
+SKIPS_FILE="$EXAMPLE/pipeline/skips.json"
+if [ "$RECORD_EXCLUSIONS" -eq 0 ] && [ -f "$SKIPS_FILE" ]; then
+  while IFS= read -r nodeid; do
+    [ -n "$nodeid" ] && DESELECT+=(--deselect "$nodeid")
+  done < <(python3 -c "
+import json,sys
+try:
+    d=json.load(open('$SKIPS_FILE'))
+    for t in d.get('tests_to_skip',[]):
+        if '::' in str(t): print(t)
+except Exception: pass
+" 2>/dev/null)
+fi
+
+OUT="$(cd "$STAGING" && PYTHONPATH="$STAGING" python3 -m pytest "${SELECT[@]}" "${DESELECT[@]}" 2>&1)"
 CODE=$?
 echo "$OUT"
 
