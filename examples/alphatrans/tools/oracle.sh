@@ -2,15 +2,16 @@
 # Run the AlphaTrans oracle (the human-written Python tests) against a translation.
 # POSIX equivalent of tools/oracle.ps1 -- see that file for the full rationale.
 #
-#   ./tools/oracle.sh                       # score the working copy, whole suite gate rules apply
-#   ./tools/oracle.sh --gate "OptionTest"   # milestone gate (pytest -k)
-#   ./tools/oracle.sh --all                 # force the whole suite (final scoring)
-#   ./tools/oracle.sh --baseline golden     # ceiling: AlphaTrans's manual translation
-#   ./tools/oracle.sh --baseline skeleton   # floor:   the unimplemented interface
+#   ./tools/oracle.sh --project commons-cli
+#   ./tools/oracle.sh --project commons-cli --gate "OptionTest CommandLineTest"
+#   ./tools/oracle.sh --project commons-cli --all
+#   ./tools/oracle.sh --project commons-cli --baseline golden --all
+#   ./tools/oracle.sh --project commons-cli --baseline skeleton --all
 #
 # Exit codes: 0 pass, 1 test failure, 3 ORACLE-TAMPERED.
 set -uo pipefail
 
+PROJECT=""
 GATE=""
 BASELINE=""
 ALL=0
@@ -18,6 +19,7 @@ RECORD_EXCLUSIONS=0
 KEEP_STAGING=0
 while [ $# -gt 0 ]; do
   case "$1" in
+    --project)  PROJECT="${2:-}"; shift 2 ;;
     --gate)     GATE="${2:-}"; shift 2 ;;
     --baseline) BASELINE="${2:-}"; shift 2 ;;
     --all)      ALL=1; shift ;;
@@ -26,30 +28,31 @@ while [ $# -gt 0 ]; do
     *) echo "unknown arg: $1" >&2; exit 2 ;;
   esac
 done
+[ -n "$PROJECT" ] || { echo "usage: $0 --project <name> [--gate ...] [--all] [--baseline golden|skeleton]" >&2; exit 2; }
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 EXAMPLE="$(dirname "$HERE")"
-ORACLE_MASTER="$EXAMPLE/.oracle-master"
-SCAFFOLD="$EXAMPLE/.scaffold"
-WORKING_COPY="$EXAMPLE/pipeline/project"
-STAGING="$EXAMPLE/pipeline/_oracle_run"
+SUBJECT="$EXAMPLE/subjects/$PROJECT"
+ORACLE_MASTER="$SUBJECT/.oracle-master"
+SCAFFOLD="$SUBJECT/.scaffold"
+WORKING_COPY="$SUBJECT/pipeline/project"
+STAGING="$SUBJECT/pipeline/_oracle_run"
 
-[ -d "$ORACLE_MASTER" ] || { echo "No .oracle-master. Run setup.sh first." >&2; exit 1; }
+[ -d "$ORACLE_MASTER" ] || { echo "No .oracle-master for '$PROJECT'. Run setup.sh $PROJECT first." >&2; exit 1; }
 
 # 1. Verify the oracle has not been modified.
 if ! ( cd "$ORACLE_MASTER" && sha256sum --quiet -c SHA256SUMS.txt ) 2>/dev/null; then
-  echo "ORACLE-TAMPERED: the fixed oracle no longer matches its manifest." >&2
+  echo "ORACLE-TAMPERED [$PROJECT]: the fixed oracle no longer matches its manifest." >&2
   ( cd "$ORACLE_MASTER" && sha256sum -c SHA256SUMS.txt 2>&1 | grep -v ': OK$' || true ) >&2
-  echo "Re-run setup.sh to restore, and treat this run as INVALID." >&2
+  echo "Re-run setup.sh $PROJECT to restore, and treat this run as INVALID." >&2
   exit 3
 fi
 
 # 2. Pick the src/main to score.
 case "$BASELINE" in
   golden)
-    DS="$(sed -n 's/^#[[:space:]]*dataset_root[[:space:]]*=[[:space:]]*//p' "$EXAMPLE/codeweaver.toml" | head -1)"
-    PROJ="$(sed -n 's/^name[[:space:]]*=[[:space:]]*"alphatrans-\(.*\)"/\1/p' "$EXAMPLE/codeweaver.toml" | head -1)"
-    SRC_MAIN="$DS/data/manually_verified_translations/$PROJ/manual_translation/src/main" ;;
+    DS="$(sed -n 's/^#[[:space:]]*dataset_root[[:space:]]*=[[:space:]]*//p' "$SUBJECT/codeweaver.toml" | head -1)"
+    SRC_MAIN="$DS/data/manually_verified_translations/$PROJECT/manual_translation/src/main" ;;
   skeleton) SRC_MAIN="$SCAFFOLD/src/main" ;;
   "")       SRC_MAIN="$WORKING_COPY/src/main" ;;
   *) echo "--baseline must be golden or skeleton" >&2; exit 2 ;;
@@ -58,6 +61,7 @@ esac
 
 # 3. An empty gate means the milestone has no oracle obligation yet (typically M0).
 if [ "$ALL" -eq 0 ] && [ -z "${GATE// /}" ]; then
+  echo "[oracle] project  : $PROJECT"
   echo "[oracle] source   : $SRC_MAIN"
   echo "[oracle] gate     : (empty - milestone selects no oracle tests)"
   echo "[oracle] result   : skipped; no oracle obligation for this milestone"
@@ -77,11 +81,9 @@ for pkg in "$STAGING/src" "$STAGING/src/main" "$STAGING/src/test"; do
   [ -f "$pkg/__init__.py" ] || : > "$pkg/__init__.py"
 done
 
-# 5. Resolve each mechanical <Class>Test token to the exact oracle test FILE.
-#    We deliberately do NOT use `pytest -k`: -k matches by SUBSTRING, so a token like
-#    "OptionTest" also selects "ArgumentIsOptionTest" and "PatternOptionBuilderTest",
-#    dragging later milestones' tests into an earlier milestone's gate and failing it
-#    for work it was never asked to do.
+# 5. Resolve each mechanical <Class>Test token to the EXACT oracle test file.
+#    Never `pytest -k`: substring matching would let "OptionTest" also select
+#    "ArgumentIsOptionTest", dragging a later milestone's tests into this gate.
 SELECT=()
 if [ -n "${GATE// /}" ]; then
   UNRESOLVED=""
@@ -96,6 +98,7 @@ if [ -n "${GATE// /}" ]; then
   done
   [ -n "$UNRESOLVED" ] && echo "[oracle] note     : gate token(s) matched no oracle test file (no obligation):$UNRESOLVED"
   if [ ${#SELECT[@]} -eq 0 ]; then
+    echo "[oracle] project  : $PROJECT"
     echo "[oracle] source   : $SRC_MAIN"
     echo "[oracle] gate     : $GATE"
     echo "[oracle] result   : gate selected no oracle tests -> no obligation for this milestone"
@@ -105,26 +108,22 @@ if [ -n "${GATE// /}" ]; then
   fi
 fi
 
-# 6. Run pytest. Deselect the environment-broken baseline (tests that fail against
-#    the golden translation too), unless we are recording that baseline right now.
+# 6. Deselect the environment-broken baseline and any skip-on-give-up deferrals.
 EXCL_FILE="$ORACLE_MASTER/baseline_excluded.txt"
 DESELECT=()
 N_EXCL=0
 if [ "$RECORD_EXCLUSIONS" -eq 0 ] && [ -f "$EXCL_FILE" ]; then
   while IFS= read -r line; do
     case "$line" in ''|\#*) continue ;; esac
-    DESELECT+=(--deselect "$line")
-    N_EXCL=$((N_EXCL + 1))
+    DESELECT+=(--deselect "$line"); N_EXCL=$((N_EXCL + 1))
   done < "$EXCL_FILE"
 fi
-
-# Deselect tests deferred by skip-on-give-up (CodeWeaver records them here).
-SKIPS_FILE="$EXAMPLE/pipeline/skips.json"
+SKIPS_FILE="$SUBJECT/pipeline/skips.json"
 if [ "$RECORD_EXCLUSIONS" -eq 0 ] && [ -f "$SKIPS_FILE" ]; then
   while IFS= read -r nodeid; do
     [ -n "$nodeid" ] && DESELECT+=(--deselect "$nodeid")
   done < <(python3 -c "
-import json,sys
+import json
 try:
     d=json.load(open('$SKIPS_FILE'))
     for t in d.get('tests_to_skip',[]):
@@ -143,18 +142,18 @@ if [ "$RECORD_EXCLUSIONS" -eq 1 ]; then
     echo "# translation in THIS environment. They measure the environment (locale,"
     echo "# timezone, platform), not the translation under test, so every scored run"
     echo "# deselects them. Excluded from the tamper manifest by design."
-    echo "# Recorded: $(date -Is)"
+    echo "# Subject: $PROJECT    Recorded: $(date -Is)"
     echo "$OUT" | grep -E '^(FAILED|ERROR) ' | awk '{print $2}' | grep '::' | sort -u
   } > "$EXCL_FILE"
   echo "[oracle] recorded $(grep -vc '^#' "$EXCL_FILE" || true) environment-broken test(s) -> $EXCL_FILE"
 fi
 
-# pytest exit 5 = "no tests were collected" -> the mechanical <Class>Test token
-# matched nothing, which is "no obligation", not a failure.
+# pytest exit 5 = "no tests were collected" -> a mechanical token matched nothing.
 [ "$CODE" -eq 5 ] && CODE=0
 
 SUMMARY="$(echo "$OUT" | grep -E '[0-9]+ (passed|failed|error|deselected)' | tail -1 | tr -s ' =')"
 echo
+echo "[oracle] project  : $PROJECT"
 echo "[oracle] source   : $SRC_MAIN"
 echo "[oracle] gate     : ${GATE:-(whole suite)}"
 [ "$N_EXCL" -gt 0 ] && echo "[oracle] excluded : $N_EXCL environment-broken test(s)"

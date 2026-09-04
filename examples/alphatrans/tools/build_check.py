@@ -10,6 +10,10 @@ Import errors are what actually break the oracle run (the tests do
 `from src.main.<pkg>.<Mod> import *`), so catching them here gives the Translator a
 fast, oracle-free signal.
 
+Invoked as `python ../../tools/build_check.py` from a subject directory, so the
+working copy is resolved from the CURRENT WORKING DIRECTORY, not from this file's
+location. Pass an explicit subject directory as argv[1] to override.
+
 Exit 0 when every module parses and imports; exit 1 otherwise, printing one line
 per failure.
 """
@@ -21,20 +25,19 @@ import pathlib
 import sys
 import traceback
 
-HERE = pathlib.Path(__file__).resolve().parent
-EXAMPLE = HERE.parent
-WORKING_COPY = EXAMPLE / "pipeline" / "project"
-SRC_MAIN = WORKING_COPY / "src" / "main"
-
 
 def main() -> int:
-    if not SRC_MAIN.is_dir():
-        print(f"build_check: no working copy at {SRC_MAIN}", file=sys.stderr)
+    subject = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else pathlib.Path.cwd()
+    working_copy = subject / "pipeline" / "project"
+    src_main = working_copy / "src" / "main"
+
+    if not src_main.is_dir():
+        print(f"build_check: no working copy at {src_main}", file=sys.stderr)
         return 1
 
-    modules = sorted(p for p in SRC_MAIN.rglob("*.py") if p.name != "__init__.py")
+    modules = sorted(p for p in src_main.rglob("*.py") if p.name != "__init__.py")
     if not modules:
-        print(f"build_check: no modules under {SRC_MAIN}", file=sys.stderr)
+        print(f"build_check: no modules under {src_main}", file=sys.stderr)
         return 1
 
     syntax_errors: list[str] = []
@@ -42,7 +45,7 @@ def main() -> int:
         try:
             ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
         except SyntaxError as exc:
-            rel = path.relative_to(WORKING_COPY)
+            rel = path.relative_to(working_copy)
             syntax_errors.append(f"SYNTAX  {rel}:{exc.lineno}: {exc.msg}")
 
     if syntax_errors:
@@ -51,10 +54,10 @@ def main() -> int:
         print(f"build_check: FAILED ({len(syntax_errors)} syntax error(s))")
         return 1
 
-    sys.path.insert(0, str(WORKING_COPY))
+    sys.path.insert(0, str(working_copy))
     import_errors: list[str] = []
     for path in modules:
-        dotted = ".".join(path.relative_to(WORKING_COPY).with_suffix("").parts)
+        dotted = ".".join(path.relative_to(working_copy).with_suffix("").parts)
         try:
             importlib.import_module(dotted)
         except Exception as exc:
