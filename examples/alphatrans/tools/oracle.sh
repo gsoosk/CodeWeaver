@@ -17,25 +17,29 @@ BASELINE=""
 ALL=0
 RECORD_EXCLUSIONS=0
 KEEP_STAGING=0
+WORKING_COPY_REL=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --project)  PROJECT="${2:-}"; shift 2 ;;
     --gate)     GATE="${2:-}"; shift 2 ;;
     --baseline) BASELINE="${2:-}"; shift 2 ;;
     --all)      ALL=1; shift ;;
+    --working-copy) WORKING_COPY_REL="${2:-}"; shift 2 ;;
     --record-exclusions) RECORD_EXCLUSIONS=1; shift ;;
     --keep-staging) KEEP_STAGING=1; shift ;;
     *) echo "unknown arg: $1" >&2; exit 2 ;;
   esac
 done
-[ -n "$PROJECT" ] || { echo "usage: $0 --project <name> [--gate ...] [--all] [--baseline golden|skeleton]" >&2; exit 2; }
+[ -n "$PROJECT" ] || { echo "usage: $0 --project <name> [--gate ...] [--all] [--baseline golden|skeleton] [--working-copy <rel>]" >&2; exit 2; }
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 EXAMPLE="$(dirname "$HERE")"
 SUBJECT="$EXAMPLE/subjects/$PROJECT"
 ORACLE_MASTER="$SUBJECT/.oracle-master"
 SCAFFOLD="$SUBJECT/.scaffold"
-WORKING_COPY="$SUBJECT/pipeline/project"
+# --working-copy lets a BASELINE arm (single-shot, SWE-agent, ...) be scored by the
+# identical oracle, e.g. --working-copy pipeline-baseline-20260904/project.
+WORKING_COPY="$SUBJECT/${WORKING_COPY_REL:-pipeline/project}"
 STAGING="$SUBJECT/pipeline/_oracle_run"
 
 [ -d "$ORACLE_MASTER" ] || { echo "No .oracle-master for '$PROJECT'. Run setup.sh $PROJECT first." >&2; exit 1; }
