@@ -180,6 +180,16 @@ def respond(agent_name: str, prompt: str) -> str:
             fh.write(f"{mid}:{mode}\n")
         return f"mock translator: filled skeleton ({mid}:{mode})"
 
+    # The optimize phase's two agents are driven by codeweaver.optimize, which
+    # writes their artifacts directly in mock mode (so the round trend is
+    # deterministic). These branches exist so a mock invocation is still logged
+    # with a sensible reply if the actions are ever wired to call through.
+    if agent_name == "benchmarker":
+        return "mock benchmarker: measured the working copy"
+
+    if agent_name == "optimizer":
+        return "mock optimizer: applied one focused change set"
+
     if agent_name == "validator":
         mid = _extract_milestone(prompt)
         if os.environ.get("CODEWEAVER_CRASH_AT") == mid:

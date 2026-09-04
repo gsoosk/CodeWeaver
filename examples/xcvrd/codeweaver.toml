@@ -60,12 +60,27 @@ planner = "max"
 translator = "max"
 validator = "high"
 parity = "max"
+benchmarker = "high"
+optimizer = "max"
 
 [execution]
 max_iter = 10
 skip_on_give_up = true
 parity_check = true
 max_parity_rounds = 3
+
+# PHASE 2 -- optimization. OFF by default; uncomment to enable (or pass --optimize).
+# Mirrors the upstream recodeAgent setup: benchmark/bench.sh drives the live DUT
+# through its B1..B12 scenarios against both the Rust daemon and the Python
+# reference, and the closing conformance milestone runs the WHOLE xcvrd-tests
+# suite pinned to the DOM cadence the benchmarks measured.
+# [optimization]
+# enabled = true
+# max_rounds = 5
+# benchmark_cmd = "bash ../benchmark/bench.sh {working_copy} --reps 1 --out {bench} {scenarios}"
+# scenario_template = "--scenario {scenarios_csv}"
+# scenarios = ""   # "" = every scenario; or e.g. "B4 B9" to focus the loop
+# full_suite_cmd = "bash tools/validate_on_dut.sh {milestone} --all --dom-interval 5"
 
 [[milestones]]
 id = "M0"

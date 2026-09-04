@@ -26,6 +26,12 @@ analyze ─▶ scope ─▶ plan ─▶ select_milestone ─▶ translate ─▶
              └─────────────────────┴─────────────────┴────────────┘   complete / out of rounds
 ```
 
+CodeWeaver runs **two phases**. Everything above is **phase 1 (translation)** and
+always runs; it makes the port *correct*. **Phase 2 (optimization)** makes an
+already-correct port *fast* and is **OFF by default** — see
+[Phase 2](#phase-2--the-optimization-phase-off-by-default) below. When it is off,
+its actions are not even registered, so the graph is exactly the one drawn above.
+
 A milestone **concludes** when `validate` either passes it OR exhausts the repair
 budget (`iter_count >= max_iter`). With **skip-on-give-up** (default), give-up does
 not fail the run: the stuck milestone is skipped and the loop advances.
@@ -35,6 +41,9 @@ Transitions (see `codeweaver/app.py`):
 - `translate → validate` always.
 - `validate → translate` when `not milestone_passed and iter_count < max_iter`
   (repair the current milestone). Checked first, so it wins while budget remains.
+- **(phase 2 on)** `validate → terminal` when `opt_repairing` — the post-optimisation
+  conformance milestone is the last thing the run does. Ordered **before** the next
+  two so it cannot fall through to a nonexistent milestone or back into parity.
 - `validate → select_milestone` when `milestone_concluded and milestone_idx < last_idx`
   (advance — the milestone passed, or was skipped after give-up).
 - **(parity on)** `validate → parity` when `milestone_concluded and milestone_idx >= last_idx`
@@ -43,7 +52,13 @@ Transitions (see `codeweaver/app.py`):
   (a deferred-test retry milestone was appended → run it).
 - **(parity on)** `parity → scope` when `not parity_complete and parity_round < max_parity_rounds`
   (gaps found → back to the milestone generator).
+- **(phase 2 on)** `parity → benchmark` when
+  `parity_complete and not opt_done and max_opt_rounds > 0` (translation complete and
+  correct → make it faster).
 - **(parity on)** `parity → terminal` otherwise (parity complete, or out of rounds).
+- **(phase 2 on)** `benchmark → optimize`; `optimize → benchmark` while
+  `opt_round <= max_opt_rounds`; `optimize → opt_repair` otherwise;
+  `opt_repair → select_milestone`.
 - `validate → terminal` (default) — parity off & last milestone concluded → terminal
   (`done` set in `validate`); OR give-up with `skip_on_give_up=false` (not concluded)
   → terminal with `done=False` (legacy hard fail).
@@ -85,6 +100,76 @@ When `validate` exhausts `max_iter` on a milestone (`skip_on_give_up=true`, defa
 With `skip_on_give_up=false` the give-up path leaves the milestone un-concluded, so
 the default `validate → terminal` edge fires and the run hard-fails (`done=False`),
 matching the pre-V2 behavior.
+
+## Phase 2 — the optimization phase (OFF by default)
+
+Phase 1 stops when the port is *correct*. Phase 2 makes it *fast*. It is disabled
+unless `[optimization].enabled` is set (or `--optimize` / `--max-opt-rounds N` is
+passed), and enabling it without a `benchmark_cmd` is a config error — the phase
+would have nothing to measure.
+
+```
+parity ─▶ benchmark ─▶ optimize ─▶ benchmark ─▶ … (max_opt_rounds)
+       └─▶ opt_repair ─▶ select_milestone ─▶ translate ⇄ validate ─▶ terminal
+```
+
+Two new agents (`codeweaver/optimize.py`, `agents/{benchmarker,optimizer}.agent.md`):
+
+| Action | Agent | Does |
+|---|---|---|
+| `benchmark` | **Benchmarker** | runs `benchmark_cmd`, reads back the artifact. Has **no edit tool** — the Optimizer is judged on its numbers, so it must not be able to touch the code being measured. |
+| `optimize` | **Optimizer** | makes **ONE small focused change set** to the working copy, guided by the measurements, and proves the unit tests still pass. |
+| `opt_repair` | — | appends ONE `full_suite` conformance milestone and hands it to the normal repair loop. |
+
+**Entry is gated on `parity_complete`** (plus `not opt_done`, which stops a second
+entry): tuning a translation with known gaps tunes code that is still going to
+change.
+
+**Rounds accumulate — the expensive gate runs once, at the end.** An earlier design
+validated *every* round against the full suite and reverted it on failure. Measured
+over 20 real rounds that was actively harmful: one flaky test failed in 14 of them,
+**including 7 rounds where the optimizer changed nothing at all** — an empty change
+set cannot cause a regression, so those reverts discarded work for a failure the
+round did not produce. 16 of 20 rounds were thrown away.
+
+So the Optimizer runs the cheap, deterministic unit tests itself each round, and
+the full suite runs **once** as a real milestone — where a failure is **repaired**
+over `max_iter` attempts instead of discarded. A flaky failure then costs one repair
+attempt that finds nothing, not an entire optimisation.
+
+That closing milestone carries `full_suite=True`, so `validate` runs
+`cfg.full_suite_command(...)` with **no selector**: the cumulative gate covers only
+tests some milestone listed, but a performance change can regress anything —
+including tests no milestone ever claimed. Deferred skips are deliberately *not*
+deselected there either; a run that silently omits them is not the conformance proof
+the milestone exists for.
+
+**Termination.** `validate → terminal` is ordered **before** `validate →
+select_milestone` and `validate → parity`, so the conformance milestone cannot fall
+through to a nonexistent next milestone or back into parity (which would re-enter the
+phase and never terminate). `opt_done` is a second guard. Because that edge bypasses
+parity, `validate` sets `done` itself when `opt_repairing` — a give-up still leaves
+`done=False` and a non-zero exit, so an unrepaired regression is never reported as
+success.
+
+**Snapshot.** The working copy is copied aside **once**, before round 1 (not per
+round — rounds accumulate, so re-snapshotting would overwrite the only pristine copy
+with an already-optimised one). Build output (`target/`, `build/`, `node_modules/`, …)
+is excluded. `optimize.restore_working_copy()` is the manual escape hatch if the
+conformance milestone cannot converge; the graph never calls it.
+
+**Scenario focus.** `--benchmarks B4,B9` scopes **both halves from one state key**,
+deliberately: the Benchmarker measures only those, and the Optimizer is told they are
+the only evidence it has *and* the only thing its change is judged on. Scoping one
+half would be worse than not scoping at all — optimising for a scenario nobody
+measured, or measuring one nobody is optimising.
+
+**Entry point.** `run --start-benchmark` enters the graph *at* `benchmark`, skipping
+analyze/scope/plan, the milestone loop **and** parity. It sets `parity_complete=True`
+because that is the flag the phase is gated on — and that is the caller's
+**assertion**, not a derived fact: pointed at an unfinished translation it optimises
+code that is still going to change, and only the appended full-suite milestone would
+catch it. The CLI banner says so.
 
 ## The `scope` stage (milestone generator)
 

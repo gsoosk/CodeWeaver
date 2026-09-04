@@ -212,6 +212,95 @@ _REPORT_SHAPE = (
     '"symptom","likely_cause","repair_hint"}]}'
 )
 
+# --------------------------------------------------------------------------- #
+# Optimize phase (phase 2 -- performance). Only rendered when it is enabled.
+# --------------------------------------------------------------------------- #
+BENCHMARK = """\
+You are the Benchmarker. Measure the performance of the {work_target}; do NOT \
+change anything. You have no edit tool -- if a run fails, report the failure \
+rather than working around it.
+
+PROJECT BRIEF:
+{brief}
+
+Benchmark round {opt_round}. Run EXACTLY this command and let it finish:
+    {benchmark_cmd}
+{scenario_note}
+Then read {bench} and VERIFY before reporting: it names the target you were \
+asked to measure and was produced by this run; every scenario THAT WAS \
+REQUESTED produced a record for each variant being compared; and none reports \
+null, skipped, or an error field. Report a compact per-scenario summary with \
+the comparison ratios, then state plainly whether the run is usable evidence.
+
+Pass through any note or caveat the artifact carries on a scenario VERBATIM \
+rather than deciding yourself whether it matters -- the Optimizer interprets \
+the numbers, you report them.
+
+Do not edit anything. Do not re-run a scenario until it gives a nicer number. \
+Do not fill a missing or null value with an estimate, an earlier run's figure, \
+or a plausible guess.
+"""
+
+OPTIMIZE = """\
+You are the Optimizer. Improve the PERFORMANCE of the {work_target} without \
+changing its observable behaviour. This is optimisation round {opt_round} of \
+{max_opt_rounds}.
+
+PROJECT BRIEF:
+{brief}
+
+{work_location}The translation is already CORRECT -- every milestone passed and \
+the parity verifier confirmed full source coverage. Your job is to make it \
+faster while keeping it correct.
+{scenario_note}
+EVIDENCE (read it before touching code): {bench} holds this round's \
+measurements and {optimize_history} holds every previous round. Do not optimise \
+from intuition -- if the numbers do not point at your idea, it is the wrong \
+idea. Do not repeat an idea an earlier round already tried.
+
+MAKE ONE SMALL FOCUSED CHANGE SET: one coherent idea, small enough that a later \
+failure can be traced to it. Prefer, in order: (1) removing redundant work, \
+(2) reducing I/O round trips, (3) avoiding needless copies/allocations, and \
+only then (4) concurrency or build-profile changes, which are the easiest to \
+get subtly wrong. "Rewrite the X subsystem" and "three unrelated tweaks" are \
+bad rounds.
+
+THE ONE RULE: do not change WHAT the code does, only HOW. The implementation is \
+graded as a black box against the same tests the translation had to pass -- same \
+inputs must produce the same observable outputs, in an order no observer can \
+distinguish. A change that is faster BECAUSE it does less observable work is a \
+behaviour change: reject it yourself. Read the surrounding code first -- the \
+translation mirrors the source deliberately, and a construct that looks \
+redundant may be preserving source behaviour.
+
+ROUNDS ACCUMULATE: your change stays and the next round builds on it. The \
+ENTIRE test suite runs once after the final round as a normal milestone, and \
+anything it catches is REPAIRED there rather than thrown away -- so do not \
+gamble on a change you cannot justify, but do not refuse a well-evidenced one \
+for fear of a revert.
+
+Before finishing, run `{unit_test}` and make sure it passes. This is the only \
+automatic gate between rounds, so a broken tree here compounds into every later \
+round. If your change breaks a unit test, fix the change or undo it -- do NOT \
+weaken the test.
+
+Then write {optimize_artifact} as JSON: {optimize_shape}. `files` must list \
+EVERY file you touched (the pipeline records this as the change set, so an \
+incomplete list makes a later regression untraceable). `rationale` must cite \
+the numbers that motivated the change, and `expected_effect` is a prediction \
+the next benchmark will check.
+
+If there is no meaningful and safe change left, say so: write it with \
+"title": "no further safe optimisation identified" and an honest explanation. A \
+round that changes nothing is a legitimate result -- inventing a marginal change \
+carries regression risk for no measured gain.
+"""
+
+_OPTIMIZE_SHAPE = (
+    '{"round","title","files":[...],"rationale","expected_effect",'
+    '"behaviour_risk","unit_tests","measured_before":{...}}'
+)
+
 DEFAULTS: dict[str, str] = {
     "scope": SCOPE,
     "analyze": ANALYZE,
@@ -219,6 +308,8 @@ DEFAULTS: dict[str, str] = {
     "translate": TRANSLATE,
     "validate": VALIDATE,
     "parity": PARITY,
+    "benchmark": BENCHMARK,
+    "optimize": OPTIMIZE,
 }
 
 
@@ -282,6 +373,10 @@ def context(cfg: Config, **runtime: Any) -> dict[str, str]:
         "build_verify": build_verify,
         "unit_run_note": unit_run_note,
         "report_shape": _REPORT_SHAPE,
+        "optimize_shape": _OPTIMIZE_SHAPE,
+        "bench": str(cfg.bench_path),
+        "optimize_artifact": str(cfg.optimize_path),
+        "optimize_history": str(cfg.optimize_history_path),
         # runtime defaults (overridable via **runtime)
         "milestone_id": "",
         "milestone_title": "",
@@ -294,6 +389,10 @@ def context(cfg: Config, **runtime: Any) -> dict[str, str]:
         "scope_mode_note": "",
         "skips": "[]",
         "skip_note": "",
+        "opt_round": "",
+        "max_opt_rounds": "",
+        "benchmark_cmd": "",
+        "scenario_note": "",
     }
     ctx.update({k: str(v) for k, v in runtime.items()})
     return ctx
@@ -331,6 +430,32 @@ def translate_runtime(cfg: Config, milestone, report: dict) -> dict[str, str]:
 
 def validate_runtime(cfg: Config, milestone, skips: list[str] | None = None) -> dict[str, str]:
     skips = [s for s in (skips or []) if s]
+
+    # A full_suite milestone (the one the optimize phase appends) gates on
+    # EVERYTHING: the cumulative selector covers only tests some milestone listed,
+    # but a performance change can regress anything -- including tests no milestone
+    # ever claimed. Deferred skips are NOT deselected here either; a run that
+    # silently omits them is not the conformance proof this milestone exists for.
+    if getattr(milestone, "full_suite", False):
+        return {
+            "milestone_id": milestone.id,
+            "milestone_title": milestone.title,
+            "milestone_goal": milestone.goal,
+            "gate": "",
+            "gate_desc": "the ENTIRE test suite (no selector -- run everything)",
+            "validate": cfg.full_suite_command(milestone.id),
+            "skips": json.dumps(skips),
+            "skip_note": (
+                " NOTE: this milestone follows the optimize phase, where the code was "
+                "changed for performance under only the unit tests. Run the WHOLE suite "
+                "with no selector: every behaviour is in scope, including tests no "
+                "milestone listed."
+                + (f" The {len(skips)} test(s) deferred earlier ({json.dumps(skips)}) are "
+                   "included here on purpose -- report them honestly rather than "
+                   "deselecting them." if skips else "")
+            ),
+        }
+
     gate = milestones.gate_string(cfg, milestone.id, skips=skips)
     skip_note = ""
     if skips:
@@ -364,3 +489,60 @@ def scope_runtime(cfg: Config, incremental: bool) -> dict[str, str]:
             milestones=str(cfg.milestones_path), parity=str(cfg.parity_path)
         )
     return {"scope_mode_note": note}
+
+
+# --------------------------------------------------------------------------- #
+# Optimize phase
+# --------------------------------------------------------------------------- #
+def _benchmark_focus(scenarios: list[str]) -> str:
+    """Told to the BENCHMARKER: report exactly what was asked for."""
+    if not scenarios:
+        return ""
+    ids = ", ".join(scenarios)
+    return (
+        f"\nThis run is SCOPED to {ids} ONLY -- the command above already says so. "
+        "Do not add scenarios that were not asked for, and do not report the "
+        "others as missing: they were deliberately not run.\n"
+    )
+
+
+def _optimize_focus(scenarios: list[str]) -> str:
+    """Told to the OPTIMIZER: the same set, plus what scoping costs.
+
+    Both halves resolve the set from one state key on purpose -- scoping one half
+    would be worse than not scoping at all (optimising for a scenario nobody
+    measured, or measuring one nobody is optimising).
+    """
+    if not scenarios:
+        return ""
+    ids = ", ".join(scenarios)
+    return (
+        f"\nFOCUS: this run targets {ids} ONLY. Those are the only scenarios being "
+        "measured, so they are the only evidence you have and the only thing your "
+        "change is judged on. Two consequences, stated outright: a change that helps "
+        "something NOT in that set is unmeasured here, so you cannot claim it as a "
+        "win and should not spend a round on it; and a change that speeds these up "
+        "while plausibly slowing something outside the set is still a REGRESSION -- "
+        "nothing in this run would catch it, which is exactly why you must not make "
+        "it.\n"
+    )
+
+
+def benchmark_runtime(cfg: Config, opt_round: int,
+                      scenarios: list[str] | None = None) -> dict[str, str]:
+    scen = [s for s in (scenarios or []) if s]
+    return {
+        "opt_round": str(opt_round),
+        "benchmark_cmd": cfg.benchmark_command(scen),
+        "scenario_note": _benchmark_focus(scen),
+    }
+
+
+def optimize_runtime(cfg: Config, opt_round: int, max_opt_rounds: int,
+                     scenarios: list[str] | None = None) -> dict[str, str]:
+    scen = [s for s in (scenarios or []) if s]
+    return {
+        "opt_round": str(opt_round),
+        "max_opt_rounds": str(max_opt_rounds),
+        "scenario_note": _optimize_focus(scen),
+    }

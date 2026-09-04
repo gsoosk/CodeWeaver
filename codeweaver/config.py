@@ -37,7 +37,46 @@ class Milestone:
     goal: str
     tests: list[str] = field(default_factory=list)
     marker: str = ""          # optional extra selector (e.g. a pytest -m marker)
-    origin: str = "scoper"    # "scoper" (initial) | "parity" (gap re-scope) | "retry" (deferred-test retry)
+    origin: str = "scoper"    # "scoper" (initial) | "parity" (gap re-scope) | "retry" (deferred-test retry) | "optimize" (post-optimisation conformance)
+    # Gate on the ENTIRE suite rather than the cumulative selection. Set on the
+    # milestone the optimize phase appends: a performance change can regress
+    # anything, including tests no milestone ever claimed, so the cumulative
+    # selector (which only covers modules some milestone listed) is too narrow.
+    full_suite: bool = False
+
+
+@dataclass(frozen=True)
+class OptimizeConfig:
+    """The OPTIMIZE phase: make a finished, correct translation faster.
+
+    OFF BY DEFAULT (``enabled = false``). CodeWeaver runs two phases: the
+    translation phase (correctness -- milestones, repair, parity) and, only when
+    asked for, the optimization phase (performance). Enabling it without a
+    ``benchmark_cmd`` is a config error: the phase has nothing to measure.
+    """
+
+    enabled: bool = False
+    max_rounds: int = 5
+    # Shell command that runs the project's benchmark harness and writes the
+    # benchmark artifact. Placeholders: {bench} (absolute artifact path),
+    # {working_copy}, {scenarios} (rendered via scenario_template, "" when unscoped).
+    benchmark_cmd: str = ""
+    # How a focused scenario set renders into benchmark_cmd's {scenarios} slot.
+    # Placeholders: {scenarios_csv}/{scenarios_space}. Empty -> {scenarios} is "".
+    scenario_template: str = ""
+    # Default scenario focus (space/comma separated ids); "" = whole suite.
+    scenarios: str = ""
+    # Optional command that runs the ENTIRE test suite for the post-optimisation
+    # conformance milestone. Placeholder: {milestone}. Empty -> the validate
+    # command is used with an empty gate (i.e. no selector = everything).
+    full_suite_cmd: str = ""
+    # Artifacts, relative to the pipeline dir. Deliberately NOT report_artifact:
+    # that is the translation phase's verdict and sharing it would have each
+    # phase clobber the other's.
+    bench_artifact: str = "bench.json"
+    optimize_artifact: str = "optimize.json"
+    history_artifact: str = "optimize_history.json"
+    snapshot_dir: str = "working_copy_snapshot"
 
 
 @dataclass(frozen=True)
@@ -116,11 +155,14 @@ class Config:
     # parity is verified complete (or max_parity_rounds is exhausted).
     parity_check: bool = True
     max_parity_rounds: int = 3
+    # The OPTIMIZE phase (performance). Off by default -- see OptimizeConfig.
+    optimize: OptimizeConfig = field(default_factory=OptimizeConfig)
     db_path: str = ""                     # sqlite persistence (default: <pipeline>/burr.db)
     agent_timeout: float | None = None    # per-agent wall-clock cap (seconds)
 
     # optional prompt-template overrides, keyed by stage
-    # (scope|analyze|plan|translate|validate|parity). Empty -> use codeweaver.prompts defaults.
+    # (scope|analyze|plan|translate|validate|parity|benchmark|optimize).
+    # Empty -> use codeweaver.prompts defaults.
     prompts: dict[str, str] = field(default_factory=dict)
 
     # True when the config declared no [[milestones]] -> the scope stage generates
@@ -182,6 +224,23 @@ class Config:
     def skips_path(self) -> Path:
         return self.artifact_path(self.skips_artifact)
 
+    # --- optimize phase artifacts ---
+    @property
+    def bench_path(self) -> Path:
+        return self.artifact_path(self.optimize.bench_artifact)
+
+    @property
+    def optimize_path(self) -> Path:
+        return self.artifact_path(self.optimize.optimize_artifact)
+
+    @property
+    def optimize_history_path(self) -> Path:
+        return self.artifact_path(self.optimize.history_artifact)
+
+    @property
+    def snapshot_path(self) -> Path:
+        return self.artifact_path(self.optimize.snapshot_dir)
+
     def load_generated_milestones(self) -> int:
         """Populate ``self.milestones`` from the scope stage's artifact
         (``milestones_artifact``). Accepts either a bare JSON array of milestone
@@ -204,7 +263,8 @@ class Config:
         can append to, and so the matrix survives a resume."""
         data = [
             {"id": m.id, "title": m.title, "goal": m.goal,
-             "tests": list(m.tests), "marker": m.marker, "origin": m.origin}
+             "tests": list(m.tests), "marker": m.marker, "origin": m.origin,
+             "full_suite": m.full_suite}
             for m in self.milestones
         ]
         self.milestones_path.parent.mkdir(parents=True, exist_ok=True)
@@ -217,6 +277,45 @@ class Config:
     @property
     def resolved_db_path(self) -> str:
         return self.db_path or str(self.pipeline_path / "burr.db")
+
+    # ------------------------------------------------------------------ #
+    # Optimize phase
+    # ------------------------------------------------------------------ #
+    @property
+    def optimize_enabled(self) -> bool:
+        """True when the optimize phase should run. Both switches must allow it:
+        ``enabled`` is the intent, ``max_rounds`` is the budget, and a zero budget
+        turns the phase off even when enabled."""
+        return self.optimize.enabled and self.optimize.max_rounds > 0
+
+    @property
+    def opt_rounds(self) -> int:
+        """The configured round budget, or 0 when the phase is off."""
+        return self.optimize.max_rounds if self.optimize_enabled else 0
+
+    def benchmark_command(self, scenarios: list[str] | None = None) -> str:
+        """Render ``benchmark_cmd``, substituting {bench}, {working_copy} and the
+        focused {scenarios} clause (empty when the run is not scoped)."""
+        scen = [s for s in (scenarios or []) if s]
+        clause = ""
+        if scen and self.optimize.scenario_template:
+            clause = self.optimize.scenario_template.format(
+                scenarios_csv=",".join(scen), scenarios_space=" ".join(scen))
+        wc = self.working_copy_path
+        return self.optimize.benchmark_cmd.format(
+            bench=str(self.bench_path),
+            working_copy=str(wc) if wc else "",
+            scenarios=clause,
+            scenarios_csv=",".join(scen),
+            scenarios_space=" ".join(scen),
+        )
+
+    def full_suite_command(self, milestone_id: str) -> str:
+        """The command that runs the ENTIRE suite for a ``full_suite`` milestone.
+        Falls back to the normal validate command (with an empty gate, i.e. no
+        selector = everything) when no dedicated command is configured."""
+        template = self.optimize.full_suite_cmd or self.validate_cmd
+        return template.format(milestone=milestone_id, gate="")
 
     # ------------------------------------------------------------------ #
     # Validation env passed to the agent shell (points tools at the working copy)
@@ -268,6 +367,7 @@ def _milestones_from(raw: Any) -> list[Milestone]:
                 tests=[str(t) for t in (m.get("tests") or [])],
                 marker=str(m.get("marker", "")),
                 origin=str(m.get("origin", "scoper")),
+                full_suite=bool(m.get("full_suite", False)),
             )
         )
     return out
@@ -291,6 +391,7 @@ def load(config_path: str | os.PathLike) -> Config:
     validation = raw.get("validation", {}) or {}
     model_raw = raw.get("model", {}) or {}
     exec_raw = raw.get("execution", {}) or {}
+    opt_raw = raw.get("optimization", {}) or {}
 
     # root override lets a config live elsewhere than the project it describes
     if paths.get("root"):
@@ -317,6 +418,30 @@ def load(config_path: str | os.PathLike) -> Config:
             )
         file_text = bf_path.read_text(encoding="utf-8").strip()
         brief = f"{brief}\n\n{file_text}".strip() if brief else file_text
+
+    # The OPTIMIZE phase. Off unless the config says otherwise; `max_rounds = 0`
+    # also disables it, so a config can keep its benchmark wiring while turning
+    # the phase off. Both are honoured by Config.optimize_enabled.
+    optimize = OptimizeConfig(
+        enabled=bool(opt_raw.get("enabled", False)),
+        max_rounds=int(opt_raw.get("max_rounds", 5)),
+        benchmark_cmd=str(opt_raw.get("benchmark_cmd", "")),
+        scenario_template=str(opt_raw.get("scenario_template", "")),
+        scenarios=str(opt_raw.get("scenarios", "")),
+        full_suite_cmd=str(opt_raw.get("full_suite_cmd", "")),
+        bench_artifact=str(opt_raw.get("bench_artifact", "bench.json")),
+        optimize_artifact=str(opt_raw.get("optimize_artifact", "optimize.json")),
+        history_artifact=str(opt_raw.get("history_artifact", "optimize_history.json")),
+        snapshot_dir=str(opt_raw.get("snapshot_dir", "working_copy_snapshot")),
+    )
+    if optimize.max_rounds < 0:
+        raise ValueError(f"{path}: [optimization].max_rounds must be >= 0")
+    if optimize.enabled and optimize.max_rounds > 0 and not optimize.benchmark_cmd:
+        raise ValueError(
+            f"{path}: [optimization].enabled is true but no benchmark_cmd is set -- "
+            "the optimize phase has nothing to measure. Set benchmark_cmd, or turn "
+            "the phase off with enabled = false."
+        )
 
     cfg = Config(
         name=name,
@@ -350,6 +475,7 @@ def load(config_path: str | os.PathLike) -> Config:
         skip_on_give_up=bool(exec_raw.get("skip_on_give_up", True)),
         parity_check=bool(exec_raw.get("parity_check", True)),
         max_parity_rounds=int(exec_raw.get("max_parity_rounds", 3)),
+        optimize=optimize,
         db_path=str(exec_raw.get("db_path", "")),
         agent_timeout=exec_raw.get("agent_timeout"),
         prompts={k: str(v) for k, v in (raw.get("prompts", {}) or {}).items()},

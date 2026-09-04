@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 import uuid
@@ -50,41 +51,99 @@ def _cmd_run(args) -> int:
 
     bootstrap_state = None
     entrypoint = "analyze"
-    partway = args.start_milestone or ("parity" if args.start_parity else None)
-    if args.start_milestone and args.start_parity:
-        print("[codeweaver] error: --start-milestone and --start-parity are mutually "
+
+    # --- optimize phase (phase 2): OFF unless asked for -------------------- #
+    # Two ways to ask: --optimize (intent, uses the configured/default budget) and
+    # --max-opt-rounds N (the count). The count wins when both are given, so
+    # `--optimize --max-opt-rounds 0` turns it back off.
+    if args.max_opt_rounds is not None:
+        max_opt_rounds = args.max_opt_rounds
+        if max_opt_rounds < 0:
+            print("[codeweaver] error: --max-opt-rounds must be >= 0", file=sys.stderr)
+            return 2
+    elif args.optimize or args.start_benchmark:
+        max_opt_rounds = cfg.optimize.max_rounds or 5
+    else:
+        max_opt_rounds = cfg.opt_rounds          # config default (0 unless enabled)
+    if max_opt_rounds > 0 and not cfg.optimize.benchmark_cmd:
+        print("[codeweaver] error: the optimize phase needs [optimization].benchmark_cmd "
+              "-- it has nothing to measure without it", file=sys.stderr)
+        return 2
+    if max_opt_rounds > 0 and not cfg.parity_check:
+        print("[codeweaver] error: the optimize phase runs after parity confirms the "
+              "translation is complete, but execution.parity_check is false",
+              file=sys.stderr)
+        return 2
+
+    bench_scenarios = " ".join((args.benchmarks or "").replace(",", " ").split())
+    if bench_scenarios and max_opt_rounds == 0:
+        print("[codeweaver] error: --benchmarks only affects the optimize phase, which "
+              "is off; add --optimize (or --max-opt-rounds N)", file=sys.stderr)
+        return 2
+    if not bench_scenarios:
+        bench_scenarios = " ".join(cfg.optimize.scenarios.replace(",", " ").split())
+
+    # --- partway-start entries (mutually exclusive) ------------------------- #
+    starts = [(n, v) for n, v in (("--start-milestone", args.start_milestone),
+                                  ("--start-parity", args.start_parity),
+                                  ("--start-benchmark", args.start_benchmark)) if v]
+    if len(starts) > 1:
+        print(f"[codeweaver] error: {', '.join(n for n, _ in starts)} are mutually "
               "exclusive", file=sys.stderr)
         return 2
     if args.start_parity and not cfg.parity_check:
         print("[codeweaver] error: --start-parity needs the parity stage "
               "(execution.parity_check = true)", file=sys.stderr)
         return 2
-    if partway:
+    if args.start_benchmark and max_opt_rounds == 0:
+        print("[codeweaver] error: --start-benchmark starts AT the optimize phase, so "
+              "a zero round budget would leave nothing to run", file=sys.stderr)
+        return 2
+
+    entry = ("benchmark" if args.start_benchmark else
+             "parity" if args.start_parity else "milestone")
+    if starts:
         try:
             bootstrap_state = state_from_existing_pipeline(
                 cfg, args.start_milestone, max_iter=max_iter,
-                max_parity_rounds=cfg.max_parity_rounds)
+                max_parity_rounds=cfg.max_parity_rounds, entry=entry,
+                max_opt_rounds=max_opt_rounds, bench_scenarios=bench_scenarios)
         except ValueError as e:
             print(f"[codeweaver] error: {e}", file=sys.stderr)
             return 2
-        entrypoint = "parity" if args.start_parity else "select_milestone"
+        entrypoint = {"benchmark": "benchmark", "parity": "parity",
+                      "milestone": "select_milestone"}[entry]
 
     app = build_application(cfg, app_id, max_iter=max_iter, db_path=args.db,
                             bootstrap_state=bootstrap_state,
-                            default_entrypoint=entrypoint)
+                            default_entrypoint=entrypoint,
+                            max_opt_rounds=max_opt_rounds,
+                            bench_scenarios=bench_scenarios)
 
     mock_on = os.environ.get("CODEWEAVER_MOCK") == "1"
     print(f"[codeweaver] project={cfg.name} app_id={app_id} mock={mock_on} db={db_path}")
-    if partway:
-        where = ("the parity verifier" if args.start_parity
-                 else f"milestone {args.start_milestone}")
+    if max_opt_rounds > 0:
+        focus = f" scenarios={bench_scenarios}" if bench_scenarios else " scenarios=(all)"
+        print(f"[codeweaver] optimize phase ON: {max_opt_rounds} round(s){focus}; "
+              "closes with a full-suite conformance milestone")
+    if starts:
+        where = {"benchmark": "the optimize phase (benchmark)",
+                 "parity": "the parity verifier",
+                 "milestone": f"milestone {args.start_milestone}"}[entry]
         if app.state["last_agent"] == "pipeline-bootstrap":
-            skipped_stages = ("analyze/scope/plan and the milestone loop"
-                              if args.start_parity else "analyze/scope/plan")
+            skipped_stages = {
+                "benchmark": "analyze/scope/plan, the milestone loop and parity",
+                "parity": "analyze/scope/plan and the milestone loop",
+                "milestone": "analyze/scope/plan",
+            }[entry]
             print(f"[codeweaver] starting from existing artifacts at {where}; "
                   f"{skipped_stages} are skipped")
+            if entry == "benchmark":
+                print("[codeweaver] NOTE: --start-benchmark ASSERTS the translation is "
+                      "complete and correct. Pointed at an unfinished one it optimises "
+                      "code that is still going to change.")
         else:
-            flag = "--start-parity" if args.start_parity else "--start-milestone"
+            flag = starts[0][0]
             print(f"[codeweaver] persisted state exists for app_id={app_id}; resuming it "
                   f"({flag} only initializes a NEW app-id)")
     print(f"[codeweaver] loaded state at startup: milestone_idx={app.state['milestone_idx']} "
@@ -101,6 +160,15 @@ def _cmd_run(args) -> int:
         if h.get("retry_for"):
             flag += f"  [retry for {h['retry_for']}]"
         print(f"    {h['milestone']}  iter={h['iter']}  passed={h['passed']}{flag}")
+    if max_opt_rounds > 0:
+        rounds_done = max(0, final_state.get("opt_round", 1) - 1)
+        trend = final_state.get("bench_history") or []
+        print(f"[codeweaver] optimize: {rounds_done} round(s) run")
+        if len(trend) >= 2:
+            print(f"    first: {json.dumps(trend[0], sort_keys=True, default=str)}")
+            print(f"    last : {json.dumps(trend[-1], sort_keys=True, default=str)}")
+        if cfg.snapshot_path.exists():
+            print(f"    pre-optimisation snapshot: {cfg.snapshot_path}")
     if skipped:
         print(f"[codeweaver] WARNING: {len(skipped)} milestone(s) skipped after exhausting the "
               f"repair budget: {skipped}. The parity verifier gave deferred tests one retry.")
@@ -170,6 +238,56 @@ def _report_skips(cfg, label: str) -> None:
     print(f"  [check] OK ({label}): deferred {ids} -> gate clause: {clause}")
 
 
+def _report_optimize(cfg, label: str, *, expect_rounds: int) -> None:
+    """Assert the optimize phase ran the expected rounds, appended a full_suite
+    conformance milestone, and left a snapshot + history behind."""
+    ok = True
+    hist_p = cfg.optimize_history_path
+    try:
+        rounds = json.loads(hist_p.read_text(encoding="utf-8")).get("rounds", [])
+    except (ValueError, OSError):
+        rounds, ok = [], False
+        print(f"  [check] FAIL ({label}): no {cfg.optimize.history_artifact}")
+    if rounds and len(rounds) != expect_rounds:
+        ok = False
+        print(f"  [check] FAIL ({label}): {len(rounds)} round(s) recorded, "
+              f"expected {expect_rounds}")
+
+    cfg.load_generated_milestones()
+    full = [m for m in cfg.milestones if m.full_suite]
+    if len(full) != 1:
+        ok = False
+        print(f"  [check] FAIL ({label}): expected exactly 1 full_suite milestone, "
+              f"got {len(full)}")
+    elif full[0].origin != "optimize":
+        ok = False
+        print(f"  [check] FAIL ({label}): conformance milestone origin is "
+              f"{full[0].origin!r}, expected 'optimize'")
+
+    if ok:
+        mid = full[0].id if full else "?"
+        print(f"  [check] OK ({label}): {len(rounds)} round(s), appended {mid} "
+              f"(full_suite, origin=optimize)"
+              + (f", snapshot at {cfg.optimize.snapshot_dir}"
+                 if cfg.snapshot_path.exists() else ""))
+
+
+def _optimize_config(cfg, path: Path, rounds: int) -> Path:
+    """Write a sibling config with the optimize phase turned ON, so the default-off
+    behaviour of the shipped example is never mutated by the check run."""
+    import tomllib
+    raw = path.read_text(encoding="utf-8")
+    out = path.parent / "_check_optimize.toml"
+    out.write_text(
+        raw + "\n\n[optimization]\nenabled = true\n"
+              f"max_rounds = {rounds}\n"
+              'benchmark_cmd = "bash tools/bench.sh {working_copy} --out {bench} {scenarios}"\n'
+              "scenario_template = '--scenario {scenarios_csv}'\n",
+        encoding="utf-8")
+    tomllib.loads(out.read_text(encoding="utf-8"))   # fail fast on a bad template
+    return out
+
+
 def _cmd_check(args) -> int:
     from . import config as C
 
@@ -188,7 +306,10 @@ def _cmd_check(args) -> int:
                  pipeline / "translate.marker",
                  pipeline / ".mock_parity_attempts",
                  pipeline / cfg.parity_artifact,
-                 pipeline / cfg.skips_artifact]
+                 pipeline / cfg.skips_artifact,
+                 pipeline / cfg.optimize.bench_artifact,
+                 pipeline / cfg.optimize.optimize_artifact,
+                 pipeline / cfg.optimize.history_artifact]
         purge += list(pipeline.glob(".mock_attempts_*"))
         # The milestone matrix is regenerated per run whenever scope is active
         # (auto milestones, or the parity loop that can append to it).
@@ -199,6 +320,7 @@ def _cmd_check(args) -> int:
                 f.unlink()
             except OSError:
                 pass
+        shutil.rmtree(pipeline / cfg.optimize.snapshot_dir, ignore_errors=True)
 
     base_env = {"CODEWEAVER_PIPELINE_DIR": str(pipeline),
                 "CODEWEAVER_ANALYSIS_ARTIFACT": cfg.analysis_artifact,
@@ -251,6 +373,45 @@ def _cmd_check(args) -> int:
         reset(); _run_pipeline(args.config, "chk-happy2", base_env)
         _run_pipeline(args.config, "chk-startparity", base_env, extra_args=["--start-parity"])
 
+        # ---- OPTIMIZE phase (phase 2). Off by default, so first prove that. ----
+        print("\n===== 8) OPTIMIZE OFF BY DEFAULT - no benchmark/optimize rows appear =====")
+        reset(); _run_pipeline(args.config, "chk-optoff", base_env)
+        if cfg.optimize_history_path.exists():
+            print("  [check] FAIL (8): the optimize phase ran without being asked for")
+        else:
+            print("  [check] OK (8): no optimize artifacts -> phase is off by default")
+
+        opt_cfg = _optimize_config(cfg, Path(args.config), rounds=3)
+        try:
+            print("\n===== 9) OPTIMIZE AFTER PARITY - 3 rounds, then a full-suite milestone =====")
+            reset(); _run_pipeline(str(opt_cfg), "chk-opt", base_env)
+            _report_optimize(cfg, "9", expect_rounds=3)
+
+            print("\n===== 9b) --start-benchmark - enter AT the optimize phase =====")
+            reset(); _run_pipeline(str(opt_cfg), "chk-optbase", base_env)
+            _run_pipeline(str(opt_cfg), "chk-startbench", base_env,
+                          extra_args=["--start-benchmark", "--max-opt-rounds", "2"])
+
+            print("\n===== 9c) REPAIR NOT REVERT - conformance milestone fails once, is repaired =====")
+            reset()
+            # The appended milestone is M<len(matrix)>; fail it once so the repair
+            # loop (not a revert) is what recovers the optimisation.
+            _run_pipeline(str(opt_cfg), "chk-optrepair",
+                          {**base_env, "CODEWEAVER_MOCK_FAIL": "M4:1,M5:1,M6:1"})
+
+            print("\n===== 9d) FOCUSED BENCHMARKS + rejections =====")
+            reset()
+            _run_pipeline(str(opt_cfg), "chk-optfocus", base_env,
+                          extra_args=["--benchmarks", "B4,B9"])
+            print("  (--benchmarks without the phase, and --max-opt-rounds 0 with "
+                  "--start-benchmark, must both be rejected:)")
+            _run_pipeline(args.config, "chk-optrej1", base_env,
+                          extra_args=["--benchmarks", "B4"])
+            _run_pipeline(str(opt_cfg), "chk-optrej2", base_env,
+                          extra_args=["--start-benchmark", "--max-opt-rounds", "0"])
+        finally:
+            opt_cfg.unlink(missing_ok=True)
+
     reset()
     print("\nAll orchestrator checks ran. Verify above:")
     print(f"  1 done=True (all pass)   2 {first} iter1=False then iter2=True")
@@ -260,6 +421,11 @@ def _cmd_check(args) -> int:
         print("  5 two extra milestones appear, then done=True after parity completes")
         print(f"  6 {mid_ms} skipped -> a 'Retry deferred tests' milestone runs -> done=True")
         print("  7 history is PARITY only (no milestone rows) => the milestone loop was skipped")
+        print("  8 no OPTIMIZE row and no optimize artifacts => phase 2 is OFF by default")
+        print("  9 OPTIMIZE row + a 'Post-optimisation conformance' milestone -> done=True")
+        print("  9b history is OPTIMIZE + the conformance milestone ONLY (no earlier milestones)")
+        print("  9c the conformance milestone fails once then PASSES (repaired, not reverted)")
+        print("  9d focused run reports scenarios=B4 B9; both rejections exit non-zero")
     return 0
 
 
@@ -373,6 +539,29 @@ skip_on_give_up = true
 parity_check = true
 max_parity_rounds = 3
 
+# ---------------------------------------------------------------------------
+# PHASE 2 -- optimization. OFF BY DEFAULT.
+# ---------------------------------------------------------------------------
+# CodeWeaver runs two phases: translation (above) makes the port CORRECT, and
+# this one makes it FASTER. It is entered only after the parity verifier reports
+# the translation complete -- tuning a port with known gaps tunes code that is
+# still going to change.
+#
+# Uncomment and set benchmark_cmd to enable it (or pass --optimize on the CLI).
+# [optimization]
+# enabled = true
+# max_rounds = 5
+# # Runs the project's benchmark harness. {{bench}} is the artifact to write,
+# # {{working_copy}} the tree to measure, {{scenarios}} the focus clause below.
+# benchmark_cmd = "bash tools/bench.sh {{working_copy}} --out {{bench}} {{scenarios}}"
+# # How --benchmarks B4,B9 renders into {{scenarios}}. Omit if unsupported.
+# scenario_template = "--scenario {{scenarios_csv}}"
+# # Default focus; "" measures the whole suite.
+# scenarios = ""
+# # Runs the ENTIRE test suite for the closing conformance milestone. Defaults to
+# # the validate command with an empty gate (no selector = everything).
+# full_suite_cmd = "bash tools/validate.sh {{milestone}} --all"
+
 # Milestones are OPTIONAL. Omit the [[milestones]] tables entirely to let Copilot
 # generate a cumulative matrix at runtime (a `scope` stage runs between analyze and
 # plan). Declare them here for full control:
@@ -430,6 +619,23 @@ def build_parser() -> argparse.ArgumentParser:
                    help="start a NEW app-id from an existing pipeline directly at the parity "
                         "verifier, skipping analyze/scope/plan AND the milestone loop "
                         "(re-grade a translation as it stands); excludes --start-milestone")
+    r.add_argument("--start-benchmark", action="store_true",
+                   help="start a NEW app-id from an existing pipeline directly at the "
+                        "OPTIMIZE phase, skipping analyze/scope/plan, the milestone loop "
+                        "AND parity. ASSERTS the translation is already complete and "
+                        "correct. Implies --optimize.")
+    # --- optimize phase (phase 2). OFF by default. ---
+    r.add_argument("--optimize", action="store_true",
+                   help="after parity completes, run the OPTIMIZE phase: benchmark<->optimize "
+                        "rounds, then one full-suite conformance milestone that repairs any "
+                        "regression. Off unless this flag or [optimization].enabled is set.")
+    r.add_argument("--max-opt-rounds", type=int, default=None, metavar="N",
+                   help="how many benchmark->optimize rounds to run; implies --optimize when "
+                        "N > 0, and 0 disables the phase even with --optimize")
+    r.add_argument("--benchmarks", default="", metavar="IDS",
+                   help="focus the optimize phase on these benchmark scenario ids only "
+                        "(e.g. B4,B9). The Benchmarker measures only these and the Optimizer "
+                        "is told they are the only evidence it has")
     r.add_argument("--db", default=None, help="SQLite persistence path override")
     r.add_argument("--mock", action="store_true", help="offline: mock agents (no Copilot)")
     r.set_defaults(func=_cmd_run)
@@ -456,7 +662,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv=None) -> int:
     args = build_parser().parse_args(argv)
-    return args.func(args)
+    try:
+        return args.func(args)
+    except (ValueError, FileNotFoundError) as e:
+        # Config validation and missing-artifact problems are user errors, not
+        # bugs: report them plainly instead of dumping a traceback.
+        print(f"[codeweaver] error: {e}", file=sys.stderr)
+        return 2
 
 
 if __name__ == "__main__":

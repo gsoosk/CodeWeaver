@@ -54,8 +54,12 @@ def gate_string(cfg: Config, mid: str, skips: list[str] | None = None) -> str:
     composes correctly (e.g. pytest ``-k "{tests_or}{skip_exclude}"`` with
     ``skip_exclude_template = ' and not ({tests_or})'``). When there are no
     ``skips`` or no ``skip_exclude_template``, ``{skip_exclude}`` renders empty.
-    Returns "" when the milestone has no cumulative tests (e.g. a skeleton gate).
+    Returns "" when the milestone has no cumulative tests (e.g. a skeleton gate),
+    and also for a ``full_suite`` milestone -- that one deliberately runs the
+    ENTIRE suite, so an empty selector IS its gate.
     """
+    if by_id(cfg, mid).full_suite:
+        return ""
     tokens = cumulative_tests(cfg, mid)
     if not tokens:
         return ""
@@ -125,8 +129,11 @@ def matrix(cfg: Config) -> str:
     """Human-readable milestone matrix + resolved gates."""
     lines = []
     for m in cfg.milestones:
-        gate = gate_string(cfg, m.id) or "(no test gate)"
-        lines.append(f"{m.id}  {m.title}")
+        if m.full_suite:
+            gate = "(ENTIRE suite -- no selector)"
+        else:
+            gate = gate_string(cfg, m.id) or "(no test gate)"
+        lines.append(f"{m.id}  {m.title}" + (f"  [{m.origin}]" if m.origin != "scoper" else ""))
         lines.append(f"     goal: {m.goal}")
         lines.append(f"     gate: {gate}")
     return "\n".join(lines)

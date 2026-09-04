@@ -28,6 +28,7 @@ translation: Python→Rust, Java→Go, COBOL→Java, JS→TS, and so on.
 ```
 Apache Burr  (deterministic state machine + telemetry UI + SQLite resume)
 
+  PHASE 1 — translation (always)
   analyze ─▶ scope ─▶ plan ─▶ select_milestone ─▶ translate ─▶ validate ─▶ parity
                ▲                     ▲                 ▲            │           │
                │ parity found gaps   │ next milestone  │ repair     │           │ complete?
@@ -35,6 +36,9 @@ Apache Burr  (deterministic state machine + telemetry UI + SQLite resume)
                │                     └─────────────────┴  iter<max) ────────────┤
                └──────────────────────────────────────── incomplete ───────────┤
                                                               complete ─▶ terminal
+
+  PHASE 2 — optimization (OFF by default; entered from parity)
+  parity ─▶ benchmark ⇄ optimize  (N rounds) ─▶ opt_repair ─▶ full-suite milestone ─▶ terminal
 
         every action = one `copilot --agent NAME` subprocess
         GitHub Copilot CLI custom agents do ALL the real work
@@ -48,7 +52,9 @@ Apache Burr  (deterministic state machine + telemetry UI + SQLite resume)
 | **plan** | Planner | `analysis.md` → `plan.json` + a compilable skeleton (fragments, name mapping, mock/test seams, milestone plan) |
 | **translate** | Translator | `plan.json` / `report.json` → the working copy (implements the milestone + its unit tests; repairs reported failures) |
 | **validate** | Validator | runs unit tests + the end-to-end oracle → `report.json` (combined verdict; passes only if **both** layers pass) |
-| **parity** *(verifier)* | Parity Verifier | compares the source with the final translation → `parity.json`; **complete → terminal**, **incomplete → back to scope** |
+| **parity** *(verifier)* | Parity Verifier | compares the source with the final translation → `parity.json`; **complete → terminal** (or → phase 2), **incomplete → back to scope** |
+| **benchmark** *(phase 2)* | Benchmarker | runs the project's benchmark harness → `bench.json`. **Measures only** — it has no edit tool |
+| **optimize** *(phase 2)* | Optimizer | `bench.json` + `optimize_history.json` → **one** focused change set to the working copy → `optimize.json` |
 
 Inter-stage state is passed as **files** (`analysis.md`, `plan.json`,
 `report.json`, `milestones.json`, `parity.json`) in the pipeline directory;
@@ -81,6 +87,21 @@ Untranslated behavior surfaces as a parity gap → re-scope. Set
 against mocked boundaries *plus* a fixed, authoritative **end-to-end oracle** that
 is never translated or modified. **Milestones are cumulative**: a milestone must
 pass its own tests *and* every earlier milestone's (regression safety).
+
+**Phase 2 — optimization (OFF by default).** Phase 1 stops when the port is
+*correct*; phase 2 makes it *fast*. Enable it with `[optimization].enabled` (or
+`--optimize`) and it runs **after parity confirms completeness** — tuning a port
+with known gaps tunes code that is still going to change. Each round the
+**Benchmarker** measures and the **Optimizer** makes *one* small, evidence-backed
+change set that must not alter observable behavior.
+
+Rounds **accumulate**: the Optimizer runs the cheap unit tests itself every round,
+and the expensive full suite runs **once** at the end as a real milestone, where a
+regression is **repaired** through the normal repair loop rather than discarded.
+(Reverting every failing round was measured as actively harmful — flaky failures
+threw away 16 of 20 rounds, including 7 in which the optimizer had changed
+nothing.) The working copy is snapshotted once beforehand, and `--benchmarks B4,B9`
+focuses both halves of the loop on a scenario subset.
 
 
 ---
@@ -128,6 +149,12 @@ codeweaver run --config codeweaver.toml --app-id port-001
 codeweaver run --config codeweaver.toml --start-milestone M4   # enter the loop at M4
 codeweaver run --config codeweaver.toml --start-parity         # re-grade at the parity verifier
 
+# Phase 2 (optimization) — OFF unless asked for
+codeweaver run --config codeweaver.toml --optimize                  # after parity, N rounds
+codeweaver run --config codeweaver.toml --max-opt-rounds 3           # set the count (0 = off)
+codeweaver run --config codeweaver.toml --optimize --benchmarks B4,B9  # focus the loop
+codeweaver run --config codeweaver.toml --start-benchmark            # enter AT the optimize phase
+
 # Telemetry UI (project = your config's slug)
 burr
 ```
@@ -135,8 +162,10 @@ burr
 `codeweaver check` exercises the pipeline's behaviors offline against the mock
 agent — **happy path**, **repair loop**, **skip-on-give-up** (including the
 tolerant handling of differently-shaped validator reports), cross-process
-**crash-resume**, the **parity loop**, the **deferred-test retry**, and
-**`--start-parity`** — no Copilot required.
+**crash-resume**, the **parity loop**, the **deferred-test retry**,
+**`--start-parity`**, and the whole **optimization phase** (that it is off by
+default, the round loop, `--start-benchmark`, repair-not-revert, and focused
+`--benchmarks`) — no Copilot required.
 
 ---
 
@@ -239,10 +268,11 @@ CodeWeaver/
 │   ├── copilot.py            #   invoke_agent(): subprocess wrapper around `copilot`
 │   ├── state.py              #   typed Burr state helpers
 │   ├── actions.py            #   @action: analyze/plan/select_milestone/translate/validate
+│   ├── optimize.py           #   @action: benchmark/optimize/opt_repair (phase 2, off by default)
 │   ├── app.py                #   ApplicationBuilder: actions + transitions + persister
 │   ├── mock.py               #   offline mock agent (drives the graph without Copilot)
 │   └── cli.py                #   `codeweaver` CLI (run/check/milestones/install-agents/init)
-├── agents/                   # generic Copilot CLI custom-agent profiles (6 roles: scoper + parity + the 4 core)
+├── agents/                   # generic Copilot CLI custom-agent profiles (8 roles: the 4 core + scoper, parity, benchmarker, optimizer)
 ├── tools/                    # install_agents.sh, check.sh
 ├── examples/                 # minimal/ and xcvrd/ project configs
 └── docs/                     # config.md, architecture.md

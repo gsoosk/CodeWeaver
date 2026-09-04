@@ -158,16 +158,61 @@ milestone's gate is its own `tests` plus every earlier milestone's.
 | `goal` | no | what this milestone must achieve (goes into the prompt) |
 | `tests` | no | selector tokens this milestone ADDS (test names/modules/tags) |
 | `marker` | no | optional extra selector exposed to `gate_template` as `{marker}` |
-| `origin` | no | provenance: `scoper` (default) / `parity` (gap re-scope) / `retry` (deferred-test retry). Set automatically; you don't normally write it. |
+| `origin` | no | provenance: `scoper` (default) / `parity` (gap re-scope) / `retry` (deferred-test retry) / `optimize` (post-optimisation conformance). Set automatically; you don't normally write it. |
+| `full_suite` | no | gate on the **ENTIRE** suite instead of the cumulative selection. Set automatically on the milestone the optimize phase appends; a performance change can regress anything, including tests no milestone listed. |
+
+## `[optimization]` (optional) — **phase 2, OFF by default**
+
+CodeWeaver runs two phases: the **translation phase** above makes the port
+*correct*, and the **optimization phase** makes an already-correct port *faster*.
+It only runs when you ask for it, and it is entered **only after the parity
+verifier reports the translation complete** — tuning a port with known gaps tunes
+code that is still going to change.
+
+| key | default | meaning |
+|-----|---------|---------|
+| `enabled` | `false` | turn the phase on. Setting it `true` without a `benchmark_cmd` is a config **error** — the phase would have nothing to measure. |
+| `max_rounds` | `5` | how many benchmark→optimize rounds to run. `0` disables the phase even when `enabled`. |
+| `benchmark_cmd` | `""` | shell command that runs the project's benchmark harness. Placeholders: `{bench}` (artifact to write), `{working_copy}`, `{scenarios}` (the focus clause), plus `{scenarios_csv}`/`{scenarios_space}`. |
+| `scenario_template` | `""` | how a focused scenario set renders into `{scenarios}` (e.g. `'--scenario {scenarios_csv}'`). Empty → `{scenarios}` is always `""`. |
+| `scenarios` | `""` | default scenario focus; `""` measures the whole suite. Overridden by `--benchmarks`. |
+| `full_suite_cmd` | `""` | command that runs the **entire** suite for the closing conformance milestone. Placeholder: `{milestone}`. Empty → the `validate` command with an empty gate (no selector = everything). |
+| `bench_artifact` | `bench.json` | where the Benchmarker writes its measurements |
+| `optimize_artifact` | `optimize.json` | where the Optimizer records its change set |
+| `history_artifact` | `optimize_history.json` | append-only per-round log the Optimizer reads to avoid repeating ideas |
+| `snapshot_dir` | `working_copy_snapshot` | pre-optimisation copy of the working copy, taken once before round 1 |
+
+```toml
+[optimization]
+enabled       = true
+max_rounds    = 5
+benchmark_cmd = "bash tools/bench.sh {working_copy} --out {bench} {scenarios}"
+scenario_template = "--scenario {scenarios_csv}"
+full_suite_cmd    = "bash tools/validate.sh {milestone} --all"
+```
+
+CLI equivalents: `--optimize` (use the configured/default budget),
+`--max-opt-rounds N` (set the count; wins over `--optimize`, and `0` turns the phase
+off), `--benchmarks B4,B9` (focus), `--start-benchmark` (enter the graph *at* the
+phase, skipping analyze/scope/plan, the milestone loop and parity).
+
+**Rounds accumulate; the expensive gate runs once.** The Optimizer runs the unit
+tests itself every round — that is the only automatic gate between rounds — and the
+full suite runs **once** at the end as a real milestone, where a regression is
+**repaired** over `max_iter` attempts rather than reverted. (Per-round reverting was
+measured as actively harmful: flaky failures discarded 16 of 20 rounds, including 7
+where the optimizer had changed nothing.) See
+[architecture.md](architecture.md#phase-2--the-optimization-phase-off-by-default).
 
 ## `[prompts]` (optional)
 
 Override any stage's prompt template by key: `scope`, `analyze`, `plan`,
-`translate`, `validate`, `parity`. Omitted stages use the built-in defaults in
-`codeweaver/prompts.py`. Templates use `{placeholder}` substitution — see
-`prompts.context()` for the full list (`{source_language}`, `{brief}`,
-`{source_dir}`, `{analysis}`, `{plan}`, `{report}`, `{milestones}`, `{parity}`,
-`{milestone_id}`, `{mode}`, `{failures}`, `{gate}`, …).
+`translate`, `validate`, `parity`, `benchmark`, `optimize`. Omitted stages use the
+built-in defaults in `codeweaver/prompts.py`. Templates use `{placeholder}`
+substitution — see `prompts.context()` for the full list (`{source_language}`,
+`{brief}`, `{source_dir}`, `{analysis}`, `{plan}`, `{report}`, `{milestones}`,
+`{parity}`, `{milestone_id}`, `{mode}`, `{failures}`, `{gate}`, `{bench}`,
+`{opt_round}`, `{benchmark_cmd}`, …).
 
 ---
 
@@ -188,6 +233,7 @@ Runtime overrides (mostly for the offline mock and CI):
 | `CODEWEAVER_MOCK_MILESTONES` | mock: how many milestones the mock scoper emits (default 3) |
 | `CODEWEAVER_MOCK_PARITY_INCOMPLETE` | mock: how many parity checks report incomplete before completing (default 0) |
 | `CODEWEAVER_MOCK_RETRY_FAIL=1` | mock: make deferred-test retry milestones fail (exercises permanent skips) |
+| `CODEWEAVER_BENCH_SCENARIOS` | override the optimize phase's scenario focus for a one-off run |
 | `CODEWEAVER_NO_TRACKER=1` | disable the Burr telemetry tracker (also auto-disabled when the `apache-burr[tracking]` extra is not installed) |
 | `COPILOT_HOME` | where agent profiles are installed (`$COPILOT_HOME/agents`) |
 

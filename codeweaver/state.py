@@ -22,13 +22,28 @@ State keys
   retry_pending    : bool  parity appended a retry milestone for deferred skips -> re-run
   done             : bool  whole pipeline finished SUCCESSFULLY
   last_agent       : str   name of the most recently run agent
+
+Optimize phase (phase 2 -- performance; skipped entirely when max_opt_rounds is 0)
+----------------------------------------------------------------------------------
+  opt_round        : int   1-based benchmark->optimize round in progress
+  max_opt_rounds   : int   optimisation rounds to attempt (0 disables the phase)
+  bench_scenarios  : str   space-separated scenario ids to focus on; "" = whole suite
+  bench            : dict  the latest benchmark artifact, as read back
+  bench_history    : list  per-round benchmark summary, so the trend is visible
+  optimize         : dict  the latest optimizer change-set record
+  opt_repairing    : bool  the appended post-optimisation milestone is in flight
+  opt_done         : bool  the optimize phase has run; stops parity re-entering it
 """
 from __future__ import annotations
 
 from .config import Config
 
 
-def initial_state(cfg: Config, max_iter: int = 5) -> dict:
+def initial_state(cfg: Config, max_iter: int = 5,
+                  max_opt_rounds: int | None = None,
+                  bench_scenarios: str | None = None) -> dict:
+    opt_rounds = cfg.opt_rounds if max_opt_rounds is None else max_opt_rounds
+    scenarios = cfg.optimize.scenarios if bench_scenarios is None else bench_scenarios
     return {
         "milestone_idx": 0,
         "num_milestones": len(cfg.milestones),
@@ -49,6 +64,15 @@ def initial_state(cfg: Config, max_iter: int = 5) -> dict:
         "parity_complete": False,
         "parity_report": {},
         "retry_pending": False,         # parity appended a deferred-test retry milestone
+        # optimize phase (off unless max_opt_rounds > 0)
+        "opt_round": 1,
+        "max_opt_rounds": opt_rounds,
+        "bench_scenarios": " ".join((scenarios or "").replace(",", " ").split()),
+        "bench": {},
+        "bench_history": [],
+        "optimize": {},
+        "opt_repairing": False,
+        "opt_done": False,
         "done": False,
         "last_agent": "",
     }

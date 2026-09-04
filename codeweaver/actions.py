@@ -451,7 +451,7 @@ def translate(state, __tracer) -> dict:
 
 
 @action(
-    reads=["milestone_idx", "iter_count", "max_iter", "skipped"],
+    reads=["milestone_idx", "iter_count", "max_iter", "skipped", "opt_repairing"],
     writes=["milestone_passed", "milestone_concluded", "iter_count", "report",
             "history", "skipped", "done", "last_agent"],
 )
@@ -479,10 +479,19 @@ def validate(state, __tracer) -> dict:
     budget_out = (not passed) and (it >= state["max_iter"])
     gave_up = budget_out and cfg.skip_on_give_up
     concluded = passed or gave_up
-    # done only in the parity-off case: success == the LAST milestone passed with no
-    # skips outstanding. With parity on, parity owns completion.
     n_skipped = len(state["skipped"]) + (1 if gave_up else 0)
-    done = (not cfg.parity_check) and passed and S.is_last_milestone(cfg, state) and n_skipped == 0
+    if state["opt_repairing"]:
+        # The post-optimisation conformance milestone routes straight to terminal,
+        # bypassing parity -- so nothing else would set `done` and a fully
+        # successful optimised run would report failure. A GIVE-UP here still
+        # leaves done=False (and a non-zero exit), so an unrepaired optimisation
+        # regression is never reported as success.
+        done = passed
+    else:
+        # done only in the parity-off case: success == the LAST milestone passed
+        # with no skips outstanding. With parity on, parity owns completion.
+        done = ((not cfg.parity_check) and passed
+                and S.is_last_milestone(cfg, state) and n_skipped == 0)
 
     entry = {"milestone": m.id, "iter": it, "passed": passed, "gave_up": gave_up}
 
