@@ -3,28 +3,38 @@
 # setup.ps1 -- see that file for the full rationale.
 #
 #   ./setup.sh commons-cli [/path/to/AlphaTrans]
-#   ./setup.sh --all       [/path/to/AlphaTrans]
+#   ./setup.sh --all       [/path/to/AlphaTrans]     # all 10 subjects
+#   ./setup.sh --tier-a    [/path/to/AlphaTrans]     # only the 4 with a real oracle
 #
-# Only these four AlphaTrans subjects ship a manually verified Python translation,
-# and therefore a trustworthy fixed oracle:
-#   commons-cli, commons-csv, commons-fileupload, commons-validator
-# Set SKIP_BASELINE=1 to skip the golden-baseline recording pass.
+# TWO TIERS (see README "Two tiers of subject"):
+#   A  commons-cli commons-csv commons-fileupload commons-validator
+#      -> ship a manually verified Python test suite = a real, held-out oracle.
+#         Scored on TEST PASS RATE.
+#   B  JavaFastPFOR commons-codec commons-exec commons-graph commons-pool jansi
+#      -> ship NO human Python tests (only `pass`-bodied skeletons and
+#         model-generated .json schemas). No functional oracle is possible.
+#         Scored on BUILD/IMPORT + PARITY COMPLETENESS only.
+#
+# Set SKIP_BASELINE=1 to skip the tier-A golden-baseline recording pass.
 set -euo pipefail
 
-SUBJECTS="commons-cli commons-csv commons-fileupload commons-validator"
+TIER_A="commons-cli commons-csv commons-fileupload commons-validator"
+TIER_B="JavaFastPFOR commons-codec commons-exec commons-graph commons-pool jansi"
+ALL_SUBJECTS="$TIER_A $TIER_B"
 
 ARG="${1:-}"
 DATASET="${2:-$HOME/AlphaTrans}"
-[ -n "$ARG" ] || { echo "usage: $0 <project|--all> [dataset-root]" >&2; exit 2; }
+[ -n "$ARG" ] || { echo "usage: $0 <project|--all|--tier-a> [dataset-root]" >&2; exit 2; }
 
-if [ "$ARG" = "--all" ]; then
-  TARGETS="$SUBJECTS"
-else
-  case " $SUBJECTS " in
-    *" $ARG "*) TARGETS="$ARG" ;;
-    *) echo "unknown project '$ARG'. Available: $SUBJECTS" >&2; exit 2 ;;
-  esac
-fi
+case "$ARG" in
+  --all)    TARGETS="$ALL_SUBJECTS" ;;
+  --tier-a) TARGETS="$TIER_A" ;;
+  *)
+    case " $ALL_SUBJECTS " in
+      *" $ARG "*) TARGETS="$ARG" ;;
+      *) echo "unknown project '$ARG'. Available: $ALL_SUBJECTS" >&2; exit 2 ;;
+    esac ;;
+esac
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DATASET_ABS="$(cd "$DATASET" && pwd)"
@@ -39,7 +49,9 @@ for PROJECT in $TARGETS; do
 
   [ -d "$JAVA_SRC" ] || { echo "[$PROJECT] Java source not found: $JAVA_SRC" >&2; exit 1; }
   [ -d "$SKELETON" ] || { echo "[$PROJECT] Skeleton not found: $SKELETON" >&2; exit 1; }
-  [ -d "$ORACLE/src/test" ] || { echo "[$PROJECT] Oracle tests not found: $ORACLE/src/test" >&2; exit 1; }
+
+  # Tier is decided by whether a manually verified Python test suite exists.
+  if [ -d "$ORACLE/src/test" ]; then TIER=A; else TIER=B; fi
 
   SUBJECT="$HERE/subjects/$PROJECT"
   mkdir -p "$SUBJECT"
@@ -52,44 +64,65 @@ for PROJECT in $TARGETS; do
   : > "$SCAFFOLD/src/__init__.py"
   [ -f "$SCAFFOLD/src/main/__init__.py" ] || : > "$SCAFFOLD/src/main/__init__.py"
 
-  # .oracle-master = pristine oracle + pytest harness + SHA256 manifest.
-  ORACLE_MASTER="$SUBJECT/.oracle-master"
-  rm -rf "$ORACLE_MASTER"; mkdir -p "$ORACLE_MASTER"
-  cp -r "$ORACLE/src/test" "$ORACLE_MASTER/test"
-  for f in pytest.ini conftest.py; do
-    [ -f "$ORACLE/$f" ] && cp "$ORACLE/$f" "$ORACLE_MASTER/$f"
-  done
-  ( cd "$ORACLE_MASTER" && find . -type f ! -name SHA256SUMS.txt ! -name baseline_excluded.txt -print0 \
-      | sort -z | xargs -0 sha256sum > SHA256SUMS.txt )
+  if [ "$TIER" = A ]; then
+    ORACLE_MASTER="$SUBJECT/.oracle-master"
+    rm -rf "$ORACLE_MASTER"; mkdir -p "$ORACLE_MASTER"
+    cp -r "$ORACLE/src/test" "$ORACLE_MASTER/test"
+    for f in pytest.ini conftest.py; do
+      [ -f "$ORACLE/$f" ] && cp "$ORACLE/$f" "$ORACLE_MASTER/$f"
+    done
+    ( cd "$ORACLE_MASTER" && find . -type f ! -name SHA256SUMS.txt ! -name baseline_excluded.txt -print0 \
+        | sort -z | xargs -0 sha256sum > SHA256SUMS.txt )
+    VALIDATE="bash ../../tools/oracle.sh --project $PROJECT --gate \"{gate}\""
+    TIER_NOTE="TIER A: a manually verified, human-written pytest suite is the held-out oracle."
+  else
+    # No human Python tests exist for this subject, so there is no functional oracle.
+    # The milestone gate falls back to build_check (parse + import); completeness is
+    # carried entirely by the parity verifier. Results are NOT comparable to tier A.
+    rm -rf "$SUBJECT/.oracle-master"
+    VALIDATE="python ../../tools/build_check.py"
+    TIER_NOTE="TIER B: NO human Python test suite exists for this subject, so there is no
+# functional oracle. validate falls back to build_check (parse + import) and
+# completeness rests entirely on the parity verifier. Do NOT pool its numbers
+# with tier A -- the metrics measure different things."
+  fi
 
-  # codeweaver.toml. The template wraps __VALIDATE_CMD__ in a TOML literal string,
-  # so the embedded double quotes need no escaping.
-  VALIDATE="bash ../../tools/oracle.sh --project $PROJECT --gate \"{gate}\""
   sed -e "s|__PROJECT__|$PROJECT|g" \
       -e "s|__PROJECT_SLUG__|$PROJECT|g" \
       -e "s|__JAVA_SRC_ABS__|$JAVA_SRC|g" \
       -e "s|__DATASET_ROOT__|$DATASET_ABS|g" \
+      -e "s|__TIER__|$TIER|g" \
       -e "s|__VALIDATE_CMD__|$VALIDATE|g" \
-      "$HERE/codeweaver.template.toml" > "$SUBJECT/codeweaver.toml"
+      "$HERE/codeweaver.template.toml" > "$SUBJECT/codeweaver.toml.tmp"
+  # TIER_NOTE can contain newlines -> substitute in python, not sed.
+  TIER_NOTE="$TIER_NOTE" python3 -c "
+import os, sys
+p = sys.argv[1]
+s = open(p).read().replace('__TIER_NOTE__', os.environ['TIER_NOTE'])
+open(p[:-4], 'w').write(s)
+os.remove(p)
+" "$SUBJECT/codeweaver.toml.tmp"
 
   rm -rf "$SUBJECT/pipeline"
 
-  # Record the environment-broken baseline (tests that fail against the golden
-  # translation too -- locale/timezone/platform, not the translation under test).
-  if [ "${SKIP_BASELINE:-0}" != "1" ]; then
+  if [ "$TIER" = A ] && [ "${SKIP_BASELINE:-0}" != "1" ]; then
     echo "[$PROJECT] recording environment-broken baseline..."
     bash "$HERE/tools/oracle.sh" --project "$PROJECT" --baseline golden --all --record-exclusions >/dev/null 2>&1 || true
   fi
 
   N_JAVA=$(find "$JAVA_SRC" -name '*.java' | wc -l | tr -d ' ')
   N_IFACE=$(find "$SCAFFOLD/src/main" -name '*.py' ! -name '__init__.py' | wc -l | tr -d ' ')
-  N_ORACLE=$(find "$ORACLE_MASTER/test" -name '*.py' ! -name '__init__.py' | wc -l | tr -d ' ')
-  N_EXCL=0
-  [ -f "$ORACLE_MASTER/baseline_excluded.txt" ] && \
-    N_EXCL=$(grep -vc '^#' "$ORACLE_MASTER/baseline_excluded.txt" 2>/dev/null || echo 0)
-
-  printf '%-20s java:%4s  iface:%4s  oracle-mods:%4s  env-broken:%3s\n' \
-    "$PROJECT" "$N_JAVA" "$N_IFACE" "$N_ORACLE" "$N_EXCL"
+  if [ "$TIER" = A ]; then
+    N_ORACLE=$(find "$SUBJECT/.oracle-master/test" -name '*.py' ! -name '__init__.py' | wc -l | tr -d ' ')
+    N_EXCL=0
+    [ -f "$SUBJECT/.oracle-master/baseline_excluded.txt" ] && \
+      N_EXCL=$(grep -vc '^#' "$SUBJECT/.oracle-master/baseline_excluded.txt" 2>/dev/null || echo 0)
+    printf '%-18s [A] java:%4s  iface:%4s  oracle-mods:%4s  env-broken:%3s\n' \
+      "$PROJECT" "$N_JAVA" "$N_IFACE" "$N_ORACLE" "$N_EXCL"
+  else
+    printf '%-18s [B] java:%4s  iface:%4s  oracle: NONE (build+parity only)\n' \
+      "$PROJECT" "$N_JAVA" "$N_IFACE"
+  fi
 done
 
 echo

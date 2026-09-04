@@ -5,6 +5,9 @@
 #
 # dataset_root = __DATASET_ROOT__
 # subject      = __PROJECT__
+# tier         = __TIER__
+#
+# __TIER_NOTE__
 #
 # This config lives in examples/alphatrans/subjects/__PROJECT__/, so [paths].root —
 # and therefore the agents' working directory — is THIS directory. Every subject gets
@@ -47,6 +50,8 @@ unit_test   = "python -m pytest pipeline/project/tests -q"
 # A TOML *literal* string (single quotes): no escape processing, so the embedded
 # double quotes around {gate} survive verbatim. A basic "..." string here would need
 # backslash escapes that generators mangle.
+# TIER A -> the hidden human-written oracle.  TIER B -> build_check only (no oracle
+# exists for this subject; see README "Two tiers of subject").
 validate    = '__VALIDATE_CMD__'
 
 [validation]

@@ -34,6 +34,10 @@ for P in $PROJECTS; do
   echo "==================== $P ===================="
   [ -d "$S" ] || { bad "$P: not materialized"; continue; }
 
+  # Tier A subjects carry an oracle; tier B does not.
+  if [ -d "$S/.oracle-master" ]; then TIER=A; else TIER=B; fi
+  echo "    (tier $TIER)"
+
   # 1. config + milestone matrix
   if (cd "$REPO" && python -m codeweaver milestones --config "examples/alphatrans/subjects/$P/codeweaver.toml" >/dev/null 2>&1); then
     ok "config loads"
@@ -41,45 +45,52 @@ for P in $PROJECTS; do
     bad "config loads"
   fi
 
-  # 2. ceiling
-  out="$(bash "$HERE/oracle.sh" --project "$P" --baseline golden --all 2>&1)"
-  code=$?
-  res="$(echo "$out" | grep '^\[oracle\] result' | sed 's/.*: //')"
-  if [ $code -eq 0 ]; then ok "ceiling (golden): $res"; else bad "ceiling (golden) exit=$code: $res"; fi
-
-  # 3. floor
-  out="$(bash "$HERE/oracle.sh" --project "$P" --baseline skeleton --all 2>&1)"
-  code=$?
-  res="$(echo "$out" | grep '^\[oracle\] result' | sed 's/.*: //')"
-  if [ $code -ne 0 ]; then ok "floor (skeleton) correctly fails: $res"; else bad "floor (skeleton) PASSED -- oracle is not discriminating!"; fi
-
-  # 4. gate resolution: first oracle test file, by exact name
-  tok="$(find "$S/.oracle-master/test" -name '*Test.py' -printf '%f\n' 2>/dev/null | sed 's/\.py$//' | sort | head -1)"
-  if [ -n "$tok" ]; then
-    out="$(bash "$HERE/oracle.sh" --project "$P" --baseline golden --gate "$tok" 2>&1)"
+  if [ "$TIER" = A ]; then
+    # 2. ceiling
+    out="$(bash "$HERE/oracle.sh" --project "$P" --baseline golden --all 2>&1)"
     code=$?
     res="$(echo "$out" | grep '^\[oracle\] result' | sed 's/.*: //')"
-    if [ $code -eq 0 ] && ! echo "$res" | grep -q 'deselected'; then
-      ok "gate '$tok' resolves to an exact file: $res"
+    if [ $code -eq 0 ]; then ok "ceiling (golden): $res"; else bad "ceiling (golden) exit=$code: $res"; fi
+
+    # 3. floor
+    out="$(bash "$HERE/oracle.sh" --project "$P" --baseline skeleton --all 2>&1)"
+    code=$?
+    res="$(echo "$out" | grep '^\[oracle\] result' | sed 's/.*: //')"
+    if [ $code -ne 0 ]; then ok "floor (skeleton) correctly fails: $res"; else bad "floor (skeleton) PASSED -- oracle is not discriminating!"; fi
+
+    # 4. gate resolution: first oracle test file, by exact name
+    tok="$(find "$S/.oracle-master/test" -name '*Test.py' -printf '%f\n' 2>/dev/null | sed 's/\.py$//' | sort | head -1)"
+    if [ -n "$tok" ]; then
+      out="$(bash "$HERE/oracle.sh" --project "$P" --baseline golden --gate "$tok" 2>&1)"
+      code=$?
+      res="$(echo "$out" | grep '^\[oracle\] result' | sed 's/.*: //')"
+      if [ $code -eq 0 ] && ! echo "$res" | grep -q 'deselected'; then
+        ok "gate '$tok' resolves to an exact file: $res"
+      else
+        bad "gate '$tok' exit=$code: $res"
+      fi
     else
-      bad "gate '$tok' exit=$code: $res"
+      bad "no *Test.py found to exercise gate resolution"
+    fi
+
+    # 5. tamper detection
+    victim="$(find "$S/.oracle-master/test" -name '*Test.py' | head -1)"
+    if [ -n "$victim" ]; then
+      cp "$victim" "$victim.bak"
+      echo "# tampered" >> "$victim"
+      bash "$HERE/oracle.sh" --project "$P" --baseline golden --all >/dev/null 2>&1
+      code=$?
+      mv -f "$victim.bak" "$victim"
+      if [ $code -eq 3 ]; then ok "tamper detected (exit 3)"; else bad "tamper NOT detected (exit $code)"; fi
     fi
   else
-    bad "no *Test.py found to exercise gate resolution"
+    # Tier B: no oracle exists. Assert that fact holds, so a stray .oracle-master
+    # (or a silently-wired oracle command) is caught rather than trusted.
+    if grep -q 'tier         = B' "$S/codeweaver.toml"; then ok "declared tier B in config"; else bad "config does not declare tier B"; fi
+    if ! grep -q 'oracle.sh' "$S/codeweaver.toml"; then ok "validate does NOT reference the oracle"; else bad "tier-B config references oracle.sh"; fi
   fi
 
-  # 5. tamper detection
-  victim="$(find "$S/.oracle-master/test" -name '*Test.py' | head -1)"
-  if [ -n "$victim" ]; then
-    cp "$victim" "$victim.bak"
-    echo "# tampered" >> "$victim"
-    bash "$HERE/oracle.sh" --project "$P" --baseline golden --all >/dev/null 2>&1
-    code=$?
-    mv -f "$victim.bak" "$victim"
-    if [ $code -eq 3 ]; then ok "tamper detected (exit 3)"; else bad "tamper NOT detected (exit $code)"; fi
-  fi
-
-  # 6. build_check on a skeleton working copy
+  # 6. build_check on a skeleton working copy (both tiers)
   rm -rf "$S/pipeline/project"
   mkdir -p "$S/pipeline"
   cp -r "$S/.scaffold" "$S/pipeline/project"

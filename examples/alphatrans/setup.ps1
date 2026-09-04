@@ -27,10 +27,12 @@
   AlphaTrans's own pipeline, not by this harness.
 #>
 param(
-    [ValidateSet("commons-cli", "commons-csv", "commons-fileupload", "commons-validator")]
+    [ValidateSet("commons-cli","commons-csv","commons-fileupload","commons-validator","JavaFastPFOR","commons-codec","commons-exec","commons-graph","commons-pool","jansi")]
     [string]$Project,
 
     [switch]$All,
+
+    [switch]$TierA,
 
     [string]$Dataset = "$HOME\Desktop\AlphaTrans",
 
@@ -40,13 +42,16 @@ param(
 $ErrorActionPreference = "Stop"
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 
-# The four AlphaTrans subjects that ship a manually verified Python translation.
-$SUBJECTS = @("commons-cli", "commons-csv", "commons-fileupload", "commons-validator")
+# Tier A: ship a manually verified Python test suite = a real held-out oracle.
+# Tier B: ship NO human Python tests -> build/import + parity completeness only.
+$TIER_A   = @("commons-cli","commons-csv","commons-fileupload","commons-validator")
+$TIER_B   = @("JavaFastPFOR","commons-codec","commons-exec","commons-graph","commons-pool","jansi")
+$SUBJECTS = $TIER_A + $TIER_B
 
-if (-not $All -and -not $Project) {
-    throw "Pass -Project <name> or -All. Available: $($SUBJECTS -join ', ')"
+if (-not $All -and -not $TierA -and -not $Project) {
+    throw "Pass -Project <name>, -All (10 subjects) or -TierA (the 4 with a real oracle)."
 }
-$targets = if ($All) { $SUBJECTS } else { @($Project) }
+$targets = if ($TierA) { $TIER_A } elseif ($All) { $SUBJECTS } else { @($Project) }
 
 function Initialize-Subject {
     param([string]$Name)
@@ -57,7 +62,9 @@ function Initialize-Subject {
 
     if (-not (Test-Path $javaSrc))  { throw "[$Name] Java source not found: $javaSrc" }
     if (-not (Test-Path $skeleton)) { throw "[$Name] Skeleton (interface) not found: $skeleton" }
-    if (-not (Test-Path (Join-Path $oracle "src\test"))) { throw "[$Name] Oracle tests not found: $oracle\src\test" }
+
+    # Tier is decided by whether a manually verified Python test suite exists.
+    $tier = if (Test-Path (Join-Path $oracle "src\test")) { "A" } else { "B" }
 
     $subject = Join-Path $here "subjects\$Name"
     New-Item -ItemType Directory -Force -Path $subject | Out-Null
@@ -75,37 +82,55 @@ function Initialize-Subject {
         Set-Content -Path "$scaffold\src\main\__init__.py" -Value "" -NoNewline
     }
 
-    # ---- .oracle-master = pristine oracle + harness + hash manifest -----------
+    # ---- .oracle-master (TIER A only) = pristine oracle + harness + hash manifest --
     $oracleMaster = Join-Path $subject ".oracle-master"
     if (Test-Path $oracleMaster) { Remove-Item -Recurse -Force $oracleMaster }
-    New-Item -ItemType Directory -Force -Path $oracleMaster | Out-Null
-    Copy-Item -Recurse (Join-Path $oracle "src\test") "$oracleMaster\test"
-    foreach ($harness in @("pytest.ini", "conftest.py")) {
-        $p = Join-Path $oracle $harness
-        if (Test-Path $p) { Copy-Item $p (Join-Path $oracleMaster $harness) }
-    }
+    if ($tier -eq "A") {
+        New-Item -ItemType Directory -Force -Path $oracleMaster | Out-Null
+        Copy-Item -Recurse (Join-Path $oracle "src\test") "$oracleMaster\test"
+        foreach ($harness in @("pytest.ini", "conftest.py")) {
+            $p = Join-Path $oracle $harness
+            if (Test-Path $p) { Copy-Item $p (Join-Path $oracleMaster $harness) }
+        }
 
-    # Tamper manifest. tools/oracle.ps1 re-verifies this before each scored run, so an
-    # agent editing the oracle is a reported FAILURE rather than a silent pass.
-    # baseline_excluded.txt is harness bookkeeping, not oracle content -> not hashed.
-    $manifest  = Join-Path $oracleMaster "SHA256SUMS.txt"
-    $nonOracle = @("SHA256SUMS.txt", "baseline_excluded.txt")
-    Get-ChildItem $oracleMaster -Recurse -File |
-        Where-Object { $nonOracle -notcontains $_.Name } |
-        ForEach-Object {
-            $rel = $_.FullName.Substring($oracleMaster.Length + 1)
-            "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash)  $rel"
-        } | Set-Content -Path $manifest -Encoding utf8
+        # Tamper manifest. tools/oracle.ps1 re-verifies this before each scored run, so
+        # an agent editing the oracle is a reported FAILURE rather than a silent pass.
+        # baseline_excluded.txt is harness bookkeeping, not oracle content -> not hashed.
+        $manifest  = Join-Path $oracleMaster "SHA256SUMS.txt"
+        $nonOracle = @("SHA256SUMS.txt", "baseline_excluded.txt")
+        Get-ChildItem $oracleMaster -Recurse -File |
+            Where-Object { $nonOracle -notcontains $_.Name } |
+            ForEach-Object {
+                $rel = $_.FullName.Substring($oracleMaster.Length + 1)
+                "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash)  $rel"
+            } | Set-Content -Path $manifest -Encoding utf8
+    }
 
     # ---- codeweaver.toml -----------------------------------------------------
     # The template wraps __VALIDATE_CMD__ in a TOML literal string ('...'), so the
     # embedded double quotes around {gate} need no escaping.
-    $validate = 'pwsh -NoProfile -File ../../tools/oracle.ps1 -Project ' + $Name + ' -Gate "{gate}"'
+    if ($tier -eq "A") {
+        $validate = 'pwsh -NoProfile -File ../../tools/oracle.ps1 -Project ' + $Name + ' -Gate "{gate}"'
+        $tierNote = "TIER A: a manually verified, human-written pytest suite is the held-out oracle."
+    } else {
+        # No human Python tests exist for this subject, so there is no functional
+        # oracle. The milestone gate falls back to build_check (parse + import) and
+        # completeness rests entirely on the parity verifier.
+        $validate = 'python ../../tools/build_check.py'
+        $tierNote = @"
+TIER B: NO human Python test suite exists for this subject, so there is no
+# functional oracle. validate falls back to build_check (parse + import) and
+# completeness rests entirely on the parity verifier. Do NOT pool its numbers
+# with tier A -- the metrics measure different things.
+"@
+    }
     $tpl = Get-Content (Join-Path $here "codeweaver.template.toml") -Raw
     $tpl = $tpl.Replace("__PROJECT__", $Name)
     $tpl = $tpl.Replace("__PROJECT_SLUG__", $Name)
     $tpl = $tpl.Replace("__JAVA_SRC_ABS__", $javaSrc.Replace("\", "\\"))
     $tpl = $tpl.Replace("__DATASET_ROOT__", (Resolve-Path $Dataset).Path)
+    $tpl = $tpl.Replace("__TIER__", $tier)
+    $tpl = $tpl.Replace("__TIER_NOTE__", $tierNote.Trim())
     $tpl = $tpl.Replace("__VALIDATE_CMD__", $validate)
     # Write WITHOUT a BOM (tomllib rejects a leading BOM).
     [System.IO.File]::WriteAllText((Join-Path $subject "codeweaver.toml"), $tpl,
@@ -115,23 +140,25 @@ function Initialize-Subject {
     $pipeline = Join-Path $subject "pipeline"
     if (Test-Path $pipeline) { Remove-Item -Recurse -Force $pipeline }
 
-    # ---- record the environment-broken baseline ------------------------------
+    # ---- record the environment-broken baseline (TIER A only) ----------------
     # Run the oracle against AlphaTrans's OWN manually verified translation. Any test
     # that fails there is broken by this environment (locale, timezone, platform), not
-    # by the translation under test -- commons-validator has ten such cases. Every
-    # scored run deselects them, so they are never charged to CodeWeaver.
-    if (-not $SkipBaseline) {
+    # by the translation under test. Every scored run deselects them.
+    if ($tier -eq "A" -and -not $SkipBaseline) {
         Write-Host "[$Name] recording environment-broken baseline..."
         & (Join-Path $here "tools\oracle.ps1") -Project $Name -Baseline golden -All -RecordExclusions | Out-Null
     }
 
-    $nJava   = (Get-ChildItem $javaSrc -Recurse -Filter *.java).Count
-    $nIface  = (Get-ChildItem "$scaffold\src\main" -Recurse -Filter *.py | Where-Object Name -ne "__init__.py").Count
-    $nOracle = (Get-ChildItem "$oracleMaster\test" -Recurse -Filter *.py | Where-Object Name -ne "__init__.py").Count
-    $exclF   = Join-Path $oracleMaster "baseline_excluded.txt"
-    $nExcl   = if (Test-Path $exclF) { @(Get-Content $exclF | Where-Object { $_.Trim() -and -not $_.StartsWith('#') }).Count } else { 0 }
-
-    "{0,-20} java:{1,4}  iface:{2,4}  oracle-mods:{3,4}  env-broken:{4,3}" -f $Name, $nJava, $nIface, $nOracle, $nExcl
+    $nJava  = (Get-ChildItem $javaSrc -Recurse -Filter *.java).Count
+    $nIface = (Get-ChildItem "$scaffold\src\main" -Recurse -Filter *.py | Where-Object Name -ne "__init__.py").Count
+    if ($tier -eq "A") {
+        $nOracle = (Get-ChildItem "$oracleMaster\test" -Recurse -Filter *.py | Where-Object Name -ne "__init__.py").Count
+        $exclF   = Join-Path $oracleMaster "baseline_excluded.txt"
+        $nExcl   = if (Test-Path $exclF) { @(Get-Content $exclF | Where-Object { $_.Trim() -and -not $_.StartsWith('#') }).Count } else { 0 }
+        "{0,-18} [A] java:{1,4}  iface:{2,4}  oracle-mods:{3,4}  env-broken:{4,3}" -f $Name, $nJava, $nIface, $nOracle, $nExcl
+    } else {
+        "{0,-18} [B] java:{1,4}  iface:{2,4}  oracle: NONE (build+parity only)" -f $Name, $nJava, $nIface
+    }
 }
 
 Write-Host "[setup] dataset: $Dataset"
