@@ -50,14 +50,48 @@ python experiments/baselines/single_shot.py --project commons-cli \
 subjects/<project>/pipeline-baseline-<tag>/
   project/src/main/**.py    the translation (scored by the oracle)
   prompt.md                 the exact prompt sent
-  response.md               the raw completion
-  metadata.json             backend, model, usage, files parsed/written/stubbed
+  response.md               the raw completion(s), concatenated
+  metadata.json             backend, model, usage per round, files parsed/written/stubbed
 ```
 
 The working copy **starts from the skeleton** and is overwritten with generated
 bodies. A module the model forgets therefore stays an unimplemented stub rather than
 vanishing — the run fails those tests honestly instead of failing to import at all,
 which would understate the baseline.
+
+### Output limits and continuation
+
+The binding constraint on whole-repo single-shot is **`max_output_tokens`, not the
+context window**. Measured against the golden translations:
+
+| Project | Input | Output required |
+|---|---|---|
+| commons-fileupload | ~57K | ~16K |
+| commons-cli | ~59K | ~23K |
+| commons-csv | ~58K | ~25K |
+| **commons-validator** | **~188K** | **~80K** |
+
+188K of input is comfortable for a large-context model; emitting 80K of Python in
+*one response* is not, on most models.
+
+So when one response cannot hold every module, the harness **continues the same
+generation** rather than giving up or keeping a truncated result. Continuation is
+**block-aware**: only file blocks that closed cleanly are kept, any half-written
+trailing block is discarded, and the next turn asks for the modules still outstanding.
+That makes seam corruption impossible — a resumed response can never splice a broken
+file together — and makes the loop idempotent.
+
+**This stays within the single-shot protocol in the sense that matters: the model gets
+no feedback.** It never learns whether anything compiled, imported, or passed a test.
+It is told only which files it has not yet written — bookkeeping about its own output,
+not information about correctness. `metadata.json` records `continuation_rounds` and
+per-round usage, so the deviation from a literal one-call protocol is always visible.
+
+Tune with `--max-output-tokens` (per response) and `--max-rounds` (default 6).
+`--dry-run` predicts how many rounds a subject will need before you spend anything.
+
+`experiments/baselines/test_continuation.py` exercises the loop offline against a
+fake backend, including the mid-file truncation case. No API, no cost.
 
 ## Backends
 

@@ -122,6 +122,73 @@ def parse_response(text: str) -> dict[str, str]:
     return out
 
 
+def generate(backend, system: str, user: str, expected: set[str],
+             max_rounds: int) -> tuple[dict[str, str], str, list, int]:
+    """One prompt, continued across as many responses as the output cap requires.
+
+    Whole-repo single-shot is bounded by max_output_tokens, not by context: a large
+    subject needs more Python emitted than one response can hold. Rather than give up
+    (or silently keep a response truncated mid-module) we continue the SAME generation.
+
+    Continuation is BLOCK-AWARE, not character-level: we keep only the file blocks that
+    closed cleanly, discard any half-written trailing block, and ask for the modules
+    still outstanding. That sidesteps seam corruption entirely -- a resumed response can
+    never splice a broken file together -- and it is naturally idempotent.
+
+    This stays within the single-shot protocol in the sense that matters: the model
+    receives NO feedback. It never learns whether anything compiled, imported or passed
+    a test. It is told only which files it has not yet written, which is bookkeeping
+    about its own output, not information about correctness. The round count and the
+    per-round usage are recorded so the deviation from a literal one-call protocol is
+    always visible in the results.
+    """
+    messages = [{"role": "system", "content": system},
+                {"role": "user", "content": user}]
+    files: dict[str, str] = {}
+    transcript: list[str] = []
+    usages: list = []
+
+    for round_i in range(1, max_rounds + 1):
+        completion = (backend.complete_messages(messages) if round_i > 1
+                      else backend.complete(system, user))
+        transcript.append(completion.text)
+        usages.append(completion.usage.as_dict())
+
+        newly = parse_response(completion.text)
+        files.update(newly)
+        missing = sorted(expected - set(files))
+        truncated = bool((completion.raw or {}).get("truncated"))
+
+        print(f"[b0]   round {round_i}: +{len(newly)} files "
+              f"({len(files)}/{len(expected)} done, {len(missing)} left)"
+              f"{'  [hit output cap]' if truncated else ''}")
+
+        if not missing:
+            break
+        if not truncated and not newly:
+            # Not cut off, and produced nothing new -- continuing would just loop.
+            print("[b0]   stopping: response was complete but added no files")
+            break
+        if round_i == max_rounds:
+            break
+
+        # Keep only what closed cleanly; ask for the rest. No correctness feedback.
+        messages = [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+            {"role": "assistant",
+             "content": "\n\n".join(
+                 f"{{{{{n}}}}}\n```python\n{files[n]}```" for n in sorted(files))},
+            {"role": "user", "content":
+                "Your response was cut off by the output limit. Continue writing the "
+                "remaining modules, in the same file-block format. Do not repeat any "
+                "module you already wrote. Emit these and nothing else:\n"
+                + "\n".join(f"  - {m}" for m in missing)},
+        ]
+
+    return files, "\n\n".join(transcript), usages, len(transcript)
+
+
 def materialize(scaffold: pathlib.Path, out_root: pathlib.Path,
                 files: dict[str, str]) -> tuple[int, int]:
     """Start from the skeleton, overwrite with generated bodies.
@@ -162,8 +229,11 @@ def main() -> int:
                          "(model-matched with CodeWeaver)")
     ap.add_argument("--effort", default=None, help="copilot backend only")
     ap.add_argument("--max-output-tokens", type=int, default=128000,
-                    help="output cap. Whole-repo single-shot is usually bounded by this, "
-                         "not by the context window (default 128000)")
+                    help="output cap per response (default 128000)")
+    ap.add_argument("--max-rounds", type=int, default=6,
+                    help="how many continuation responses one prompt may use when the "
+                         "output cap cannot hold every module in one go (default 6). "
+                         "Continuations carry NO correctness feedback.")
     ap.add_argument("--dry-run", action="store_true",
                     help="build the prompt, report its size, call nothing")
     args = ap.parse_args()
@@ -195,8 +265,9 @@ def main() -> int:
     print(f"[b0] est. output  : ~{est_out_tokens:,} tokens for {len(skel)} modules"
           f"  (cap: {args.max_output_tokens:,})")
     if est_out_tokens > args.max_output_tokens:
-        print(f"[b0] WARNING      : estimated output exceeds the cap -- the response will"
-              f" likely be truncated mid-module. Consider --mode file.")
+        rounds_needed = -(-est_out_tokens // args.max_output_tokens)
+        print(f"[b0] note         : one response cannot hold this; the generation will be"
+              f" continued (~{rounds_needed} rounds, cap --max-rounds {args.max_rounds})")
 
     if args.dry_run:
         print("[b0] dry run -- no call made")
@@ -211,14 +282,13 @@ def main() -> int:
           + (f" effort={effort}" if args.backend == "copilot" else ""))
 
     t0 = time.monotonic()
-    completion = backend.complete(system, user)
+    expected = {name for name, _ in skel}
+    files, response_text, usages, rounds = generate(
+        backend, system, user, expected, args.max_rounds)
     elapsed = time.monotonic() - t0
 
-    files = parse_response(completion.text)
     out_root = subject / f"pipeline-baseline-{args.tag}" / "project"
     written, unknown = materialize(scaffold, out_root, files)
-
-    expected = {name for name, _ in skel}
     missing = sorted(expected - set(files))
 
     # A module that does not parse is almost always a response truncated mid-file.
@@ -234,17 +304,15 @@ def main() -> int:
         except SyntaxError:
             unparseable.append(rel)
 
-    truncated = bool((completion.raw or {}).get("truncated"))
-
-    print(f"[b0] wall clock   : {elapsed:,.0f}s")
+    print(f"[b0] wall clock   : {elapsed:,.0f}s over {rounds} response(s)")
     print(f"[b0] files parsed : {len(files)}  written={written}  unplaceable={unknown}")
     print(f"[b0] left as stub : {len(missing)}"
           + (f"  e.g. {missing[:3]}" if missing else ""))
     if unparseable:
-        print(f"[b0] UNPARSEABLE  : {len(unparseable)} -- likely a truncated response: {unparseable[:3]}")
-    if truncated:
-        print(f"[b0] TRUNCATED    : the model hit its output cap "
-              f"({args.max_output_tokens:,}); this run is NOT a valid single-shot result")
+        print(f"[b0] UNPARSEABLE  : {len(unparseable)} -- truncated mid-file: {unparseable[:3]}")
+    if missing:
+        print(f"[b0] INCOMPLETE   : {len(missing)} module(s) never written even after "
+              f"{rounds} round(s); they remain unimplemented stubs")
     print(f"[b0] working copy : {out_root}")
 
     # Provenance next to the artifact, so a result is never orphaned from how it was made.
@@ -253,7 +321,7 @@ def main() -> int:
         "project": args.project,
         "tier": cfg["tier"],
         "backend": backend.name,
-        "model": completion.model,
+        "model": model,
         "effort": effort if args.backend == "copilot" else None,
         "recorded": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "inputs": {"java_files": len(java), "skeleton_modules": len(skel),
@@ -261,16 +329,22 @@ def main() -> int:
         "outputs": {"files_parsed": len(files), "files_written": written,
                     "unplaceable": unknown, "left_as_stub": missing,
                     "unparseable": unparseable},
-        "usage": completion.usage.as_dict(),
+        "usage_per_round": usages,
         "max_output_tokens": args.max_output_tokens,
-        "truncated": truncated,
-        "valid_single_shot": not truncated and not unparseable,
+        "continuation_rounds": rounds,
+        "complete": not missing and not unparseable,
         "oracle_seen": False,
-        "protocol": "single-shot: one call, no compiler feedback, no test feedback",
+        "protocol": (
+            "single-shot: one prompt, no compiler feedback, no test feedback. "
+            "When one response cannot hold every module, the SAME generation is "
+            "continued (block-aware) until all modules are emitted or --max-rounds is "
+            "reached; the model is told only which files remain, never anything about "
+            "correctness."
+        ),
     }
     run_dir = out_root.parent
     (run_dir / "metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    (run_dir / "response.md").write_text(completion.text, encoding="utf-8")
+    (run_dir / "response.md").write_text(response_text, encoding="utf-8")
     (run_dir / "prompt.md").write_text(f"{system}\n\n---\n\n{user}", encoding="utf-8")
     print(f"[b0] metadata     : {run_dir / 'metadata.json'}")
     return 0

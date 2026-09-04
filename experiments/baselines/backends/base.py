@@ -48,6 +48,14 @@ class LLMBackend(Protocol):
     def complete(self, system: str, user: str) -> Completion:
         ...
 
+    def complete_messages(self, messages: list[dict]) -> Completion:
+        """Multi-turn form, used for continuation when one response is not enough.
+
+        `messages` is the OpenAI shape: [{"role": ..., "content": ...}, ...].
+        Backends that cannot do multi-turn may raise NotImplementedError.
+        """
+        ...
+
 
 def build_backend(kind: str, model: str, **kw) -> LLMBackend:
     """Factory. Imports lazily so an unused backend's deps are never required."""

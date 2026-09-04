@@ -86,13 +86,14 @@ class FoundryBackend:
         )
 
     def complete(self, system: str, user: str) -> Completion:
+        return self.complete_messages([
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ])
+
+    def complete_messages(self, messages: list[dict]) -> Completion:
         t0 = time.monotonic()
-        kwargs = dict(
-            model=self.model,
-            messages=[{"role": "system", "content": system},
-                      {"role": "user", "content": user}],
-            temperature=self.temperature,
-        )
+        kwargs = dict(model=self.model, messages=messages, temperature=self.temperature)
         try:
             resp = self._client.chat.completions.create(max_tokens=self.max_tokens, **kwargs)
         except Exception as exc:
