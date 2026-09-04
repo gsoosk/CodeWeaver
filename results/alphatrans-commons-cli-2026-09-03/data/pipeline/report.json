@@ -1,0 +1,9 @@
+{
+  "milestone": "M9",
+  "passed": true,
+  "tests": {
+    "unit": { "total": 136, "passed": 136, "failed": 0 },
+    "e2e": { "total": 309, "passed": 309, "failed": 0, "skipped": 56, "skipped_reason": "oracle @Ignore annotations on deprecated BasicParser/GnuParser/PosixParser tests; hardcoded @pytest.mark.skip(reason=Ignore) with pass bodies, no prerequisites to provision, un-skipping would require editing the held-out oracle" }
+  },
+  "failures": []
+}

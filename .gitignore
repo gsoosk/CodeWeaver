@@ -7,6 +7,12 @@ pipeline*/
 .burr.db
 .burr/
 
+# ...but published result packages under results/ DO carry a snapshot of the
+# pipeline artifacts and the Burr state (that is the point of a result package).
+!results/**/pipeline/
+!results/**/pipeline/**
+!results/**/*.db
+
 # python
 __pycache__/
 *.pyc

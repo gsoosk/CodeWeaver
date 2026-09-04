@@ -1,0 +1,16 @@
+# Oracle scores (independently recomputed, not read from report.json)
+
+## CodeWeaver translation vs the full hidden oracle
+1 failed, 380 passed, 56 skipped in 0.36s
+[oracle] source   : /home/azureuser/codeweaver-benchmark/examples/alphatrans/pipeline/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] result   : 1 failed, 380 passed, 56 skipped in 0.36s
+[oracle] exitcode : 1
+
+## Ceiling: AlphaTrans manually verified translation, same harness
+[oracle] result   : 381 passed, 56 skipped in 0.32s
+[oracle] exitcode : 0
+
+## Floor: unimplemented interface skeleton, same harness
+[oracle] result   : 380 failed, 1 passed, 56 skipped in 0.48s
+[oracle] exitcode : 1

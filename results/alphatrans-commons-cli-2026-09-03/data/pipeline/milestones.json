@@ -1,0 +1,74 @@
+{
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Skeleton imports",
+      "goal": "Every module under src/main/org/apache/commons/cli (all 22 classes) parses and imports cleanly with its class names, method signatures, field names, and type annotations intact; bodies may remain `pass`. `python tools/build_check.py` passes and the benign OptionGroup<->AlreadySelectedException import cycle resolves. No functional behavior yet.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M1",
+      "title": "Core utilities & base exception",
+      "goal": "Implement the leaf helpers and the exception root: Util (stripLeadingHyphens, stripLeadingAndTrailingQuotes, EMPTY_STRING_ARRAY == []), OptionValidator (validate + isValidOpt/isValidChar using the Java-identifier rules plus '?' and '@', raising with the verbatim \"Illegal option name '<ch>'\" and \"The option '<opt>' contains an illegal character : '<ch>'\" messages), and ParseException as the base checked exception (subclass of Exception). No intra-package dependencies.",
+      "tests": ["UtilTest", "OptionValidatorTest", "ParseExceptionTest"],
+      "marker": ""
+    },
+    {
+      "id": "M2",
+      "title": "Option value model",
+      "goal": "Implement Option and its nested Builder: constructorId dispatch (-1 synthetic no-arg, 0 validated, else copy-from-builder), getKey (option or longOption), getId == ord(key[0]), argCount sentinels UNINITIALIZED=-1 / UNLIMITED_VALUES=-2, default type, char valuesep, value flow addValueForProcessing -> processValue (split on valuesep) -> __add (acceptsArg/requiresArg guards, \"Cannot add value, list full.\"), and equals/hashCode/clone/toString mirrored with __eq__/__hash__/__str__ over (longOption, option). Depends on OptionValidator (M1).",
+      "tests": ["OptionTest"],
+      "marker": ""
+    },
+    {
+      "id": "M3",
+      "title": "Concrete exceptions & OptionGroup",
+      "goal": "Implement the concrete parse-exception hierarchy and mutually-exclusive grouping: UnrecognizedOptionException (holds option), AmbiguousOptionException (extends UnrecognizedOptionException; matchingOptions + \"Ambiguous option: '<opt>'  (could be: ...)\" message), MissingArgumentException (holds option), MissingOptionException (missingOptions list + \"Missing required option(s): <csv>\" message), AlreadySelectedException (group+option + verbatim \"...already been selected...\" message), and OptionGroup (insertion-ordered map, addOption, setSelected enforcing exclusivity by raising AlreadySelectedException, toString). Preserve the OptionGroup<->AlreadySelectedException import cycle (referenced only inside method bodies). Depends on ParseException (M1) and Option (M2).",
+      "tests": ["UnrecognizedOptionExceptionTest", "AmbiguousOptionExceptionTest", "MissingArgumentExceptionTest", "MissingOptionExceptionTest", "AlreadySelectedExceptionTest", "OptionGroupTest"],
+      "marker": ""
+    },
+    {
+      "id": "M4",
+      "title": "Option registry & legacy builder",
+      "goal": "Implement Options (insertion-ordered shortOpts/longOpts/optionGroups maps + requiredOpts list; addOption0..3, addOptionGroup, getOption, getMatchingOptions prefix logic, hasOption/hasLongOption/hasShortOption, helpOptions() preserving short-option order, getOptionGroups() as a set, and the Java-LinkedHashMap-format toString) and the deprecated static OptionBuilder (class-static mutable state, withX/hasX fluent setters, create0/1/2 factories, and __reset() after every create). Depends on Util (M1), OptionGroup (M3), and Option (M2).",
+      "tests": ["OptionsTest", "OptionBuilderTest"],
+      "marker": ""
+    },
+    {
+      "id": "M5",
+      "title": "Pattern builder & type conversion",
+      "goal": "Implement PatternOptionBuilder (the *_VALUE class sentinels compared by identity; parsePattern -> Options; isValueCode; getValueClass) and TypeHandler (createNumber: '.' present -> float else int with ValueError handling; createFile -> pathlib.Path; openFile -> open(rb), missing file -> ParseException; createURL -> urllib scheme validation + geturl round-trip, malformed -> ParseException; createClass/createObject via stdlib dotted-name resolution, unresolved/non-instantiable -> ParseException; createDate/createFiles -> NotImplementedError; unknown class -> ParseException(\"Unable to handle the class: ...\")). Depends on Options/Option/ParseException (M1-M4).",
+      "tests": ["PatternOptionBuilderTest", "TypeHandlerTest"],
+      "marker": ""
+    },
+    {
+      "id": "M6",
+      "title": "Parse-result model",
+      "goal": "Implement CommandLine and its nested Builder: resolveOption (strip hyphens then linear match on getOpt()/getLongOpt()); all overloaded query accessors routed through it -- getOptionValue0..5, getOptionValues0..2, getParsedOptionValue0..2 (typed via TypeHandler), getOptionObject0/1, hasOption0/1/2, getOptionProperties0/1 (2+ values -> {v0:v1}, 1 value -> {v0:'true'}), getArgs/getArgList, and iterator; char-overloads delegate to their String twins. Depends on Util (M1), Option (M2), and TypeHandler (M5).",
+      "tests": ["CommandLineTest"],
+      "marker": ""
+    },
+    {
+      "id": "M7",
+      "title": "Parsing engine",
+      "goal": "Implement the parsing SPI and both parser families over CommandLine/Options/exceptions. CommandLineParser interface (parse0(options,args), parse1(options,args,stopAtNonOption)); the deprecated two-pass Parser base (parse0..3, abstract flatten, processOption, processArgs, processProperties, checkRequiredOptions, updateRequiredOptions) with BasicParser (identity flatten), GnuParser (--foo=bar / -Dprop splitting) and PosixParser (option bursting -abc, burstToken/gobble/init); and the modern single-pass DefaultParser (+Builder) with handleToken/handleLongOption*/handleShortAndLongOption/handleConcatenatedOptions/isOption/isShortOption/isLongOption/isJavaProperty/isNegativeNumber, partial matching and quote stripping. Honor stopAtNonOption and '--'/'-', and raise Ambiguous/Unrecognized/MissingArgument/MissingOption exceptions. Depends on exceptions (M3), Options (M4) and CommandLine (M6).",
+      "tests": ["CommandLineParserTest", "ParserTest", "BasicParserTest", "GnuParserTest", "PosixParserTest", "DefaultParserTest"],
+      "marker": ""
+    },
+    {
+      "id": "M8",
+      "title": "Help rendering",
+      "goal": "Implement HelpFormatter and its nested OptionComparator: printHelp0..7, printUsage0/1, printWrapped0/1, printOptions, renderOptions, renderWrappedText, findWrapPos, createPadding, rtrim, appendOption/appendOptionGroup. Reproduce the usage line \"usage: <prefix> [opts]\", text wrapped at width (default 74), left pad 1, desc pad 3, '-s,--long <arg>' rows sorted case-insensitively by key, and newline == getNewLine() (os.linesep). Write through the injected pw (io.StringIO / sys.stdout); System.out overloads construct a writer over sys.stdout. Depends on Option (M2), OptionGroup (M3) and Options (M4).",
+      "tests": ["HelpFormatterTest", "OptionComparatorTest"],
+      "marker": ""
+    },
+    {
+      "id": "M9",
+      "title": "Golden / full conformance",
+      "goal": "Full-contract conformance: every one of the 22 classes is fully implemented with no `pass`, `...`, `TODO`, or NotImplementedError-stub bodies remaining, and every Java field, method, and observable behavior (verbatim exception messages and types, toString/help-text formats, iteration order, and numeric/formatting semantics) has a faithful Python counterpart. `python tools/build_check.py` stays green and the entire accumulated oracle suite (all tokens from M1-M8) passes; parity holds against the Java source.",
+      "tests": [],
+      "marker": ""
+    }
+  ]
+}

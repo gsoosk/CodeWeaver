@@ -1,0 +1,15 @@
+run_app_id: alphatrans-cli-azure-001
+recorded:   2026-09-04T18:03:28+00:00
+host:       myVm / Linux 6.17.0-1022-azure x86_64
+python:     Python 3.12.3
+pytest:     pytest 9.1.1
+copilot:    GitHub Copilot CLI 1.0.83.
+codeweaver_commit: dec5f7ad5292640f0f3894d48117878bdeadb75e
+codeweaver_branch: crust-bench-run
+alphatrans_commit: c1cabf93d41a153de207d6b098e1da7bbd79abab
+subject:    commons-cli (AlphaTrans subject project)
+model:      claude-opus-4.8 (per codeweaver.toml [model].default)
+max_iter:   6
+max_parity_rounds: 4
+tracker:    DISABLED at run time (apache-burr[start] was not installed);
+            trajectory is in data/pipeline/burr.db, not in the Burr UI.

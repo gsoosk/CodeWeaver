@@ -1,0 +1,5 @@
+# Tests that FAIL or ERROR against AlphaTrans's own manually verified
+# translation in THIS environment. They measure the environment (locale,
+# timezone, platform), not the translation under test, so every scored run
+# deselects them. Excluded from the tamper manifest by design.
+# Recorded: 2026-09-03T22:27:26+00:00
