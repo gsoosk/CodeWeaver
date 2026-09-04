@@ -66,15 +66,11 @@ gate_template = "{tests_space}"
 skip_exclude_template = ""
 
 [model]
-default = "claude-opus-4.8"
-effort_default = "high"
-[model.effort]
-analyzer = "max"
-scoper = "max"
-planner = "max"
-translator = "max"
-validator = "high"
-parity = "max"
+# Fixed across every experiment in this campaign so CodeWeaver, single-shot-LLM and
+# SWE-Agent arms are model-matched. Per-agent effort overrides are deliberately
+# absent: all six agents run at `medium`.
+default = "claude-sonnet-5"
+effort_default = "medium"
 
 [execution]
 max_iter = 6
