@@ -151,7 +151,7 @@ fi
 # pytest exit 5 = "no tests were collected" -> a mechanical token matched nothing.
 [ "$CODE" -eq 5 ] && CODE=0
 
-SUMMARY="$(echo "$OUT" | grep -E '[0-9]+ (passed|failed|error|deselected)' | tail -1 | tr -s ' =')"
+SUMMARY="$(echo "$OUT" | grep -E '[0-9]+ (passed|failed|error|deselected)|no tests ran' | tail -1 | tr -s ' =')"
 echo
 echo "[oracle] project  : $PROJECT"
 echo "[oracle] source   : $SRC_MAIN"

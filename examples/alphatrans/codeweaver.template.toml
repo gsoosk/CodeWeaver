@@ -44,7 +44,10 @@ pipeline_dir = "pipeline"
 #   validate    : LAYER 2 — the fixed, human-written oracle, via the isolating harness.
 build_check = "python ../../tools/build_check.py"
 unit_test   = "python -m pytest pipeline/project/tests -q"
-validate    = "__VALIDATE_CMD__"
+# A TOML *literal* string (single quotes): no escape processing, so the embedded
+# double quotes around {gate} survive verbatim. A basic "..." string here would need
+# backslash escapes that generators mangle.
+validate    = '__VALIDATE_CMD__'
 
 [validation]
 # Cumulative gate -> space-separated mechanical <Class>Test tokens. tools/oracle.*

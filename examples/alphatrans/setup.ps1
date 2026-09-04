@@ -98,7 +98,9 @@ function Initialize-Subject {
         } | Set-Content -Path $manifest -Encoding utf8
 
     # ---- codeweaver.toml -----------------------------------------------------
-    $validate = 'pwsh -NoProfile -File ../../tools/oracle.ps1 -Project ' + $Name + ' -Gate \"{gate}\"'
+    # The template wraps __VALIDATE_CMD__ in a TOML literal string ('...'), so the
+    # embedded double quotes around {gate} need no escaping.
+    $validate = 'pwsh -NoProfile -File ../../tools/oracle.ps1 -Project ' + $Name + ' -Gate "{gate}"'
     $tpl = Get-Content (Join-Path $here "codeweaver.template.toml") -Raw
     $tpl = $tpl.Replace("__PROJECT__", $Name)
     $tpl = $tpl.Replace("__PROJECT_SLUG__", $Name)

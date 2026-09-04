@@ -62,8 +62,9 @@ for PROJECT in $TARGETS; do
   ( cd "$ORACLE_MASTER" && find . -type f ! -name SHA256SUMS.txt ! -name baseline_excluded.txt -print0 \
       | sort -z | xargs -0 sha256sum > SHA256SUMS.txt )
 
-  # codeweaver.toml
-  VALIDATE="bash ../../tools/oracle.sh --project $PROJECT --gate \\\"{gate}\\\""
+  # codeweaver.toml. The template wraps __VALIDATE_CMD__ in a TOML literal string,
+  # so the embedded double quotes need no escaping.
+  VALIDATE="bash ../../tools/oracle.sh --project $PROJECT --gate \"{gate}\""
   sed -e "s|__PROJECT__|$PROJECT|g" \
       -e "s|__PROJECT_SLUG__|$PROJECT|g" \
       -e "s|__JAVA_SRC_ABS__|$JAVA_SRC|g" \
