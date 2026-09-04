@@ -161,6 +161,9 @@ def main() -> int:
                     help="default: whatever the subject's codeweaver.toml uses "
                          "(model-matched with CodeWeaver)")
     ap.add_argument("--effort", default=None, help="copilot backend only")
+    ap.add_argument("--max-output-tokens", type=int, default=128000,
+                    help="output cap. Whole-repo single-shot is usually bounded by this, "
+                         "not by the context window (default 128000)")
     ap.add_argument("--dry-run", action="store_true",
                     help="build the prompt, report its size, call nothing")
     args = ap.parse_args()
@@ -179,10 +182,21 @@ def main() -> int:
     system, user = build_prompt(args.project, java, skel)
     approx_tokens = (len(system) + len(user)) // 4
 
+    # The binding constraint for whole-repo single-shot is usually the OUTPUT cap, not
+    # the context window: the model must emit every module in one response. Estimate it
+    # from the skeleton (a real implementation is several times its stub).
+    skel_chars = sum(len(c) for _, c in skel)
+    est_out_tokens = int(skel_chars * 3.5 / 4)
+
     print(f"[b0] project      : {args.project} (tier {cfg['tier']})")
     print(f"[b0] java files   : {len(java)}")
     print(f"[b0] modules      : {len(skel)}")
-    print(f"[b0] prompt chars : {len(system) + len(user):,}  (~{approx_tokens:,} tokens)")
+    print(f"[b0] prompt chars : {len(system) + len(user):,}  (~{approx_tokens:,} tokens in)")
+    print(f"[b0] est. output  : ~{est_out_tokens:,} tokens for {len(skel)} modules"
+          f"  (cap: {args.max_output_tokens:,})")
+    if est_out_tokens > args.max_output_tokens:
+        print(f"[b0] WARNING      : estimated output exceeds the cap -- the response will"
+              f" likely be truncated mid-module. Consider --mode file.")
 
     if args.dry_run:
         print("[b0] dry run -- no call made")
@@ -190,7 +204,8 @@ def main() -> int:
 
     model = args.model or cfg["model"] or "claude-sonnet-5"
     effort = args.effort or cfg["effort"] or "medium"
-    kw = {"effort": effort} if args.backend == "copilot" else {}
+    kw = ({"effort": effort} if args.backend == "copilot"
+          else {"max_tokens": args.max_output_tokens})
     backend = build_backend(args.backend, model=model, **kw)
     print(f"[b0] backend      : {backend.name} model={model}"
           + (f" effort={effort}" if args.backend == "copilot" else ""))
@@ -206,10 +221,30 @@ def main() -> int:
     expected = {name for name, _ in skel}
     missing = sorted(expected - set(files))
 
+    # A module that does not parse is almost always a response truncated mid-file.
+    # Report it rather than letting the oracle score a syntax error as a translation.
+    import ast
+    unparseable = []
+    for rel in files:
+        p = out_root / rel
+        if not p.is_file():
+            continue
+        try:
+            ast.parse(p.read_text(encoding="utf-8"))
+        except SyntaxError:
+            unparseable.append(rel)
+
+    truncated = bool((completion.raw or {}).get("truncated"))
+
     print(f"[b0] wall clock   : {elapsed:,.0f}s")
     print(f"[b0] files parsed : {len(files)}  written={written}  unplaceable={unknown}")
     print(f"[b0] left as stub : {len(missing)}"
           + (f"  e.g. {missing[:3]}" if missing else ""))
+    if unparseable:
+        print(f"[b0] UNPARSEABLE  : {len(unparseable)} -- likely a truncated response: {unparseable[:3]}")
+    if truncated:
+        print(f"[b0] TRUNCATED    : the model hit its output cap "
+              f"({args.max_output_tokens:,}); this run is NOT a valid single-shot result")
     print(f"[b0] working copy : {out_root}")
 
     # Provenance next to the artifact, so a result is never orphaned from how it was made.
@@ -224,8 +259,12 @@ def main() -> int:
         "inputs": {"java_files": len(java), "skeleton_modules": len(skel),
                    "prompt_chars": len(system) + len(user)},
         "outputs": {"files_parsed": len(files), "files_written": written,
-                    "unplaceable": unknown, "left_as_stub": missing},
+                    "unplaceable": unknown, "left_as_stub": missing,
+                    "unparseable": unparseable},
         "usage": completion.usage.as_dict(),
+        "max_output_tokens": args.max_output_tokens,
+        "truncated": truncated,
+        "valid_single_shot": not truncated and not unparseable,
         "oracle_seen": False,
         "protocol": "single-shot: one call, no compiler feedback, no test feedback",
     }

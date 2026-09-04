@@ -38,8 +38,8 @@ class FoundryBackend:
         api_key: str | None = None,
         api_version: str | None = None,
         temperature: float = 0.0,
-        max_tokens: int = 32000,
-        timeout: float = 1800.0,
+        max_tokens: int = 128000,
+        timeout: float = 3600.0,
         max_retries: int = 4,
     ):
         try:
@@ -116,5 +116,15 @@ class FoundryBackend:
             total_tokens=getattr(u, "total_tokens", None),
             wall_clock_s=round(elapsed, 2),
         )
-        text = (resp.choices[0].message.content or "") if resp.choices else ""
-        return Completion(text=text, usage=usage, model=self.model)
+        choice = resp.choices[0] if resp.choices else None
+        text = (choice.message.content or "") if choice else ""
+
+        # CRITICAL: a response cut off at max_output_tokens ends mid-file. The file-block
+        # parser would then silently accept a truncated (or drop a half-written) module,
+        # and the baseline would be scored on an artifact of the token cap rather than on
+        # the model's actual ability. Surface it instead.
+        finish = getattr(choice, "finish_reason", None) if choice else None
+        return Completion(
+            text=text, usage=usage, model=self.model,
+            raw={"finish_reason": finish, "truncated": finish == "length"},
+        )
