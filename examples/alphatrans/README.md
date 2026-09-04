@@ -18,35 +18,56 @@ subject and score with plain `pytest`.
 | **Held out from the agents** | The tests never exist in the working copy (see below), so the headline metric is test-blind. |
 | **Runs anywhere** | Pure Python + pytest. No JDK, GraalVM, CodeQL, Maven or Docker. |
 
-## Subjects
+## Subjects — two tiers
 
-| Project | Java files | Interface modules | Oracle ceiling (measured) |
-|---|---|---|---|
-| `commons-cli` | 23 | 22 | **381 passed**, 56 skipped |
-| `commons-csv` | 12 | 11 | **298 passed**, 13 skipped |
-| `commons-fileupload` | 36 | 30 | **39 passed** |
-| `commons-validator` | 63 | 63 | **462 passed**, 1 skipped |
+All **ten** AlphaTrans subjects are supported, but they do not carry the same
+evidence, so they are split into two tiers and **their numbers must never be pooled**.
+
+### Tier A — real held-out oracle (4 subjects)
+
+These ship a `manually_verified_translations/` directory: a human-written Python test
+suite AlphaTrans's authors wrote and verified to 100% pass. Scored on **test pass rate**.
+
+| Project | Java files | Interface modules | Oracle ceiling | Floor (skeleton) |
+|---|---|---|---|---|
+| `commons-cli` | 23 | 22 | **381 passed**, 56 skipped | 1 |
+| `commons-csv` | 12 | 11 | **298 passed**, 13 skipped | 2 |
+| `commons-fileupload` | 36 | 30 | **39 passed** | 2 |
+| `commons-validator` | 63 | 63 | **462 passed**, 1 skipped | 48 |
 
 The "ceiling" is AlphaTrans's own manually verified translation scored through *this*
-harness — the practical upper bound for any system on this setup.
+harness — the practical upper bound for any system on this setup. The "floor" is the
+unimplemented skeleton: a **baseline offset to subtract**, not points scored.
 
-### Why only four projects
+### Tier B — no oracle exists (6 subjects)
 
-AlphaTrans ships **ten** Java subjects, but only these four carry a
-`manually_verified_translations/<project>/` directory. For the other six
-(`JavaFastPFOR`, `commons-codec`, `commons-exec`, `commons-graph`, `commons-pool`,
-`jansi`) the only Python that exists is:
+| Project | Java files | Interface modules | Oracle |
+|---|---|---|---|
+| `JavaFastPFOR` | 71 | 67 | none |
+| `commons-codec` | 73 | 73 | none |
+| `commons-exec` | 37 | 33 | none |
+| `commons-graph` | 139 | 123 | none |
+| `commons-pool` | 45 | 45 | none |
+| `jansi` | 20 | 20 | none |
+
+For these, the only Python in the artifact is:
 
 - **test *skeletons*** under `data/skeletons/<p>/src/test` — method signatures with
-  `pass` bodies and essentially no assertions (`commons-codec`: 14 asserts across
-  4,204 `pass` bodies, versus 655 asserts in `commons-cli`'s manual suite); and
+  `pass` bodies and **zero** assertions (`commons-codec`: 14 asserts across 4,204
+  `pass` bodies, versus 655 in `commons-cli`'s manual suite); and
 - **model-generated translations** under `data/schemas_decomposed_tests/translations/`
   — `.json` fragment schemas produced by DeepSeek/GPT-4o, i.e. *system output*, not
   ground truth.
 
-Using either as an oracle would be circular: we would be grading a translation
-against tests that a model wrote. **The four-project limit is a property of the
-AlphaTrans artifact, not a choice.**
+Grading a translation against tests a model wrote would be circular, so tier B has
+**no functional oracle**. Its `validate` falls back to `build_check` (parse + import)
+and completeness rests entirely on the **parity verifier**. Tier B therefore measures
+*build/import success + parity completeness*, which is a strictly weaker claim than
+tier A's test-pass rate.
+
+> This split is a property of the AlphaTrans artifact, not a design choice. Their own
+> paper reports syntactic / runtime / functional correctness as separate levels for
+> the same reason.
 
 ## Prerequisites
 
@@ -66,11 +87,13 @@ AlphaTrans artifact, not a choice.**
 ## Set up
 
 ```powershell
-./setup.ps1 -All -Dataset C:\path\to\AlphaTrans      # Windows: all four subjects
-./setup.ps1 -Project commons-cli                     # or just one
+./setup.ps1 -All -Dataset C:\path\to\AlphaTrans      # all 10 subjects
+./setup.ps1 -TierA                                   # only the 4 with a real oracle
+./setup.ps1 -Project commons-cli                     # just one
 ```
 ```bash
-./setup.sh --all /path/to/AlphaTrans                 # macOS / Linux
+./setup.sh --all    /path/to/AlphaTrans              # all 10 subjects
+./setup.sh --tier-a /path/to/AlphaTrans              # only the 4 with a real oracle
 ./setup.sh commons-cli /path/to/AlphaTrans
 ```
 
@@ -98,10 +121,12 @@ not the translation under test.
 bash tools/smoke_all.sh          # every subject, offline, free
 ```
 
-Per subject this checks: config loads, the **ceiling** (golden passes), the **floor**
-(unimplemented skeleton fails), **gate resolution**, **tamper detection** (exit 3),
-and `build_check`; then exercises the whole Burr graph once against mock agents.
-Expect **25 passed, 0 failed** with all four subjects materialized.
+Per **tier-A** subject this checks: config loads, the **ceiling** (golden passes), the
+**floor** (unimplemented skeleton fails), **gate resolution**, **tamper detection**
+(exit 3), and `build_check`. Per **tier-B** subject it asserts the config declares
+tier B, that `validate` does *not* reference the oracle, and that `build_check`
+passes. Then it exercises the whole Burr graph once against mock agents.
+Expect **49 passed, 0 failed** with all ten subjects materialized.
 
 ## Run
 
