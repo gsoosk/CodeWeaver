@@ -41,11 +41,28 @@ class CopilotBackend:
     def complete(self, system: str, user: str) -> Completion:
         # The CLI has no separate system slot in one-shot mode; prepend it.
         prompt = f"{system}\n\n---\n\n{user}" if system else user
+        return self._invoke(prompt)
 
-        # An empty scratch cwd keeps the model from wandering into unrelated files.
+    def complete_messages(self, messages: list[dict]) -> Completion:
+        """Flatten a message list into one prompt.
+
+        The CLI is single-turn, so a continuation round is replayed as prompt +
+        what has been produced so far + what is still outstanding. The model still
+        receives no correctness feedback.
+        """
+        parts = []
+        for m in messages:
+            role = m.get("role", "user")
+            tag = {"system": "", "user": "", "assistant": "## Already written\n"}.get(role, "")
+            parts.append(f"{tag}{m.get('content', '')}")
+        return self._invoke("\n\n---\n\n".join(parts))
+
+    def _invoke(self, prompt: str) -> Completion:
+        # A whole-repo prompt is hundreds of KB, which blows past ARG_MAX if passed
+        # as `-p <text>`. The CLI reads the prompt from stdin when -p is omitted.
         with tempfile.TemporaryDirectory(prefix="cw_singleshot_") as cwd:
             cmd = [
-                self.binary, "-p", prompt,
+                self.binary,
                 "--model", self.model,
                 "--reasoning-effort", self.effort,
                 "--allow-all", "--no-ask-user",
@@ -53,7 +70,7 @@ class CopilotBackend:
             ]
             t0 = time.monotonic()
             proc = subprocess.run(
-                cmd, cwd=cwd, capture_output=True, text=True,
+                cmd, cwd=cwd, input=prompt, capture_output=True, text=True,
                 encoding="utf-8", errors="replace", timeout=self.timeout,
                 env={**os.environ},
             )
@@ -85,9 +102,13 @@ class CopilotBackend:
                 f"stderr: {proc.stderr[:800]}"
             )
 
+        # The CLI does not expose a finish_reason, so truncation cannot be detected
+        # here directly. The harness infers it instead: a module that fails to parse,
+        # or an expected module that never arrived, drives the continuation loop.
         return Completion(
             text=text,
             usage=Usage(premium_requests=premium, nano_aiu=aiu,
                         wall_clock_s=round(elapsed, 2)),
             model=self.model,
+            raw={"finish_reason": None, "truncated": False},
         )

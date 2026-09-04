@@ -67,6 +67,16 @@ class FoundryBackend:
 
     def _build_client(self):
         import openai
+        # Azure OpenAI's v1 surface (".../openai/v1") is OpenAI-compatible: use the
+        # plain client with base_url and no api_version. Only the older
+        # deployment-addressed surface needs AzureOpenAI.
+        if self.endpoint.rstrip("/").endswith("/openai/v1"):
+            return openai.OpenAI(
+                base_url=self.endpoint.rstrip("/"),
+                api_key=self.api_key,
+                timeout=self.timeout,
+                max_retries=self.max_retries,
+            )
         if "openai.azure.com" in self.endpoint:
             # Deployment-addressed Azure OpenAI.
             return openai.AzureOpenAI(
