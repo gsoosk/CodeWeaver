@@ -39,7 +39,5 @@ _*.txt
 # commons-validator example: generated config + run state (local only)
 examples/commons-validator/codeweaver.toml
 
-# alphatrans example: generated config + vendored scaffold/oracle + run state (local only)
-examples/alphatrans/codeweaver.toml
-examples/alphatrans/.scaffold/
-examples/alphatrans/.oracle-master/
+# alphatrans example: per-subject scaffolds, oracles, configs and run state (local only)
+examples/alphatrans/subjects/
