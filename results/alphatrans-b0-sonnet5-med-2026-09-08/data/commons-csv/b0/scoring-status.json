@@ -1,0 +1,15 @@
+{
+  "status": "collection_failure",
+  "generation_complete": true,
+  "full_suite_pass_rate": null,
+  "reported_counts": {
+    "passed": 2,
+    "failed": 6,
+    "skipped": 0,
+    "deselected": 0,
+    "errors": 17
+  },
+  "summary": "6 failed, 2 passed, 17 errors in 0.25s",
+  "reason": "All 11 modules emitted; generated CSVFormat.py raises TypeError at Predefined.__class__ = _PredefinedMeta. Full oracle collection fails. The observed 2 passes/6 failures/17 collection errors are not a normal full-suite pass rate. Generated code is retained unchanged.",
+  "generated_code_repaired": false
+}

@@ -1,0 +1,64 @@
+{
+  "baseline": "B0-single-shot",
+  "project": "commons-fileupload",
+  "tier": "A",
+  "backend": "copilot",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "context": "long_context",
+  "recorded": "2026-09-08T17:59:15+0000",
+  "inputs": {
+    "java_files": 36,
+    "skeleton_modules": 30,
+    "prompt_chars": 229122
+  },
+  "outputs": {
+    "files_parsed": 30,
+    "files_written": 30,
+    "unplaceable": 0,
+    "left_as_stub": [],
+    "unparseable": []
+  },
+  "usage_per_round": [
+    {
+      "premium_requests": 1,
+      "nano_aiu": 88188750000,
+      "wall_clock_s": 401.98
+    }
+  ],
+  "max_output_tokens": 128000,
+  "continuation_rounds": 1,
+  "complete": true,
+  "oracle_seen": false,
+  "oracle_tests_in_prompt": false,
+  "oracle_feedback_during_generation": false,
+  "copilot_audit": [
+    {
+      "round": 1,
+      "tools": "disabled",
+      "tool_allowlist": [
+        "__b0_no_tools__"
+      ],
+      "tool_event_count": 0,
+      "event_counts": {
+        "session.tools_updated": 2,
+        "session.skills_loaded": 1,
+        "session.info": 2,
+        "user.message": 2,
+        "assistant.turn_start": 2,
+        "model.call_start": 2,
+        "assistant.reasoning_delta": 392,
+        "assistant.message": 2,
+        "assistant.reasoning": 2,
+        "assistant.turn_end": 2,
+        "assistant.message_start": 1,
+        "assistant.message_delta": 279,
+        "session.usage_checkpoint": 1,
+        "assistant.idle": 1,
+        "result": 1
+      },
+      "returncode": 0
+    }
+  ],
+  "protocol": "single-shot: one prompt, no compiler feedback, no test feedback. When one response cannot hold every module, the SAME generation is continued (block-aware) until all modules are emitted or --max-rounds is reached; the model is told only which files remain, never anything about correctness."
+}

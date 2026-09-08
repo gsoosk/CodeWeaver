@@ -1,0 +1,14 @@
+[batch] status: ${HOME}/cwruns/b0-sonnet5-med-20260908/recovery-runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-sonnet5-med-20260908-collector-recovery.status.json
+[b0] project      : commons-csv (tier A)
+[b0] java files   : 12
+[b0] modules      : 11
+[b0] prompt chars : 232,655  (~58,163 tokens in)
+[b0] est. output  : ~25,676 tokens for 11 modules  (cap: 128,000)
+[b0] linked recovery: b0-sonnet5-med-20260908; 10 modules, 1/6 invocations already used; NOT a new sample
+[b0] backend      : copilot model=claude-sonnet-5 effort=medium
+[b0]   invocation 2: +1 files (11/11 done, 0 left)
+[b0] wall clock   : 93s new work; 2 total backend invocation(s)
+[b0] files parsed : 11  written=11  unplaceable=0
+[b0] left as stub : 0
+[b0] metadata     : ${HOME}/cwruns/b0-sonnet5-med-20260908/recovery-runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-sonnet5-med-20260908-collector-recovery/metadata.json
+[batch] scoring failed: Oracle did not complete normal scoring: 6 failed, 2 passed, 17 errors in 0.25s

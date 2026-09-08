@@ -1,0 +1,171 @@
+{
+  "campaign": "b0-sonnet5-med-20260908",
+  "all_requested_generations_finished": true,
+  "all_subjects_normally_scored": false,
+  "codeweaver_reference_commit": "cbf9db7e14642e99dfa0258492b2eb977b1fe835",
+  "observations": [
+    {
+      "subject": "commons-cli",
+      "tag": "b0-sonnet5-med-20260908",
+      "observation_tag": "b0-sonnet5-med-20260908",
+      "generation_complete": true,
+      "source_modules": 22,
+      "quality_status": "scored",
+      "raw_oracle_summary": "11 failed, 370 passed, 56 skipped in 0.37s",
+      "reported_counts": {
+        "passed": 370,
+        "failed": 11,
+        "skipped": 56,
+        "deselected": 0,
+        "errors": 0
+      },
+      "comparable_pass_rate": 0.9711286089238845,
+      "codeweaver_reference": {
+        "passed": 380,
+        "denominator": 381
+      },
+      "backend_invocations": 2,
+      "observed_model_calls": 4,
+      "tool_events": 0,
+      "premium_requests": 2,
+      "aiu": 163.52581,
+      "generation_time_s": 648.24,
+      "runner_revision": "6ef1855b665c2f447f596b810eca9b516e333246",
+      "linked_recovery": false
+    },
+    {
+      "subject": "commons-csv",
+      "tag": "b0-sonnet5-med-20260908-collector-recovery",
+      "observation_tag": "b0-sonnet5-med-20260908",
+      "generation_complete": true,
+      "source_modules": 11,
+      "quality_status": "collection_failure",
+      "raw_oracle_summary": "6 failed, 2 passed, 17 errors in 0.25s",
+      "reported_counts": {
+        "passed": 2,
+        "failed": 6,
+        "skipped": 0,
+        "deselected": 0,
+        "errors": 17
+      },
+      "comparable_pass_rate": null,
+      "codeweaver_reference": {
+        "passed": 296,
+        "denominator": 298
+      },
+      "backend_invocations": 2,
+      "observed_model_calls": 4,
+      "tool_events": 0,
+      "premium_requests": 2,
+      "aiu": 148.96257,
+      "generation_time_s": 556.15,
+      "runner_revision": "10672d2ba3132f8cdc1b3dcf446a8ff85828575e",
+      "linked_recovery": true,
+      "failure_note": "All 11 modules emitted; generated CSVFormat.py raises TypeError at Predefined.__class__ = _PredefinedMeta. Full oracle collection fails. The observed 2 passes/6 failures/17 collection errors are not a normal full-suite pass rate. Generated code is retained unchanged.",
+      "source_collector_incident": "The original collector dropped earlier assistant messages. Recovery replayed complete blocks, then generated only the missing module; it is the same observation and carries the original usage."
+    },
+    {
+      "subject": "commons-fileupload",
+      "tag": "b0-sonnet5-med-20260908",
+      "observation_tag": "b0-sonnet5-med-20260908",
+      "generation_complete": true,
+      "source_modules": 30,
+      "quality_status": "scored",
+      "raw_oracle_summary": "2 failed, 37 passed in 0.11s",
+      "reported_counts": {
+        "passed": 37,
+        "failed": 2,
+        "skipped": 0,
+        "deselected": 0,
+        "errors": 0
+      },
+      "comparable_pass_rate": 0.9487179487179487,
+      "codeweaver_reference": {
+        "passed": 38,
+        "denominator": 39
+      },
+      "backend_invocations": 1,
+      "observed_model_calls": 2,
+      "tool_events": 0,
+      "premium_requests": 1,
+      "aiu": 88.18875,
+      "generation_time_s": 401.98,
+      "runner_revision": "6ef1855b665c2f447f596b810eca9b516e333246",
+      "linked_recovery": false
+    },
+    {
+      "subject": "commons-validator",
+      "tag": "b0-sonnet5-med-20260908",
+      "observation_tag": "b0-sonnet5-med-20260908",
+      "generation_complete": true,
+      "source_modules": 63,
+      "quality_status": "scored",
+      "raw_oracle_summary": "81 failed, 381 passed, 1 skipped, 1 deselected, 23 warnings in 1.07s",
+      "reported_counts": {
+        "passed": 381,
+        "failed": 81,
+        "skipped": 1,
+        "deselected": 1,
+        "errors": 0
+      },
+      "comparable_pass_rate": 0.8246753246753247,
+      "codeweaver_reference": {
+        "passed": 452,
+        "denominator": 462
+      },
+      "backend_invocations": 4,
+      "observed_model_calls": 8,
+      "tool_events": 0,
+      "premium_requests": 4,
+      "aiu": 590.01074,
+      "generation_time_s": 1407.6,
+      "runner_revision": "6ef1855b665c2f447f596b810eca9b516e333246",
+      "linked_recovery": false
+    }
+  ],
+  "cli_worst_of_two_selection": {
+    "policy": "worst-of-two; selected minimum pass count, not an unselected pass@1 estimate",
+    "current_tag": "b0-sonnet5-med-20260908",
+    "reference_tag": "b0-sonnet5-med-20260904",
+    "current_score": {
+      "passed": 370,
+      "failed": 11,
+      "skipped": 56,
+      "deselected": 0,
+      "errors": 0,
+      "exit_code": 1,
+      "summary": "11 failed, 370 passed, 56 skipped in 0.37s",
+      "pipeline_deferrals_applied": false
+    },
+    "reference_score": {
+      "passed": 368,
+      "failed": 13,
+      "skipped": 56,
+      "deselected": 0,
+      "errors": 0,
+      "exit_code": 1,
+      "summary": "13 failed, 368 passed, 56 skipped"
+    },
+    "selected_tag": "b0-sonnet5-med-20260904",
+    "new_run_is_worse": false,
+    "both_runs_retained": true,
+    "protocol_note": "The original run has no tool-access audit and no recorded context tier. This run disables tools, audits all responses, and records the explicit context tier and CLI version. They are not identical-protocol repetitions.",
+    "combined_two_observation_cost": {
+      "premium_requests": 4,
+      "aiu": 340.39282000000003
+    }
+  },
+  "new_campaign_generation_cost_excluding_preflight_and_old_cli": {
+    "premium_requests": 9,
+    "aiu": 990.6878700000001
+  },
+  "notes": [
+    "CSV recovery continues the original observation; it is not an extra independent sample.",
+    "The original CSV collector failure is diagnostic evidence, not a translation-quality score.",
+    "No test-guided repairs were made to generated code. No partial file fragments were spliced.",
+    "CLI, fileupload and validator retain their completed original collector-version observations.",
+    "Raw prompts, model responses and event streams are retained privately, not redistributed here.",
+    "Runner revisions are recorded for provenance; the unpublished runner code commits are not part of this results-only publication.",
+    "The included isolated scoring wrapper re-scores frozen outputs with the public oracle runner and no pipeline deferrals."
+  ]
+}

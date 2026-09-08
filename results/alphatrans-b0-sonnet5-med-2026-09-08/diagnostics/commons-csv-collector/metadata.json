@@ -1,0 +1,76 @@
+{
+  "baseline": "B0-single-shot",
+  "project": "commons-csv",
+  "tier": "A",
+  "backend": "copilot",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "context": "long_context",
+  "recorded": "2026-09-08T18:00:16+0000",
+  "inputs": {
+    "java_files": 12,
+    "skeleton_modules": 11,
+    "prompt_chars": 232655
+  },
+  "outputs": {
+    "files_parsed": 0,
+    "files_written": 0,
+    "unplaceable": 0,
+    "left_as_stub": [
+      "src/main/org/apache/commons/csv/CSVFormat.py",
+      "src/main/org/apache/commons/csv/CSVParser.py",
+      "src/main/org/apache/commons/csv/CSVPrinter.py",
+      "src/main/org/apache/commons/csv/CSVRecord.py",
+      "src/main/org/apache/commons/csv/Constants.py",
+      "src/main/org/apache/commons/csv/DuplicateHeaderMode.py",
+      "src/main/org/apache/commons/csv/ExtendedBufferedReader.py",
+      "src/main/org/apache/commons/csv/IOUtils.py",
+      "src/main/org/apache/commons/csv/Lexer.py",
+      "src/main/org/apache/commons/csv/QuoteMode.py",
+      "src/main/org/apache/commons/csv/Token.py"
+    ],
+    "unparseable": []
+  },
+  "usage_per_round": [
+    {
+      "premium_requests": 1,
+      "nano_aiu": 107932920000,
+      "wall_clock_s": 463.0
+    }
+  ],
+  "max_output_tokens": 128000,
+  "continuation_rounds": 1,
+  "complete": false,
+  "oracle_seen": false,
+  "oracle_tests_in_prompt": false,
+  "oracle_feedback_during_generation": false,
+  "copilot_audit": [
+    {
+      "round": 1,
+      "tools": "disabled",
+      "tool_allowlist": [
+        "__b0_no_tools__"
+      ],
+      "tool_event_count": 0,
+      "event_counts": {
+        "session.tools_updated": 2,
+        "session.skills_loaded": 1,
+        "session.info": 2,
+        "user.message": 3,
+        "assistant.turn_start": 3,
+        "model.call_start": 3,
+        "assistant.reasoning_delta": 387,
+        "assistant.message": 3,
+        "assistant.reasoning": 3,
+        "assistant.turn_end": 3,
+        "assistant.message_start": 2,
+        "assistant.message_delta": 367,
+        "session.usage_checkpoint": 1,
+        "assistant.idle": 1,
+        "result": 1
+      },
+      "returncode": 0
+    }
+  ],
+  "protocol": "single-shot: one prompt, no compiler feedback, no test feedback. When one response cannot hold every module, the SAME generation is continued (block-aware) until all modules are emitted or --max-rounds is reached; the model is told only which files remain, never anything about correctness."
+}

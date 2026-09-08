@@ -1,0 +1,18 @@
+[batch] status: ${HOME}/cwruns/b0-sonnet5-med-20260908/runner/examples/alphatrans/subjects/commons-validator/pipeline-baseline-b0-sonnet5-med-20260908.status.json
+[b0] project      : commons-validator (tier A)
+[b0] java files   : 63
+[b0] modules      : 63
+[b0] prompt chars : 751,299  (~187,824 tokens in)
+[b0] est. output  : ~90,756 tokens for 63 modules  (cap: 128,000)
+[b0] backend      : copilot model=claude-sonnet-5 effort=medium
+[b0]   round 1: +14 files (14/63 done, 49 left)
+[b0]   round 2: +24 files (38/63 done, 25 left)
+[b0]   round 3: +1 files (39/63 done, 24 left)
+[b0]   round 4: +24 files (63/63 done, 0 left)
+[b0] wall clock   : 1,408s over 4 response(s)
+[b0] files parsed : 63  written=63  unplaceable=0
+[b0] left as stub : 0
+[b0] working copy : ${HOME}/cwruns/b0-sonnet5-med-20260908/runner/examples/alphatrans/subjects/commons-validator/pipeline-baseline-b0-sonnet5-med-20260908/project
+[b0] metadata     : ${HOME}/cwruns/b0-sonnet5-med-20260908/runner/examples/alphatrans/subjects/commons-validator/pipeline-baseline-b0-sonnet5-med-20260908/metadata.json
+[batch] oracle: 81 failed, 381 passed, 1 skipped, 1 deselected, 23 warnings in 1.07s
+[batch] completed; all generation artifacts and observed failures retained

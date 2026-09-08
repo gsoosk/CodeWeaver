@@ -1,0 +1,15 @@
+This is the original collector incident, not an additional baseline sample.
+
+The CLI internally continued through several assistant messages. The original
+collector retained only the final fragment, dropping ten earlier complete file
+blocks and leaving the generated project as scaffolding. That scoring attempt
+cannot be used as a translation-quality measurement.
+
+The linked recovery replayed the saved audited messages, retained only complete
+file blocks, and requested the remaining CSVParser module in full. No fragments
+were stitched and no oracle feedback was provided to generation. All original
+usage was carried forward; no independent additional draw was claimed.
+
+The actual recovered observation is data/commons-csv/b0/. It contains all eleven
+generated modules, but generated CSVFormat.py fails on import. Its collection
+failure is a real baseline outcome and was not repaired using the test results.

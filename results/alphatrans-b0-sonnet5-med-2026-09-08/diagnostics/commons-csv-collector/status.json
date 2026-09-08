@@ -1,0 +1,32 @@
+{
+  "state": "scoring_failed",
+  "pid": 147492,
+  "project": "commons-csv",
+  "tag": "b0-sonnet5-med-20260908",
+  "started": "2026-09-08T17:52:33+0000",
+  "code_revision": "6ef1855b665c2f447f596b810eca9b516e333246",
+  "copilot_version": "GitHub Copilot CLI 1.0.84-1.\nRun 'copilot update' to check for updates.",
+  "generation_command": [
+    "${HOME}/cwenv/bin/python",
+    "-u",
+    "${HOME}/cwruns/b0-sonnet5-med-20260908/runner/experiments/baselines/single_shot.py",
+    "--project",
+    "commons-csv",
+    "--tag",
+    "b0-sonnet5-med-20260908",
+    "--backend",
+    "copilot",
+    "--model",
+    "claude-sonnet-5",
+    "--effort",
+    "medium",
+    "--context",
+    "long_context",
+    "--max-rounds",
+    "6"
+  ],
+  "context": "long_context",
+  "reference_tag": null,
+  "error": "Oracle did not complete normal scoring: 145 failed, 2 passed, 2 warnings, 3 errors in 0.31s",
+  "exit_code": 1
+}

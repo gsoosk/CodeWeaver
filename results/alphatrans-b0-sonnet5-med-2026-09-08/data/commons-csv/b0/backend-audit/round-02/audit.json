@@ -1,0 +1,31 @@
+{
+  "round": 2,
+  "tools": "disabled",
+  "tool_allowlist": [
+    "__b0_no_tools__"
+  ],
+  "tool_event_count": 0,
+  "event_counts": {
+    "session.tools_updated": 2,
+    "session.skills_loaded": 1,
+    "session.info": 2,
+    "user.message": 1,
+    "assistant.turn_start": 1,
+    "model.call_start": 1,
+    "assistant.reasoning_delta": 95,
+    "assistant.message_start": 1,
+    "assistant.message_delta": 65,
+    "assistant.message": 1,
+    "assistant.reasoning": 1,
+    "assistant.turn_end": 1,
+    "session.usage_checkpoint": 1,
+    "assistant.idle": 1,
+    "result": 1
+  },
+  "returncode": 0,
+  "usage": {
+    "premium_requests": 1,
+    "nano_aiu": 41029650000,
+    "wall_clock_s": 93.15
+  }
+}

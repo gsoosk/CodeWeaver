@@ -1,0 +1,42 @@
+{
+  "state": "completed",
+  "pid": 147512,
+  "project": "commons-fileupload",
+  "tag": "b0-sonnet5-med-20260908",
+  "started": "2026-09-08T17:52:33+0000",
+  "code_revision": "6ef1855b665c2f447f596b810eca9b516e333246",
+  "copilot_version": "GitHub Copilot CLI 1.0.84-1.\nRun 'copilot update' to check for updates.",
+  "generation_command": [
+    "${HOME}/cwenv/bin/python",
+    "-u",
+    "${HOME}/cwruns/b0-sonnet5-med-20260908/runner/experiments/baselines/single_shot.py",
+    "--project",
+    "commons-fileupload",
+    "--tag",
+    "b0-sonnet5-med-20260908",
+    "--backend",
+    "copilot",
+    "--model",
+    "claude-sonnet-5",
+    "--effort",
+    "medium",
+    "--context",
+    "long_context",
+    "--max-rounds",
+    "6"
+  ],
+  "context": "long_context",
+  "reference_tag": null,
+  "finished": "2026-09-08T17:59:15+0000",
+  "generation_complete": true,
+  "oracle_score": {
+    "passed": 37,
+    "failed": 2,
+    "skipped": 0,
+    "deselected": 0,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "2 failed, 37 passed in 0.11s",
+    "pipeline_deferrals_applied": false
+  }
+}

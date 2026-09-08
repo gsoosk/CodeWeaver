@@ -1,0 +1,99 @@
+{
+  "code_revision": "6ef1855b665c2f447f596b810eca9b516e333246",
+  "copilot_version": "GitHub Copilot CLI 1.0.84-1.\nRun 'copilot update' to check for updates.",
+  "context": "long_context",
+  "oracle_score": {
+    "passed": 370,
+    "failed": 11,
+    "skipped": 56,
+    "deselected": 0,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "11 failed, 370 passed, 56 skipped in 0.37s",
+    "pipeline_deferrals_applied": false
+  },
+  "source_hashes": {
+    "src/main/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/cli/AlreadySelectedException.py": "d2d3b490d11ad994a102b829c74dd104c3164c128cd5629940195e747c0b664f",
+    "src/main/org/apache/commons/cli/AmbiguousOptionException.py": "e0142c66b528106c9a58a3a31bd0c4c5ed6a93dbb16b7c6a50b527ab83f90605",
+    "src/main/org/apache/commons/cli/BasicParser.py": "e4aa8f2a6c3a232660c0b3dd07b3babea9b3339631cb1c4c0e0a3d630bbc19cf",
+    "src/main/org/apache/commons/cli/CommandLine.py": "2e93da9fc98695c7e3d181db79ad1976755e00944f8bd2dff57df2f2c9689fec",
+    "src/main/org/apache/commons/cli/CommandLineParser.py": "31c341e2ca37ae52c20a6d908304e4096851d5eb1ed36ad5e5a87c3a217546fd",
+    "src/main/org/apache/commons/cli/DefaultParser.py": "311e51f6e93c461b7a2c826d0a5b21b4021a4ec9c8433a6a195452459e24eaf2",
+    "src/main/org/apache/commons/cli/GnuParser.py": "e5f9fa0a1f8f796b57e76d322f53a41ac06f43ec398f6352ca3eec51b635ef9a",
+    "src/main/org/apache/commons/cli/HelpFormatter.py": "2f0f87191ba13cdc6884f26a567aa893ff2341806c138e255b4bcbd20b34a9f6",
+    "src/main/org/apache/commons/cli/MissingArgumentException.py": "047be8500420611578deadb4aa47a19cd597ce43fd3da04d2d851348f5ed0f43",
+    "src/main/org/apache/commons/cli/MissingOptionException.py": "d83995bfe37f05c5d1f12dfed40df86e549cee78192e08cbfe883fc6c78772f4",
+    "src/main/org/apache/commons/cli/Option.py": "02675ec6066ef426c3e49438eee3588e51e425881f1e146a825c5708198459c3",
+    "src/main/org/apache/commons/cli/OptionBuilder.py": "236867d76c76ca0ec9f11a239220a4e3bf240100cc8acbb1c55bf1725329636a",
+    "src/main/org/apache/commons/cli/OptionGroup.py": "f53fe728d950e4a7ab0ccb9d4dec0aa6bf8c700492bf40d57bbab6d98d39f3d9",
+    "src/main/org/apache/commons/cli/OptionValidator.py": "024d9992f8d1ec4d2c8c41e29a9024e1698af3e6cfc6e8b7dc5348a417f87562",
+    "src/main/org/apache/commons/cli/Options.py": "c83ced7d482181b29af304fc2ecaa46be5c39d2bab410ff1769784ed163d616d",
+    "src/main/org/apache/commons/cli/ParseException.py": "31296d102a61f3d96a0ee9f4c10840e3e380fe18874c9fbd0ed26db7a0e550f3",
+    "src/main/org/apache/commons/cli/Parser.py": "6efadbb2b1a4f327ed1480004a99ff602e2d0e5c77f74c42a87aaba630a4883a",
+    "src/main/org/apache/commons/cli/PatternOptionBuilder.py": "174fe395744886844cf08932e69c20707f656bd30533e7c6e80a0dfe50e3d83a",
+    "src/main/org/apache/commons/cli/PosixParser.py": "401123ee0d094fed100f9a3b1d6c21c8fca90daa585eaa25d640f5d9cf1eece3",
+    "src/main/org/apache/commons/cli/TypeHandler.py": "bb14d90a32d43e6ee073a3b38d4c0091cd9ea3678f4a6587f2fadba2b6e8460f",
+    "src/main/org/apache/commons/cli/UnrecognizedOptionException.py": "446b212c353386b4a8f815e8a75cc1b2b9a6e561196fa657c13d21af56df936a",
+    "src/main/org/apache/commons/cli/Util.py": "77aae6d484684cebac7f18e2db4464f26ef074f86796d07648a16e55a666279d",
+    "src/main/org/apache/commons/cli/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "generation_complete": true,
+  "copilot_audit": [
+    {
+      "round": 1,
+      "tools": "disabled",
+      "tool_allowlist": [
+        "__b0_no_tools__"
+      ],
+      "tool_event_count": 0,
+      "event_counts": {
+        "session.tools_updated": 2,
+        "session.skills_loaded": 1,
+        "session.info": 2,
+        "user.message": 3,
+        "assistant.turn_start": 3,
+        "model.call_start": 3,
+        "assistant.reasoning_delta": 708,
+        "assistant.message": 3,
+        "assistant.reasoning": 3,
+        "assistant.turn_end": 3,
+        "assistant.message_start": 2,
+        "assistant.message_delta": 3235,
+        "session.usage_checkpoint": 1,
+        "assistant.idle": 1,
+        "result": 1
+      },
+      "returncode": 0
+    },
+    {
+      "round": 2,
+      "tools": "disabled",
+      "tool_allowlist": [
+        "__b0_no_tools__"
+      ],
+      "tool_event_count": 0,
+      "event_counts": {
+        "session.tools_updated": 2,
+        "session.skills_loaded": 1,
+        "session.info": 2,
+        "user.message": 1,
+        "assistant.turn_start": 1,
+        "model.call_start": 1,
+        "assistant.reasoning_delta": 3,
+        "assistant.message_start": 1,
+        "assistant.message_delta": 284,
+        "assistant.message": 1,
+        "assistant.reasoning": 1,
+        "assistant.turn_end": 1,
+        "session.usage_checkpoint": 1,
+        "assistant.idle": 1,
+        "result": 1
+      },
+      "returncode": 0
+    }
+  ]
+}

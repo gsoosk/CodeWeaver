@@ -1,0 +1,100 @@
+{
+  "baseline": "B0-single-shot",
+  "project": "commons-csv",
+  "tier": "A",
+  "backend": "copilot",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "context": "long_context",
+  "recorded": "2026-09-08T18:29:51+0000",
+  "inputs": {
+    "java_files": 12,
+    "skeleton_modules": 11,
+    "prompt_chars": 232655
+  },
+  "code_revision": "10672d2ba3132f8cdc1b3dcf446a8ff85828575e",
+  "collector_code_sha256": {
+    "single_shot.py": "d621e606430e3664061c6d52e0c89d0f8a1797c10ee395f5d4e47cca58c0c140",
+    "backends/copilot.py": "972fbbfd623eb9266deb84c1e0fa0874edeb83d66866edab6a8df32336c946b9",
+    "backends/base.py": "b4bf0d2190939c07fce272f05cf1ac7d89fe3129453e2d39db175275f2bd0b41",
+    "run_one.py": "a6ef67cd898ba49f0364cd99216837c809a129c83c1fbdb6d1c063b4ce22fbac"
+  },
+  "collector_version": 2,
+  "tag": "b0-sonnet5-med-20260908-collector-recovery",
+  "observation_tag": "b0-sonnet5-med-20260908",
+  "independent_sample": false,
+  "recovery": {
+    "source_tag": "b0-sonnet5-med-20260908",
+    "observation_tag": "b0-sonnet5-med-20260908",
+    "independent_sample": false,
+    "source_code_revision": "6ef1855b665c2f447f596b810eca9b516e333246",
+    "source_status": "scoring_failed",
+    "source_backend_invocations": 1,
+    "recovered_modules": [
+      "src/main/org/apache/commons/csv/CSVFormat.py",
+      "src/main/org/apache/commons/csv/CSVPrinter.py",
+      "src/main/org/apache/commons/csv/CSVRecord.py",
+      "src/main/org/apache/commons/csv/Constants.py",
+      "src/main/org/apache/commons/csv/DuplicateHeaderMode.py",
+      "src/main/org/apache/commons/csv/ExtendedBufferedReader.py",
+      "src/main/org/apache/commons/csv/IOUtils.py",
+      "src/main/org/apache/commons/csv/Lexer.py",
+      "src/main/org/apache/commons/csv/QuoteMode.py",
+      "src/main/org/apache/commons/csv/Token.py"
+    ],
+    "source_artifact_sha256": {
+      "pipeline-baseline-b0-sonnet5-med-20260908.status.json": "09c87b38be59c0c6c3b3594fd644cfdb05652655aa90683383de90ba3a72e6ce",
+      "pipeline-baseline-b0-sonnet5-med-20260908/metadata.json": "6051d0f362b13e17c3efca65f5a34d7507ccb426f9830b89045bed72875d2422",
+      "pipeline-baseline-b0-sonnet5-med-20260908/prompt.md": "a315b53472c93c3e3043f58e2fdd9ea5c7b7ddb27b3278e1e77eb4ae82a254e5",
+      "pipeline-baseline-b0-sonnet5-med-20260908/backend-audit/round-01/request.json": "29f3f40592d712c78c560c3ddd2e0af884f3d4acff1ff20ad631d4bc9cedc880",
+      "pipeline-baseline-b0-sonnet5-med-20260908/backend-audit/round-01/stdout.jsonl": "e13ffaf4eee862c1d71b2d8a75041f4bf234cae19516e53bd45a4b6d0a7e97ce",
+      "pipeline-baseline-b0-sonnet5-med-20260908/backend-audit/round-01/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pipeline-baseline-b0-sonnet5-med-20260908/backend-audit/round-01/audit.json": "86ddfc2357d1e1c176de9018b52b28213ff74b3ae1aa45a86bab1c9e9d5d7bd1"
+    },
+    "source_copilot_version": "GitHub Copilot CLI 1.0.84-1.\nRun 'copilot update' to check for updates."
+  },
+  "usage_per_round": [
+    {
+      "premium_requests": 1,
+      "nano_aiu": 107932920000,
+      "wall_clock_s": 463.0
+    }
+  ],
+  "max_output_tokens": 128000,
+  "max_rounds": 6,
+  "oracle_seen": false,
+  "oracle_tests_in_prompt": false,
+  "oracle_feedback_during_generation": false,
+  "copilot_audit": [
+    {
+      "round": 1,
+      "tools": "disabled",
+      "tool_allowlist": [
+        "__b0_no_tools__"
+      ],
+      "tool_event_count": 0,
+      "event_counts": {
+        "session.tools_updated": 2,
+        "session.skills_loaded": 1,
+        "session.info": 2,
+        "user.message": 3,
+        "assistant.turn_start": 3,
+        "model.call_start": 3,
+        "assistant.reasoning_delta": 387,
+        "assistant.message": 3,
+        "assistant.reasoning": 3,
+        "assistant.turn_end": 3,
+        "assistant.message_start": 2,
+        "assistant.message_delta": 367,
+        "session.usage_checkpoint": 1,
+        "assistant.idle": 1,
+        "result": 1
+      },
+      "returncode": 0,
+      "origin_tag": "b0-sonnet5-med-20260908",
+      "replayed": true
+    }
+  ],
+  "protocol": "single-shot: one prompt, no compiler feedback, no test feedback. When one response cannot hold every module, the SAME generation is continued (block-aware) until all modules are emitted or --max-rounds is reached; the model is told only which files remain, never anything about correctness. Backend invocations can contain internal CLI model turns. Recovery tags remain linked to the original observation, not new samples.",
+  "state": "completed"
+}

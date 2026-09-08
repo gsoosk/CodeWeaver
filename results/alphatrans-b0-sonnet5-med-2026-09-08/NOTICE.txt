@@ -1,0 +1,11 @@
+This package records generated Java-to-Python translations of Apache Commons CLI,
+CSV, FileUpload and Validator, using interface skeletons and evaluation tests
+from AlphaTrans (Intelligent CAT Lab).
+
+Upstream licenses and notices are retained under metadata/upstream-licenses/.
+Dataset revision: c1cabf93d41a153de207d6b098e1da7bbd79abab
+Dataset repository: https://github.com/Intelligent-CAT-Lab/AlphaTrans
+Apache Commons projects: https://commons.apache.org/
+
+Generated outputs and benchmark observations are not upstream releases and are
+not endorsed by the upstream projects. Known failures remain in the generated code.

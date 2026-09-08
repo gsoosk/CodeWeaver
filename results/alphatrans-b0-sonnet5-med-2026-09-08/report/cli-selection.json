@@ -1,0 +1,32 @@
+{
+  "policy": "worst-of-two; selected minimum pass count, not an unselected pass@1 estimate",
+  "current_tag": "b0-sonnet5-med-20260908",
+  "reference_tag": "b0-sonnet5-med-20260904",
+  "current_score": {
+    "passed": 370,
+    "failed": 11,
+    "skipped": 56,
+    "deselected": 0,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "11 failed, 370 passed, 56 skipped in 0.37s",
+    "pipeline_deferrals_applied": false
+  },
+  "reference_score": {
+    "passed": 368,
+    "failed": 13,
+    "skipped": 56,
+    "deselected": 0,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "13 failed, 368 passed, 56 skipped"
+  },
+  "selected_tag": "b0-sonnet5-med-20260904",
+  "new_run_is_worse": false,
+  "both_runs_retained": true,
+  "protocol_note": "The original run has no tool-access audit and no recorded context tier. This run disables tools, audits all responses, and records the explicit context tier and CLI version. They are not identical-protocol repetitions.",
+  "combined_two_observation_cost": {
+    "premium_requests": 4,
+    "aiu": 340.39282000000003
+  }
+}

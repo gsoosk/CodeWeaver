@@ -1,0 +1,1455 @@
+{
+  "package": "alphatrans-b0-sonnet5-med-2026-09-08",
+  "target_repository": "https://github.com/gsoosk/CodeWeaver",
+  "target_branch": "crust-bench-run",
+  "public_base_commit": "cbf9db7e14642e99dfa0258492b2eb977b1fe835",
+  "private_evidence_archive_sha256": "2fe505efd19855860db064f71cbdcad56f521b103631094f04dc90ec7e3cc6b0",
+  "dataset_repository": "https://github.com/Intelligent-CAT-Lab/AlphaTrans",
+  "dataset_revision": "c1cabf93d41a153de207d6b098e1da7bbd79abab",
+  "scope": "Results only; no unrelated application/runner commits",
+  "normalizations": [
+    "Execution home -> ${HOME}",
+    "Random scoring directories -> <isolated-scoring>"
+  ],
+  "python_source_bytes_unchanged": true,
+  "original_artifacts": {
+    "data/commons-cli/b0/metadata.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/metadata.json",
+      "original_sha256": "11d4c82fba90fad1fb6b8da96b8a008b0b942b815fc5f9bea8f32954ee1e1269",
+      "published_sha256": "11d4c82fba90fad1fb6b8da96b8a008b0b942b815fc5f9bea8f32954ee1e1269",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0/oracle_score.txt": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/oracle_score.txt",
+      "original_sha256": "2293e74f1e50822df344c5eb360136fb1ada20ee707e018654392b5f54e34ef6",
+      "published_sha256": "2293e74f1e50822df344c5eb360136fb1ada20ee707e018654392b5f54e34ef6",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0/project/src/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/AlreadySelectedException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/AlreadySelectedException.py",
+      "original_sha256": "d2d3b490d11ad994a102b829c74dd104c3164c128cd5629940195e747c0b664f",
+      "published_sha256": "d2d3b490d11ad994a102b829c74dd104c3164c128cd5629940195e747c0b664f",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/AmbiguousOptionException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/AmbiguousOptionException.py",
+      "original_sha256": "23e59f7cbd2bc999aaed80a5f49bf0019e5b4f33973ea78f2d87033de63fe08b",
+      "published_sha256": "23e59f7cbd2bc999aaed80a5f49bf0019e5b4f33973ea78f2d87033de63fe08b",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/BasicParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/BasicParser.py",
+      "original_sha256": "e4aa8f2a6c3a232660c0b3dd07b3babea9b3339631cb1c4c0e0a3d630bbc19cf",
+      "published_sha256": "e4aa8f2a6c3a232660c0b3dd07b3babea9b3339631cb1c4c0e0a3d630bbc19cf",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/CommandLine.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/CommandLine.py",
+      "original_sha256": "a0cab383cd23e3a2ae1993d51e2ba18c40b44d1a7d10501cab1f43e0d6faeec1",
+      "published_sha256": "a0cab383cd23e3a2ae1993d51e2ba18c40b44d1a7d10501cab1f43e0d6faeec1",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/CommandLineParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/CommandLineParser.py",
+      "original_sha256": "31c341e2ca37ae52c20a6d908304e4096851d5eb1ed36ad5e5a87c3a217546fd",
+      "published_sha256": "31c341e2ca37ae52c20a6d908304e4096851d5eb1ed36ad5e5a87c3a217546fd",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/DefaultParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/DefaultParser.py",
+      "original_sha256": "19669f15ecd87bd6f78b58b3469102b7317d2cdca04426c6e03a5ac1f3e1881d",
+      "published_sha256": "19669f15ecd87bd6f78b58b3469102b7317d2cdca04426c6e03a5ac1f3e1881d",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/GnuParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/GnuParser.py",
+      "original_sha256": "ad4a78253a42c1599123e74f88e196f207dbdf8b266c785d86c6275955f4e12d",
+      "published_sha256": "ad4a78253a42c1599123e74f88e196f207dbdf8b266c785d86c6275955f4e12d",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/HelpFormatter.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/HelpFormatter.py",
+      "original_sha256": "2b03113dff8f923e569ab8a7011c9cf78add2994b0c3717a198da1cfa70ce1d6",
+      "published_sha256": "2b03113dff8f923e569ab8a7011c9cf78add2994b0c3717a198da1cfa70ce1d6",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/MissingArgumentException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/MissingArgumentException.py",
+      "original_sha256": "047be8500420611578deadb4aa47a19cd597ce43fd3da04d2d851348f5ed0f43",
+      "published_sha256": "047be8500420611578deadb4aa47a19cd597ce43fd3da04d2d851348f5ed0f43",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/MissingOptionException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/MissingOptionException.py",
+      "original_sha256": "8f9440e3c27e4b9a2e2971d614893883506dfe9e95f8f8ac695f36daf582e905",
+      "published_sha256": "8f9440e3c27e4b9a2e2971d614893883506dfe9e95f8f8ac695f36daf582e905",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/Option.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/Option.py",
+      "original_sha256": "6019bf9f170406571d5729cc816bb4997660390c2530f708f4910ce365312457",
+      "published_sha256": "6019bf9f170406571d5729cc816bb4997660390c2530f708f4910ce365312457",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/OptionBuilder.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/OptionBuilder.py",
+      "original_sha256": "a286c3910c9c3998022248fe8d5732f85a8409d6830c406cb38d192307280c19",
+      "published_sha256": "a286c3910c9c3998022248fe8d5732f85a8409d6830c406cb38d192307280c19",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/OptionGroup.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/OptionGroup.py",
+      "original_sha256": "6c68e6e38da7ee74afc6082d843cb7064937ed71a5775deb5ab88aaf9182c508",
+      "published_sha256": "6c68e6e38da7ee74afc6082d843cb7064937ed71a5775deb5ab88aaf9182c508",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/OptionValidator.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/OptionValidator.py",
+      "original_sha256": "791da6054f12a2247aaa84fabf61b5c91eeb70e19ef947afc6c7fa55fbcbd08a",
+      "published_sha256": "791da6054f12a2247aaa84fabf61b5c91eeb70e19ef947afc6c7fa55fbcbd08a",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/Options.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/Options.py",
+      "original_sha256": "0544bba3d8e6c4acb2b0b563010bee9b7141dd3c157840c5c10e8d466d22f1ef",
+      "published_sha256": "0544bba3d8e6c4acb2b0b563010bee9b7141dd3c157840c5c10e8d466d22f1ef",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/ParseException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/ParseException.py",
+      "original_sha256": "31296d102a61f3d96a0ee9f4c10840e3e380fe18874c9fbd0ed26db7a0e550f3",
+      "published_sha256": "31296d102a61f3d96a0ee9f4c10840e3e380fe18874c9fbd0ed26db7a0e550f3",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/Parser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/Parser.py",
+      "original_sha256": "39000a51483890925eb9e1249e79e23e38a3ae309123f6cd894f389434cef507",
+      "published_sha256": "39000a51483890925eb9e1249e79e23e38a3ae309123f6cd894f389434cef507",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/PatternOptionBuilder.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/PatternOptionBuilder.py",
+      "original_sha256": "e517fb255cac16b6808972c396af05a5e12cf56cda33518b87238ffc2f222bf2",
+      "published_sha256": "e517fb255cac16b6808972c396af05a5e12cf56cda33518b87238ffc2f222bf2",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/PosixParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/PosixParser.py",
+      "original_sha256": "222381bd36c901f06c0ee6a6ee207877836724da24e96e06b9bd7a98743d49aa",
+      "published_sha256": "222381bd36c901f06c0ee6a6ee207877836724da24e96e06b9bd7a98743d49aa",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/TypeHandler.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/TypeHandler.py",
+      "original_sha256": "5606d8f240246174b5c150faa45541fdafaa8b06aaa78abbb0e0732c602093a1",
+      "published_sha256": "5606d8f240246174b5c150faa45541fdafaa8b06aaa78abbb0e0732c602093a1",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/UnrecognizedOptionException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/UnrecognizedOptionException.py",
+      "original_sha256": "446b212c353386b4a8f815e8a75cc1b2b9a6e561196fa657c13d21af56df936a",
+      "published_sha256": "446b212c353386b4a8f815e8a75cc1b2b9a6e561196fa657c13d21af56df936a",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/Util.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/Util.py",
+      "original_sha256": "7b2e1a4e8457f258671b120a9510931d448d8452848b0f9e1cf70f0657d4d970",
+      "published_sha256": "7b2e1a4e8457f258671b120a9510931d448d8452848b0f9e1cf70f0657d4d970",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0/project/src/main/org/apache/commons/cli/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260904/project/src/main/org/apache/commons/cli/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/backend-audit/round-01/audit.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/backend-audit/round-01/audit.json",
+      "original_sha256": "f02867125e53d0136f0eb5759e4d9da1a7905504e0d59eccb56bf76e09781af9",
+      "published_sha256": "f02867125e53d0136f0eb5759e4d9da1a7905504e0d59eccb56bf76e09781af9",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0-rerun/backend-audit/round-01/request.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/backend-audit/round-01/request.json",
+      "original_sha256": "f60db04ac382b333ec7f2d6e9e5e2f6ce1fea38e37ec0852b8eea1e68b964c18",
+      "published_sha256": "f60db04ac382b333ec7f2d6e9e5e2f6ce1fea38e37ec0852b8eea1e68b964c18",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0-rerun/backend-audit/round-02/audit.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/backend-audit/round-02/audit.json",
+      "original_sha256": "f5345dff701af5f306e7db6399c075045f8b485516245e671ee5002368f26045",
+      "published_sha256": "f5345dff701af5f306e7db6399c075045f8b485516245e671ee5002368f26045",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0-rerun/backend-audit/round-02/request.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/backend-audit/round-02/request.json",
+      "original_sha256": "c98b65baef8eaee5b2e3095c841ee2c2c634a0438e8b074705e1302621d6087a",
+      "published_sha256": "c98b65baef8eaee5b2e3095c841ee2c2c634a0438e8b074705e1302621d6087a",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0-rerun/metadata.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/metadata.json",
+      "original_sha256": "2d8ee3cb287e509395fecc59ff18d55c813e467e66cfb9a850c9ec503e908859",
+      "published_sha256": "2d8ee3cb287e509395fecc59ff18d55c813e467e66cfb9a850c9ec503e908859",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0-rerun/oracle_score.txt": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/oracle_score.txt",
+      "original_sha256": "cbb555b20e72618d5f60bb6563208603a95fd6a1e5e38f5aeda931aa34765937",
+      "published_sha256": "bd7731538f4a676709b857c6b1a97de05cc7cc8f281bcaadb2b5ca2fac08667f",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0-rerun/project/src/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/AlreadySelectedException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/AlreadySelectedException.py",
+      "original_sha256": "d2d3b490d11ad994a102b829c74dd104c3164c128cd5629940195e747c0b664f",
+      "published_sha256": "d2d3b490d11ad994a102b829c74dd104c3164c128cd5629940195e747c0b664f",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/AmbiguousOptionException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/AmbiguousOptionException.py",
+      "original_sha256": "e0142c66b528106c9a58a3a31bd0c4c5ed6a93dbb16b7c6a50b527ab83f90605",
+      "published_sha256": "e0142c66b528106c9a58a3a31bd0c4c5ed6a93dbb16b7c6a50b527ab83f90605",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/BasicParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/BasicParser.py",
+      "original_sha256": "e4aa8f2a6c3a232660c0b3dd07b3babea9b3339631cb1c4c0e0a3d630bbc19cf",
+      "published_sha256": "e4aa8f2a6c3a232660c0b3dd07b3babea9b3339631cb1c4c0e0a3d630bbc19cf",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/CommandLine.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/CommandLine.py",
+      "original_sha256": "2e93da9fc98695c7e3d181db79ad1976755e00944f8bd2dff57df2f2c9689fec",
+      "published_sha256": "2e93da9fc98695c7e3d181db79ad1976755e00944f8bd2dff57df2f2c9689fec",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/CommandLineParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/CommandLineParser.py",
+      "original_sha256": "31c341e2ca37ae52c20a6d908304e4096851d5eb1ed36ad5e5a87c3a217546fd",
+      "published_sha256": "31c341e2ca37ae52c20a6d908304e4096851d5eb1ed36ad5e5a87c3a217546fd",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/DefaultParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/DefaultParser.py",
+      "original_sha256": "311e51f6e93c461b7a2c826d0a5b21b4021a4ec9c8433a6a195452459e24eaf2",
+      "published_sha256": "311e51f6e93c461b7a2c826d0a5b21b4021a4ec9c8433a6a195452459e24eaf2",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/GnuParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/GnuParser.py",
+      "original_sha256": "e5f9fa0a1f8f796b57e76d322f53a41ac06f43ec398f6352ca3eec51b635ef9a",
+      "published_sha256": "e5f9fa0a1f8f796b57e76d322f53a41ac06f43ec398f6352ca3eec51b635ef9a",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/HelpFormatter.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/HelpFormatter.py",
+      "original_sha256": "2f0f87191ba13cdc6884f26a567aa893ff2341806c138e255b4bcbd20b34a9f6",
+      "published_sha256": "2f0f87191ba13cdc6884f26a567aa893ff2341806c138e255b4bcbd20b34a9f6",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/MissingArgumentException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/MissingArgumentException.py",
+      "original_sha256": "047be8500420611578deadb4aa47a19cd597ce43fd3da04d2d851348f5ed0f43",
+      "published_sha256": "047be8500420611578deadb4aa47a19cd597ce43fd3da04d2d851348f5ed0f43",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/MissingOptionException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/MissingOptionException.py",
+      "original_sha256": "d83995bfe37f05c5d1f12dfed40df86e549cee78192e08cbfe883fc6c78772f4",
+      "published_sha256": "d83995bfe37f05c5d1f12dfed40df86e549cee78192e08cbfe883fc6c78772f4",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/Option.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/Option.py",
+      "original_sha256": "02675ec6066ef426c3e49438eee3588e51e425881f1e146a825c5708198459c3",
+      "published_sha256": "02675ec6066ef426c3e49438eee3588e51e425881f1e146a825c5708198459c3",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/OptionBuilder.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/OptionBuilder.py",
+      "original_sha256": "236867d76c76ca0ec9f11a239220a4e3bf240100cc8acbb1c55bf1725329636a",
+      "published_sha256": "236867d76c76ca0ec9f11a239220a4e3bf240100cc8acbb1c55bf1725329636a",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/OptionGroup.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/OptionGroup.py",
+      "original_sha256": "f53fe728d950e4a7ab0ccb9d4dec0aa6bf8c700492bf40d57bbab6d98d39f3d9",
+      "published_sha256": "f53fe728d950e4a7ab0ccb9d4dec0aa6bf8c700492bf40d57bbab6d98d39f3d9",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/OptionValidator.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/OptionValidator.py",
+      "original_sha256": "024d9992f8d1ec4d2c8c41e29a9024e1698af3e6cfc6e8b7dc5348a417f87562",
+      "published_sha256": "024d9992f8d1ec4d2c8c41e29a9024e1698af3e6cfc6e8b7dc5348a417f87562",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/Options.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/Options.py",
+      "original_sha256": "c83ced7d482181b29af304fc2ecaa46be5c39d2bab410ff1769784ed163d616d",
+      "published_sha256": "c83ced7d482181b29af304fc2ecaa46be5c39d2bab410ff1769784ed163d616d",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/ParseException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/ParseException.py",
+      "original_sha256": "31296d102a61f3d96a0ee9f4c10840e3e380fe18874c9fbd0ed26db7a0e550f3",
+      "published_sha256": "31296d102a61f3d96a0ee9f4c10840e3e380fe18874c9fbd0ed26db7a0e550f3",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/Parser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/Parser.py",
+      "original_sha256": "6efadbb2b1a4f327ed1480004a99ff602e2d0e5c77f74c42a87aaba630a4883a",
+      "published_sha256": "6efadbb2b1a4f327ed1480004a99ff602e2d0e5c77f74c42a87aaba630a4883a",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/PatternOptionBuilder.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/PatternOptionBuilder.py",
+      "original_sha256": "174fe395744886844cf08932e69c20707f656bd30533e7c6e80a0dfe50e3d83a",
+      "published_sha256": "174fe395744886844cf08932e69c20707f656bd30533e7c6e80a0dfe50e3d83a",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/PosixParser.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/PosixParser.py",
+      "original_sha256": "401123ee0d094fed100f9a3b1d6c21c8fca90daa585eaa25d640f5d9cf1eece3",
+      "published_sha256": "401123ee0d094fed100f9a3b1d6c21c8fca90daa585eaa25d640f5d9cf1eece3",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/TypeHandler.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/TypeHandler.py",
+      "original_sha256": "bb14d90a32d43e6ee073a3b38d4c0091cd9ea3678f4a6587f2fadba2b6e8460f",
+      "published_sha256": "bb14d90a32d43e6ee073a3b38d4c0091cd9ea3678f4a6587f2fadba2b6e8460f",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/UnrecognizedOptionException.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/UnrecognizedOptionException.py",
+      "original_sha256": "446b212c353386b4a8f815e8a75cc1b2b9a6e561196fa657c13d21af56df936a",
+      "published_sha256": "446b212c353386b4a8f815e8a75cc1b2b9a6e561196fa657c13d21af56df936a",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/Util.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/Util.py",
+      "original_sha256": "77aae6d484684cebac7f18e2db4464f26ef074f86796d07648a16e55a666279d",
+      "published_sha256": "77aae6d484684cebac7f18e2db4464f26ef074f86796d07648a16e55a666279d",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/project/src/main/org/apache/commons/cli/__init__.py": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/cli/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-cli/b0-rerun/run_evidence.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/run_evidence.json",
+      "original_sha256": "c4cfb88dc5cc4a5c769f13ba55cefb289fca1604bf689be0f6c87d2e5d8e3f92",
+      "published_sha256": "c4cfb88dc5cc4a5c769f13ba55cefb289fca1604bf689be0f6c87d2e5d8e3f92",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0-rerun/score.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/score.json",
+      "original_sha256": "9006d3598009bcd5c43d90266aa130708a9e53a006ec2a8e14608760e8074456",
+      "published_sha256": "9006d3598009bcd5c43d90266aa130708a9e53a006ec2a8e14608760e8074456",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0-rerun/selection.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908/selection.json",
+      "original_sha256": "a2fdf7155dcbce390dc5528051d60e94951bf4eb866ad8ee771e53ba252c9ac0",
+      "published_sha256": "a2fdf7155dcbce390dc5528051d60e94951bf4eb866ad8ee771e53ba252c9ac0",
+      "paths_normalized": true
+    },
+    "data/commons-cli/b0-rerun/status.json": {
+      "archive_member": "runs/commons-cli/b0-sonnet5-med-20260908.status.json",
+      "original_sha256": "bcb17e55022bfe507fe1714a475eeed4fad01a0baa9469b69079a3dc6e7bb6f7",
+      "published_sha256": "77c684abdf5c49de54cd1d2e23d5356c21ce6c01d0a0b62bda6274d8a9a15eae",
+      "paths_normalized": true
+    },
+    "data/commons-csv/b0/backend-audit/round-01/audit.json": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/backend-audit/round-01/audit.json",
+      "original_sha256": "86ddfc2357d1e1c176de9018b52b28213ff74b3ae1aa45a86bab1c9e9d5d7bd1",
+      "published_sha256": "86ddfc2357d1e1c176de9018b52b28213ff74b3ae1aa45a86bab1c9e9d5d7bd1",
+      "paths_normalized": true
+    },
+    "data/commons-csv/b0/backend-audit/round-01/request.json": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/backend-audit/round-01/request.json",
+      "original_sha256": "29f3f40592d712c78c560c3ddd2e0af884f3d4acff1ff20ad631d4bc9cedc880",
+      "published_sha256": "29f3f40592d712c78c560c3ddd2e0af884f3d4acff1ff20ad631d4bc9cedc880",
+      "paths_normalized": true
+    },
+    "data/commons-csv/b0/backend-audit/round-02/audit.json": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/backend-audit/round-02/audit.json",
+      "original_sha256": "e033ba076c8d19fd8d3cf209f8e79c014a53d220e27534dd914b47f898b3c59e",
+      "published_sha256": "e033ba076c8d19fd8d3cf209f8e79c014a53d220e27534dd914b47f898b3c59e",
+      "paths_normalized": true
+    },
+    "data/commons-csv/b0/backend-audit/round-02/request.json": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/backend-audit/round-02/request.json",
+      "original_sha256": "d0a5db1d7d02948e150393aef1eb960906b511aa8734de6d593d77ab90c96d3d",
+      "published_sha256": "d0a5db1d7d02948e150393aef1eb960906b511aa8734de6d593d77ab90c96d3d",
+      "paths_normalized": true
+    },
+    "data/commons-csv/b0/generation.json": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/generation.json",
+      "original_sha256": "eead8ab5af25f2cbf688c16c898d3c542dd9b134048fd8e64d8f53825d992700",
+      "published_sha256": "eead8ab5af25f2cbf688c16c898d3c542dd9b134048fd8e64d8f53825d992700",
+      "paths_normalized": true
+    },
+    "data/commons-csv/b0/metadata.json": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/metadata.json",
+      "original_sha256": "8ec4f633d821e1827cd174db5722504491d3a19e0626226996811d32f25ef4fe",
+      "published_sha256": "8ec4f633d821e1827cd174db5722504491d3a19e0626226996811d32f25ef4fe",
+      "paths_normalized": true
+    },
+    "data/commons-csv/b0/oracle_score.txt": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/oracle_score.txt",
+      "original_sha256": "632d2e3582883ad7239e9d743e3c3585d0abea37894ad99cb6340d1173427819",
+      "published_sha256": "350cbc7e55c1f8123dff06d97a0f8b07a179bdf4f83f994739d0f1f51108aa51",
+      "paths_normalized": true
+    },
+    "data/commons-csv/b0/project/src/__init__.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/__init__.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/__init__.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/__init__.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/__init__.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/CSVFormat.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/CSVFormat.py",
+      "original_sha256": "6569406795b48e299a82116c8230de499573eaabf83527d3d51eca3f5f49dc08",
+      "published_sha256": "6569406795b48e299a82116c8230de499573eaabf83527d3d51eca3f5f49dc08",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/CSVParser.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/CSVParser.py",
+      "original_sha256": "c3365211fa0a8f9c8cd40a71011676d06b6cba6dff0644058856fbfb9c33b1ec",
+      "published_sha256": "c3365211fa0a8f9c8cd40a71011676d06b6cba6dff0644058856fbfb9c33b1ec",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/CSVPrinter.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/CSVPrinter.py",
+      "original_sha256": "69fe03ec5746b8c0d2e7aa6efef486fbcd5b8e4200f2a958b6981297ae87f237",
+      "published_sha256": "69fe03ec5746b8c0d2e7aa6efef486fbcd5b8e4200f2a958b6981297ae87f237",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/CSVRecord.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/CSVRecord.py",
+      "original_sha256": "fbbb455d117c13a56dd81d910a0cd4d8e09d25df39d70332b8471ac7fe2ff081",
+      "published_sha256": "fbbb455d117c13a56dd81d910a0cd4d8e09d25df39d70332b8471ac7fe2ff081",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/Constants.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/Constants.py",
+      "original_sha256": "5ecf32484fd59cb743f015bbe9ad963e843c9c55daf38763cb00770f256f810f",
+      "published_sha256": "5ecf32484fd59cb743f015bbe9ad963e843c9c55daf38763cb00770f256f810f",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/DuplicateHeaderMode.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/DuplicateHeaderMode.py",
+      "original_sha256": "4a2f66b660f52c5aa69783073e9ff4b6eaeec7b2f49426810d1514ef91fa2486",
+      "published_sha256": "4a2f66b660f52c5aa69783073e9ff4b6eaeec7b2f49426810d1514ef91fa2486",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/ExtendedBufferedReader.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/ExtendedBufferedReader.py",
+      "original_sha256": "675b852c8429f836cd143614d59eb1c4c8a23901a37c1f0a2ee0544cd2188b3f",
+      "published_sha256": "675b852c8429f836cd143614d59eb1c4c8a23901a37c1f0a2ee0544cd2188b3f",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/IOUtils.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/IOUtils.py",
+      "original_sha256": "6a90b18beb09fd9e71cb83503ebf51bf53d0bd58dc50c78136ade2287d7564bd",
+      "published_sha256": "6a90b18beb09fd9e71cb83503ebf51bf53d0bd58dc50c78136ade2287d7564bd",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/Lexer.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/Lexer.py",
+      "original_sha256": "c2ae58081bc4f838717618548ab1c70ddb47cf0c737f9ac6c0d0fca5e6a209e7",
+      "published_sha256": "c2ae58081bc4f838717618548ab1c70ddb47cf0c737f9ac6c0d0fca5e6a209e7",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/QuoteMode.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/QuoteMode.py",
+      "original_sha256": "12369edc0c50ab3d5eae73d8ff02d7cd656dc6f2708e9bc0bab0b7fa064efb41",
+      "published_sha256": "12369edc0c50ab3d5eae73d8ff02d7cd656dc6f2708e9bc0bab0b7fa064efb41",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/Token.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/Token.py",
+      "original_sha256": "54aadb73cdb255257f777b5125d499e4dafc0420ca8c2ea8852653a10467f623",
+      "published_sha256": "54aadb73cdb255257f777b5125d499e4dafc0420ca8c2ea8852653a10467f623",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/project/src/main/org/apache/commons/csv/__init__.py": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/project/src/main/org/apache/commons/csv/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-csv/b0/status.json": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery.status.json",
+      "original_sha256": "af58a3759ea00628e8f1890a1e2f79a6990abbba64c1f416c510d8489789a961",
+      "published_sha256": "9115464e6a72f49e48cee3907f3b361d6f06d125bf47e7160ce81c7434e4afff",
+      "paths_normalized": true
+    },
+    "data/commons-fileupload/b0/backend-audit/round-01/audit.json": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/backend-audit/round-01/audit.json",
+      "original_sha256": "39f7198b895dfd36f751e2649d80cef5d5a9ed944424347d1854ca7464641cee",
+      "published_sha256": "39f7198b895dfd36f751e2649d80cef5d5a9ed944424347d1854ca7464641cee",
+      "paths_normalized": true
+    },
+    "data/commons-fileupload/b0/backend-audit/round-01/request.json": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/backend-audit/round-01/request.json",
+      "original_sha256": "5ada5aecf24eefc1ea3ab5a359899911e49a8459eed66a1c642580b9dd92ffd5",
+      "published_sha256": "5ada5aecf24eefc1ea3ab5a359899911e49a8459eed66a1c642580b9dd92ffd5",
+      "paths_normalized": true
+    },
+    "data/commons-fileupload/b0/metadata.json": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/metadata.json",
+      "original_sha256": "fdf268534e095db4a51c6e1200fa63d53bff8c509827557dea8c127f979c1636",
+      "published_sha256": "fdf268534e095db4a51c6e1200fa63d53bff8c509827557dea8c127f979c1636",
+      "paths_normalized": true
+    },
+    "data/commons-fileupload/b0/oracle_score.txt": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/oracle_score.txt",
+      "original_sha256": "c987ed8fed4be7c10e92a870d817ce7550b9a8303d74fd127279ad2d2abf653e",
+      "published_sha256": "25c172273eb0dfbebf8369bc421ae1e10a8008f2c6fe555ffa428168232c0118",
+      "paths_normalized": true
+    },
+    "data/commons-fileupload/b0/project/src/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/DefaultFileItem.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/DefaultFileItem.py",
+      "original_sha256": "6b1c5a0dfc0815b6fd914127639a5f9f0b90dfff6bd6636a5448cd0b22a66aa2",
+      "published_sha256": "6b1c5a0dfc0815b6fd914127639a5f9f0b90dfff6bd6636a5448cd0b22a66aa2",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/DefaultFileItemFactory.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/DefaultFileItemFactory.py",
+      "original_sha256": "e2e567c54109a97354964c1f7b62570018109693324a0814cacc3c1b64339605",
+      "published_sha256": "e2e567c54109a97354964c1f7b62570018109693324a0814cacc3c1b64339605",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileCountLimitExceededException.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileCountLimitExceededException.py",
+      "original_sha256": "abd9c12b60bfcde152133f7f2c6d6e5a7df0b8273cc67278cd1e9bf2c2793d18",
+      "published_sha256": "abd9c12b60bfcde152133f7f2c6d6e5a7df0b8273cc67278cd1e9bf2c2793d18",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileItem.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileItem.py",
+      "original_sha256": "1e09e83a690a68297270cf58f7a25da205f9151c1c82e691e63b4fda84c9aed3",
+      "published_sha256": "1e09e83a690a68297270cf58f7a25da205f9151c1c82e691e63b4fda84c9aed3",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileItemFactory.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileItemFactory.py",
+      "original_sha256": "eae46b3e60df519b5c1b71ed067fc805d1bec61d2aaaffe4d20a33978fdbcd9b",
+      "published_sha256": "eae46b3e60df519b5c1b71ed067fc805d1bec61d2aaaffe4d20a33978fdbcd9b",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileItemHeaders.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileItemHeaders.py",
+      "original_sha256": "c52a337f3138dd142aa91e9fa8d81230144f2aaaddcad1f85517397e7b484df1",
+      "published_sha256": "c52a337f3138dd142aa91e9fa8d81230144f2aaaddcad1f85517397e7b484df1",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileItemHeadersSupport.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileItemHeadersSupport.py",
+      "original_sha256": "825fa3a48130d3a409cbc4c3a940bae0ce3b6d73c760d1f0ccc3e63e8369dd41",
+      "published_sha256": "825fa3a48130d3a409cbc4c3a940bae0ce3b6d73c760d1f0ccc3e63e8369dd41",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileItemIterator.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileItemIterator.py",
+      "original_sha256": "554691bf8f74d89004bd5d08a6e65eb8b7249a78923c7b25c45fa20687821d64",
+      "published_sha256": "554691bf8f74d89004bd5d08a6e65eb8b7249a78923c7b25c45fa20687821d64",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileItemStream.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileItemStream.py",
+      "original_sha256": "bb4d3f6d9bc7a6b8b702a8ba5f0b0a8807c6c92eedf327f32f26f03f35754da9",
+      "published_sha256": "bb4d3f6d9bc7a6b8b702a8ba5f0b0a8807c6c92eedf327f32f26f03f35754da9",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileUpload.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileUpload.py",
+      "original_sha256": "0014ec6c9285c3850fcc391baef6f26544b9e557241a8c26a1c8b54c97e2306d",
+      "published_sha256": "0014ec6c9285c3850fcc391baef6f26544b9e557241a8c26a1c8b54c97e2306d",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileUploadBase.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileUploadBase.py",
+      "original_sha256": "d87f628063c5f8e6a379e573da23de9d84fa6ac448e14bd59399a94bdf4c751c",
+      "published_sha256": "d87f628063c5f8e6a379e573da23de9d84fa6ac448e14bd59399a94bdf4c751c",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/FileUploadException.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/FileUploadException.py",
+      "original_sha256": "2c230a5ecb1f0b6d8ac7751ce2e4d1d403996bfb32ddb05cc15ce4a34b69356e",
+      "published_sha256": "2c230a5ecb1f0b6d8ac7751ce2e4d1d403996bfb32ddb05cc15ce4a34b69356e",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/InvalidFileNameException.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/InvalidFileNameException.py",
+      "original_sha256": "bbca2d4b24afece3a5f869f55641f28669a2b6284d68c896542912c649d83488",
+      "published_sha256": "bbca2d4b24afece3a5f869f55641f28669a2b6284d68c896542912c649d83488",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/MultipartStream.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/MultipartStream.py",
+      "original_sha256": "274c56523822b355ac45b54717c9e9220772fbde12ffb14a4ca171a10c0e1a43",
+      "published_sha256": "274c56523822b355ac45b54717c9e9220772fbde12ffb14a4ca171a10c0e1a43",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/ParameterParser.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/ParameterParser.py",
+      "original_sha256": "92950211e3a635f56e513fd54f31703f9da95bc2c396d232070a18c51b621136",
+      "published_sha256": "92950211e3a635f56e513fd54f31703f9da95bc2c396d232070a18c51b621136",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/ProgressListener.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/ProgressListener.py",
+      "original_sha256": "f877dc65f07fd9a50ad20dd19e00678cbf2889de2f3e284fb764801a50e0ddf6",
+      "published_sha256": "f877dc65f07fd9a50ad20dd19e00678cbf2889de2f3e284fb764801a50e0ddf6",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/RequestContext.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/RequestContext.py",
+      "original_sha256": "b42ccccedf2cc36d70b2bf9d957bee7eef0a30df42335efc45f2b3ccf367934b",
+      "published_sha256": "b42ccccedf2cc36d70b2bf9d957bee7eef0a30df42335efc45f2b3ccf367934b",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/UploadContext.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/UploadContext.py",
+      "original_sha256": "bb31be9d21a2bde8c44bb3079bae321b72fe01131aed2d79c4a14a3f5b61a9ed",
+      "published_sha256": "bb31be9d21a2bde8c44bb3079bae321b72fe01131aed2d79c4a14a3f5b61a9ed",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/disk/DiskFileItem.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/disk/DiskFileItem.py",
+      "original_sha256": "caa9d0a3c77bc36c6e796274ad99dca9a9ad131a124e708c669196da4019b173",
+      "published_sha256": "caa9d0a3c77bc36c6e796274ad99dca9a9ad131a124e708c669196da4019b173",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/disk/DiskFileItemFactory.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/disk/DiskFileItemFactory.py",
+      "original_sha256": "814d6772e25b383aad78dbf771215d6e827a6e731cb9eba0e57419cd07ed3894",
+      "published_sha256": "814d6772e25b383aad78dbf771215d6e827a6e731cb9eba0e57419cd07ed3894",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/disk/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/disk/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/portlet/PortletFileUpload.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/portlet/PortletFileUpload.py",
+      "original_sha256": "423dd85b078ce605f87089b067a165b7e736172356d760602cfa0bac89edde86",
+      "published_sha256": "423dd85b078ce605f87089b067a165b7e736172356d760602cfa0bac89edde86",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/portlet/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/portlet/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/servlet/ServletRequestContext.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/servlet/ServletRequestContext.py",
+      "original_sha256": "07e77a7986215b6ad525df62cd4c74ebae3b25120e964d2ba923e08a7f79c21d",
+      "published_sha256": "07e77a7986215b6ad525df62cd4c74ebae3b25120e964d2ba923e08a7f79c21d",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/servlet/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/servlet/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/Closeable.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/Closeable.py",
+      "original_sha256": "8d4bba3f85bbf7d2b1e66724d82b687a02198cb1936a166215d8fd7280c252b4",
+      "published_sha256": "8d4bba3f85bbf7d2b1e66724d82b687a02198cb1936a166215d8fd7280c252b4",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/FileItemHeadersImpl.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/FileItemHeadersImpl.py",
+      "original_sha256": "8789d38416b311dfaddf499b11f3767ce57d6f15972f87aa47aaa9aefffeca67",
+      "published_sha256": "8789d38416b311dfaddf499b11f3767ce57d6f15972f87aa47aaa9aefffeca67",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/LimitedInputStream.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/LimitedInputStream.py",
+      "original_sha256": "c470692f848be45c5e7428fc8f66efb455336a7156715f5b8fb746dcff828186",
+      "published_sha256": "c470692f848be45c5e7428fc8f66efb455336a7156715f5b8fb746dcff828186",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/Streams.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/Streams.py",
+      "original_sha256": "e1ca08352a54b3378e461b2083e25a9fe363adf3095a30742c4bb97dd13998e4",
+      "published_sha256": "e1ca08352a54b3378e461b2083e25a9fe363adf3095a30742c4bb97dd13998e4",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/mime/Base64Decoder.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/mime/Base64Decoder.py",
+      "original_sha256": "b20f9778ebdf1b9531eb876d44020a93ba3538433f774fcfb22b42c3215ea21e",
+      "published_sha256": "b20f9778ebdf1b9531eb876d44020a93ba3538433f774fcfb22b42c3215ea21e",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+      "original_sha256": "16ade5602a002a6811856047a5337d202bdb92c3579217f785e02995cc428efe",
+      "published_sha256": "16ade5602a002a6811856047a5337d202bdb92c3579217f785e02995cc428efe",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/mime/ParseException.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/mime/ParseException.py",
+      "original_sha256": "848ea606a0c0e358472a43ce0e9c0a67bca44589863fa04394fdb81ffb1bebf2",
+      "published_sha256": "848ea606a0c0e358472a43ce0e9c0a67bca44589863fa04394fdb81ffb1bebf2",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/mime/QuotedPrintableDecoder.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/mime/QuotedPrintableDecoder.py",
+      "original_sha256": "b0267f06047b36d3954eb919e40d60567cc7b27fd88f08d07d82d3f59ae8ccf9",
+      "published_sha256": "b0267f06047b36d3954eb919e40d60567cc7b27fd88f08d07d82d3f59ae8ccf9",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/project/src/main/org/apache/commons/fileupload/util/mime/__init__.py": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/fileupload/util/mime/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-fileupload/b0/run_evidence.json": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/run_evidence.json",
+      "original_sha256": "0e7b38ef29a2ea8f78e19aff2e300c30ddc46a3794bf858975e6374869c6196e",
+      "published_sha256": "0e7b38ef29a2ea8f78e19aff2e300c30ddc46a3794bf858975e6374869c6196e",
+      "paths_normalized": true
+    },
+    "data/commons-fileupload/b0/score.json": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908/score.json",
+      "original_sha256": "6ac0be7519775c91aa8a182637f675cf0cea3740ca6b4e9a2668689a3d13cca4",
+      "published_sha256": "6ac0be7519775c91aa8a182637f675cf0cea3740ca6b4e9a2668689a3d13cca4",
+      "paths_normalized": true
+    },
+    "data/commons-fileupload/b0/status.json": {
+      "archive_member": "runs/commons-fileupload/b0-sonnet5-med-20260908.status.json",
+      "original_sha256": "ad97c1bb2d2df51a6fb0d89a682146117e183ffddf531330957f769e30098286",
+      "published_sha256": "175cf0c94269691156a8258e267c0b5dd14aad5ca99e76538f31e7322a286f1c",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/backend-audit/round-01/audit.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-01/audit.json",
+      "original_sha256": "eae5e4661cdf05cb76e52db84395cd417af66d3ce8ef2704bc4ecbb35bdf9062",
+      "published_sha256": "eae5e4661cdf05cb76e52db84395cd417af66d3ce8ef2704bc4ecbb35bdf9062",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/backend-audit/round-01/request.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-01/request.json",
+      "original_sha256": "fa428fc9c958c0520e181730d1dd563cf1915a05524509960f6950a4fab6b77a",
+      "published_sha256": "fa428fc9c958c0520e181730d1dd563cf1915a05524509960f6950a4fab6b77a",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/backend-audit/round-02/audit.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-02/audit.json",
+      "original_sha256": "cfe5234c23fc9252d8a88858d5ab14680077a2da66ec9376305da613e889e7e0",
+      "published_sha256": "cfe5234c23fc9252d8a88858d5ab14680077a2da66ec9376305da613e889e7e0",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/backend-audit/round-02/request.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-02/request.json",
+      "original_sha256": "cd243f42187cad1c30d0e390fea5ed227bd6ada65b92d90209e3b117121f530c",
+      "published_sha256": "cd243f42187cad1c30d0e390fea5ed227bd6ada65b92d90209e3b117121f530c",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/backend-audit/round-03/audit.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-03/audit.json",
+      "original_sha256": "e18aec8814b17b96a036e17516c1f95df2f74aaadd7c1c38c04f6697978368a4",
+      "published_sha256": "e18aec8814b17b96a036e17516c1f95df2f74aaadd7c1c38c04f6697978368a4",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/backend-audit/round-03/request.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-03/request.json",
+      "original_sha256": "19383ae68f6dffaa346900f49ab5ec3ccca267a26da7bac8d837ca556562f9cf",
+      "published_sha256": "19383ae68f6dffaa346900f49ab5ec3ccca267a26da7bac8d837ca556562f9cf",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/backend-audit/round-04/audit.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-04/audit.json",
+      "original_sha256": "fdfe0762a87fc5465d3a67d152f3794c55bd53be4f1097b53568dc21df8c5f40",
+      "published_sha256": "fdfe0762a87fc5465d3a67d152f3794c55bd53be4f1097b53568dc21df8c5f40",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/backend-audit/round-04/request.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-04/request.json",
+      "original_sha256": "ac8112d39634cb8f65a270b76bca8ad425ad6ffc1035c21f18360fe53b332759",
+      "published_sha256": "ac8112d39634cb8f65a270b76bca8ad425ad6ffc1035c21f18360fe53b332759",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/metadata.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/metadata.json",
+      "original_sha256": "5b2941ea915ea3b877f8954dba474345346ab41fad6202d84310b679f0fa0061",
+      "published_sha256": "5b2941ea915ea3b877f8954dba474345346ab41fad6202d84310b679f0fa0061",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/oracle_score.txt": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/oracle_score.txt",
+      "original_sha256": "8f286f6b540e12a1e5b5786e1f097eb318771abd45613dd8eaad06894612fe46",
+      "published_sha256": "2e0894ac05d4a36c92661647e779af15068dad3f14b72d2126bdfac0986d0f8e",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/project/src/__init__.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/__init__.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/__init__.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/__init__.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/__init__.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/Arg.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/Arg.py",
+      "original_sha256": "a7cf9d5bbd1e60f3c905ef371f1180030978b54fe77a9bfea60edca38e3d93af",
+      "published_sha256": "a7cf9d5bbd1e60f3c905ef371f1180030978b54fe77a9bfea60edca38e3d93af",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/CreditCardValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/CreditCardValidator.py",
+      "original_sha256": "b01177de65a3e8627eddd946c32129fe3c91a8f73b6cb065176aacd59f23d32e",
+      "published_sha256": "b01177de65a3e8627eddd946c32129fe3c91a8f73b6cb065176aacd59f23d32e",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/DateValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/DateValidator.py",
+      "original_sha256": "0fa78b4856ef6dd5e096ebbfa1f8424837d115dd550e04f6b914f39b52bd71c4",
+      "published_sha256": "0fa78b4856ef6dd5e096ebbfa1f8424837d115dd550e04f6b914f39b52bd71c4",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/EmailValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/EmailValidator.py",
+      "original_sha256": "ba038701fd5e9c3f819e1d419778c90856fc5853b83e10c0e429dc77b149ffd0",
+      "published_sha256": "ba038701fd5e9c3f819e1d419778c90856fc5853b83e10c0e429dc77b149ffd0",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/Field.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/Field.py",
+      "original_sha256": "ecf128884aea902ece46487e1d04fddc83a73b626fe244c85dd4084918977af3",
+      "published_sha256": "ecf128884aea902ece46487e1d04fddc83a73b626fe244c85dd4084918977af3",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/Form.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/Form.py",
+      "original_sha256": "f671126cd4bbfb3e8d03eb5b1014cfe6b80b37b2d4fe4f8ed72c7fb35945e01b",
+      "published_sha256": "f671126cd4bbfb3e8d03eb5b1014cfe6b80b37b2d4fe4f8ed72c7fb35945e01b",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/FormSet.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/FormSet.py",
+      "original_sha256": "c9f92a15369e3237ad49cad223ea2b672c658739738f4ce75332bbfa31b62a29",
+      "published_sha256": "c9f92a15369e3237ad49cad223ea2b672c658739738f4ce75332bbfa31b62a29",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/GenericTypeValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/GenericTypeValidator.py",
+      "original_sha256": "57d98dd60c41c53c5adcfc1ca594c876c070a57f491817ce897e4e2d72bc9a11",
+      "published_sha256": "57d98dd60c41c53c5adcfc1ca594c876c070a57f491817ce897e4e2d72bc9a11",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/GenericValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/GenericValidator.py",
+      "original_sha256": "b09b9b64fedd572d6f8b6cd91793cbaf9429e86f25c041740bb343a90634fcd8",
+      "published_sha256": "b09b9b64fedd572d6f8b6cd91793cbaf9429e86f25c041740bb343a90634fcd8",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/ISBNValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/ISBNValidator.py",
+      "original_sha256": "4b16765b4beca7f81cb15bd8b8cacc59ff94debb0cc3cc11e22ae84bce39dc52",
+      "published_sha256": "4b16765b4beca7f81cb15bd8b8cacc59ff94debb0cc3cc11e22ae84bce39dc52",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/Msg.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/Msg.py",
+      "original_sha256": "67366f6f0ff2e7661d66dac540a3f6e4ca838553949a26ccd91822a713493cba",
+      "published_sha256": "67366f6f0ff2e7661d66dac540a3f6e4ca838553949a26ccd91822a713493cba",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/UrlValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/UrlValidator.py",
+      "original_sha256": "6af1d349a8dbf5a76088bd22e057baea671173fd6c4d25184587ae3a48b62f20",
+      "published_sha256": "6af1d349a8dbf5a76088bd22e057baea671173fd6c4d25184587ae3a48b62f20",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/Validator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/Validator.py",
+      "original_sha256": "2b89381da55f70af7882ee0c77852ea18d858ccd0e1bf00631dedfcef6a02f07",
+      "published_sha256": "2b89381da55f70af7882ee0c77852ea18d858ccd0e1bf00631dedfcef6a02f07",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/ValidatorAction.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/ValidatorAction.py",
+      "original_sha256": "2d4bd25b63fb34922a17e65155e67763e76e46b5ef3457da1beb813243e8ec00",
+      "published_sha256": "2d4bd25b63fb34922a17e65155e67763e76e46b5ef3457da1beb813243e8ec00",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/ValidatorException.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/ValidatorException.py",
+      "original_sha256": "133c41d3446a8d1d0001462f412d8c0b241acb6243be1e0cc2cb282ac6af079d",
+      "published_sha256": "133c41d3446a8d1d0001462f412d8c0b241acb6243be1e0cc2cb282ac6af079d",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/ValidatorResources.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/ValidatorResources.py",
+      "original_sha256": "103a46a57f3869a766e8e43350731c8470f1293672d9f23e5e6d33c4bb758d1e",
+      "published_sha256": "103a46a57f3869a766e8e43350731c8470f1293672d9f23e5e6d33c4bb758d1e",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/ValidatorResult.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/ValidatorResult.py",
+      "original_sha256": "f86bd1dfccda65d3767481638b1b2b4c63461ca220abc8fc665206a9a2b0c8fa",
+      "published_sha256": "f86bd1dfccda65d3767481638b1b2b4c63461ca220abc8fc665206a9a2b0c8fa",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/ValidatorResults.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/ValidatorResults.py",
+      "original_sha256": "ac45ba6a1cac14b94fdfd4bf08ad1b3e0ff9691e8d9568664d6c121b9671cc75",
+      "published_sha256": "ac45ba6a1cac14b94fdfd4bf08ad1b3e0ff9691e8d9568664d6c121b9671cc75",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/Var.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/Var.py",
+      "original_sha256": "35fb0cb1e2c3e6cbaa18caeb1d323484162aab8ef3a8c2cca31f9983cdd08a9e",
+      "published_sha256": "35fb0cb1e2c3e6cbaa18caeb1d323484162aab8ef3a8c2cca31f9983cdd08a9e",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/__init__.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/AbstractCalendarValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/AbstractCalendarValidator.py",
+      "original_sha256": "543d891ec672055dad9e4b1012e59d771cfc4f8a3bb23e3f1ed9442b235e0ac2",
+      "published_sha256": "543d891ec672055dad9e4b1012e59d771cfc4f8a3bb23e3f1ed9442b235e0ac2",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/AbstractFormatValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/AbstractFormatValidator.py",
+      "original_sha256": "cd3b611d59f935c0c3eccadf32a0508ae6f8450509d3c10dfeb578a579805bf2",
+      "published_sha256": "cd3b611d59f935c0c3eccadf32a0508ae6f8450509d3c10dfeb578a579805bf2",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py",
+      "original_sha256": "c34ec2fb9c2574947d766b6dc2761759bbf1f6af0e3105960bcdd14622fb4bdf",
+      "published_sha256": "c34ec2fb9c2574947d766b6dc2761759bbf1f6af0e3105960bcdd14622fb4bdf",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/BigDecimalValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/BigDecimalValidator.py",
+      "original_sha256": "2055306d841677f8bf86a07093603259cce14aaee3caae135672f479b3a41782",
+      "published_sha256": "2055306d841677f8bf86a07093603259cce14aaee3caae135672f479b3a41782",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/BigIntegerValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/BigIntegerValidator.py",
+      "original_sha256": "f9ff9efaaa35d826f25c3a44194e1635fa1ab8e5d26589eed9508ebfaa4d026b",
+      "published_sha256": "f9ff9efaaa35d826f25c3a44194e1635fa1ab8e5d26589eed9508ebfaa4d026b",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/ByteValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/ByteValidator.py",
+      "original_sha256": "fef7aac40ee558b503d47d5aaa6b40728ff2628326a8313f11da99e60274cf16",
+      "published_sha256": "fef7aac40ee558b503d47d5aaa6b40728ff2628326a8313f11da99e60274cf16",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/CalendarValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/CalendarValidator.py",
+      "original_sha256": "831e7ce3fa29d75543dd103aa949eed4703c2e779a6c3f3dc827419378376ee9",
+      "published_sha256": "831e7ce3fa29d75543dd103aa949eed4703c2e779a6c3f3dc827419378376ee9",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/CodeValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/CodeValidator.py",
+      "original_sha256": "87599f7c630dc71eef9bc3aa7afc4468ea66a9a43c13f1a678442a75a56aa278",
+      "published_sha256": "87599f7c630dc71eef9bc3aa7afc4468ea66a9a43c13f1a678442a75a56aa278",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/CreditCardValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/CreditCardValidator.py",
+      "original_sha256": "d1e6ede4280d005c2fcd5cfbb468f0812145e3bec3c6884b2076b21d8d5c6557",
+      "published_sha256": "d1e6ede4280d005c2fcd5cfbb468f0812145e3bec3c6884b2076b21d8d5c6557",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/CurrencyValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/CurrencyValidator.py",
+      "original_sha256": "79bc0c7a2bb5dbcfde52360531bff44b69be3c73eca8dee91c49b7a30c19b0e9",
+      "published_sha256": "79bc0c7a2bb5dbcfde52360531bff44b69be3c73eca8dee91c49b7a30c19b0e9",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/DateValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/DateValidator.py",
+      "original_sha256": "b81d179b989c7d389b5a0f05bd916b3c1c00127cf0875b50dda4294ce437b1ec",
+      "published_sha256": "b81d179b989c7d389b5a0f05bd916b3c1c00127cf0875b50dda4294ce437b1ec",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/DomainValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/DomainValidator.py",
+      "original_sha256": "50fafea6e14ca6e7e89d76991adbfc460c59678770a2f985f192288b1c363386",
+      "published_sha256": "50fafea6e14ca6e7e89d76991adbfc460c59678770a2f985f192288b1c363386",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/DoubleValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/DoubleValidator.py",
+      "original_sha256": "f3cf4b6b53a427245edbeb56831a71b3792b13205144077e11e19025b0be2adb",
+      "published_sha256": "f3cf4b6b53a427245edbeb56831a71b3792b13205144077e11e19025b0be2adb",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/EmailValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/EmailValidator.py",
+      "original_sha256": "aae3e15e478a395894993a088995683792e3aeb616f83d7060f20ccbe91d0278",
+      "published_sha256": "aae3e15e478a395894993a088995683792e3aeb616f83d7060f20ccbe91d0278",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/FloatValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/FloatValidator.py",
+      "original_sha256": "e7953fada4c2d2785f0c80b3a687d36313a2cbb8d37d4ff7df045b7da25cbbfb",
+      "published_sha256": "e7953fada4c2d2785f0c80b3a687d36313a2cbb8d37d4ff7df045b7da25cbbfb",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/IBANValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/IBANValidator.py",
+      "original_sha256": "f526df6044fad0980752998fed0abfa18a54d9bdec9c839dc281d9dc8337e907",
+      "published_sha256": "f526df6044fad0980752998fed0abfa18a54d9bdec9c839dc281d9dc8337e907",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/ISBNValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/ISBNValidator.py",
+      "original_sha256": "05a085a68ddd96f833f6810cf284a1ce355f9b7117f2efe67d62604b25a1f7dc",
+      "published_sha256": "05a085a68ddd96f833f6810cf284a1ce355f9b7117f2efe67d62604b25a1f7dc",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/ISINValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/ISINValidator.py",
+      "original_sha256": "08deefef8fc870b14a3d706afc3ceb2615a9b9ecf3d34073772ab6a8086057ae",
+      "published_sha256": "08deefef8fc870b14a3d706afc3ceb2615a9b9ecf3d34073772ab6a8086057ae",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/ISSNValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/ISSNValidator.py",
+      "original_sha256": "436ac982f7f362df0911cd4d89ab07423c02cfd9e073aeb457300bc904fe9f63",
+      "published_sha256": "436ac982f7f362df0911cd4d89ab07423c02cfd9e073aeb457300bc904fe9f63",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/InetAddressValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/InetAddressValidator.py",
+      "original_sha256": "eff808a4ac55f7ddb1cee927edb4c368857069bf112ffa120fc395468d52fa7d",
+      "published_sha256": "eff808a4ac55f7ddb1cee927edb4c368857069bf112ffa120fc395468d52fa7d",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/IntegerValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/IntegerValidator.py",
+      "original_sha256": "374b457adda1e188bf3c6a3110cac50823d8b325c08be3a0bdb2f4c44f8c0bb9",
+      "published_sha256": "374b457adda1e188bf3c6a3110cac50823d8b325c08be3a0bdb2f4c44f8c0bb9",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/LongValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/LongValidator.py",
+      "original_sha256": "c7868b2a484011f53878858be716a60de2c4312e37a8a44fdb21974df18e35a5",
+      "published_sha256": "c7868b2a484011f53878858be716a60de2c4312e37a8a44fdb21974df18e35a5",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/PercentValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/PercentValidator.py",
+      "original_sha256": "6f6f76e017efcd58b40d852173cdcd8f1fa49570c8123c7f48073b6237cec892",
+      "published_sha256": "6f6f76e017efcd58b40d852173cdcd8f1fa49570c8123c7f48073b6237cec892",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/RegexValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/RegexValidator.py",
+      "original_sha256": "7adebb130bd0c9ba0c4371d1228f09038254818d6adb9416f61a6022d6dc8cae",
+      "published_sha256": "7adebb130bd0c9ba0c4371d1228f09038254818d6adb9416f61a6022d6dc8cae",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/ShortValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/ShortValidator.py",
+      "original_sha256": "d71a81ce5feded80dac721ae197e170a6ac96d209bfc7c81083e7a75ba51d34d",
+      "published_sha256": "d71a81ce5feded80dac721ae197e170a6ac96d209bfc7c81083e7a75ba51d34d",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/TimeValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/TimeValidator.py",
+      "original_sha256": "20e1f28d5a6c1dcec6d9b45715bd611992777e71c393c62c375a2a5d26ec5809",
+      "published_sha256": "20e1f28d5a6c1dcec6d9b45715bd611992777e71c393c62c375a2a5d26ec5809",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/UrlValidator.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/UrlValidator.py",
+      "original_sha256": "5a6d38a4412409b8731febd516ee3e00f274803a9f2d79784320fb9f3fab4478",
+      "published_sha256": "5a6d38a4412409b8731febd516ee3e00f274803a9f2d79784320fb9f3fab4478",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/__init__.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/ABANumberCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/ABANumberCheckDigit.py",
+      "original_sha256": "896e7e1fbdcb8a29b1313eab8358319aa98f1d49d43908e4646fc1e8ac96b4b7",
+      "published_sha256": "896e7e1fbdcb8a29b1313eab8358319aa98f1d49d43908e4646fc1e8ac96b4b7",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/CUSIPCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/CUSIPCheckDigit.py",
+      "original_sha256": "1ad6428a0c7c3ee6e090b884974c17bc43a7f24d035638d8ffca1c3687174482",
+      "published_sha256": "1ad6428a0c7c3ee6e090b884974c17bc43a7f24d035638d8ffca1c3687174482",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/CheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/CheckDigit.py",
+      "original_sha256": "5f26537955639801774e1992638d716396df5ad3cf2ff674d11f5d93702d3df9",
+      "published_sha256": "5f26537955639801774e1992638d716396df5ad3cf2ff674d11f5d93702d3df9",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/CheckDigitException.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/CheckDigitException.py",
+      "original_sha256": "8e2abe9b90b95480a5fb2a97ef009b62a9621a757aef5f2932bceb06e92dbfff",
+      "published_sha256": "8e2abe9b90b95480a5fb2a97ef009b62a9621a757aef5f2932bceb06e92dbfff",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/EAN13CheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/EAN13CheckDigit.py",
+      "original_sha256": "a51509f884549cc6716c1cb6c7ce3d5abd2680df0b10c0c9ada81d93cba8166a",
+      "published_sha256": "a51509f884549cc6716c1cb6c7ce3d5abd2680df0b10c0c9ada81d93cba8166a",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/IBANCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/IBANCheckDigit.py",
+      "original_sha256": "19941c9485dc670415f3e5c49ba127fb09be1852719f8d81f128dbc22579d05e",
+      "published_sha256": "19941c9485dc670415f3e5c49ba127fb09be1852719f8d81f128dbc22579d05e",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/ISBN10CheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/ISBN10CheckDigit.py",
+      "original_sha256": "3ed0bd3e66429d04405d362b4ab566dc6e3b760a4c006af599eb8ea90146a9ae",
+      "published_sha256": "3ed0bd3e66429d04405d362b4ab566dc6e3b760a4c006af599eb8ea90146a9ae",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/ISBNCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/ISBNCheckDigit.py",
+      "original_sha256": "0d328dd09a737e6784cc0cf87a29d6ea72073bbd9be45975b63d5ed7eb38c346",
+      "published_sha256": "0d328dd09a737e6784cc0cf87a29d6ea72073bbd9be45975b63d5ed7eb38c346",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/ISINCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/ISINCheckDigit.py",
+      "original_sha256": "65f1cfe5d72674bb4b7bfbacc486d501784e13af37e679ae7bc506ead313b98e",
+      "published_sha256": "65f1cfe5d72674bb4b7bfbacc486d501784e13af37e679ae7bc506ead313b98e",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/ISSNCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/ISSNCheckDigit.py",
+      "original_sha256": "06df93e49d26bcc40170347b81846507078002b69b8282e2b1778a04c00e891c",
+      "published_sha256": "06df93e49d26bcc40170347b81846507078002b69b8282e2b1778a04c00e891c",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/LuhnCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/LuhnCheckDigit.py",
+      "original_sha256": "3fc1551d24273b7243c844dfe67cf08df5665614da2041fb058757cc2b028d46",
+      "published_sha256": "3fc1551d24273b7243c844dfe67cf08df5665614da2041fb058757cc2b028d46",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.py",
+      "original_sha256": "3a1e742fd5f961efb5f7c0d8c824969b99d8ac89f61a4e2600be28c4ab293fbd",
+      "published_sha256": "3a1e742fd5f961efb5f7c0d8c824969b99d8ac89f61a4e2600be28c4ab293fbd",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/ModulusTenCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/ModulusTenCheckDigit.py",
+      "original_sha256": "5ec841689a86493f806d3978d317ff14abe95121c4ed7e33f1bad868d1516901",
+      "published_sha256": "5ec841689a86493f806d3978d317ff14abe95121c4ed7e33f1bad868d1516901",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/SedolCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/SedolCheckDigit.py",
+      "original_sha256": "e7fd2f90df2409de20ef0f20561c503335ac15e40635fd5ee360d2279ed81917",
+      "published_sha256": "e7fd2f90df2409de20ef0f20561c503335ac15e40635fd5ee360d2279ed81917",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/VerhoeffCheckDigit.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/VerhoeffCheckDigit.py",
+      "original_sha256": "db8cd8541f64fe49ae5f227b56c22f950e6d57b25ef3e8b254c1da9595af367f",
+      "published_sha256": "db8cd8541f64fe49ae5f227b56c22f950e6d57b25ef3e8b254c1da9595af367f",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/routines/checkdigit/__init__.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/routines/checkdigit/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/util/Flags.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/util/Flags.py",
+      "original_sha256": "92a432eaac889651dbe04c12cbfe4e716cfa78faef0f08ff0a7a32c45cd1a570",
+      "published_sha256": "92a432eaac889651dbe04c12cbfe4e716cfa78faef0f08ff0a7a32c45cd1a570",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/util/ValidatorUtils.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/util/ValidatorUtils.py",
+      "original_sha256": "e82eae07ecd09dd22c0771e16045217398b77202f19486a67746b4e49ee07c5f",
+      "published_sha256": "e82eae07ecd09dd22c0771e16045217398b77202f19486a67746b4e49ee07c5f",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/project/src/main/org/apache/commons/validator/util/__init__.py": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/project/src/main/org/apache/commons/validator/util/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "paths_normalized": false
+    },
+    "data/commons-validator/b0/run_evidence.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/run_evidence.json",
+      "original_sha256": "1c6c3d03735fdcfb5d3c7decd18e3420040bd063ec583f61120d53348ad556b3",
+      "published_sha256": "1c6c3d03735fdcfb5d3c7decd18e3420040bd063ec583f61120d53348ad556b3",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/score.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908/score.json",
+      "original_sha256": "345aa55423de4c4eec2700eb4cfe4fa37cf3bba0c0aeb8aa7d327bb1075aca6c",
+      "published_sha256": "345aa55423de4c4eec2700eb4cfe4fa37cf3bba0c0aeb8aa7d327bb1075aca6c",
+      "paths_normalized": true
+    },
+    "data/commons-validator/b0/status.json": {
+      "archive_member": "runs/commons-validator/b0-sonnet5-med-20260908.status.json",
+      "original_sha256": "28b042c37681682cc5ccce4f1ceb495039a95423a70675ff4c9356f7cff8cc46",
+      "published_sha256": "55494e60e9e0d989a096fd7da2395097a9d471efe1d642374e8c8db0ff62c517",
+      "paths_normalized": true
+    },
+    "diagnostics/commons-csv-collector/metadata.json": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908/metadata.json",
+      "original_sha256": "6051d0f362b13e17c3efca65f5a34d7507ccb426f9830b89045bed72875d2422",
+      "published_sha256": "6051d0f362b13e17c3efca65f5a34d7507ccb426f9830b89045bed72875d2422",
+      "paths_normalized": true
+    },
+    "diagnostics/commons-csv-collector/oracle_score.txt": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908/oracle_score.txt",
+      "original_sha256": "0a2fa62170a9afce7ef6b63297c73909c437bc17d60c6b957d6e0a30a7f63d96",
+      "published_sha256": "5d7bd9b137b42227b7061e29aad4f4668904861069846725c74aa88804ae046d",
+      "paths_normalized": true
+    },
+    "diagnostics/commons-csv-collector/status.json": {
+      "archive_member": "runs/commons-csv/b0-sonnet5-med-20260908.status.json",
+      "original_sha256": "09c87b38be59c0c6c3b3594fd644cfdb05652655aa90683383de90ba3a72e6ce",
+      "published_sha256": "d2eecf26f751a8248f682cb08baeb6ce255194848efeabb6f1ffdd07ff684263",
+      "paths_normalized": true
+    },
+    "logs/commons-cli.log": {
+      "archive_member": "logs/commons-cli.log",
+      "original_sha256": "68358a8b793de101d17c24373301905b046c2fca9a0180fb0001cd0634938caf",
+      "published_sha256": "4c7f43245575cd1275d582979bd7724130cf3e1156447f953f35b0ddd2e31542",
+      "paths_normalized": true
+    },
+    "logs/commons-csv-recovery.log": {
+      "archive_member": "logs/commons-csv-recovery.log",
+      "original_sha256": "befad675831792f529521440b461fda64315b85a1d69ec1eb5d00d1623f918eb",
+      "published_sha256": "02c4bc184525762cb3751fede95f06140587a1f34d14b9e6fb9f7bbae3d174f3",
+      "paths_normalized": true
+    },
+    "logs/commons-csv.log": {
+      "archive_member": "logs/commons-csv.log",
+      "original_sha256": "329491e941186afdba7901fab05ee9dd748f948021acc5daefcab6e1bbe9fcda",
+      "published_sha256": "cdf2ec2555008c5c47e382e5425f68c725646d059228f60d2af417b5080054c0",
+      "paths_normalized": true
+    },
+    "logs/commons-fileupload.log": {
+      "archive_member": "logs/commons-fileupload.log",
+      "original_sha256": "4635c17236978b205b1d233a32fe6c0dda1cd97f564f2a1e76a7713d3adca50f",
+      "published_sha256": "b6e831ca6f867bb13fc35f1867269267d3160337e29250fbf161d29f64dfdc76",
+      "paths_normalized": true
+    },
+    "logs/commons-validator.log": {
+      "archive_member": "logs/commons-validator.log",
+      "original_sha256": "c32955a0b3f7da4c960372ed27965ab40c127f048547f9d81bd3ae0c02945e32",
+      "published_sha256": "92d9784e9be2ed344207af1cb3e0ef61d0f1ea253ce068d9dc7b37b1c63f3fe9",
+      "paths_normalized": true
+    }
+  },
+  "omitted_private_artifact_sha256": {
+    "runs/commons-cli/b0-sonnet5-med-20260904/prompt.md": "9fddb527d9afa64c0d2b2d29e0da61552ec112281e9924a54a415dd648eca91c",
+    "runs/commons-cli/b0-sonnet5-med-20260904/response.md": "6d6d6dd4b0e3d67aa4f88e35b26117dc604e611e23b7f27c71f363fc310d11bb",
+    "runs/commons-cli/b0-sonnet5-med-20260908/backend-audit/round-01/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-cli/b0-sonnet5-med-20260908/backend-audit/round-01/stdout.jsonl": "2c2b1b4288a991c6e7f65d593755301b6631026724d81176b4c60d6d29f52b81",
+    "runs/commons-cli/b0-sonnet5-med-20260908/backend-audit/round-02/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-cli/b0-sonnet5-med-20260908/backend-audit/round-02/stdout.jsonl": "e5c59ad018863fd140d924f5fca39242f522af532a661d4f04cff6a982e9d3e4",
+    "runs/commons-cli/b0-sonnet5-med-20260908/prompt.md": "9fddb527d9afa64c0d2b2d29e0da61552ec112281e9924a54a415dd648eca91c",
+    "runs/commons-cli/b0-sonnet5-med-20260908/response.md": "177319e61006d42118984f1d9a541c8731d3ae19b91da70926289ffd61ba8e6e",
+    "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/backend-audit/round-01/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/backend-audit/round-01/stdout.jsonl": "e13ffaf4eee862c1d71b2d8a75041f4bf234cae19516e53bd45a4b6d0a7e97ce",
+    "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/backend-audit/round-02/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/backend-audit/round-02/stdout.jsonl": "3314b5b8579b5eaecca9a9d04d37b47ce2c119dd123d844b73562651189361c6",
+    "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/prompt.md": "a315b53472c93c3e3043f58e2fdd9ea5c7b7ddb27b3278e1e77eb4ae82a254e5",
+    "runs/commons-csv/b0-sonnet5-med-20260908-collector-recovery/response.md": "35c3fe5b07cdefb278cd540cb5ce2006723bee0ede30d9fdbb93fbf680191af5",
+    "runs/commons-csv/b0-sonnet5-med-20260908/backend-audit/round-01/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-csv/b0-sonnet5-med-20260908/backend-audit/round-01/stdout.jsonl": "e13ffaf4eee862c1d71b2d8a75041f4bf234cae19516e53bd45a4b6d0a7e97ce",
+    "runs/commons-csv/b0-sonnet5-med-20260908/prompt.md": "a315b53472c93c3e3043f58e2fdd9ea5c7b7ddb27b3278e1e77eb4ae82a254e5",
+    "runs/commons-csv/b0-sonnet5-med-20260908/response.md": "4a7c35eccd1ca7f27aca17d818f43bf4463c660520e8d78bb59e8ca16447791c",
+    "runs/commons-fileupload/b0-sonnet5-med-20260908/backend-audit/round-01/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-fileupload/b0-sonnet5-med-20260908/backend-audit/round-01/stdout.jsonl": "0266a432243f55b0ffa1a0f6f74281cdedd174891dbad7a568cd5355e79dc6c8",
+    "runs/commons-fileupload/b0-sonnet5-med-20260908/prompt.md": "617760275bb66d380805d0477eff22580f567891df58f39472445b780c70458a",
+    "runs/commons-fileupload/b0-sonnet5-med-20260908/response.md": "6a5150cc08088e3b85c9c44b93b332cc143fc905ec0f97ca935404d066e936ea",
+    "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-01/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-01/stdout.jsonl": "d4f217347954d722a24eab5b6783e8930a4525e615af5971faba4871a94d0efe",
+    "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-02/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-02/stdout.jsonl": "1b36329704857bf283ca760f29472bde0645473b7ca34d06100453fe5a4fcd61",
+    "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-03/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-03/stdout.jsonl": "ad36a5d2550a95f189430e3d84600608b21b93905a65a5681bc32daaecc5f647",
+    "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-04/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/commons-validator/b0-sonnet5-med-20260908/backend-audit/round-04/stdout.jsonl": "33ed0adf716ad6932e820beaa87fb7a5575ea8fde48e9deac8cbe890cd601292",
+    "runs/commons-validator/b0-sonnet5-med-20260908/prompt.md": "486a61e73716edb73023f0828b0398c14a7379a07b1824d4926f839165fa16b1",
+    "runs/commons-validator/b0-sonnet5-med-20260908/response.md": "2b2db08817870df487d81a7ee4ef0ce7f11e5e8f75818d1cce37ea568d11497f"
+  }
+}

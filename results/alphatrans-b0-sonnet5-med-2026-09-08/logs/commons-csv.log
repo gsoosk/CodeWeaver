@@ -1,0 +1,16 @@
+[batch] status: ${HOME}/cwruns/b0-sonnet5-med-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-sonnet5-med-20260908.status.json
+[b0] project      : commons-csv (tier A)
+[b0] java files   : 12
+[b0] modules      : 11
+[b0] prompt chars : 232,655  (~58,163 tokens in)
+[b0] est. output  : ~25,676 tokens for 11 modules  (cap: 128,000)
+[b0] backend      : copilot model=claude-sonnet-5 effort=medium
+[b0]   round 1: +0 files (0/11 done, 11 left)
+[b0]   stopping: response was complete but added no files
+[b0] wall clock   : 463s over 1 response(s)
+[b0] files parsed : 0  written=0  unplaceable=0
+[b0] left as stub : 11  e.g. ['src/main/org/apache/commons/csv/CSVFormat.py', 'src/main/org/apache/commons/csv/CSVParser.py', 'src/main/org/apache/commons/csv/CSVPrinter.py']
+[b0] INCOMPLETE   : 11 module(s) never written even after 1 round(s); they remain unimplemented stubs
+[b0] working copy : ${HOME}/cwruns/b0-sonnet5-med-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-sonnet5-med-20260908/project
+[b0] metadata     : ${HOME}/cwruns/b0-sonnet5-med-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-sonnet5-med-20260908/metadata.json
+[batch] scoring failed: Oracle did not complete normal scoring: 145 failed, 2 passed, 2 warnings, 3 errors in 0.31s

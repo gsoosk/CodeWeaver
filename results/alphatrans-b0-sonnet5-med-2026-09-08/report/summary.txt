@@ -1,0 +1,26 @@
+B0 AlphaTrans campaign: Sonnet 5 / medium
+
+Subject | B0 observation | CodeWeaver reference
+commons-cli | original 368/381 selected; rerun 370/381 | 380/381
+commons-csv | collection failure; no comparable full-suite rate | 296/298
+commons-fileupload | 37/39 | 38/39
+commons-validator | 381/462 | 452/462
+
+CLI selection is explicitly worst-of-two, not an unselected pass@1 estimate.
+The two CLI observations have different tool-isolation/context provenance.
+Both observations are included; their combined cost is 4 premium requests / 340.39282 AIU.
+
+CSV generated all 11 modules after linked collector recovery.
+Generated CSVFormat.py fails during import due to invalid metaclass reassignment.
+Raw oracle outcome: 2 passed, 6 failed, 17 collection errors. Do not report 2/8.
+The recovered run is the SAME observation; original generation cost is carried forward.
+The original failed collector materialization is retained under diagnostics/.
+
+New campaign generation cost (excluding preflights and the old CLI draw):
+9 premium requests / 990.68787 AIU. Full CodeWeaver cost remains unavailable.
+No generated code was repaired using oracle feedback.
+
+data/ contains generated code, full evaluation logs and audit metadata.
+Raw prompts/responses and model event streams remain private; hashes are in metadata/.
+Machine-specific paths in textual evidence are normalized; Python source bytes are unchanged.
+See reproduction/COMMANDS.txt for isolated scoring without an LLM.

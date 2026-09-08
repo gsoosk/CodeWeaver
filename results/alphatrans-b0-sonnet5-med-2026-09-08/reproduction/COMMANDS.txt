@@ -1,0 +1,47 @@
+Re-scoring the frozen B0 outputs
+===============================
+
+Use Linux with Python 3.12.3, pytest 9.1.1 and the AlphaTrans test dependencies.
+Activate the benchmark environment if it is available:
+
+  source "$HOME/cwenv/bin/activate"
+
+Use the AlphaTrans dataset at commit c1cabf93d41a153de207d6b098e1da7bbd79abab.
+The wrapper checks the dataset revision, oracle fixture manifest, bundled oracle
+script hash, and package manifest before running pytest.
+
+From the CodeWeaver repository root:
+
+  bash results/alphatrans-b0-sonnet5-med-2026-09-08/reproduction/score.sh commons-cli b0 "$HOME/AlphaTrans"
+  bash results/alphatrans-b0-sonnet5-med-2026-09-08/reproduction/score.sh commons-cli b0-rerun "$HOME/AlphaTrans"
+  bash results/alphatrans-b0-sonnet5-med-2026-09-08/reproduction/score.sh commons-csv b0 "$HOME/AlphaTrans"
+  bash results/alphatrans-b0-sonnet5-med-2026-09-08/reproduction/score.sh commons-fileupload b0 "$HOME/AlphaTrans"
+  bash results/alphatrans-b0-sonnet5-med-2026-09-08/reproduction/score.sh commons-validator b0 "$HOME/AlphaTrans"
+
+Each command currently returns nonzero because the retained outputs have failures.
+Run commands individually, not chained with &&.
+
+For commons-cli, b0 is the original selected 368/381 observation; b0-rerun is the
+new 370/381 observation. Selection is explicitly worst-of-two, not an unselected
+pass@1 estimate. Their tool-isolation/context provenance differs.
+
+CSV has complete generated source, but fails during test collection. Its partial
+counts (2 passed, 6 failed, 17 collection errors) are not a normal full-suite rate.
+Do not treat the earlier collector diagnostic as another independent observation.
+
+The wrapper uses the bundled public oracle script in a fresh temporary subject
+tree. There is no pipeline/skips.json, so no repair-budget deferrals are applied.
+The fixed golden-baseline exclusions are preserved: one CurrencyValidator test
+for commons-validator; suite self-skips are reported separately.
+
+This reproduces scoring of frozen output, not model generation. No Copilot login
+or model calls are required. The original generation runner commits are recorded
+in provenance but are not included as application-code changes in this package.
+Full evaluation logs for the new campaign are included; the selected original CLI
+observation retains its historical summary. The commands above can reproduce its
+full trace.
+
+Recorded scoring environment: LANG=C.UTF-8; LC_ALL and TZ unset.
+Generated Python bytes are unchanged. Machine paths in textual evidence are
+normalized, and original hashes are retained. Raw model prompts, responses and
+event streams remain private.

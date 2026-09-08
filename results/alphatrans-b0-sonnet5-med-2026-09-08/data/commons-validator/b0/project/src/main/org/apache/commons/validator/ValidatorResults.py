@@ -1,0 +1,59 @@
+from __future__ import annotations
+
+# Imports Begin
+from src.main.org.apache.commons.validator.ValidatorResult import *
+from src.main.org.apache.commons.validator.Field import *
+import typing
+from typing import *
+import io
+
+# Imports End
+
+
+class ValidatorResults:
+
+    # Class Fields Begin
+    __serialVersionUID: int = -2709911078904924839
+    _hResults: typing.Dict[str, ValidatorResult] = None
+    # Class Fields End
+
+    # Class Methods Begin
+    def __init__(self) -> None:
+        self._hResults = {}
+
+    def getResultValueMap(self) -> typing.Dict[str, typing.Any]:
+        results = {}
+        for propertyKey in list(self._hResults.keys()):
+            vr = self.getValidatorResult(propertyKey)
+            for actionKey in vr.getActions():
+                result = vr.getResult(actionKey)
+                if result is not None and not isinstance(result, bool):
+                    results[propertyKey] = result
+        return results
+
+    def getPropertyNames(self) -> typing.Set[str]:
+        return set(self._hResults.keys())
+
+    def getValidatorResult(self, key: str) -> ValidatorResult:
+        return self._hResults.get(key)
+
+    def isEmpty(self) -> bool:
+        return len(self._hResults) == 0
+
+    def clear(self) -> None:
+        self._hResults.clear()
+
+    def add1(self, field: typing.Any, validatorName: str, result: bool, value: typing.Any) -> None:
+        validatorResult = self.getValidatorResult(field.getKey())
+        if validatorResult is None:
+            validatorResult = ValidatorResult(field)
+            self._hResults[field.getKey()] = validatorResult
+        validatorResult.add1(validatorName, result, value)
+
+    def add0(self, field: typing.Any, validatorName: str, result: bool) -> None:
+        self.add1(field, validatorName, result, None)
+
+    def merge(self, results: "ValidatorResults") -> None:
+        self._hResults.update(results._hResults)
+
+    # Class Methods End

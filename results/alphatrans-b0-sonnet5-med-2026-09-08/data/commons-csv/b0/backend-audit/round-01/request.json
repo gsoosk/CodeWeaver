@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "copilot",
+    "--model",
+    "claude-sonnet-5",
+    "--reasoning-effort",
+    "medium",
+    "--available-tools=__b0_no_tools__",
+    "--deny-tool=read",
+    "--deny-tool=write",
+    "--deny-tool=shell",
+    "--disable-builtin-mcps",
+    "--no-custom-instructions",
+    "--no-ask-user",
+    "--no-auto-update",
+    "--output-format",
+    "json",
+    "--no-color",
+    "--context",
+    "long_context"
+  ],
+  "cwd_policy": "empty temporary directory",
+  "prompt_chars": 232662,
+  "prompt_sha256": "a315b53472c93c3e3043f58e2fdd9ea5c7b7ddb27b3278e1e77eb4ae82a254e5"
+}

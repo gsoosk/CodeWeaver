@@ -1,0 +1,26 @@
+{
+  "round": 1,
+  "tools": "disabled",
+  "tool_allowlist": [
+    "__b0_no_tools__"
+  ],
+  "tool_event_count": 0,
+  "event_counts": {
+    "session.tools_updated": 2,
+    "session.skills_loaded": 1,
+    "session.info": 2,
+    "user.message": 2,
+    "assistant.turn_start": 2,
+    "model.call_start": 2,
+    "assistant.reasoning_delta": 392,
+    "assistant.message": 2,
+    "assistant.reasoning": 2,
+    "assistant.turn_end": 2,
+    "assistant.message_start": 1,
+    "assistant.message_delta": 279,
+    "session.usage_checkpoint": 1,
+    "assistant.idle": 1,
+    "result": 1
+  },
+  "returncode": 0
+}

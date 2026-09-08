@@ -1,0 +1,1369 @@
+.....................FF.......F..FF.......F..FF.......F.FFFFF.F.F....... [ 15%]
+......................FFFFFFF..F.F.FF.....F..F..F.F..F.F.....F.....F.F.. [ 31%]
+....FF.......F....s....F.......F...F.....FFF.......FF....FF............. [ 46%]
+...................F......F..F.......F.F.FF.F....F..FF.......F......F..F [ 62%]
+..F.F..F.FF....F.FF.F..FF.F......F...................................... [ 77%]
+.............................................F.F...F................F.F. [ 93%]
+...............................                                          [100%]
+=================================== FAILURES ===================================
+____________ BigDecimalValidatorTest.testBigDecimalValidatorMethods ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/BigDecimalValidatorTest.py", line 110, in testBigDecimalValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: Decimal('12345') != Decimal('12.345') : validate(A) locale 
+______________________ BigDecimalValidatorTest.testFormat ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 143, in testFormat
+    number = Decimal("1234.5")
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+__________________ BigDecimalValidatorTest.testValidateLocale __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 167, in testValidateLocale
+    self.assertIsNone(
+  File "/usr/lib/python3.12/unittest/case.py", line 1281, in assertIsNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: Decimal('1.2345') is not None : US Locale, DE Format
+____________ BigIntegerValidatorTest.testBigIntegerValidatorMethods ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/BigIntegerValidatorTest.py", line 95, in testBigIntegerValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 12345 != None : validate(A) locale 
+______________________ BigIntegerValidatorTest.testFormat ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 143, in testFormat
+    number = Decimal("1234.5")
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+__________________ BigIntegerValidatorTest.testValidateLocale __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 172, in testValidateLocale
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1234 != None : DE Locale, DE Format
+__________________ ByteValidatorTest.testByteValidatorMethods __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/ByteValidatorTest.py", line 148, in testByteValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 123 != None : validate(A) locale 
+_________________________ ByteValidatorTest.testFormat _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 143, in testFormat
+    number = Decimal("1234.5")
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+_____________________ ByteValidatorTest.testValidateLocale _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 172, in testValidateLocale
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 123 != None : DE Locale, DE Format
+__________________ CalendarValidatorTest.testAdjustToTimeZone __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py", line 111, in testAdjustToTimeZone
+    self.assertEqual(dateGMT, calEST, "EST to GMT")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: datetime.datetime(2005, 11, 23, 12, 3, 45, tzinfo=zoneinfo.ZoneInfo(key='GMT')) != None : EST to GMT
+______________ CalendarValidatorTest.testCalendarValidatorMethods ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py", line 324, in testCalendarValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: datetime.datetime(2005, 12, 31, 0, 0) != None : validate(A) locale 
+______________________ CalendarValidatorTest.testCompare _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py", line 192, in testCompare
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1 != 0
+___________________ CalendarValidatorTest.testDateTimeStyle ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py", line 146, in testDateTimeStyle
+    self.assertTrue(dateTimeValidator.isValid0("31/12/05 14:23"))
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+_______________________ CalendarValidatorTest.testFormat _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py", line 28, in testFormat
+    self.assertIsNone(self.__calValidator._format0(None))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CalendarValidator' object has no attribute '_format0'. Did you mean: '_format4'?
+____________________ CalendarValidatorTest.testLocaleValid _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.py", line 186, in testLocaleValid
+    self.assertIsNotNone(date, "validateObj() " + text + str(date))
+  File "/usr/lib/python3.12/unittest/case.py", line 1287, in assertIsNotNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: unexpectedly None : validateObj() 0 value=[01/01/2005] failed None
+____________________ CalendarValidatorTest.testPatternValid ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.py", line 208, in testPatternValid
+    self.assertIsNotNone(date, "validateObj() " + text + str(date))
+  File "/usr/lib/python3.12/unittest/case.py", line 1287, in assertIsNotNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: unexpectedly None : validateObj() 0 value=[2005-01-01] failed None
+___________________ CurrencyValidatorTest.testIntegerInvalid ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/CurrencyValidatorTest.py", line 112, in testIntegerInvalid
+    validator.isValid2(self.__UK_POUND + "1,234.56", "en_GB.UTF-8"), "UK positive"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/AbstractFormatValidator.py", line 54, in isValid2
+    return self.isValid3(value, None, locale)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py", line 107, in isValid3
+    parsedValue = self._parse(value, pattern, locale)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CurrencyValidator._parse() takes 3 positional arguments but 4 were given
+____________________ CurrencyValidatorTest.testIntegerValid ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/CurrencyValidatorTest.py", line 129, in testIntegerValid
+    origDefault = locale.getdefaultlocale()
+                  ^^^^^^
+NameError: name 'locale' is not defined. Did you mean: 'locals'? Or did you forget to import 'locale'
+______________________ CurrencyValidatorTest.testInvalid _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/CurrencyValidatorTest.py", line 168, in testInvalid
+    self.assertFalse(validator.isValid0(None), "isValid() Null Value")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/AbstractFormatValidator.py", line 60, in isValid0
+    return self.isValid3(value, None, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py", line 107, in isValid3
+    parsedValue = self._parse(value, pattern, locale)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CurrencyValidator._parse() takes 3 positional arguments but 4 were given
+_______________________ CurrencyValidatorTest.testValid ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/CurrencyValidatorTest.py", line 193, in testValid
+    origDefault = locale.getlocale()
+                  ^^^^^^
+NameError: name 'locale' is not defined. Did you mean: 'locals'? Or did you forget to import 'locale'
+________________________ DateValidatorTest.testCompare _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DateValidatorTest.py", line 157, in testCompare
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1 != 0
+__________________ DateValidatorTest.testDateValidatorMethods __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DateValidatorTest.py", line 182, in testDateValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: None != datetime.datetime(2005, 12, 31, 0, 0) : validate(A) locale
+_________________________ DateValidatorTest.testFormat _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.py", line 165, in testFormat
+    self._validator._format1(test, "dd.MM.yy"), "28.11.05", "Format pattern"
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DateValidator' object has no attribute '_format1'. Did you mean: '_format4'?
+______________________ DateValidatorTest.testLocaleValid _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.py", line 186, in testLocaleValid
+    self.assertIsNotNone(date, "validateObj() " + text + str(date))
+  File "/usr/lib/python3.12/unittest/case.py", line 1287, in assertIsNotNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: unexpectedly None : validateObj() 0 value=[01/01/2005] failed None
+______________________ DateValidatorTest.testPatternValid ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.py", line 208, in testPatternValid
+    self.assertIsNotNone(date, "validateObj() " + text + str(date))
+  File "/usr/lib/python3.12/unittest/case.py", line 1287, in assertIsNotNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: unexpectedly None : validateObj() 0 value=[2005-01-01] failed None
+_________________ DomainValidatorStartupTest.testCannotUpdate __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py", line 57, in testCannotUpdate
+    DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, ["ch"])
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/DomainValidator.py", line 171, in updateTLDOverride
+    raise ValueError("Can only invoke this method before calling getInstance")
+ValueError: Can only invoke this method before calling getInstance
+_______________ DomainValidatorStartupTest.testInstanceOverride ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py", line 29, in testInstanceOverride
+    self.assertTrue(validator.isValidGenericTld("gp"))
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+______________ DomainValidatorStartupTest.testUpdateCountryCode1b ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py", line 166, in testUpdateCountryCode1b
+    self.assertTrue(validator.isValidCountryCodeTld("com"))
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+______________ DomainValidatorStartupTest.testUpdateCountryCode3b ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py", line 148, in testUpdateCountryCode3b
+    self.assertFalse(validator.isValidCountryCodeTld("ch"))
+  File "/usr/lib/python3.12/unittest/case.py", line 721, in assertFalse
+    raise self.failureException(msg)
+AssertionError: True is not false
+________________ DomainValidatorStartupTest.testUpdateGeneric2 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py", line 130, in testUpdateGeneric2
+    self.assertTrue(validator.isValidGenericTld("ch"))
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+________________ DomainValidatorStartupTest.testUpdateGeneric4 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py", line 116, in testUpdateGeneric4
+    self.assertFalse(validator.isValidGenericTld("com"))
+  File "/usr/lib/python3.12/unittest/case.py", line 721, in assertFalse
+    raise self.failureException(msg)
+AssertionError: True is not false
+________________ DomainValidatorStartupTest.testVALIDATOR_412b _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py", line 85, in testVALIDATOR_412b
+    self.assertTrue(validator.isValidGenericTld("local"))
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+________________ DomainValidatorStartupTest.testVALIDATOR_412d _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py", line 68, in testVALIDATOR_412d
+    self.assertTrue(validator.isValidLocalTld("local"))
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+___________________ DomainValidatorTest.testIDNJava6OrLater ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorTest.py", line 302, in testIDNJava6OrLater
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : xn--d1abbgf6aiiy.xn--p1ai should validate
+____________________ DomainValidatorTest.testUnicodeToASCII ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorTest.py", line 198, in testUnicodeToASCII
+    self.assertEqual(s[1], DomainValidator.unicodeToASCII(s[0]))
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: '.' != '。'
+- .
++ 。
+
+_____________________ DomainValidatorTest.testValidator297 _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DomainValidatorTest.py", line 238, in testValidator297
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : xn--d1abbgf6aiiy.xn--p1ai should validate
+________________ DoubleValidatorTest.testDoubleValidatorMethods ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/DoubleValidatorTest.py", line 93, in testDoubleValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 12345 != 12.345 : validate(A) locale 
+________________________ DoubleValidatorTest.testFormat ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 143, in testFormat
+    number = Decimal("1234.5")
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+____________________ DoubleValidatorTest.testValidateLocale ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 167, in testValidateLocale
+    self.assertIsNone(
+  File "/usr/lib/python3.12/unittest/case.py", line 1281, in assertIsNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 1.2345 is not None : US Locale, DE Format
+_________________ EmailValidatorTest.testEmailWithControlChars _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/EmailValidatorTest.py", line 317, in testEmailWithControlChars
+    self.assertFalse(
+  File "/usr/lib/python3.12/unittest/case.py", line 721, in assertFalse
+    raise self.failureException(msg)
+AssertionError: True is not false : Test control char 127
+_____________________ EmailValidatorTest.testValidator235 ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/EmailValidatorTest.py", line 348, in testValidator235
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : xn--d1abbgf6aiiy.xn--p1ai should validate
+_____________________ EmailValidatorTest.testValidator374 ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/EmailValidatorTest.py", line 138, in testValidator374
+    self.assertTrue(self.__validator.isValid("abc@school.school"))
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+__________________ FloatValidatorTest.testFloatSmallestValues __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/FloatValidatorTest.py", line 87, in testFloatSmallestValues
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: None != 2.2250738585072014e-308 : Smallest +ve
+_________________ FloatValidatorTest.testFloatValidatorMethods _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/FloatValidatorTest.py", line 131, in testFloatValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 12345.0 != 12.345 : validate(A) locale 
+________________________ FloatValidatorTest.testFormat _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 143, in testFormat
+    number = Decimal("1234.5")
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+____________________ FloatValidatorTest.testValidateLocale _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 167, in testValidateLocale
+    self.assertIsNone(
+  File "/usr/lib/python3.12/unittest/case.py", line 1281, in assertIsNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 1.2345 is not None : US Locale, DE Format
+____________________ FloatValidatorTest.testValidateMinMax _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 290, in testValidateMinMax
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1.7976931348623157e+308 != 1.7976931348623157 : Test Max
+__________________ IBANValidatorTest.testSetDefaultValidator1 __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/IBANValidatorTest.py", line 178, in testSetDefaultValidator1
+    self.__VALIDATOR.setValidator1("GB", 15, "GB")
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/IBANValidator.py", line 138, in setValidator1
+    raise ValueError("The singleton validator cannot be modified")
+ValueError: The singleton validator cannot be modified
+__________________ IBANValidatorTest.testSetDefaultValidator2 __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/IBANValidatorTest.py", line 174, in testSetDefaultValidator2
+    self.__VALIDATOR.setValidator1("GB", -1, "GB")
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/IBANValidator.py", line 138, in setValidator1
+    raise ValueError("The singleton validator cannot be modified")
+ValueError: The singleton validator cannot be modified
+______________________ InetAddressValidatorTest.testIPv6 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/InetAddressValidatorTest.py", line 31, in testIPv6
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : IPV6 :: should be valid
+_______________________ IntegerValidatorTest.testFormat ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 143, in testFormat
+    number = Decimal("1234.5")
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+_______________ IntegerValidatorTest.testIntegerValidatorMethods _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/IntegerValidatorTest.py", line 154, in testIntegerValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 12345 != None : validate(A) locale
+___________________ IntegerValidatorTest.testValidateLocale ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 172, in testValidateLocale
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1234 != None : DE Locale, DE Format
+_________________________ LongValidatorTest.testFormat _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 143, in testFormat
+    number = Decimal("1234.5")
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+____________________ LongValidatorTest.testInvalidNotStrict ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 247, in testInvalidNotStrict
+    self.assertIsNone(
+  File "/usr/lib/python3.12/unittest/case.py", line 1281, in assertIsNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 9223372036854775808 is not None : (A) idx=[5] value=[9223372036854775808]
+_____________________ LongValidatorTest.testInvalidStrict ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 266, in testInvalidStrict
+    self.assertIsNone(
+  File "/usr/lib/python3.12/unittest/case.py", line 1281, in assertIsNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 9223372036854775808 is not None : (A) idx=[7] value=[9223372036854775808]
+__________________ LongValidatorTest.testLongValidatorMethods __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/LongValidatorTest.py", line 141, in testLongValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 12345 != None : validate(A) locale 
+_____________________ LongValidatorTest.testValidateLocale _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 172, in testValidateLocale
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1234 != None : DE Locale, DE Format
+_______________________ PercentValidatorTest.testInvalid _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/PercentValidatorTest.py", line 31, in testInvalid
+    self.assertFalse(validator.isValid0(None), "isValid() Null Value")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/AbstractFormatValidator.py", line 60, in isValid0
+    return self.isValid3(value, None, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py", line 107, in isValid3
+    parsedValue = self._parse(value, pattern, locale)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PercentValidator._parse() takes 3 positional arguments but 4 were given
+________________________ PercentValidatorTest.testValid ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/PercentValidatorTest.py", line 52, in testValid
+    self.assertEqual(expected, validator.validate0("12%"), "Default locale")
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/BigDecimalValidator.py", line 52, in validate0
+    return self._parse(value, None, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PercentValidator._parse() takes 3 positional arguments but 4 were given
+________________________ ShortValidatorTest.testFormat _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 143, in testFormat
+    number = Decimal("1234.5")
+             ^^^^^^^
+NameError: name 'Decimal' is not defined
+_________________ ShortValidatorTest.testShortValidatorMethods _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/ShortValidatorTest.py", line 99, in testShortValidatorMethods
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 12345 != None : validate(A) locale 
+____________________ ShortValidatorTest.testValidateLocale _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/AbstractNumberValidatorTest.py", line 172, in testValidateLocale
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1234 != None : DE Locale, DE Format
+_________________________ TimeValidatorTest.testFormat _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/TimeValidatorTest.py", line 306, in testFormat
+    self._validator._format1(test, "HH-mm-ss"), "16-49-23", "Format pattern"
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TimeValidator' object has no attribute '_format1'. Did you mean: '_format4'?
+______________________ TimeValidatorTest.testLocaleValid _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/TimeValidatorTest.py", line 395, in testLocaleValid
+    self.assertIsNotNone(
+  File "/usr/lib/python3.12/unittest/case.py", line 1287, in assertIsNotNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: unexpectedly None : validate() 0 value=[23:59] failed 
+________________________ TimeValidatorTest.testTimeZone ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/TimeValidatorTest.py", line 325, in testTimeZone
+    self.assertIsNotNone(result, "default result")
+  File "/usr/lib/python3.12/unittest/case.py", line 1287, in assertIsNotNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: unexpectedly None : default result
+________________________ UrlValidatorTest.testIsValid0 _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 140, in testIsValid0
+    self.checkTestIsValid1(self.testUrlPartsOptions, options)
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 818, in checkTestIsValid1
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: False != True : http://www.google.com:80/#
+______________________ UrlValidatorTest.testIsValidScheme ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 151, in testIsValidScheme
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: False != True : not_valid
+______________________ UrlValidatorTest.testValidator235 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 207, in testValidator235
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : xn--d1abbgf6aiiy.xn--p1ai should validate
+______________________ UrlValidatorTest.testValidator276 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 376, in testValidator276
+    self.assertFalse(
+  File "/usr/lib/python3.12/unittest/case.py", line 721, in assertFalse
+    raise self.failureException(msg)
+AssertionError: True is not false : file:///c:\ should not be allowed
+______________________ UrlValidatorTest.testValidator283 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 777, in testValidator283
+    self.assertFalse(
+  File "/usr/lib/python3.12/unittest/case.py", line 721, in assertFalse
+    raise self.failureException(msg)
+AssertionError: True is not false
+______________________ UrlValidatorTest.testValidator290 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 575, in testValidator290
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+_____________________ UrlValidatorTest.testValidator339IDN _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 472, in testValidator339IDN
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+______________________ UrlValidatorTest.testValidator342 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 492, in testValidator342
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+______________________ UrlValidatorTest.testValidator361 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 673, in testValidator361
+    self.assertTrue(validator.isValid("http://hello.tokyo/"))
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+______________________ UrlValidatorTest.testValidator411 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/UrlValidatorTest.py", line 503, in testValidator411
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+_______________ ModulusTenCUSIPCheckDigitTest.testCalculateValid _______________
+Traceback (most recent call last):
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py", line 160, in testCalculateValid
+    self._routine.calculate(code),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.py", line 24, in calculate
+    modulusResult = self._calculateModulus(code, False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.py", line 64, in _calculateModulus
+    charValue = self._toInt(code[i], leftPos, rightPos)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/checkdigit/ModulusTenCheckDigit.py", line 50, in _toInt
+    raise CheckDigitException.CheckDigitException1(
+src.main.org.apache.commons.validator.routines.checkdigit.CheckDigitException.CheckDigitException: Invalid Character[7] = 'Q'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py", line 164, in testCalculateValid
+    pytest.fail(
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: valid[3]=392690QT3 threw Invalid Character[7] = 'Q'
+________________ ModulusTenCUSIPCheckDigitTest.testIsValidTrue _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py", line 198, in testIsValidTrue
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : valid[3]: 392690QT3
+_______ ModulusTenCUSIPCheckDigitTest.testVALIDATOR_336_ValidCheckDigits _______
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/checkdigit/ModulusTenCUSIPCheckDigitTest.py", line 38, in testVALIDATOR_336_ValidCheckDigits
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : Should fail: DUS0421C5
+_______________ ModulusTenSedolCheckDigitTest.testCalculateValid _______________
+Traceback (most recent call last):
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py", line 160, in testCalculateValid
+    self._routine.calculate(code),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.py", line 24, in calculate
+    modulusResult = self._calculateModulus(code, False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.py", line 64, in _calculateModulus
+    charValue = self._toInt(code[i], leftPos, rightPos)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/validator/routines/checkdigit/ModulusTenCheckDigit.py", line 50, in _toInt
+    raise CheckDigitException.CheckDigitException1(
+src.main.org.apache.commons.validator.routines.checkdigit.CheckDigitException.CheckDigitException: Invalid Character[1] = 'B'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py", line 164, in testCalculateValid
+    pytest.fail(
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: valid[2]=B06LQ97 threw Invalid Character[1] = 'B'
+________________ ModulusTenSedolCheckDigitTest.testIsValidTrue _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py", line 198, in testIsValidTrue
+    self.assertTrue(
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : valid[2]: B06LQ97
+=============================== warnings summary ===============================
+src/test/org/apache/commons/validator/routines/TimeValidatorTest.py:121: 14 warnings
+  <isolated-scoring>/src/test/org/apache/commons/validator/routines/TimeValidatorTest.py:121: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    calendar = datetime.datetime.utcnow()
+
+src/test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py:31
+  <isolated-scoring>/src/test/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigitTest.py:31: SyntaxWarning: invalid escape sequence '\@'
+    "0123456789 ABCDEFHIJKLMNOPQRSTUVWXYZ\tabcdefghijklmnopqrstuvwxyz!\@£$%^&*()_+"
+
+src/test/org/apache/commons/validator/routines/PercentValidatorTest.py::PercentValidatorTest::testValid
+  <isolated-scoring>/src/test/org/apache/commons/validator/routines/PercentValidatorTest.py:44: DeprecationWarning: 'locale.getdefaultlocale' is deprecated and slated for removal in Python 3.15. Use setlocale(), getencoding() and getlocale() instead.
+    origDefault = locale.getdefaultlocale()
+
+src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testCompare
+src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testFormat
+src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testLocaleInvalid
+src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testLocaleValid
+src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testPatternInvalid
+src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testPatternValid
+src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testTimeZone
+  <isolated-scoring>/src/test/org/apache/commons/validator/routines/TimeValidatorTest.py:104: DeprecationWarning: 'locale.getdefaultlocale' is deprecated and slated for removal in Python 3.15. Use setlocale(), getencoding() and getlocale() instead.
+    self.__origDefault = locale.getdefaultlocale()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] src/test/org/apache/commons/validator/routines/EmailValidatorTest.py:188: Ignore
+FAILED src/test/org/apache/commons/validator/routines/BigDecimalValidatorTest.py::BigDecimalValidatorTest::testBigDecimalValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/BigDecimalValidatorTest.py::BigDecimalValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/BigDecimalValidatorTest.py::BigDecimalValidatorTest::testValidateLocale
+FAILED src/test/org/apache/commons/validator/routines/BigIntegerValidatorTest.py::BigIntegerValidatorTest::testBigIntegerValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/BigIntegerValidatorTest.py::BigIntegerValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/BigIntegerValidatorTest.py::BigIntegerValidatorTest::testValidateLocale
+FAILED src/test/org/apache/commons/validator/routines/ByteValidatorTest.py::ByteValidatorTest::testByteValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/ByteValidatorTest.py::ByteValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/ByteValidatorTest.py::ByteValidatorTest::testValidateLocale
+FAILED src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py::CalendarValidatorTest::testAdjustToTimeZone
+FAILED src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py::CalendarValidatorTest::testCalendarValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py::CalendarValidatorTest::testCompare
+FAILED src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py::CalendarValidatorTest::testDateTimeStyle
+FAILED src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py::CalendarValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py::CalendarValidatorTest::testLocaleValid
+FAILED src/test/org/apache/commons/validator/routines/CalendarValidatorTest.py::CalendarValidatorTest::testPatternValid
+FAILED src/test/org/apache/commons/validator/routines/CurrencyValidatorTest.py::CurrencyValidatorTest::testIntegerInvalid
+FAILED src/test/org/apache/commons/validator/routines/CurrencyValidatorTest.py::CurrencyValidatorTest::testIntegerValid
+FAILED src/test/org/apache/commons/validator/routines/CurrencyValidatorTest.py::CurrencyValidatorTest::testInvalid
+FAILED src/test/org/apache/commons/validator/routines/CurrencyValidatorTest.py::CurrencyValidatorTest::testValid
+FAILED src/test/org/apache/commons/validator/routines/DateValidatorTest.py::DateValidatorTest::testCompare
+FAILED src/test/org/apache/commons/validator/routines/DateValidatorTest.py::DateValidatorTest::testDateValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/DateValidatorTest.py::DateValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/DateValidatorTest.py::DateValidatorTest::testLocaleValid
+FAILED src/test/org/apache/commons/validator/routines/DateValidatorTest.py::DateValidatorTest::testPatternValid
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testCannotUpdate
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testInstanceOverride
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testUpdateCountryCode1b
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testUpdateCountryCode3b
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testUpdateGeneric2
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testUpdateGeneric4
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testVALIDATOR_412b
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testVALIDATOR_412d
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorTest.py::DomainValidatorTest::testIDNJava6OrLater
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorTest.py::DomainValidatorTest::testUnicodeToASCII
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorTest.py::DomainValidatorTest::testValidator297
+FAILED src/test/org/apache/commons/validator/routines/DoubleValidatorTest.py::DoubleValidatorTest::testDoubleValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/DoubleValidatorTest.py::DoubleValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/DoubleValidatorTest.py::DoubleValidatorTest::testValidateLocale
+FAILED src/test/org/apache/commons/validator/routines/EmailValidatorTest.py::EmailValidatorTest::testEmailWithControlChars
+FAILED src/test/org/apache/commons/validator/routines/EmailValidatorTest.py::EmailValidatorTest::testValidator235
+FAILED src/test/org/apache/commons/validator/routines/EmailValidatorTest.py::EmailValidatorTest::testValidator374
+FAILED src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testFloatSmallestValues
+FAILED src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testFloatValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testValidateLocale
+FAILED src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testValidateMinMax
+FAILED src/test/org/apache/commons/validator/routines/IBANValidatorTest.py::IBANValidatorTest::testSetDefaultValidator1
+FAILED src/test/org/apache/commons/validator/routines/IBANValidatorTest.py::IBANValidatorTest::testSetDefaultValidator2
+FAILED src/test/org/apache/commons/validator/routines/InetAddressValidatorTest.py::InetAddressValidatorTest::testIPv6
+FAILED src/test/org/apache/commons/validator/routines/IntegerValidatorTest.py::IntegerValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/IntegerValidatorTest.py::IntegerValidatorTest::testIntegerValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/IntegerValidatorTest.py::IntegerValidatorTest::testValidateLocale
+FAILED src/test/org/apache/commons/validator/routines/LongValidatorTest.py::LongValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/LongValidatorTest.py::LongValidatorTest::testInvalidNotStrict
+FAILED src/test/org/apache/commons/validator/routines/LongValidatorTest.py::LongValidatorTest::testInvalidStrict
+FAILED src/test/org/apache/commons/validator/routines/LongValidatorTest.py::LongValidatorTest::testLongValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/LongValidatorTest.py::LongValidatorTest::testValidateLocale
+FAILED src/test/org/apache/commons/validator/routines/PercentValidatorTest.py::PercentValidatorTest::testInvalid
+FAILED src/test/org/apache/commons/validator/routines/PercentValidatorTest.py::PercentValidatorTest::testValid
+FAILED src/test/org/apache/commons/validator/routines/ShortValidatorTest.py::ShortValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/ShortValidatorTest.py::ShortValidatorTest::testShortValidatorMethods
+FAILED src/test/org/apache/commons/validator/routines/ShortValidatorTest.py::ShortValidatorTest::testValidateLocale
+FAILED src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testFormat
+FAILED src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testLocaleValid
+FAILED src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testTimeZone
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testIsValid0
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testIsValidScheme
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testValidator235
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testValidator276
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testValidator283
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testValidator290
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testValidator339IDN
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testValidator342
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testValidator361
+FAILED src/test/org/apache/commons/validator/routines/UrlValidatorTest.py::UrlValidatorTest::testValidator411
+FAILED src/test/org/apache/commons/validator/routines/checkdigit/ModulusTenCUSIPCheckDigitTest.py::ModulusTenCUSIPCheckDigitTest::testCalculateValid
+FAILED src/test/org/apache/commons/validator/routines/checkdigit/ModulusTenCUSIPCheckDigitTest.py::ModulusTenCUSIPCheckDigitTest::testIsValidTrue
+FAILED src/test/org/apache/commons/validator/routines/checkdigit/ModulusTenCUSIPCheckDigitTest.py::ModulusTenCUSIPCheckDigitTest::testVALIDATOR_336_ValidCheckDigits
+FAILED src/test/org/apache/commons/validator/routines/checkdigit/ModulusTenSedolCheckDigitTest.py::ModulusTenSedolCheckDigitTest::testCalculateValid
+FAILED src/test/org/apache/commons/validator/routines/checkdigit/ModulusTenSedolCheckDigitTest.py::ModulusTenSedolCheckDigitTest::testIsValidTrue
+81 failed, 381 passed, 1 skipped, 1 deselected, 23 warnings in 1.07s
+
+[oracle] project  : commons-validator
+[oracle] source   : ${HOME}/cwruns/b0-sonnet5-med-20260908/runner/examples/alphatrans/subjects/commons-validator/pipeline-baseline-b0-sonnet5-med-20260908/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] deferrals: disabled (isolated staging)
+[oracle] excluded : 1 environment-broken test(s)
+[oracle] result   : 81 failed, 381 passed, 1 skipped, 1 deselected, 23 warnings in 1.07s
+[oracle] exitcode : 1
