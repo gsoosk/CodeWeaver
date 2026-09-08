@@ -194,7 +194,55 @@ no real CLI/model invocation, no cost.
 | Backend | Model matching | Cost reporting |
 |---|---|---|
 | `copilot` (default) | **exact** — same binary, model and effort as CodeWeaver | premium requests + AIU |
+| `copilot-api` | same explicitly selected model; different transport/system-prompt protocol | provider-reported tokens only |
 | `foundry` | different stack | prompt/completion tokens |
+
+### API-only Copilot subscription transport
+
+Run a separately authenticated, user-owned instance of
+[`ericc-ch/copilot-api`](https://github.com/ericc-ch/copilot-api) on loopback.
+This is an unofficial integration: respect subscription policy, model availability
+and rate limits. Do not expose the proxy or its token-export endpoint publicly.
+The benchmark client accepts only literal loopback addresses (or `localhost`),
+does not follow redirects or use environment HTTP proxies, and never reads GitHub
+credentials. `COPILOT_API_KEY`, if set, is a **local proxy** bearer key; it is sent
+only in the HTTP header and is omitted from all request/audit metadata.
+
+```bash
+python -u experiments/baselines/run_one.py \
+  --project commons-cli --tag b0-api-sonnet5-med-20260908 \
+  --backend copilot-api --api-base-url http://127.0.0.1:4141/v1 \
+  --model claude-sonnet-5 --effort medium \
+  --max-output-tokens 64000 --api-stream
+```
+
+The model ID and output cap must be explicit. Reasoning effort and temperature
+are omitted unless requested; CLI context-tier defaults are not applied.
+`--context` and CLI `--resume-tag` are rejected for this backend. Check the actual
+catalog before choosing parameters: the observed Sonnet 5 catalog advertises a
+1M context, 64K streaming output, 16K non-streaming output and medium effort.
+Those are observations, not hardcoded promises for other accounts or dates.
+
+One invocation is one HTTP completion request. SSE deltas are assembled within
+that one response; a `length` finish reason triggers the existing closed-block,
+missing-module continuation. The client sends no tool/function definitions and
+rejects returned tool calls, refusals, malformed/multiple choices, missing finish
+reasons, model mismatches, and unfinished streams. There are no automatic retries,
+model/parameter fallbacks, Copilot CLI invocations or implicit CLI instructions.
+Hidden provider-side prompts are not observable, so this arm is not claimed to be
+the identical prompt/protocol as the CLI arm.
+
+`api-audit/round-*/` preserves the private JSON request, JSON/SSE response, hashes,
+HTTP status, timing, requested/returned model, finish reason and token usage.
+Raw streams can contain provider reasoning and must remain private. Token counts
+are not converted into invented premium-request or AIU costs. Use distinct tags
+and do not mix API observations into the CLI worst-of-two selection.
+
+`single_shot.py --backend copilot-api ... --dry-run` validates configuration and
+constructs the prompt without an HTTP call. `--api-token-limit-field` explicitly
+selects `max_tokens` or `max_completion_tokens`; unsupported parameters fail rather
+than being silently removed. The existing offline runner also covers API transport,
+SSE continuation, authentication redaction, and CLI-free worker routing.
 
 > A cross-backend comparison measures the *model* as much as the scaffolding. For
 > the headline table use `copilot`, so CodeWeaver and B0 differ **only** in

@@ -7,6 +7,8 @@ Keeping this abstract lets the same baseline protocol run against:
                   itself uses. This is the model-matched configuration and should
                   be the default for any published comparison.
   * `foundry`  -- Azure AI Foundry, for models Copilot does not serve.
+  * `copilot-api` -- direct chat completions via a private loopback subscription
+                     proxy; a different transport/protocol from the CLI.
 
 Model matching matters: a baseline run on a different model measures the model, not
 the scaffolding. Always report which backend produced a number.
@@ -69,4 +71,7 @@ def build_backend(kind: str, model: str, **kw) -> LLMBackend:
     if kind == "copilot":
         from .copilot import CopilotBackend
         return CopilotBackend(model=model, **kw)
-    raise ValueError(f"unknown backend {kind!r} (expected 'foundry' or 'copilot')")
+    if kind == "copilot-api":
+        from .copilot_api import CopilotAPIBackend
+        return CopilotAPIBackend(model=model, **kw)
+    raise ValueError(f"unknown backend {kind!r} (expected 'foundry', 'copilot' or 'copilot-api')")

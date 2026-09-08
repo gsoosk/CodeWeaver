@@ -47,14 +47,30 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project", required=True)
     parser.add_argument("--tag", required=True)
+    parser.add_argument("--backend", choices=("copilot", "copilot-api"), default="copilot")
+    parser.add_argument("--model", help="CLI defaults to subject config; API requires an explicit supported model")
+    parser.add_argument("--effort", help="CLI defaults to subject config; API omits reasoning_effort unless set")
+    parser.add_argument("--max-output-tokens", type=int, help="API requires an explicit output cap; CLI cap is not enforced")
+    single_shot.add_api_arguments(parser)
     parser.add_argument("--resume-tag", help="linked recovery/continuation, not an independent new sample")
-    parser.add_argument("--context", choices=("default", "long_context"), default="long_context")
+    parser.add_argument("--context", choices=("default", "long_context"),
+                        help="CLI only (default long_context); unsupported for API")
     parser.add_argument("--max-rounds", type=int, default=6)
     parser.add_argument("--compare-tag", help="retain and compare against an earlier run of this subject")
     args = parser.parse_args()
     for tag in (args.project, args.tag, args.resume_tag, args.compare_tag):
         if tag is not None:
             single_shot.validate_tag(tag)
+    if args.max_rounds < 1:
+        raise ValueError("--max-rounds must be positive")
+    api_backend = None
+    if args.backend == "copilot-api":
+        if args.compare_tag:
+            raise SystemExit("--compare-tag is currently CLI-only; API observations remain separate")
+        api_backend = single_shot.configured_api_backend(args)
+    else:
+        single_shot.reject_api_arguments(args)
+        args.context = args.context or "long_context"
 
     subject = single_shot.EXAMPLE / "subjects" / args.project
     run = subject / f"pipeline-baseline-{args.tag}"
@@ -62,6 +78,8 @@ def main() -> int:
     if run.exists() or status_file.exists():
         raise SystemExit(f"Run tag already exists; refusing to overwrite: {args.tag}")
     config = single_shot.read_config(args.project)
+    model = api_backend.model if api_backend is not None else (args.model or config["model"] or "claude-sonnet-5")
+    effort = args.effort if api_backend is not None else (args.effort or config["effort"] or "medium")
     reference = None
     source_observation = args.tag
     if args.resume_tag:
@@ -74,29 +92,48 @@ def main() -> int:
     if args.compare_tag:
         reference = subject / f"pipeline-baseline-{args.compare_tag}"
         reference_meta = json.loads((reference / "metadata.json").read_text())
-        if reference_meta["model"] != config["model"] or reference_meta["effort"] != config["effort"]:
+        if reference_meta.get("backend") != args.backend:
+            raise SystemExit("Reference backend does not match this run; cross-backend selection is unsupported")
+        if reference_meta["model"] != model or reference_meta["effort"] != effort:
             raise SystemExit("Reference model/effort do not match this run")
         reference_observation = reference_meta.get("observation_tag", args.compare_tag)
         if reference_observation == source_observation:
             raise SystemExit("Cannot select worst-of-two from recovery tags of the SAME observation")
         reference_score = parse_score((reference / "oracle_score.txt").read_text())
 
-    version = subprocess.check_output(["copilot", "--version"], text=True).strip()
+    provenance = (api_backend.provenance() if api_backend is not None else {
+        "copilot_version": subprocess.check_output(["copilot", "--version"], text=True).strip(),
+        "transport": "copilot-cli",
+    })
     revision = subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=single_shot.REPO, text=True,
     ).strip()
     command = [
         sys.executable, "-u", str(single_shot.HERE / "single_shot.py"),
         "--project", args.project, "--tag", args.tag,
-        "--backend", "copilot", "--model", config["model"], "--effort", config["effort"],
-        "--context", args.context, "--max-rounds", str(args.max_rounds),
+        "--backend", args.backend, "--model", model, "--max-rounds", str(args.max_rounds),
     ]
+    if effort is not None:
+        command.extend(["--effort", effort])
+    if args.context is not None:
+        command.extend(["--context", args.context])
+    if args.max_output_tokens is not None:
+        command.extend(["--max-output-tokens", str(args.max_output_tokens)])
+    if api_backend is not None:
+        command.extend(["--api-base-url", api_backend.base_url,
+                        "--api-token-limit-field", api_backend.token_limit_field,
+                        "--api-timeout", str(api_backend.timeout)])
+        if args.temperature is not None:
+            command.extend(["--temperature", str(args.temperature)])
+        if args.api_stream:
+            command.append("--api-stream")
     if args.resume_tag:
         command.extend(["--resume-tag", args.resume_tag])
     state = {
         "state": "generating", "pid": os.getpid(), "project": args.project,
         "tag": args.tag, "started": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "code_revision": revision, "copilot_version": version,
+        "code_revision": revision, "backend": args.backend, "model": model, "effort": effort,
+        **provenance,
         "generation_command": command, "context": args.context,
         "reference_tag": args.compare_tag,
         "resume_tag": args.resume_tag, "observation_tag": source_observation,
@@ -142,14 +179,14 @@ def main() -> int:
 
     metadata = json.loads((run / "metadata.json").read_text())
     evidence = {
-        "code_revision": revision, "copilot_version": version,
+        "code_revision": revision, "backend": args.backend, "model": model, "effort": effort,
+        **provenance,
         "context": args.context, "oracle_score": score,
         "source_hashes": {
             path.relative_to(run / "project").as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
             for path in sorted((run / "project/src/main").rglob("*.py"))
         },
         "generation_complete": metadata["complete"],
-        "copilot_audit": metadata["copilot_audit"],
         "observation_tag": metadata["observation_tag"],
         "independent_sample": metadata["independent_sample"],
         "recovery": metadata["recovery"],
@@ -158,6 +195,11 @@ def main() -> int:
         "observed_model_calls": metadata["observed_model_calls"],
         "observed_assistant_turns": metadata["observed_assistant_turns"],
     }
+    if api_backend is not None:
+        evidence.update(api_audit=metadata["api_audit"], returned_models=metadata["returned_models"],
+                        explicit_http_model_requests=metadata["explicit_http_model_requests"])
+    else:
+        evidence["copilot_audit"] = metadata["copilot_audit"]
     write_json(run / "run_evidence.json", evidence)
     if reference is not None:
         try:

@@ -28,6 +28,10 @@ Use `--backend copilot` (the default) to run the exact model and effort CodeWeav
 uses. `--backend foundry` exists for models Copilot does not serve, but a
 cross-backend comparison measures the model as much as the scaffolding -- say so in
 any table that mixes them.
+
+`--backend copilot-api` sends native chat messages to a private loopback proxy,
+with no CLI, tools or implicit client continuation. It is a separately labeled
+transport/protocol, not a reproduction of the CLI's hidden scaffolding.
 """
 from __future__ import annotations
 
@@ -477,38 +481,82 @@ def code_provenance() -> dict:
             ["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip(),
         "collector_code_sha256": {
             name: sha256((HERE / name).read_bytes())
-            for name in ("single_shot.py", "backends/copilot.py", "backends/base.py", "run_one.py")
+            for name in ("single_shot.py", "backends/copilot.py", "backends/copilot_api.py",
+                         "backends/base.py", "run_one.py")
         },
     }
+
+
+def add_api_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--api-base-url", help="loopback /v1 URL; otherwise COPILOT_API_BASE_URL or 127.0.0.1:4141/v1")
+    parser.add_argument("--api-token-limit-field", choices=("max_tokens", "max_completion_tokens"),
+                        default=None, help="API output-limit field (default max_tokens); no automatic fallback")
+    parser.add_argument("--api-timeout", type=float, default=None, help="API HTTP timeout in seconds (default 3600)")
+    parser.add_argument("--temperature", type=float, default=None, help="API only; omitted unless explicitly set")
+    parser.add_argument("--api-stream", action="store_true",
+                        help="consume one API completion as SSE (enables the provider's streaming output limit)")
+
+
+def configured_api_backend(args):
+    """Validate locally, including in dry runs; constructing a backend sends nothing."""
+    if args.context is not None:
+        raise ValueError("--context is CLI-only; API context capacity is provider/model-controlled")
+    if args.resume_tag:
+        raise ValueError("--resume-tag currently requires the Copilot CLI backend")
+    return build_backend(
+        "copilot-api", model=args.model, max_output_tokens=args.max_output_tokens,
+        base_url=args.api_base_url, effort=args.effort,
+        token_limit_field=args.api_token_limit_field or "max_tokens",
+        temperature=args.temperature, timeout=args.api_timeout if args.api_timeout is not None else 3600.0,
+        stream=args.api_stream,
+    )
+
+
+def reject_api_arguments(args) -> None:
+    if args.api_stream or any(getattr(args, key) is not None for key in (
+        "api_base_url", "api_token_limit_field", "api_timeout", "temperature",
+    )):
+        raise ValueError("--api-* and --temperature require --backend copilot-api")
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--project", required=True)
-    ap.add_argument("--tag", default=time.strftime("%Y%m%d"))
+    ap.add_argument("--tag", default=None)
     ap.add_argument("--resume-tag", help="recover/continue a terminal audited Copilot run under a NEW tag")
-    ap.add_argument("--backend", default="copilot", choices=["copilot", "foundry"])
+    ap.add_argument("--backend", default="copilot", choices=["copilot", "foundry", "copilot-api"])
     ap.add_argument("--model", default=None,
                     help="default: whatever the subject's codeweaver.toml uses "
-                         "(model-matched with CodeWeaver)")
-    ap.add_argument("--effort", default=None, help="copilot backend only")
+                         "(model-matched with CodeWeaver); API requires an explicit model")
+    ap.add_argument("--effort", default=None, help="CLI effort or explicit API reasoning_effort; API has no default")
     ap.add_argument("--context", choices=["default", "long_context"], default=None,
                     help="explicit Copilot context tier; use long_context for large continuations")
-    ap.add_argument("--max-output-tokens", type=int, default=128000,
-                    help="output cap per response (default 128000)")
+    ap.add_argument("--max-output-tokens", type=int, default=None,
+                    help="Foundry cap (default 128000); API requires an explicit positive cap; not enforced by CLI")
+    add_api_arguments(ap)
     ap.add_argument("--max-rounds", type=int, default=6,
                     help="TOTAL backend-invocation budget, including recovered invocations "
                          "(default 6); internal CLI model calls are counted separately")
     ap.add_argument("--dry-run", action="store_true",
                     help="build the prompt, report its size, call nothing")
     args = ap.parse_args()
+    args.tag = args.tag or (("b0-api-" if args.backend == "copilot-api" else "") + time.strftime("%Y%m%d"))
     validate_tag(args.project)
     validate_tag(args.tag)
     if args.max_rounds < 1:
         raise ValueError("--max-rounds must be positive")
     if args.resume_tag and args.backend != "copilot":
         raise ValueError("--resume-tag currently requires the Copilot backend")
+    api_backend = None
+    if args.backend == "copilot-api":
+        api_backend = configured_api_backend(args)
+    else:
+        reject_api_arguments(args)
+        if args.max_output_tokens is None:
+            args.max_output_tokens = 128000
+        if args.max_output_tokens < 1:
+            raise ValueError("--max-output-tokens must be positive")
 
     subject = EXAMPLE / "subjects" / args.project
     scaffold = subject / ".scaffold"
@@ -544,8 +592,8 @@ def main() -> int:
     run_dir = subject / f"pipeline-baseline-{args.tag}"
     if run_dir.exists() and not args.dry_run:
         raise SystemExit(f"refusing to overwrite existing run: {run_dir}; choose a new --tag")
-    model = args.model or cfg["model"] or "claude-sonnet-5"
-    effort = args.effort or cfg["effort"] or "medium"
+    model = api_backend.model if api_backend is not None else (args.model or cfg["model"] or "claude-sonnet-5")
+    effort = args.effort if api_backend is not None else (args.effort or cfg["effort"] or "medium")
     expected = {name for name, _ in skel}
     recovered = (load_recovery(
         subject, args.resume_tag, args.project, system, user, expected,
@@ -557,6 +605,10 @@ def main() -> int:
               f"{len(recovered.provenance['recovered_modules'])} modules, "
               f"{source_rounds}/{args.max_rounds} invocations already used; NOT a new sample")
     if args.dry_run:
+        if api_backend is not None:
+            api_backend.request_payload([{"role": "system", "content": system}, {"role": "user", "content": user}])
+            print(f"[b0] API config   : {json.dumps(api_backend.provenance()['api_configuration'])}")
+            print("[b0] API capacity/model support not checked; dry run makes no HTTP request")
         print("[b0] dry run -- no call made")
         return 0
 
@@ -566,7 +618,7 @@ def main() -> int:
         "tier": cfg["tier"],
         "backend": args.backend,
         "model": model,
-        "effort": effort if args.backend == "copilot" else None,
+        "effort": effort if args.backend in ("copilot", "copilot-api") else None,
         "context": args.context if args.backend == "copilot" else None,
         "recorded": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "inputs": {"java_files": len(java), "skeleton_modules": len(skel),
@@ -583,7 +635,7 @@ def main() -> int:
         "oracle_seen": False,
         "oracle_tests_in_prompt": False,
         "oracle_feedback_during_generation": False,
-        "copilot_audit": recovered.audits,
+        "copilot_audit": recovered.audits if args.backend == "copilot" else None,
         "protocol": (
             "single-shot: one prompt, no compiler feedback, no test feedback. "
             "When one response cannot hold every module, the SAME generation is "
@@ -593,11 +645,21 @@ def main() -> int:
             "Recovery tags remain linked to the original observation, not new samples."
         ),
     }
+    if api_backend is not None:
+        meta.update(api_backend.provenance())
+        meta.update(api_audit=[], explicit_http_model_requests=0, protocol=(
+            "B0 API-only: native system/user messages, no CLI, tools, retries or automatic "
+            "client/proxy continuation. Each invocation is one explicit HTTP model request. "
+            "Only closed file blocks and missing-module bookkeeping enter subsequent requests; "
+            "no compiler/oracle feedback. Different transport/protocol from Copilot CLI; "
+            "hidden provider prompts are not observable or claimed equivalent."
+        ))
     run_dir.mkdir()
     manifest_path = run_dir / "generation.json"
     manifest = {**meta, "state": "generating"}
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     success = False
+    backend = None
     try:
         (run_dir / "prompt.md").write_text(f"{system}\n\n---\n\n{user}", encoding="utf-8", newline="\n")
         for relative, content in recovered.audit_files.items():
@@ -608,10 +670,14 @@ def main() -> int:
                "start_round": source_rounds}
               if args.backend == "copilot" else {"max_tokens": args.max_output_tokens})
         replay_complete = args.resume_tag and expected <= set(recovered.provenance["recovered_modules"])
-        backend = (None if replay_complete or source_rounds == args.max_rounds
-                   else build_backend(args.backend, model=model, **kw))
+        if api_backend is not None:
+            api_backend.audit_dir = run_dir / "api-audit"
+            backend = api_backend
+        else:
+            backend = (None if replay_complete or source_rounds == args.max_rounds
+                       else build_backend(args.backend, model=model, **kw))
         print(f"[b0] backend      : {args.backend} model={model}"
-              + (f" effort={effort}" if args.backend == "copilot" else ""))
+              + (f" effort={effort}" if effort is not None and args.backend in ("copilot", "copilot-api") else ""))
         t0 = time.monotonic()
         files, response_text, usages, rounds = generate(
             backend, system, user, expected, args.max_rounds, prior_completions=recovered.completions)
@@ -654,16 +720,24 @@ def main() -> int:
             "observed_model_calls": (sum(audit["event_counts"].get("model.call_start", 0)
                                          for audit in audits) if args.backend == "copilot" else None),
             "observed_assistant_turns": (sum(audit["event_counts"].get("assistant.message", 0)
-                                             for audit in audits) if args.backend == "copilot" else None),
+                                             for audit in audits) if args.backend == "copilot"
+                                         else rounds if api_backend is not None else None),
             "copilot_audit": audits if args.backend == "copilot" else None,
             "complete": not missing and not unparseable,
         })
+        if api_backend is not None:
+            meta.update(api_audit=audits, returned_models=[audit["returned_model"] for audit in audits],
+                        explicit_http_model_requests=sum(audit["http_requests"] for audit in audits))
         (run_dir / "response.md").write_text(response_text, encoding="utf-8", newline="\n")
         (run_dir / "metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
         print(f"[b0] metadata     : {run_dir / 'metadata.json'}")
         success = True
     finally:
         # Even a later collector/materialization failure leaves a terminal replay manifest.
+        if api_backend is not None:
+            manifest["api_audit"] = api_backend.audit_records
+            manifest["explicit_http_model_requests"] = sum(
+                audit["http_requests"] for audit in api_backend.audit_records)
         manifest["state"] = "completed" if success else "failed"
         manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     return 0
