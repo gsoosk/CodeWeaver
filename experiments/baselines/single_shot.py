@@ -647,7 +647,13 @@ def main() -> int:
     }
     if api_backend is not None:
         meta.update(api_backend.provenance())
-        meta.update(api_audit=[], explicit_http_model_requests=0, protocol=(
+        single_call = args.max_rounds == 1
+        meta.update(api_audit=[], explicit_http_model_requests=0, single_call=single_call, protocol=(
+            "B0 API-only, STRICT single call: exactly one explicit HTTP model request per "
+            "subject, native system/user messages, no CLI, tools, retries or continuation of "
+            "any kind. Whatever one response cannot hold is left as an unimplemented skeleton "
+            "stub and scored as such. Not comparable to continuation-allowed arms."
+            if single_call else
             "B0 API-only: native system/user messages, no CLI, tools, retries or automatic "
             "client/proxy continuation. Each invocation is one explicit HTTP model request. "
             "Only closed file blocks and missing-module bookkeeping enter subsequent requests; "
