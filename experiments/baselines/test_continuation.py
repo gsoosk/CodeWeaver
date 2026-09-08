@@ -69,7 +69,7 @@ def test_backend_protocol():
         with patch("backends.copilot.subprocess.run", return_value=completed) as invoke:
             result = backend.complete("system", "x" * 250000)
             argv = invoke.call_args.args[0]
-            assert "--available-tools=" in argv
+            assert "--available-tools=__b0_no_tools__" in argv
             assert all(f"--deny-tool={kind}" in argv for kind in ("read", "write", "shell"))
             assert "--no-custom-instructions" in argv and "--disable-builtin-mcps" in argv
             assert "--allow-all" not in argv and "-p" not in argv

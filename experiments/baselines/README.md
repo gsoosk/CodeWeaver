@@ -61,8 +61,13 @@ it must not be described as an identical-protocol repetition of the hardened run
 - the Python interface skeleton (typed signatures, `pass` bodies)
 
 The oracle is excluded from the prompt. Copilot is additionally launched with an
-empty tool allowlist, explicit read/write/shell denials, no custom instructions, and no
+non-matching tool allowlist, explicit read/write/shell denials, no custom instructions, and no
 built-in MCP servers. Any tool-call/execution event invalidates the run.
+The CLI treats an empty `--available-tools` value as its defaults, so the explicit
+allowlist `__b0_no_tools__` matches no registered tool instead. The live preflight
+confirmed that empty lists still offered shell calls, while the explicit filter
+produced no tool-call/execution events; model text claiming execution is not evidence
+that a tool actually ran.
 `backend-audit/round-*/` retains the exact invocation, stdout/stderr and parsed
 audit for every response. `"oracle_seen": false` alone in older metadata is not
 proof of access isolation.
