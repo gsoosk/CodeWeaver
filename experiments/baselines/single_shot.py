@@ -9,8 +9,9 @@ Java->Python and to our interface-skeleton contract.
 WHAT THE MODEL SEES
     * every Java source file of the subject
     * the Python interface skeleton (typed signatures, `pass` bodies)
-It does NOT see the oracle tests. That is enforced structurally: this harness reads
-only `source_dir` and `.scaffold/`, and asserts it never touched `.oracle-master/`.
+Oracle tests are not included in the prompt. The Copilot backend additionally
+disables tools and audits the event stream; the original permissive B0 run did not
+provide this access-control evidence.
 
 WHAT IT PRODUCES
     subjects/<project>/pipeline-baseline-<tag>/project/src/main/**.py
@@ -228,6 +229,8 @@ def main() -> int:
                     help="default: whatever the subject's codeweaver.toml uses "
                          "(model-matched with CodeWeaver)")
     ap.add_argument("--effort", default=None, help="copilot backend only")
+    ap.add_argument("--context", choices=["default", "long_context"], default=None,
+                    help="explicit Copilot context tier; use long_context for large continuations")
     ap.add_argument("--max-output-tokens", type=int, default=128000,
                     help="output cap per response (default 128000)")
     ap.add_argument("--max-rounds", type=int, default=6,
@@ -273,9 +276,16 @@ def main() -> int:
         print("[b0] dry run -- no call made")
         return 0
 
+    run_dir = subject / f"pipeline-baseline-{args.tag}"
+    if run_dir.exists():
+        raise SystemExit(f"refusing to overwrite existing run: {run_dir}; choose a new --tag")
+    run_dir.mkdir()
+    (run_dir / "prompt.md").write_text(f"{system}\n\n---\n\n{user}", encoding="utf-8")
+
     model = args.model or cfg["model"] or "claude-sonnet-5"
     effort = args.effort or cfg["effort"] or "medium"
-    kw = ({"effort": effort} if args.backend == "copilot"
+    kw = ({"effort": effort, "context": args.context, "audit_dir": run_dir / "backend-audit"}
+          if args.backend == "copilot"
           else {"max_tokens": args.max_output_tokens})
     backend = build_backend(args.backend, model=model, **kw)
     print(f"[b0] backend      : {backend.name} model={model}"
@@ -287,7 +297,7 @@ def main() -> int:
         backend, system, user, expected, args.max_rounds)
     elapsed = time.monotonic() - t0
 
-    out_root = subject / f"pipeline-baseline-{args.tag}" / "project"
+    out_root = run_dir / "project"
     written, unknown = materialize(scaffold, out_root, files)
     missing = sorted(expected - set(files))
 
@@ -323,6 +333,7 @@ def main() -> int:
         "backend": backend.name,
         "model": model,
         "effort": effort if args.backend == "copilot" else None,
+        "context": args.context if args.backend == "copilot" else None,
         "recorded": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "inputs": {"java_files": len(java), "skeleton_modules": len(skel),
                    "prompt_chars": len(system) + len(user)},
@@ -334,6 +345,9 @@ def main() -> int:
         "continuation_rounds": rounds,
         "complete": not missing and not unparseable,
         "oracle_seen": False,
+        "oracle_tests_in_prompt": False,
+        "oracle_feedback_during_generation": False,
+        "copilot_audit": getattr(backend, "audit_records", None),
         "protocol": (
             "single-shot: one prompt, no compiler feedback, no test feedback. "
             "When one response cannot hold every module, the SAME generation is "
@@ -342,7 +356,6 @@ def main() -> int:
             "correctness."
         ),
     }
-    run_dir = out_root.parent
     (run_dir / "metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
     (run_dir / "response.md").write_text(response_text, encoding="utf-8")
     (run_dir / "prompt.md").write_text(f"{system}\n\n---\n\n{user}", encoding="utf-8")

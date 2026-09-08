@@ -17,6 +17,7 @@ BASELINE=""
 ALL=0
 RECORD_EXCLUSIONS=0
 KEEP_STAGING=0
+NO_PIPELINE_SKIPS=0
 WORKING_COPY_REL=""
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -27,6 +28,7 @@ while [ $# -gt 0 ]; do
     --working-copy) WORKING_COPY_REL="${2:-}"; shift 2 ;;
     --record-exclusions) RECORD_EXCLUSIONS=1; shift ;;
     --keep-staging) KEEP_STAGING=1; shift ;;
+    --no-pipeline-skips) NO_PIPELINE_SKIPS=1; shift ;;
     *) echo "unknown arg: $1" >&2; exit 2 ;;
   esac
 done
@@ -74,7 +76,11 @@ if [ "$ALL" -eq 0 ] && [ -z "${GATE// /}" ]; then
 fi
 
 # 4. Stage: translation + pristine oracle, in a throwaway tree.
-rm -rf "$STAGING"
+if [ "$NO_PIPELINE_SKIPS" -eq 1 ]; then
+  STAGING="$(mktemp -d)"
+else
+  rm -rf "$STAGING"
+fi
 mkdir -p "$STAGING/src"
 cp -r "$SRC_MAIN" "$STAGING/src/main"
 cp -r "$ORACLE_MASTER/test" "$STAGING/src/test"
@@ -123,7 +129,7 @@ if [ "$RECORD_EXCLUSIONS" -eq 0 ] && [ -f "$EXCL_FILE" ]; then
   done < "$EXCL_FILE"
 fi
 SKIPS_FILE="$SUBJECT/pipeline/skips.json"
-if [ "$RECORD_EXCLUSIONS" -eq 0 ] && [ -f "$SKIPS_FILE" ]; then
+if [ "$RECORD_EXCLUSIONS" -eq 0 ] && [ "$NO_PIPELINE_SKIPS" -eq 0 ] && [ -f "$SKIPS_FILE" ]; then
   while IFS= read -r nodeid; do
     [ -n "$nodeid" ] && DESELECT+=(--deselect "$nodeid")
   done < <(python3 -c "
@@ -160,6 +166,7 @@ echo
 echo "[oracle] project  : $PROJECT"
 echo "[oracle] source   : $SRC_MAIN"
 echo "[oracle] gate     : ${GATE:-(whole suite)}"
+[ "$NO_PIPELINE_SKIPS" -eq 1 ] && echo "[oracle] deferrals: disabled (isolated staging)"
 [ "$N_EXCL" -gt 0 ] && echo "[oracle] excluded : $N_EXCL environment-broken test(s)"
 echo "[oracle] result   : $SUMMARY"
 echo "[oracle] exitcode : $CODE"

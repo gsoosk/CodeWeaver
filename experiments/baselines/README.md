@@ -36,13 +36,36 @@ python experiments/baselines/single_shot.py --project commons-cli \
        --backend foundry --model gpt-5.4 --tag b0-foundry-20260904
 ```
 
+For a persistent repetition followed by independent scoring:
+
+```bash
+python -u experiments/baselines/run_one.py --project commons-cli \
+       --tag b0-sonnet5-med-20260908 \
+       --compare-tag b0-sonnet5-med-20260904
+```
+
+`run_one.py` defaults to explicit `long_context`, records the CLI/code versions,
+and uses the oracle's `--no-pipeline-skips` mode so CodeWeaver's deferred tests
+cannot hide baseline failures. Each subject gets an adjacent `.status.json`;
+finished runs retain `score.json`, `oracle_score.txt`, and `run_evidence.json`.
+Existing run tags are never overwritten.
+
+`--compare-tag` retains both observations and records the lower pass count in
+`selection.json` as **worst-of-two**, not an unselected `pass@1` result. The
+September 4 run used permissive tool flags and did not record its context tier;
+it must not be described as an identical-protocol repetition of the hardened run.
+
 ### What the model sees
 
 - every Java source file of the subject
 - the Python interface skeleton (typed signatures, `pass` bodies)
 
-**Not** the oracle. That is enforced structurally: the harness only ever reads
-`source_dir` and `.scaffold/`, and records `"oracle_seen": false` in its metadata.
+The oracle is excluded from the prompt. Copilot is additionally launched with an
+empty tool allowlist, deny-all tool permissions, no custom instructions, and no
+built-in MCP servers. Any tool-call/execution event invalidates the run.
+`backend-audit/round-*/` retains the exact invocation, stdout/stderr and parsed
+audit for every response. `"oracle_seen": false` alone in older metadata is not
+proof of access isolation.
 
 ### What it writes
 
@@ -52,6 +75,7 @@ subjects/<project>/pipeline-baseline-<tag>/
   prompt.md                 the exact prompt sent
   response.md               the raw completion(s), concatenated
   metadata.json             backend, model, usage per round, files parsed/written/stubbed
+  backend-audit/round-*/     invocation hashes, event stream, stderr and tool-access audit
 ```
 
 The working copy **starts from the skeleton** and is overwritten with generated
@@ -87,7 +111,10 @@ It is told only which files it has not yet written — bookkeeping about its own
 not information about correctness. `metadata.json` records `continuation_rounds` and
 per-round usage, so the deviation from a literal one-call protocol is always visible.
 
-Tune with `--max-output-tokens` (per response) and `--max-rounds` (default 6).
+Tune with `--max-output-tokens` (Foundry per-response limit) and `--max-rounds`
+(default 6). Copilot's output cap is provider-controlled; the metadata's
+`max_output_tokens` is not an enforced Copilot limit. Use `--context long_context`
+when the input plus accumulated continuation output exceeds the default context.
 `--dry-run` predicts how many rounds a subject will need before you spend anything.
 
 `experiments/baselines/test_continuation.py` exercises the loop offline against a
