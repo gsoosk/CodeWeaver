@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run one immutable B0 repetition and score it without pipeline deferrals."""
+"""Generate/recover one immutable B0 artifact, then score without pipeline deferrals."""
 from __future__ import annotations
 
 import argparse
@@ -47,10 +47,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project", required=True)
     parser.add_argument("--tag", required=True)
+    parser.add_argument("--resume-tag", help="linked recovery/continuation, not an independent new sample")
     parser.add_argument("--context", choices=("default", "long_context"), default="long_context")
     parser.add_argument("--max-rounds", type=int, default=6)
     parser.add_argument("--compare-tag", help="retain and compare against an earlier run of this subject")
     args = parser.parse_args()
+    for tag in (args.project, args.tag, args.resume_tag, args.compare_tag):
+        if tag is not None:
+            single_shot.validate_tag(tag)
 
     subject = single_shot.EXAMPLE / "subjects" / args.project
     run = subject / f"pipeline-baseline-{args.tag}"
@@ -59,11 +63,22 @@ def main() -> int:
         raise SystemExit(f"Run tag already exists; refusing to overwrite: {args.tag}")
     config = single_shot.read_config(args.project)
     reference = None
+    source_observation = args.tag
+    if args.resume_tag:
+        source = subject / f"pipeline-baseline-{args.resume_tag}"
+        source_meta_path = source / "metadata.json"
+        if not source_meta_path.exists():
+            source_meta_path = source / "generation.json"
+        source_meta = single_shot.json_object(source_meta_path.read_bytes(), "source metadata")
+        source_observation = single_shot.validate_tag(source_meta.get("observation_tag", args.resume_tag))
     if args.compare_tag:
         reference = subject / f"pipeline-baseline-{args.compare_tag}"
         reference_meta = json.loads((reference / "metadata.json").read_text())
         if reference_meta["model"] != config["model"] or reference_meta["effort"] != config["effort"]:
             raise SystemExit("Reference model/effort do not match this run")
+        reference_observation = reference_meta.get("observation_tag", args.compare_tag)
+        if reference_observation == source_observation:
+            raise SystemExit("Cannot select worst-of-two from recovery tags of the SAME observation")
         reference_score = parse_score((reference / "oracle_score.txt").read_text())
 
     version = subprocess.check_output(["copilot", "--version"], text=True).strip()
@@ -76,12 +91,16 @@ def main() -> int:
         "--backend", "copilot", "--model", config["model"], "--effort", config["effort"],
         "--context", args.context, "--max-rounds", str(args.max_rounds),
     ]
+    if args.resume_tag:
+        command.extend(["--resume-tag", args.resume_tag])
     state = {
         "state": "generating", "pid": os.getpid(), "project": args.project,
         "tag": args.tag, "started": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "code_revision": revision, "copilot_version": version,
         "generation_command": command, "context": args.context,
         "reference_tag": args.compare_tag,
+        "resume_tag": args.resume_tag, "observation_tag": source_observation,
+        "independent_sample": not bool(args.resume_tag),
     }
     write_json(status_file, state)
     print(f"[batch] status: {status_file}", flush=True)
@@ -131,6 +150,13 @@ def main() -> int:
         },
         "generation_complete": metadata["complete"],
         "copilot_audit": metadata["copilot_audit"],
+        "observation_tag": metadata["observation_tag"],
+        "independent_sample": metadata["independent_sample"],
+        "recovery": metadata["recovery"],
+        "backend_invocations": metadata["backend_invocations"],
+        "new_backend_invocations": metadata["new_backend_invocations"],
+        "observed_model_calls": metadata["observed_model_calls"],
+        "observed_assistant_turns": metadata["observed_assistant_turns"],
     }
     write_json(run / "run_evidence.json", evidence)
     if reference is not None:
@@ -147,7 +173,18 @@ def main() -> int:
             "selected_tag": args.tag if selected == "current" else args.compare_tag,
             "new_run_is_worse": selected == "current",
             "both_runs_retained": True,
+            "current_observation_tag": metadata["observation_tag"],
+            "reference_observation_tag": reference_observation,
+            "current_is_linked_recovery": bool(args.resume_tag),
+            "recovery_note": (
+                "A recovery tag continues the same original observation; it is not another sample."
+                if args.resume_tag else None
+            ),
             "protocol_note": (
+                "Both artifacts retain tool-access audits and context metadata. "
+                "Their recorded configuration and code/CLI provenance must be compared "
+                "before claiming identical protocols."
+                if reference_meta.get("copilot_audit") and reference_meta.get("context") else
                 "The original run has no tool-access audit and no recorded context tier. "
                 "This run disables tools, audits all responses, and records the explicit "
                 "context tier and CLI version. They are not identical-protocol repetitions."
@@ -159,6 +196,9 @@ def main() -> int:
     state.update(
         state="completed", finished=time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         generation_complete=metadata["complete"], oracle_score=score,
+        backend_invocations=metadata["backend_invocations"],
+        new_backend_invocations=metadata["new_backend_invocations"],
+        observed_model_calls=metadata["observed_model_calls"],
     )
     write_json(status_file, state)
     print("[batch] completed; all generation artifacts and observed failures retained", flush=True)

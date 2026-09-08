@@ -13,14 +13,15 @@ bash examples/alphatrans/tools/oracle.sh \
 | Arm | Status | Protocol |
 |---|---|---|
 | **CodeWeaver** | running | 6 agents, milestone loop + parity loop |
-| **B0 — single-shot** | ✅ implemented | one call, whole repo in one prompt, no feedback |
+| **B0 — single-shot** | ✅ implemented | one test-blind generation, whole repo prompt, output-only continuations |
 | **B1 — SWE-agent** | planned | agentic loop, dollar-budgeted |
 
 ## B0 — single-shot
 
 Mirrors CRUST-Bench's `pass@1` setting (arXiv:2504.15254), adapted from C→Rust to
 Java→Python and to our interface-skeleton contract. It is the **lower bound**: one
-generation, no compiler feedback, no test feedback, no iteration.
+generation, no compiler feedback, no test feedback, no correctness-driven iteration.
+This is not a literal one-model-call protocol when output limits require continuation.
 
 ```bash
 # free: build the prompt and report its size, call nothing
@@ -49,6 +50,8 @@ and uses the oracle's `--no-pipeline-skips` mode so CodeWeaver's deferred tests
 cannot hide baseline failures. Each subject gets an adjacent `.status.json`;
 finished runs retain `score.json`, `oracle_score.txt`, and `run_evidence.json`.
 Existing run tags are never overwritten.
+`--resume-tag OLD --tag NEW` instead recovers/continues the **same observation**;
+it is not a repetition or an additional independent sample.
 
 `--compare-tag` retains both observations and records the lower pass count in
 `selection.json` as **worst-of-two**, not an unselected `pass@1` result. The
@@ -68,8 +71,8 @@ allowlist `__b0_no_tools__` matches no registered tool instead. The live preflig
 confirmed that empty lists still offered shell calls, while the explicit filter
 produced no tool-call/execution events; model text claiming execution is not evidence
 that a tool actually ran.
-`backend-audit/round-*/` retains the exact invocation, stdout/stderr and parsed
-audit for every response. `"oracle_seen": false` alone in older metadata is not
+`backend-audit/round-*/` retains the invocation arguments and prompt hash,
+stdout/stderr and parsed audit for every backend invocation. `"oracle_seen": false` alone in older metadata is not
 proof of access isolation.
 
 ### What it writes
@@ -78,8 +81,9 @@ proof of access isolation.
 subjects/<project>/pipeline-baseline-<tag>/
   project/src/main/**.py    the translation (scored by the oracle)
   prompt.md                 the exact prompt sent
-  response.md               the raw completion(s), concatenated
-  metadata.json             backend, model, usage per round, files parsed/written/stubbed
+  response.md               transcript with invocation and internal message boundaries
+  metadata.json             configuration, total/per-invocation usage, files and lineage
+  generation.json           pre-generation manifest and terminal state, also retained on failure
   backend-audit/round-*/     invocation hashes, event stream, stderr and tool-access audit
 ```
 
@@ -107,23 +111,83 @@ So when one response cannot hold every module, the harness **continues the same
 generation** rather than giving up or keeping a truncated result. Continuation is
 **block-aware**: only file blocks that closed cleanly are kept, any half-written
 trailing block is discarded, and the next turn asks for the modules still outstanding.
-That makes seam corruption impossible — a resumed response can never splice a broken
-file together — and makes the loop idempotent.
+Each assistant message is parsed **independently**, even within one CLI invocation.
+A later message's tail or closing fence never completes an earlier partial block.
+Outstanding modules are requested **IN FULL**, not stitched together.
+
+Copilot can internally continue after its output cap in one CLI subprocess. For
+example, an empty reasoning-only assistant turn, a translation and a trailing
+fragment can represent **one backend invocation but three model calls/assistant
+turns**. All messages and raw events are retained; the collector no longer keeps
+only the final assistant message.
 
 **This stays within the single-shot protocol in the sense that matters: the model gets
 no feedback.** It never learns whether anything compiled, imported, or passed a test.
 It is told only which files it has not yet written — bookkeeping about its own output,
-not information about correctness. `metadata.json` records `continuation_rounds` and
-per-round usage, so the deviation from a literal one-call protocol is always visible.
+not information about correctness. `metadata.json` records `backend_invocations`
+(`continuation_rounds` remains its compatibility alias), `new_backend_invocations`,
+`observed_model_calls` (the number of `model.call_start` events), and
+`observed_assistant_turns` (including empty turns). Observed event counts are not
+estimates of unreported provider calls. Usage is retained per invocation and totaled
+only for fields reported by every invocation.
 
 Tune with `--max-output-tokens` (Foundry per-response limit) and `--max-rounds`
-(default 6). Copilot's output cap is provider-controlled; the metadata's
+(default 6, a **total backend-invocation budget**, not an internal-model-call budget).
+Copilot's output cap is provider-controlled; the metadata's
 `max_output_tokens` is not an enforced Copilot limit. Use `--context long_context`
 when the input plus accumulated continuation output exceeds the default context.
 `--dry-run` predicts how many rounds a subject will need before you spend anything.
 
+### Linked artifact recovery
+
+For a terminal audited Copilot run whose collector lost complete blocks:
+
+```bash
+python -u experiments/baselines/run_one.py --project commons-csv \
+       --resume-tag OLD --tag NEW --context long_context --max-rounds 6
+```
+
+The same arguments work with `single_shot.py` for generation/replay only; add
+`--dry-run` to validate the source and report recovered modules without writing or
+calling a model. Model, effort and context must match the source. `run_one.py`
+continues to score **after** generation using `oracle.sh --no-pipeline-skips`;
+the oracle's isolated staging and fixed environment exclusions are unchanged.
+
+Recovery rebuilds the original Java/skeleton/system prompt and requires an exact
+match with saved `prompt.md`. It validates required metadata shapes, no-tools
+arguments, each allowed request's prompt hash, contiguous invocation identities,
+usage, exit codes and the actual JSONL events. It never reads the source generated
+tree, oracle scores or oracle logs to construct a continuation. Only closed model
+output and the list of missing whole modules are sent back. Active sources, absent
+terminal status/provenance, missing/invalid audits, malformed JSONL, nonzero CLI
+exits and tool attempts are rejected rather than silently retried.
+Internal user messages must be the audited input or the CLI's known automatic
+`Please continue from where you left off.` request; unknown continuation prompts
+fail closed and require protocol review.
+
+If CSV used one invocation containing three model calls and emitted ten closed
+modules plus a truncated CSVParser, replay keeps those ten modules and requests
+CSVParser in full. With `--max-rounds 6`, **at most five new invocations** remain.
+Replay makes no model call when every expected module is already closed; an
+exhausted total budget also makes no call and leaves missing modules as stubs.
+
+Original files and the original failed `.status.json` are never changed. The new
+tag copies validated source audits byte-for-byte, continues global round numbering,
+and records audit origin tags, source hashes/revision, current collector code hashes,
+source state, usage and `observation_tag` lineage. Hashes establish artifact
+consistency, not authentication of potentially forged provenance. A terminal
+`generation.json` plus complete valid audits permits recovery even if a later
+collector failure prevented final metadata; killed runs still marked active need
+operator investigation, not an automatic state override.
+
+Recovery tags are explicitly marked `independent_sample: false`. Comparisons retain
+the existing **worst-of-two** policy, disclose linked recovery, and reject comparing
+two tags of the same observation as though they were independent samples.
+
 `experiments/baselines/test_continuation.py` exercises the loop offline against a
-fake backend, including the mid-file truncation case. No API, no cost.
+fake backend and mocked CLI, including multi-message truncation, recovery, total
+budgets, source preservation, invalid audits and post-generation scoring. No API,
+no real CLI/model invocation, no cost.
 
 ## Backends
 

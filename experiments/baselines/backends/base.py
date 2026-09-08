@@ -19,7 +19,7 @@ from typing import Protocol
 
 @dataclasses.dataclass
 class Usage:
-    """What a single call cost. Fields are None when a backend cannot report them."""
+    """Cost of one backend invocation (which may contain several model calls)."""
     prompt_tokens: int | None = None
     completion_tokens: int | None = None
     total_tokens: int | None = None
@@ -33,6 +33,10 @@ class Usage:
 
 @dataclasses.dataclass
 class Completion:
+    """Text plus invocation usage; raw may expose separate assistant_messages.
+
+    Consumers must parse those parts independently, never join partial file blocks.
+    """
     text: str
     usage: Usage
     model: str
