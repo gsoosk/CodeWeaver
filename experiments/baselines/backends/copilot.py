@@ -5,8 +5,8 @@ model and the same reasoning effort that CodeWeaver's own agents use, so a basel
 number produced here differs from CodeWeaver only in the scaffolding -- which is the
 whole point of the comparison.
 
-The CLI receives the prompt on stdin, with an empty tool allowlist and a deny-all
-permission rule. Custom instructions and built-in MCP servers are disabled.
+The CLI receives the prompt on stdin, with an empty tool allowlist and explicit
+read/write/shell denials. Custom instructions and built-in MCP servers are disabled.
 Every response is audited; any attempted tool call invalidates the generation.
 
 Usage (premium requests, AIU) is recovered from the JSONL event stream, so this
@@ -78,7 +78,7 @@ class CopilotBackend:
                 self.binary,
                 "--model", self.model,
                 "--reasoning-effort", self.effort,
-                "--available-tools=", "--deny-tool=*",
+                "--available-tools=", "--deny-tool=read", "--deny-tool=write", "--deny-tool=shell",
                 "--disable-builtin-mcps", "--no-custom-instructions",
                 "--no-ask-user", "--no-auto-update",
                 "--output-format", "json", "--no-color",
