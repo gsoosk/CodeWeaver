@@ -1,0 +1,41 @@
+{
+  "milestone": "M14",
+  "passed": false,
+  "tests": {
+    "unit": { "total": 478, "passed": 478, "failed": 0 },
+    "e2e": { "total": 404, "passed": 400, "failed": 4 }
+  },
+  "failures": [
+    {
+      "layer": "e2e",
+      "test": "src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testFloatSmallestValues",
+      "symptom": "assertEqual(FloatValidator.getInstance().validate1(strSmallestPositive, pattern), smallestPositive) fails: got None instead of sys.float_info.min (~2.2250738585072014e-308)",
+      "likely_cause": "FloatValidator._processParsedValue in src/main/org/apache/commons/validator/routines/FloatValidator.py clamps parsed values to true IEEE-754 32-bit single-precision bounds (_FLOAT_MIN_VALUE ~1.4e-45, _FLOAT_MAX_VALUE ~3.4e38) computed via struct pack/unpack, rejecting (returning None for) any value outside that narrow range. The oracle's Python fixtures use Python's native double-precision float (sys.float_info.min/max, ~2.2e-308/~1.8e308) as the expected representable range, so the 32-bit clamp under/overflows and returns None instead of the value.",
+      "repair_hint": "In FloatValidator.py, remove (or widen) the 32-bit single-precision min/max range check and the narrowing struct.pack/unpack('<f',...) round-trip in _processParsedValue; parsed floats should be returned as ordinary Python doubles without clamping to Float.MIN_VALUE/MAX_VALUE bounds, matching how Python has no distinct float32 type."
+    },
+    {
+      "layer": "e2e",
+      "test": "src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testValidateMinMax (inherited from AbstractNumberValidatorTest)",
+      "symptom": "assertEqual(self._max, self._validator._parse(str(self._max), '#', None), \"Test Max\") fails: expected sys.float_info.max (~1.7976931348623157e+308), got None",
+      "likely_cause": "Same root cause as testFloatSmallestValues: FloatValidator._processParsedValue rejects values above _FLOAT_MAX_VALUE (~3.4e38, the 32-bit float max), so parsing Python's double-precision float max returns None instead of the value.",
+      "repair_hint": "Same fix as above in FloatValidator.py — drop the 32-bit float range clamp in _processParsedValue so values across the full double-precision range parse and round-trip correctly."
+    },
+    {
+      "layer": "e2e",
+      "test": "src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testTimeZone",
+      "symptom": "assertEqual(self._GMT, result.tzinfo, \"default zone\") fails: expected zoneinfo.ZoneInfo('GMT'), got None, when calling self._validator.validate0(\"18:01\") with no explicit timeZone argument",
+      "likely_cause": "AbstractCalendarValidator._parse (src/main/org/apache/commons/validator/routines/AbstractCalendarValidator.py, ~line 596-618) only sets formatter.timezone when the caller explicitly passes a timeZone, leaving the parsed result timezone-naive (tzinfo=None) when timeZone is None. Java's Calendar/Date always carries the JVM's default TimeZone even when none is explicitly requested, so the Python translation should likewise attach the default zone (getDefaultTimeZone()) rather than staying naive.",
+      "repair_hint": "In AbstractCalendarValidator._parse, when timeZone is None, fall back to the process default zone (the existing getDefaultTimeZone() helper referenced near line ~590) instead of leaving formatter.timezone unset, so validate0()-style calls without an explicit TimeZone still return a result with the system/default tzinfo attached."
+    },
+    {
+      "layer": "e2e",
+      "test": "src/test/org/apache/commons/validator/routines/EmailValidatorTest.py::EmailValidatorTest::testEmailFromPerl",
+      "symptom": "Test never executes: unconditionally decorated @pytest.mark.skip(reason='Ignore') in the oracle test file, so it reports SKIPPED rather than PASSED/FAILED.",
+      "likely_cause": "Not a translation defect — the oracle test itself carries a hardcoded, unconditional skip marker (mirroring the original Java test's @Ignore annotation) with no environment flag, fixture, or resource that can be provisioned to enable it; there is no setup step available to make it run.",
+      "repair_hint": "No action available in the working copy/implementation can make this test run — it is permanently disabled at the oracle-test level (Java parity: the corresponding Java test method is @Ignore'd). Flagged per validation policy rather than silently treated as a pass; no repair target in src/main."
+    }
+  ],
+  "notes": [
+    "e2e: 1 additional test pre-excluded by the oracle harness's baseline_excluded.txt as environment-broken (CurrencyValidatorTest.testPattern, measures locale/platform not translation) — deselected by the harness itself before running, so it is not counted anywhere in the totals/failures above (separate from the 404 total)."
+  ]
+}

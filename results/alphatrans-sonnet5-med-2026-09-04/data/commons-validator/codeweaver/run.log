@@ -1,0 +1,52 @@
+[codeweaver] project=alphatrans-commons-validator app_id=sonnet5-med-20260904-commons-validator mock=False db=${HOME}/codeweaver-benchmark/examples/alphatrans/subjects/commons-validator/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 or history => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, skipped, parity_round, parity_complete, parity_report -> {}: done=True milestone_idx=14 parity_round=5 parity_complete=True skipped=['M4', 'M11', 'M12', 'M13', 'M14']
+    M0  iter=1  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=False
+    M3  iter=2  passed=True
+    M4  iter=1  passed=False
+    M4  iter=2  passed=False
+    M4  iter=3  passed=False
+    M4  iter=4  passed=False
+    M4  iter=5  passed=False
+    M4  iter=6  passed=False  GAVE-UP/SKIPPED
+    M5  iter=1  passed=False
+    M5  iter=2  passed=True
+    M6  iter=1  passed=True
+    M7  iter=1  passed=True
+    M8  iter=1  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    PARITY  iter=1  passed=True  [retry for ['CalendarValidatorTest.testCalendarValidatorMethods', 'CalendarValidatorTest.testLocaleValid', 'CalendarValidatorTest.testPatternValid', 'DateValidatorTest.testDateValidatorMethods', 'DateValidatorTest.testLocaleValid', 'DateValidatorTest.testPatternValid', 'TimeValidatorTest.testLocaleValid', 'TimeValidatorTest.testPatternValid', 'TimeValidatorTest.testTimeZone', 'FloatValidatorTest.testFloatSmallestValues', 'FloatValidatorTest.testValidateMinMax']]
+    M11  iter=1  passed=False
+    M11  iter=2  passed=False
+    M11  iter=3  passed=False
+    M11  iter=4  passed=False
+    M11  iter=5  passed=False
+    M11  iter=6  passed=False  GAVE-UP/SKIPPED
+    PARITY  iter=2  passed=True  [retry for ['src/test/org/apache/commons/validator/routines/EmailValidatorTest.py::EmailValidatorTest::testEmailFromPerl', 'src/test/org/apache/commons/validator/routines/DateValidatorTest.py::DateValidatorTest::testDateValidatorMethods', 'src/test/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.py::AbstractCalendarValidatorTest::testLocaleValid (invoked via DateValidatorTest and TimeValidatorTest)', 'src/test/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.py::AbstractCalendarValidatorTest::testPatternValid (invoked via DateValidatorTest and TimeValidatorTest)', 'src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testLocaleValid', 'src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testPatternValid', 'src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testValidateMinMax']]
+    M12  iter=1  passed=False
+    M12  iter=2  passed=False
+    M12  iter=3  passed=False
+    M12  iter=4  passed=False
+    M12  iter=5  passed=False
+    M12  iter=6  passed=False  GAVE-UP/SKIPPED
+    PARITY  iter=3  passed=True  [retry for ['CalendarValidatorTest::testCalendarValidatorMethods', 'CalendarValidatorTest::testLocaleValid', 'CalendarValidatorTest::testPatternValid', 'DateValidatorTest::testDateValidatorMethods', 'DateValidatorTest::testLocaleValid', 'DateValidatorTest::testPatternValid', 'FloatValidatorTest::testFloatSmallestValues', 'FloatValidatorTest::testValidateMinMax', 'TimeValidatorTest::testLocaleValid', 'TimeValidatorTest::testPatternValid']]
+    M13  iter=1  passed=False
+    M13  iter=2  passed=False
+    M13  iter=3  passed=False
+    M13  iter=4  passed=False
+    M13  iter=5  passed=False
+    M13  iter=6  passed=False  GAVE-UP/SKIPPED
+    PARITY  iter=4  passed=True  [retry for ['org.apache.commons.validator.routines.CalendarValidatorTest::testCalendarValidatorMethods', 'org.apache.commons.validator.routines.DateValidatorTest::testDateValidatorMethods', 'org.apache.commons.validator.routines.DateValidatorTest::testLocaleValid', 'org.apache.commons.validator.routines.DateValidatorTest::testPatternValid', 'org.apache.commons.validator.routines.TimeValidatorTest::testLocaleValid', 'org.apache.commons.validator.routines.TimeValidatorTest::testPatternValid', 'org.apache.commons.validator.routines.FloatValidatorTest::testFloatSmallestValues', 'org.apache.commons.validator.routines.FloatValidatorTest::testValidateMinMax (AbstractNumberValidatorTest::testValidateMinMax)', "org.apache.commons.validator.routines.EmailValidatorTest (self-skipped @ line 188, 'Ignore')"]]
+    M14  iter=1  passed=False
+    M14  iter=2  passed=False
+    M14  iter=3  passed=False
+    M14  iter=4  passed=False
+    M14  iter=5  passed=False
+    M14  iter=6  passed=False  GAVE-UP/SKIPPED
+    PARITY  iter=5  passed=True
+[codeweaver] WARNING: 5 milestone(s) skipped after exhausting the repair budget: ['M4', 'M11', 'M12', 'M13', 'M14']. The parity verifier gave deferred tests one retry.
+[codeweaver] PERMANENTLY SKIPPED (failed even after a retry milestone): ['src/test/org/apache/commons/validator/routines/EmailValidatorTest.py::EmailValidatorTest::testEmailFromPerl']

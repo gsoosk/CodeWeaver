@@ -1,0 +1,24 @@
+Independent post-run scoring of a frozen translation.
+Original oracle runner; original fixed environment exclusions retained.
+No pipeline/skips.json copied: no repair-budget deferrals deselected.
+
+SKIPPED [1] src/test/org/apache/commons/csv/CSVParserTest.py:836: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/CSVParserTest.py:768: PR 295 does not work
+SKIPPED [1] src/test/org/apache/commons/csv/CSVParserTest.py:269: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/CSVParserTest.py:79: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/CSVPrinterTest.py:775: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/CSVPrinterTest.py:810: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/CSVPrinterTest.py:454: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/CSVPrinterTest.py:357: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/CSVPrinterTest.py:111: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/CSVPrinterTest.py:102: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/CSVPrinterTest.py:95: Disabled
+SKIPPED [1] src/test/org/apache/commons/csv/perf/PerformanceTest.py:63: excluded by pom.xml
+SKIPPED [1] src/test/org/apache/commons/csv/perf/PerformanceTest.py:43: excluded by pom.xml
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv248Test.py::JiraCsv248Test::testJiraCsv248
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv290Test.py::JiraCsv290Test::testPostgresqlCsv
+[oracle] project  : commons-csv
+[oracle] source   : <isolated-scoring>/subjects/commons-csv/pipeline/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] result   : 2 failed, 296 passed, 13 skipped, 2 warnings in 48.42s
+[oracle] exitcode : 1

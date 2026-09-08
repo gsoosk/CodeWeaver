@@ -1,0 +1,17 @@
+[codeweaver] project=alphatrans-commons-csv app_id=sonnet5-med-20260904-commons-csv mock=False db=${HOME}/codeweaver-benchmark/examples/alphatrans/subjects/commons-csv/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 or history => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, skipped, parity_round, parity_complete, parity_report -> {}: done=True milestone_idx=8 parity_round=1 parity_complete=True skipped=[]
+    M0  iter=1  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=True
+    M5  iter=1  passed=True
+    M6  iter=1  passed=False
+    M6  iter=2  passed=False
+    M6  iter=3  passed=False
+    M6  iter=4  passed=True
+    M7  iter=1  passed=False
+    M7  iter=2  passed=True
+    M8  iter=1  passed=True
+    PARITY  iter=1  passed=True

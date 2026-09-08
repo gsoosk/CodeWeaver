@@ -1,0 +1,67 @@
+{
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Skeleton imports",
+      "goal": "Every module under src/main/** (Constants, DuplicateHeaderMode, QuoteMode, Token, IOUtils, ExtendedBufferedReader, Lexer, CSVFormat, CSVPrinter, CSVRecord, CSVParser) imports cleanly with signatures and type annotations intact; bodies may still be `pass`. build_check passes.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M1",
+      "title": "Leaf constants and enums",
+      "goal": "Implement Constants (all char/string/int constants), QuoteMode (5 sentinel members), DuplicateHeaderMode (3 sentinel members), and Token plus its nested Type (5 sentinel members, content buffer, isReady/isQuoted, reset()). No inter-class runtime dependencies among these.",
+      "tests": ["ConstantsTest", "QuoteModeTest", "DuplicateHeaderModeTest", "TokenTest"],
+      "marker": ""
+    },
+    {
+      "id": "M2",
+      "title": "I/O leaf utilities",
+      "goal": "Implement IOUtils (copy0/1, copyLarge0/1, rethrow, DEFAULT_BUFFER_SIZE) and ExtendedBufferedReader (lookAhead0/1/2, read0/1, getCurrentLineNumber, readLine) using a manual pushback buffer since these depend only on Constants.",
+      "tests": ["IOUtilsTest", "ExtendedBufferedReaderTest"],
+      "marker": ""
+    },
+    {
+      "id": "M3",
+      "title": "CSVFormat (Builder, Predefined, presets, validation)",
+      "goal": "Fully implement CSVFormat, its nested Builder (every setXxx/setXxx0/setXxx1 fluent setter), nested Predefined (13 named presets wired after CSVFormat's public static final constants), the 13 CSVFormat presets (DEFAULT, EXCEL, INFORMIX_UNLOAD, INFORMIX_UNLOAD_CSV, MONGODB_CSV, MONGODB_TSV, MYSQL, ORACLE, POSTGRESQL_CSV, POSTGRESQL_TEXT, RFC4180, TDF), validate(), equals/hashCode/toString, and the low-level print*/printWithQuotes*/printWithEscapes* writers. The parse/print/printer convenience methods may just construct CSVParser/CSVPrinter (trivial delegation) without depending on their internals being correct yet.",
+      "tests": ["CSVFormatTest", "CSVFormatPredefinedTest"],
+      "marker": ""
+    },
+    {
+      "id": "M4",
+      "title": "Lexer",
+      "goal": "Implement Lexer fully: nextToken, parseSimpleToken, parseEncapsulatedToken, isDelimiter/isEscapeDelimiter/isQuoteChar/isCommentStart/isEndOfFile/isStartOfLine, readEscape, readEndOfLine, trimTrailingSpaces, and per-format char-array precomputation (delimiter/delimiterBuf/escapeDelimiterBuf, DISABLED sentinel), depending on Token, ExtendedBufferedReader, Constants, and CSVFormat.",
+      "tests": ["LexerTest"],
+      "marker": ""
+    },
+    {
+      "id": "M5",
+      "title": "CSVRecord",
+      "goal": "Fully implement CSVRecord: values storage (never-null list, EMPTY_STRING_ARRAY substitution), recordNumber, characterPosition, comment, get0/1/2, isSet0/1, isMapped, isConsistent, toMap, toList, stream, putIn, iterator, toString/__str__. The parser back-reference (getHeaderMapRaw()) is wired but only becomes exercised once M6 lands.",
+      "tests": ["CSVRecordTest"],
+      "marker": ""
+    },
+    {
+      "id": "M6",
+      "title": "CSVParser (Headers, CSVRecordIterator, full parse pipeline)",
+      "goal": "Fully implement CSVParser and its sibling classes Headers and CSVRecordIterator: nextRecord() driving the Lexer token loop, createHeaders() (duplicate/blank handling per DuplicateHeaderMode), getRecords()/stream()/iterator(), getHeaderMap()/getHeaderNames(), getHeaderComment()/hasHeaderComment(), getTrailerComment()/hasTrailerComment(), getCurrentLineNumber(), getRecordNumber(), getFirstEndOfLine(), and all parse0..parse5 static factories (File/InputStream/Path/Reader/String/URL) funneling into the 4-arg constructor.",
+      "tests": ["CSVParserTest", "CSVFileParserTest", "CSVDuplicateHeaderTest"],
+      "marker": ""
+    },
+    {
+      "id": "M7",
+      "title": "CSVPrinter",
+      "goal": "Fully implement CSVPrinter: print, println, printComment, printRecord0/1/2, printRecords0/1, flush/close semantics (close0/1, AutoFlush), producing byte-for-byte matching CSV text (quoting/escaping, recordSeparator, trailing delimiter) on the given Appendable/text stream.",
+      "tests": ["CSVPrinterTest"],
+      "marker": ""
+    },
+    {
+      "id": "M8",
+      "title": "Golden: full contract parity",
+      "goal": "Every Java class, field, and method (including private CSVFormat helpers __printWithQuotes0/1, __printWithEscapes0/1, __print3/5, __isDelimiter, __append0/1, __isTrimChar0/1, __isLineBreak0/1, __containsLineBreak, __contains, __validate) has a faithful, non-stubbed Python counterpart; no pass/.../TODO/NotImplementedError remains anywhere in src/main/**. The full observable contract (format validation, parsing, header handling, printing, exceptions) is reproduced end-to-end.",
+      "tests": ["ConstantsTest", "QuoteModeTest", "DuplicateHeaderModeTest", "TokenTest", "IOUtilsTest", "ExtendedBufferedReaderTest", "CSVFormatTest", "CSVFormatPredefinedTest", "LexerTest", "CSVRecordTest", "CSVParserTest", "CSVFileParserTest", "CSVDuplicateHeaderTest", "CSVPrinterTest"],
+      "marker": ""
+    }
+  ]
+}

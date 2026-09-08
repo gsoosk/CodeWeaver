@@ -1,0 +1,257 @@
+[
+  {
+    "id": "M0",
+    "title": "Skeleton imports",
+    "goal": "Every module under src/main/** (all 61 files) imports cleanly with signatures intact; bodies may still be pass. build_check passes.",
+    "tests": [],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M1",
+    "title": "Leaf exceptions & value types",
+    "goal": "Implement ValidatorException, CheckDigitException, Flags, Arg, Msg, Var \u2014 the dependency-free base value/exception types used across the rest of the library.",
+    "tests": [
+      "ValidatorExceptionTest",
+      "CheckDigitExceptionTest",
+      "FlagsTest",
+      "ArgTest",
+      "MsgTest",
+      "VarTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M2",
+    "title": "CheckDigit algorithms",
+    "goal": "Implement routines/checkdigit/*: CheckDigit (ABC), ModulusCheckDigit, ModulusTenCheckDigit, LuhnCheckDigit, EAN13CheckDigit, ABANumberCheckDigit, CUSIPCheckDigit, SedolCheckDigit, ISBN10CheckDigit, ISBNCheckDigit, IBANCheckDigit, ISINCheckDigit, ISSNCheckDigit, VerhoeffCheckDigit, all depending only on M1's CheckDigitException.",
+    "tests": [
+      "CheckDigitTest",
+      "ModulusCheckDigitTest",
+      "ModulusTenCheckDigitTest",
+      "LuhnCheckDigitTest",
+      "EAN13CheckDigitTest",
+      "ABANumberCheckDigitTest",
+      "CUSIPCheckDigitTest",
+      "SedolCheckDigitTest",
+      "ISBN10CheckDigitTest",
+      "ISBNCheckDigitTest",
+      "IBANCheckDigitTest",
+      "ISINCheckDigitTest",
+      "ISSNCheckDigitTest",
+      "VerhoeffCheckDigitTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M3",
+    "title": "Routines core validators",
+    "goal": "Implement RegexValidator, CodeValidator, InetAddressValidator, DomainValidator, which depend on M2's CheckDigit algorithms and on each other.",
+    "tests": [
+      "RegexValidatorTest",
+      "CodeValidatorTest",
+      "InetAddressValidatorTest",
+      "DomainValidatorTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M4",
+    "title": "Numeric & calendar routines families",
+    "goal": "Implement AbstractFormatValidator, AbstractNumberValidator, AbstractCalendarValidator and their leaf subclasses: ByteValidator, ShortValidator, IntegerValidator, LongValidator, FloatValidator, DoubleValidator, BigIntegerValidator, BigDecimalValidator, CurrencyValidator, PercentValidator, CalendarValidator, DateValidator (routines), TimeValidator.",
+    "tests": [
+      "AbstractFormatValidatorTest",
+      "AbstractNumberValidatorTest",
+      "AbstractCalendarValidatorTest",
+      "ByteValidatorTest",
+      "ShortValidatorTest",
+      "IntegerValidatorTest",
+      "LongValidatorTest",
+      "FloatValidatorTest",
+      "DoubleValidatorTest",
+      "BigIntegerValidatorTest",
+      "BigDecimalValidatorTest",
+      "CurrencyValidatorTest",
+      "PercentValidatorTest",
+      "CalendarValidatorTest",
+      "DateValidatorTest",
+      "TimeValidatorTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M5",
+    "title": "Composite routines domain validators",
+    "goal": "Implement EmailValidator (routines), UrlValidator (routines), CreditCardValidator (routines), ISBNValidator (routines), ISINValidator, ISSNValidator, IBANValidator \u2014 composite validators depending on M2-M4.",
+    "tests": [
+      "EmailValidatorTest",
+      "UrlValidatorTest",
+      "CreditCardValidatorTest",
+      "ISBNValidatorTest",
+      "ISINValidatorTest",
+      "ISSNValidatorTest",
+      "IBANValidatorTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M6",
+    "title": "Util package",
+    "goal": "Implement util.ValidatorUtils (util.Flags already done in M1), which depends on Arg/Msg/Var from M1.",
+    "tests": [
+      "ValidatorUtilsTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M7",
+    "title": "Top-level model/config graph",
+    "goal": "Implement Field, Form, FormSet, ValidatorResult, ValidatorResults, ValidatorAction, ValidatorResources \u2014 the config-object graph and results model, depending on M1 (Msg/Var/Arg) and M6 (ValidatorUtils).",
+    "tests": [
+      "FieldTest",
+      "FormTest",
+      "FormSetTest",
+      "ValidatorResultTest",
+      "ValidatorResultsTest",
+      "ValidatorActionTest",
+      "ValidatorResourcesTest",
+      "CustomValidatorResourcesTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M8",
+    "title": "Top-level orchestration & generic helpers",
+    "goal": "Implement Validator (depends on ValidatorResources from M7), GenericValidator, GenericTypeValidator (depend on M3-M5 routines).",
+    "tests": [
+      "ValidatorTest",
+      "GenericValidatorTest",
+      "GenericTypeValidatorTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M9",
+    "title": "Deprecated top-level wrapper validators",
+    "goal": "Implement the deprecated thin-delegate top-level classes: EmailValidator, UrlValidator, CreditCardValidator, DateValidator, ISBNValidator (all in the org.apache.commons.validator top package), which delegate onto M5's routines classes.",
+    "tests": [
+      "EmailValidatorTest",
+      "UrlValidatorTest",
+      "CreditCardValidatorTest",
+      "DateValidatorTest",
+      "ISBNValidatorTest",
+      "UrlTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M10",
+    "title": "Golden / full conformance",
+    "goal": "Every class across org.apache.commons.validator and org.apache.commons.validator.routines(.checkdigit)/util is fully implemented with no pass/.../TODO/NotImplementedError bodies remaining; the complete behavioral contract (including exact exception types/messages and edge-case parity with the Java source) is reproduced end-to-end.",
+    "tests": [
+      "ValidatorExceptionTest",
+      "CheckDigitExceptionTest",
+      "FlagsTest",
+      "ArgTest",
+      "MsgTest",
+      "VarTest",
+      "CheckDigitTest",
+      "ModulusCheckDigitTest",
+      "ModulusTenCheckDigitTest",
+      "LuhnCheckDigitTest",
+      "EAN13CheckDigitTest",
+      "ABANumberCheckDigitTest",
+      "CUSIPCheckDigitTest",
+      "SedolCheckDigitTest",
+      "ISBN10CheckDigitTest",
+      "ISBNCheckDigitTest",
+      "IBANCheckDigitTest",
+      "ISINCheckDigitTest",
+      "ISSNCheckDigitTest",
+      "VerhoeffCheckDigitTest",
+      "RegexValidatorTest",
+      "CodeValidatorTest",
+      "InetAddressValidatorTest",
+      "DomainValidatorTest",
+      "AbstractFormatValidatorTest",
+      "AbstractNumberValidatorTest",
+      "AbstractCalendarValidatorTest",
+      "ByteValidatorTest",
+      "ShortValidatorTest",
+      "IntegerValidatorTest",
+      "LongValidatorTest",
+      "FloatValidatorTest",
+      "DoubleValidatorTest",
+      "BigIntegerValidatorTest",
+      "BigDecimalValidatorTest",
+      "CurrencyValidatorTest",
+      "PercentValidatorTest",
+      "CalendarValidatorTest",
+      "DateValidatorTest",
+      "TimeValidatorTest",
+      "EmailValidatorTest",
+      "UrlValidatorTest",
+      "CreditCardValidatorTest",
+      "ISBNValidatorTest",
+      "ISINValidatorTest",
+      "ISSNValidatorTest",
+      "IBANValidatorTest",
+      "ValidatorUtilsTest",
+      "FieldTest",
+      "FormTest",
+      "FormSetTest",
+      "ValidatorResultTest",
+      "ValidatorResultsTest",
+      "ValidatorActionTest",
+      "ValidatorResourcesTest",
+      "CustomValidatorResourcesTest",
+      "ValidatorTest",
+      "GenericValidatorTest",
+      "GenericTypeValidatorTest",
+      "UrlTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M11",
+    "title": "Retry deferred tests",
+    "goal": "Fix and re-enable the previously-skipped tests so they pass: [\"CalendarValidatorTest.testCalendarValidatorMethods\", \"CalendarValidatorTest.testLocaleValid\", \"CalendarValidatorTest.testPatternValid\", \"DateValidatorTest.testDateValidatorMethods\", \"DateValidatorTest.testLocaleValid\", \"DateValidatorTest.testPatternValid\", \"TimeValidatorTest.testLocaleValid\", \"TimeValidatorTest.testPatternValid\", \"TimeValidatorTest.testTimeZone\", \"FloatValidatorTest.testFloatSmallestValues\", \"FloatValidatorTest.testValidateMinMax\"]. Implement the functionality they exercise; they are re-enabled in this milestone's gate. If they still cannot pass, they are skipped permanently.",
+    "tests": [],
+    "marker": "",
+    "origin": "retry"
+  },
+  {
+    "id": "M12",
+    "title": "Retry deferred tests",
+    "goal": "Fix and re-enable the previously-skipped tests so they pass: [\"src/test/org/apache/commons/validator/routines/EmailValidatorTest.py::EmailValidatorTest::testEmailFromPerl\", \"src/test/org/apache/commons/validator/routines/DateValidatorTest.py::DateValidatorTest::testDateValidatorMethods\", \"src/test/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.py::AbstractCalendarValidatorTest::testLocaleValid (invoked via DateValidatorTest and TimeValidatorTest)\", \"src/test/org/apache/commons/validator/routines/AbstractCalendarValidatorTest.py::AbstractCalendarValidatorTest::testPatternValid (invoked via DateValidatorTest and TimeValidatorTest)\", \"src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testLocaleValid\", \"src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testPatternValid\", \"src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testValidateMinMax\"]. Implement the functionality they exercise; they are re-enabled in this milestone's gate. If they still cannot pass, they are skipped permanently.",
+    "tests": [],
+    "marker": "",
+    "origin": "retry"
+  },
+  {
+    "id": "M13",
+    "title": "Retry deferred tests",
+    "goal": "Fix and re-enable the previously-skipped tests so they pass: [\"CalendarValidatorTest::testCalendarValidatorMethods\", \"CalendarValidatorTest::testLocaleValid\", \"CalendarValidatorTest::testPatternValid\", \"DateValidatorTest::testDateValidatorMethods\", \"DateValidatorTest::testLocaleValid\", \"DateValidatorTest::testPatternValid\", \"FloatValidatorTest::testFloatSmallestValues\", \"FloatValidatorTest::testValidateMinMax\", \"TimeValidatorTest::testLocaleValid\", \"TimeValidatorTest::testPatternValid\"]. Implement the functionality they exercise; they are re-enabled in this milestone's gate. If they still cannot pass, they are skipped permanently.",
+    "tests": [],
+    "marker": "",
+    "origin": "retry"
+  },
+  {
+    "id": "M14",
+    "title": "Retry deferred tests",
+    "goal": "Fix and re-enable the previously-skipped tests so they pass: [\"org.apache.commons.validator.routines.CalendarValidatorTest::testCalendarValidatorMethods\", \"org.apache.commons.validator.routines.DateValidatorTest::testDateValidatorMethods\", \"org.apache.commons.validator.routines.DateValidatorTest::testLocaleValid\", \"org.apache.commons.validator.routines.DateValidatorTest::testPatternValid\", \"org.apache.commons.validator.routines.TimeValidatorTest::testLocaleValid\", \"org.apache.commons.validator.routines.TimeValidatorTest::testPatternValid\", \"org.apache.commons.validator.routines.FloatValidatorTest::testFloatSmallestValues\", \"org.apache.commons.validator.routines.FloatValidatorTest::testValidateMinMax (AbstractNumberValidatorTest::testValidateMinMax)\", \"org.apache.commons.validator.routines.EmailValidatorTest (self-skipped @ line 188, 'Ignore')\"]. Implement the functionality they exercise; they are re-enabled in this milestone's gate. If they still cannot pass, they are skipped permanently.",
+    "tests": [],
+    "marker": "",
+    "origin": "retry"
+  }
+]

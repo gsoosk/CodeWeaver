@@ -1,0 +1,38 @@
+{
+  "baseline": "B0-single-shot",
+  "project": "commons-cli",
+  "tier": "A",
+  "backend": "copilot",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "recorded": "2026-09-04T22:47:11+0000",
+  "inputs": {
+    "java_files": 23,
+    "skeleton_modules": 22,
+    "prompt_chars": 236651
+  },
+  "outputs": {
+    "files_parsed": 22,
+    "files_written": 22,
+    "unplaceable": 0,
+    "left_as_stub": [],
+    "unparseable": []
+  },
+  "usage_per_round": [
+    {
+      "premium_requests": 1,
+      "nano_aiu": 120178280000,
+      "wall_clock_s": 547.2
+    },
+    {
+      "premium_requests": 1,
+      "nano_aiu": 56688730000,
+      "wall_clock_s": 216.96
+    }
+  ],
+  "max_output_tokens": 128000,
+  "continuation_rounds": 2,
+  "complete": true,
+  "oracle_seen": false,
+  "protocol": "single-shot: one prompt, no compiler feedback, no test feedback. When one response cannot hold every module, the SAME generation is continued (block-aware) until all modules are emitted or --max-rounds is reached; the model is told only which files remain, never anything about correctness."
+}

@@ -1,0 +1,18 @@
+AlphaTrans sonnet5/medium campaign results
+Run: sonnet5-med-20260904; scores collected from frozen outputs on 2026-09-08.
+
+subject | arm | passed | failed | skipped | deselected | exit
+commons-cli | codeweaver | 380 | 1 | 56 | 0 | 1
+commons-cli | b0 | 368 | 13 | 56 | 0 | 1
+commons-csv | codeweaver | 296 | 2 | 13 | 0 | 1
+commons-fileupload | codeweaver | 38 | 1 | 0 | 0 | 1
+commons-validator | codeweaver | 452 | 10 | 1 | 1 | 1
+
+These are independent oracle scores, not pipeline self-reported scores.
+Pipeline termination/parity completion is not equivalent to all oracle tests passing.
+Original final pipeline reports, including their unresolved failures, are retained.
+B0: commons-cli only; 2 output-continuation rounds; no correctness feedback.
+Other B0 subjects and the SWE-agent comparison are not included because they were not run.
+CodeWeaver full-run cost is unavailable; no partial-log sum is presented as total cost.
+Oracle bodies, Java source, raw prompts/responses, large agent logs and databases are omitted.
+See report/scorecard.json, metadata/provenance.json, and reproduction/COMMANDS.txt.

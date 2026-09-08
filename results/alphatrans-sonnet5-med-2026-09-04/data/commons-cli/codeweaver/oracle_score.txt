@@ -1,0 +1,66 @@
+Independent post-run scoring of a frozen translation.
+Original oracle runner; original fixed environment exclusions retained.
+No pipeline/skips.json copied: no repair-budget deferrals deselected.
+
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:205: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:196: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:189: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:182: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:178: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:169: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:162: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:156: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:148: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:140: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:130: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:123: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:115: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:109: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:102: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:95: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:89: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:81: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:74: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:66: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:62: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:52: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:47: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:37: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:27: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:17: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:176: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:169: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:161: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:153: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:148: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:137: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:130: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:115: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:106: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:123: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:98: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:92: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:84: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:79: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:72: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:62: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:53: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:44: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:37: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:25: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:16: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:47: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:43: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:39: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:35: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:27: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:31: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:23: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:19: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:15: Ignore
+FAILED src/test/org/apache/commons/cli/bug/BugsTest.py::BugsTest::test11458
+[oracle] project  : commons-cli
+[oracle] source   : <isolated-scoring>/subjects/commons-cli/pipeline/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] result   : 1 failed, 380 passed, 56 skipped in 0.37s
+[oracle] exitcode : 1

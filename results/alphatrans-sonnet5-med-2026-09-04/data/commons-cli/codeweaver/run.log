@@ -1,0 +1,39 @@
+[codeweaver] project=alphatrans-commons-cli app_id=sonnet5-med-20260904-commons-cli mock=False db=${HOME}/codeweaver-benchmark/examples/alphatrans/subjects/commons-cli/pipeline/burr.db
+[codeweaver] loaded state at startup: milestone_idx=0 history_len=0  (idx>0 or history => resumed, not restarted)
+[codeweaver] finished at terminal: done, history, milestone_idx, report, skipped, parity_round, parity_complete, parity_report -> {}: done=True milestone_idx=13 parity_round=2 parity_complete=True skipped=['M4']
+    M0  iter=1  passed=True
+    M1  iter=1  passed=True
+    M2  iter=1  passed=True
+    M3  iter=1  passed=True
+    M4  iter=1  passed=False
+    M4  iter=2  passed=False
+    M4  iter=3  passed=False
+    M4  iter=4  passed=False
+    M4  iter=5  passed=False
+    M4  iter=6  passed=False  GAVE-UP/SKIPPED
+    M5  iter=1  passed=False
+    M5  iter=2  passed=False
+    M5  iter=3  passed=True
+    M6  iter=1  passed=False
+    M6  iter=2  passed=False
+    M6  iter=3  passed=False
+    M6  iter=4  passed=True
+    M7  iter=1  passed=False
+    M7  iter=2  passed=False
+    M7  iter=3  passed=False
+    M7  iter=4  passed=False
+    M7  iter=5  passed=False
+    M7  iter=6  passed=True
+    M8  iter=1  passed=False
+    M8  iter=2  passed=True
+    M9  iter=1  passed=True
+    M10  iter=1  passed=True
+    M11  iter=1  passed=False
+    M11  iter=2  passed=True
+    M12  iter=1  passed=True
+    PARITY  iter=1  passed=True  [retry for ['OptionGroupTest::testValidLongOnlyOptions', 'OptionGroupTest::testTwoValidOptions', 'OptionGroupTest::testTwoValidLongOptions', 'OptionGroupTest::testTwoOptionsFromGroupWithProperties', 'OptionGroupTest::testTwoOptionsFromGroup', 'OptionGroupTest::testTwoOptionsFromDifferentGroup', 'OptionGroupTest::testTwoLongOptionsFromGroup', 'OptionGroupTest::testSingleOptionFromGroup', 'OptionGroupTest::testSingleOption', 'OptionGroupTest::testSingleLongOption', 'OptionGroupTest::testNoOptionsExtraArgs', 'OptionGroupTest::testGetNames']]
+    M13  iter=1  passed=False
+    M13  iter=2  passed=False
+    M13  iter=3  passed=True
+    PARITY  iter=2  passed=True
+[codeweaver] WARNING: 1 milestone(s) skipped after exhausting the repair budget: ['M4']. The parity verifier gave deferred tests one retry.

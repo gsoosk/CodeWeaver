@@ -1,0 +1,17 @@
+{
+  "tests_to_skip": [],
+  "retried": [
+    "OptionGroupTest::testValidLongOnlyOptions",
+    "OptionGroupTest::testTwoValidOptions",
+    "OptionGroupTest::testTwoValidLongOptions",
+    "OptionGroupTest::testTwoOptionsFromGroupWithProperties",
+    "OptionGroupTest::testTwoOptionsFromGroup",
+    "OptionGroupTest::testTwoOptionsFromDifferentGroup",
+    "OptionGroupTest::testTwoLongOptionsFromGroup",
+    "OptionGroupTest::testSingleOptionFromGroup",
+    "OptionGroupTest::testSingleOption",
+    "OptionGroupTest::testSingleLongOption",
+    "OptionGroupTest::testNoOptionsExtraArgs",
+    "OptionGroupTest::testGetNames"
+  ]
+}

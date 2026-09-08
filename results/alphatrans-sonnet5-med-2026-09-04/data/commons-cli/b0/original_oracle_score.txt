@@ -1,0 +1,22 @@
+# B0 single-shot -- oracle score (independently recomputed)
+# project: commons-cli   backend: copilot   model: claude-sonnet-5   effort: medium
+# scored: tools/oracle.sh --project commons-cli --all \
+#           --working-copy pipeline-baseline-b0-sonnet5-med-20260904/project
+
+[oracle] result   : 13 failed, 368 passed, 56 skipped
+[oracle] exitcode : 1
+
+# Same-oracle reference points, identical harness and denominator:
+#   golden (AlphaTrans human translation)      381 / 381
+#   CodeWeaver, model-matched sonnet5/medium   380 / 381
+#   B0 single-shot (this arm)                  368 / 381
+#   unimplemented skeleton (floor)               1 / 381
+#
+# 56 tests are self-skipped by the suite in every configuration and are
+# excluded from the denominator on all arms.
+
+# Failures (13), by cluster:
+#   HelpFormatterTest      5   help/usage text rendering
+#   PatternOptionBuilder   5   type-pattern -> converter wiring
+#   TypeHandlerTest        2   value construction from a class token
+#   BugsTest::test11458    1   -Dkey=value parsing (CodeWeaver fails this one too)

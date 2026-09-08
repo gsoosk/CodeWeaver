@@ -1,0 +1,176 @@
+[
+  {
+    "id": "M0",
+    "title": "Skeleton imports",
+    "goal": "Every module under src/main/org/apache/commons/cli imports cleanly with signatures intact (bodies may still be `pass`); build_check passes.",
+    "tests": [],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M1",
+    "title": "Leaf utilities & base exception",
+    "goal": "Implement Util (stripLeadingHyphens/stripLeadingAndTrailingQuotes and any other static helpers), OptionValidator (option-character validation), and ParseException (base exception class with message).",
+    "tests": [
+      "UtilTest",
+      "OptionValidatorTest",
+      "ParseExceptionTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M2",
+    "title": "Exception hierarchy built on ParseException",
+    "goal": "Implement UnrecognizedOptionException, AmbiguousOptionException, MissingArgumentException, MissingOptionException, each subclassing ParseException with faithful message formatting and stored option references.",
+    "tests": [
+      "UnrecognizedOptionExceptionTest",
+      "AmbiguousOptionExceptionTest",
+      "MissingArgumentExceptionTest",
+      "MissingOptionExceptionTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M3",
+    "title": "Option and nested Builder",
+    "goal": "Implement Option.py fully, including the nested Builder class, argument/value storage, type conversion hooks, and equals/hashCode/toString semantics; depends on OptionValidator.",
+    "tests": [
+      "OptionTest",
+      "BuilderTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M4",
+    "title": "OptionGroup & AlreadySelectedException",
+    "goal": "Implement OptionGroup (selected/required option tracking) and AlreadySelectedException, reproducing exact selection-conflict behavior and messages; depends on Option.",
+    "tests": [
+      "OptionGroupTest",
+      "AlreadySelectedExceptionTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M5",
+    "title": "Options container",
+    "goal": "Implement Options.py: add/get option and group management, short/long option maps, required-options tracking; depends on Option, OptionGroup, Util.",
+    "tests": [
+      "OptionsTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M6",
+    "title": "Pattern/Type conversion",
+    "goal": "Implement PatternOptionBuilder and TypeHandler with faithful conversion results and ParseException messages on failure, including createDate/createFiles permanently raising; depends on Option, Options, ParseException.",
+    "tests": [
+      "PatternOptionBuilderTest",
+      "TypeHandlerTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M7",
+    "title": "CommandLine and nested Builder",
+    "goal": "Implement CommandLine.py including the nested Builder, option/value storage and retrieval, and typed getters via TypeHandler; depends on Option, ParseException, TypeHandler, Util.",
+    "tests": [
+      "CommandLineTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M8",
+    "title": "CommandLineParser interface & legacy Parser family",
+    "goal": "Implement CommandLineParser (interface), Parser (abstract base with shared parsing logic), BasicParser, GnuParser, PosixParser, reproducing exact CommandLine.options/args ordering and exception types/messages for malformed input.",
+    "tests": [
+      "CommandLineParserTest",
+      "ParserTest",
+      "BasicParserTest",
+      "GnuParserTest",
+      "PosixParserTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M9",
+    "title": "DefaultParser and nested Builder",
+    "goal": "Implement DefaultParser.py including the nested Builder, the modern parsing algorithm covering ambiguous/long-option/partial-match handling; depends on everything through M7 plus AmbiguousOptionException.",
+    "tests": [
+      "DefaultParserTest",
+      "DefaultParserBuilderTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M10",
+    "title": "OptionBuilder (deprecated static builder)",
+    "goal": "Implement OptionBuilder.py's static fluent-builder methods for constructing Option instances, matching Java's deprecated static API surface; depends on Option.",
+    "tests": [
+      "OptionBuilderTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M11",
+    "title": "HelpFormatter and nested OptionComparator",
+    "goal": "Implement HelpFormatter.py including the nested OptionComparator, reproducing exact printed usage/help text (line-wrapping, padding widths, prefixes/separators, newline characters) written to the passed writer; depends on Options, OptionGroup, Option.",
+    "tests": [
+      "HelpFormatterTest",
+      "OptionComparatorTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M12",
+    "title": "Golden conformance",
+    "goal": "All 21 classes in org.apache.commons.cli are fully translated with no pass/.../TODO/NotImplementedError bodies remaining; the entire suite passes, confirming full behavioral parity with the Java source.",
+    "tests": [
+      "UtilTest",
+      "OptionValidatorTest",
+      "ParseExceptionTest",
+      "UnrecognizedOptionExceptionTest",
+      "AmbiguousOptionExceptionTest",
+      "MissingArgumentExceptionTest",
+      "MissingOptionExceptionTest",
+      "OptionTest",
+      "BuilderTest",
+      "OptionGroupTest",
+      "AlreadySelectedExceptionTest",
+      "OptionsTest",
+      "PatternOptionBuilderTest",
+      "TypeHandlerTest",
+      "CommandLineTest",
+      "CommandLineParserTest",
+      "ParserTest",
+      "BasicParserTest",
+      "GnuParserTest",
+      "PosixParserTest",
+      "DefaultParserTest",
+      "DefaultParserBuilderTest",
+      "OptionBuilderTest",
+      "HelpFormatterTest",
+      "OptionComparatorTest"
+    ],
+    "marker": "",
+    "origin": "scoper"
+  },
+  {
+    "id": "M13",
+    "title": "Retry deferred tests",
+    "goal": "Fix and re-enable the previously-skipped tests so they pass: [\"OptionGroupTest::testValidLongOnlyOptions\", \"OptionGroupTest::testTwoValidOptions\", \"OptionGroupTest::testTwoValidLongOptions\", \"OptionGroupTest::testTwoOptionsFromGroupWithProperties\", \"OptionGroupTest::testTwoOptionsFromGroup\", \"OptionGroupTest::testTwoOptionsFromDifferentGroup\", \"OptionGroupTest::testTwoLongOptionsFromGroup\", \"OptionGroupTest::testSingleOptionFromGroup\", \"OptionGroupTest::testSingleOption\", \"OptionGroupTest::testSingleLongOption\", \"OptionGroupTest::testNoOptionsExtraArgs\", \"OptionGroupTest::testGetNames\"]. Implement the functionality they exercise; they are re-enabled in this milestone's gate. If they still cannot pass, they are skipped permanently.",
+    "tests": [],
+    "marker": "",
+    "origin": "retry"
+  }
+]

@@ -1,0 +1,21 @@
+Independent post-run scoring of a frozen translation.
+Original oracle runner; original fixed environment exclusions retained.
+No pipeline/skips.json copied: no repair-budget deferrals deselected.
+
+SKIPPED [1] src/test/org/apache/commons/validator/routines/EmailValidatorTest.py:188: Ignore
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testInstanceOverride
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testUpdateCountryCode1b
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testUpdateCountryCode3b
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testUpdateGeneric2
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testUpdateGeneric4
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testVALIDATOR_412b
+FAILED src/test/org/apache/commons/validator/routines/DomainValidatorStartupTest.py::DomainValidatorStartupTest::testVALIDATOR_412d
+FAILED src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testFloatSmallestValues
+FAILED src/test/org/apache/commons/validator/routines/FloatValidatorTest.py::FloatValidatorTest::testValidateMinMax
+FAILED src/test/org/apache/commons/validator/routines/TimeValidatorTest.py::TimeValidatorTest::testTimeZone
+[oracle] project  : commons-validator
+[oracle] source   : <isolated-scoring>/subjects/commons-validator/pipeline/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] excluded : 1 environment-broken test(s)
+[oracle] result   : 10 failed, 452 passed, 1 skipped, 1 deselected, 24 warnings in 1.38s
+[oracle] exitcode : 1

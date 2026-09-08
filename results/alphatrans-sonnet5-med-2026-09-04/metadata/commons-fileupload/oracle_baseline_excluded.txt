@@ -1,0 +1,5 @@
+# Tests that FAIL or ERROR against AlphaTrans's own manually verified
+# translation in THIS environment. They measure the environment (locale,
+# timezone, platform), not the translation under test, so every scored run
+# deselects them. Excluded from the tamper manifest by design.
+# Subject: commons-fileupload    Recorded: 2026-09-04T19:12:46+00:00

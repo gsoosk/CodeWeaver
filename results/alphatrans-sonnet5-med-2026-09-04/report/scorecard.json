@@ -1,0 +1,207 @@
+{
+  "campaign": "sonnet5-med-20260904",
+  "rows": [
+    {
+      "subject": "commons-cli",
+      "arm": "codeweaver",
+      "source_files": 27,
+      "oracle": {
+        "passed": 380,
+        "failed": 1,
+        "skipped": 56,
+        "deselected": 0,
+        "xfailed": 0,
+        "xpassed": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "1 failed, 380 passed, 56 skipped in 0.37s",
+        "scored_at_utc": "2026-09-08T17:21:43Z",
+        "wall_clock_seconds": 0.693,
+        "pipeline_deferrals_applied": false,
+        "raw_output_sha256": "69939e40f9b8614bf05bb64241ca93889da5bd70d38301b9878c8ea09f65c275"
+      },
+      "original_pipeline_report": {
+        "milestone": "M13",
+        "passed": true,
+        "tests": {
+          "unit": {
+            "total": 238,
+            "passed": 238,
+            "failed": 0
+          },
+          "e2e": {
+            "total": 309,
+            "passed": 309,
+            "failed": 0
+          }
+        }
+      },
+      "cost": {
+        "premium_requests": null,
+        "aiu": null,
+        "reason": "Role stdout logs retain only the latest invocation; no complete campaign usage ledger is available."
+      }
+    },
+    {
+      "subject": "commons-cli",
+      "arm": "b0",
+      "source_files": 27,
+      "oracle": {
+        "passed": 368,
+        "failed": 13,
+        "skipped": 56,
+        "deselected": 0,
+        "xfailed": 0,
+        "xpassed": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "13 failed, 368 passed, 56 skipped in 0.36s",
+        "scored_at_utc": "2026-09-08T17:21:44Z",
+        "wall_clock_seconds": 0.685,
+        "pipeline_deferrals_applied": false,
+        "raw_output_sha256": "6306b2d48fcc8a8a4b942076f9cde7c89bd92a7a4df6da3bbec4941252d52078"
+      },
+      "cost": {
+        "premium_requests": 2,
+        "nano_aiu": 176867010000,
+        "wall_clock_seconds": 764.1600000000001
+      },
+      "generation_rounds": 2,
+      "generation_complete": true,
+      "oracle_seen_during_generation": false
+    },
+    {
+      "subject": "commons-csv",
+      "arm": "codeweaver",
+      "source_files": 16,
+      "oracle": {
+        "passed": 296,
+        "failed": 2,
+        "skipped": 13,
+        "deselected": 0,
+        "xfailed": 0,
+        "xpassed": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "2 failed, 296 passed, 13 skipped, 2 warnings in 48.42s",
+        "scored_at_utc": "2026-09-08T17:21:44Z",
+        "wall_clock_seconds": 48.777,
+        "pipeline_deferrals_applied": false,
+        "raw_output_sha256": "443c8707c5ea050167f43e0297916f59173cebdf6528463821fbac19d327560e"
+      },
+      "original_pipeline_report": {
+        "milestone": "M8",
+        "passed": true,
+        "tests": {
+          "unit": {
+            "total": 72,
+            "passed": 71,
+            "failed": 0
+          },
+          "e2e": {
+            "total": 277,
+            "passed": 266,
+            "failed": 0
+          }
+        }
+      },
+      "cost": {
+        "premium_requests": null,
+        "aiu": null,
+        "reason": "Role stdout logs retain only the latest invocation; no complete campaign usage ledger is available."
+      }
+    },
+    {
+      "subject": "commons-fileupload",
+      "arm": "codeweaver",
+      "source_files": 40,
+      "oracle": {
+        "passed": 38,
+        "failed": 1,
+        "skipped": 0,
+        "deselected": 0,
+        "xfailed": 0,
+        "xpassed": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "1 failed, 38 passed in 0.11s",
+        "scored_at_utc": "2026-09-08T17:22:33Z",
+        "wall_clock_seconds": 0.407,
+        "pipeline_deferrals_applied": false,
+        "raw_output_sha256": "3be1e2c4a074d89f97609a1e3e9b0134400f199db148cabde68a79bcc90086bd"
+      },
+      "original_pipeline_report": {
+        "milestone": "M7",
+        "passed": true,
+        "tests": {
+          "unit": {
+            "total": 64,
+            "passed": 64,
+            "failed": 0
+          },
+          "e2e": {
+            "total": 9,
+            "passed": 9,
+            "failed": 0
+          }
+        }
+      },
+      "cost": {
+        "premium_requests": null,
+        "aiu": null,
+        "reason": "Role stdout logs retain only the latest invocation; no complete campaign usage ledger is available."
+      }
+    },
+    {
+      "subject": "commons-validator",
+      "arm": "codeweaver",
+      "source_files": 71,
+      "oracle": {
+        "passed": 452,
+        "failed": 10,
+        "skipped": 1,
+        "deselected": 1,
+        "xfailed": 0,
+        "xpassed": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "10 failed, 452 passed, 1 skipped, 1 deselected, 24 warnings in 1.38s",
+        "scored_at_utc": "2026-09-08T17:22:34Z",
+        "wall_clock_seconds": 1.709,
+        "pipeline_deferrals_applied": false,
+        "raw_output_sha256": "2035e31823dc78ef0a094772994830b87674c8567a2387f7ee9b967fe7b82c16"
+      },
+      "original_pipeline_report": {
+        "milestone": "M14",
+        "passed": false,
+        "tests": {
+          "unit": {
+            "total": 478,
+            "passed": 478,
+            "failed": 0
+          },
+          "e2e": {
+            "total": 404,
+            "passed": 400,
+            "failed": 4
+          }
+        }
+      },
+      "cost": {
+        "premium_requests": null,
+        "aiu": null,
+        "reason": "Role stdout logs retain only the latest invocation; no complete campaign usage ledger is available."
+      }
+    }
+  ],
+  "protocol": {
+    "model": "claude-sonnet-5",
+    "effort": "medium",
+    "oracle_source": "AlphaTrans manually verified Python tests (Tier A)",
+    "scoring": "Frozen copies; original oracle runner; fixed environment exclusions retained; all pipeline repair deferrals disabled.",
+    "denominator": "passed + failed; suite skips and fixed environment exclusions reported separately.",
+    "codeweaver_feedback": "Iterative agent pipeline with oracle feedback, without oracle test-source access.",
+    "b0_feedback": "No compiler/test feedback; two generation responses used for output continuation, not literal one-response generation.",
+    "repetitions": 1
+  }
+}

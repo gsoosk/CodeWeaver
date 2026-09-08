@@ -1,0 +1,60 @@
+{
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Skeleton imports",
+      "goal": "Every module under src/main/org/apache/commons/fileupload/** imports cleanly with signatures intact (bodies may still be `pass`). build_check passes.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M1",
+      "title": "Leaf exceptions & simple value types",
+      "goal": "Implement FileUploadException (cause, static factories FileUploadException0/1, printStackTrace0/1), InvalidFileNameException (NUL-byte name carrier), FileCountLimitExceededException (limit), and util/mime/ParseException, matching Java attribute/behavior exactly.",
+      "tests": ["FileUploadExceptionTest", "InvalidFileNameExceptionTest", "FileCountLimitExceededExceptionTest", "ParseExceptionTest"],
+      "marker": ""
+    },
+    {
+      "id": "M2",
+      "title": "Core interfaces/ABC contracts",
+      "goal": "Implement the ABC-shaped contracts with no behavior beyond method presence/state: RequestContext, UploadContext, FileItemHeaders, FileItemHeadersSupport, ProgressListener, FileItemFactory, FileItem, FileItemStream, FileItemIterator, util/Closeable.",
+      "tests": ["RequestContextTest", "UploadContextTest", "FileItemHeadersTest", "FileItemHeadersSupportTest", "ProgressListenerTest", "FileItemFactoryTest", "FileItemTest", "FileItemStreamTest", "FileItemIteratorTest", "CloseableTest"],
+      "marker": ""
+    },
+    {
+      "id": "M3",
+      "title": "Utility/codec leaves",
+      "goal": "Implement util/Streams, util/mime/Base64Decoder, util/mime/QuotedPrintableDecoder, util/mime/MimeUtility, util/FileItemHeadersImpl, util/LimitedInputStream, reproducing exact decode output and error cases (IOException/ParseException-equivalents) for malformed input.",
+      "tests": ["StreamsTest", "Base64DecoderTest", "QuotedPrintableDecoderTest", "MimeUtilityTest", "FileItemHeadersImplTest", "LimitedInputStreamTest"],
+      "marker": ""
+    },
+    {
+      "id": "M4",
+      "title": "Parsing core",
+      "goal": "Implement ParameterParser (parse0..3 overloads, isLowerCaseNames/setLowerCaseNames, private token scanner) and MultipartStream (boundary detection, boundaryTable, readByte/readBoundary/setBoundary, readHeaders with HEADER_PART_SIZE_MAX enforcement, ProgressNotifier, ItemInputStream read0/read1/close0/close1/skip/available, MalformedStreamException, IllegalBoundaryException), reproducing identical boundary/header detection and byte-for-byte stream content.",
+      "tests": ["ParameterParserTest", "MultipartStreamTest"],
+      "marker": ""
+    },
+    {
+      "id": "M5",
+      "title": "FileItem implementations",
+      "goal": "Implement disk/DiskFileItem (constructor state, getContentType, getCharSet, getName w/ NUL-check via Streams.checkFileName, getFieldName/setFieldName, isFormField/setFormField, getTempFile, getHeaders/setHeaders, getDefaultCharset/setDefaultCharset, getUniqueId), disk/DiskFileItemFactory (DEFAULT_SIZE_THRESHOLD, sizeThreshold/repository/defaultCharset accessors, DiskFileItemFactory1), and the deprecated thin subclasses DefaultFileItem/DefaultFileItemFactory.",
+      "tests": ["DiskFileItemTest", "DiskFileItemFactoryTest", "DefaultFileItemTest", "DefaultFileItemFactoryTest"],
+      "marker": ""
+    },
+    {
+      "id": "M6",
+      "title": "Top-level API & container adapters",
+      "goal": "Implement FileUploadBase (constants, sizeMax/fileSizeMax/fileCountMax/headerEncoding/listener state+accessors, isMultipartContent, header-parsing helpers getBoundary/getFileName0-2/getFieldName0-2/createItem/getParsedHeaders/parseHeaders/parseHeaderLine/parseEndOfLine/getHeader/newFileItemHeaders/getContentLength, and nested exception types FileUploadIOException/IOFileUploadException/SizeException/InvalidContentTypeException/UnknownSizeException/SizeLimitExceededException/FileSizeLimitExceededException plus the data-holding FileItemStreamImpl), FileUpload (fileItemFactory field/accessors, constructor), servlet/ServletRequestContext, and portlet/PortletFileUpload (constructor + PortletFileUpload1).",
+      "tests": ["FileUploadBaseTest", "FileUploadTest", "ServletRequestContextTest", "PortletFileUploadTest"],
+      "marker": ""
+    },
+    {
+      "id": "M7",
+      "title": "Golden parity pass",
+      "goal": "Full conformance: every class in src/main/org/apache/commons/fileupload/** has no pass/.../TODO/NotImplementedError bodies remaining; all classes reproduce the Java contract exactly, and the entire own-test suite plus every prior milestone's selectors pass together.",
+      "tests": ["FileUploadExceptionTest", "InvalidFileNameExceptionTest", "FileCountLimitExceededExceptionTest", "ParseExceptionTest", "RequestContextTest", "UploadContextTest", "FileItemHeadersTest", "FileItemHeadersSupportTest", "ProgressListenerTest", "FileItemFactoryTest", "FileItemTest", "FileItemStreamTest", "FileItemIteratorTest", "CloseableTest", "StreamsTest", "Base64DecoderTest", "QuotedPrintableDecoderTest", "MimeUtilityTest", "FileItemHeadersImplTest", "LimitedInputStreamTest", "ParameterParserTest", "MultipartStreamTest", "DiskFileItemTest", "DiskFileItemFactoryTest", "DefaultFileItemTest", "DefaultFileItemFactoryTest", "FileUploadBaseTest", "FileUploadTest", "ServletRequestContextTest", "PortletFileUploadTest"],
+      "marker": ""
+    }
+  ]
+}

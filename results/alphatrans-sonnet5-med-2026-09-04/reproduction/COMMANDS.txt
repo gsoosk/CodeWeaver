@@ -1,0 +1,37 @@
+Re-scoring the published, frozen translations
+============================================
+
+Use Linux with Python 3.12.3, pytest 9.1.1, and the AlphaTrans test dependencies.
+Activate the same benchmark virtual environment if available:
+
+  source "$HOME/cwenv/bin/activate"
+
+Use the AlphaTrans dataset at commit c1cabf93d41a153de207d6b098e1da7bbd79abab.
+The CodeWeaver checkout must contain this result package and the unchanged
+oracle runner from 526e67b41f0f7b7be8298bd9e3b8419606b90e6d. The reproduction
+script checks the dataset revision, fixture manifest, runner hash and package
+manifest before running the existing oracle runner.
+
+From the CodeWeaver repository root:
+
+  bash results/alphatrans-sonnet5-med-2026-09-04/reproduction/score.sh commons-cli codeweaver "$HOME/AlphaTrans"
+  bash results/alphatrans-sonnet5-med-2026-09-04/reproduction/score.sh commons-cli b0 "$HOME/AlphaTrans"
+  bash results/alphatrans-sonnet5-med-2026-09-04/reproduction/score.sh commons-csv codeweaver "$HOME/AlphaTrans"
+  bash results/alphatrans-sonnet5-med-2026-09-04/reproduction/score.sh commons-fileupload codeweaver "$HOME/AlphaTrans"
+  bash results/alphatrans-sonnet5-med-2026-09-04/reproduction/score.sh commons-validator codeweaver "$HOME/AlphaTrans"
+
+Each command currently returns exit 1 because every arm has recorded failures.
+Run them individually; do not chain with && and stop after the first failure.
+No generation is rerun and no model calls are made by the scoring script.
+
+Scoring uses temporary directories, not the original live pipeline directories.
+It retains the fixed environment exclusion recorded against the golden
+translation (one CurrencyValidator test for commons-validator), but applies no
+pipeline repair-budget deferrals. Suite self-skips are listed separately.
+Original pipeline reports are preserved for audit; use report/scorecard.json
+and the independent oracle_score.txt files for benchmark comparisons.
+
+Recorded environment: LANG=C.UTF-8; LC_ALL and TZ unset.
+Raw logs, plans, session databases, Java source, oracle test bodies and B0
+prompt/response text are not redistributed. The fixture manifests and hashes
+of selected omitted artifacts are in metadata/.

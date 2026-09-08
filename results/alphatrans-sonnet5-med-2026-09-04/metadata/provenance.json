@@ -1,0 +1,112 @@
+{
+  "package": "alphatrans-sonnet5-med-2026-09-04",
+  "repository": "https://github.com/gsoosk/CodeWeaver",
+  "branch": "crust-bench-run",
+  "code_revision_at_packaging_and_scoring": "526e67b41f0f7b7be8298bd9e3b8419606b90e6d",
+  "campaign_start_revision": null,
+  "campaign_start_revision_note": "The exact start revision was not persisted; do not infer it from the packaging revision.",
+  "dataset_repository": "https://github.com/Intelligent-CAT-Lab/AlphaTrans",
+  "dataset_revision": "c1cabf93d41a153de207d6b098e1da7bbd79abab",
+  "campaign_id": "sonnet5-med-20260904",
+  "b0_tag": "b0-sonnet5-med-20260904",
+  "configurations_at_packaging": {
+    "commons-cli": {
+      "model": {
+        "default": "claude-sonnet-5",
+        "effort_default": "medium"
+      },
+      "execution": {
+        "max_iter": 6,
+        "parity_check": true,
+        "max_parity_rounds": 4
+      },
+      "config_sha256": "7e497d38bd70fe5c3bfa3628348312adc044d074da76f6eba48b10bd7374c8eb",
+      "app_id": "sonnet5-med-20260904-commons-cli"
+    },
+    "commons-csv": {
+      "model": {
+        "default": "claude-sonnet-5",
+        "effort_default": "medium"
+      },
+      "execution": {
+        "max_iter": 6,
+        "parity_check": true,
+        "max_parity_rounds": 4
+      },
+      "config_sha256": "b2b9fcb6cb6cd17d7a591d6e4148b6e522f6d0f62fe9ed6ce8e44fb87454253d",
+      "app_id": "sonnet5-med-20260904-commons-csv"
+    },
+    "commons-fileupload": {
+      "model": {
+        "default": "claude-sonnet-5",
+        "effort_default": "medium"
+      },
+      "execution": {
+        "max_iter": 6,
+        "parity_check": true,
+        "max_parity_rounds": 4
+      },
+      "config_sha256": "40d81b108540a713aee53e72d4df2c4a376cf92a9834a6ec7c4842cf192b1351",
+      "app_id": "sonnet5-med-20260904-commons-fileupload"
+    },
+    "commons-validator": {
+      "model": {
+        "default": "claude-sonnet-5",
+        "effort_default": "medium"
+      },
+      "execution": {
+        "max_iter": 6,
+        "parity_check": true,
+        "max_parity_rounds": 4
+      },
+      "config_sha256": "db6d5b58021c4dbd7fb8b0b5154b90f3c6432b3d31bc72d08b1d3f7c76003c6e",
+      "app_id": "sonnet5-med-20260904-commons-validator"
+    }
+  },
+  "scoring_python": "3.12.3",
+  "scoring_pytest": "9.1.1",
+  "scoring_environment": {
+    "LANG": "C.UTF-8",
+    "LC_ALL": null,
+    "TZ": null
+  },
+  "oracle_runner_sha256": "4231cf66d506f45f6e6def8c18319ffe8c54e962b346c91a694511eb226cb3ff",
+  "hashes_of_omitted_original_artifacts": {
+    "commons-cli/codeweaver": {
+      "analysis.md": "4abc51a298c83097271b2f795694152ef8edf1755274d0667bc32c3a573f1fd2",
+      "plan.json": "4874ad70a60c9cf37c362173d703e65a64043a71315fa45552dd1f99b73de2dc",
+      "burr.db": "dcfb9e5f03afe4f469a5539e2dbd6e46911ae96e742edaea84e6b92801059ff3",
+      "original_run_log": "24b24ea63cf5c936dad7e84f9a6161cb4caab75a0a656ca17b7e7e8f8d94abf8"
+    },
+    "commons-cli/b0": {
+      "prompt.md": "9fddb527d9afa64c0d2b2d29e0da61552ec112281e9924a54a415dd648eca91c",
+      "response.md": "6d6d6dd4b0e3d67aa4f88e35b26117dc604e611e23b7f27c71f363fc310d11bb"
+    },
+    "commons-csv/codeweaver": {
+      "analysis.md": "1058f665ea1ad682a3c15630b9560d3c664240390a8aaf9697e0d0cc9600e9de",
+      "plan.json": "731e6292e86ce9768c7e2da18d9c7bf549f53c8909c5024fa0200253ba286ed0",
+      "burr.db": "e5471813c4478c93a1c29223b6cf10c9758fc28b4f65560dadb64c78ba90aa3c",
+      "original_run_log": "43ae419936eec420ad3848e34ad39e0cfd6599639e22cf3208b6a72c151d4772"
+    },
+    "commons-fileupload/codeweaver": {
+      "analysis.md": "66d8adffec7182d92403f855a0e919ef4f713e5844d2e358babaa395006620a4",
+      "plan.json": "49b6531fd3454c89f293495ba12958d2457f905ef714328fd3349059d6e4cde8",
+      "burr.db": "0885b75c4c22f9ca8c917b67c292f4f5d8f99a9a357b62613eb84d402f8e9ea4",
+      "original_run_log": "13cbcde9b31d1ae0c048b591bc23a7322e10daa216341e6d0e62ca435e98c438"
+    },
+    "commons-validator/codeweaver": {
+      "analysis.md": "0180262e862c3c7361d86fc193b99ce9e8c1fd68ba08606967b91505601c3164",
+      "plan.json": "fc0896d0f2771f0962a5c8edfc0ab31d6d6432d6455ae0b2b63c32e7fd279e5d",
+      "burr.db": "04927ca39b9e0434016096904314593ef9b958fc8c0e510564e7a1555bbd952e",
+      "original_run_log": "4e3d282bc37bdcfefa4e72a10887b83afbe10ca064db8e073af565cc70785dac"
+    }
+  },
+  "omissions": [
+    "Java source, oracle test bodies, and B0 raw prompt/response are not redistributed.",
+    "Large agent/process logs, plans, analysis, and session databases remain on the execution host.",
+    "Self-authored unit test files are not included; their pipeline-reported counts are retained only for audit."
+  ],
+  "normalizations": [
+    "The execution home path in campaign run.log is replaced with ${HOME}."
+  ]
+}
