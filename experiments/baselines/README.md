@@ -231,6 +231,8 @@ reasons, model mismatches, and unfinished streams. There are no automatic retrie
 model/parameter fallbacks, Copilot CLI invocations or implicit CLI instructions.
 Hidden provider-side prompts are not observable, so this arm is not claimed to be
 the identical prompt/protocol as the CLI arm.
+The client also enforces at least 30 seconds between request starts, independently
+of the proxy limiter; benchmark subjects are launched sequentially.
 
 `api-audit/round-*/` preserves the private JSON request, JSON/SSE response, hashes,
 HTTP status, timing, requested/returned model, finish reason and token usage.

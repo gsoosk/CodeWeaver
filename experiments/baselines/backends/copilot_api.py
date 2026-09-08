@@ -87,7 +87,7 @@ class CopilotAPIBackend:
         base_url: str | None = None, effort: str | None = None,
         token_limit_field: str = "max_tokens", temperature: float | None = None,
         timeout: float = 3600.0, audit_dir: str | Path | None = None,
-        stream: bool = False,
+        stream: bool = False, min_interval_s: float = 30.0,
     ):
         if not isinstance(model, str) or not model.strip() or model != model.strip():
             raise ValueError("API mode requires an explicit model ID from the proxy catalog")
@@ -100,11 +100,14 @@ class CopilotAPIBackend:
         if effort is not None and (not isinstance(effort, str) or not effort.strip()
                                    or effort != effort.strip()):
             raise ValueError("API reasoning effort must be an explicit nonempty value")
-        for label, value in (("timeout", timeout), ("temperature", temperature)):
+        for label, value in (("timeout", timeout), ("temperature", temperature),
+                             ("min_interval_s", min_interval_s)):
             if value is not None:
                 checked_number(value, label)
         if timeout is None or timeout <= 0:
             raise ValueError("API timeout must be positive")
+        if min_interval_s is None:
+            raise ValueError("API min_interval_s must be nonnegative")
         self.model = model
         self.base_url = loopback_base_url(
             base_url if base_url is not None else os.environ.get("COPILOT_API_BASE_URL", DEFAULT_BASE_URL))
@@ -115,6 +118,8 @@ class CopilotAPIBackend:
         self.temperature = temperature
         self.timeout = timeout
         self.stream = stream
+        self.min_interval_s = min_interval_s
+        self._last_request_started: float | None = None
         self.max_retries = 0
         self.audit_dir = Path(audit_dir) if audit_dir is not None else None
         self.audit_records: list[dict] = []
@@ -132,6 +137,7 @@ class CopilotAPIBackend:
             "base_url": self.base_url, "endpoint": self.endpoint, "model": self.model,
             self.token_limit_field: self.max_output_tokens,
             "timeout_s": self.timeout, "max_retries": 0, "redirects": "rejected",
+            "min_request_interval_s": self.min_interval_s,
             "environment_proxies": False,
             "authentication_to_loopback": "local-bearer-key" if self._local_api_key else "none",
         }
@@ -335,6 +341,11 @@ class CopilotAPIBackend:
         response_body = None
         t0 = time.monotonic()
         try:
+            wait = (0.0 if self._last_request_started is None else
+                    max(0.0, self.min_interval_s - (time.monotonic() - self._last_request_started)))
+            record["pacing_wait_s"] = wait
+            if wait:
+                time.sleep(wait)
             headers = {
                 "Content-Type": "application/json",
                 "Accept": "text/event-stream" if self.stream else "application/json",
@@ -343,6 +354,7 @@ class CopilotAPIBackend:
                 headers["Authorization"] = f"Bearer {self._local_api_key}"
             request = urllib.request.Request(self.endpoint, data=body, method="POST", headers=headers)
             record["http_requests"] = 1
+            self._last_request_started = time.monotonic()
             try:
                 with self._opener.open(request, timeout=self.timeout) as response:
                     record["http_status"] = response.status

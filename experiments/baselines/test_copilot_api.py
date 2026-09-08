@@ -69,7 +69,7 @@ def sse(text="complete", finish="stop", *, done=True):
 def backend(root, *, stream=False):
     result = CopilotAPIBackend(
         MODEL, 64000, effort="medium", stream=stream,
-        audit_dir=root, base_url="http://localhost:4141/v1",
+        audit_dir=root, base_url="http://localhost:4141/v1", min_interval_s=0,
     )
     result._opener = Mock(spec=["open"])
     return result
@@ -110,6 +110,15 @@ def check_payload_and_audits(root):
     ])
     assert (root / "json" / "round-02" / "audit.json").exists()
     reject(lambda: client.request_payload([{"role": "tool", "content": "result"}]), "no tools")
+    paced = backend(root / "paced")
+    paced.min_interval_s = 30
+    paced._last_request_started = 100.0
+    paced._opener.open.return_value = Response(json.dumps(reply()).encode())
+    with patch("backends.copilot_api.time.monotonic", return_value=101.0), \
+            patch("backends.copilot_api.time.sleep") as sleep:
+        paced.complete("system", "user")
+        sleep.assert_called_once_with(29.0)
+    assert paced.audit_records[0]["pacing_wait_s"] == 29.0
     print("PASS: API native roles, explicit limits/effort, token usage, immutable audits and credential redaction")
 
 
