@@ -61,6 +61,11 @@ FILE_BLOCK = re.compile(
     re.DOTALL,
 )
 
+# Per-file mode only. With a single target module the model has nothing to
+# disambiguate and answers with a bare fenced block, which is also the shape
+# AlphaTrans's own class-by-class parser extracts.
+BARE_BLOCK = re.compile(r"```(?:python|py)?\s*\n(.*?)```", re.DOTALL)
+
 
 def read_config(project: str) -> dict:
     """Pull what we need out of the generated codeweaver.toml (source dir, tier)."""
@@ -189,16 +194,27 @@ def generate_per_file(backend, project: str, units: list, *,
         usages.append(completion.usage.as_dict())
         emitted = completion_files(completion)
         truncated = bool((completion.raw or {}).get("truncated"))
+        parts = (completion.raw or {}).get("assistant_messages") or [completion.text]
+        bare = [block for part in parts for block in BARE_BLOCK.findall(part)]
+        body, attribution = None, None
+        if module in emitted:
+            body, attribution = emitted[module], "explicit_path_block"
+        elif bare:
+            # Only one module was requested, so an unlabelled block is unambiguous.
+            body, attribution = bare[0], "bare_block"
         outcome.update(
-            status="written" if module in emitted else "module_not_emitted",
+            status="written" if body is not None else "module_not_emitted",
+            attribution=attribution,
             blocks_returned=sorted(emitted),
+            bare_blocks=len(bare),
             truncated=truncated,
             finish_reason=(completion.raw or {}).get("finish_reason"),
         )
-        if module in emitted:
-            files[module] = emitted[module]
+        if body is not None:
+            files[module] = body
         outcomes.append(outcome)
         print(f"[b0]   {index}/{len(units)} {module}: {outcome['status']}"
+              f"{' (' + attribution + ')' if attribution else ''}"
               f"{'  [hit output cap]' if truncated else ''}")
     return files, "\n\n".join(transcript), usages, len(usages), outcomes
 

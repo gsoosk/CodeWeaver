@@ -291,7 +291,7 @@ def check_per_file(root):
 
     # Beta answers with the wrong path; Gamma's request fails at the transport layer.
     client = backend(root / "per-file", stream=True)
-    wrong = "{{src/main/pkg/Alpha.py}}\n```python\nvalue = 'overwrite'\n```"
+    wrong = "{{src/main/pkg/Zeta.py}}\n```python\nvalue = 'mislabelled'\n```"
     client._opener.open.side_effect = [
         Response(sse("{{src/main/pkg/Alpha.py}}\n```python\nvalue = 'a'\n```"), stream=True),
         Response(sse(wrong), stream=True),
@@ -299,12 +299,30 @@ def check_per_file(root):
     ]
     files, transcript, usage, calls, outcomes = single_shot.generate_per_file(client, "demo", units)
     assert calls == 2 and len(usage) == 2, (calls, usage)
-    assert set(files) == {"src/main/pkg/Alpha.py"}, files
-    assert files["src/main/pkg/Alpha.py"].strip() == "value = 'a'", "sibling answer must not overwrite"
-    assert [o["status"] for o in outcomes] == ["written", "module_not_emitted", "request_failed"]
+    assert set(files) == {"src/main/pkg/Alpha.py", "src/main/pkg/Beta.py"}, files
+    assert files["src/main/pkg/Alpha.py"].strip() == "value = 'a'"
+    assert outcomes[0]["attribution"] == "explicit_path_block"
+    # A stray header is still unambiguous when only one module was requested.
+    assert outcomes[1]["attribution"] == "bare_block"
+    assert "src/main/pkg/Zeta.py" not in files, "a stray path must not create a new module"
+    assert [o["status"] for o in outcomes] == ["written", "written", "request_failed"]
     assert client._opener.open.call_count == 3, "one request per module, never repeated"
     payloads = [json.loads(c.args[0].data) for c in client._opener.open.call_args_list]
     assert all(len(p["messages"]) == 2 for p in payloads), "requests must share no conversation state"
+
+    # A bare fenced block with no header is what AlphaTrans's own parser expects.
+    plain = backend(root / "per-file-bare", stream=True)
+    plain._opener.open.return_value = Response(
+        sse("Here is the translation.\n\n```python\nvalue = 'bare'\n```"), stream=True)
+    files, _, _, _, outcomes = single_shot.generate_per_file(plain, "demo", units[:1])
+    assert files["src/main/pkg/Alpha.py"].strip() == "value = 'bare'"
+    assert outcomes[0]["attribution"] == "bare_block" and outcomes[0]["bare_blocks"] == 1
+
+    # Truncated mid-block: the fence never closes, so nothing is salvaged.
+    cut = backend(root / "per-file-cut", stream=True)
+    cut._opener.open.return_value = Response(sse("```python\nvalue = 'partial", "length"), stream=True)
+    files, _, _, _, outcomes = single_shot.generate_per_file(cut, "demo", units[:1])
+    assert files == {} and outcomes[0]["status"] == "module_not_emitted" and outcomes[0]["truncated"] is True
 
     aborting = backend(root / "per-file-abort", stream=True)
     aborting._opener.open.side_effect = urllib.error.URLError("down")
