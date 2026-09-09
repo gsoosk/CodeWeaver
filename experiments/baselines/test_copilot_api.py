@@ -267,6 +267,54 @@ def check_api_worker(root):
     print("PASS: API worker uses no Copilot CLI, does not inherit CLI effort/context, and scores afterward")
 
 
+def check_per_file(root):
+    java = [
+        ("java/pkg/Alpha.java", "class Alpha {}"),
+        ("java/pkg/Beta.java", "class Beta {}"),
+        ("java/pkg/Gamma.java", "class Gamma {}"),
+        ("java/pkg/package-info.java", "// docs only"),
+    ]
+    skel = [
+        ("src/main/pkg/Alpha.py", "class Alpha:\n    pass\n"),
+        ("src/main/pkg/Beta.py", "class Beta:\n    pass\n"),
+        ("src/main/pkg/Gamma.py", "class Gamma:\n    pass\n"),
+        ("src/main/pkg/Orphan.py", "class Orphan:\n    pass\n"),
+    ]
+    units, orphans = single_shot.pair_per_file(java, skel)
+    assert [u[0] for u in units] == ["src/main/pkg/Alpha.py", "src/main/pkg/Beta.py", "src/main/pkg/Gamma.py"]
+    assert [u[1] for u in units] == ["java/pkg/Alpha.java", "java/pkg/Beta.java", "java/pkg/Gamma.java"]
+    assert orphans == ["src/main/pkg/Orphan.py"], orphans
+
+    system, user = single_shot.build_per_file_prompt("demo", units[0])
+    assert "src/main/pkg/Alpha.py" in user and "class Alpha {}" in user
+    assert "Beta" not in user and "Gamma" not in user, "a per-file prompt must not leak siblings"
+
+    # Beta answers with the wrong path; Gamma's request fails at the transport layer.
+    client = backend(root / "per-file", stream=True)
+    wrong = "{{src/main/pkg/Alpha.py}}\n```python\nvalue = 'overwrite'\n```"
+    client._opener.open.side_effect = [
+        Response(sse("{{src/main/pkg/Alpha.py}}\n```python\nvalue = 'a'\n```"), stream=True),
+        Response(sse(wrong), stream=True),
+        urllib.error.URLError("connection reset"),
+    ]
+    files, transcript, usage, calls, outcomes = single_shot.generate_per_file(client, "demo", units)
+    assert calls == 2 and len(usage) == 2, (calls, usage)
+    assert set(files) == {"src/main/pkg/Alpha.py"}, files
+    assert files["src/main/pkg/Alpha.py"].strip() == "value = 'a'", "sibling answer must not overwrite"
+    assert [o["status"] for o in outcomes] == ["written", "module_not_emitted", "request_failed"]
+    assert client._opener.open.call_count == 3, "one request per module, never repeated"
+    payloads = [json.loads(c.args[0].data) for c in client._opener.open.call_args_list]
+    assert all(len(p["messages"]) == 2 for p in payloads), "requests must share no conversation state"
+
+    aborting = backend(root / "per-file-abort", stream=True)
+    aborting._opener.open.side_effect = urllib.error.URLError("down")
+    many = units * 3
+    _, _, _, calls, outcomes = single_shot.generate_per_file(aborting, "demo", many)
+    assert calls == 0 and len(outcomes) == 3 and outcomes[-1].get("abandoned_subject") is True
+    assert aborting._opener.open.call_count == 3, "systemic failure must stop, not grind through"
+    print("PASS: per-file issues one stateless request per module, no leakage, no retries, abort on systemic failure")
+
+
 def run_tests():
     with tempfile.TemporaryDirectory(prefix="offline_api_b0_") as temporary:
         root = Path(temporary)
@@ -276,6 +324,7 @@ def run_tests():
             check_streaming(root)
             check_configuration()
             check_api_worker(root)
+            check_per_file(root)
 
 
 def test_api_transport():

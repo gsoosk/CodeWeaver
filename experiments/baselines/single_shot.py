@@ -101,7 +101,6 @@ def collect_skeleton(scaffold: pathlib.Path) -> list[tuple[str, str]]:
 def build_prompt(project: str, java: list, skel: list) -> tuple[str, str]:
     system = (HERE / "prompts" / "single_shot_system.md").read_text(encoding="utf-8")
     tpl = (HERE / "prompts" / "single_shot_user.md").read_text(encoding="utf-8")
-
     java_blob = "\n".join(
         f"{{{{{name}}}}}\n```java\n{content}\n```\n" for name, content in java)
     skel_blob = "\n".join(
@@ -116,6 +115,92 @@ def build_prompt(project: str, java: list, skel: list) -> tuple[str, str]:
             .replace("{{N_JAVA}}", str(len(java)))
             .replace("{{N_MODULES}}", str(len(skel))))
     return system, user
+
+
+def pair_per_file(java: list, skel: list) -> tuple[list[tuple[str, str, str]], list[str]]:
+    """Map each skeleton module to its one Java file.
+
+    AlphaTrans keeps `src/main/java/<pkg>/<Class>.java` beside
+    `src/main/<pkg>/<Class>.py`, so the module path is the Java path minus the
+    leading `java/` segment and the extension. A module with no Java counterpart is
+    reported, never silently paired with an unrelated file.
+    """
+    by_key = {}
+    for name, content in java:
+        key = name[len("java/"):] if name.startswith("java/") else name
+        by_key[key[:-len(".java")]] = (name, content)
+    units, orphans = [], []
+    for name, content in skel:
+        key = name[len("src/main/"):] if name.startswith("src/main/") else name
+        java_entry = by_key.get(key[:-len(".py")])
+        if java_entry is None:
+            orphans.append(name)
+            continue
+        units.append((name, java_entry[0], java_entry[1], content))
+    return units, orphans
+
+
+def build_per_file_prompt(project: str, unit: tuple[str, str, str, str]) -> tuple[str, str]:
+    """One Java class plus its one skeleton module -- AlphaTrans's granularity."""
+    module, java_name, java_source, skeleton = unit
+    system = (HERE / "prompts" / "single_shot_system.md").read_text(encoding="utf-8")
+    tpl = (HERE / "prompts" / "per_file_user.md").read_text(encoding="utf-8")
+    user = (tpl
+            .replace("{{PROJECT}}", project)
+            .replace("{{TARGET_PATH}}", module)
+            .replace("{{JAVA_FILE}}", f"{{{{{java_name}}}}}\n```java\n{java_source}\n```\n")
+            .replace("{{SKELETON_FILE}}", f"{{{{{module}}}}}\n```python\n{skeleton}\n```\n"))
+    return system, user
+
+
+def generate_per_file(backend, project: str, units: list, *,
+                      consecutive_failure_limit: int = 3):
+    """One independent request per module; no continuation and no retries.
+
+    Only the block whose path matches the requested module is accepted, so a
+    response that answers with some other file counts as a miss rather than
+    silently overwriting a sibling. A per-module error leaves that module as an
+    unimplemented stub; the subject is abandoned once failures are consecutive
+    enough to look systemic rather than incidental.
+    """
+    files: dict[str, str] = {}
+    transcript: list[str] = []
+    usages: list[dict] = []
+    outcomes: list[dict] = []
+    consecutive = 0
+    for index, unit in enumerate(units, 1):
+        module = unit[0]
+        system, user = build_per_file_prompt(project, unit)
+        outcome = {"module": module, "request": index}
+        try:
+            completion = backend.complete(system, user)
+        except (OSError, ValueError) as exc:
+            consecutive += 1
+            outcome.update(status="request_failed", error=f"{type(exc).__name__}: {exc}")
+            outcomes.append(outcome)
+            print(f"[b0]   {index}/{len(units)} {module}: FAILED ({type(exc).__name__})")
+            if consecutive >= consecutive_failure_limit:
+                outcome["abandoned_subject"] = True
+                print(f"[b0]   stopping: {consecutive} consecutive request failures")
+                break
+            continue
+        consecutive = 0
+        transcript.append(f"## {module}\n\n{completion.text}")
+        usages.append(completion.usage.as_dict())
+        emitted = completion_files(completion)
+        truncated = bool((completion.raw or {}).get("truncated"))
+        outcome.update(
+            status="written" if module in emitted else "module_not_emitted",
+            blocks_returned=sorted(emitted),
+            truncated=truncated,
+            finish_reason=(completion.raw or {}).get("finish_reason"),
+        )
+        if module in emitted:
+            files[module] = emitted[module]
+        outcomes.append(outcome)
+        print(f"[b0]   {index}/{len(units)} {module}: {outcome['status']}"
+              f"{'  [hit output cap]' if truncated else ''}")
+    return files, "\n\n".join(transcript), usages, len(usages), outcomes
 
 
 def parse_response(text: str) -> dict[str, str]:
@@ -526,6 +611,10 @@ def main() -> int:
     ap.add_argument("--tag", default=None)
     ap.add_argument("--resume-tag", help="recover/continue a terminal audited Copilot run under a NEW tag")
     ap.add_argument("--backend", default="copilot", choices=["copilot", "foundry", "copilot-api"])
+    ap.add_argument("--granularity", default="repo", choices=["repo", "per-file"],
+                    help="repo: whole repository in one generation (CRUST-Bench style). "
+                         "per-file: one independent request per module, matching AlphaTrans's "
+                         "class-by-class ablation granularity. API backend only.")
     ap.add_argument("--model", default=None,
                     help="default: whatever the subject's codeweaver.toml uses "
                          "(model-matched with CodeWeaver); API requires an explicit model")
@@ -548,6 +637,11 @@ def main() -> int:
         raise ValueError("--max-rounds must be positive")
     if args.resume_tag and args.backend != "copilot":
         raise ValueError("--resume-tag currently requires the Copilot backend")
+    if args.granularity == "per-file":
+        if args.backend != "copilot-api":
+            raise ValueError("--granularity per-file currently requires the copilot-api backend")
+        if args.resume_tag:
+            raise ValueError("--granularity per-file does not support --resume-tag")
     api_backend = None
     if args.backend == "copilot-api":
         api_backend = configured_api_backend(args)
@@ -571,6 +665,8 @@ def main() -> int:
 
     system, user = build_prompt(args.project, java, skel)
     approx_tokens = (len(system) + len(user)) // 4
+    per_file = args.granularity == "per-file"
+    units, orphans = pair_per_file(java, skel) if per_file else ([], [])
 
     # The binding constraint for whole-repo single-shot is usually the OUTPUT cap, not
     # the context window: the model must emit every module in one response. Estimate it
@@ -581,13 +677,24 @@ def main() -> int:
     print(f"[b0] project      : {args.project} (tier {cfg['tier']})")
     print(f"[b0] java files   : {len(java)}")
     print(f"[b0] modules      : {len(skel)}")
-    print(f"[b0] prompt chars : {len(system) + len(user):,}  (~{approx_tokens:,} tokens in)")
-    print(f"[b0] est. output  : ~{est_out_tokens:,} tokens for {len(skel)} modules"
-          f"  (cap: {args.max_output_tokens:,})")
-    if est_out_tokens > args.max_output_tokens:
-        rounds_needed = -(-est_out_tokens // args.max_output_tokens)
-        print(f"[b0] note         : one response cannot hold this; the generation will be"
-              f" continued (~{rounds_needed} rounds, cap --max-rounds {args.max_rounds})")
+    print(f"[b0] granularity  : {args.granularity}")
+    if per_file:
+        sizes = [len(build_per_file_prompt(args.project, unit)[1]) for unit in units]
+        print(f"[b0] requests     : {len(units)} (one per module)"
+              + (f"; {len(orphans)} module(s) have no Java counterpart" if orphans else ""))
+        if sizes:
+            print(f"[b0] prompt chars : max {max(sizes):,}  median {sorted(sizes)[len(sizes)//2]:,}"
+                  f"  (~{max(sizes)//4:,} tokens for the largest)")
+        if orphans:
+            print(f"[b0] no Java for  : {orphans}")
+    else:
+        print(f"[b0] prompt chars : {len(system) + len(user):,}  (~{approx_tokens:,} tokens in)")
+        print(f"[b0] est. output  : ~{est_out_tokens:,} tokens for {len(skel)} modules"
+              f"  (cap: {args.max_output_tokens:,})")
+        if est_out_tokens > args.max_output_tokens:
+            rounds_needed = -(-est_out_tokens // args.max_output_tokens)
+            print(f"[b0] note         : one response cannot hold this; the generation will be"
+                  f" continued (~{rounds_needed} rounds, cap --max-rounds {args.max_rounds})")
 
     run_dir = subject / f"pipeline-baseline-{args.tag}"
     if run_dir.exists() and not args.dry_run:
@@ -606,7 +713,9 @@ def main() -> int:
               f"{source_rounds}/{args.max_rounds} invocations already used; NOT a new sample")
     if args.dry_run:
         if api_backend is not None:
-            api_backend.request_payload([{"role": "system", "content": system}, {"role": "user", "content": user}])
+            probe = build_per_file_prompt(args.project, units[0]) if per_file else (system, user)
+            api_backend.request_payload([{"role": "system", "content": probe[0]},
+                                         {"role": "user", "content": probe[1]}])
             print(f"[b0] API config   : {json.dumps(api_backend.provenance()['api_configuration'])}")
             print("[b0] API capacity/model support not checked; dry run makes no HTTP request")
         print("[b0] dry run -- no call made")
@@ -625,6 +734,7 @@ def main() -> int:
                    "prompt_chars": len(system) + len(user)},
         **code_provenance(),
         "collector_version": 2,
+        "granularity": args.granularity,
         "tag": args.tag,
         "observation_tag": recovered.provenance.get("observation_tag", args.tag),
         "independent_sample": not bool(args.resume_tag),
@@ -648,18 +758,33 @@ def main() -> int:
     if api_backend is not None:
         meta.update(api_backend.provenance())
         single_call = args.max_rounds == 1
-        meta.update(api_audit=[], explicit_http_model_requests=0, single_call=single_call, protocol=(
-            "B0 API-only, STRICT single call: exactly one explicit HTTP model request per "
-            "subject, native system/user messages, no CLI, tools, retries or continuation of "
-            "any kind. Whatever one response cannot hold is left as an unimplemented skeleton "
-            "stub and scored as such. Not comparable to continuation-allowed arms."
-            if single_call else
-            "B0 API-only: native system/user messages, no CLI, tools, retries or automatic "
-            "client/proxy continuation. Each invocation is one explicit HTTP model request. "
-            "Only closed file blocks and missing-module bookkeeping enter subsequent requests; "
-            "no compiler/oracle feedback. Different transport/protocol from Copilot CLI; "
-            "hidden provider prompts are not observable or claimed equivalent."
-        ))
+        meta.update(api_audit=[], explicit_http_model_requests=0, single_call=single_call and not per_file)
+        if per_file:
+            meta.update(
+                per_file_units=len(units), per_file_orphan_modules=orphans,
+                per_file_outcomes=[], protocol=(
+                    "B0 API-only, PER-FILE: one independent HTTP model request per module, "
+                    "matching the granularity of AlphaTrans's class-by-class ablation. Each "
+                    "request carries only that Java class and its interface skeleton module. "
+                    "No continuation, no retries, no tools, no compiler or oracle feedback. "
+                    "Requests share no conversation state, so nothing a module learns can "
+                    "reach another. Unlike AlphaTrans's baseline this keeps the typed "
+                    "interface contract and is scored by the same hidden oracle, so it is "
+                    "comparable to our other arms but is not a byte-exact replication."
+                ))
+        else:
+            meta.update(protocol=(
+                "B0 API-only, STRICT single call: exactly one explicit HTTP model request per "
+                "subject, native system/user messages, no CLI, tools, retries or continuation of "
+                "any kind. Whatever one response cannot hold is left as an unimplemented skeleton "
+                "stub and scored as such. Not comparable to continuation-allowed arms."
+                if single_call else
+                "B0 API-only: native system/user messages, no CLI, tools, retries or automatic "
+                "client/proxy continuation. Each invocation is one explicit HTTP model request. "
+                "Only closed file blocks and missing-module bookkeeping enter subsequent requests; "
+                "no compiler/oracle feedback. Different transport/protocol from Copilot CLI; "
+                "hidden provider prompts are not observable or claimed equivalent."
+            ))
     run_dir.mkdir()
     manifest_path = run_dir / "generation.json"
     manifest = {**meta, "state": "generating"}
@@ -667,7 +792,16 @@ def main() -> int:
     success = False
     backend = None
     try:
-        (run_dir / "prompt.md").write_text(f"{system}\n\n---\n\n{user}", encoding="utf-8", newline="\n")
+        if per_file:
+            prompts = run_dir / "prompts"
+            prompts.mkdir()
+            for unit in units:
+                unit_system, unit_user = build_per_file_prompt(args.project, unit)
+                name = unit[0].replace("/", "__") + ".md"
+                (prompts / name).write_text(f"{unit_system}\n\n---\n\n{unit_user}",
+                                            encoding="utf-8", newline="\n")
+        else:
+            (run_dir / "prompt.md").write_text(f"{system}\n\n---\n\n{user}", encoding="utf-8", newline="\n")
         for relative, content in recovered.audit_files.items():
             target = run_dir / relative
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -685,8 +819,14 @@ def main() -> int:
         print(f"[b0] backend      : {args.backend} model={model}"
               + (f" effort={effort}" if effort is not None and args.backend in ("copilot", "copilot-api") else ""))
         t0 = time.monotonic()
-        files, response_text, usages, rounds = generate(
-            backend, system, user, expected, args.max_rounds, prior_completions=recovered.completions)
+        outcomes = []
+        if per_file:
+            files, response_text, usages, rounds, outcomes = generate_per_file(
+                backend, args.project, units)
+        else:
+            files, response_text, usages, rounds = generate(
+                backend, system, user, expected, args.max_rounds,
+                prior_completions=recovered.completions)
         elapsed = time.monotonic() - t0
 
         out_root = run_dir / "project"
@@ -734,6 +874,12 @@ def main() -> int:
         if api_backend is not None:
             meta.update(api_audit=audits, returned_models=[audit["returned_model"] for audit in audits],
                         explicit_http_model_requests=sum(audit["http_requests"] for audit in audits))
+            if per_file:
+                meta.update(per_file_outcomes=outcomes, per_file_requests_attempted=len(outcomes),
+                            per_file_requests_failed=sum(
+                                1 for outcome in outcomes if outcome["status"] == "request_failed"),
+                            per_file_modules_not_emitted=sum(
+                                1 for outcome in outcomes if outcome["status"] == "module_not_emitted"))
         (run_dir / "response.md").write_text(response_text, encoding="utf-8", newline="\n")
         (run_dir / "metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
         print(f"[b0] metadata     : {run_dir / 'metadata.json'}")

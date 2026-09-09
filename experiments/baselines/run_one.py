@@ -48,6 +48,8 @@ def main() -> int:
     parser.add_argument("--project", required=True)
     parser.add_argument("--tag", required=True)
     parser.add_argument("--backend", choices=("copilot", "copilot-api"), default="copilot")
+    parser.add_argument("--granularity", choices=("repo", "per-file"), default="repo",
+                        help="per-file issues one request per module (AlphaTrans ablation granularity)")
     parser.add_argument("--model", help="CLI defaults to subject config; API requires an explicit supported model")
     parser.add_argument("--effort", help="CLI defaults to subject config; API omits reasoning_effort unless set")
     parser.add_argument("--max-output-tokens", type=int, help="API requires an explicit output cap; CLI cap is not enforced")
@@ -70,6 +72,8 @@ def main() -> int:
         api_backend = single_shot.configured_api_backend(args)
     else:
         single_shot.reject_api_arguments(args)
+        if args.granularity != "repo":
+            raise SystemExit("--granularity per-file currently requires --backend copilot-api")
         args.context = args.context or "long_context"
 
     subject = single_shot.EXAMPLE / "subjects" / args.project
@@ -123,6 +127,8 @@ def main() -> int:
         command.extend(["--api-base-url", api_backend.base_url,
                         "--api-token-limit-field", api_backend.token_limit_field,
                         "--api-timeout", str(api_backend.timeout)])
+        if args.granularity != "repo":
+            command.extend(["--granularity", args.granularity])
         if args.temperature is not None:
             command.extend(["--temperature", str(args.temperature)])
         if args.api_stream:
