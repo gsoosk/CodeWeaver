@@ -1,0 +1,77 @@
+B0 via direct API — AlphaTrans subjects, Claude Sonnet 5 / medium
+
+Headline arm: per-file. One independent API request per module, matching the
+granularity of AlphaTrans's own class-by-class ablation.
+
+Subject             | modules | API calls | oracle
+--------------------|---------|-----------|--------------------------------------
+commons-cli         | 22/22   | 22        | 110 / 381
+commons-csv         | 11/11   | 11        | COLLECTION FAILURE (1 passed, 6 failed, 19 errors)
+commons-fileupload  | 30/30   | 30        | 37 / 39
+commons-validator   | 63/63   | 63        | 277 passed, 85 failed, 8 collection errors
+
+126 requests, 643,313 prompt tokens, 357,550 completion tokens. Every request
+succeeded; every module was emitted; nothing was truncated.
+
+commons-csv did NOT produce a scoreable artifact. Its partial counts are not a
+pass rate. commons-validator's 8 collection errors mean its counts are not a
+clean full-suite rate on the 462 denominator the other arms use. Report both as
+errors, not as scores.
+
+WHAT THIS ARM SHOWS
+
+Per-file removed the output ceiling entirely and replaced it with cross-module
+contract disagreement. 243 of commons-cli's 271 failures are one naming split:
+the parsers call CommandLine.addOption, the skeleton declares _addOption. Each
+file is faithful to its own inputs; the assembly is not. commons-csv fails to
+import because siblings reference Constants members as bare names while the
+skeleton declares them as class attributes. commons-fileupload, which has the
+flattest dependency graph, is unaffected and matches every other arm at 37/39.
+
+Damage tracks inter-module coupling, not repository size.
+
+SECONDARY ARM: whole-repo single call
+
+Retained as evidence about the output ceiling, not as the B0 API result.
+One request per subject carrying the whole repository, following CRUST-bench's
+prompt construction.
+
+commons-cli 241/381 (18/22 modules), commons-csv 0 modules emitted,
+commons-fileupload 37/39 (30/30), commons-validator 81/462 (27/63 modules).
+
+Three of four hit exactly 64,000 completion tokens, the model's advertised cap
+through this route. Only fileupload finished naturally, at 56,337 tokens, and it
+scored the same as every other arm. Reasoning tokens are billed inside
+completion_tokens and consumed 21-100% of the emitted characters; commons-csv
+spent its entire budget reasoning and wrote no code at all.
+
+The two API arms are not ordered consistently: per-file wins on validator
+(277 vs 81) because whole-repo lost 36 modules to truncation there, and loses on
+commons-cli (110 vs 241) because isolation cost more than truncation did.
+
+COMPARISON DISCIPLINE
+
+These numbers are NOT comparable to the Copilot CLI B0 arm in
+results/alphatrans-sonnet5-med-2026-09-04: different transport, different hidden
+system prompt, and the CLI arm was allowed to continue across responses.
+
+They are NOT comparable to numbers published by AlphaTrans or CRUST-bench.
+AlphaTrans reports per-fragment statuses and #GS; CRUST-bench lets the model read
+and run the test suite. Our oracle is held out from every arm.
+
+Cost is provider-reported tokens only. The proxy reports no premium requests or
+AIU and none are inferred. N=1 per subject; no repetitions, no variance.
+
+CONTENTS
+
+data/<subject>/per-file/            generated Python, metadata, per-call audits, oracle log
+data/<subject>/whole-repo-single-call/   same, secondary arm
+report/scorecard.json               machine-readable results and caveats
+metadata/                           oracle fixture manifests, upstream licenses, provenance
+reproduction/                       isolated scoring wrapper and instructions
+logs/                               campaign controller logs
+
+Raw prompts, model responses and event streams are retained privately and are not
+redistributed. Their hashes are in metadata/publication-provenance.json.
+A hand-edited diagnostic copy of commons-csv exists locally and is deliberately
+excluded: it was test-guided repair, not a generation result.

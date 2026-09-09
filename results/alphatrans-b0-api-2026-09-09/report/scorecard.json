@@ -1,0 +1,253 @@
+{
+  "campaign": "B0 via direct API (GitHub Copilot subscription through a user-run loopback proxy)",
+  "headline_arm": "per-file",
+  "model": "claude-sonnet-5",
+  "reasoning_effort": "medium",
+  "streaming": true,
+  "max_output_tokens": 64000,
+  "protocol": {
+    "per-file": "One independent HTTP request per module, matching the granularity of AlphaTrans's class-by-class ablation (src/translation/prompt_class_by_class.py). Each request carries only that Java class and its interface skeleton module; requests share no conversation state. No continuation, no retries, no tools, no compiler or oracle feedback. Unlike AlphaTrans's baseline this keeps the typed interface contract and is scored by the same hidden oracle, so it is comparable to our other arms but is not a byte-exact replication of theirs.",
+    "whole-repo-single-call": "Exactly one request carrying the whole repository, following CRUST-bench's prompt construction. Retained as secondary evidence about the output ceiling, not as the headline B0 API result."
+  },
+  "per_file_results": [
+    {
+      "subject": "commons-cli",
+      "arm": "per-file",
+      "tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "modules_written": 22,
+      "modules_expected": 22,
+      "generation_complete": true,
+      "api_calls": 22,
+      "prompt_tokens": 102870,
+      "completion_tokens": 43979,
+      "generation_seconds": 703.3,
+      "scoring_state": "completed",
+      "oracle_score": {
+        "passed": 110,
+        "failed": 271,
+        "skipped": 56,
+        "deselected": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "271 failed, 110 passed, 56 skipped in 0.58s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null,
+      "comparable_pass_rate": 0.2887139107611549,
+      "codeweaver_reference": {
+        "passed": 380,
+        "denominator": 381
+      },
+      "b0_copilot_cli_reference": "368/381"
+    },
+    {
+      "subject": "commons-csv",
+      "arm": "per-file",
+      "tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "modules_written": 11,
+      "modules_expected": 11,
+      "generation_complete": true,
+      "api_calls": 11,
+      "prompt_tokens": 94161,
+      "completion_tokens": 88203,
+      "generation_seconds": 774.6,
+      "scoring_state": "scoring_failed",
+      "oracle_score": null,
+      "scoring_error": "Oracle did not complete normal scoring: 6 failed, 1 passed, 19 errors in 0.22s",
+      "comparable_pass_rate": null,
+      "codeweaver_reference": {
+        "passed": 296,
+        "denominator": 298
+      },
+      "b0_copilot_cli_reference": "collection failure"
+    },
+    {
+      "subject": "commons-fileupload",
+      "arm": "per-file",
+      "tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "modules_written": 30,
+      "modules_expected": 30,
+      "generation_complete": true,
+      "api_calls": 30,
+      "prompt_tokens": 106111,
+      "completion_tokens": 43073,
+      "generation_seconds": 1006.9,
+      "scoring_state": "completed",
+      "oracle_score": {
+        "passed": 37,
+        "failed": 2,
+        "skipped": 0,
+        "deselected": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "2 failed, 37 passed in 0.10s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null,
+      "comparable_pass_rate": 0.9487179487179487,
+      "codeweaver_reference": {
+        "passed": 38,
+        "denominator": 39
+      },
+      "b0_copilot_cli_reference": "37/39"
+    },
+    {
+      "subject": "commons-validator",
+      "arm": "per-file",
+      "tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "modules_written": 63,
+      "modules_expected": 63,
+      "generation_complete": true,
+      "api_calls": 63,
+      "prompt_tokens": 340171,
+      "completion_tokens": 182295,
+      "generation_seconds": 2494.4,
+      "scoring_state": "scoring_failed",
+      "oracle_score": null,
+      "scoring_error": "Oracle did not complete normal scoring: 85 failed, 277 passed, 1 deselected, 23 warnings, 8 errors in 0.66s",
+      "comparable_pass_rate": null,
+      "codeweaver_reference": {
+        "passed": 452,
+        "denominator": 462
+      },
+      "b0_copilot_cli_reference": "381/462"
+    }
+  ],
+  "whole_repo_single_call_results": [
+    {
+      "subject": "commons-cli",
+      "arm": "whole-repo-single-call",
+      "tag": "b0-api-1shot-sonnet5-med-20260908",
+      "modules_written": 18,
+      "modules_expected": 22,
+      "generation_complete": false,
+      "api_calls": 1,
+      "prompt_tokens": 82563,
+      "completion_tokens": 64000,
+      "generation_seconds": 449.3,
+      "scoring_state": "completed",
+      "oracle_score": {
+        "passed": 241,
+        "failed": 140,
+        "skipped": 56,
+        "deselected": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "140 failed, 241 passed, 56 skipped in 0.41s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null,
+      "comparable_pass_rate": 0.6325459317585301,
+      "codeweaver_reference": {
+        "passed": 380,
+        "denominator": 381
+      },
+      "b0_copilot_cli_reference": "368/381"
+    },
+    {
+      "subject": "commons-csv",
+      "arm": "whole-repo-single-call",
+      "tag": "b0-api-1shot-sonnet5-med-20260908",
+      "modules_written": 0,
+      "modules_expected": 11,
+      "generation_complete": false,
+      "api_calls": 1,
+      "prompt_tokens": 85697,
+      "completion_tokens": 64000,
+      "generation_seconds": 549.8,
+      "scoring_state": "scoring_failed",
+      "oracle_score": null,
+      "scoring_error": "Oracle did not complete normal scoring: 145 failed, 2 passed, 2 warnings, 3 errors in 0.31s",
+      "comparable_pass_rate": null,
+      "codeweaver_reference": {
+        "passed": 296,
+        "denominator": 298
+      },
+      "b0_copilot_cli_reference": "collection failure"
+    },
+    {
+      "subject": "commons-fileupload",
+      "arm": "whole-repo-single-call",
+      "tag": "b0-api-1shot-sonnet5-med-20260908",
+      "modules_written": 30,
+      "modules_expected": 30,
+      "generation_complete": true,
+      "api_calls": 1,
+      "prompt_tokens": 82182,
+      "completion_tokens": 56337,
+      "generation_seconds": 414.6,
+      "scoring_state": "completed",
+      "oracle_score": {
+        "passed": 37,
+        "failed": 2,
+        "skipped": 0,
+        "deselected": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "2 failed, 37 passed in 0.11s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null,
+      "comparable_pass_rate": 0.9487179487179487,
+      "codeweaver_reference": {
+        "passed": 38,
+        "denominator": 39
+      },
+      "b0_copilot_cli_reference": "37/39"
+    },
+    {
+      "subject": "commons-validator",
+      "arm": "whole-repo-single-call",
+      "tag": "b0-api-1shot-sonnet5-med-20260908",
+      "modules_written": 27,
+      "modules_expected": 63,
+      "generation_complete": false,
+      "api_calls": 1,
+      "prompt_tokens": 279186,
+      "completion_tokens": 64000,
+      "generation_seconds": 490.9,
+      "scoring_state": "completed",
+      "oracle_score": {
+        "passed": 81,
+        "failed": 381,
+        "skipped": 1,
+        "deselected": 1,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "381 failed, 81 passed, 1 skipped, 1 deselected, 23 warnings in 0.66s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null,
+      "comparable_pass_rate": 0.17532467532467533,
+      "codeweaver_reference": {
+        "passed": 452,
+        "denominator": 462
+      },
+      "b0_copilot_cli_reference": "381/462"
+    }
+  ],
+  "totals": {
+    "per_file_api_calls": 126,
+    "per_file_prompt_tokens": 643313,
+    "per_file_completion_tokens": 357550,
+    "whole_repo_api_calls": 4,
+    "whole_repo_prompt_tokens": 529628,
+    "whole_repo_completion_tokens": 248337
+  },
+  "findings": [
+    "Per-file removed the output ceiling entirely: 126/126 requests succeeded, every module was emitted, nothing truncated.",
+    "It replaced truncation with cross-module contract disagreement. commons-cli lost 243 of its 271 failures to a single naming split: the parsers call CommandLine.addOption while the skeleton declares _addOption. Each file is faithful to its own inputs; the assembly is not.",
+    "commons-csv did not produce a scoreable artifact: 19 collection errors from bare references to Constants members that the skeleton declares as class attributes. Its partial counts are NOT a pass rate.",
+    "commons-validator produced 8 collection errors, so its counts are also not a clean full-suite rate on the 462 denominator used by the other arms.",
+    "commons-fileupload scored 37/39, identical to the Copilot CLI arm and to the whole-repo API arm. It has the flattest dependency graph of the four subjects.",
+    "Damage tracks inter-module coupling, not repository size."
+  ],
+  "caveats": [
+    "N=1 per subject; no repetitions and no variance.",
+    "Cost is provider-reported tokens only. The proxy reports no premium requests or AIU, and none are inferred.",
+    "These numbers are not comparable to the Copilot CLI arm: different transport, different system prompt, and the CLI arm was allowed to continue across responses.",
+    "They are also not comparable to numbers published by AlphaTrans or CRUST-bench, which use different metrics and, in CRUST-bench's case, let the model read and run the tests.",
+    "The proxy is an unofficial reverse-engineered client; results assume it forwards requests faithfully.",
+    "A hand-edited diagnostic copy of commons-csv exists locally and is deliberately excluded from this package; it was test-guided repair, not a generation result."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "passed": 241,
+  "failed": 140,
+  "skipped": 56,
+  "deselected": 0,
+  "errors": 0,
+  "exit_code": 1,
+  "summary": "140 failed, 241 passed, 56 skipped in 0.41s",
+  "pipeline_deferrals_applied": false
+}

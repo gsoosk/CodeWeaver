@@ -1,0 +1,24 @@
+[batch] status: ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-api-perfile-sonnet5-med-20260909v2.status.json
+[b0] project      : commons-csv (tier A)
+[b0] java files   : 12
+[b0] modules      : 11
+[b0] granularity  : per-file
+[b0] requests     : 11 (one per module)
+[b0] prompt chars : max 119,979  median 11,210  (~29,994 tokens for the largest)
+[b0] backend      : copilot-api model=claude-sonnet-5 effort=medium
+[b0]   1/11 src/main/org/apache/commons/csv/CSVFormat.py: written (bare_block)
+[b0]   2/11 src/main/org/apache/commons/csv/CSVParser.py: written (explicit_path_block)
+[b0]   3/11 src/main/org/apache/commons/csv/CSVPrinter.py: written (explicit_path_block)
+[b0]   4/11 src/main/org/apache/commons/csv/CSVRecord.py: written (explicit_path_block)
+[b0]   5/11 src/main/org/apache/commons/csv/Constants.py: written (explicit_path_block)
+[b0]   6/11 src/main/org/apache/commons/csv/DuplicateHeaderMode.py: written (bare_block)
+[b0]   7/11 src/main/org/apache/commons/csv/ExtendedBufferedReader.py: written (explicit_path_block)
+[b0]   8/11 src/main/org/apache/commons/csv/IOUtils.py: written (bare_block)
+[b0]   9/11 src/main/org/apache/commons/csv/Lexer.py: written (explicit_path_block)
+[b0]   10/11 src/main/org/apache/commons/csv/QuoteMode.py: written (bare_block)
+[b0]   11/11 src/main/org/apache/commons/csv/Token.py: written (bare_block)
+[b0] wall clock   : 775s new work; 11 total backend invocation(s)
+[b0] files parsed : 11  written=11  unplaceable=0
+[b0] left as stub : 0
+[b0] metadata     : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-api-perfile-sonnet5-med-20260909v2/metadata.json
+[batch] scoring failed: Oracle did not complete normal scoring: 6 failed, 1 passed, 19 errors in 0.22s

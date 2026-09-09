@@ -1,0 +1,14 @@
+[batch] status: ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-fileupload/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908.status.json
+[b0] project      : commons-fileupload (tier A)
+[b0] java files   : 36
+[b0] modules      : 30
+[b0] prompt chars : 229,122  (~57,280 tokens in)
+[b0] est. output  : ~26,685 tokens for 30 modules  (cap: 64,000)
+[b0] backend      : copilot-api model=claude-sonnet-5 effort=medium
+[b0]   invocation 1: +30 files (30/30 done, 0 left)
+[b0] wall clock   : 415s new work; 1 total backend invocation(s)
+[b0] files parsed : 30  written=30  unplaceable=0
+[b0] left as stub : 0
+[b0] metadata     : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-fileupload/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908/metadata.json
+[batch] oracle: 2 failed, 37 passed in 0.11s
+[batch] completed; all generation artifacts and observed failures retained

@@ -1,0 +1,14 @@
+[batch] status: ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908.status.json
+[b0] project      : commons-csv (tier A)
+[b0] java files   : 12
+[b0] modules      : 11
+[b0] prompt chars : 232,655  (~58,163 tokens in)
+[b0] est. output  : ~25,676 tokens for 11 modules  (cap: 64,000)
+[b0] backend      : copilot-api model=claude-sonnet-5 effort=medium
+[b0]   invocation 1: +0 files (0/11 done, 11 left)  [hit output cap]
+[b0] wall clock   : 550s new work; 1 total backend invocation(s)
+[b0] files parsed : 0  written=0  unplaceable=0
+[b0] left as stub : 11
+[b0] INCOMPLETE   : 11 module(s) missing after 1 invocation(s)
+[b0] metadata     : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908/metadata.json
+[batch] scoring failed: Oracle did not complete normal scoring: 145 failed, 2 passed, 2 warnings, 3 errors in 0.31s

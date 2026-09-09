@@ -1,0 +1,168 @@
+{
+  "baseline": "B0-single-shot",
+  "project": "commons-cli",
+  "tier": "A",
+  "backend": "copilot-api",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "context": null,
+  "recorded": "2026-09-08T22:04:19+0000",
+  "inputs": {
+    "java_files": 23,
+    "skeleton_modules": 22,
+    "prompt_chars": 236651
+  },
+  "code_revision": "cec5c0179f98388ec9422cbb73a9b12d83242bfe",
+  "collector_code_sha256": {
+    "single_shot.py": "e59bb7bb929c4607148a78302a6ce6466c2ae632e0947e016f3b7edf6f883a4f",
+    "backends/copilot.py": "972fbbfd623eb9266deb84c1e0fa0874edeb83d66866edab6a8df32336c946b9",
+    "backends/copilot_api.py": "f5487a7e716b564b7e4b8f3e8f41cc405d64fd38b80763ffe4b4e46676cf5ba3",
+    "backends/base.py": "9f3afaf7fd376638b2797f97c80c2e85527d063b571c9930295aa4d97fa1b0e7",
+    "run_one.py": "076afd7f7894ef84957aad21eb35292db8a5e19939e4b306d62ba8b87d334829"
+  },
+  "collector_version": 2,
+  "tag": "b0-api-1shot-sonnet5-med-20260908",
+  "observation_tag": "b0-api-1shot-sonnet5-med-20260908",
+  "independent_sample": true,
+  "recovery": null,
+  "usage_per_round": [
+    {
+      "prompt_tokens": 82563,
+      "completion_tokens": 64000,
+      "total_tokens": 146563,
+      "wall_clock_s": 449.2643338079797
+    }
+  ],
+  "max_output_tokens": 64000,
+  "max_rounds": 1,
+  "oracle_seen": false,
+  "oracle_tests_in_prompt": false,
+  "oracle_feedback_during_generation": false,
+  "copilot_audit": null,
+  "protocol": "B0 API-only, STRICT single call: exactly one explicit HTTP model request per subject, native system/user messages, no CLI, tools, retries or continuation of any kind. Whatever one response cannot hold is left as an unimplemented skeleton stub and scored as such. Not comparable to continuation-allowed arms.",
+  "transport": "loopback-http-openai-chat-completions",
+  "api_configuration": {
+    "base_url": "http://127.0.0.1:4141/v1",
+    "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+    "model": "claude-sonnet-5",
+    "max_tokens": 64000,
+    "timeout_s": 3600.0,
+    "max_retries": 0,
+    "redirects": "rejected",
+    "min_request_interval_s": 30.0,
+    "environment_proxies": false,
+    "authentication_to_loopback": "local-bearer-key",
+    "reasoning_effort": "medium",
+    "stream": true
+  },
+  "api_protocol": {
+    "id": "b0-api-chat-completions-v1",
+    "message_roles": "native system/user/assistant",
+    "stream": true,
+    "tools": "omitted; returned tool/function calls invalidate the request",
+    "cli_invocations": 0,
+    "implicit_cli_system_prompt": false,
+    "client_auto_continuation": false,
+    "proxy_auto_continuation": false,
+    "continuation": "explicit harness requests for missing whole modules only",
+    "upstream_requests_per_http_request": 1,
+    "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+    "proxy_version_verified_by_client": false,
+    "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+  },
+  "api_audit": [
+    {
+      "round": 1,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-08T22:04:19.902497+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "length",
+      "token_usage": {
+        "completion_tokens": 64000,
+        "prompt_tokens": 82563,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 146563
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "d9783d0bc2b47e5aef7cd6a850e123600120287a7b4a5f55ebe14711ef69d400",
+      "response_sha256": "6b1439d7f610346c66e66da827dc1f3e7781a9b554a2c2b4704b4d9885643105",
+      "audit_path": "api-audit/round-01",
+      "pacing_wait_s": 0.0,
+      "sse_events": 753,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 82563,
+        "completion_tokens": 64000,
+        "total_tokens": 146563,
+        "wall_clock_s": 449.2643338079797
+      },
+      "wall_clock_s": 449.26435704296455,
+      "finished_at": "2026-09-08T22:11:49.167003+00:00",
+      "origin_tag": "b0-api-1shot-sonnet5-med-20260908",
+      "replayed": false
+    }
+  ],
+  "explicit_http_model_requests": 1,
+  "single_call": true,
+  "outputs": {
+    "files_parsed": 18,
+    "files_written": 18,
+    "unplaceable": 0,
+    "left_as_stub": [
+      "src/main/org/apache/commons/cli/DefaultParser.py",
+      "src/main/org/apache/commons/cli/HelpFormatter.py",
+      "src/main/org/apache/commons/cli/PatternOptionBuilder.py",
+      "src/main/org/apache/commons/cli/TypeHandler.py"
+    ],
+    "unparseable": []
+  },
+  "usage": {
+    "prompt_tokens": 82563,
+    "completion_tokens": 64000,
+    "total_tokens": 146563,
+    "wall_clock_s": 449.2643338079797
+  },
+  "continuation_rounds": 1,
+  "backend_invocations": 1,
+  "new_backend_invocations": 1,
+  "observed_model_calls": null,
+  "observed_assistant_turns": 1,
+  "complete": false,
+  "returned_models": [
+    "claude-sonnet-5"
+  ]
+}

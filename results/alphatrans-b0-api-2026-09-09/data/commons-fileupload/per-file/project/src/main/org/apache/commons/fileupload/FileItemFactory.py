@@ -1,0 +1,25 @@
+from __future__ import annotations
+
+# Imports Begin
+from src.main.org.apache.commons.fileupload.FileItem import *
+import typing
+from typing import *
+import io
+from abc import ABC, abstractmethod
+
+# Imports End
+
+
+class FileItemFactory(ABC):
+
+    # Class Fields Begin
+    # Class Fields End
+
+    # Class Methods Begin
+    @abstractmethod
+    def createItem(
+        self, fieldName: str, contentType: str, isFormField: bool, fileName: str
+    ) -> FileItem:
+        raise NotImplementedError
+
+    # Class Methods End

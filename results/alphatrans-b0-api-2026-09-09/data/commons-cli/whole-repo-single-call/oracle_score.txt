@@ -1,0 +1,2405 @@
+...F....sssss.s.s.sss...s.s......s...sss........s.s.s.......ssssss..s... [ 16%]
+..FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 32%]
+FFFFFsssss.s.s....ss.s.s......s...s.............s........ssssss..s.FFFFF [ 49%]
+FFFFFFFFFFFFFFFFFFFFFF..............................................FFFF [ 65%]
+FFFFFFs...s...s...ss..s........s................s..............s....FFFF [ 82%]
+FFFFFFFFFFFFF.....................................FFF.F.FFFF.......F...F [ 98%]
+.....                                                                    [100%]
+=================================== FAILURES ===================================
+___________________________ ApplicationTest.testMan ____________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ApplicationTest.py", line 182, in testMan
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: "usage: man [-c|-f|-k|-w|-tZT device] [-a[2059 chars]e.\n" != ''
+Diff is 2144 characters long. Set self.maxDiff to None to see it.
+___________________ CommandLineTest.testGetParsedOptionValue ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/CommandLineTest.py", line 69, in testGetParsedOptionValue
+    self.assertEqual(123, cmd.getParsedOptionValue2("i"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getParsedOptionValue2'
+_______________ CommandLineTest.testGetParsedOptionValueWithChar _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/CommandLineTest.py", line 57, in testGetParsedOptionValueWithChar
+    self.assertEqual(123, cmd.getParsedOptionValue0("i"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getParsedOptionValue0'
+______________ CommandLineTest.testGetParsedOptionValueWithOption ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/CommandLineTest.py", line 45, in testGetParsedOptionValueWithOption
+    self.assertEqual(123, int(cmd.getParsedOptionValue1(optI)))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getParsedOptionValue1'
+_______________________ CommandLineTest.testNullhOption ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/CommandLineTest.py", line 31, in testNullhOption
+    self.assertIsNone(cmd.getOptionValue2(None))
+                      ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue2'
+__________ DefaultParserTest.testAmbiguousLongWithoutEqualSingleDash ___________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 981, in testAmbiguousLongWithoutEqualSingleDash
+    self.assertTrue(cl.hasOption2("b"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________ DefaultParserTest.testAmbiguousPartialLongOption1 _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 965, in testAmbiguousPartialLongOption1
+    self.assertTrue(caught, "Confirm MissingArgumentException caught")
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : Confirm MissingArgumentException caught
+______________ DefaultParserTest.testAmbiguousPartialLongOption2 _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 946, in testAmbiguousPartialLongOption2
+    self.assertTrue(caught, "Confirm MissingArgumentException caught")
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : Confirm MissingArgumentException caught
+______________ DefaultParserTest.testAmbiguousPartialLongOption3 _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 927, in testAmbiguousPartialLongOption3
+    self.assertTrue(caught, "Confirm MissingArgumentException caught")
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : Confirm MissingArgumentException caught
+______________ DefaultParserTest.testAmbiguousPartialLongOption4 _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 906, in testAmbiguousPartialLongOption4
+    self.assertTrue(caught, "Confirm MissingArgumentException caught")
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : Confirm MissingArgumentException caught
+_______________ DefaultParserTest.testArgumentStartingWithHyphen _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 885, in testArgumentStartingWithHyphen
+    self.assertEqual("-foo", cl.getOptionValue4("b"))
+                             ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+________________________ DefaultParserTest.testBuilder _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DefaultParserTest.py", line 116, in testBuilder
+    .setStripLeadingAndTrailingQuotes(False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setStripLeadingAndTrailingQuotes'
+________________________ DefaultParserTest.testBursting ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 874, in testBursting
+    self.assertTrue(cl.hasOption2("a"), "Confirm -a is set")
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________________ DefaultParserTest.testDoubleDash1 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 860, in testDoubleDash1
+    self.assertTrue(cl.hasOption2("c"), "Confirm -c is set")
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________________ DefaultParserTest.testDoubleDash2 _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 849, in testDoubleDash2
+    self.fail("MissingArgumentException not thrown for option -n")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: MissingArgumentException not thrown for option -n
+________________ DefaultParserTest.testLongOptionQuoteHandling _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 838, in testLongOptionQuoteHandling
+    cl.getOptionValue4("b"),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+____________ DefaultParserTest.testLongOptionQuoteHandlingWithStrip ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DefaultParserTest.py", line 88, in testLongOptionQuoteHandlingWithStrip
+    parser = DefaultParser.builder().setStripLeadingAndTrailingQuotes(True).build()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setStripLeadingAndTrailingQuotes'
+__________ DefaultParserTest.testLongOptionQuoteHandlingWithoutStrip ___________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DefaultParserTest.py", line 101, in testLongOptionQuoteHandlingWithoutStrip
+    parser = DefaultParser.builder().setStripLeadingAndTrailingQuotes(False).build()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setStripLeadingAndTrailingQuotes'
+___________ DefaultParserTest.testLongOptionWithEqualsQuoteHandling ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DefaultParserTest.py", line 82, in testLongOptionWithEqualsQuoteHandling
+    cl.getOptionValue4("b"),
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+_______ DefaultParserTest.testLongOptionWithEqualsQuoteHandlingWithStrip _______
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DefaultParserTest.py", line 50, in testLongOptionWithEqualsQuoteHandlingWithStrip
+    parser = DefaultParser.builder().setStripLeadingAndTrailingQuotes(True).build()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setStripLeadingAndTrailingQuotes'
+_____ DefaultParserTest.testLongOptionWithEqualsQuoteHandlingWithoutStrip ______
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DefaultParserTest.py", line 63, in testLongOptionWithEqualsQuoteHandlingWithoutStrip
+    parser = DefaultParser.builder().setStripLeadingAndTrailingQuotes(False).build()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setStripLeadingAndTrailingQuotes'
+________________ DefaultParserTest.testLongWithEqualDoubleDash _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 816, in testLongWithEqualDoubleDash
+    self.assertEqual("bar", cl.getOptionValue4("foo"))
+                            ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+________________ DefaultParserTest.testLongWithEqualSingleDash _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 805, in testLongWithEqualSingleDash
+    self.assertEqual("bar", cl.getOptionValue4("foo"))
+                            ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+______________ DefaultParserTest.testLongWithUnexpectedArgument1 _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 770, in testLongWithUnexpectedArgument1
+    self.fail("UnrecognizedOptionException not thrown")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: UnrecognizedOptionException not thrown
+______________ DefaultParserTest.testLongWithUnexpectedArgument2 _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 755, in testLongWithUnexpectedArgument2
+    self.fail("UnrecognizedOptionException not thrown")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: UnrecognizedOptionException not thrown
+_______________ DefaultParserTest.testLongWithoutEqualDoubleDash _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 793, in testLongWithoutEqualDoubleDash
+    cl.hasOption2("foo")
+    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_______________ DefaultParserTest.testLongWithoutEqualSingleDash _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 781, in testLongWithoutEqualSingleDash
+    self.assertEqual("bar", cl.getOptionValue4("foo"))
+                            ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+_______________________ DefaultParserTest.testMissingArg _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 740, in testMissingArg
+    self.assertTrue(caught, "Confirm MissingArgumentException caught")
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : Confirm MissingArgumentException caught
+_________________ DefaultParserTest.testMissingArgWithBursting _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 726, in testMissingArgWithBursting
+    self.assertTrue(caught, "Confirm MissingArgumentException caught")
+  File "/usr/lib/python3.12/unittest/case.py", line 727, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true : Confirm MissingArgumentException caught
+__________________ DefaultParserTest.testMissingRequiredGroup __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 707, in testMissingRequiredGroup
+    self.fail("MissingOptionException not thrown")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: MissingOptionException not thrown
+_________________ DefaultParserTest.testMissingRequiredOption __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 683, in testMissingRequiredOption
+    self.fail("exception should have been thrown")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: exception should have been thrown
+_________________ DefaultParserTest.testMissingRequiredOptions _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 659, in testMissingRequiredOptions
+    self.fail("exception should have been thrown")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: exception should have been thrown
+________________________ DefaultParserTest.testMultiple ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 621, in testMultiple
+    self.assertTrue(cl.hasOption2("c"), "Confirm -c is set")
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+____________________ DefaultParserTest.testMultipleWithLong ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 593, in testMultipleWithLong
+    self.assertTrue(cl.hasOption2("c"), "Confirm -c is set")
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+____________________ DefaultParserTest.testNegativeArgument ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 586, in testNegativeArgument
+    self.assertEqual("-1", cl.getOptionValue4("b"))
+                           ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+_____________________ DefaultParserTest.testNegativeOption _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 579, in testNegativeOption
+    self.assertEqual("-1", cl.getOptionValue4("b"))
+                           ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+________________ DefaultParserTest.testOptionAndRequiredOption _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 567, in testOptionAndRequiredOption
+    self.assertTrue(cl.hasOption2("a"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________________ DefaultParserTest.testOptionGroup _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 554, in testOptionGroup
+    self.assertEqual("b", group.getSelected(), "selected option")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 'b' != None : selected option
+____________________ DefaultParserTest.testOptionGroupLong _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 540, in testOptionGroupLong
+    assert cl.hasOption2("bar")
+           ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________ DefaultParserTest.testPartialLongOptionSingleDash _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 526, in testPartialLongOptionSingleDash
+    self.assertTrue(cl.hasOption2("version"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+___________________ DefaultParserTest.testPropertiesOption1 ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 504, in testPropertiesOption1
+    values = cl.getOptionValues2("J")
+             ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValues2'
+___________________ DefaultParserTest.testPropertiesOption2 ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 486, in testPropertiesOption2
+    props = cl.getOptionProperties1("D")
+            ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionProperties1'
+__________________ DefaultParserTest.testPropertyOptionFlags ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 434, in testPropertyOptionFlags
+    self.assertTrue(cmd.hasOption2("a"))
+                    ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+__________________ DefaultParserTest.testPropertyOptionGroup ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 415, in testPropertyOptionGroup
+    self.assertTrue(cmd.hasOption2("a"))
+                    ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________ DefaultParserTest.testPropertyOptionMultipleValues ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 390, in testPropertyOptionMultipleValues
+    self.assertTrue(cmd.hasOption2("k"))
+                    ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_________________ DefaultParserTest.testPropertyOptionRequired _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 377, in testPropertyOptionRequired
+    self.assertTrue(cmd.hasOption2("f"))
+                    ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________ DefaultParserTest.testPropertyOptionSingularValue _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 364, in testPropertyOptionSingularValue
+    self.assertTrue(cmd.hasOption2("hide"))
+                    ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+________________ DefaultParserTest.testPropertyOptionUnexpected ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 351, in testPropertyOptionUnexpected
+    self.fail("UnrecognizedOptionException expected")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: UnrecognizedOptionException expected
+_________________ DefaultParserTest.testPropertyOverrideValues _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 338, in testPropertyOverrideValues
+    self.assertTrue(cmd.hasOption2("j"))
+                    ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+___________________ DefaultParserTest.testReuseOptionsTwice ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 322, in testReuseOptionsTwice
+    self.fail("MissingOptionException not thrown")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: MissingOptionException not thrown
+__________ DefaultParserTest.testShortOptionConcatenatedQuoteHandling __________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DefaultParserTest.py", line 45, in testShortOptionConcatenatedQuoteHandling
+    '"quoted string"', cl.getOptionValue4("b"), 'Confirm -b"arg" keeps quotes'
+                       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+________________ DefaultParserTest.testShortOptionQuoteHandling ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 300, in testShortOptionQuoteHandling
+    "quoted string", cl.getOptionValue4("b"), 'Confirm -b "arg" strips quotes'
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+___________ DefaultParserTest.testShortOptionQuoteHandlingWithStrip ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DefaultParserTest.py", line 18, in testShortOptionQuoteHandlingWithStrip
+    parser = DefaultParser.builder().setStripLeadingAndTrailingQuotes(True).build()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setStripLeadingAndTrailingQuotes'
+__________ DefaultParserTest.testShortOptionQuoteHandlingWithoutStrip __________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DefaultParserTest.py", line 29, in testShortOptionQuoteHandlingWithoutStrip
+    parser = DefaultParser.builder().setStripLeadingAndTrailingQuotes(False).build()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setStripLeadingAndTrailingQuotes'
+_____________________ DefaultParserTest.testShortWithEqual _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 291, in testShortWithEqual
+    self.assertEqual("bar", cl.getOptionValue4("foo"))
+                            ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+______________ DefaultParserTest.testShortWithUnexpectedArgument _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 269, in testShortWithUnexpectedArgument
+    self.fail("UnrecognizedOptionException not thrown")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: UnrecognizedOptionException not thrown
+___________________ DefaultParserTest.testShortWithoutEqual ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 280, in testShortWithoutEqual
+    self.assertEqual("bar", cl.getOptionValue4("foo"))
+                            ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+_______________________ DefaultParserTest.testSimpleLong _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 250, in testSimpleLong
+    self.assertTrue(cl.hasOption2("a"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________________ DefaultParserTest.testSimpleShort _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 239, in testSimpleShort
+    self.assertTrue(cl.hasOption2("a"), "Confirm -a is set")
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_______________________ DefaultParserTest.testSingleDash _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 227, in testSingleDash
+    self.assertTrue(cl.hasOption2("a"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+___________________ DefaultParserTest.testStopAtExpectedArg ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 214, in testStopAtExpectedArg
+    self.assertTrue(cl.hasOption0("b"), "Confirm -b is set")
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption0'
+__________________ DefaultParserTest.testStopAtNonOptionLong ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 200, in testStopAtNonOptionLong
+    self.assertFalse(cl.hasOption2("a"), "Confirm -a is not set")
+                     ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+__________________ DefaultParserTest.testStopAtNonOptionShort __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 191, in testStopAtNonOptionShort
+    self.assertFalse(cl.hasOption2("a"))
+                     ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+__________________ DefaultParserTest.testStopAtUnexpectedArg ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 183, in testStopAtUnexpectedArg
+    self.assertTrue(cl.hasOption2("c"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________________ DefaultParserTest.testStopBursting ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 168, in testStopBursting
+    self.assertTrue(cl.hasOption2("a"), "Confirm -a is set", )
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_____________________ DefaultParserTest.testStopBursting2 ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 140, in testStopBursting2
+    self.assertTrue("Confirm -c is set", cl.hasOption2("c"))
+                                         ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_____________ DefaultParserTest.testUnambiguousPartialLongOption1 ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 133, in testUnambiguousPartialLongOption1
+    self.assertTrue(cl.hasOption2("version"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_____________ DefaultParserTest.testUnambiguousPartialLongOption2 ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 122, in testUnambiguousPartialLongOption2
+    self.assertTrue(cl.hasOption2("version"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_____________ DefaultParserTest.testUnambiguousPartialLongOption3 ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 110, in testUnambiguousPartialLongOption3
+    self.assertTrue(cl.hasOption2("verbose"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_____________ DefaultParserTest.testUnambiguousPartialLongOption4 ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 96, in testUnambiguousPartialLongOption4
+    self.assertTrue(cl.hasOption2("verbose"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_____________________ DefaultParserTest.testUnlimitedArgs ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 80, in testUnlimitedArgs
+    self.assertTrue(cl.hasOption2("e"))
+                    ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+___________________ DefaultParserTest.testUnrecognizedOption ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 66, in testUnrecognizedOption
+    self.fail("UnrecognizedOptionException wasn't thrown")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: UnrecognizedOptionException wasn't thrown
+_____________ DefaultParserTest.testUnrecognizedOptionWithBursting _____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 56, in testUnrecognizedOptionWithBursting
+    self.fail("UnrecognizedOptionException wasn't thrown")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: UnrecognizedOptionException wasn't thrown
+___________________ DefaultParserTest.testWithRequiredOption ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/ParserTestCase.py", line 45, in testWithRequiredOption
+    self.assertFalse(cl.hasOption2("a"))
+                     ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+____________ DisablePartialMatchingTest.testDisablePartialMatching _____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DisablePartialMatchingTest.py", line 56, in testDisablePartialMatching
+    self.assertTrue(line.hasOption2("debug"))
+                    ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+____________ DisablePartialMatchingTest.testRegularPartialMatching _____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/DisablePartialMatchingTest.py", line 31, in testRegularPartialMatching
+    line.hasOption2("debug"), "There should be an option debug in any case..."
+    ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+_______________________ HelpFormatterTest.testAccessors ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 693, in testAccessors
+    assert "argname" == formatter.getArgName(), "arg name"
+AssertionError: arg name
+assert 'argname' == None
+ +  where None = getArgName()
+ +    where getArgName = <src.main.org.apache.commons.cli.HelpFormatter.HelpFormatter object at 0x796f200cc170>.getArgName
+_____________________ HelpFormatterTest.testAutomaticUsage _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 672, in testAutomaticUsage
+    self.assertEqual(expected, out.getvalue().decode().strip(), "simple auto usage")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: app [-a]' != ''
+- usage: app [-a]
+ : simple auto usage
+_____________________ HelpFormatterTest.testDefaultArgName _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 660, in testDefaultArgName
+    self.assertEqual("usage: app -f <argument>" + self.__EOL, out.getvalue())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: app -f <argument>\n' != ''
+- usage: app -f <argument>
+
+______________________ HelpFormatterTest.testFindWrapPos _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 630, in testFindWrapPos
+    self.assertEqual(7, hf._findWrapPos(text, 8, 0), "wrap position")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 7 != None : wrap position
+____________ HelpFormatterTest.testHeaderStartingWithLineSeparator _____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 611, in testHeaderStartingWithLineSeparator
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: foobar\n\nHeader\n\nFooter\n' != ''
+- usage: foobar
+- 
+- Header
+- 
+- Footer
+
+________________ HelpFormatterTest.testHelpWithLongOptSeparator ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 574, in testHelpWithLongOptSeparator
+    self.assertEqual("=", formatter.getLongOptSeparator())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: '=' != None
+________________ HelpFormatterTest.testIndentedHeaderAndFooter _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 537, in testIndentedHeaderAndFooter
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: foobar\n  Header1\n  Header2\n\n  Footer1\n  Footer2\n' != ''
+- usage: foobar
+-   Header1
+-   Header2
+- 
+-   Footer1
+-   Footer2
+
+________________ HelpFormatterTest.testOptionWithoutShortFormat ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 515, in testOptionWithoutShortFormat
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: foobar [-a] [--bbb] [-c]\n  -a,--a[51 chars]cc\n' != ''
+- usage: foobar [-a] [--bbb] [-c]
+-   -a,--aaa  aaaaaaa
+-      --bbb  bbbbbbb
+-   -c        ccccccc
+
+_______________ HelpFormatterTest.testOptionWithoutShortFormat2 ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 471, in testOptionWithoutShortFormat2
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: commandline [-a <arg>] [--config <[604 chars]er\n' != ''
+Diff is 663 characters long. Set self.maxDiff to None to see it.
+_________________ HelpFormatterTest.testPrintHelpNewlineFooter _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 391, in testPrintHelpNewlineFooter
+    self.assertEqual(expected, out.getvalue().decode(), "footer newline")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: test\nheader\n-ab\n\n' != ''
+- usage: test
+- header
+- -ab
+- 
+ : footer newline
+_________________ HelpFormatterTest.testPrintHelpNewlineHeader _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 361, in testPrintHelpNewlineHeader
+    self.assertEqual(expected, out.getvalue().decode(), "header newline")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: test\n\n-ab\nfooter\n' != ''
+- usage: test
+- 
+- -ab
+- footer
+ : header newline
+________________ HelpFormatterTest.testPrintHelpWithEmptySyntax ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 323, in testPrintHelpWithEmptySyntax
+    self.fail("null command line syntax should be rejected")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: null command line syntax should be rejected
+_________________ HelpFormatterTest.testPrintOptionGroupUsage __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 314, in testPrintOptionGroupUsage
+    self.assertEqual("usage: app [-a | -b | -c]" + self.__EOL, out.getvalue())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: app [-a | -b | -c]\n' != ''
+- usage: app [-a | -b | -c]
+
+____________ HelpFormatterTest.testPrintOptionWithEmptyArgNameUsage ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 218, in testPrintOptionWithEmptyArgNameUsage
+    self.assertEqual("usage: app -f" + self.__EOL, out.getvalue())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: app -f\n' != ''
+- usage: app -f
+
+______________________ HelpFormatterTest.testPrintOptions ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 231, in testPrintOptions
+    expected = lpad + "-a" + dpad + "aaaa aaaa aaaa aaaa aaaa"
+               ~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+_____________ HelpFormatterTest.testPrintRequiredOptionGroupUsage ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 202, in testPrintRequiredOptionGroupUsage
+    self.assertEqual("usage: app -a | -b | -c" + os.linesep, out.getvalue())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: app -a | -b | -c\n' != ''
+- usage: app -a | -b | -c
+
+____________________ HelpFormatterTest.testPrintSortedUsage ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 184, in testPrintSortedUsage
+    self.assertEqual("usage: app [-c] [-b] [-a]" + self.__EOL, out.getvalue())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: app [-c] [-b] [-a]\n' != ''
+- usage: app [-c] [-b] [-a]
+
+___________ HelpFormatterTest.testPrintSortedUsageWithNullComparator ___________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 161, in testPrintSortedUsageWithNullComparator
+    self.assertEqual("usage: app [-c] [-b] [-a]" + self.__EOL, out.getvalue())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: app [-c] [-b] [-a]\n' != ''
+- usage: app [-c] [-b] [-a]
+
+_______________________ HelpFormatterTest.testPrintUsage _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 144, in testPrintUsage
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: app [-a] [-b] [-c]\n' != ''
+- usage: app [-a] [-b] [-c]
+
+_______________ HelpFormatterTest.testRenderWrappedTextMultiLine _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 130, in testRenderWrappedTextMultiLine
+    self.assertEqual(expected, sb.getvalue(), "multi line text")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'aaaa aaaa aaaa\naaaaaa\naaaaa' != ''
+- aaaa aaaa aaaa
+- aaaaaa
+- aaaaa
+ : multi line text
+____________ HelpFormatterTest.testRenderWrappedTextMultiLinePadded ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 120, in testRenderWrappedTextMultiLinePadded
+    self.assertEqual(expected, sb.getvalue(), "multi-line padded text")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'aaaa aaaa aaaa\n    aaaaaa\n    aaaaa' != ''
+- aaaa aaaa aaaa
+-     aaaaaa
+-     aaaaa
+ : multi-line padded text
+______________ HelpFormatterTest.testRenderWrappedTextSingleLine _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 107, in testRenderWrappedTextSingleLine
+    self.assertEqual(expected, sb.getvalue(), "single line text")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'This is a\ntest.' != ''
+- This is a
+- test.
+ : single line text
+___________ HelpFormatterTest.testRenderWrappedTextSingleLinePadded ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 96, in testRenderWrappedTextSingleLinePadded
+    self.assertEqual(expected, sb.getvalue(), "single line padded text")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'This is a\n    test.' != ''
+- This is a
+-     test.
+ : single line padded text
+___________ HelpFormatterTest.testRenderWrappedTextSingleLinePadded2 ___________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 85, in testRenderWrappedTextSingleLinePadded2
+    self.assertEqual(expected, sb.getvalue(), "single line padded text 2")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: '  -p,--period <PERIOD>  PERIOD is time du[105 chars]DD]]' != ''
+-   -p,--period <PERIOD>  PERIOD is time duration of
+-                         form DATE[-DATE] where DATE
+-                         has form YYYY[MM[DD]]
+ : single line padded text 2
+________________ HelpFormatterTest.testRenderWrappedTextWordCut ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 66, in testRenderWrappedTextWordCut
+    self.assertEqual(expected, sb.getvalue(), "cut and wrap")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'Thisisa\ntest.' != ''
+- Thisisa
+- test.
+ : cut and wrap
+_________________________ HelpFormatterTest.testRtrim __________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 54, in testRtrim
+    self.assertEqual("", formatter._rtrim(""))
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: '' != None
+_______________ HelpFormatterTest.testUsageWithLongOptSeparator ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 45, in testUsageWithLongOptSeparator
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: create [--age=<arg>] [-f <arg>] [-s <SIZE>]' != ''
+- usage: create [--age=<arg>] [-f <arg>] [-s <SIZE>]
+
+__________________ PatternOptionBuilderTest.testClassPattern ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 190, in testClassPattern
+    line = parser.parse0(
+           ^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 199, in parse0
+    return self.parse3(options, arguments, None, False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 140, in parse3
+    for opt in options.helpOptions():
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'helpOptions'
+__________________ PatternOptionBuilderTest.testEmptyPattern ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 184, in testEmptyPattern
+    self.assertTrue(len(list(options.getOptions())) == 0)
+                             ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptions'
+_______________ PatternOptionBuilderTest.testExistingFilePattern _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 169, in testExistingFilePattern
+    line = parser.parse0(
+           ^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 199, in parse0
+    return self.parse3(options, arguments, None, False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 140, in parse3
+    for opt in options.helpOptions():
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'helpOptions'
+_________ PatternOptionBuilderTest.testExistingFilePatternFileNotExist _________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 161, in testExistingFilePatternFileNotExist
+    line = parser.parse0(options, ["-f", "non-existing.file"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 199, in parse0
+    return self.parse3(options, arguments, None, False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 140, in parse3
+    for opt in options.helpOptions():
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'helpOptions'
+__________________ PatternOptionBuilderTest.testNumberPattern __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 147, in testNumberPattern
+    line = parser.parse0(options, ["-n", "1", "-d", "2.1", "-x", "3,5"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 199, in parse0
+    return self.parse3(options, arguments, None, False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 140, in parse3
+    for opt in options.helpOptions():
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'helpOptions'
+__________________ PatternOptionBuilderTest.testObjectPattern __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 127, in testObjectPattern
+    line = parser.parse0(
+           ^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 199, in parse0
+    return self.parse3(options, arguments, None, False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 140, in parse3
+    for opt in options.helpOptions():
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'helpOptions'
+_________________ PatternOptionBuilderTest.testRequiredOption __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 117, in testRequiredOption
+    parser.parse0(options, [""])
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 199, in parse0
+    return self.parse3(options, arguments, None, False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 140, in parse3
+    for opt in options.helpOptions():
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'helpOptions'
+__________________ PatternOptionBuilderTest.testSimplePattern __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 77, in testSimplePattern
+    line = parser.parse0(options, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 199, in parse0
+    return self.parse3(options, arguments, None, False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 140, in parse3
+    for opt in options.helpOptions():
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'helpOptions'
+___________________ PatternOptionBuilderTest.testURLPattern ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 28, in testURLPattern
+    line = parser.parse0(
+           ^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 199, in parse0
+    return self.parse3(options, arguments, None, False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 140, in parse3
+    for opt in options.helpOptions():
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'helpOptions'
+_________________ PatternOptionBuilderTest.testUntypedPattern __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 44, in testUntypedPattern
+    line = parser.parse0(options, ["-abc"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 199, in parse0
+    return self.parse3(options, arguments, None, False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/Parser.py", line 140, in parse3
+    for opt in options.helpOptions():
+               ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'helpOptions'
+_____________________ TypeHandlerTest.testCreateValueClass _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 127, in testCreateValueClass
+    self.assertEqual(Instantiable, clazz)
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: <class 'src.test.org.apache.commons.cli.TypeHandlerTest.Instantiable'> != None
+________________ TypeHandlerTest.testCreateValueClass_notFound _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 120, in testCreateValueClass_notFound
+    with pytest.raises(ParseException):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ParseException
+_____________________ TypeHandlerTest.testCreateValueDate ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 115, in testCreateValueDate
+    with pytest.raises(NotImplementedError):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE NotImplementedError
+_________________ TypeHandlerTest.testCreateValueExistingFile __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 107, in testCreateValueExistingFile
+    with TypeHandler.createValue0(
+TypeError: 'NoneType' object does not support the context manager protocol
+_________ TypeHandlerTest.testCreateValueExistingFile_nonExistingFile __________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 100, in testCreateValueExistingFile_nonExistingFile
+    with pytest.raises(ParseException):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ParseException
+_____________________ TypeHandlerTest.testCreateValueFile ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 96, in testCreateValueFile
+    self.assertEqual("some-file.txt", result.name)
+                                      ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'name'
+_____________________ TypeHandlerTest.testCreateValueFiles _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 88, in testCreateValueFiles
+    with pytest.raises(NotImplementedError):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE NotImplementedError
+________________ TypeHandlerTest.testCreateValueInteger_failure ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 83, in testCreateValueInteger_failure
+    with pytest.raises(ParseException):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ParseException
+_________________ TypeHandlerTest.testCreateValueNumber_Double _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 77, in testCreateValueNumber_Double
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1.5 != None
+__________________ TypeHandlerTest.testCreateValueNumber_Long __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 71, in testCreateValueNumber_Long
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 15 != None
+________________ TypeHandlerTest.testCreateValueNumber_noNumber ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 66, in testCreateValueNumber_noNumber
+    with pytest.raises(ParseException):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ParseException
+___________ TypeHandlerTest.testCreateValueObject_InstantiableClass ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 62, in testCreateValueObject_InstantiableClass
+    self.assertIsInstance(result, Instantiable)
+  File "/usr/lib/python3.12/unittest/case.py", line 1294, in assertIsInstance
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: None is not an instance of <class 'src.test.org.apache.commons.cli.TypeHandlerTest.Instantiable'>
+__________ TypeHandlerTest.testCreateValueObject_notInstantiableClass __________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 52, in testCreateValueObject_notInstantiableClass
+    with pytest.raises(ParseException):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ParseException
+______________ TypeHandlerTest.testCreateValueObject_unknownClass ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 47, in testCreateValueObject_unknownClass
+    with pytest.raises(ParseException):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ParseException
+____________________ TypeHandlerTest.testCreateValueString _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 40, in testCreateValueString
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 'String' != None
+______________________ TypeHandlerTest.testCreateValueURL ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 36, in testCreateValueURL
+    self.assertEqual(url_string, result.geturl())
+                                 ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'geturl'
+_________________ TypeHandlerTest.testCreateValueURL_malformed _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 29, in testCreateValueURL_malformed
+    with pytest.raises(ParseException):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ParseException
+________________________ BugCLI162Test.testInfiniteLoop ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugCLI162Test.py", line 185, in testInfiniteLoop
+    self.assertEqual(expected, self.__sw.getvalue())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: app\n -h,--help   This is\n       [84 chars]on\n' != ''
+- usage: app
+-  -h,--help   This is
+-              a
+-              looooon
+-              g
+-              descrip
+-              tion
+
+______________________ BugCLI162Test.testLongLineChunking ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugCLI162Test.py", line 150, in testLongLineChunking
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage:\n       org.apache.commons.cli.bug[551 chars]er\n' != ''
+- usage:
+-        org.apache.commons.cli.bug.B
+-        ugCLI162Test
+- Header
+- -x,--extralongarg     This
+-                       description
+-                       has
+-                       ReallyLongVal
+-                       uesThatAreLon
+-                       gerThanTheWid
+-                       thOfTheColumn
+-                       s and also
+-                       other
+-                       ReallyLongVal
+-                       uesThatAreHug
+-                       erAndBiggerTh
+-                       anTheWidthOfT
+-                       heColumnsBob,
+-                       yes.
+- Footer
+ : Long arguments did not split as expected
+_______________ BugCLI162Test.testLongLineChunkingIndentIgnored ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugCLI162Test.py", line 83, in testLongLineChunkingIndentIgnored
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage:\n       org.apache.comm\n       on[95 chars]er\n' != ''
+- usage:
+-        org.apache.comm
+-        ons.cli.bug.Bug
+-        CLI162Test
+- Header
+- -x,--extralongarg
+-  This description is
+-  Long.
+- Footer
+ : Long arguments did not split as expected
+____________________ BugCLI252Test.testAmbiquousOptionName _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugCLI252Test.py", line 25, in testAmbiquousOptionName
+    with pytest.raises(ParseException):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ParseException
+____________ BugCLI265Test.testshouldParseConcatenatedShortOptions _____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugCLI265Test.py", line 50, in testshouldParseConcatenatedShortOptions
+    self.assertTrue(commandLine.hasOption2("t1"))
+                    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+______________ BugCLI265Test.testshouldParseShortOptionWithValue _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugCLI265Test.py", line 25, in testshouldParseShortOptionWithValue
+    self.assertEqual("path/to/my/db", commandLine.getOptionValue4("t1"))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getOptionValue4'
+_____________ BugCLI265Test.testshouldParseShortOptionWithoutValue _____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugCLI265Test.py", line 34, in testshouldParseShortOptionWithoutValue
+    self.assertTrue(command_line.hasOption2("t1"))
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'hasOption2'
+________________ BugCLI266Test.testOptionComparatorDefaultOrder ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugCLI266Test.py", line 33, in testOptionComparatorDefaultOrder
+    options.sort(key=functools.cmp_to_key(formatter.getOptionComparator()))
+TypeError: 'NoneType' object is not callable
+______________________________ BugsTest.test11458 ______________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugsTest.py", line 265, in test11458
+    self.fail("-D option not found")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: -D option not found
+----------------------------- Captured stdout call -----------------------------
+[ option: D [ARG...] :: None :: <class 'str'> ] 68
+______________________________ BugsTest.test13666 ______________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugsTest.py", line 143, in test13666
+    self.assertEqual(
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'usage: dir\n -d <arg>   dir\n' != ''
+- usage: dir
+-  -d <arg>   dir
+
+=========================== short test summary info ============================
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:205: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:196: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:189: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:182: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:178: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:169: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:162: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:156: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:148: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:140: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:130: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:123: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:115: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:109: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:102: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:95: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:89: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:81: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:74: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:66: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:62: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:52: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:47: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:37: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:27: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:17: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:176: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:169: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:161: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:153: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:148: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:137: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:130: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:115: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:106: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:123: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:98: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:92: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:84: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:79: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:72: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:62: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:53: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:44: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:37: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:25: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:16: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:47: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:43: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:39: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:35: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:27: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:31: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:23: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:19: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:15: Ignore
+FAILED src/test/org/apache/commons/cli/ApplicationTest.py::ApplicationTest::testMan
+FAILED src/test/org/apache/commons/cli/CommandLineTest.py::CommandLineTest::testGetParsedOptionValue
+FAILED src/test/org/apache/commons/cli/CommandLineTest.py::CommandLineTest::testGetParsedOptionValueWithChar
+FAILED src/test/org/apache/commons/cli/CommandLineTest.py::CommandLineTest::testGetParsedOptionValueWithOption
+FAILED src/test/org/apache/commons/cli/CommandLineTest.py::CommandLineTest::testNullhOption
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testAmbiguousLongWithoutEqualSingleDash
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testAmbiguousPartialLongOption1
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testAmbiguousPartialLongOption2
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testAmbiguousPartialLongOption3
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testAmbiguousPartialLongOption4
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testArgumentStartingWithHyphen
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testBuilder
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testBursting
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testDoubleDash1
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testDoubleDash2
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongOptionQuoteHandling
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongOptionQuoteHandlingWithStrip
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongOptionQuoteHandlingWithoutStrip
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongOptionWithEqualsQuoteHandling
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongOptionWithEqualsQuoteHandlingWithStrip
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongOptionWithEqualsQuoteHandlingWithoutStrip
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongWithEqualDoubleDash
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongWithEqualSingleDash
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongWithUnexpectedArgument1
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongWithUnexpectedArgument2
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongWithoutEqualDoubleDash
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testLongWithoutEqualSingleDash
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testMissingArg
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testMissingArgWithBursting
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testMissingRequiredGroup
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testMissingRequiredOption
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testMissingRequiredOptions
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testMultiple
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testMultipleWithLong
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testNegativeArgument
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testNegativeOption
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testOptionAndRequiredOption
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testOptionGroup
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testOptionGroupLong
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPartialLongOptionSingleDash
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPropertiesOption1
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPropertiesOption2
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPropertyOptionFlags
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPropertyOptionGroup
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPropertyOptionMultipleValues
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPropertyOptionRequired
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPropertyOptionSingularValue
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPropertyOptionUnexpected
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testPropertyOverrideValues
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testReuseOptionsTwice
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testShortOptionConcatenatedQuoteHandling
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testShortOptionQuoteHandling
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testShortOptionQuoteHandlingWithStrip
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testShortOptionQuoteHandlingWithoutStrip
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testShortWithEqual
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testShortWithUnexpectedArgument
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testShortWithoutEqual
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testSimpleLong
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testSimpleShort
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testSingleDash
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testStopAtExpectedArg
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testStopAtNonOptionLong
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testStopAtNonOptionShort
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testStopAtUnexpectedArg
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testStopBursting
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testStopBursting2
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testUnambiguousPartialLongOption1
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testUnambiguousPartialLongOption2
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testUnambiguousPartialLongOption3
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testUnambiguousPartialLongOption4
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testUnlimitedArgs
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testUnrecognizedOption
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testUnrecognizedOptionWithBursting
+FAILED src/test/org/apache/commons/cli/DefaultParserTest.py::DefaultParserTest::testWithRequiredOption
+FAILED src/test/org/apache/commons/cli/DisablePartialMatchingTest.py::DisablePartialMatchingTest::testDisablePartialMatching
+FAILED src/test/org/apache/commons/cli/DisablePartialMatchingTest.py::DisablePartialMatchingTest::testRegularPartialMatching
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testAccessors
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testAutomaticUsage
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testDefaultArgName
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testFindWrapPos
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testHeaderStartingWithLineSeparator
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testHelpWithLongOptSeparator
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testIndentedHeaderAndFooter
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testOptionWithoutShortFormat
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testOptionWithoutShortFormat2
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintHelpNewlineFooter
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintHelpNewlineHeader
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintHelpWithEmptySyntax
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintOptionGroupUsage
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintOptionWithEmptyArgNameUsage
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintOptions
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintRequiredOptionGroupUsage
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintSortedUsage
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintSortedUsageWithNullComparator
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintUsage
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testRenderWrappedTextMultiLine
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testRenderWrappedTextMultiLinePadded
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testRenderWrappedTextSingleLine
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testRenderWrappedTextSingleLinePadded
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testRenderWrappedTextSingleLinePadded2
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testRenderWrappedTextWordCut
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testRtrim
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testUsageWithLongOptSeparator
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testClassPattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testEmptyPattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testExistingFilePattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testExistingFilePatternFileNotExist
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testNumberPattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testObjectPattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testRequiredOption
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testSimplePattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testURLPattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testUntypedPattern
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueClass
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueClass_notFound
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueDate
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueExistingFile
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueExistingFile_nonExistingFile
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueFile
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueFiles
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueInteger_failure
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueNumber_Double
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueNumber_Long
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueNumber_noNumber
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueObject_InstantiableClass
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueObject_notInstantiableClass
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueObject_unknownClass
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueString
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueURL
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueURL_malformed
+FAILED src/test/org/apache/commons/cli/bug/BugCLI162Test.py::BugCLI162Test::testInfiniteLoop
+FAILED src/test/org/apache/commons/cli/bug/BugCLI162Test.py::BugCLI162Test::testLongLineChunking
+FAILED src/test/org/apache/commons/cli/bug/BugCLI162Test.py::BugCLI162Test::testLongLineChunkingIndentIgnored
+FAILED src/test/org/apache/commons/cli/bug/BugCLI252Test.py::BugCLI252Test::testAmbiquousOptionName
+FAILED src/test/org/apache/commons/cli/bug/BugCLI265Test.py::BugCLI265Test::testshouldParseConcatenatedShortOptions
+FAILED src/test/org/apache/commons/cli/bug/BugCLI265Test.py::BugCLI265Test::testshouldParseShortOptionWithValue
+FAILED src/test/org/apache/commons/cli/bug/BugCLI265Test.py::BugCLI265Test::testshouldParseShortOptionWithoutValue
+FAILED src/test/org/apache/commons/cli/bug/BugCLI266Test.py::BugCLI266Test::testOptionComparatorDefaultOrder
+FAILED src/test/org/apache/commons/cli/bug/BugsTest.py::BugsTest::test11458
+FAILED src/test/org/apache/commons/cli/bug/BugsTest.py::BugsTest::test13666
+140 failed, 241 passed, 56 skipped in 0.41s
+
+[oracle] project  : commons-cli
+[oracle] source   : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-cli/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] deferrals: disabled (isolated staging)
+[oracle] result   : 140 failed, 241 passed, 56 skipped in 0.41s
+[oracle] exitcode : 1

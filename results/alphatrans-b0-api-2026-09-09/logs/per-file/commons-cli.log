@@ -1,0 +1,36 @@
+[batch] status: ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-cli/pipeline-baseline-b0-api-perfile-sonnet5-med-20260909v2.status.json
+[b0] project      : commons-cli (tier A)
+[b0] java files   : 23
+[b0] modules      : 22
+[b0] granularity  : per-file
+[b0] requests     : 22 (one per module)
+[b0] prompt chars : max 40,359  median 7,615  (~10,089 tokens for the largest)
+[b0] backend      : copilot-api model=claude-sonnet-5 effort=medium
+[b0]   1/22 src/main/org/apache/commons/cli/AlreadySelectedException.py: written (bare_block)
+[b0]   2/22 src/main/org/apache/commons/cli/AmbiguousOptionException.py: written (bare_block)
+[b0]   3/22 src/main/org/apache/commons/cli/BasicParser.py: written (bare_block)
+[b0]   4/22 src/main/org/apache/commons/cli/CommandLine.py: written (bare_block)
+[b0]   5/22 src/main/org/apache/commons/cli/CommandLineParser.py: written (bare_block)
+[b0]   6/22 src/main/org/apache/commons/cli/DefaultParser.py: written (bare_block)
+[b0]   7/22 src/main/org/apache/commons/cli/GnuParser.py: written (bare_block)
+[b0]   8/22 src/main/org/apache/commons/cli/HelpFormatter.py: written (bare_block)
+[b0]   9/22 src/main/org/apache/commons/cli/MissingArgumentException.py: written (bare_block)
+[b0]   10/22 src/main/org/apache/commons/cli/MissingOptionException.py: written (bare_block)
+[b0]   11/22 src/main/org/apache/commons/cli/Option.py: written (explicit_path_block)
+[b0]   12/22 src/main/org/apache/commons/cli/OptionBuilder.py: written (explicit_path_block)
+[b0]   13/22 src/main/org/apache/commons/cli/OptionGroup.py: written (bare_block)
+[b0]   14/22 src/main/org/apache/commons/cli/OptionValidator.py: written (bare_block)
+[b0]   15/22 src/main/org/apache/commons/cli/Options.py: written (bare_block)
+[b0]   16/22 src/main/org/apache/commons/cli/ParseException.py: written (bare_block)
+[b0]   17/22 src/main/org/apache/commons/cli/Parser.py: written (explicit_path_block)
+[b0]   18/22 src/main/org/apache/commons/cli/PatternOptionBuilder.py: written (explicit_path_block)
+[b0]   19/22 src/main/org/apache/commons/cli/PosixParser.py: written (explicit_path_block)
+[b0]   20/22 src/main/org/apache/commons/cli/TypeHandler.py: written (explicit_path_block)
+[b0]   21/22 src/main/org/apache/commons/cli/UnrecognizedOptionException.py: written (bare_block)
+[b0]   22/22 src/main/org/apache/commons/cli/Util.py: written (bare_block)
+[b0] wall clock   : 703s new work; 22 total backend invocation(s)
+[b0] files parsed : 22  written=22  unplaceable=0
+[b0] left as stub : 0
+[b0] metadata     : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-cli/pipeline-baseline-b0-api-perfile-sonnet5-med-20260909v2/metadata.json
+[batch] oracle: 271 failed, 110 passed, 56 skipped in 0.58s
+[batch] completed; all generation artifacts and observed failures retained

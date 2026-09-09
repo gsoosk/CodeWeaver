@@ -1,0 +1,27 @@
+from __future__ import annotations
+
+# Imports Begin
+import io
+
+# Imports End
+
+
+class InvalidFileNameException(RuntimeError):
+
+    # Class Fields Begin
+    __serialVersionUID: int = 7922042602454350470
+    __name: str = None
+    # Class Fields End
+
+    # Class Methods Begin
+    def getName(self) -> str:
+        return self.__name
+
+    def __init__(self, pName: str, pMessage: str) -> None:
+        super().__init__(pMessage)
+        self.__name = pName
+
+    def __str__(self) -> str:
+        return self.args[0] if self.args else ""
+
+    # Class Methods End

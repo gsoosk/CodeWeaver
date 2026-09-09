@@ -1,0 +1,16 @@
+[batch] status: ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-validator/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908.status.json
+[b0] project      : commons-validator (tier A)
+[b0] java files   : 63
+[b0] modules      : 63
+[b0] prompt chars : 751,299  (~187,824 tokens in)
+[b0] est. output  : ~90,756 tokens for 63 modules  (cap: 64,000)
+[b0] note         : one response cannot hold this; the generation will be continued (~2 rounds, cap --max-rounds 1)
+[b0] backend      : copilot-api model=claude-sonnet-5 effort=medium
+[b0]   invocation 1: +27 files (27/63 done, 36 left)  [hit output cap]
+[b0] wall clock   : 491s new work; 1 total backend invocation(s)
+[b0] files parsed : 27  written=27  unplaceable=0
+[b0] left as stub : 36
+[b0] INCOMPLETE   : 36 module(s) missing after 1 invocation(s)
+[b0] metadata     : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-validator/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908/metadata.json
+[batch] oracle: 381 failed, 81 passed, 1 skipped, 1 deselected, 23 warnings in 0.66s
+[batch] completed; all generation artifacts and observed failures retained

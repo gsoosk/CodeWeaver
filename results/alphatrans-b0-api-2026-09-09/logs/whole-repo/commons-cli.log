@@ -1,0 +1,15 @@
+[batch] status: ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-cli/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908.status.json
+[b0] project      : commons-cli (tier A)
+[b0] java files   : 23
+[b0] modules      : 22
+[b0] prompt chars : 236,651  (~59,162 tokens in)
+[b0] est. output  : ~32,279 tokens for 22 modules  (cap: 64,000)
+[b0] backend      : copilot-api model=claude-sonnet-5 effort=medium
+[b0]   invocation 1: +18 files (18/22 done, 4 left)  [hit output cap]
+[b0] wall clock   : 449s new work; 1 total backend invocation(s)
+[b0] files parsed : 18  written=18  unplaceable=0
+[b0] left as stub : 4
+[b0] INCOMPLETE   : 4 module(s) missing after 1 invocation(s)
+[b0] metadata     : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-cli/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908/metadata.json
+[batch] oracle: 140 failed, 241 passed, 56 skipped in 0.41s
+[batch] completed; all generation artifacts and observed failures retained

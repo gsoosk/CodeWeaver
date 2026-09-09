@@ -1,0 +1,44 @@
+[batch] status: ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-fileupload/pipeline-baseline-b0-api-perfile-sonnet5-med-20260909v2.status.json
+[b0] project      : commons-fileupload (tier A)
+[b0] java files   : 36
+[b0] modules      : 30
+[b0] granularity  : per-file
+[b0] requests     : 30 (one per module)
+[b0] prompt chars : max 44,338  median 6,454  (~11,084 tokens for the largest)
+[b0] backend      : copilot-api model=claude-sonnet-5 effort=medium
+[b0]   1/30 src/main/org/apache/commons/fileupload/DefaultFileItem.py: written (bare_block)
+[b0]   2/30 src/main/org/apache/commons/fileupload/DefaultFileItemFactory.py: written (bare_block)
+[b0]   3/30 src/main/org/apache/commons/fileupload/FileCountLimitExceededException.py: written (bare_block)
+[b0]   4/30 src/main/org/apache/commons/fileupload/FileItem.py: written (bare_block)
+[b0]   5/30 src/main/org/apache/commons/fileupload/FileItemFactory.py: written (bare_block)
+[b0]   6/30 src/main/org/apache/commons/fileupload/FileItemHeaders.py: written (explicit_path_block)
+[b0]   7/30 src/main/org/apache/commons/fileupload/FileItemHeadersSupport.py: written (explicit_path_block)
+[b0]   8/30 src/main/org/apache/commons/fileupload/FileItemIterator.py: written (bare_block)
+[b0]   9/30 src/main/org/apache/commons/fileupload/FileItemStream.py: written (bare_block)
+[b0]   10/30 src/main/org/apache/commons/fileupload/FileUpload.py: written (bare_block)
+[b0]   11/30 src/main/org/apache/commons/fileupload/FileUploadBase.py: written (explicit_path_block)
+[b0]   12/30 src/main/org/apache/commons/fileupload/FileUploadException.py: written (bare_block)
+[b0]   13/30 src/main/org/apache/commons/fileupload/InvalidFileNameException.py: written (bare_block)
+[b0]   14/30 src/main/org/apache/commons/fileupload/MultipartStream.py: written (bare_block)
+[b0]   15/30 src/main/org/apache/commons/fileupload/ParameterParser.py: written (explicit_path_block)
+[b0]   16/30 src/main/org/apache/commons/fileupload/ProgressListener.py: written (bare_block)
+[b0]   17/30 src/main/org/apache/commons/fileupload/RequestContext.py: written (bare_block)
+[b0]   18/30 src/main/org/apache/commons/fileupload/UploadContext.py: written (bare_block)
+[b0]   19/30 src/main/org/apache/commons/fileupload/disk/DiskFileItem.py: written (bare_block)
+[b0]   20/30 src/main/org/apache/commons/fileupload/disk/DiskFileItemFactory.py: written (explicit_path_block)
+[b0]   21/30 src/main/org/apache/commons/fileupload/portlet/PortletFileUpload.py: written (bare_block)
+[b0]   22/30 src/main/org/apache/commons/fileupload/servlet/ServletRequestContext.py: written (bare_block)
+[b0]   23/30 src/main/org/apache/commons/fileupload/util/Closeable.py: written (bare_block)
+[b0]   24/30 src/main/org/apache/commons/fileupload/util/FileItemHeadersImpl.py: written (bare_block)
+[b0]   25/30 src/main/org/apache/commons/fileupload/util/LimitedInputStream.py: written (bare_block)
+[b0]   26/30 src/main/org/apache/commons/fileupload/util/Streams.py: written (bare_block)
+[b0]   27/30 src/main/org/apache/commons/fileupload/util/mime/Base64Decoder.py: written (bare_block)
+[b0]   28/30 src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py: written (bare_block)
+[b0]   29/30 src/main/org/apache/commons/fileupload/util/mime/ParseException.py: written (bare_block)
+[b0]   30/30 src/main/org/apache/commons/fileupload/util/mime/QuotedPrintableDecoder.py: written (explicit_path_block)
+[b0] wall clock   : 1,007s new work; 30 total backend invocation(s)
+[b0] files parsed : 30  written=30  unplaceable=0
+[b0] left as stub : 0
+[b0] metadata     : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-fileupload/pipeline-baseline-b0-api-perfile-sonnet5-med-20260909v2/metadata.json
+[batch] oracle: 2 failed, 37 passed in 0.10s
+[batch] completed; all generation artifacts and observed failures retained

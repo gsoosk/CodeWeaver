@@ -1,0 +1,2841 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 48%]
+FFFFFFFFFFFFFFFFF.FFFFFFFF.FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 97%]
+FFF                                                                      [100%]
+==================================== ERRORS ====================================
+______ ERROR collecting src/test/org/apache/commons/csv/CSVParserTest.py _______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVParserTest.py", line 23, in <module>
+    class CSVParserTest(unittest.TestCase):
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVParserTest.py", line 25, in CSVParserTest
+    __CSV_INPUT_MULTILINE_HEADER_TRAILER_COMMENT: str = "# multi-line" +\
+                                                        ^^^^^^^^^^^^^^^^^
+TypeError: can only concatenate str (not "NoneType") to str
+______ ERROR collecting src/test/org/apache/commons/csv/CSVPrinterTest.py ______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVPrinterTest.py", line 24, in <module>
+    class CSVPrinterTest(unittest.TestCase):
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVPrinterTest.py", line 26, in CSVPrinterTest
+    __recordSeparator: str = CSVFormat.DEFAULT.getRecordSeparator()
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getRecordSeparator'
+___ ERROR collecting src/test/org/apache/commons/csv/perf/PerformanceTest.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/perf/PerformanceTest.py", line 27, in <module>
+    class PerformanceTest(unittest.TestCase):
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/perf/PerformanceTest.py", line 33, in PerformanceTest
+    __TEST_RESRC = Path(__file__).resolve()\
+                   ^^^^
+NameError: name 'Path' is not defined
+=================================== FAILURES ===================================
+_ testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_rfc4180.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 138, in testCSVFile
+    test._testCSVFile(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 44, in _testCSVFile
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_default_comment.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 138, in testCSVFile
+    test._testCSVFile(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 44, in _testCSVFile
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_default.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 138, in testCSVFile
+    test._testCSVFile(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 44, in _testCSVFile
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV85_default.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 138, in testCSVFile
+    test._testCSVFile(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 44, in _testCSVFile
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV246_checkWithNoComment.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 138, in testCSVFile
+    test._testCSVFile(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 44, in _testCSVFile
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV85_ignoreEmpty.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 138, in testCSVFile
+    test._testCSVFile(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 44, in _testCSVFile
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_rfc4180_trim.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 138, in testCSVFile
+    test._testCSVFile(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 44, in _testCSVFile
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_rfc4180.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 144, in testCSVUrl
+    test._testCSVUrl(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 94, in _testCSVUrl
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_default_comment.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 144, in testCSVUrl
+    test._testCSVUrl(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 94, in _testCSVUrl
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_default.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 144, in testCSVUrl
+    test._testCSVUrl(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 94, in _testCSVUrl
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV85_default.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 144, in testCSVUrl
+    test._testCSVUrl(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 94, in _testCSVUrl
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV246_checkWithNoComment.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 144, in testCSVUrl
+    test._testCSVUrl(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 94, in _testCSVUrl
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV85_ignoreEmpty.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 144, in testCSVUrl
+    test._testCSVUrl(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 94, in _testCSVUrl
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_ testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_rfc4180_trim.txt] _
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 250, in <lambda>
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/logging.py", line 865, in pytest_runtest_call
+    yield
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/capture.py", line 900, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/skipping.py", line 268, in pytest_runtest_call
+    return (yield)
+            ^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 184, in pytest_runtest_call
+    item.runtest()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 1707, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "${HOME}/cwenv/lib/python3.12/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 167, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 144, in testCSVUrl
+    test._testCSVUrl(testFile)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 94, in _testCSVUrl
+    format = CSVFormat.newFormat(',').withQuote0('"')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_____________________ CSVFormatPredefinedTest.testDefault ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 42, in testDefault
+    self.assertEqual(CSVFormat.DEFAULT, getattr(Predefined, "Default").getFormat())
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+______________________ CSVFormatPredefinedTest.testExcel _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 39, in testExcel
+    self.__test(CSVFormat.EXCEL, "Excel")
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 46, in __test
+    self.assertEqual(format_, getattr(Predefined, enumName).getFormat())
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+____________________ CSVFormatPredefinedTest.testMongoDbCsv ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 36, in testMongoDbCsv
+    self.__test(CSVFormat.MONGODB_CSV, "MongoDBCsv")
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 46, in __test
+    self.assertEqual(format_, getattr(Predefined, enumName).getFormat())
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+____________________ CSVFormatPredefinedTest.testMongoDbTsv ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 33, in testMongoDbTsv
+    self.__test(CSVFormat.MONGODB_TSV, "MongoDBTsv")
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 46, in __test
+    self.assertEqual(format_, getattr(Predefined, enumName).getFormat())
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+______________________ CSVFormatPredefinedTest.testMySQL _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 30, in testMySQL
+    self.__test(CSVFormat.MYSQL, "MySQL")
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 46, in __test
+    self.assertEqual(format_, getattr(Predefined, enumName).getFormat())
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+______________________ CSVFormatPredefinedTest.testOracle ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 27, in testOracle
+    self.__test(CSVFormat.ORACLE, "Oracle")
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 46, in __test
+    self.assertEqual(format_, getattr(Predefined, enumName).getFormat())
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+__________________ CSVFormatPredefinedTest.testPostgreSqlCsv ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 24, in testPostgreSqlCsv
+    self.__test(CSVFormat.POSTGRESQL_CSV, "PostgreSQLCsv")
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 46, in __test
+    self.assertEqual(format_, getattr(Predefined, enumName).getFormat())
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+__________________ CSVFormatPredefinedTest.testPostgreSqlText __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 21, in testPostgreSqlText
+    self.__test(CSVFormat.POSTGRESQL_TEXT, "PostgreSQLText")
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 46, in __test
+    self.assertEqual(format_, getattr(Predefined, enumName).getFormat())
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+_____________________ CSVFormatPredefinedTest.testRFC4180 ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 18, in testRFC4180
+    self.__test(CSVFormat.RFC4180, "RFC4180")
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 46, in __test
+    self.assertEqual(format_, getattr(Predefined, enumName).getFormat())
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+_______________________ CSVFormatPredefinedTest.testTDF ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 15, in testTDF
+    self.__test(CSVFormat.TDF, "TDF")
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 46, in __test
+    self.assertEqual(format_, getattr(Predefined, enumName).getFormat())
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+____________ CSVFormatTest.testDelimiterEmptyStringThrowsException1 ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1413, in testDelimiterEmptyStringThrowsException1
+    CSVFormat.DEFAULT.builder().setDelimiter1("").build()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+________ CSVFormatTest.testDelimiterSameAsCommentStartThrowsException1 _________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1401, in testDelimiterSameAsCommentStartThrowsException1
+    CSVFormat.DEFAULT.builder().setDelimiter0("!").setCommentMarker0(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+___ CSVFormatTest.testDelimiterSameAsCommentStartThrowsException_Deprecated ____
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1408, in testDelimiterSameAsCommentStartThrowsException_Deprecated
+    CSVFormat.DEFAULT.withDelimiter("!").withCommentMarker0("!")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withDelimiter'
+___________ CSVFormatTest.testDelimiterSameAsEscapeThrowsException1 ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1391, in testDelimiterSameAsEscapeThrowsException1
+    CSVFormat.DEFAULT.builder().setDelimiter0("!").setEscape0("!").build()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+______ CSVFormatTest.testDelimiterSameAsEscapeThrowsException_Deprecated _______
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1396, in testDelimiterSameAsEscapeThrowsException_Deprecated
+    CSVFormat.DEFAULT.withDelimiter("!").withEscape0("!")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withDelimiter'
+_______ CSVFormatTest.testDelimiterSameAsRecordSeparatorThrowsException ________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1385, in testDelimiterSameAsRecordSeparatorThrowsException
+    with pytest.raises(ValueError):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ValueError
+___________________________ CSVFormatTest.testEquals ___________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1371, in testEquals
+    left = self.__copy(right)
+           ^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1447, in __copy
+    return format_.builder().setDelimiter0(format_.getDelimiter()).build()
+           ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_____________________ CSVFormatTest.testEqualsCommentStart _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1357, in testEqualsCommentStart
+    .builder()
+     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_______________ CSVFormatTest.testEqualsCommentStart_Deprecated ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1345, in testEqualsCommentStart_Deprecated
+    .withQuote0('"')
+     ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+______________________ CSVFormatTest.testEqualsDelimiter _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1339, in testEqualsDelimiter
+    self.__assertNotEquals0(right, left)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1451, in __assertNotEquals0
+    assert right != left, f"{right} should not equal {left}"
+AssertionError: None should not equal None
+assert None != None
+________________________ CSVFormatTest.testEqualsEscape ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1322, in testEqualsEscape
+    .builder()
+     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+__________________ CSVFormatTest.testEqualsEscape_Deprecated ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1309, in testEqualsEscape_Deprecated
+    .withQuote0('"')
+     ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_________________________ CSVFormatTest.testEqualsHash _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1263, in testEqualsHash
+    self.__assertNotEquals1(name, parameterTypeName, defTrue, defFalse)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1441, in __assertNotEquals1
+    self.fail("Objects must not compare equal for " + str(name) + "(" + str(type_) + ")")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: Objects must not compare equal for withAllowDuplicateHeaderNames1(bool)
+___________________ CSVFormatTest.testEqualsIgnoreEmptyLines ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1225, in testEqualsIgnoreEmptyLines
+    .builder()
+     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_____________ CSVFormatTest.testEqualsIgnoreEmptyLines_Deprecated ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1209, in testEqualsIgnoreEmptyLines_Deprecated
+    .withCommentMarker0("#")
+     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withCommentMarker0'
+_______________ CSVFormatTest.testEqualsIgnoreSurroundingSpaces ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1192, in testEqualsIgnoreSurroundingSpaces
+    .builder()
+     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+__________ CSVFormatTest.testEqualsIgnoreSurroundingSpaces_Deprecated __________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1177, in testEqualsIgnoreSurroundingSpaces_Deprecated
+    .withCommentMarker0("#")
+     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withCommentMarker0'
+________________ CSVFormatTest.testEqualsLeftNoQuoteRightQuote _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1168, in testEqualsLeftNoQuoteRightQuote
+    left = CSVFormat.newFormat(",").builder().setQuote1(None).build()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+___________ CSVFormatTest.testEqualsLeftNoQuoteRightQuote_Deprecated ___________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1161, in testEqualsLeftNoQuoteRightQuote_Deprecated
+    left = CSVFormat.newFormat(",").withQuote1(None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote1'
+_______________________ CSVFormatTest.testEqualsNoQuotes _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1154, in testEqualsNoQuotes
+    left = CSVFormat.newFormat(",").builder().setQuote1(None).build()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_________________ CSVFormatTest.testEqualsNoQuotes_Deprecated __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1147, in testEqualsNoQuotes_Deprecated
+    left = CSVFormat.newFormat(",").withQuote1(None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote1'
+______________________ CSVFormatTest.testEqualsNullString ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1129, in testEqualsNullString
+    .builder()
+     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+________________ CSVFormatTest.testEqualsNullString_Deprecated _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1112, in testEqualsNullString_Deprecated
+    .withRecordSeparator0(Constants.CR)
+     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withRecordSeparator0'
+_________________________ CSVFormatTest.testEqualsOne __________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 989, in testEqualsOne
+    self.assertEqual("\\", csvFormatOne.getEscapeCharacter())
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getEscapeCharacter'
+______________________ CSVFormatTest.testEqualsQuoteChar _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 979, in testEqualsQuoteChar
+    right = CSVFormat.newFormat("'").builder().setQuote0('"').build()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_________________ CSVFormatTest.testEqualsQuoteChar_Deprecated _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 972, in testEqualsQuoteChar_Deprecated
+    right = CSVFormat.newFormat("'").withQuote0('"')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+_____________________ CSVFormatTest.testEqualsQuotePolicy ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 961, in testEqualsQuotePolicy
+    .builder()
+     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+________________ CSVFormatTest.testEqualsQuotePolicy_Deprecated ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 952, in testEqualsQuotePolicy_Deprecated
+    right = CSVFormat.newFormat("'").withQuote0('"').withQuoteMode(QuoteMode.ALL)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+___________________ CSVFormatTest.testEqualsRecordSeparator ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 935, in testEqualsRecordSeparator
+    .builder()
+     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+______________ CSVFormatTest.testEqualsRecordSeparator_Deprecated ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 919, in testEqualsRecordSeparator_Deprecated
+    .withRecordSeparator0(Constants.CR)
+     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withRecordSeparator0'
+___________________ CSVFormatTest.testEqualsSkipHeaderRecord ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 1419, in testEqualsSkipHeaderRecord
+    .builder()
+     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_______________________ CSVFormatTest.testEqualsWithNull _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 841, in testEqualsWithNull
+    self.assertEqual("\\", csvFormat.getEscapeCharacter())
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getEscapeCharacter'
+__________ CSVFormatTest.testEscapeSameAsCommentStartThrowsException ___________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 835, in testEscapeSameAsCommentStartThrowsException
+    CSVFormat.DEFAULT.builder().setEscape0("!").setCommentMarker0("!").build()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+___ CSVFormatTest.testEscapeSameAsCommentStartThrowsExceptionForWrapperType ____
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 823, in testEscapeSameAsCommentStartThrowsExceptionForWrapperType
+    CSVFormat.DEFAULT.builder().setEscape1(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_ CSVFormatTest.testEscapeSameAsCommentStartThrowsExceptionForWrapperType_Deprecated _
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 816, in testEscapeSameAsCommentStartThrowsExceptionForWrapperType_Deprecated
+    CSVFormat.DEFAULT.withEscape1("!").withCommentMarker1(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape1'
+_____ CSVFormatTest.testEscapeSameAsCommentStartThrowsException_Deprecated _____
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 830, in testEscapeSameAsCommentStartThrowsException_Deprecated
+    CSVFormat.DEFAULT.withEscape0("!").withCommentMarker0("!")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape0'
+___________________________ CSVFormatTest.testFormat ___________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 807, in testFormat
+    self.assertEqual("", format_.format_([]))
+                         ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'format_'. Did you mean: '__format__'?
+______________ CSVFormatTest.testFormatThrowsNullPointerException ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 799, in testFormatThrowsNullPointerException
+    csv_format.format_(None)
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'format_'. Did you mean: '__format__'?
+________________ CSVFormatTest.testGetAllowDuplicateHeaderNames ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 773, in testGetAllowDuplicateHeaderNames
+    builder = CSVFormat.DEFAULT.builder()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+___________________ CSVFormatTest.testGetDuplicateHeaderMode ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 747, in testGetDuplicateHeaderMode
+    builder = CSVFormat.DEFAULT.builder()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+______________ CSVFormatTest.testHashCodeAndWithIgnoreHeaderCase _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 733, in testHashCodeAndWithIgnoreHeaderCase
+    csv_format_two = csv_format.withIgnoreHeaderCase0()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withIgnoreHeaderCase0'
+_________________________ CSVFormatTest.testNewFormat __________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 676, in testNewFormat
+    self.assertFalse(csvFormat.getSkipHeaderRecord())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getSkipHeaderRecord'
+________________________ CSVFormatTest.testPrintRecord _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 669, in testPrintRecord
+    format.printRecord(out, ["a", "b", "c"])
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'printRecord'
+______________________ CSVFormatTest.testPrintRecordEmpty ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 662, in testPrintRecordEmpty
+    format.printRecord(out, [])
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'printRecord'
+________________ CSVFormatTest.testPrintWithEscapesEndWithCRLF _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 650, in testPrintWithEscapesEndWithCRLF
+    CSVFormat.RFC4180.withEscape0("?")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape0'
+_______________ CSVFormatTest.testPrintWithEscapesEndWithoutCRLF _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 636, in testPrintWithEscapesEndWithoutCRLF
+    CSVFormat.RFC4180.withEscape0("?")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape0'
+__________________ CSVFormatTest.testPrintWithQuoteModeIsNONE __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 609, in testPrintWithQuoteModeIsNONE
+    CSVFormat.RFC4180.withDelimiter(",")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withDelimiter'
+______________________ CSVFormatTest.testPrintWithQuotes _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 596, in testPrintWithQuotes
+    CSVFormat.RFC4180.withDelimiter(",")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withDelimiter'
+_____________________ CSVFormatTest.testPrintWithoutQuotes _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 622, in testPrintWithoutQuotes
+    CSVFormat.RFC4180.withDelimiter(",")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withDelimiter'
+_________ CSVFormatTest.testQuoteCharSameAsCommentStartThrowsException _________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 589, in testQuoteCharSameAsCommentStartThrowsException
+    CSVFormat.DEFAULT.builder().setQuote0("!").setCommentMarker0("!").build()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+__ CSVFormatTest.testQuoteCharSameAsCommentStartThrowsExceptionForWrapperType __
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 577, in testQuoteCharSameAsCommentStartThrowsExceptionForWrapperType
+    CSVFormat.DEFAULT.builder().setQuote1(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_ CSVFormatTest.testQuoteCharSameAsCommentStartThrowsExceptionForWrapperType_Deprecated _
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 572, in testQuoteCharSameAsCommentStartThrowsExceptionForWrapperType_Deprecated
+    CSVFormat.DEFAULT.withQuote1("!").withCommentMarker0('!')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote1'
+___ CSVFormatTest.testQuoteCharSameAsCommentStartThrowsException_Deprecated ____
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 584, in testQuoteCharSameAsCommentStartThrowsException_Deprecated
+    CSVFormat.DEFAULT.withQuote0("!").withCommentMarker0("!")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+__________ CSVFormatTest.testQuoteCharSameAsDelimiterThrowsException ___________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 565, in testQuoteCharSameAsDelimiterThrowsException
+    CSVFormat.DEFAULT.builder().setQuote0("!").setDelimiter0("!").build()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_____ CSVFormatTest.testQuoteCharSameAsDelimiterThrowsException_Deprecated _____
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 560, in testQuoteCharSameAsDelimiterThrowsException_Deprecated
+    CSVFormat.DEFAULT.withQuote0("!").withDelimiter("!")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+________ CSVFormatTest.testQuotePolicyNoneWithoutEscapeThrowsException _________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 555, in testQuotePolicyNoneWithoutEscapeThrowsException
+    CSVFormat.newFormat("!").builder().setQuoteMode(QuoteMode.NONE).build()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+___ CSVFormatTest.testQuotePolicyNoneWithoutEscapeThrowsException_Deprecated ___
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 550, in testQuotePolicyNoneWithoutEscapeThrowsException_Deprecated
+    CSVFormat.newFormat("!").withQuoteMode(QuoteMode.NONE)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuoteMode'
+__________________________ CSVFormatTest.testRFC4180 ___________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 539, in testRFC4180
+    self.assertIsNone(CSVFormat.RFC4180.getCommentMarker())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getCommentMarker'
+_______________________ CSVFormatTest.testSerialization ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 515, in testSerialization
+    assert format is not None
+AssertionError: assert None is not None
+__________________________ CSVFormatTest.testToString __________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 493, in testToString
+    string = CSVFormat.INFORMIX_UNLOAD.toString()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'toString'
+________ CSVFormatTest.testToStringAndWithCommentMarkerTakingCharacter _________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 333, in testToStringAndWithCommentMarkerTakingCharacter
+    csvFormat = csvFormat_Predefined.getFormat()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getFormat'
+____________________________ CSVFormatTest.testTrim ____________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 304, in testTrim
+    CSVFormat.DEFAULT.withDelimiter(",")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withDelimiter'
+______________________ CSVFormatTest.testWithCommentStart ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 298, in testWithCommentStart
+    formatWithCommentStart = CSVFormat.DEFAULT.withCommentMarker0("#")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withCommentMarker0'
+_____________ CSVFormatTest.testWithCommentStartCRThrowsException ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 294, in testWithCommentStartCRThrowsException
+    CSVFormat.DEFAULT.withCommentMarker0(Constants.CR)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withCommentMarker0'
+_______________________ CSVFormatTest.testWithDelimiter ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 288, in testWithDelimiter
+    formatWithDelimiter = CSVFormat.DEFAULT.withDelimiter("!")
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withDelimiter'
+____________________ CSVFormatTest.testWithEmptyDuplicates _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 270, in testWithEmptyDuplicates
+    CSVFormat.DEFAULT.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_________________________ CSVFormatTest.testWithEscape _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 264, in testWithEscape
+    formatWithEscape = CSVFormat.DEFAULT.withEscape0("&")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape0'
+________________ CSVFormatTest.testWithEscapeCRThrowsExceptions ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 260, in testWithEscapeCRThrowsExceptions
+    CSVFormat.DEFAULT.withEscape0(Constants.CR)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape0'
+_____________________ CSVFormatTest.testWithHeaderComments _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 104, in testWithHeaderComments
+    self.assertEqual('"', csvFormat.getQuoteCharacter())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'getQuoteCharacter'
+____________________ CSVFormatTest.testWithIgnoreEmptyLines ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 96, in testWithIgnoreEmptyLines
+    CSVFormat.DEFAULT.withIgnoreEmptyLines1(False).getIgnoreEmptyLines()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withIgnoreEmptyLines1'
+_____________________ CSVFormatTest.testWithIgnoreSurround _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 85, in testWithIgnoreSurround
+    CSVFormat.DEFAULT.withIgnoreSurroundingSpaces1(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withIgnoreSurroundingSpaces1'
+_______________________ CSVFormatTest.testWithNullString _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 79, in testWithNullString
+    formatWithNullString = CSVFormat.DEFAULT.withNullString("null")
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withNullString'
+_______________________ CSVFormatTest.testWithQuoteChar ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 75, in testWithQuoteChar
+    formatWithQuoteChar = CSVFormat.DEFAULT.withQuote0('"')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuote0'
+______________________ CSVFormatTest.testWithQuotePolicy _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 65, in testWithQuotePolicy
+    formatWithQuotePolicy = CSVFormat.DEFAULT.withQuoteMode(QuoteMode.ALL)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withQuoteMode'
+___________________ CSVFormatTest.testWithRecordSeparatorCR ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 58, in testWithRecordSeparatorCR
+    formatWithRecordSeparator = CSVFormat.DEFAULT.withRecordSeparator0(Constants.CR)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withRecordSeparator0'
+__________________ CSVFormatTest.testWithRecordSeparatorCRLF ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 51, in testWithRecordSeparatorCRLF
+    formatWithRecordSeparator = CSVFormat.DEFAULT.withRecordSeparator1(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withRecordSeparator1'
+___________________ CSVFormatTest.testWithRecordSeparatorLF ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 44, in testWithRecordSeparatorLF
+    formatWithRecordSeparator = CSVFormat.DEFAULT.withRecordSeparator0(Constants.LF)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withRecordSeparator0'
+_________________ CSVFormatTest.testWithSystemRecordSeparator __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 39, in testWithSystemRecordSeparator
+    formatWithRecordSeparator = CSVFormat.DEFAULT.withSystemRecordSeparator()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withSystemRecordSeparator'
+__________________ ExtendedBufferedReaderTest.testEmptyInput ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 189, in testEmptyInput
+    with self.__createBufferedReader("") as br:
+ValueError: I/O operation on uninitialized object
+___________________ ExtendedBufferedReaderTest.testReadChar ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 169, in testReadChar
+    self.assertEqual(0, br.getCurrentLineNumber())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 0 != None
+___________________ ExtendedBufferedReaderTest.testReadLine ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 94, in testReadLine
+    with self.__createBufferedReader("") as br:
+ValueError: I/O operation on uninitialized object
+________________ ExtendedBufferedReaderTest.testReadLookahead1 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 38, in testReadLookahead1
+    with self.__createBufferedReader("1\n2\r3\n") as br:
+ValueError: I/O operation on uninitialized object
+________________ ExtendedBufferedReaderTest.testReadLookahead2 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 22, in testReadLookahead2
+    with self.__createBufferedReader("abcdefg") as br:
+ValueError: I/O operation on uninitialized object
+___________ ExtendedBufferedReaderTest.testReadingInDifferentBuffer ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 138, in testReadingInDifferentBuffer
+    with self.__createBufferedReader("1\r\n2\r\n") as reader:
+ValueError: I/O operation on uninitialized object
+___________________________ IOUtilsTest.testRethrow ____________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/IOUtilsTest.py", line 13, in testRethrow
+    with pytest.raises(IOError):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE OSError
+_________________________ LexerTest.testEscapingAtEOF __________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 630, in run
+    self._callSetUp()
+  File "/usr/lib/python3.12/unittest/case.py", line 586, in _callSetUp
+    self.setUp()
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/LexerTest.py", line 60, in setUp
+    self.__formatWithEscaping = CSVFormat.DEFAULT.withEscape0("\\")
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape0'
+_____________________ LexerTest.testIsMetaCharCommentStart _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 630, in run
+    self._callSetUp()
+  File "/usr/lib/python3.12/unittest/case.py", line 586, in _callSetUp
+    self.setUp()
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/LexerTest.py", line 60, in setUp
+    self.__formatWithEscaping = CSVFormat.DEFAULT.withEscape0("\\")
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape0'
+______________________ LexerTest.testReadEscapeBackspace _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 630, in run
+    self._callSetUp()
+  File "/usr/lib/python3.12/unittest/case.py", line 586, in _callSetUp
+    self.setUp()
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/LexerTest.py", line 60, in setUp
+    self.__formatWithEscaping = CSVFormat.DEFAULT.withEscape0("\\")
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape0'
+__________________________ LexerTest.testReadEscapeFF __________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 630, in run
+    self._callSetUp()
+  File "/usr/lib/python3.12/unittest/case.py", line 586, in _callSetUp
+    self.setUp()
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/LexerTest.py", line 60, in setUp
+    self.__formatWithEscaping = CSVFormat.DEFAULT.withEscape0("\\")
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'withEscape0'
+_____________ JiraCsv148Test.testWithIgnoreSurroundingSpacesEmpty ______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv148Test.py", line 43, in testWithIgnoreSurroundingSpacesEmpty
+    CSVFormat.DEFAULT.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_______________________ JiraCsv148Test.testWithTrimEmpty _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv148Test.py", line 16, in testWithTrimEmpty
+    CSVFormat.DEFAULT.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_______________________ JiraCsv203Test.testQuoteModeAll ________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv203Test.py", line 100, in testQuoteModeAll
+    CSVFormat.EXCEL.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+____________________ JiraCsv203Test.testQuoteModeAllNonNull ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv203Test.py", line 86, in testQuoteModeAllNonNull
+    CSVFormat.EXCEL.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_____________________ JiraCsv203Test.testQuoteModeMinimal ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv203Test.py", line 72, in testQuoteModeMinimal
+    CSVFormat.EXCEL.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+____________________ JiraCsv203Test.testQuoteModeNonNumeric ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv203Test.py", line 58, in testQuoteModeNonNumeric
+    CSVFormat.EXCEL.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+______________________ JiraCsv203Test.testWithEmptyValues ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv203Test.py", line 44, in testWithEmptyValues
+    CSVFormat.EXCEL.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_____________________ JiraCsv203Test.testWithoutNullString _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv203Test.py", line 31, in testWithoutNullString
+    CSVFormat.EXCEL.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_____________________ JiraCsv203Test.testWithoutQuoteMode ______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv203Test.py", line 18, in testWithoutQuoteMode
+    CSVFormat.EXCEL.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+________________________ JiraCsv248Test.testJiraCsv248 _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv248Test.py", line 30, in testJiraCsv248
+    pythonResourcePath = Path(__file__).resolve()\
+                         ^^^^
+NameError: name 'Path' is not defined
+________________________ JiraCsv249Test.testJiraCsv249 _________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv249Test.py", line 18, in testJiraCsv249
+    csv_format = CSVFormat.DEFAULT.builder().setEscape0("\\").build()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+____________________ JiraCsv253Test.testHandleAbsentValues _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv253Test.py", line 22, in testHandleAbsentValues
+    CSVFormat.DEFAULT.builder().setQuoteMode(QuoteMode.NON_NUMERIC).build()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+_________________ JiraCsv263Test.testPrintFromReaderWithQuotes _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv263Test.py", line 17, in testPrintFromReaderWithQuotes
+    CSVFormat.RFC4180.builder()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+___________________ JiraCsv271Test.testJiraCsv271_withArray ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv271Test.py", line 32, in testJiraCsv271_withArray
+    self.assertEqual("a,b,c\r\n", string_writer.getvalue())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'a,b,c\r\n' != ''
+- a,b,c
+
+____________________ JiraCsv271Test.testJiraCsv271_withList ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv271Test.py", line 23, in testJiraCsv271_withList
+    self.assertEqual("a,b,c\r\n", string_writer.getvalue())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 1251, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: 'a,b,c\r\n' != ''
+- a,b,c
+
+___________________ JiraCsv288Test.testParseWithABADelimiter ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 160, in testParseWithABADelimiter
+    in_, Builder.create0().setDelimiter1("|~|").build()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+_______________ JiraCsv288Test.testParseWithDoublePipeDelimiter ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 145, in testParseWithDoublePipeDelimiter
+    csvFormat = Builder.create0().setDelimiter1("||").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+________ JiraCsv288Test.testParseWithDoublePipeDelimiterDoubleCharValue ________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 133, in testParseWithDoublePipeDelimiterDoubleCharValue
+    csvFormat = Builder.create0().setDelimiter1("||").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+_______ JiraCsv288Test.testParseWithDoublePipeDelimiterEndsWithDelimiter _______
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 121, in testParseWithDoublePipeDelimiterEndsWithDelimiter
+    csvFormat = Builder.create0().setDelimiter1("||").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+____________ JiraCsv288Test.testParseWithDoublePipeDelimiterQuoted _____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 109, in testParseWithDoublePipeDelimiterQuoted
+    csvFormat = Builder.create0().setDelimiter1("||").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+_______ JiraCsv288Test.testParseWithSinglePipeDelimiterEndsWithDelimiter _______
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 97, in testParseWithSinglePipeDelimiterEndsWithDelimiter
+    csvFormat = Builder.create0().setDelimiter1("|").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+_______________ JiraCsv288Test.testParseWithTriplePipeDelimiter ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 85, in testParseWithTriplePipeDelimiter
+    csvFormat = Builder.create0().setDelimiter1("|||").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+________________ JiraCsv288Test.testParseWithTwoCharDelimiter1 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 73, in testParseWithTwoCharDelimiter1
+    csvFormat = Builder.create0().setDelimiter1("~|").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+________________ JiraCsv288Test.testParseWithTwoCharDelimiter2 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 61, in testParseWithTwoCharDelimiter2
+    csvFormat = Builder.create0().setDelimiter1("~|").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+________________ JiraCsv288Test.testParseWithTwoCharDelimiter3 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 49, in testParseWithTwoCharDelimiter3
+    csvFormat = Builder.create0().setDelimiter1("~|").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+________________ JiraCsv288Test.testParseWithTwoCharDelimiter4 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 36, in testParseWithTwoCharDelimiter4
+    in_, Builder.create0().setDelimiter1("~|").build()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+________ JiraCsv288Test.testParseWithTwoCharDelimiterEndsWithDelimiter _________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 21, in testParseWithTwoCharDelimiterEndsWithDelimiter
+    csvFormat = Builder.create0().setDelimiter1("~|").build()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'setDelimiter1'
+_______________________ JiraCsv290Test.testPostgresqlCsv _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv290Test.py", line 23, in testPostgresqlCsv
+    self.__testHelper("psql.csv", CSVFormat.POSTGRESQL_CSV)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv290Test.py", line 28, in __testHelper
+    filePath = Path(__file__).resolve()\
+               ^^^^
+NameError: name 'Path' is not defined
+______________________ JiraCsv290Test.testPostgresqlText _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv290Test.py", line 19, in testPostgresqlText
+    self.__testHelper("psql.tsv", CSVFormat.POSTGRESQL_TEXT)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv290Test.py", line 28, in __testHelper
+    filePath = Path(__file__).resolve()\
+               ^^^^
+NameError: name 'Path' is not defined
+____________________ JiraCsv93Test.testWithNotSetNullString ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv93Test.py", line 133, in testWithNotSetNullString
+    self.__every(
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv93Test.py", line 181, in __every
+    source = csvFormat.format_(objects)
+             ^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'format_'. Did you mean: '__format__'?
+________________ JiraCsv93Test.testWithSetNullStringEmptyString ________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv93Test.py", line 79, in testWithSetNullStringEmptyString
+    CSVFormat.DEFAULT.builder().setNullString("").build(),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+___________________ JiraCsv93Test.testWithSetNullStringNULL ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv93Test.py", line 24, in testWithSetNullStringNULL
+    CSVFormat.DEFAULT.builder().setNullString("NULL").build(),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'builder'
+=============================== warnings summary ===============================
+../..${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py:124
+  ${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVFile, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+../..${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py:124
+  ${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVUrl, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR src/test/org/apache/commons/csv/CSVParserTest.py - TypeError: can only ...
+ERROR src/test/org/apache/commons/csv/CSVPrinterTest.py - AttributeError: 'No...
+ERROR src/test/org/apache/commons/csv/perf/PerformanceTest.py - NameError: na...
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_rfc4180.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_default_comment.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_default.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV85_default.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV246_checkWithNoComment.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV85_ignoreEmpty.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVFile[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_rfc4180_trim.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_rfc4180.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_default_comment.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_default.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV85_default.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV246_checkWithNoComment.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/testCSV85_ignoreEmpty.txt]
+FAILED src/test/org/apache/commons/csv/CSVFileParserTest.py::testCSVUrl[<isolated-scoring>/src/test/resources/org/apache/commons/csv/CSVFileParser/test_rfc4180_trim.txt]
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testDefault
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testExcel
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testMongoDbCsv
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testMongoDbTsv
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testMySQL
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testOracle
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testPostgreSqlCsv
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testPostgreSqlText
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testRFC4180
+FAILED src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py::CSVFormatPredefinedTest::testTDF
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testDelimiterEmptyStringThrowsException1
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testDelimiterSameAsCommentStartThrowsException1
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testDelimiterSameAsCommentStartThrowsException_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testDelimiterSameAsEscapeThrowsException1
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testDelimiterSameAsEscapeThrowsException_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testDelimiterSameAsRecordSeparatorThrowsException
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEquals
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsCommentStart
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsCommentStart_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsDelimiter
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsEscape
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsEscape_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsHash
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsIgnoreEmptyLines
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsIgnoreEmptyLines_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsIgnoreSurroundingSpaces
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsIgnoreSurroundingSpaces_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsLeftNoQuoteRightQuote
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsLeftNoQuoteRightQuote_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsNoQuotes
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsNoQuotes_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsNullString
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsNullString_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsOne
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsQuoteChar
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsQuoteChar_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsQuotePolicy
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsQuotePolicy_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsRecordSeparator
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsRecordSeparator_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsSkipHeaderRecord
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEqualsWithNull
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEscapeSameAsCommentStartThrowsException
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEscapeSameAsCommentStartThrowsExceptionForWrapperType
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEscapeSameAsCommentStartThrowsExceptionForWrapperType_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testEscapeSameAsCommentStartThrowsException_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testFormat
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testFormatThrowsNullPointerException
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testGetAllowDuplicateHeaderNames
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testGetDuplicateHeaderMode
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testHashCodeAndWithIgnoreHeaderCase
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testNewFormat
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testPrintRecord
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testPrintRecordEmpty
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testPrintWithEscapesEndWithCRLF
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testPrintWithEscapesEndWithoutCRLF
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testPrintWithQuoteModeIsNONE
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testPrintWithQuotes
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testPrintWithoutQuotes
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testQuoteCharSameAsCommentStartThrowsException
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testQuoteCharSameAsCommentStartThrowsExceptionForWrapperType
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testQuoteCharSameAsCommentStartThrowsExceptionForWrapperType_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testQuoteCharSameAsCommentStartThrowsException_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testQuoteCharSameAsDelimiterThrowsException
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testQuoteCharSameAsDelimiterThrowsException_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testQuotePolicyNoneWithoutEscapeThrowsException
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testQuotePolicyNoneWithoutEscapeThrowsException_Deprecated
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testRFC4180
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testSerialization
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testToString
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testToStringAndWithCommentMarkerTakingCharacter
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testTrim
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithCommentStart
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithCommentStartCRThrowsException
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithDelimiter
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithEmptyDuplicates
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithEscape
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithEscapeCRThrowsExceptions
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithHeaderComments
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithIgnoreEmptyLines
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithIgnoreSurround
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithNullString
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithQuoteChar
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithQuotePolicy
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithRecordSeparatorCR
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithRecordSeparatorCRLF
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithRecordSeparatorLF
+FAILED src/test/org/apache/commons/csv/CSVFormatTest.py::CSVFormatTest::testWithSystemRecordSeparator
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testEmptyInput
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadChar
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadLine
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadLookahead1
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadLookahead2
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadingInDifferentBuffer
+FAILED src/test/org/apache/commons/csv/IOUtilsTest.py::IOUtilsTest::testRethrow
+FAILED src/test/org/apache/commons/csv/LexerTest.py::LexerTest::testEscapingAtEOF
+FAILED src/test/org/apache/commons/csv/LexerTest.py::LexerTest::testIsMetaCharCommentStart
+FAILED src/test/org/apache/commons/csv/LexerTest.py::LexerTest::testReadEscapeBackspace
+FAILED src/test/org/apache/commons/csv/LexerTest.py::LexerTest::testReadEscapeFF
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv148Test.py::JiraCsv148Test::testWithIgnoreSurroundingSpacesEmpty
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv148Test.py::JiraCsv148Test::testWithTrimEmpty
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv203Test.py::JiraCsv203Test::testQuoteModeAll
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv203Test.py::JiraCsv203Test::testQuoteModeAllNonNull
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv203Test.py::JiraCsv203Test::testQuoteModeMinimal
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv203Test.py::JiraCsv203Test::testQuoteModeNonNumeric
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv203Test.py::JiraCsv203Test::testWithEmptyValues
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv203Test.py::JiraCsv203Test::testWithoutNullString
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv203Test.py::JiraCsv203Test::testWithoutQuoteMode
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv248Test.py::JiraCsv248Test::testJiraCsv248
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv249Test.py::JiraCsv249Test::testJiraCsv249
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv253Test.py::JiraCsv253Test::testHandleAbsentValues
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv263Test.py::JiraCsv263Test::testPrintFromReaderWithQuotes
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv271Test.py::JiraCsv271Test::testJiraCsv271_withArray
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv271Test.py::JiraCsv271Test::testJiraCsv271_withList
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithABADelimiter
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithDoublePipeDelimiter
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithDoublePipeDelimiterDoubleCharValue
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithDoublePipeDelimiterEndsWithDelimiter
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithDoublePipeDelimiterQuoted
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithSinglePipeDelimiterEndsWithDelimiter
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithTriplePipeDelimiter
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithTwoCharDelimiter1
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithTwoCharDelimiter2
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithTwoCharDelimiter3
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithTwoCharDelimiter4
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv288Test.py::JiraCsv288Test::testParseWithTwoCharDelimiterEndsWithDelimiter
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv290Test.py::JiraCsv290Test::testPostgresqlCsv
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv290Test.py::JiraCsv290Test::testPostgresqlText
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv93Test.py::JiraCsv93Test::testWithNotSetNullString
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv93Test.py::JiraCsv93Test::testWithSetNullStringEmptyString
+FAILED src/test/org/apache/commons/csv/issues/JiraCsv93Test.py::JiraCsv93Test::testWithSetNullStringNULL
+145 failed, 2 passed, 2 warnings, 3 errors in 0.31s
+
+[oracle] project  : commons-csv
+[oracle] source   : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0-api-1shot-sonnet5-med-20260908/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] deferrals: disabled (isolated staging)
+[oracle] result   : 145 failed, 2 passed, 2 warnings, 3 errors in 0.31s
+[oracle] exitcode : 1
