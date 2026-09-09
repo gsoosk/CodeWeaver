@@ -105,7 +105,7 @@ def check_build_arm(root):
     assert original.read_text().strip() == "value = 'original'", "source artifact must not be mutated"
     meta = json.loads((run / "metadata.json").read_text())
     assert meta["test_blind"] is True and meta["oracle_seen"] is False
-    assert meta["iterations_run"] == 1 and meta["best_iteration"] == 1
+    assert meta["iterations_run"] == 1 and meta["best_iteration_by_metric"] == 1
     sent_system, sent_user = backend.sent[0]
     assert "NameError" in sent_user and "value = 'original'" in sent_user
     assert "test" not in sent_system.lower().split("suite")[0][:40]
@@ -159,25 +159,77 @@ def check_guards(root):
 
 
 def check_reverts_regression(root):
+    """A no-op iteration ends the loop without spending another call."""
     subject, source, _ = make_source(root / "r")
     argv = ["repair_loop.py", "--project", "example", "--source-tag", "src-tag",
-            "--tag", "rep-revert", "--arm", "build", "--iterations", "3",
+            "--tag", "rep-noop", "--arm", "build", "--iterations", "3",
+            "--model", "test-model", "--max-output-tokens", "1000"]
+    stuck = (False, "IMPORT a", {"modules_ok": 0, "modules_total": 2, "syntax_or_import_failures": 2})
+    responses = [completion("I could not determine a fix."), completion(block(MODULE, "value = 'x'"))]
+    code, backend = run_repair(root / "r", argv, [stuck], responses)
+    assert code == 0
+    run = subject / "pipeline-baseline-rep-noop"
+    assert len(backend.sent) == 1, "an iteration emitting nothing applicable must stop the loop"
+    assert (run / "project/src/main/pkg/Mod.py").read_text().strip() == "value = 'original'"
+    meta = json.loads((run / "metadata.json").read_text())
+    assert meta["history"][1]["files_changed"] == []
+    print("PASS: an iteration with nothing applicable stops the loop without another call")
+
+
+def check_cascading_progress_is_not_discarded(root):
+    """The regression that motivated this: a correct fix that reveals the next error.
+
+    csv's real repair resolved all four NameErrors and immediately surfaced a
+    TypeError, leaving modules_ok unchanged. An earlier version treated that as
+    failure, reverted the fix and stopped after one call.
+    """
+    subject, source, _ = make_source(root / "c")
+    argv = ["repair_loop.py", "--project", "example", "--source-tag", "src-tag",
+            "--tag", "rep-cascade", "--arm", "build", "--iterations", "3",
+            "--model", "test-model", "--max-output-tokens", "1000"]
+    flat = {"modules_ok": 7, "modules_total": 11, "syntax_or_import_failures": 4}
+    signals = [
+        (False, "IMPORT pkg.Mod:1: NameError: name 'CR' is not defined", flat),
+        (False, "IMPORT pkg.Mod:1: TypeError: 'str' object cannot be interpreted as an integer", dict(flat)),
+        (True, "build_check: 11/11 modules parse and import",
+         {"modules_ok": 11, "modules_total": 11, "syntax_or_import_failures": 0}),
+    ]
+    responses = [completion(block(MODULE, "value = 'names_fixed'")),
+                 completion(block(MODULE, "value = 'types_fixed'"))]
+    code, backend = run_repair(root / "c", argv, signals, responses)
+    assert code == 0
+    run = subject / "pipeline-baseline-rep-cascade"
+    assert len(backend.sent) == 2, "a flat metric must not stop the loop after one call"
+    assert (run / "project/src/main/pkg/Mod.py").read_text().strip() == "value = 'types_fixed'"
+    meta = json.loads((run / "metadata.json").read_text())
+    assert meta["iterations_run"] == 2
+    assert meta["history"][1]["improved"] is False, "the flat iteration is recorded honestly"
+    assert meta["history"][1]["files_changed"] == [MODULE], "but its change is kept"
+    assert meta["history"][2]["clean"] is True
+    assert "final iteration" in meta["kept"]
+    print("PASS: a fix that reveals the next error is kept, and the loop runs its budget")
+
+
+def check_regression_is_visible_not_hidden(root):
+    subject, source, _ = make_source(root / "v")
+    argv = ["repair_loop.py", "--project", "example", "--source-tag", "src-tag",
+            "--tag", "rep-visible", "--arm", "build", "--iterations", "2",
             "--model", "test-model", "--max-output-tokens", "1000"]
     signals = [
-        (False, "IMPORT a", {"modules_ok": 0, "modules_total": 2, "syntax_or_import_failures": 2}),
-        (False, "IMPORT b", {"modules_ok": 1, "modules_total": 2, "syntax_or_import_failures": 1}),
-        (False, "IMPORT c", {"modules_ok": 0, "modules_total": 2, "syntax_or_import_failures": 2}),
+        (False, "IMPORT a", {"modules_ok": 5, "modules_total": 10, "syntax_or_import_failures": 5}),
+        (False, "IMPORT b", {"modules_ok": 2, "modules_total": 10, "syntax_or_import_failures": 8}),
+        (False, "IMPORT c", {"modules_ok": 1, "modules_total": 10, "syntax_or_import_failures": 9}),
     ]
-    responses = [completion(block(MODULE, "value = 'better'")),
-                 completion(block(MODULE, "value = 'worse'"))]
-    code, backend = run_repair(root / "r", argv, signals, responses)
+    responses = [completion(block(MODULE, "value = 'worse'")),
+                 completion(block(MODULE, "value = 'worst'"))]
+    code, backend = run_repair(root / "v", argv, signals, responses)
     assert code == 0
-    run = subject / "pipeline-baseline-rep-revert"
-    assert (run / "project/src/main/pkg/Mod.py").read_text().strip() == "value = 'better'"
+    run = subject / "pipeline-baseline-rep-visible"
     meta = json.loads((run / "metadata.json").read_text())
-    assert meta["best_iteration"] == 1 and meta["reverted_to_best"] is True
-    assert len(backend.sent) == 2
-    print("PASS: a regressing iteration is discarded and the best tree is kept")
+    assert (run / "project/src/main/pkg/Mod.py").read_text().strip() == "value = 'worst'"
+    assert meta["best_iteration_by_metric"] == 0
+    assert [h["improved"] for h in meta["history"][1:]] == [False, False]
+    print("PASS: a regressing final state is reported as-is, not replaced by a better intermediate")
 
 
 def check_error_recovery_counts_as_progress():
@@ -222,6 +274,8 @@ def run_tests():
         check_test_arm_labelling(root)
         check_guards(root)
         check_reverts_regression(root)
+        check_cascading_progress_is_not_discarded(root)
+        check_regression_is_visible_not_hidden(root)
         check_error_recovery_counts_as_progress()
         check_refuses_overwrite(root)
         check_diagnostic_digest()

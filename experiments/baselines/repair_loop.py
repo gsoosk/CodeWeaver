@@ -111,6 +111,13 @@ def failure_digest(output: str) -> str:
 
 
 def better(arm: str, current: dict, best: dict | None) -> bool:
+    """Did this iteration improve the arm's own metric?
+
+    Recorded for the trajectory only. It deliberately does NOT gate the loop:
+    cascading import errors mean a correct fix often resolves one diagnostic and
+    immediately exposes the next, leaving a coarse count unchanged. Treating that
+    as failure discards real progress.
+    """
     if best is None:
         return True
     if arm == "build":
@@ -210,9 +217,7 @@ def main() -> int:
     (run / "iteration-00-signal.txt").write_text(output, encoding="utf-8")
     history = [{"iteration": 0, "clean": ok, "metric": metric, "api_calls": 0}]
     print(f"[repair] {args.project} {args.arm} baseline: clean={ok} {metric}", flush=True)
-    best = metric
-    best_files = {p: p.read_bytes() for p in sorted(source_root.rglob("*.py"))}
-    best_iteration = 0
+    best, best_iteration = metric, 0
     usages = []
 
     for iteration in range(1, args.iterations + 1):
@@ -264,23 +269,18 @@ def main() -> int:
               f"clean={ok} improved={improved} {metric}", flush=True)
         if improved:
             best, best_iteration = metric, iteration
-            best_files = {p: p.read_bytes() for p in sorted(source_root.rglob("*.py"))}
+        # The loop runs its full budget. It stops early only when the signal is
+        # clean or an iteration produced no applicable change, never merely
+        # because a coarse metric failed to move.
         if not applied:
-            print("[repair] iteration changed nothing; stopping", flush=True)
-            break
-        if not improved and iteration > best_iteration:
-            print("[repair] no improvement over the best iteration; stopping", flush=True)
+            print("[repair] iteration produced no applicable change; stopping", flush=True)
             break
         state["iterations"] = history
         write_json(status_file, state)
 
-    # Keep the best iteration's tree, not merely the last one.
-    for path, content in best_files.items():
-        path.write_bytes(content)
-    reverted = best_iteration != history[-1]["iteration"]
-    if reverted:
-        print(f"[repair] restored iteration {best_iteration} (best {args.arm} signal)", flush=True)
-
+    # The final tree is kept, as in CRUST-bench's repair loop. The per-iteration
+    # metrics above show the trajectory, including any regression, rather than
+    # hiding it by cherry-picking an intermediate state.
     final = subprocess.run(
         ["bash", str(single_shot.REPO / "examples/alphatrans/tools/oracle.sh"),
          "--project", args.project, "--all", "--no-pipeline-skips", "--working-copy", working_copy],
@@ -298,8 +298,8 @@ def main() -> int:
     audits = getattr(backend, "audit_records", [])
     meta.update({
         "iterations_run": len([h for h in history if h["iteration"] > 0]),
-        "best_iteration": best_iteration,
-        "reverted_to_best": reverted,
+        "best_iteration_by_metric": best_iteration,
+        "kept": "final iteration (CRUST-bench convention); trajectory in history",
         "history": history,
         "usage_per_iteration": usages,
         "usage": {k: sum(u[k] for u in usages) for k in Usage.__dataclass_fields__
@@ -313,7 +313,7 @@ def main() -> int:
     })
     (run / "metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
     state.update(state="completed", iterations=history, final_oracle_score=score,
-                 best_iteration=best_iteration,
+                 best_iteration_by_metric=best_iteration,
                  finished=time.strftime("%Y-%m-%dT%H:%M:%S%z"))
     write_json(status_file, state)
     print(f"[repair] done; final oracle: {score['summary'] if score else 'not scoreable'}", flush=True)
