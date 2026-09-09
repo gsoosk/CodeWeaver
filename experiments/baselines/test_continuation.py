@@ -21,6 +21,7 @@ import single_shot  # noqa: E402
 from backends.copilot import CopilotBackend, command, decode_events  # noqa: E402
 import run_one  # noqa: E402
 from test_copilot_api import run_tests as run_api_transport_tests  # noqa: E402
+from test_repair_loop import run_tests as run_repair_loop_tests  # noqa: E402
 from run_one import parse_score, select_worst  # noqa: E402
 
 MODULES = [f"src/main/pkg/Mod{i}.py" for i in range(1, 8)]
@@ -615,6 +616,7 @@ def test_run_one_recovery():
 
 def main() -> int:
     run_api_transport_tests()
+    run_repair_loop_tests()
     test_backend_protocol()
     test_score_selection()
     test_existing_run_is_preserved()
