@@ -29,6 +29,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 
 import single_shot
@@ -50,12 +51,22 @@ def project_blob(source_root: Path) -> str:
 
 
 def build_signal(project: Path, repo: Path) -> tuple[bool, str, dict]:
-    """Parse+import check. Never touches the oracle."""
-    result = subprocess.run(
-        [sys.executable, str(repo / "examples/alphatrans/tools/build_check.py"), str(project.parent)],
-        capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=600,
-    )
-    output = result.stdout + result.stderr
+    """Parse+import check. Never touches the oracle.
+
+    `build_check.py` resolves its working copy as `<subject>/pipeline/project`,
+    while a baseline run lives at `pipeline-baseline-<tag>/project`. Stage a
+    throwaway subject directory with that expected shape rather than duplicating
+    the tool's logic, so this arm's signal is exactly the pipeline's own.
+    """
+    with tempfile.TemporaryDirectory(prefix="cw_build_check_") as staging:
+        pipeline = Path(staging) / "pipeline"
+        pipeline.mkdir()
+        (pipeline / "project").symlink_to(project.resolve(), target_is_directory=True)
+        result = subprocess.run(
+            [sys.executable, str(repo / "examples/alphatrans/tools/build_check.py"), staging],
+            capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=600,
+        )
+    output = (result.stdout + result.stderr).replace(staging, "<build-check>")
     match = re.search(r"build_check: (\d+)/(\d+) modules parse and import", output)
     metric = {"modules_ok": int(match.group(1)) if match else 0,
               "modules_total": int(match.group(2)) if match else None,
