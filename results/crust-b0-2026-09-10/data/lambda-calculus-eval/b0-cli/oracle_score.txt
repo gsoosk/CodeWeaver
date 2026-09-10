@@ -1,0 +1,7 @@
+[oracle] project  : lambda-calculus-eval
+[oracle] source   : <repo>/examples/crust/subjects/lambda-calculus-eval/pipeline-baseline-b0-crust-cli-sonnet5-med-20260910/project
+[oracle] result   : BUILD FAILED, 3 compile error(s), 0 tests ran
+[oracle]   error[E0599]: no method named `seek` found for mutable reference `&mut File` in the current scope
+[oracle]   error: could not compile `lambda-calculus-eval` (lib) due to 1 previous error; 9 warnings emitted
+[oracle]   error: could not compile `lambda-calculus-eval` (lib test) due to 1 previous error; 9 warnings emitted
+[oracle] exitcode : 2

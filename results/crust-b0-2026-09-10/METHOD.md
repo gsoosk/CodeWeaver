@@ -96,18 +96,24 @@ explained away.
 
 ## The arms
 
-| Arm | Granularity | Feedback | Test-blind |
-|---|---|---|---|
-| `b0-whole-repo` | whole crate, one call | none | yes |
-| `b0-per-file` | one call per module | none | yes |
-| `repair-build` | repairs `b0-per-file` | `cargo build --lib` diagnostics | yes |
-| `repair-test` | repairs `b0-per-file` | oracle failure output | **no** |
-| `codeweaver` | full agentic pipeline | build, its own unit tests, and gated oracle **counts** | partial |
+| Arm | Granularity | Transport | Feedback | Test-blind |
+|---|---|---|---|---|
+| `b0-cli` | whole crate, continued across responses | Copilot CLI | none | yes |
+| `b0-whole-repo` | whole crate, one call | direct API | none | yes |
+| `b0-per-file` | one call per module | direct API | none | yes |
+| `repair-build` | repairs `b0-per-file` | direct API | `cargo build --lib` diagnostics | yes |
+| `repair-test` | repairs `b0-per-file` | direct API | oracle failure output | **no** |
+| `codeweaver` | full agentic pipeline | Copilot CLI | build, own unit tests, gated oracle **counts** | partial |
 
 `repair-test` saw the oracle's *failure output*. CodeWeaver sees gated oracle
 pass/fail **counts** at milestone boundaries — never test source, never failure text.
-Those two are not comparable to each other, nor to the three fully test-blind arms,
-without stating the difference.
+Those two are not comparable to each other, nor to the fully test-blind arms, without
+stating the difference.
+
+`b0-cli` runs through the same client CodeWeaver uses, with tools disabled and the
+event stream audited: **zero tool calls were recorded across all four subjects**, so
+it saw no more than the API arms did. It is the closest single-shot comparison to
+CodeWeaver, because transport and hidden system prompt are held constant.
 
 Repair runs up to 3 iterations and keeps the **final** one, as CRUST-bench does, not
 the best-scoring one. Per-iteration trajectories are recorded so regressions stay
@@ -116,11 +122,11 @@ visible.
 ## Results
 
 ```
-subject                stubs   b0-whole-repo  b0-per-file  +build      +test       CodeWeaver
-cset                   0/15    FAIL(4)        FAIL(4)      FAIL(4)     FAIL(4)     15/15
-c-aces                 0/11    11/11          FAIL(145)    FAIL(145)   FAIL(155)   11/11
-lambda-calculus-eval   0/22    22/22          FAIL(127)    FAIL(45)    FAIL(78)    22/22
-inversion_list         1/15    15/15          14/15        14/15       14/15       15/15
+subject                stubs   b0-cli      b0-whole-repo  b0-per-file  +build      +test       CodeWeaver
+cset                   0/15    FAIL(4)     FAIL(4)        FAIL(4)      FAIL(4)     FAIL(4)     15/15
+c-aces                 0/11    11/11       11/11          FAIL(145)    FAIL(145)   FAIL(155)   11/11
+lambda-calculus-eval   0/22    FAIL(3)     22/22          FAIL(127)    FAIL(45)    FAIL(78)    22/22
+inversion_list         1/15    14/15       15/15          14/15        14/15       14/15       15/15
 ```
 
 `FAIL(n)` means the crate did **not compile**, with n `rustc` errors, and no tests ran.
@@ -129,7 +135,7 @@ is reported as its own state.
 
 ### CodeWeaver is the only arm that solves every subject
 
-63/63 across the suite, including `cset`, which **no baseline arm compiles at all**.
+63/63 across the suite, including `cset`, which **no single-shot arm compiles at all**.
 All four results keep every declared module (`contract_intact`) and leave no
 `unimplemented!()` behind.
 
@@ -138,6 +144,12 @@ near-perfect here — fails it with `casting &T to &mut T is undefined behavior`
 a soundness defect, not a coupling problem: the C relies on aliasing that Rust rejects
 outright, and no amount of single-shot translation or repair fixed it. Restructuring
 the ownership is exactly the kind of change that needs iteration against a compiler.
+
+The two whole-crate single-shot arms differ only in transport, and they disagree on
+`lambda-calculus-eval` (CLI FAIL(3), API 22/22) and `inversion_list` (14/15 vs 15/15).
+Both used one round and no tools. With N=1 that gap is not attributable to the
+transport itself; it is the run-to-run variance this suite does not measure, and it is
+a reason to treat any single cell here cautiously.
 
 ### Whole-repo beats per-file decisively — the reverse of AlphaTrans
 

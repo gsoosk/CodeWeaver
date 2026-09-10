@@ -16,7 +16,7 @@ it can support, and what it cannot. **Read the method file before quoting a numb
 | `alphatrans-b0-sonnet5-med-2026-09-08` | B0 single-shot, Copilot CLI | `claude-sonnet-5` | [METHOD](alphatrans-b0-sonnet5-med-2026-09-08/METHOD.md) |
 | `alphatrans-b0-api-2026-09-09` | B0 via direct API, per-file and whole-repo | `claude-sonnet-5` | [METHOD](alphatrans-b0-api-2026-09-09/METHOD.md) |
 | `alphatrans-b0-repair-2026-09-09` | Repair over the B0 API per-file artifact, build-guided and test-guided | `claude-sonnet-5` | [METHOD](alphatrans-b0-repair-2026-09-09/METHOD.md) |
-| `crust-b0-2026-09-10` | **CRUST-bench C→Rust**: B0 whole-repo and per-file, both repair arms, and CodeWeaver | `claude-sonnet-5` | [METHOD](crust-b0-2026-09-10/METHOD.md) |
+| `crust-b0-2026-09-10` | **CRUST-bench C→Rust**: B0 via CLI, whole-repo and per-file, both repair arms, and CodeWeaver | `claude-sonnet-5` | [METHOD](crust-b0-2026-09-10/METHOD.md) |
 
 The CRUST package is a **second suite in a different language pair** (C→Rust), not
 another AlphaTrans arm. Its oracle is much weaker and was LLM-generated rather than
@@ -62,20 +62,25 @@ Different language pair, different benchmark, much weaker oracle (63 tests acros
 subjects). Reported for the mechanisms it isolates, not as scores comparable to the
 AlphaTrans table.
 
-| Subject | stubs | B0 whole-repo | B0 per-file | + build repair | **CodeWeaver** |
-|---|---:|---:|---:|---:|---:|
-| cset | 0/15 | FAIL(4) | FAIL(4) | FAIL(4) | **15/15** |
-| c-aces | 0/11 | 11/11 | FAIL(145) | FAIL(145) | **11/11** |
-| lambda-calculus-eval | 0/22 | 22/22 | FAIL(127) | FAIL(45) | **22/22** |
-| inversion_list | 1/15 | 15/15 | 14/15 | 14/15 | **15/15** |
+| Subject | stubs | B0 CLI | B0 whole-repo | B0 per-file | + build repair | **CodeWeaver** |
+|---|---:|---:|---:|---:|---:|---:|
+| cset | 0/15 | FAIL(4) | FAIL(4) | FAIL(4) | FAIL(4) | **15/15** |
+| c-aces | 0/11 | 11/11 | 11/11 | FAIL(145) | FAIL(145) | **11/11** |
+| lambda-calculus-eval | 0/22 | FAIL(3) | 22/22 | FAIL(127) | FAIL(45) | **22/22** |
+| inversion_list | 1/15 | 14/15 | 15/15 | 14/15 | 14/15 | **15/15** |
 
 `FAIL(n)` means the crate did not compile, with n `rustc` errors; no tests ran. Rust
 gives no partial credit, so that is its own state, not a zero. "stubs" is the negative
 control — `inversion_list` has 1 test that passes on unimplemented stubs.
 
 CodeWeaver is the only arm that solves every subject, and the only one that compiles
-`cset` at all: every B0 arm fails it on `casting &T to &mut T is undefined behavior`,
-a soundness defect that needs restructuring rather than retranslation.
+`cset` at all: every single-shot arm fails it on `casting &T to &mut T is undefined
+behavior`, a soundness defect that needs restructuring rather than retranslation.
+
+B0 CLI and B0 whole-repo differ only in transport — both whole-crate, one round, zero
+tool calls — yet they disagree on two subjects. With N=1 that is unmeasured
+run-to-run variance, not a transport effect, and it is a reason to read any single
+cell here cautiously.
 
 **Whole-repo beats per-file decisively here, the reverse of the AlphaTrans result.**
 Same mechanism, different dominant term: these crates are small enough that the output

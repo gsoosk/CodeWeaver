@@ -1,0 +1,7 @@
+[oracle] project  : inversion_list
+[oracle] source   : <repo>/examples/crust/subjects/inversion_list/pipeline-baseline-b0-crust-cli-sonnet5-med-20260910/project
+[oracle] gate     : (whole suite)
+[oracle] result   : 14 passed, 1 failed, 0 ignored (of 15)
+[oracle] failures :
+[oracle]   test test ... FAILED
+[oracle] exitcode : 1

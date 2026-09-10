@@ -93,7 +93,6 @@ python -u experiments/baselines/campaigns/run_campaign.py \
 left as an unimplemented skeleton stub and scored as such.
 
 ### Repair arms — `results/alphatrans-b0-repair-2026-09-09`
-
 ```bash
 python -u experiments/baselines/campaigns/run_campaign.py \
   --mode repair --arms build test \
@@ -111,8 +110,47 @@ The two are not comparable to each other; see that package's `METHOD.md`.
 The original controllers used one tag per arm. `run_campaign.py` takes a single
 `--tag`, so run the arms separately if you want the published tag names.
 
-## Offline checks
+## The CRUST-bench suite (C to Rust)
 
+A second example lives at `examples/crust`. Materialize it, which also relocates the
+held-out tests outside the subject tree:
+
+```bash
+bash examples/crust/setup.sh --all /path/to/CRUST-bench
+```
+
+Its arms, published as `results/crust-b0-2026-09-10`:
+
+```bash
+# B0 via the Copilot CLI (whole crate, continued across responses, tools disabled)
+python -u experiments/baselines/run_one.py --project <subject> --example crust \
+  --tag b0-crust-cli-sonnet5-med-20260910 --backend copilot \
+  --model claude-sonnet-5 --effort medium --context long_context --max-rounds 6
+
+# B0 via the API, whole crate in one call, and per file
+python -u experiments/baselines/campaigns/run_campaign.py --mode generate \
+  --example crust --granularity repo --max-rounds 1 ...
+python -u experiments/baselines/campaigns/run_campaign.py --mode generate \
+  --example crust --granularity per-file ...
+
+# repair arms
+python -u experiments/baselines/campaigns/run_campaign.py --mode repair \
+  --example crust --arms build ...    # and --arms test
+
+# CodeWeaver
+python -m codeweaver run --config examples/crust/subjects/<subject>/codeweaver.toml \
+  --app-id <tag>-<subject>
+```
+
+After any CodeWeaver run, verify the oracle stayed unread. This is not optional:
+CodeWeaver runs its agents with `--allow-all`, and agents did reach the oracle twice
+during development before it was moved out of their working tree.
+
+```bash
+bash examples/crust/tools/oracle_audit.sh cset c-aces lambda-calculus-eval inversion_list
+```
+
+## Offline checks
 ```bash
 python experiments/baselines/test_continuation.py
 ```

@@ -1,0 +1,38 @@
+{
+  "baseline": "B0-single-shot",
+  "project": "cset",
+  "tier": "A",
+  "backend": "copilot",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "context": "long_context",
+  "recorded": "2026-09-10T22:35:42+0000",
+  "inputs": {
+    "java_files": 1,
+    "skeleton_modules": 1,
+    "prompt_chars": 45735
+  },
+  "code_revision": "6e6be37ee6b53bc30ed6908ac73cbe7cdba38593",
+  "collector_code_sha256": {
+    "single_shot.py": "937f1d701cd5fe11ff70ada361335f6806cd9add45dd46f501e8447c22006f7c",
+    "backends/copilot.py": "972fbbfd623eb9266deb84c1e0fa0874edeb83d66866edab6a8df32336c946b9",
+    "backends/copilot_api.py": "f5487a7e716b564b7e4b8f3e8f41cc405d64fd38b80763ffe4b4e46676cf5ba3",
+    "backends/base.py": "9f3afaf7fd376638b2797f97c80c2e85527d063b571c9930295aa4d97fa1b0e7",
+    "run_one.py": "7fd8fb7b17c84537360b86972d31580bd2b8d1706d80def71b9bff33b4054e9e"
+  },
+  "collector_version": 2,
+  "granularity": "repo",
+  "tag": "b0-crust-cli-sonnet5-med-20260910",
+  "observation_tag": "b0-crust-cli-sonnet5-med-20260910",
+  "independent_sample": true,
+  "recovery": null,
+  "usage_per_round": [],
+  "max_output_tokens": 128000,
+  "max_rounds": 6,
+  "oracle_seen": false,
+  "oracle_tests_in_prompt": false,
+  "oracle_feedback_during_generation": false,
+  "copilot_audit": [],
+  "protocol": "single-shot: one prompt, no compiler feedback, no test feedback. When one response cannot hold every module, the SAME generation is continued (block-aware) until all modules are emitted or --max-rounds is reached; the model is told only which files remain, never anything about correctness. Backend invocations can contain internal CLI model turns. Recovery tags remain linked to the original observation, not new samples.",
+  "state": "completed"
+}

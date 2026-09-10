@@ -44,7 +44,8 @@
     "b0-per-file": "b0-crust-perfile-sonnet5-med-20260909",
     "repair-build": "b0r-build-crust-sonnet5-med-20260910",
     "repair-test": "b0r-test-crust-sonnet5-med-20260910",
-    "b0-whole-repo": "b0-crust-repo-sonnet5-med-20260910"
+    "b0-whole-repo": "b0-crust-repo-sonnet5-med-20260910",
+    "b0-cli": "b0-crust-cli-sonnet5-med-20260910"
   },
   "results": [
     {
@@ -147,6 +148,24 @@
       "contract_intact": true,
       "api_calls": 1,
       "completion_tokens": 31485,
+      "iterations": []
+    },
+    {
+      "arm": "b0-cli",
+      "subject": "cset",
+      "tag": "b0-crust-cli-sonnet5-med-20260910",
+      "oracle": {
+        "project": "cset",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 4
+      },
+      "contract_intact": true,
+      "api_calls": 0,
+      "completion_tokens": null,
       "iterations": []
     },
     {
@@ -281,6 +300,24 @@
       "contract_intact": true,
       "api_calls": 1,
       "completion_tokens": 48835,
+      "iterations": []
+    },
+    {
+      "arm": "b0-cli",
+      "subject": "c-aces",
+      "tag": "b0-crust-cli-sonnet5-med-20260910",
+      "oracle": {
+        "project": "c-aces",
+        "state": "scored",
+        "passed": 11,
+        "failed": 0,
+        "ignored": 0,
+        "total": 11,
+        "exit_code": 0
+      },
+      "contract_intact": true,
+      "api_calls": 0,
+      "completion_tokens": null,
       "iterations": []
     },
     {
@@ -434,6 +471,24 @@
       "iterations": []
     },
     {
+      "arm": "b0-cli",
+      "subject": "lambda-calculus-eval",
+      "tag": "b0-crust-cli-sonnet5-med-20260910",
+      "oracle": {
+        "project": "lambda-calculus-eval",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 3
+      },
+      "contract_intact": true,
+      "api_calls": 0,
+      "completion_tokens": null,
+      "iterations": []
+    },
+    {
       "arm": "codeweaver",
       "subject": "lambda-calculus-eval",
       "tag": null,
@@ -559,6 +614,24 @@
       "contract_intact": true,
       "api_calls": 1,
       "completion_tokens": 7914,
+      "iterations": []
+    },
+    {
+      "arm": "b0-cli",
+      "subject": "inversion_list",
+      "tag": "b0-crust-cli-sonnet5-med-20260910",
+      "oracle": {
+        "project": "inversion_list",
+        "state": "scored",
+        "passed": 14,
+        "failed": 1,
+        "ignored": 0,
+        "total": 15,
+        "exit_code": 1
+      },
+      "contract_intact": true,
+      "api_calls": 0,
+      "completion_tokens": null,
       "iterations": []
     },
     {
