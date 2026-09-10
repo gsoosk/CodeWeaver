@@ -69,7 +69,7 @@ for PROJECT in $TARGETS; do
   #
   # An earlier version left `<subject>/.oracle-path` here, reasoning that a path is
   # not the oracle. That was wrong: an agent read the pointer, then issued
-  # `view /home/azureuser/.crust-oracles/<project>` and got the directory listing
+  # `view <oracle-root>/<project>` and got the directory listing
   # including gate-tokens.txt. A signpost to the answer key is the answer key.
   # tools/oracle.sh derives this same path by convention instead, so the subject
   # directory contains nothing that leads anywhere near the tests.
