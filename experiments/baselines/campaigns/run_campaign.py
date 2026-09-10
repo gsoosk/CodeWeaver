@@ -88,6 +88,15 @@ def main() -> int:
         raise SystemExit("--source-tag is required in repair mode")
     if args.campaign_dir.exists():
         raise SystemExit(f"Campaign directory already exists: {args.campaign_dir}")
+    # A second campaign writing the same tag corrupts both: they interleave runs and
+    # overwrite each other's status file, and the result is unattributable. Refuse.
+    live = subprocess.run(["pgrep", "-af", "run_campaign.py"], capture_output=True, text=True)
+    others = [ln for ln in live.stdout.splitlines()
+              if str(os.getpid()) not in ln.split(None, 1)[0]]
+    conflicting = [ln for ln in others if f"--tag {args.tag}" in ln or args.tag in ln]
+    if conflicting:
+        raise SystemExit("Another campaign is already running with this tag:\n  " +
+                         "\n  ".join(conflicting))
     if "COPILOT_API_KEY" not in os.environ:
         print("[campaign] note: COPILOT_API_KEY is unset; the proxy must not require a local key",
               file=sys.stderr)
@@ -161,6 +170,10 @@ def main() -> int:
                 "oracle_score": status.get("final_oracle_score") or status.get("oracle_score"),
                 "scoring_error": status.get("scoring_error") or status.get("error"),
             }
+            # A worker that died mid-run leaves its last in-progress state behind.
+            # Treating that as a result would silently publish a partial artifact.
+            if status["state"] in ("running", "repairing", "generating", "scoring"):
+                outcome["state"] = "died_in_state_" + status["state"]
         audit_root = subjects_dir / subject / f"pipeline-baseline-{args.tag}" / "api-audit"
         if audit_root.is_dir():
             audits = [json.loads(p.read_text()) for p in sorted(audit_root.glob("round-*/audit.json"))]
@@ -179,6 +192,12 @@ def main() -> int:
             state["state"] = "stopped"
             save()
             raise SystemExit(f"{key} failed before recording status; stopping")
+        if outcome["state"].startswith("died_in_state_"):
+            state["state"] = "stopped_worker_died"
+            save()
+            raise SystemExit(
+                f"{key} died mid-run ({outcome['state']}); stopping rather than "
+                f"continuing with a partial artifact")
     state["state"] = "completed"
     save()
     print("[campaign] all runs attempted; source artifacts unchanged", flush=True)
