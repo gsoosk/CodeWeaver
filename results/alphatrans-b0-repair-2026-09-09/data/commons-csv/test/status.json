@@ -1,0 +1,89 @@
+{
+  "state": "completed",
+  "pid": 183814,
+  "project": "commons-csv",
+  "tag": "b0r-test-sonnet5-med-20260909v2",
+  "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+  "arm": "test",
+  "test_blind": false,
+  "iterations": [
+    {
+      "iteration": 0,
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "api_calls": 0
+    },
+    {
+      "iteration": 1,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/csv/Constants.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 65217,
+        "completion_tokens": 1614,
+        "total_tokens": 66831,
+        "wall_clock_s": 13.585033760988154
+      }
+    },
+    {
+      "iteration": 2,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/csv/ExtendedBufferedReader.py",
+        "src/main/org/apache/commons/csv/Lexer.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 64625,
+        "completion_tokens": 15939,
+        "total_tokens": 80564,
+        "wall_clock_s": 149.81863258697558
+      }
+    },
+    {
+      "iteration": 3,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/csv/CSVParser.py",
+        "src/main/org/apache/commons/csv/ExtendedBufferedReader.py",
+        "src/main/org/apache/commons/csv/CSVFormat.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 44838,
+        "completion_tokens": 42152,
+        "total_tokens": 86990,
+        "wall_clock_s": 311.0053600729443
+      }
+    }
+  ],
+  "scoring_error": "Oracle did not complete normal scoring: 109 failed, 189 passed, 11 skipped, 2 warnings, 1 error in 0.39s",
+  "final_oracle_score": null,
+  "best_iteration_by_metric": 0,
+  "finished": "2026-09-09T23:13:49+0000"
+}

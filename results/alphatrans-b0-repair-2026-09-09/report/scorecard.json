@@ -1,0 +1,594 @@
+{
+  "campaign": "Iterative repair over the published B0 API per-file artifact",
+  "source": {
+    "tag": "b0-api-perfile-sonnet5-med-20260909v2",
+    "package": "results/alphatrans-b0-api-2026-09-09",
+    "note": "Both arms start from the SAME frozen artifact and never modify it."
+  },
+  "model": "claude-sonnet-5",
+  "reasoning_effort": "medium",
+  "streaming": true,
+  "max_output_tokens": 64000,
+  "iterations_per_run": 3,
+  "arms": {
+    "build": {
+      "feedback": "build_check parse/import diagnostics only",
+      "test_blind": true,
+      "comparable_to": "the test-blind generation arms",
+      "analogue": "CRUST-bench's transpile + compiler-guided repair"
+    },
+    "test": {
+      "feedback": "oracle test failure output",
+      "test_blind": false,
+      "comparable_to": "nothing test-blind; report separately",
+      "analogue": "CRUST-bench's test-guided repair (repair_tests.py)"
+    }
+  },
+  "results": [
+    {
+      "arm": "build",
+      "subject": "commons-cli",
+      "tag": "b0r-build-sonnet5-med-20260909v2",
+      "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "source_oracle": "110 passed, 271 failed, 56 skipped",
+      "feedback_source": "build_check parse/import diagnostics",
+      "test_blind": true,
+      "oracle_seen": false,
+      "iterations_run": 0,
+      "api_calls": 0,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "kept": "final iteration (CRUST-bench convention); trajectory in history",
+      "trajectory": [
+        {
+          "iteration": 0,
+          "files_changed": null,
+          "improved": null,
+          "metric": {
+            "modules_ok": 22,
+            "modules_total": 22,
+            "syntax_or_import_failures": 0
+          }
+        }
+      ],
+      "final_oracle_score": {
+        "passed": 110,
+        "failed": 271,
+        "skipped": 56,
+        "deselected": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "271 failed, 110 passed, 56 skipped in 0.53s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null
+    },
+    {
+      "arm": "build",
+      "subject": "commons-csv",
+      "tag": "b0r-build-sonnet5-med-20260909v2",
+      "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "source_oracle": "collection failure: 1 passed, 6 failed, 19 errors",
+      "feedback_source": "build_check parse/import diagnostics",
+      "test_blind": true,
+      "oracle_seen": false,
+      "iterations_run": 2,
+      "api_calls": 2,
+      "prompt_tokens": 73694,
+      "completion_tokens": 7800,
+      "kept": "final iteration (CRUST-bench convention); trajectory in history",
+      "trajectory": [
+        {
+          "iteration": 0,
+          "files_changed": null,
+          "improved": null,
+          "metric": {
+            "modules_ok": 7,
+            "modules_total": 11,
+            "syntax_or_import_failures": 4
+          }
+        },
+        {
+          "iteration": 1,
+          "files_changed": [
+            "src/main/org/apache/commons/csv/Constants.py"
+          ],
+          "improved": false,
+          "metric": {
+            "modules_ok": 7,
+            "modules_total": 11,
+            "syntax_or_import_failures": 4
+          }
+        },
+        {
+          "iteration": 2,
+          "files_changed": [
+            "src/main/org/apache/commons/csv/Lexer.py"
+          ],
+          "improved": true,
+          "metric": {
+            "modules_ok": 11,
+            "modules_total": 11,
+            "syntax_or_import_failures": 0
+          }
+        }
+      ],
+      "final_oracle_score": null,
+      "scoring_error": "Oracle did not complete normal scoring: 113 failed, 185 passed, 11 skipped, 2 warnings, 1 error in 0.38s"
+    },
+    {
+      "arm": "build",
+      "subject": "commons-fileupload",
+      "tag": "b0r-build-sonnet5-med-20260909v2",
+      "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "source_oracle": "37 passed, 2 failed",
+      "feedback_source": "build_check parse/import diagnostics",
+      "test_blind": true,
+      "oracle_seen": false,
+      "iterations_run": 0,
+      "api_calls": 0,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "kept": "final iteration (CRUST-bench convention); trajectory in history",
+      "trajectory": [
+        {
+          "iteration": 0,
+          "files_changed": null,
+          "improved": null,
+          "metric": {
+            "modules_ok": 30,
+            "modules_total": 30,
+            "syntax_or_import_failures": 0
+          }
+        }
+      ],
+      "final_oracle_score": {
+        "passed": 37,
+        "failed": 2,
+        "skipped": 0,
+        "deselected": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "2 failed, 37 passed in 0.10s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null
+    },
+    {
+      "arm": "build",
+      "subject": "commons-validator",
+      "tag": "b0r-build-sonnet5-med-20260909v2",
+      "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "source_oracle": "277 passed, 85 failed, 8 errors",
+      "feedback_source": "build_check parse/import diagnostics",
+      "test_blind": true,
+      "oracle_seen": false,
+      "iterations_run": 1,
+      "api_calls": 1,
+      "prompt_tokens": 109727,
+      "completion_tokens": 21015,
+      "kept": "final iteration (CRUST-bench convention); trajectory in history",
+      "trajectory": [
+        {
+          "iteration": 0,
+          "files_changed": null,
+          "improved": null,
+          "metric": {
+            "modules_ok": 50,
+            "modules_total": 63,
+            "syntax_or_import_failures": 13
+          }
+        },
+        {
+          "iteration": 1,
+          "files_changed": [
+            "src/main/org/apache/commons/validator/FormSet.py",
+            "src/main/org/apache/commons/validator/routines/BigIntegerValidator.py",
+            "src/main/org/apache/commons/validator/routines/LongValidator.py",
+            "src/main/org/apache/commons/validator/routines/DomainValidator.py"
+          ],
+          "improved": true,
+          "metric": {
+            "modules_ok": 63,
+            "modules_total": 63,
+            "syntax_or_import_failures": 0
+          }
+        }
+      ],
+      "final_oracle_score": {
+        "passed": 382,
+        "failed": 80,
+        "skipped": 1,
+        "deselected": 1,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "80 failed, 382 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null
+    },
+    {
+      "arm": "test",
+      "subject": "commons-cli",
+      "tag": "b0r-test-sonnet5-med-20260909v2",
+      "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "source_oracle": "110 passed, 271 failed, 56 skipped",
+      "feedback_source": "oracle test failures",
+      "test_blind": false,
+      "oracle_seen": true,
+      "iterations_run": 3,
+      "api_calls": 3,
+      "prompt_tokens": 120142,
+      "completion_tokens": 119590,
+      "kept": "final iteration (CRUST-bench convention); trajectory in history",
+      "trajectory": [
+        {
+          "iteration": 0,
+          "files_changed": null,
+          "improved": null,
+          "metric": {
+            "score": {
+              "passed": 110,
+              "failed": 271,
+              "skipped": 56,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "271 failed, 110 passed, 56 skipped in 0.54s"
+            }
+          }
+        },
+        {
+          "iteration": 1,
+          "files_changed": [
+            "src/main/org/apache/commons/cli/CommandLine.py"
+          ],
+          "improved": true,
+          "metric": {
+            "score": {
+              "passed": 356,
+              "failed": 25,
+              "skipped": 56,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "25 failed, 356 passed, 56 skipped in 0.33s"
+            }
+          }
+        },
+        {
+          "iteration": 2,
+          "files_changed": [
+            "src/main/org/apache/commons/cli/PatternOptionBuilder.py",
+            "src/main/org/apache/commons/cli/TypeHandler.py",
+            "src/main/org/apache/commons/cli/Parser.py",
+            "src/main/org/apache/commons/cli/HelpFormatter.py",
+            "src/main/org/apache/commons/cli/CommandLine.py"
+          ],
+          "improved": true,
+          "metric": {
+            "score": {
+              "passed": 369,
+              "failed": 12,
+              "skipped": 56,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "12 failed, 369 passed, 56 skipped in 0.32s"
+            }
+          }
+        },
+        {
+          "iteration": 3,
+          "files_changed": [
+            "src/main/org/apache/commons/cli/TypeHandler.py"
+          ],
+          "improved": true,
+          "metric": {
+            "score": {
+              "passed": 370,
+              "failed": 11,
+              "skipped": 56,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "11 failed, 370 passed, 56 skipped in 0.33s"
+            }
+          }
+        }
+      ],
+      "final_oracle_score": {
+        "passed": 370,
+        "failed": 11,
+        "skipped": 56,
+        "deselected": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "11 failed, 370 passed, 56 skipped in 0.32s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null
+    },
+    {
+      "arm": "test",
+      "subject": "commons-csv",
+      "tag": "b0r-test-sonnet5-med-20260909v2",
+      "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "source_oracle": "collection failure: 1 passed, 6 failed, 19 errors",
+      "feedback_source": "oracle test failures",
+      "test_blind": false,
+      "oracle_seen": true,
+      "iterations_run": 3,
+      "api_calls": 3,
+      "prompt_tokens": 174680,
+      "completion_tokens": 59705,
+      "kept": "final iteration (CRUST-bench convention); trajectory in history",
+      "trajectory": [
+        {
+          "iteration": 0,
+          "files_changed": null,
+          "improved": null,
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 1,
+          "files_changed": [
+            "src/main/org/apache/commons/csv/Constants.py"
+          ],
+          "improved": false,
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 2,
+          "files_changed": [
+            "src/main/org/apache/commons/csv/ExtendedBufferedReader.py",
+            "src/main/org/apache/commons/csv/Lexer.py"
+          ],
+          "improved": false,
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 3,
+          "files_changed": [
+            "src/main/org/apache/commons/csv/CSVParser.py",
+            "src/main/org/apache/commons/csv/ExtendedBufferedReader.py",
+            "src/main/org/apache/commons/csv/CSVFormat.py"
+          ],
+          "improved": false,
+          "metric": {
+            "score": null
+          }
+        }
+      ],
+      "final_oracle_score": null,
+      "scoring_error": "Oracle did not complete normal scoring: 109 failed, 189 passed, 11 skipped, 2 warnings, 1 error in 0.39s"
+    },
+    {
+      "arm": "test",
+      "subject": "commons-fileupload",
+      "tag": "b0r-test-sonnet5-med-20260909v2",
+      "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "source_oracle": "37 passed, 2 failed",
+      "feedback_source": "oracle test failures",
+      "test_blind": false,
+      "oracle_seen": true,
+      "iterations_run": 3,
+      "api_calls": 3,
+      "prompt_tokens": 80571,
+      "completion_tokens": 161645,
+      "kept": "final iteration (CRUST-bench convention); trajectory in history",
+      "trajectory": [
+        {
+          "iteration": 0,
+          "files_changed": null,
+          "improved": null,
+          "metric": {
+            "score": {
+              "passed": 37,
+              "failed": 2,
+              "skipped": 0,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "2 failed, 37 passed in 0.10s"
+            }
+          }
+        },
+        {
+          "iteration": 1,
+          "files_changed": [
+            "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+            "src/main/org/apache/commons/fileupload/MultipartStream.py"
+          ],
+          "improved": false,
+          "metric": {
+            "score": {
+              "passed": 37,
+              "failed": 2,
+              "skipped": 0,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "2 failed, 37 passed in 0.10s"
+            }
+          }
+        },
+        {
+          "iteration": 2,
+          "files_changed": [
+            "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+            "src/main/org/apache/commons/fileupload/MultipartStream.py"
+          ],
+          "improved": false,
+          "metric": {
+            "score": {
+              "passed": 37,
+              "failed": 2,
+              "skipped": 0,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "2 failed, 37 passed in 0.10s"
+            }
+          }
+        },
+        {
+          "iteration": 3,
+          "files_changed": [
+            "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+            "src/main/org/apache/commons/fileupload/MultipartStream.py"
+          ],
+          "improved": false,
+          "metric": {
+            "score": {
+              "passed": 37,
+              "failed": 2,
+              "skipped": 0,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "2 failed, 37 passed in 0.10s"
+            }
+          }
+        }
+      ],
+      "final_oracle_score": {
+        "passed": 37,
+        "failed": 2,
+        "skipped": 0,
+        "deselected": 0,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "2 failed, 37 passed in 0.10s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null
+    },
+    {
+      "arm": "test",
+      "subject": "commons-validator",
+      "tag": "b0r-test-sonnet5-med-20260909v2",
+      "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+      "source_oracle": "277 passed, 85 failed, 8 errors",
+      "feedback_source": "oracle test failures",
+      "test_blind": false,
+      "oracle_seen": true,
+      "iterations_run": 3,
+      "api_calls": 3,
+      "prompt_tokens": 361179,
+      "completion_tokens": 95327,
+      "kept": "final iteration (CRUST-bench convention); trajectory in history",
+      "trajectory": [
+        {
+          "iteration": 0,
+          "files_changed": null,
+          "improved": null,
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 1,
+          "files_changed": [
+            "src/main/org/apache/commons/validator/FormSet.py",
+            "src/main/org/apache/commons/validator/routines/DomainValidator.py",
+            "src/main/org/apache/commons/validator/routines/BigIntegerValidator.py",
+            "src/main/org/apache/commons/validator/routines/LongValidator.py",
+            "src/main/org/apache/commons/validator/CreditCardValidator.py",
+            "src/main/org/apache/commons/validator/UrlValidator.py"
+          ],
+          "improved": true,
+          "metric": {
+            "score": {
+              "passed": 385,
+              "failed": 77,
+              "skipped": 1,
+              "deselected": 1,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "77 failed, 385 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s"
+            }
+          }
+        },
+        {
+          "iteration": 2,
+          "files_changed": [
+            "src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py",
+            "src/main/org/apache/commons/validator/routines/CurrencyValidator.py",
+            "src/main/org/apache/commons/validator/routines/PercentValidator.py",
+            "src/main/org/apache/commons/validator/routines/CalendarValidator.py",
+            "src/main/org/apache/commons/validator/routines/DateValidator.py"
+          ],
+          "improved": true,
+          "metric": {
+            "score": {
+              "passed": 388,
+              "failed": 74,
+              "skipped": 1,
+              "deselected": 1,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "74 failed, 388 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s"
+            }
+          }
+        },
+        {
+          "iteration": 3,
+          "files_changed": [
+            "src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py",
+            "src/main/org/apache/commons/validator/routines/AbstractCalendarValidator.py"
+          ],
+          "improved": true,
+          "metric": {
+            "score": {
+              "passed": 403,
+              "failed": 59,
+              "skipped": 1,
+              "deselected": 1,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "59 failed, 403 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s"
+            }
+          }
+        }
+      ],
+      "final_oracle_score": {
+        "passed": 403,
+        "failed": 59,
+        "skipped": 1,
+        "deselected": 1,
+        "errors": 0,
+        "exit_code": 1,
+        "summary": "59 failed, 403 passed, 1 skipped, 1 deselected, 23 warnings in 0.58s",
+        "pipeline_deferrals_applied": false
+      },
+      "scoring_error": null
+    }
+  ],
+  "totals": {
+    "build_api_calls": 3,
+    "test_api_calls": 12,
+    "build_completion_tokens": 28815,
+    "test_completion_tokens": 436267
+  },
+  "findings": [
+    "Build-guided repair cost 3 API calls across four subjects and turned two unscoreable artifacts into scoreable ones. commons-validator went from 8 collection errors to a clean 382/462 in a single call, without ever seeing a test.",
+    "Two subjects consumed zero calls: commons-cli and commons-fileupload already had every module importing, so a build-guided arm has nothing to act on. That is the correct outcome, not a failure.",
+    "The arms converge on commons-csv (185 vs 189) but diverge sharply on commons-cli (110 vs 370). commons-cli's dominant failure is an AttributeError raised at runtime, which a parse/import check structurally cannot see. In a statically typed target it would be a compile error; in Python it is not. That is a real limit of compiler-guided repair on a dynamically typed language.",
+    "Repair is not universally effective. commons-fileupload survived three test-guided iterations, five files changed, with no change in its score at all.",
+    "Even with 12 test-guided calls and full oracle visibility, no repaired arm reaches CodeWeaver on any subject."
+  ],
+  "caveats": [
+    "N=1 per run; no repetitions and no variance.",
+    "The test arm read the oracle's failure output. It is not comparable to any test-blind arm and must never be tabulated beside one without stating the difference.",
+    "commons-csv still has one collection error in both arms, so neither is a clean full-suite pass rate.",
+    "The loop keeps the FINAL iteration, as CRUST-bench does, not the best-scoring one. Per-iteration trajectories are recorded so regressions are visible rather than hidden.",
+    "Cost is provider-reported tokens only; no premium-request or AIU figure is inferred."
+  ]
+}

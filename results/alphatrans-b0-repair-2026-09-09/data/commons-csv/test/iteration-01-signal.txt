@@ -1,0 +1,960 @@
+FFFFFF.............                                                      [100%]
+==================================== ERRORS ====================================
+____ ERROR collecting src/test/org/apache/commons/csv/CSVFileParserTest.py _____
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 9, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+_ ERROR collecting src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py __
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 9, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+______ ERROR collecting src/test/org/apache/commons/csv/CSVFormatTest.py _______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 15, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+______ ERROR collecting src/test/org/apache/commons/csv/CSVParserTest.py _______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVParserTest.py", line 15, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+______ ERROR collecting src/test/org/apache/commons/csv/CSVPrinterTest.py ______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVPrinterTest.py", line 15, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+________ ERROR collecting src/test/org/apache/commons/csv/LexerTest.py _________
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/LexerTest.py", line 9, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+_____ ERROR collecting src/test/org/apache/commons/csv/PerformanceTest.py ______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/PerformanceTest.py", line 15, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+__________ ERROR collecting src/test/org/apache/commons/csv/Utils.py ___________
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/Utils.py", line 8, in <module>
+    from src.main.org.apache.commons.csv.CSVRecord import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVRecord.py", line 5, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv248Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv248Test.py", line 14, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv249Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv249Test.py", line 9, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv253Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv253Test.py", line 11, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv288Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv290Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv290Test.py", line 11, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+___ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv93Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv93Test.py", line 11, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+___ ERROR collecting src/test/org/apache/commons/csv/perf/PerformanceTest.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/perf/PerformanceTest.py", line 13, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                       ^^^^^^^
+TypeError: 'str' object cannot be interpreted as an integer
+=================================== FAILURES ===================================
+__________________ ExtendedBufferedReaderTest.testEmptyInput ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 189, in testEmptyInput
+    with self.__createBufferedReader("") as br:
+ValueError: I/O operation on uninitialized object
+___________________ ExtendedBufferedReaderTest.testReadChar ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 172, in testReadChar
+    self.assertEqual(EOLeolct, br.getCurrentLineNumber())
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 9 != 1
+___________________ ExtendedBufferedReaderTest.testReadLine ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 94, in testReadLine
+    with self.__createBufferedReader("") as br:
+ValueError: I/O operation on uninitialized object
+________________ ExtendedBufferedReaderTest.testReadLookahead1 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 38, in testReadLookahead1
+    with self.__createBufferedReader("1\n2\r3\n") as br:
+ValueError: I/O operation on uninitialized object
+________________ ExtendedBufferedReaderTest.testReadLookahead2 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 22, in testReadLookahead2
+    with self.__createBufferedReader("abcdefg") as br:
+ValueError: I/O operation on uninitialized object
+___________ ExtendedBufferedReaderTest.testReadingInDifferentBuffer ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 138, in testReadingInDifferentBuffer
+    with self.__createBufferedReader("1\r\n2\r\n") as reader:
+ValueError: I/O operation on uninitialized object
+=========================== short test summary info ============================
+ERROR src/test/org/apache/commons/csv/CSVFileParserTest.py - TypeError: 'str'...
+ERROR src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py - TypeError:...
+ERROR src/test/org/apache/commons/csv/CSVFormatTest.py - TypeError: 'str' obj...
+ERROR src/test/org/apache/commons/csv/CSVParserTest.py - TypeError: 'str' obj...
+ERROR src/test/org/apache/commons/csv/CSVPrinterTest.py - TypeError: 'str' ob...
+ERROR src/test/org/apache/commons/csv/LexerTest.py - TypeError: 'str' object ...
+ERROR src/test/org/apache/commons/csv/PerformanceTest.py - TypeError: 'str' o...
+ERROR src/test/org/apache/commons/csv/Utils.py - TypeError: 'str' object cann...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv248Test.py - TypeError: '...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv249Test.py - TypeError: '...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv253Test.py - TypeError: '...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv288Test.py - TypeError: '...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv290Test.py - TypeError: '...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv93Test.py - TypeError: 's...
+ERROR src/test/org/apache/commons/csv/perf/PerformanceTest.py - TypeError: 's...
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testEmptyInput
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadChar
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadLine
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadLookahead1
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadLookahead2
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadingInDifferentBuffer
+6 failed, 13 passed, 15 errors in 0.18s
+
+[oracle] project  : commons-csv
+[oracle] source   : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0r-test-sonnet5-med-20260909v2/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] deferrals: disabled (isolated staging)
+[oracle] result   : 6 failed, 13 passed, 15 errors in 0.18s
+[oracle] exitcode : 1

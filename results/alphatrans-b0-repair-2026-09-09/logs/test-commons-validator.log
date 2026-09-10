@@ -1,0 +1,5 @@
+[repair] commons-validator test baseline: clean=False {'score': None}
+[repair] iteration 1: changed=6 rejected=0 clean=False improved=True {'score': {'passed': 385, 'failed': 77, 'skipped': 1, 'deselected': 1, 'errors': 0, 'exit_code': 1, 'summary': '77 failed, 385 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s'}}
+[repair] iteration 2: changed=5 rejected=0 clean=False improved=True {'score': {'passed': 388, 'failed': 74, 'skipped': 1, 'deselected': 1, 'errors': 0, 'exit_code': 1, 'summary': '74 failed, 388 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s'}}
+[repair] iteration 3: changed=2 rejected=0 clean=False improved=True {'score': {'passed': 403, 'failed': 59, 'skipped': 1, 'deselected': 1, 'errors': 0, 'exit_code': 1, 'summary': '59 failed, 403 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s'}}
+[repair] done; final oracle: 59 failed, 403 passed, 1 skipped, 1 deselected, 23 warnings in 0.58s

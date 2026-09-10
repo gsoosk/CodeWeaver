@@ -1,0 +1,436 @@
+{
+  "baseline": "B0-repair-test",
+  "project": "commons-fileupload",
+  "tag": "b0r-test-sonnet5-med-20260909v2",
+  "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+  "source_baseline": "B0-single-shot",
+  "source_granularity": "per-file",
+  "arm": "test",
+  "feedback_source": "oracle test failures",
+  "test_blind": false,
+  "oracle_seen": true,
+  "oracle_tests_in_prompt": false,
+  "backend": "copilot-api",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "max_output_tokens": 64000,
+  "max_iterations": 3,
+  "recorded": "2026-09-09T23:14:19+0000",
+  "code_revision": "1762ed1dfcfb0847dc43a0084f0be80b292e962a",
+  "collector_code_sha256": {
+    "single_shot.py": "101fd640e0b0b59e46869d74d8b5889c949f865e169be073021e2b4236ec54fa",
+    "backends/copilot.py": "972fbbfd623eb9266deb84c1e0fa0874edeb83d66866edab6a8df32336c946b9",
+    "backends/copilot_api.py": "f5487a7e716b564b7e4b8f3e8f41cc405d64fd38b80763ffe4b4e46676cf5ba3",
+    "backends/base.py": "9f3afaf7fd376638b2797f97c80c2e85527d063b571c9930295aa4d97fa1b0e7",
+    "run_one.py": "4400d0e0db439e10142205bc76bbfaa49d3e4f28cd7173f94edc88789985de49"
+  },
+  "transport": "loopback-http-openai-chat-completions",
+  "api_configuration": {
+    "base_url": "http://127.0.0.1:4141/v1",
+    "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+    "model": "claude-sonnet-5",
+    "max_tokens": 64000,
+    "timeout_s": 3600.0,
+    "max_retries": 0,
+    "redirects": "rejected",
+    "min_request_interval_s": 30.0,
+    "environment_proxies": false,
+    "authentication_to_loopback": "local-bearer-key",
+    "reasoning_effort": "medium",
+    "stream": true
+  },
+  "api_protocol": {
+    "id": "b0-api-chat-completions-v1",
+    "message_roles": "native system/user/assistant",
+    "stream": true,
+    "tools": "omitted; returned tool/function calls invalidate the request",
+    "cli_invocations": 0,
+    "implicit_cli_system_prompt": false,
+    "client_auto_continuation": false,
+    "proxy_auto_continuation": false,
+    "continuation": "explicit harness requests for missing whole modules only",
+    "upstream_requests_per_http_request": 1,
+    "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+    "proxy_version_verified_by_client": false,
+    "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+  },
+  "protocol": "Iterative repair over a frozen B0 artifact. Each iteration is one explicit HTTP model request carrying the current project source and the current diagnostics; no tools, no retries, no conversation state between iterations. The source run is copied, never modified. Feedback is the oracle's own failure output. This arm is NOT test-blind and is not comparable to any test-blind arm.",
+  "iterations_run": 3,
+  "best_iteration_by_metric": 0,
+  "kept": "final iteration (CRUST-bench convention); trajectory in history",
+  "history": [
+    {
+      "iteration": 0,
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 37,
+          "failed": 2,
+          "skipped": 0,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "2 failed, 37 passed in 0.10s"
+        }
+      },
+      "api_calls": 0
+    },
+    {
+      "iteration": 1,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+        "src/main/org/apache/commons/fileupload/MultipartStream.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 37,
+          "failed": 2,
+          "skipped": 0,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "2 failed, 37 passed in 0.10s"
+        }
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 26560,
+        "completion_tokens": 56115,
+        "total_tokens": 82675,
+        "wall_clock_s": 474.626452740049
+      }
+    },
+    {
+      "iteration": 2,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+        "src/main/org/apache/commons/fileupload/MultipartStream.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 37,
+          "failed": 2,
+          "skipped": 0,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "2 failed, 37 passed in 0.10s"
+        }
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 26893,
+        "completion_tokens": 54569,
+        "total_tokens": 81462,
+        "wall_clock_s": 475.4554574380163
+      }
+    },
+    {
+      "iteration": 3,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+        "src/main/org/apache/commons/fileupload/MultipartStream.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 37,
+          "failed": 2,
+          "skipped": 0,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "2 failed, 37 passed in 0.10s"
+        }
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 27118,
+        "completion_tokens": 50961,
+        "total_tokens": 78079,
+        "wall_clock_s": 454.20677983702626
+      }
+    }
+  ],
+  "usage_per_iteration": [
+    {
+      "prompt_tokens": 26560,
+      "completion_tokens": 56115,
+      "total_tokens": 82675,
+      "wall_clock_s": 474.626452740049
+    },
+    {
+      "prompt_tokens": 26893,
+      "completion_tokens": 54569,
+      "total_tokens": 81462,
+      "wall_clock_s": 475.4554574380163
+    },
+    {
+      "prompt_tokens": 27118,
+      "completion_tokens": 50961,
+      "total_tokens": 78079,
+      "wall_clock_s": 454.20677983702626
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 80571,
+    "completion_tokens": 161645,
+    "total_tokens": 242216,
+    "wall_clock_s": 1404.2886900150916
+  },
+  "api_audit": [
+    {
+      "round": 1,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-09T23:14:19.914990+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "stop",
+      "token_usage": {
+        "completion_tokens": 56115,
+        "prompt_tokens": 26560,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 82675
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "78dbbaff6afd3ec65083cf376f4a381f7cc5b754247a3263a5bc8ab3f8178451",
+      "response_sha256": "d8846a8ccebc228d2b13b923736fc6709dae91b4a354e337b41e856e70670271",
+      "audit_path": "api-audit/round-01",
+      "pacing_wait_s": 0.0,
+      "sse_events": 719,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 26560,
+        "completion_tokens": 56115,
+        "total_tokens": 82675,
+        "wall_clock_s": 474.626452740049
+      },
+      "wall_clock_s": 474.6264748540707,
+      "finished_at": "2026-09-09T23:22:14.541530+00:00"
+    },
+    {
+      "round": 2,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-09T23:22:14.918711+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "stop",
+      "token_usage": {
+        "completion_tokens": 54569,
+        "prompt_tokens": 26893,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 81462
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "a94879dc5eebaa3dc0c95f5df497fff15fd17a6df601730b1a65b3e21c86c5f3",
+      "response_sha256": "6d272bababb1609193d52d7ee4561220238d0fecce6843ee01d1e20926cdf291",
+      "audit_path": "api-audit/round-02",
+      "pacing_wait_s": 0.0,
+      "sse_events": 722,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 26893,
+        "completion_tokens": 54569,
+        "total_tokens": 81462,
+        "wall_clock_s": 475.4554574380163
+      },
+      "wall_clock_s": 475.45547747809906,
+      "finished_at": "2026-09-09T23:30:10.374251+00:00"
+    },
+    {
+      "round": 3,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-09T23:30:10.754820+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "stop",
+      "token_usage": {
+        "completion_tokens": 50961,
+        "prompt_tokens": 27118,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 78079
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "d44377e839f88302af40e174b707d04bf9aedbf9ff55ce162276bb14505f98bb",
+      "response_sha256": "bb01c8aabb8b8b506be663f1e6c5c06d460a812fa5d616c4ae62346ec14115c1",
+      "audit_path": "api-audit/round-03",
+      "pacing_wait_s": 0.0,
+      "sse_events": 656,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 27118,
+        "completion_tokens": 50961,
+        "total_tokens": 78079,
+        "wall_clock_s": 454.20677983702626
+      },
+      "wall_clock_s": 454.2067979540443,
+      "finished_at": "2026-09-09T23:37:44.961683+00:00"
+    }
+  ],
+  "explicit_http_model_requests": 3,
+  "final_oracle_score": {
+    "passed": 37,
+    "failed": 2,
+    "skipped": 0,
+    "deselected": 0,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "2 failed, 37 passed in 0.10s",
+    "pipeline_deferrals_applied": false
+  },
+  "source_hashes": {
+    "src/main/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/fileupload/DefaultFileItem.py": "6b1c5a0dfc0815b6fd914127639a5f9f0b90dfff6bd6636a5448cd0b22a66aa2",
+    "src/main/org/apache/commons/fileupload/DefaultFileItemFactory.py": "e2e567c54109a97354964c1f7b62570018109693324a0814cacc3c1b64339605",
+    "src/main/org/apache/commons/fileupload/FileCountLimitExceededException.py": "abd9c12b60bfcde152133f7f2c6d6e5a7df0b8273cc67278cd1e9bf2c2793d18",
+    "src/main/org/apache/commons/fileupload/FileItem.py": "e925385cc3bc2d389efba8e87ad03731cb2459145ce2862171ef3dec1446af35",
+    "src/main/org/apache/commons/fileupload/FileItemFactory.py": "9f1730c35ca1693c795831f888285bb6008ce655608730a0dbfa45200a25249f",
+    "src/main/org/apache/commons/fileupload/FileItemHeaders.py": "b43bb7b5f4fa6004e09144ce453ae9e41f9c4257c935581b5f12a1a3e289acf6",
+    "src/main/org/apache/commons/fileupload/FileItemHeadersSupport.py": "9077b769da31d608d42534c590690126b365c5d86f7dd2ab05fb8bba115442a2",
+    "src/main/org/apache/commons/fileupload/FileItemIterator.py": "dc1c6658dc0341d2fc18686c661f321a1217f24a502ef8d63de70bc6caadb5ac",
+    "src/main/org/apache/commons/fileupload/FileItemStream.py": "76c2c458f78ed5de1459bb9c5c7b1f136f84641ad978881d3c63aef1cb5c5023",
+    "src/main/org/apache/commons/fileupload/FileUpload.py": "0014ec6c9285c3850fcc391baef6f26544b9e557241a8c26a1c8b54c97e2306d",
+    "src/main/org/apache/commons/fileupload/FileUploadBase.py": "39805f50f1f9007d6bec1dd80c17a83a50396bc954219b3d263279c9eaa011e3",
+    "src/main/org/apache/commons/fileupload/FileUploadException.py": "6c0102c39ecbcb75ed4e1b8bb58d5ab1cb78dcf571e81b489004b445774d3b02",
+    "src/main/org/apache/commons/fileupload/InvalidFileNameException.py": "a4b514a165554a936752ce10cb0ff7822262e458f64b8cfa78286ec299c66220",
+    "src/main/org/apache/commons/fileupload/MultipartStream.py": "a1b29f41f4ced1cfb9f37058472a90f6e9eed3c57b6a1be02618c716ff461485",
+    "src/main/org/apache/commons/fileupload/ParameterParser.py": "7643ea0af47f2f950fb4deacff287c4af5f010d37af9d0c4c6ec5d2d409ec820",
+    "src/main/org/apache/commons/fileupload/ProgressListener.py": "0a20d25486368ba7789cf1cc8f381c77831752b8bb4808797bef7581c569b80d",
+    "src/main/org/apache/commons/fileupload/RequestContext.py": "23e2bfa3bfd892c7c81aa71e4fc4769df3be802235ac5befae0b025b1ff68025",
+    "src/main/org/apache/commons/fileupload/UploadContext.py": "6e366b9f9763a24f7483ee8bedd9a153cd1234885565740abfd4239bb82aab9a",
+    "src/main/org/apache/commons/fileupload/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/fileupload/disk/DiskFileItem.py": "6dbe9a26d4e4c3c06245e30eec15928e317082e56941c7f9c0ea33236e231e76",
+    "src/main/org/apache/commons/fileupload/disk/DiskFileItemFactory.py": "814d6772e25b383aad78dbf771215d6e827a6e731cb9eba0e57419cd07ed3894",
+    "src/main/org/apache/commons/fileupload/disk/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/fileupload/portlet/PortletFileUpload.py": "423dd85b078ce605f87089b067a165b7e736172356d760602cfa0bac89edde86",
+    "src/main/org/apache/commons/fileupload/portlet/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/fileupload/servlet/ServletRequestContext.py": "cf78543455a8bb10b42241db1b8e3b6f36641b34343486690a0147cb839c10b1",
+    "src/main/org/apache/commons/fileupload/servlet/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/fileupload/util/Closeable.py": "0f5f332c3fb32c1e366bff2809976ea58476d9f217c19545b794e640092530dc",
+    "src/main/org/apache/commons/fileupload/util/FileItemHeadersImpl.py": "440485d5c045baac11c70a69dd32bd698b59f22f1aa8b2dcaf29f813736766ca",
+    "src/main/org/apache/commons/fileupload/util/LimitedInputStream.py": "08fd27ee88db3f4cf391f85806f5995290218c249145163e9cd42e6163c451ca",
+    "src/main/org/apache/commons/fileupload/util/Streams.py": "3554e0bf5e720930ac74bcbbe0f3ed59a04ee6758e321ea9a3c129486a41e2b3",
+    "src/main/org/apache/commons/fileupload/util/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/fileupload/util/mime/Base64Decoder.py": "83d48ecc12103bd65f05928cb7a82ff3e86ffeabf11e94b04f50bcd8d671be02",
+    "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py": "df174ac1a96d78bd98bca173c3ff226bf7930d32b303a0f4a137b4b9a6d101b3",
+    "src/main/org/apache/commons/fileupload/util/mime/ParseException.py": "848ea606a0c0e358472a43ce0e9c0a67bca44589863fa04394fdb81ffb1bebf2",
+    "src/main/org/apache/commons/fileupload/util/mime/QuotedPrintableDecoder.py": "a5b42ee0f09698ca3905aafda8818721de37fa89ef1ed68df2f070591ee426e1",
+    "src/main/org/apache/commons/fileupload/util/mime/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

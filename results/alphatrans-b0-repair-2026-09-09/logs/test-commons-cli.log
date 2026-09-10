@@ -1,0 +1,5 @@
+[repair] commons-cli test baseline: clean=False {'score': {'passed': 110, 'failed': 271, 'skipped': 56, 'deselected': 0, 'errors': 0, 'exit_code': 1, 'summary': '271 failed, 110 passed, 56 skipped in 0.54s'}}
+[repair] iteration 1: changed=1 rejected=0 clean=False improved=True {'score': {'passed': 356, 'failed': 25, 'skipped': 56, 'deselected': 0, 'errors': 0, 'exit_code': 1, 'summary': '25 failed, 356 passed, 56 skipped in 0.33s'}}
+[repair] iteration 2: changed=5 rejected=0 clean=False improved=True {'score': {'passed': 369, 'failed': 12, 'skipped': 56, 'deselected': 0, 'errors': 0, 'exit_code': 1, 'summary': '12 failed, 369 passed, 56 skipped in 0.32s'}}
+[repair] iteration 3: changed=1 rejected=0 clean=False improved=True {'score': {'passed': 370, 'failed': 11, 'skipped': 56, 'deselected': 0, 'errors': 0, 'exit_code': 1, 'summary': '11 failed, 370 passed, 56 skipped in 0.33s'}}
+[repair] done; final oracle: 11 failed, 370 passed, 56 skipped in 0.32s

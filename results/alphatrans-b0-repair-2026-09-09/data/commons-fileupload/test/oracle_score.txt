@@ -1,0 +1,42 @@
+..F...................F................                                  [100%]
+=================================== FAILURES ===================================
+________________ MultipartStreamTest.testThreeParamConstructor _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/fileupload/MultipartStreamTest.py", line 46, in testThreeParamConstructor
+    iBufSize = len(boundary) + len(MultipartStream.BOUNDARY_PREFIX) + 1
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'MultipartStream' has no attribute 'BOUNDARY_PREFIX'. Did you mean: '_BOUNDARY_PREFIX'?
+________________ MimeUtilityTestCase.testdecodeInvalidEncoding _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/fileupload/util/mime/MimeUtilityTestCase.py", line 14, in testdecodeInvalidEncoding
+    with pytest.raises(ValueError):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/raises.py", line 699, in __exit__
+    fail(f"DID NOT RAISE {self.expected_exceptions[0].__name__}")
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/outcomes.py", line 162, in __call__
+    raise Failed(msg=reason, pytrace=pytrace)
+Failed: DID NOT RAISE ValueError
+=========================== short test summary info ============================
+FAILED src/test/org/apache/commons/fileupload/MultipartStreamTest.py::MultipartStreamTest::testThreeParamConstructor
+FAILED src/test/org/apache/commons/fileupload/util/mime/MimeUtilityTestCase.py::MimeUtilityTestCase::testdecodeInvalidEncoding
+2 failed, 37 passed in 0.10s
+
+[oracle] project  : commons-fileupload
+[oracle] source   : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-fileupload/pipeline-baseline-b0r-test-sonnet5-med-20260909v2/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] deferrals: disabled (isolated staging)
+[oracle] result   : 2 failed, 37 passed in 0.10s
+[oracle] exitcode : 1

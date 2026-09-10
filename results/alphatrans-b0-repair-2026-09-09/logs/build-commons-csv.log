@@ -1,0 +1,5 @@
+[repair] commons-csv build baseline: clean=False {'modules_ok': 7, 'modules_total': 11, 'syntax_or_import_failures': 4}
+[repair] iteration 1: changed=1 rejected=0 clean=False improved=False {'modules_ok': 7, 'modules_total': 11, 'syntax_or_import_failures': 4}
+[repair] iteration 2: changed=1 rejected=0 clean=True improved=True {'modules_ok': 11, 'modules_total': 11, 'syntax_or_import_failures': 0}
+[repair] signal is clean; stopping
+[repair] done; final oracle: not scoreable

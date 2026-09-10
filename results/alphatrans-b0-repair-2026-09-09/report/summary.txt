@@ -1,0 +1,95 @@
+Iterative repair over the frozen B0 API per-file artifact — Claude Sonnet 5 / medium
+
+Two independent arms, both starting from the SAME published artifact
+(results/alphatrans-b0-api-2026-09-09, per-file) and never modifying it.
+
+  build  test-blind. Feedback is build_check parse/import diagnostics only.
+         Analogue of CRUST-bench's transpile + compiler-guided repair.
+  test   NOT test-blind. Feedback is the oracle's failure output.
+         Analogue of CRUST-bench's test-guided repair.
+
+Up to 3 iterations per run. The final iteration is kept, as CRUST-bench does,
+not the best-scoring one.
+
+BUILD-GUIDED ARM (test-blind — comparable to the generation arms)
+
+Subject             | calls | source                        | after repair
+--------------------|-------|-------------------------------|---------------------------
+commons-cli         |   0   | 110 / 381                     | 110 / 381  (unchanged)
+commons-csv         |   2   | COLLECTION FAILURE (19 err)   | ERROR (1 collection error)
+commons-fileupload  |   0   | 37 / 39                       | 37 / 39    (unchanged)
+commons-validator   |   1   | 277 passed, 8 collection err  | 382 / 462  (clean)
+
+3 API calls total, 28,815 completion tokens.
+
+TEST-GUIDED ARM (oracle-seen — NOT comparable to any test-blind arm)
+
+Subject             | calls | source                        | after repair
+--------------------|-------|-------------------------------|---------------------------
+commons-cli         |   3   | 110 / 381                     | 370 / 381
+commons-csv         |   3   | COLLECTION FAILURE (19 err)   | ERROR (1 collection error)
+commons-fileupload  |   3   | 37 / 39                       | 37 / 39    (unchanged)
+commons-validator   |   3   | 277 passed, 8 collection err  | 403 / 462  (clean)
+
+12 API calls total, 436,267 completion tokens.
+
+commons-csv is NOT scoreable in either arm. It still has one collection error, so
+its counts are not a pass rate. Report it as an error.
+
+WHAT THIS SHOWS
+
+Build-guided repair is extremely cheap and fixes exactly one class of defect.
+Three calls across four subjects turned commons-validator's 8 collection errors
+into a clean 382/462, without the model ever seeing a test. Two subjects consumed
+zero calls because every module already imported — the correct outcome for a
+build-guided arm, not a failure.
+
+The arms converge on commons-csv (185 vs 189) and diverge sharply on commons-cli
+(110 vs 370). commons-cli's dominant failure is an AttributeError raised at
+runtime — the parsers call CommandLine.addOption, the skeleton declares
+_addOption — which a parse/import check structurally cannot observe. In a
+statically typed target that would be a compile error; in Python it is not. This
+is a real limit of compiler-guided repair on a dynamically typed language, and it
+is why the CRUST-bench result does not transfer unchanged to this setting.
+
+Repair is not universally effective. commons-fileupload absorbed three
+test-guided iterations and five changed files with no change in score at all.
+
+Even with 12 test-guided calls and full oracle visibility, no repaired arm
+reaches CodeWeaver on any subject.
+
+COMPARISON DISCIPLINE
+
+The two arms here are NOT comparable to each other. The test arm read the
+oracle's failure output; the build arm did not. Never tabulate them side by side
+without stating that difference.
+
+Only the build arm may sit in a table with the generation arms, which are all
+test-blind.
+
+These numbers are NOT comparable to CRUST-bench's. Their model can read and run
+the test suite throughout, including during generation; our oracle is held out
+from every generation arm. Their target is Rust, where the compiler observes far
+more than a Python parse/import check does.
+
+An earlier version of this loop discarded a repair when a coarse metric failed to
+improve. That was wrong: cascading import errors mean a correct fix often
+resolves one diagnostic and immediately exposes the next. It is documented in
+METHOD.md and was removed before these runs. The loop now spends its full budget
+and records per-iteration trajectories, so regressions are visible rather than
+hidden.
+
+Cost is provider-reported tokens only. No premium-request or AIU figure is
+inferred. N=1 per run; no repetitions, no variance.
+
+CONTENTS
+
+data/<subject>/<arm>/project/  repaired Python tree
+data/<subject>/<arm>/api-audit/  per-call audits, one directory per iteration
+report/scorecard.json          machine-readable results, trajectories and caveats
+metadata/                      oracle fixture manifests and provenance
+reproduction/                  isolated scoring wrapper and instructions
+logs/                          campaign controller logs
+
+Raw prompts, model responses and event streams are retained privately and are not
+redistributed. Their hashes are in metadata/publication-provenance.json.

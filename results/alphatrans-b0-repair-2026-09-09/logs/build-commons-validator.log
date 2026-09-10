@@ -1,0 +1,4 @@
+[repair] commons-validator build baseline: clean=False {'modules_ok': 50, 'modules_total': 63, 'syntax_or_import_failures': 13}
+[repair] iteration 1: changed=4 rejected=0 clean=True improved=True {'modules_ok': 63, 'modules_total': 63, 'syntax_or_import_failures': 0}
+[repair] signal is clean; stopping
+[repair] done; final oracle: 80 failed, 382 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s

@@ -1,0 +1,52 @@
+..F...................F................                                  [100%]
+=================================== FAILURES ===================================
+________________ MultipartStreamTest.testThreeParamConstructor _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/fileupload/MultipartStreamTest.py", line 46, in testThreeParamConstructor
+    iBufSize = len(boundary) + len(MultipartStream.BOUNDARY_PREFIX) + 1
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'MultipartStream' has no attribute 'BOUNDARY_PREFIX'. Did you mean: '_BOUNDARY_PREFIX'?
+________________ MimeUtilityTestCase.testdecodeInvalidEncoding _________________
+Traceback (most recent call last):
+  File "<isolated-scoring>/src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py", line 142, in __decodeWord
+    Base64Decoder.decode(encoded_data, out)
+  File "<isolated-scoring>/src/main/org/apache/commons/fileupload/util/mime/Base64Decoder.py", line 89, in decode
+    raise IOError("Invalid Base64 input: truncated")
+OSError: Invalid Base64 input: truncated
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/fileupload/util/mime/MimeUtilityTestCase.py", line 15, in testdecodeInvalidEncoding
+    MimeUtility.decodeText("=?invalid?B?xyz-?=")
+  File "<isolated-scoring>/src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py", line 82, in decodeText
+    decoded_word = MimeUtility.__decodeWord(word)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py", line 157, in __decodeWord
+    raise UnsupportedEncodingException("Invalid RFC 2047 encoding")
+src.main.org.apache.commons.fileupload.util.mime.MimeUtility.UnsupportedEncodingException: Invalid RFC 2047 encoding
+=========================== short test summary info ============================
+FAILED src/test/org/apache/commons/fileupload/MultipartStreamTest.py::MultipartStreamTest::testThreeParamConstructor
+FAILED src/test/org/apache/commons/fileupload/util/mime/MimeUtilityTestCase.py::MimeUtilityTestCase::testdecodeInvalidEncoding
+2 failed, 37 passed in 0.10s
+
+[oracle] project  : commons-fileupload
+[oracle] source   : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-fileupload/pipeline-baseline-b0r-test-sonnet5-med-20260909v2/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] deferrals: disabled (isolated staging)
+[oracle] result   : 2 failed, 37 passed in 0.10s
+[oracle] exitcode : 1

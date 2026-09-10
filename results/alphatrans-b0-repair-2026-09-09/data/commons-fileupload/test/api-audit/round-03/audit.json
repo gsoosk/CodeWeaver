@@ -1,0 +1,62 @@
+{
+  "round": 3,
+  "valid": true,
+  "transport": "loopback-http-openai-chat-completions",
+  "api_configuration": {
+    "base_url": "http://127.0.0.1:4141/v1",
+    "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+    "model": "claude-sonnet-5",
+    "max_tokens": 64000,
+    "timeout_s": 3600.0,
+    "max_retries": 0,
+    "redirects": "rejected",
+    "min_request_interval_s": 30.0,
+    "environment_proxies": false,
+    "authentication_to_loopback": "local-bearer-key",
+    "reasoning_effort": "medium",
+    "stream": true
+  },
+  "api_protocol": {
+    "id": "b0-api-chat-completions-v1",
+    "message_roles": "native system/user/assistant",
+    "stream": true,
+    "tools": "omitted; returned tool/function calls invalidate the request",
+    "cli_invocations": 0,
+    "implicit_cli_system_prompt": false,
+    "client_auto_continuation": false,
+    "proxy_auto_continuation": false,
+    "continuation": "explicit harness requests for missing whole modules only",
+    "upstream_requests_per_http_request": 1,
+    "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+    "proxy_version_verified_by_client": false,
+    "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+  },
+  "started_at": "2026-09-09T23:30:10.754820+00:00",
+  "requested_model": "claude-sonnet-5",
+  "returned_model": "claude-sonnet-5",
+  "finish_reason": "stop",
+  "token_usage": {
+    "completion_tokens": 50961,
+    "prompt_tokens": 27118,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 78079
+  },
+  "http_status": 200,
+  "http_requests": 1,
+  "request_sha256": "d44377e839f88302af40e174b707d04bf9aedbf9ff55ce162276bb14505f98bb",
+  "response_sha256": "bb01c8aabb8b8b506be663f1e6c5c06d460a812fa5d616c4ae62346ec14115c1",
+  "audit_path": "api-audit/round-03",
+  "pacing_wait_s": 0.0,
+  "sse_events": 656,
+  "model_tool_calls": 0,
+  "usage": {
+    "prompt_tokens": 27118,
+    "completion_tokens": 50961,
+    "total_tokens": 78079,
+    "wall_clock_s": 454.20677983702626
+  },
+  "wall_clock_s": 454.2067979540443,
+  "finished_at": "2026-09-09T23:37:44.961683+00:00"
+}

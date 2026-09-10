@@ -1,0 +1,130 @@
+{
+  "state": "completed",
+  "pid": 183028,
+  "project": "commons-cli",
+  "tag": "b0r-test-sonnet5-med-20260909v2",
+  "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+  "arm": "test",
+  "test_blind": false,
+  "iterations": [
+    {
+      "iteration": 0,
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 110,
+          "failed": 271,
+          "skipped": 56,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "271 failed, 110 passed, 56 skipped in 0.54s"
+        }
+      },
+      "api_calls": 0
+    },
+    {
+      "iteration": 1,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/cli/CommandLine.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 356,
+          "failed": 25,
+          "skipped": 56,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "25 failed, 356 passed, 56 skipped in 0.33s"
+        }
+      },
+      "improved": true,
+      "usage": {
+        "prompt_tokens": 48257,
+        "completion_tokens": 2850,
+        "total_tokens": 51107,
+        "wall_clock_s": 20.42318859300576
+      }
+    },
+    {
+      "iteration": 2,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/cli/PatternOptionBuilder.py",
+        "src/main/org/apache/commons/cli/TypeHandler.py",
+        "src/main/org/apache/commons/cli/Parser.py",
+        "src/main/org/apache/commons/cli/HelpFormatter.py",
+        "src/main/org/apache/commons/cli/CommandLine.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 369,
+          "failed": 12,
+          "skipped": 56,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "12 failed, 369 passed, 56 skipped in 0.32s"
+        }
+      },
+      "improved": true,
+      "usage": {
+        "prompt_tokens": 36138,
+        "completion_tokens": 52740,
+        "total_tokens": 88878,
+        "wall_clock_s": 450.2045615160605
+      }
+    },
+    {
+      "iteration": 3,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/cli/TypeHandler.py"
+      ],
+      "files_rejected": [],
+      "truncated": true,
+      "finish_reason": "length",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 370,
+          "failed": 11,
+          "skipped": 56,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "11 failed, 370 passed, 56 skipped in 0.33s"
+        }
+      },
+      "improved": true,
+      "usage": {
+        "prompt_tokens": 35747,
+        "completion_tokens": 64000,
+        "total_tokens": 99747,
+        "wall_clock_s": 590.4915635499638
+      }
+    }
+  ],
+  "final_oracle_score": {
+    "passed": 370,
+    "failed": 11,
+    "skipped": 56,
+    "deselected": 0,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "11 failed, 370 passed, 56 skipped in 0.32s",
+    "pipeline_deferrals_applied": false
+  },
+  "best_iteration_by_metric": 3,
+  "finished": "2026-09-09T23:05:21+0000"
+}

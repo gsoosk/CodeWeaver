@@ -1,0 +1,129 @@
+{
+  "state": "completed",
+  "pid": 184417,
+  "project": "commons-fileupload",
+  "tag": "b0r-test-sonnet5-med-20260909v2",
+  "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+  "arm": "test",
+  "test_blind": false,
+  "iterations": [
+    {
+      "iteration": 0,
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 37,
+          "failed": 2,
+          "skipped": 0,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "2 failed, 37 passed in 0.10s"
+        }
+      },
+      "api_calls": 0
+    },
+    {
+      "iteration": 1,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+        "src/main/org/apache/commons/fileupload/MultipartStream.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 37,
+          "failed": 2,
+          "skipped": 0,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "2 failed, 37 passed in 0.10s"
+        }
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 26560,
+        "completion_tokens": 56115,
+        "total_tokens": 82675,
+        "wall_clock_s": 474.626452740049
+      }
+    },
+    {
+      "iteration": 2,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+        "src/main/org/apache/commons/fileupload/MultipartStream.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 37,
+          "failed": 2,
+          "skipped": 0,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "2 failed, 37 passed in 0.10s"
+        }
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 26893,
+        "completion_tokens": 54569,
+        "total_tokens": 81462,
+        "wall_clock_s": 475.4554574380163
+      }
+    },
+    {
+      "iteration": 3,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/fileupload/util/mime/MimeUtility.py",
+        "src/main/org/apache/commons/fileupload/MultipartStream.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 37,
+          "failed": 2,
+          "skipped": 0,
+          "deselected": 0,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "2 failed, 37 passed in 0.10s"
+        }
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 27118,
+        "completion_tokens": 50961,
+        "total_tokens": 78079,
+        "wall_clock_s": 454.20677983702626
+      }
+    }
+  ],
+  "final_oracle_score": {
+    "passed": 37,
+    "failed": 2,
+    "skipped": 0,
+    "deselected": 0,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "2 failed, 37 passed in 0.10s",
+    "pipeline_deferrals_applied": false
+  },
+  "best_iteration_by_metric": 0,
+  "finished": "2026-09-09T23:37:45+0000"
+}

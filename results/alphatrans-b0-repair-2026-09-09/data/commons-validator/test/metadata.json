@@ -1,0 +1,466 @@
+{
+  "baseline": "B0-repair-test",
+  "project": "commons-validator",
+  "tag": "b0r-test-sonnet5-med-20260909v2",
+  "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+  "source_baseline": "B0-single-shot",
+  "source_granularity": "per-file",
+  "arm": "test",
+  "feedback_source": "oracle test failures",
+  "test_blind": false,
+  "oracle_seen": true,
+  "oracle_tests_in_prompt": false,
+  "backend": "copilot-api",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "max_output_tokens": 64000,
+  "max_iterations": 3,
+  "recorded": "2026-09-09T23:38:15+0000",
+  "code_revision": "1762ed1dfcfb0847dc43a0084f0be80b292e962a",
+  "collector_code_sha256": {
+    "single_shot.py": "101fd640e0b0b59e46869d74d8b5889c949f865e169be073021e2b4236ec54fa",
+    "backends/copilot.py": "972fbbfd623eb9266deb84c1e0fa0874edeb83d66866edab6a8df32336c946b9",
+    "backends/copilot_api.py": "f5487a7e716b564b7e4b8f3e8f41cc405d64fd38b80763ffe4b4e46676cf5ba3",
+    "backends/base.py": "9f3afaf7fd376638b2797f97c80c2e85527d063b571c9930295aa4d97fa1b0e7",
+    "run_one.py": "4400d0e0db439e10142205bc76bbfaa49d3e4f28cd7173f94edc88789985de49"
+  },
+  "transport": "loopback-http-openai-chat-completions",
+  "api_configuration": {
+    "base_url": "http://127.0.0.1:4141/v1",
+    "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+    "model": "claude-sonnet-5",
+    "max_tokens": 64000,
+    "timeout_s": 3600.0,
+    "max_retries": 0,
+    "redirects": "rejected",
+    "min_request_interval_s": 30.0,
+    "environment_proxies": false,
+    "authentication_to_loopback": "local-bearer-key",
+    "reasoning_effort": "medium",
+    "stream": true
+  },
+  "api_protocol": {
+    "id": "b0-api-chat-completions-v1",
+    "message_roles": "native system/user/assistant",
+    "stream": true,
+    "tools": "omitted; returned tool/function calls invalidate the request",
+    "cli_invocations": 0,
+    "implicit_cli_system_prompt": false,
+    "client_auto_continuation": false,
+    "proxy_auto_continuation": false,
+    "continuation": "explicit harness requests for missing whole modules only",
+    "upstream_requests_per_http_request": 1,
+    "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+    "proxy_version_verified_by_client": false,
+    "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+  },
+  "protocol": "Iterative repair over a frozen B0 artifact. Each iteration is one explicit HTTP model request carrying the current project source and the current diagnostics; no tools, no retries, no conversation state between iterations. The source run is copied, never modified. Feedback is the oracle's own failure output. This arm is NOT test-blind and is not comparable to any test-blind arm.",
+  "iterations_run": 3,
+  "best_iteration_by_metric": 3,
+  "kept": "final iteration (CRUST-bench convention); trajectory in history",
+  "history": [
+    {
+      "iteration": 0,
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "api_calls": 0
+    },
+    {
+      "iteration": 1,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/validator/FormSet.py",
+        "src/main/org/apache/commons/validator/routines/DomainValidator.py",
+        "src/main/org/apache/commons/validator/routines/BigIntegerValidator.py",
+        "src/main/org/apache/commons/validator/routines/LongValidator.py",
+        "src/main/org/apache/commons/validator/CreditCardValidator.py",
+        "src/main/org/apache/commons/validator/UrlValidator.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 385,
+          "failed": 77,
+          "skipped": 1,
+          "deselected": 1,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "77 failed, 385 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s"
+        }
+      },
+      "improved": true,
+      "usage": {
+        "prompt_tokens": 134096,
+        "completion_tokens": 31235,
+        "total_tokens": 165331,
+        "wall_clock_s": 233.49848596891388
+      }
+    },
+    {
+      "iteration": 2,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py",
+        "src/main/org/apache/commons/validator/routines/CurrencyValidator.py",
+        "src/main/org/apache/commons/validator/routines/PercentValidator.py",
+        "src/main/org/apache/commons/validator/routines/CalendarValidator.py",
+        "src/main/org/apache/commons/validator/routines/DateValidator.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 388,
+          "failed": 74,
+          "skipped": 1,
+          "deselected": 1,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "74 failed, 388 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s"
+        }
+      },
+      "improved": true,
+      "usage": {
+        "prompt_tokens": 113175,
+        "completion_tokens": 29235,
+        "total_tokens": 142410,
+        "wall_clock_s": 236.1378646719968
+      }
+    },
+    {
+      "iteration": 3,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py",
+        "src/main/org/apache/commons/validator/routines/AbstractCalendarValidator.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 403,
+          "failed": 59,
+          "skipped": 1,
+          "deselected": 1,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "59 failed, 403 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s"
+        }
+      },
+      "improved": true,
+      "usage": {
+        "prompt_tokens": 113908,
+        "completion_tokens": 34857,
+        "total_tokens": 148765,
+        "wall_clock_s": 293.3205078650499
+      }
+    }
+  ],
+  "usage_per_iteration": [
+    {
+      "prompt_tokens": 134096,
+      "completion_tokens": 31235,
+      "total_tokens": 165331,
+      "wall_clock_s": 233.49848596891388
+    },
+    {
+      "prompt_tokens": 113175,
+      "completion_tokens": 29235,
+      "total_tokens": 142410,
+      "wall_clock_s": 236.1378646719968
+    },
+    {
+      "prompt_tokens": 113908,
+      "completion_tokens": 34857,
+      "total_tokens": 148765,
+      "wall_clock_s": 293.3205078650499
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 361179,
+    "completion_tokens": 95327,
+    "total_tokens": 456506,
+    "wall_clock_s": 762.9568585059606
+  },
+  "api_audit": [
+    {
+      "round": 1,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-09T23:38:16.749089+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "stop",
+      "token_usage": {
+        "completion_tokens": 31235,
+        "prompt_tokens": 134096,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 165331
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "d73d38b41822b681f1e4e7fe1eeac16323ee9eff8b8c123f9965b91f9e466d98",
+      "response_sha256": "395da75be036ca71c9c253b8eefed42cbb846d7a09371e03560f280019d47208",
+      "audit_path": "api-audit/round-01",
+      "pacing_wait_s": 0.0,
+      "sse_events": 409,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 134096,
+        "completion_tokens": 31235,
+        "total_tokens": 165331,
+        "wall_clock_s": 233.49848596891388
+      },
+      "wall_clock_s": 233.49850857292768,
+      "finished_at": "2026-09-09T23:42:10.247791+00:00"
+    },
+    {
+      "round": 2,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-09T23:42:11.159527+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "stop",
+      "token_usage": {
+        "completion_tokens": 29235,
+        "prompt_tokens": 113175,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 142410
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "6b2b100336a3ea1cedb9b687755c6da7773782021aeb16e567975874e15092b5",
+      "response_sha256": "020ea02137b31c945606694062c8b75a4b42adf58f2ea2d9c5b3025dcd8745e6",
+      "audit_path": "api-audit/round-02",
+      "pacing_wait_s": 0.0,
+      "sse_events": 416,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 113175,
+        "completion_tokens": 29235,
+        "total_tokens": 142410,
+        "wall_clock_s": 236.1378646719968
+      },
+      "wall_clock_s": 236.13788138702512,
+      "finished_at": "2026-09-09T23:46:07.297574+00:00"
+    },
+    {
+      "round": 3,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-09T23:46:08.207938+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "stop",
+      "token_usage": {
+        "completion_tokens": 34857,
+        "prompt_tokens": 113908,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 148765
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "18669d315f5903da214f116c6aba9936c8dec6be8b1b66ea30a6914be3f24d1e",
+      "response_sha256": "41ae240a9687ebea426c20ef2b32087270d08ad8dedf0d0595a7a8b05de2cb8b",
+      "audit_path": "api-audit/round-03",
+      "pacing_wait_s": 0.0,
+      "sse_events": 3258,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 113908,
+        "completion_tokens": 34857,
+        "total_tokens": 148765,
+        "wall_clock_s": 293.3205078650499
+      },
+      "wall_clock_s": 293.32052285794634,
+      "finished_at": "2026-09-09T23:51:01.528626+00:00"
+    }
+  ],
+  "explicit_http_model_requests": 3,
+  "final_oracle_score": {
+    "passed": 403,
+    "failed": 59,
+    "skipped": 1,
+    "deselected": 1,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "59 failed, 403 passed, 1 skipped, 1 deselected, 23 warnings in 0.58s",
+    "pipeline_deferrals_applied": false
+  },
+  "source_hashes": {
+    "src/main/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/validator/Arg.py": "814e111ae92beb37c6629c7c38356be98c12f7f52d57d433bf82b71dea1efb3c",
+    "src/main/org/apache/commons/validator/CreditCardValidator.py": "4935bdfdc0e7e755a304e56b78d1278ec12d9d8d5c043c32805c70bbbc186cee",
+    "src/main/org/apache/commons/validator/DateValidator.py": "dc50a015befc8856aa2b0d48a87d340fec9f3a52f75df6525f00f3d26f9beeb4",
+    "src/main/org/apache/commons/validator/EmailValidator.py": "c5e60862c16b1f4a8dd203ee10ccc752b1213fb7ad32a591ace379d93ba4df91",
+    "src/main/org/apache/commons/validator/Field.py": "bdac390851a56a7f31446c3676f7b112d8043da4a134a189ffee91c9b6aba27d",
+    "src/main/org/apache/commons/validator/Form.py": "292aa4eb647eb4e8008a9c3fa9b8585e714be2b13b5d34c43048ee736b4db07a",
+    "src/main/org/apache/commons/validator/FormSet.py": "1f4791dbb19862201ef8cd0ba96521b595d98a461ee3abfa8c2eb0aee5b22dff",
+    "src/main/org/apache/commons/validator/GenericTypeValidator.py": "1f9909248e3b3e7e4dacbda97895d2ae29dd6f80ba4a2854b31c3b74a006b565",
+    "src/main/org/apache/commons/validator/GenericValidator.py": "9b5a3c9646dbdc83c856ccf8d59b4337c6c7497390f5b4d64f29559a65729314",
+    "src/main/org/apache/commons/validator/ISBNValidator.py": "7cf191fd391c517f36b68f5942dd0446018733bc2f44020348ac039d300285fc",
+    "src/main/org/apache/commons/validator/Msg.py": "01c9d0ee15582a5029042ec9b0c5cd556bbc9eabe0c36b8c5225598731ecd742",
+    "src/main/org/apache/commons/validator/UrlValidator.py": "2f6b1bcac88c9b9e9299a29b7a7b4bca5e19eddcd32ecc6889e403e9961b01c2",
+    "src/main/org/apache/commons/validator/Validator.py": "350b316991fb71091e231405fffd997b47f636fca423ee3bd2aeecc376692b37",
+    "src/main/org/apache/commons/validator/ValidatorAction.py": "d22379506fc965193b052b61f5f089a6c10d1f0598b03f285c3775db05fcf100",
+    "src/main/org/apache/commons/validator/ValidatorException.py": "fbbc32113fc598e14822cb1b4b4d36cb69f3194372319c4a76066f9f97e22ee7",
+    "src/main/org/apache/commons/validator/ValidatorResources.py": "b70afeac953e6576caa62ce415a731a7a252b375012925b5c43a8248942c0dfa",
+    "src/main/org/apache/commons/validator/ValidatorResult.py": "5a27cd22abb94b890b7121be6f1142f722a17e4a91995e056171443eb025e5cd",
+    "src/main/org/apache/commons/validator/ValidatorResults.py": "04c9ae3e05ff2e2739fc01a841c6a8de03e3f0b12293c09919cff1b8262985cb",
+    "src/main/org/apache/commons/validator/Var.py": "deb073470289b82c6dd36f3072a991f4a9a162c280fca6c8018135e1417273b4",
+    "src/main/org/apache/commons/validator/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/validator/routines/AbstractCalendarValidator.py": "a2b04d4ec17a6eff525cf00395fcd7aa2a274be789a0e7a31a5fa2b005932fac",
+    "src/main/org/apache/commons/validator/routines/AbstractFormatValidator.py": "58d826663a93a23d9505bef9bb9225a71afca3beea0a6c07f680d4acbba2a3d7",
+    "src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py": "b9db2599ccb45958100585df8d0522a19b24999250ec0c2d712a080ec4c7a3e0",
+    "src/main/org/apache/commons/validator/routines/BigDecimalValidator.py": "83faf18b3b6df9cae06e7e41df97ad4b22e6e08aadc29e99cb729be62396e693",
+    "src/main/org/apache/commons/validator/routines/BigIntegerValidator.py": "d417e984565358b6c3a7d372556a109cb8d33c4cc597690d9c717038b9b0762d",
+    "src/main/org/apache/commons/validator/routines/ByteValidator.py": "b4c0b2857dcb4442852ef07b9e07b042b5994f15fe633a08bf1728887d6eeec2",
+    "src/main/org/apache/commons/validator/routines/CalendarValidator.py": "d837636e50f3a9e43d255fe6e0d8bdd013106df5a6a80f53d8abac2dbf1c3c4f",
+    "src/main/org/apache/commons/validator/routines/CodeValidator.py": "e44a71190ce5e08c8496daf85db0849b2c54889db138b4f2f342229aa2f4c52d",
+    "src/main/org/apache/commons/validator/routines/CreditCardValidator.py": "9b84d6702a4e6b97671a9b5ca1a692c45287969ee04606431a40833072c4923e",
+    "src/main/org/apache/commons/validator/routines/CurrencyValidator.py": "f7e90abed57b0ea52aa262d419ff65701da099a5ca022694007885624698587b",
+    "src/main/org/apache/commons/validator/routines/DateValidator.py": "99f1a28fed21a79ea0a289584fc5818eec5c927d53401b57994b28133dcb84fb",
+    "src/main/org/apache/commons/validator/routines/DomainValidator.py": "ddabd2f7ba608321a19b2d4f73603f1a05cce13e36af47a4b879a31e2193f525",
+    "src/main/org/apache/commons/validator/routines/DoubleValidator.py": "bae919bb1c0389d8d5bf6e8040487b8a8ae8040b3a7fca5a78ac8e4d53211e51",
+    "src/main/org/apache/commons/validator/routines/EmailValidator.py": "79c778eb0d86b1be13cdafacf6d463b03d36473f58b89fab68042d1bd43575ce",
+    "src/main/org/apache/commons/validator/routines/FloatValidator.py": "c2b4fb75a5a2634a35312ccef217d60858dcf73d304237e30666e7eb4f8d26ff",
+    "src/main/org/apache/commons/validator/routines/IBANValidator.py": "e0433337ef32eaf2778ba847682f0a11f6e0ab7ab43deb5e948d301882f92a5e",
+    "src/main/org/apache/commons/validator/routines/ISBNValidator.py": "6a078a9c42f923f58c0242c9c277c9f3e0cb2bb036ade93c0dceae9bdf0cbd99",
+    "src/main/org/apache/commons/validator/routines/ISINValidator.py": "14393954c3cba611b1ca49e84ce11bb17f15bfb0b1c5fbed9bfabeb32c465c3f",
+    "src/main/org/apache/commons/validator/routines/ISSNValidator.py": "155aeefe9b6c33bf5645ef3352fbca7876855851516ac892699f491df562aba3",
+    "src/main/org/apache/commons/validator/routines/InetAddressValidator.py": "a25b05087d28cce216c8c013aed5e0c06127cd9261de6174e3f9d922b5bfd331",
+    "src/main/org/apache/commons/validator/routines/IntegerValidator.py": "5f8c556eba688d698edd8bf4814e1d5d663dadfc96ad50c5f26998cd2f82996b",
+    "src/main/org/apache/commons/validator/routines/LongValidator.py": "79ae1c33dae13a0fecee51d49877c7a5ade23da355016254c6aca69a348c2500",
+    "src/main/org/apache/commons/validator/routines/PercentValidator.py": "546520706afbe25f70734ee3db5da5216c5e6e5674d7599de3fa435000c4efcc",
+    "src/main/org/apache/commons/validator/routines/RegexValidator.py": "feffcaeec563ff81065d9445ffcb2de82aeb3f50ba33f3089335608523922b11",
+    "src/main/org/apache/commons/validator/routines/ShortValidator.py": "2ca09e6baddf1234a04402304b5adc1271b64cc980f26291d2e83a5e9c072100",
+    "src/main/org/apache/commons/validator/routines/TimeValidator.py": "7dfd796648d849295443d7f65cac1931b22b279c8fb3fffb03c921592d78ef3e",
+    "src/main/org/apache/commons/validator/routines/UrlValidator.py": "5a587f51425702daa6a440fe56c761b5f0ad56413ca63911e36c5e6317037425",
+    "src/main/org/apache/commons/validator/routines/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/validator/routines/checkdigit/ABANumberCheckDigit.py": "896e7e1fbdcb8a29b1313eab8358319aa98f1d49d43908e4646fc1e8ac96b4b7",
+    "src/main/org/apache/commons/validator/routines/checkdigit/CUSIPCheckDigit.py": "e9f3d1868f35fbb1bd30c7d5f14000e6b9d5daa34b7dbb915f552d09ff28b38c",
+    "src/main/org/apache/commons/validator/routines/checkdigit/CheckDigit.py": "39d9eeb13653ff80358f3266e1f792d024380218987ae453ca79826875b06141",
+    "src/main/org/apache/commons/validator/routines/checkdigit/CheckDigitException.py": "e4d5b6a461a28e3a2c596d277db344e960d7c487a30746172d93989700f6e498",
+    "src/main/org/apache/commons/validator/routines/checkdigit/EAN13CheckDigit.py": "a51509f884549cc6716c1cb6c7ce3d5abd2680df0b10c0c9ada81d93cba8166a",
+    "src/main/org/apache/commons/validator/routines/checkdigit/IBANCheckDigit.py": "6a47e1772612f746c77fd906e5eb2aaaea561768d06f05ad23d3021759d5fe6b",
+    "src/main/org/apache/commons/validator/routines/checkdigit/ISBN10CheckDigit.py": "c39dcf85dce73989305c4296a711cc3391c705a31af2c0104df8e5fbdafaae0c",
+    "src/main/org/apache/commons/validator/routines/checkdigit/ISBNCheckDigit.py": "2e873dbde3deb2a828628902e72497c722171e3a2e20559f9ec2e81c074cff61",
+    "src/main/org/apache/commons/validator/routines/checkdigit/ISINCheckDigit.py": "1bc54481f255a3d5474faa325a47cd298e92e1a80815ea22cbce68ff4d75e718",
+    "src/main/org/apache/commons/validator/routines/checkdigit/ISSNCheckDigit.py": "035ed7fb9a631e0d4ea9a58a054a1bdb9305af7fde5db762cd4a91e4010c42dc",
+    "src/main/org/apache/commons/validator/routines/checkdigit/LuhnCheckDigit.py": "21fcdfcd22ed1c148c9116120e23b60c770e61f2636797c078abb1cf207d6197",
+    "src/main/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.py": "763566c8f87237950ccc6214e87d6964747df37198a02563114637e8d9e6dcca",
+    "src/main/org/apache/commons/validator/routines/checkdigit/ModulusTenCheckDigit.py": "ef50dcffd87757d16b553b9a77f08e3f50cc4033118b9bbc8a75413eba6c8408",
+    "src/main/org/apache/commons/validator/routines/checkdigit/SedolCheckDigit.py": "dedd7be77c0b4605331f9223bee99d9fdcd7f1511ae0243950539e0cff1e8de7",
+    "src/main/org/apache/commons/validator/routines/checkdigit/VerhoeffCheckDigit.py": "9c10e38f791c2e8c9bc9fa24ee2ab9462887beff35fefd3f8421f1df72e91a28",
+    "src/main/org/apache/commons/validator/routines/checkdigit/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/validator/util/Flags.py": "eb2b8a9680a6001e36e261f8bb18aee77c6b91b40ab59c4f16b44fa30492b601",
+    "src/main/org/apache/commons/validator/util/ValidatorUtils.py": "d75266b82209308b5d62617dc3f9434fc4f4acfd3861a3c60d6852e7d1524152",
+    "src/main/org/apache/commons/validator/util/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

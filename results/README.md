@@ -15,18 +15,40 @@ it can support, and what it cannot. **Read the method file before quoting a numb
 | `alphatrans-sonnet5-med-2026-09-04` | CodeWeaver, four subjects | `claude-sonnet-5` | [METHOD](alphatrans-sonnet5-med-2026-09-04/METHOD.md) |
 | `alphatrans-b0-sonnet5-med-2026-09-08` | B0 single-shot, Copilot CLI | `claude-sonnet-5` | [METHOD](alphatrans-b0-sonnet5-med-2026-09-08/METHOD.md) |
 | `alphatrans-b0-api-2026-09-09` | B0 via direct API, per-file and whole-repo | `claude-sonnet-5` | [METHOD](alphatrans-b0-api-2026-09-09/METHOD.md) |
+| `alphatrans-b0-repair-2026-09-09` | Repair over the B0 API per-file artifact, build-guided and test-guided | `claude-sonnet-5` | [METHOD](alphatrans-b0-repair-2026-09-09/METHOD.md) |
 
-## Headline numbers, model-matched (`claude-sonnet-5`)
+Generation is reproduced by `experiments/baselines/campaigns/README.md`, which
+records the exact invocation behind each package. Scoring needs no model access:
+every package ships a self-contained `reproduction/score.sh`.
 
-| Subject | CodeWeaver | B0 CLI | B0 API per-file | B0 API whole-repo |
-|---|---:|---:|---:|---:|
-| commons-cli | 380 / 381 | 368 / 381 | 110 / 381 | 241 / 381 |
-| commons-csv | 296 / 298 | error | error | error |
-| commons-fileupload | 38 / 39 | 37 / 39 | 37 / 39 | 37 / 39 |
-| commons-validator | 452 / 462 | 381 / 462 | error | 81 / 462 |
+## Headline numbers, test-blind arms only (`claude-sonnet-5`)
+
+Every column below was produced without the model seeing the oracle.
+
+| Subject | CodeWeaver | B0 CLI | B0 API per-file | B0 API whole-repo | + build repair |
+|---|---:|---:|---:|---:|---:|
+| commons-cli | 380 / 381 | 368 / 381 | 110 / 381 | 241 / 381 | 110 / 381 |
+| commons-csv | 296 / 298 | error | error | error | error |
+| commons-fileupload | 38 / 39 | 37 / 39 | 37 / 39 | 37 / 39 | 37 / 39 |
+| commons-validator | 452 / 462 | 381 / 462 | error | 81 / 462 | 382 / 462 |
 
 "error" means the arm produced no scoreable artifact — the suite failed to collect.
 Those cells are **not** zero and **not** a pass rate; see the relevant `METHOD.md`.
+
+The "+ build repair" column continues from the B0 API per-file column, so those two
+are a before/after pair on one artifact, not two independent samples.
+
+### Test-guided repair — reported separately, never in the table above
+
+| Subject | from B0 API per-file | after test-guided repair | calls |
+|---|---:|---:|---:|
+| commons-cli | 110 / 381 | 370 / 381 | 3 |
+| commons-csv | error | error | 3 |
+| commons-fileupload | 37 / 39 | 37 / 39 | 3 |
+| commons-validator | error | 403 / 462 | 3 |
+
+This arm read the oracle's failure output. It is an upper bound on what repair can
+recover given perfect feedback, **not** a peer of any column above.
 
 ## Rules for combining these numbers
 
@@ -41,7 +63,12 @@ Those cells are **not** zero and **not** a pass rate; see the relevant `METHOD.m
    | Arm | Oracle source | Oracle pass/fail | Compiler / import |
    |---|---|---|---|
    | CodeWeaver | never | **counts only** | yes |
-   | B0 (all variants) | never | never | never |
+   | B0 (all generation variants) | never | never | never |
+   | B0 + build repair | never | never | **yes, parse/import diagnostics** |
+   | B0 + test repair | never | **full failure output** | yes |
+
+   The last row is the only arm that saw oracle failures. Keep it out of any table
+   containing the others.
 
 3. **Do not compare across transports without saying so.** The Copilot CLI arm and
    the direct API arm use different clients and different hidden system prompts,

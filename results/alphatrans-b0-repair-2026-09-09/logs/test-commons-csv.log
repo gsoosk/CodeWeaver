@@ -1,0 +1,5 @@
+[repair] commons-csv test baseline: clean=False {'score': None}
+[repair] iteration 1: changed=1 rejected=0 clean=False improved=False {'score': None}
+[repair] iteration 2: changed=2 rejected=0 clean=False improved=False {'score': None}
+[repair] iteration 3: changed=3 rejected=0 clean=False improved=False {'score': None}
+[repair] done; final oracle: not scoreable

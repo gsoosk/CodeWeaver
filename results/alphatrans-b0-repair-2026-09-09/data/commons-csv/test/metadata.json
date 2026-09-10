@@ -1,0 +1,371 @@
+{
+  "baseline": "B0-repair-test",
+  "project": "commons-csv",
+  "tag": "b0r-test-sonnet5-med-20260909v2",
+  "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+  "source_baseline": "B0-single-shot",
+  "source_granularity": "per-file",
+  "arm": "test",
+  "feedback_source": "oracle test failures",
+  "test_blind": false,
+  "oracle_seen": true,
+  "oracle_tests_in_prompt": false,
+  "backend": "copilot-api",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "max_output_tokens": 64000,
+  "max_iterations": 3,
+  "recorded": "2026-09-09T23:05:51+0000",
+  "code_revision": "1762ed1dfcfb0847dc43a0084f0be80b292e962a",
+  "collector_code_sha256": {
+    "single_shot.py": "101fd640e0b0b59e46869d74d8b5889c949f865e169be073021e2b4236ec54fa",
+    "backends/copilot.py": "972fbbfd623eb9266deb84c1e0fa0874edeb83d66866edab6a8df32336c946b9",
+    "backends/copilot_api.py": "f5487a7e716b564b7e4b8f3e8f41cc405d64fd38b80763ffe4b4e46676cf5ba3",
+    "backends/base.py": "9f3afaf7fd376638b2797f97c80c2e85527d063b571c9930295aa4d97fa1b0e7",
+    "run_one.py": "4400d0e0db439e10142205bc76bbfaa49d3e4f28cd7173f94edc88789985de49"
+  },
+  "transport": "loopback-http-openai-chat-completions",
+  "api_configuration": {
+    "base_url": "http://127.0.0.1:4141/v1",
+    "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+    "model": "claude-sonnet-5",
+    "max_tokens": 64000,
+    "timeout_s": 3600.0,
+    "max_retries": 0,
+    "redirects": "rejected",
+    "min_request_interval_s": 30.0,
+    "environment_proxies": false,
+    "authentication_to_loopback": "local-bearer-key",
+    "reasoning_effort": "medium",
+    "stream": true
+  },
+  "api_protocol": {
+    "id": "b0-api-chat-completions-v1",
+    "message_roles": "native system/user/assistant",
+    "stream": true,
+    "tools": "omitted; returned tool/function calls invalidate the request",
+    "cli_invocations": 0,
+    "implicit_cli_system_prompt": false,
+    "client_auto_continuation": false,
+    "proxy_auto_continuation": false,
+    "continuation": "explicit harness requests for missing whole modules only",
+    "upstream_requests_per_http_request": 1,
+    "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+    "proxy_version_verified_by_client": false,
+    "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+  },
+  "protocol": "Iterative repair over a frozen B0 artifact. Each iteration is one explicit HTTP model request carrying the current project source and the current diagnostics; no tools, no retries, no conversation state between iterations. The source run is copied, never modified. Feedback is the oracle's own failure output. This arm is NOT test-blind and is not comparable to any test-blind arm.",
+  "iterations_run": 3,
+  "best_iteration_by_metric": 0,
+  "kept": "final iteration (CRUST-bench convention); trajectory in history",
+  "history": [
+    {
+      "iteration": 0,
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "api_calls": 0
+    },
+    {
+      "iteration": 1,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/csv/Constants.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 65217,
+        "completion_tokens": 1614,
+        "total_tokens": 66831,
+        "wall_clock_s": 13.585033760988154
+      }
+    },
+    {
+      "iteration": 2,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/csv/ExtendedBufferedReader.py",
+        "src/main/org/apache/commons/csv/Lexer.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 64625,
+        "completion_tokens": 15939,
+        "total_tokens": 80564,
+        "wall_clock_s": 149.81863258697558
+      }
+    },
+    {
+      "iteration": 3,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/csv/CSVParser.py",
+        "src/main/org/apache/commons/csv/ExtendedBufferedReader.py",
+        "src/main/org/apache/commons/csv/CSVFormat.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "improved": false,
+      "usage": {
+        "prompt_tokens": 44838,
+        "completion_tokens": 42152,
+        "total_tokens": 86990,
+        "wall_clock_s": 311.0053600729443
+      }
+    }
+  ],
+  "usage_per_iteration": [
+    {
+      "prompt_tokens": 65217,
+      "completion_tokens": 1614,
+      "total_tokens": 66831,
+      "wall_clock_s": 13.585033760988154
+    },
+    {
+      "prompt_tokens": 64625,
+      "completion_tokens": 15939,
+      "total_tokens": 80564,
+      "wall_clock_s": 149.81863258697558
+    },
+    {
+      "prompt_tokens": 44838,
+      "completion_tokens": 42152,
+      "total_tokens": 86990,
+      "wall_clock_s": 311.0053600729443
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 174680,
+    "completion_tokens": 59705,
+    "total_tokens": 234385,
+    "wall_clock_s": 474.40902642090805
+  },
+  "api_audit": [
+    {
+      "round": 1,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-09T23:05:52.396042+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "stop",
+      "token_usage": {
+        "completion_tokens": 1614,
+        "prompt_tokens": 65217,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 66831
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "eea6363ae0d4bee538a3bebdf44d70fad9ee7c3da1554acab5b63ccae3f88ff2",
+      "response_sha256": "6724aa771917fd64db7d557ee8043162dad96607bbbe6729716f2b706e6fcc74",
+      "audit_path": "api-audit/round-01",
+      "pacing_wait_s": 0.0,
+      "sse_events": 20,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 65217,
+        "completion_tokens": 1614,
+        "total_tokens": 66831,
+        "wall_clock_s": 13.585033760988154
+      },
+      "wall_clock_s": 13.585055163945071,
+      "finished_at": "2026-09-09T23:06:05.981203+00:00"
+    },
+    {
+      "round": 2,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-09T23:06:06.483702+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "stop",
+      "token_usage": {
+        "completion_tokens": 15939,
+        "prompt_tokens": 64625,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 80564
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "c37b8e3368ce72719a87ae340581ae0b7900139e109633d295ed7a2576561196",
+      "response_sha256": "76edfc263e58969f2c847631b2ef89b906e67fc31d23def80878116405c4c67f",
+      "audit_path": "api-audit/round-02",
+      "pacing_wait_s": 15.912511173984967,
+      "sse_events": 1564,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 64625,
+        "completion_tokens": 15939,
+        "total_tokens": 80564,
+        "wall_clock_s": 149.81863258697558
+      },
+      "wall_clock_s": 149.81864985299762,
+      "finished_at": "2026-09-09T23:08:36.302452+00:00"
+    },
+    {
+      "round": 3,
+      "valid": true,
+      "transport": "loopback-http-openai-chat-completions",
+      "api_configuration": {
+        "base_url": "http://127.0.0.1:4141/v1",
+        "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+        "model": "claude-sonnet-5",
+        "max_tokens": 64000,
+        "timeout_s": 3600.0,
+        "max_retries": 0,
+        "redirects": "rejected",
+        "min_request_interval_s": 30.0,
+        "environment_proxies": false,
+        "authentication_to_loopback": "local-bearer-key",
+        "reasoning_effort": "medium",
+        "stream": true
+      },
+      "api_protocol": {
+        "id": "b0-api-chat-completions-v1",
+        "message_roles": "native system/user/assistant",
+        "stream": true,
+        "tools": "omitted; returned tool/function calls invalidate the request",
+        "cli_invocations": 0,
+        "implicit_cli_system_prompt": false,
+        "client_auto_continuation": false,
+        "proxy_auto_continuation": false,
+        "continuation": "explicit harness requests for missing whole modules only",
+        "upstream_requests_per_http_request": 1,
+        "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+        "proxy_version_verified_by_client": false,
+        "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+      },
+      "started_at": "2026-09-09T23:08:37.011673+00:00",
+      "requested_model": "claude-sonnet-5",
+      "returned_model": "claude-sonnet-5",
+      "finish_reason": "stop",
+      "token_usage": {
+        "completion_tokens": 42152,
+        "prompt_tokens": 44838,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "total_tokens": 86990
+      },
+      "http_status": 200,
+      "http_requests": 1,
+      "request_sha256": "575ed9fdf54b19d17c20fa9d7d355568b9e1c831e30c02dbb5dd2741722a3176",
+      "response_sha256": "f30c509e8016c4a15b81f6bbe339b67e5c9dd594b67e7d0f00238dde60ba343a",
+      "audit_path": "api-audit/round-03",
+      "pacing_wait_s": 0.0,
+      "sse_events": 514,
+      "model_tool_calls": 0,
+      "usage": {
+        "prompt_tokens": 44838,
+        "completion_tokens": 42152,
+        "total_tokens": 86990,
+        "wall_clock_s": 311.0053600729443
+      },
+      "wall_clock_s": 311.0053745149635,
+      "finished_at": "2026-09-09T23:13:48.017128+00:00"
+    }
+  ],
+  "explicit_http_model_requests": 3,
+  "final_oracle_score": null,
+  "source_hashes": {
+    "src/main/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/main/org/apache/commons/csv/CSVFormat.py": "d61423a9bc413b78a59cc74712cfe8624fc13d10cd45e8948e7350b9fc1b5cda",
+    "src/main/org/apache/commons/csv/CSVParser.py": "f998394cdb6d454d18a63100ef59334946d2b48ff17476c91199a7ce9e96e57b",
+    "src/main/org/apache/commons/csv/CSVPrinter.py": "8c4020e0f60980a932cc1014a8d0db6534b377d4c22271dce0d453bfe933cb77",
+    "src/main/org/apache/commons/csv/CSVRecord.py": "8d1ffefcb4fa9e391fad5febc4830d469785d5c7e177b394dab517fcc4c1b051",
+    "src/main/org/apache/commons/csv/Constants.py": "a381150e21be187fe4ebdb026d7fdc7c59e00923748645433ead3a5880cc15b4",
+    "src/main/org/apache/commons/csv/DuplicateHeaderMode.py": "72b26ec6ef06b9d130397965bc61333ff58d73dca357d7f6408890460fdd3d1a",
+    "src/main/org/apache/commons/csv/ExtendedBufferedReader.py": "7531254497bace81f081615261c5305d7cfd1cec48190236b9ab524d750be739",
+    "src/main/org/apache/commons/csv/IOUtils.py": "522e9d1fed4c52ed87acd406a3e90c7e8bf764c9a6fa6f76e745c37f7a942004",
+    "src/main/org/apache/commons/csv/Lexer.py": "b43bc2d4a61d5718a1928c49cded73ea4f96a36dbc3f427ec7eb19a685cbb353",
+    "src/main/org/apache/commons/csv/QuoteMode.py": "5242ecd302b7fd5d403bcdad3fa6bd1d6901816ed312e6003fa9ef8ae5a6abd5",
+    "src/main/org/apache/commons/csv/Token.py": "40341287b6b82001a7846ce5ea472b9005b8dc076896f24609d07bff63653ba2",
+    "src/main/org/apache/commons/csv/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

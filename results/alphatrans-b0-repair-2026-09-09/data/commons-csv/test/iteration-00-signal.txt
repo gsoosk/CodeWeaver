@@ -1,0 +1,1294 @@
+FFFFFF.                                                                  [100%]
+==================================== ERRORS ====================================
+____ ERROR collecting src/test/org/apache/commons/csv/CSVFileParserTest.py _____
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFileParserTest.py", line 9, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+_ ERROR collecting src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py __
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py", line 9, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+______ ERROR collecting src/test/org/apache/commons/csv/CSVFormatTest.py _______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVFormatTest.py", line 15, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+______ ERROR collecting src/test/org/apache/commons/csv/CSVParserTest.py _______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVParserTest.py", line 15, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+______ ERROR collecting src/test/org/apache/commons/csv/CSVPrinterTest.py ______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/CSVPrinterTest.py", line 15, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+________ ERROR collecting src/test/org/apache/commons/csv/LexerTest.py _________
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/LexerTest.py", line 9, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+_____ ERROR collecting src/test/org/apache/commons/csv/PerformanceTest.py ______
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/PerformanceTest.py", line 15, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+__________ ERROR collecting src/test/org/apache/commons/csv/Utils.py ___________
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/Utils.py", line 8, in <module>
+    from src.main.org.apache.commons.csv.CSVRecord import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVRecord.py", line 5, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 7, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 1093, in <module>
+    0, False, False, COMMA, None, None, False, False, None, None, False,
+                     ^^^^^
+NameError: name 'COMMA' is not defined
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv148Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv148Test.py", line 7, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv203Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv203Test.py", line 8, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv248Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv248Test.py", line 14, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 7, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 1093, in <module>
+    0, False, False, COMMA, None, None, False, False, None, None, False,
+                     ^^^^^
+NameError: name 'COMMA' is not defined
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv249Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv249Test.py", line 8, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv253Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv253Test.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv263Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv263Test.py", line 8, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv271Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv271Test.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv288Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv288Test.py", line 9, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+__ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv290Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv290Test.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+___ ERROR collecting src/test/org/apache/commons/csv/issues/JiraCsv93Test.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/issues/JiraCsv93Test.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+___ ERROR collecting src/test/org/apache/commons/csv/perf/PerformanceTest.py ___
+Traceback (most recent call last):
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 361, in from_call
+    result: TResult | None = func()
+                             ^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/runner.py", line 406, in collect
+    return list(collector.collect())
+                ^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 564, in collect
+    self._register_setup_module_fixture()
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 577, in _register_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+    ^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 290, in obj
+    self._obj = obj = self._getobj()
+                      ^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 561, in _getobj
+    return importtestmodule(self.path, self.config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/python.py", line 508, in importtestmodule
+    mod = import_path(
+          ^^^^^^^^^^^^
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/pathlib.py", line 596, in import_path
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/perf/PerformanceTest.py", line 12, in <module>
+    from src.main.org.apache.commons.csv.CSVFormat import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVFormat.py", line 10, in <module>
+    from src.main.org.apache.commons.csv.CSVParser import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/CSVParser.py", line 6, in <module>
+    from src.main.org.apache.commons.csv.Lexer import *
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "${HOME}/cwenv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py", line 188, in exec_module
+    exec(co, module.__dict__)
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 33, in <module>
+    class Lexer:
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/Lexer.py", line 36, in Lexer
+    __CR_STRING: str = chr(CR)
+                           ^^
+NameError: name 'CR' is not defined
+=================================== FAILURES ===================================
+__________________ ExtendedBufferedReaderTest.testEmptyInput ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 189, in testEmptyInput
+    with self.__createBufferedReader("") as br:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 197, in __createBufferedReader
+    return ExtendedBufferedReader(io.StringIO(s))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/ExtendedBufferedReader.py", line 33, in __init__
+    self.__lastChar = UNDEFINED
+                      ^^^^^^^^^
+NameError: name 'UNDEFINED' is not defined
+___________________ ExtendedBufferedReaderTest.testReadChar ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 168, in testReadChar
+    br = self.__createBufferedReader(test)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 197, in __createBufferedReader
+    return ExtendedBufferedReader(io.StringIO(s))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/ExtendedBufferedReader.py", line 33, in __init__
+    self.__lastChar = UNDEFINED
+                      ^^^^^^^^^
+NameError: name 'UNDEFINED' is not defined
+___________________ ExtendedBufferedReaderTest.testReadLine ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 94, in testReadLine
+    with self.__createBufferedReader("") as br:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 197, in __createBufferedReader
+    return ExtendedBufferedReader(io.StringIO(s))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/ExtendedBufferedReader.py", line 33, in __init__
+    self.__lastChar = UNDEFINED
+                      ^^^^^^^^^
+NameError: name 'UNDEFINED' is not defined
+________________ ExtendedBufferedReaderTest.testReadLookahead1 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 38, in testReadLookahead1
+    with self.__createBufferedReader("1\n2\r3\n") as br:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 197, in __createBufferedReader
+    return ExtendedBufferedReader(io.StringIO(s))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/ExtendedBufferedReader.py", line 33, in __init__
+    self.__lastChar = UNDEFINED
+                      ^^^^^^^^^
+NameError: name 'UNDEFINED' is not defined
+________________ ExtendedBufferedReaderTest.testReadLookahead2 _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 22, in testReadLookahead2
+    with self.__createBufferedReader("abcdefg") as br:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 197, in __createBufferedReader
+    return ExtendedBufferedReader(io.StringIO(s))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/ExtendedBufferedReader.py", line 33, in __init__
+    self.__lastChar = UNDEFINED
+                      ^^^^^^^^^
+NameError: name 'UNDEFINED' is not defined
+___________ ExtendedBufferedReaderTest.testReadingInDifferentBuffer ____________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 138, in testReadingInDifferentBuffer
+    with self.__createBufferedReader("1\r\n2\r\n") as reader:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py", line 197, in __createBufferedReader
+    return ExtendedBufferedReader(io.StringIO(s))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/csv/ExtendedBufferedReader.py", line 33, in __init__
+    self.__lastChar = UNDEFINED
+                      ^^^^^^^^^
+NameError: name 'UNDEFINED' is not defined
+=========================== short test summary info ============================
+ERROR src/test/org/apache/commons/csv/CSVFileParserTest.py - NameError: name ...
+ERROR src/test/org/apache/commons/csv/CSVFormatPredefinedTest.py - NameError:...
+ERROR src/test/org/apache/commons/csv/CSVFormatTest.py - NameError: name 'CR'...
+ERROR src/test/org/apache/commons/csv/CSVParserTest.py - NameError: name 'CR'...
+ERROR src/test/org/apache/commons/csv/CSVPrinterTest.py - NameError: name 'CR...
+ERROR src/test/org/apache/commons/csv/LexerTest.py - NameError: name 'CR' is ...
+ERROR src/test/org/apache/commons/csv/PerformanceTest.py - NameError: name 'C...
+ERROR src/test/org/apache/commons/csv/Utils.py - NameError: name 'COMMA' is n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv148Test.py - NameError: n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv203Test.py - NameError: n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv248Test.py - NameError: n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv249Test.py - NameError: n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv253Test.py - NameError: n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv263Test.py - NameError: n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv271Test.py - NameError: n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv288Test.py - NameError: n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv290Test.py - NameError: n...
+ERROR src/test/org/apache/commons/csv/issues/JiraCsv93Test.py - NameError: na...
+ERROR src/test/org/apache/commons/csv/perf/PerformanceTest.py - NameError: na...
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testEmptyInput
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadChar
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadLine
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadLookahead1
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadLookahead2
+FAILED src/test/org/apache/commons/csv/ExtendedBufferedReaderTest.py::ExtendedBufferedReaderTest::testReadingInDifferentBuffer
+6 failed, 1 passed, 19 errors in 0.20s
+
+[oracle] project  : commons-csv
+[oracle] source   : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-csv/pipeline-baseline-b0r-test-sonnet5-med-20260909v2/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] deferrals: disabled (isolated staging)
+[oracle] result   : 6 failed, 1 passed, 19 errors in 0.20s
+[oracle] exitcode : 1

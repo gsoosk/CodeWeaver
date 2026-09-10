@@ -1,0 +1,315 @@
+........sssss.s.s.sss...s.s......s...sss........s.s.s.......ssssss..s... [ 16%]
+........................................................................ [ 32%]
+.....sssss.s.s....ss.s.s......s...s.............s........ssssss..s..F... [ 49%]
+....FF.......F......................................................F.F. [ 65%]
+.F.FF.s...s...s...ss..s........s................s..............s....F... [ 82%]
+.......F...........................................................F.... [ 98%]
+.....                                                                    [100%]
+=================================== FAILURES ===================================
+_____________________ HelpFormatterTest.testAutomaticUsage _____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 670, in testAutomaticUsage
+    hf.printUsage1(out, 60, "app", options)
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 269, in printUsage1
+    self.printWrapped0(pw, width, text.find(" ") + 1, text)
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 234, in printWrapped0
+    pw.write(sb.getvalue())
+TypeError: a bytes-like object is required, not 'str'
+_________________ HelpFormatterTest.testPrintHelpNewlineFooter _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 371, in testPrintHelpNewlineFooter
+    formatter.printHelp2(
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 360, in printHelp2
+    self.printHelp3(pw, width, cmdLineSyntax, header, options, leftPad, descPad, footer, False)
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 339, in printHelp3
+    self.printUsage0(pw, width, cmdLineSyntax)
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 279, in printUsage0
+    self.printWrapped0(
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 234, in printWrapped0
+    pw.write(sb.getvalue())
+TypeError: a bytes-like object is required, not 'str'
+_________________ HelpFormatterTest.testPrintHelpNewlineHeader _________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 341, in testPrintHelpNewlineHeader
+    formatter.printHelp2(
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 360, in printHelp2
+    self.printHelp3(pw, width, cmdLineSyntax, header, options, leftPad, descPad, footer, False)
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 339, in printHelp3
+    self.printUsage0(pw, width, cmdLineSyntax)
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 279, in printUsage0
+    self.printWrapped0(
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 234, in printWrapped0
+    pw.write(sb.getvalue())
+TypeError: a bytes-like object is required, not 'str'
+_______________________ HelpFormatterTest.testPrintUsage _______________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/HelpFormatterTest.py", line 143, in testPrintUsage
+    helpFormatter.printUsage1(out, 80, "app", opts)
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 269, in printUsage1
+    self.printWrapped0(pw, width, text.find(" ") + 1, text)
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/HelpFormatter.py", line 234, in printWrapped0
+    pw.write(sb.getvalue())
+TypeError: a bytes-like object is required, not 'str'
+__________________ PatternOptionBuilderTest.testClassPattern ___________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 194, in testClassPattern
+    self.assertEqual(datetime, line.getOptionObject1("c"), "c value")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: <module 'datetime' from '/usr/lib/python3.12/datetime.py'> != None : c value
+----------------------------- Captured stdout call -----------------------------
+Exception found converting c to desired type: Unable to find the class: datetime
+_______________ PatternOptionBuilderTest.testExistingFilePattern _______________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 177, in testExistingFilePattern
+    self.assertIsInstance(
+  File "/usr/lib/python3.12/unittest/case.py", line 1294, in assertIsInstance
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: <_io.BufferedReader name='src/test/resources/org/apache/commons/cli/existing-readable.file'> is not an instance of <class '_io.TextIOWrapper'> : option g not FileInputStream
+__________________ PatternOptionBuilderTest.testObjectPattern __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 139, in testObjectPattern
+    self.assertEqual("", line.getOptionObject1("o"), "o value")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: '' != None : o value
+----------------------------- Captured stdout call -----------------------------
+Exception found converting o to desired type: Unable to find the class: str
+__________________ PatternOptionBuilderTest.testSimplePattern __________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 81, in testSimplePattern
+    self.assertEqual(list(), line.getOptionObject0("b"), "object flag b")
+  File "/usr/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/usr/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: [] != None : object flag b
+----------------------------- Captured stdout call -----------------------------
+Exception found converting b to desired type: Unable to find the class: list
+___________________ PatternOptionBuilderTest.testURLPattern ____________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/PatternOptionBuilderTest.py", line 38, in testURLPattern
+    self.assertIsNone(line.getOptionObject1("v"), "v value")
+  File "/usr/lib/python3.12/unittest/case.py", line 1281, in assertIsNone
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: ParseResult(scheme='foo', netloc='commons.apache.org', path='', params='', query='', fragment='') is not None : v value
+_____________________ TypeHandlerTest.testCreateValueClass _____________________
+Traceback (most recent call last):
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/TypeHandler.py", line 145, in createClass
+    return TypeHandler.__resolveClass(classname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/TypeHandler.py", line 78, in __resolveClass
+    raise ImportError("Unable to find the class: " + str(classname))
+ImportError: Unable to find the class: Instantiable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 125, in testCreateValueClass
+    clazz = TypeHandler.createValue0(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/TypeHandler.py", line 36, in createValue0
+    return TypeHandler.createClass(str_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/TypeHandler.py", line 147, in createClass
+    raise ParseException("Unable to find the class: " + classname)
+src.main.org.apache.commons.cli.ParseException.ParseException: Unable to find the class: Instantiable
+___________ TypeHandlerTest.testCreateValueObject_InstantiableClass ____________
+Traceback (most recent call last):
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/TypeHandler.py", line 106, in createObject
+    cl = TypeHandler.__resolveClass(classname)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/TypeHandler.py", line 78, in __resolveClass
+    raise ImportError("Unable to find the class: " + str(classname))
+ImportError: Unable to find the class: Instantiable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/TypeHandlerTest.py", line 59, in testCreateValueObject_InstantiableClass
+    result = TypeHandler.createValue0(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/TypeHandler.py", line 30, in createValue0
+    return TypeHandler.createObject(str_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<isolated-scoring>/src/main/org/apache/commons/cli/TypeHandler.py", line 108, in createObject
+    raise ParseException("Unable to find the class: " + classname)
+src.main.org.apache.commons.cli.ParseException.ParseException: Unable to find the class: Instantiable
+______________________________ BugsTest.test11458 ______________________________
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+    if method() is not None:
+       ^^^^^^^^
+  File "<isolated-scoring>/src/test/org/apache/commons/cli/bug/BugsTest.py", line 265, in test11458
+    self.fail("-D option not found")
+  File "/usr/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: -D option not found
+----------------------------- Captured stdout call -----------------------------
+[ option: D [ARG...] :: None :: <class 'str'> ] 68
+=========================== short test summary info ============================
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:205: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:196: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:189: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:182: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:178: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:169: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:162: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:156: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:148: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:140: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:130: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:123: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:115: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:109: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:102: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:95: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:89: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:81: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:74: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:66: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:62: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:52: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:47: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:37: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:27: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/BasicParserTest.py:17: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:176: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:169: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:161: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:153: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:148: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:137: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:130: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:115: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:106: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:123: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:98: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:92: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:84: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:79: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:72: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:62: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:53: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:44: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:37: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:25: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/GnuParserTest.py:16: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:47: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:43: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:39: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:35: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:27: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:31: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:23: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:19: Ignore
+SKIPPED [1] src/test/org/apache/commons/cli/PosixParserTest.py:15: Ignore
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testAutomaticUsage
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintHelpNewlineFooter
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintHelpNewlineHeader
+FAILED src/test/org/apache/commons/cli/HelpFormatterTest.py::HelpFormatterTest::testPrintUsage
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testClassPattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testExistingFilePattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testObjectPattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testSimplePattern
+FAILED src/test/org/apache/commons/cli/PatternOptionBuilderTest.py::PatternOptionBuilderTest::testURLPattern
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueClass
+FAILED src/test/org/apache/commons/cli/TypeHandlerTest.py::TypeHandlerTest::testCreateValueObject_InstantiableClass
+FAILED src/test/org/apache/commons/cli/bug/BugsTest.py::BugsTest::test11458
+12 failed, 369 passed, 56 skipped in 0.32s
+
+[oracle] project  : commons-cli
+[oracle] source   : ${HOME}/cwruns/copilot-api-b0-20260908/runner/examples/alphatrans/subjects/commons-cli/pipeline-baseline-b0r-test-sonnet5-med-20260909v2/project/src/main
+[oracle] gate     : (whole suite)
+[oracle] deferrals: disabled (isolated staging)
+[oracle] result   : 12 failed, 369 passed, 56 skipped in 0.32s
+[oracle] exitcode : 1

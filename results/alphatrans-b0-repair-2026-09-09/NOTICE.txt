@@ -1,0 +1,23 @@
+This package records iteratively repaired Java-to-Python translations of Apache
+Commons CLI, CSV, FileUpload and Validator, using interface skeletons and
+evaluation tests from AlphaTrans (Intelligent CAT Lab).
+
+Upstream licenses and notices are retained under metadata/upstream-licenses/.
+Dataset revision: c1cabf93d41a153de207d6b098e1da7bbd79abab
+Dataset repository: https://github.com/Intelligent-CAT-Lab/AlphaTrans
+Apache Commons projects: https://commons.apache.org/
+
+The repair arms are modeled on the compiler-guided and test-guided repair loops
+described by CRUST-bench (https://github.com/anirudhkhatry/CRUST-bench). This is
+an adaptation to a different source language, target language and evaluation
+protocol, not a reproduction of their results, and the numbers here are not
+comparable to theirs.
+
+Repair used a GitHub Copilot subscription reached through a separately
+authenticated, user-run instance of the unofficial ericc-ch/copilot-api proxy on
+loopback. That proxy is not affiliated with or supported by GitHub. No proxy
+code, credentials or raw request/response streams are included here.
+
+Generated outputs and benchmark observations are not upstream releases and are
+not endorsed by the upstream projects. Known failures remain in the repaired
+code, including commons-csv, which still does not collect cleanly in either arm.

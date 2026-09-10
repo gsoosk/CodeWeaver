@@ -1,0 +1,128 @@
+{
+  "state": "completed",
+  "pid": 185357,
+  "project": "commons-validator",
+  "tag": "b0r-test-sonnet5-med-20260909v2",
+  "source_tag": "b0-api-perfile-sonnet5-med-20260909v2",
+  "arm": "test",
+  "test_blind": false,
+  "iterations": [
+    {
+      "iteration": 0,
+      "clean": false,
+      "metric": {
+        "score": null
+      },
+      "api_calls": 0
+    },
+    {
+      "iteration": 1,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/validator/FormSet.py",
+        "src/main/org/apache/commons/validator/routines/DomainValidator.py",
+        "src/main/org/apache/commons/validator/routines/BigIntegerValidator.py",
+        "src/main/org/apache/commons/validator/routines/LongValidator.py",
+        "src/main/org/apache/commons/validator/CreditCardValidator.py",
+        "src/main/org/apache/commons/validator/UrlValidator.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 385,
+          "failed": 77,
+          "skipped": 1,
+          "deselected": 1,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "77 failed, 385 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s"
+        }
+      },
+      "improved": true,
+      "usage": {
+        "prompt_tokens": 134096,
+        "completion_tokens": 31235,
+        "total_tokens": 165331,
+        "wall_clock_s": 233.49848596891388
+      }
+    },
+    {
+      "iteration": 2,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py",
+        "src/main/org/apache/commons/validator/routines/CurrencyValidator.py",
+        "src/main/org/apache/commons/validator/routines/PercentValidator.py",
+        "src/main/org/apache/commons/validator/routines/CalendarValidator.py",
+        "src/main/org/apache/commons/validator/routines/DateValidator.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 388,
+          "failed": 74,
+          "skipped": 1,
+          "deselected": 1,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "74 failed, 388 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s"
+        }
+      },
+      "improved": true,
+      "usage": {
+        "prompt_tokens": 113175,
+        "completion_tokens": 29235,
+        "total_tokens": 142410,
+        "wall_clock_s": 236.1378646719968
+      }
+    },
+    {
+      "iteration": 3,
+      "status": "applied",
+      "files_changed": [
+        "src/main/org/apache/commons/validator/routines/AbstractNumberValidator.py",
+        "src/main/org/apache/commons/validator/routines/AbstractCalendarValidator.py"
+      ],
+      "files_rejected": [],
+      "truncated": false,
+      "finish_reason": "stop",
+      "clean": false,
+      "metric": {
+        "score": {
+          "passed": 403,
+          "failed": 59,
+          "skipped": 1,
+          "deselected": 1,
+          "errors": 0,
+          "exit_code": 1,
+          "summary": "59 failed, 403 passed, 1 skipped, 1 deselected, 23 warnings in 0.59s"
+        }
+      },
+      "improved": true,
+      "usage": {
+        "prompt_tokens": 113908,
+        "completion_tokens": 34857,
+        "total_tokens": 148765,
+        "wall_clock_s": 293.3205078650499
+      }
+    }
+  ],
+  "final_oracle_score": {
+    "passed": 403,
+    "failed": 59,
+    "skipped": 1,
+    "deselected": 1,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "59 failed, 403 passed, 1 skipped, 1 deselected, 23 warnings in 0.58s",
+    "pipeline_deferrals_applied": false
+  },
+  "best_iteration_by_metric": 3,
+  "finished": "2026-09-09T23:51:03+0000"
+}
