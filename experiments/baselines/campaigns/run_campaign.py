@@ -60,6 +60,9 @@ def main() -> int:
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--mode", required=True, choices=("generate", "repair"),
                         help="generate: run B0. repair: iterate over an existing B0 artifact.")
+    parser.add_argument("--example", default="alphatrans", choices=("alphatrans", "crust"),
+                        help="translation example: alphatrans (Java->Python) or crust (C->Rust). "
+                             "Selects which examples/<name>/subjects tree the run targets.")
     parser.add_argument("--tag", required=True, help="result tag; must not already exist")
     parser.add_argument("--campaign-dir", type=Path, required=True,
                         help="directory for campaign status and per-run logs; must not exist")
@@ -92,12 +95,13 @@ def main() -> int:
     entry = load_catalog(args.model_catalog, args.model, need_output=args.max_output_tokens,
                          need_effort=args.effort, need_stream=True)
     args.campaign_dir.mkdir(parents=True)
-    subjects_dir = REPO / "examples" / "alphatrans" / "subjects"
+    subjects_dir = REPO / "examples" / args.example / "subjects"
 
     plan = [(arm, subject) for arm in (args.arms if args.mode == "repair" else [args.granularity])
             for subject in args.subjects]
     state = {
         "mode": args.mode, "state": "running", "pid": os.getpid(), "tag": args.tag,
+        "example": args.example,
         "model": args.model, "reasoning_effort": args.effort,
         "max_output_tokens": args.max_output_tokens, "streaming": True,
         "model_catalog_entry": entry,
@@ -127,6 +131,7 @@ def main() -> int:
             command = [
                 sys.executable, "-u", str(BASELINES / "run_one.py"),
                 "--project", subject, "--tag", args.tag, "--backend", "copilot-api",
+                "--example", args.example,
                 "--granularity", args.granularity, "--model", args.model,
                 "--effort", args.effort, "--max-output-tokens", str(args.max_output_tokens),
                 "--api-stream", "--max-rounds", str(args.max_rounds),
@@ -135,6 +140,7 @@ def main() -> int:
             command = [
                 sys.executable, "-u", str(BASELINES / "repair_loop.py"),
                 "--project", subject, "--source-tag", args.source_tag, "--tag", args.tag,
+                "--example", args.example,
                 "--arm", label, "--iterations", str(args.iterations),
                 "--model", args.model, "--effort", args.effort,
                 "--max-output-tokens", str(args.max_output_tokens), "--api-stream",
