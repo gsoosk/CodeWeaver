@@ -38,6 +38,10 @@
       "sha256_before_normalization": "78ef628121591250244e548ac8e442f9b5c253f077c03d93124f4660cc8d50aa"
     },
     {
+      "path": "data/cset/codeweaver/analysis.md",
+      "sha256_before_normalization": "efecea9f2d1ecb00c43acc092d76a2711fe1453e75b2e6ca3da2705c2860ee21"
+    },
+    {
       "path": "data/cset/repair-build/oracle_score.txt",
       "sha256_before_normalization": "36aef43fa164d11cc268f57276959cb6aa64561d86168129e12917e052335ae5"
     },
@@ -58,6 +62,10 @@
       "sha256_before_normalization": "0284cb86d7f65a94eb2a024d05e7e60fe259db59213a599b231d4e2f9ce48fac"
     },
     {
+      "path": "data/inversion_list/codeweaver/analysis.md",
+      "sha256_before_normalization": "dae3107987397f586219d970761bf38a10627b2b8b9e9581f7115339e759df31"
+    },
+    {
       "path": "data/inversion_list/repair-build/oracle_score.txt",
       "sha256_before_normalization": "9154b58208caa6ebd6985bcbc252284c7682456547aa75963e6dbb37a5592383"
     },
@@ -76,6 +84,14 @@
     {
       "path": "data/lambda-calculus-eval/b0-whole-repo/oracle_score.txt",
       "sha256_before_normalization": "dc0e120f7b911142cd0f7eef14d3a5a9be58d9a6570a1669d8660984192ab0ce"
+    },
+    {
+      "path": "data/lambda-calculus-eval/codeweaver/analysis.md",
+      "sha256_before_normalization": "aeeff15c87d7fdf88c99ff706dc25620b16601646043674474cf60374c25033c"
+    },
+    {
+      "path": "data/lambda-calculus-eval/codeweaver/plan.json",
+      "sha256_before_normalization": "d73cbe0be641333ba2ca1762ddaaf9c2826550afbf43718d03b69195e652f81a"
     },
     {
       "path": "data/lambda-calculus-eval/repair-build/oracle_score.txt",

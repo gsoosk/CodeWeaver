@@ -18,9 +18,9 @@ These four were selected for **assertion density**, then checked individually:
 | Subject | C SLOC | interfaces | tests | passing on stubs |
 |---|---:|---:|---:|---:|
 | cset | 598 | 1 | 15 | 0 |
-| c-aces | 777 | 7 | 22 | 0 |
+| c-aces | 777 | 7 | 11 | 0 |
 | lambda-calculus-eval | 1,399 | 7 | 22 | 0 |
-| inversion_list | 695 | 1 | 30 | **2** |
+| inversion_list | 695 | 1 | 15 | **1** |
 
 Total 3,469 C SLOC. (The seven-subject shortlist this was drawn from totalled 13,578 C
 SLOC, within 1% of AlphaTrans's 13,471 Java SLOC; the three dropped subjects had one or
@@ -28,23 +28,71 @@ two assertions each and could not discriminate.)
 
 **Negative control.** Every subject was run against its untouched `unimplemented!()`
 stubs before any model call. All four compile as stubs, and all four fail their tests.
-`inversion_list` has **2 tests that pass on pure stubs** — free points for every arm,
-kept in its denominator, and never to be read as translation quality.
+`inversion_list` has **1 test that passes on pure stubs** — a free point for every
+arm, kept in its denominator, and never to be read as translation quality.
+
+### Counting each test exactly once
+
+Denominators here are not cargo's defaults, and the difference is large enough to
+matter. `cargo` auto-discovers `src/bin/*.rs` as binaries and runs the `#[test]`
+functions inside them; a file *also* named in a `[[test]]` block is compiled a second
+time as an integration target and **counted twice**. A bare `cargo test` additionally
+runs the crate's own `#[cfg(test)] mod tests` — which CodeWeaver's agents write, i.e.
+tests the translation graded itself on.
+
+An earlier revision of this package published cargo's raw counts and was wrong:
+`c-aces` appeared as 22 tests instead of 11, and `inversion_list` as 30 instead of 15,
+purely because CRUST happened to declare `[[test]]` blocks for those two subjects.
+
+The oracle now synthesizes its own manifest with `autobins`/`autotests` disabled and
+one `[[test]]` entry per staged file. Every subject counts each held-out test exactly
+once, and no agent-written test is counted at all.
 
 ## How the oracle is held out
 
 CRUST ships its tests **inside the crate**, at `src/bin/*.rs`, where `cargo test` picks
 them up automatically. Left in place, the translator could read them.
 
-`setup.sh` therefore moves `src/bin/` to `.oracle-master/`, strips the matching
-`[[test]]` declarations from `Cargo.toml`, and keeps the original manifest beside the
-oracle. `tools/oracle.sh` stages both back into a throwaway tree at scoring time, with
-the oracle manifest overwriting the working copy's — so a translation cannot disable a
-test target by editing its own `Cargo.toml`.
+`setup.sh` therefore relocates `src/bin/` **outside the subject directory entirely**,
+strips the matching `[[test]]` declarations from `Cargo.toml`, and keeps the original
+manifest beside the oracle. `tools/oracle.sh` resolves that location by convention and
+stages everything back into a throwaway tree at scoring time, synthesizing its own
+manifest — so a translation cannot disable a test target by editing its own
+`Cargo.toml`.
 
 **The C test directories are withheld too.** CRUST generated its Rust tests from them,
 so passing them to the translator would leak the oracle in another language. Only
 `src/` of the C project is given.
+
+### Why the oracle is not merely hidden but absent
+
+CodeWeaver runs its agents with `--allow-all`. Nothing at the filesystem level stops
+them reading anything, so "held out" has to mean *not present in the tree they work
+in*, and has to be **verified after the fact**, not assumed.
+
+Both were learned the hard way, and both are recorded here because the failures are
+instructive:
+
+1. The oracle originally sat at `<subject>/.oracle-master`, which is the agents'
+   working directory. A scoper listed it and lifted the exact test-target names.
+2. Moving it out but leaving a `.oracle-path` pointer behind changed nothing: an agent
+   read the pointer, issued `view` on the directory it named, and got the listing.
+   A signpost to the answer key is the answer key.
+3. The config template's own comment named the directory. That was removed too.
+
+The oracle location is now derived by convention and appears nowhere in the agents'
+tree. `tools/oracle_audit.sh` greps every agent log after a run for any reference to
+it. **For the published CodeWeaver runs, zero tool calls targeted the oracle or the
+upstream dataset**, and the upstream CRUST checkout was moved off the agents' reach
+before the final run.
+
+Milestone gate tokens are worth one further note. For `c-aces` they are mechanically
+derivable (`Matrix.c` → `matrix_test`), as they are throughout the AlphaTrans suite
+(`Util.java` → `UtilTest`). For `inversion_list` the model named all 15 targets
+including `test_couple_iterator` and `test_create_destroy_2/3/4`, which are **not**
+derivable from the C source it was given. No tool call read them. The most likely
+explanation is memorization of a public upstream project. It is disclosed rather than
+explained away.
 
 ## The arms
 
@@ -54,9 +102,12 @@ so passing them to the translator would leak the oracle in another language. Onl
 | `b0-per-file` | one call per module | none | yes |
 | `repair-build` | repairs `b0-per-file` | `cargo build --lib` diagnostics | yes |
 | `repair-test` | repairs `b0-per-file` | oracle failure output | **no** |
+| `codeweaver` | full agentic pipeline | build, its own unit tests, and gated oracle **counts** | partial |
 
-`repair-test` saw the oracle's failures. It is not comparable to the other three and
-must never be tabulated beside them without saying so.
+`repair-test` saw the oracle's *failure output*. CodeWeaver sees gated oracle
+pass/fail **counts** at milestone boundaries — never test source, never failure text.
+Those two are not comparable to each other, nor to the three fully test-blind arms,
+without stating the difference.
 
 Repair runs up to 3 iterations and keeps the **final** one, as CRUST-bench does, not
 the best-scoring one. Per-iteration trajectories are recorded so regressions stay
@@ -65,27 +116,39 @@ visible.
 ## Results
 
 ```
-subject                stubs    b0-whole-repo  b0-per-file  +build repair  +test repair
-cset                   0/15     FAIL(4)        FAIL(4)      FAIL(4)        FAIL(4)
-c-aces                 0/22     22/22          FAIL(145)    FAIL(145)      FAIL(155)
-lambda-calculus-eval   0/22     22/22          FAIL(127)    FAIL(45)       FAIL(78)
-inversion_list         2/30     30/30          28/30        28/30          28/30
+subject                stubs   b0-whole-repo  b0-per-file  +build      +test       CodeWeaver
+cset                   0/15    FAIL(4)        FAIL(4)      FAIL(4)     FAIL(4)     15/15
+c-aces                 0/11    11/11          FAIL(145)    FAIL(145)   FAIL(155)   11/11
+lambda-calculus-eval   0/22    22/22          FAIL(127)    FAIL(45)    FAIL(78)    22/22
+inversion_list         1/15    15/15          14/15        14/15       14/15       15/15
 ```
 
 `FAIL(n)` means the crate did **not compile**, with n `rustc` errors, and no tests ran.
 That is not a score and not a zero — Rust gives no partial credit, so a build failure
 is reported as its own state.
 
-### Whole-repo wins decisively, and that is the finding
+### CodeWeaver is the only arm that solves every subject
+
+63/63 across the suite, including `cset`, which **no baseline arm compiles at all**.
+All four results keep every declared module (`contract_intact`) and leave no
+`unimplemented!()` behind.
+
+`cset` is the interesting case. Every B0 arm — including whole-repo, which is otherwise
+near-perfect here — fails it with `casting &T to &mut T is undefined behavior`. That is
+a soundness defect, not a coupling problem: the C relies on aliasing that Rust rejects
+outright, and no amount of single-shot translation or repair fixed it. Restructuring
+the ownership is exactly the kind of change that needs iteration against a compiler.
+
+### Whole-repo beats per-file decisively — the reverse of AlphaTrans
 
 Three of four whole-repo runs pass every test. Three of four per-file runs do not
-compile at all. This is the **opposite** of the AlphaTrans result, where whole-repo lost
-modules to the 64,000-token output cap.
+compile at all. In the AlphaTrans suite whole-repo *lost* to per-file, because it ran
+out of output tokens.
 
 The mechanism is the same in both suites; only which term dominates changes. These
-projects are small (322–1,262 Rust LOC emitted), so the output cap never binds and the
-coupling effect is isolated cleanly. Per-file translates each module against the
-skeleton alone, and independently-made choices disagree:
+crates are small (322–1,262 Rust LOC emitted), so the 64,000-token output cap never
+binds and the coupling effect is isolated cleanly. Per-file translates each module
+against the skeleton alone, and independently-made choices disagree:
 
 - `c-aces`: 145 errors dominated by `struct Polynomial has no field named size`.
 - `lambda-calculus-eval`: `unresolved import crate::common::AstNodeKind`, and
@@ -97,12 +160,8 @@ rejects it at compile time; Python only raised `AttributeError` at runtime, whic
 parse/import check structurally cannot see.
 
 **Damage tracks inter-module coupling, not repository size.** `inversion_list` is the
-one per-file subject that compiles, and it is single-module — there is no cross-module
-surface to break. It still scores 28/30 against a 2/30 stub floor.
-
-`cset` fails everywhere, including whole-repo, for an unrelated reason: `casting &T to
-&mut T is undefined behavior`. That is a soundness defect in the translation, not a
-coupling problem, and no arm fixed it.
+one per-file subject that compiles, and it is single-module — no cross-module surface
+to break.
 
 ### Compiler-guided repair helps, but does not close the gap
 
@@ -151,16 +210,21 @@ contract integrity; all are intact.
   every generation arm.
 - **Not comparable to the AlphaTrans results in this repository** as a like-for-like
   score. Different languages, different oracles, very different oracle strength (87.6
-  tests per KSLOC there, ~25 here). The *mechanisms* transfer; the numbers do not.
-- `repair-test` saw oracle failures. Keep it out of any table with the other arms.
+  tests per KSLOC there, ~18 here). The *mechanisms* transfer; the numbers do not.
+- `repair-test` saw oracle failure text; `codeweaver` saw gated oracle counts. Neither
+  belongs in a table with the three fully test-blind arms without that being stated.
 - **The oracle is weak and its provenance is not human-verified.** These tests were
-  LLM-generated. A passing score here is much weaker evidence than a passing score on
-  AlphaTrans's manually verified suite.
+  LLM-generated. Four subjects with 63 tests between them is a thin instrument, and a
+  perfect score on it is much weaker evidence than a perfect score on AlphaTrans's
+  manually verified suite. CodeWeaver's 63/63 should be read as "no arm-visible defect
+  remained", not as proof of correctness.
 - **There is no gold Rust reference.** CRUST ships no reference implementation (98% of
   interface bodies are `unimplemented!()`), so unlike the AlphaTrans suite there is no
   way to confirm a failing test is the translation's fault rather than the test's. No
   exclusions were applied on that basis, because none could be justified.
-- N=1 per run. No repetitions, no variance. Cost is provider-reported tokens only.
+- N=1 per run. No repetitions, no variance. Cost is provider-reported tokens only, and
+  CodeWeaver's per-run cost is **unrecoverable** — its role logs are overwritten per
+  agent invocation, so no complete usage ledger exists for that arm.
 
 ## Contents
 

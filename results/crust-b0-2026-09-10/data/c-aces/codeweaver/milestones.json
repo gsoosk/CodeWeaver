@@ -1,0 +1,60 @@
+{
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Skeleton compiles and links",
+      "goal": "The scaffold crate (all 7 declared modules: error, common, matrix, polynomial, channel, aces_internal, aces) builds successfully with cargo build even though every function body is still `unimplemented!()`. No functional behavior is required yet; this only proves the module graph, signatures, and lib.rs declarations are intact.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M1",
+      "title": "Common: number theory & RNG helpers",
+      "goal": "Implement common.rs faithfully to Common.c/Common.h: gcd, xgcd (Bezout identity gcd = a*x + b*y), are_coprime, randinverse (returns (a, a^-1 mod value) with 1 <= a < value), randrange(lower, upper) inclusive bounds, normal_rand (Box-Muller), and max/min/clamp boundary semantics. Depends only on M0.",
+      "tests": ["common_test"],
+      "marker": ""
+    },
+    {
+      "id": "M2",
+      "title": "Matrix: Matrix2D/Matrix3D and invertible-pair generation",
+      "goal": "Implement matrix.rs faithfully to Matrix.c/Matrix.h: Matrix2D/Matrix3D bounds-respecting accessors, matrix2d_multiply (mod q, naive triple loop), matrix2d_eye, swap_transform, linear_mix_transform, scale_transform (each preserving m . invm = I mod q), and fill_random_invertible_pairs. Depends on M1 for randrange/randinverse.",
+      "tests": ["matrix_test"],
+      "marker": ""
+    },
+    {
+      "id": "M3",
+      "title": "Polynomial: arbitrary-length modular polynomials",
+      "goal": "Implement polynomial.rs faithfully to Polynomial.c/Polynomial.h: Polynomial/PolyArray construction, set_zero, coef_sum, degree (MSB-first convention), fit (leading-zero stripping + mod-q reduction), add/sub/mul (mod q, with the C's zero-padding-on-size-mismatch logic), lshift/poly_mod (Euclidean-style reduction, Err when divisor's leading coefficient isn't 1), sub_scaler/add_scaler. Depends only on M1 (error).",
+      "tests": ["polynomial_test"],
+      "marker": ""
+    },
+    {
+      "id": "M4",
+      "title": "Channel: arithmetic channel tuple and invariant",
+      "goal": "Implement channel.rs faithfully to Channel.c/Channel.h: Parameters{dim, N}, Channel::new (unconditional construction), and Channel::init replicating the C's actual init_channel logic -- if p^2 < q AND are_coprime(p, q) both hold, q is kept as-is; otherwise q is silently replaced with (p+1)^2 -- always returning Ok in both branches (C's init_channel never fails). Depends on M1. No held-out oracle test target exists for this module standalone (it is exercised indirectly via aces_internal_test in M5), so this milestone's gate is the build/own-unit-test bar only.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M5",
+      "title": "Aces-internal: key-material generators",
+      "goal": "Implement aces_internal.rs faithfully to Aces-internal.c/Aces-internal.h: generate_error, generate_vanisher, generate_linear (shift-correction pattern so coef_sum mod q matches the target value), generate_u (length dim+1, first coeff 1, last coeff makes coef_sum(u) == q), generate_secret (invertible-pair-derived secret PolyArray x and lambda tensor via poly_mul/poly_mod/matrix2d_multiply), generate_f0 (random PolyArray in [0, q-1]), and generate_f1 (f1 = (sum f0_i * x_i) mod u, right-aligned/truncated into f1's existing length without pointer-shift tricks). Depends on M1-M4 (common, matrix, polynomial, channel).",
+      "tests": ["aces_internal_test"],
+      "marker": ""
+    },
+    {
+      "id": "M6",
+      "title": "Aces: public API and encrypt/decrypt/add/refresh integration",
+      "goal": "Implement aces.rs faithfully to Aces.c/Aces.h: PublicKey/PrivateKey/SharedInfo/Aces/CipherMessage, set_aces (capacity check against mem.len(), builds correctly-shaped Vec-backed buffers for u/lambda/x/f0/f1, Err on insufficient capacity), init_aces (wires channel -> u -> secret -> f0 -> f1), aces_encrypt/aces_decrypt (round trip: decrypt(encrypt(m)) == m mod p for message.len() <= 1, else Err), aces_add (per-component polynomial add + mod-u reduction on c1/c2, level = a.level + b.level), aces_mul (no-op stub matching the C's TODO, Ok(()) and result untouched), and aces_refresh (c2 = c2 - k*p mod q via sub_scaler, level -= k using wrapping_sub to replicate C's silent uint64_t underflow wraparound). Depends on all prior milestones. There is no dedicated held-out oracle test target for this module, so this milestone's gate is the build/own-unit-test bar (including the README's encrypt/add/decrypt worked example translated as an own inline test).",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M7",
+      "title": "Golden: full contract conformance",
+      "goal": "The complete crate (error, common, matrix, polynomial, channel, aces_internal, aces) builds cleanly, all of the project's own #[cfg(test)] unit tests pass across every module, and the held-out oracle suite passes in full -- every previously-introduced oracle test target (common_test, matrix_test, polynomial_test, aces_internal_test) plus a full-suite validate run with no gate restriction, confirming no regressions were introduced by later milestones and no `unimplemented!()`/`todo!()` remain anywhere.",
+      "tests": [],
+      "marker": ""
+    }
+  ]
+}

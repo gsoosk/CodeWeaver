@@ -1,0 +1,15 @@
+test_clone
+test_complement
+test_couple_iterator
+test_create_destroy_2
+test_create_destroy_3
+test_create_destroy_4
+test_difference
+test_equals
+test_getters
+test_intersection
+test_iterator
+test_member
+test_struct
+test_to_string
+test_union

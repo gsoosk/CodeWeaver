@@ -1,0 +1,336 @@
+{
+  "project": "cset",
+  "working_copy": "pipeline/project",
+  "scaffold": ".scaffold",
+  "source": "c-source/src/cset.h",
+  "analysis": "pipeline/analysis.md",
+  "milestones_source": "pipeline/milestones.json",
+
+  "fragment_extraction": {
+    "part_a_implementation": [
+      { "fragment": "c-source/src/cset.h:XXH_readLE64", "target": "pipeline/project/src/cset.rs:xxh_read_le64", "exists": true, "notes": "8-byte little-endian byte read via shift/OR; raw pointer walk needs unsafe" },
+      { "fragment": "c-source/src/cset.h:XXH_get64bits (macro -> XXH_readLE64_align)", "target": "pipeline/project/src/cset.rs:xxh_get64bits", "exists": true, "notes": "thin wrapper delegating to xxh_read_le64_align" },
+      { "fragment": "c-source/src/cset.h:XXH_isLittleEndian", "target": "pipeline/project/src/cset.rs:xxh_is_little_endian", "exists": true, "notes": "union byte-order trick -> 1u32.to_ne_bytes()[0] == 1" },
+      { "fragment": "c-source/src/cset.h:XXH_readLE64_align", "target": "pipeline/project/src/cset.rs:xxh_read_le64_align", "exists": true, "notes": "delegates to xxh_read_le64" },
+      { "fragment": "c-source/src/cset.h:XXH_swap32", "target": "pipeline/project/src/cset.rs:xxh_swap32", "exists": true, "notes": "byte-swap; wrapping shifts, or u32::swap_bytes with identical result" },
+      { "fragment": "c-source/src/cset.h:XXH_read32", "target": "pipeline/project/src/cset.rs:xxh_read32", "exists": true, "notes": "memcpy-equivalent 4-byte raw read; unsafe" },
+      { "fragment": "c-source/src/cset.h:XXH64_round", "target": "pipeline/project/src/cset.rs:xxh64_round", "exists": true, "notes": "wrapping_add/wrapping_mul + rotate_left(31)" },
+      { "fragment": "c-source/src/cset.h:XXH64_mergeRound", "target": "pipeline/project/src/cset.rs:xxh64_merge_round", "exists": true, "notes": "wrapping arithmetic, calls xxh64_round(0, val)" },
+      { "fragment": "c-source/src/cset.h:XXH_get32bits (macro -> XXH_readLE32_align)", "target": "pipeline/project/src/cset.rs:xxh_get_32bits", "exists": true, "notes": "wrapper delegating to xxh_read_le32_align" },
+      { "fragment": "c-source/src/cset.h:XXH_readLE32 / XXH_readLE32_align", "target": "pipeline/project/src/cset.rs:xxh_read_le32_align", "exists": true, "notes": "branches on xxh_is_little_endian() at runtime (no cfg! constant declared)" },
+      { "fragment": "c-source/src/cset.h:XXH64_avalanche", "target": "pipeline/project/src/cset.rs:xxh64_avalanche", "exists": true, "notes": "wrapping_mul, xor-shift mixing" },
+      { "fragment": "c-source/src/cset.h:XXH64_finalize", "target": "pipeline/project/src/cset.rs:xxh64_finalize", "exists": true, "notes": "len &= 31, 8/4/1-byte tail loops; unsafe pointer advance" },
+      { "fragment": "c-source/src/cset.h:XXH64_endian_align", "target": "pipeline/project/src/cset.rs:xxh64_endian_align", "exists": true, "notes": "v1..v4 seeded with PRIME64_1/2/0/-1, else branch += PRIME64_5" },
+      { "fragment": "c-source/src/cset.h:XXH64_endian_align_h", "target": "pipeline/project/src/cset.rs:xxh64_endian_align_h", "exists": true, "notes": "v1..v4 seeded with PRIME64_1/-2/3/-1 (distinct from _align), else branch += PRIME64_1 -- must stay independently seeded from xxh64_endian_align" },
+      { "fragment": "c-source/src/cset.h:XXH64", "target": "pipeline/project/src/cset.rs:xxh64", "exists": true, "notes": "delegates to xxh64_endian_align after unsafe raw-pointer-to-slice view" },
+      { "fragment": "c-source/src/cset.h:XXH64_h", "target": "pipeline/project/src/cset.rs:xxh64_h", "exists": true, "notes": "delegates to xxh64_endian_align_h" },
+      { "fragment": "c-source/src/cset.h:cset__hash1_callback", "target": "pipeline/project/src/cset.rs:cset_hash1_callback", "exists": true, "notes": "xxh64(memptr, size, CSET_DEFAULT_SEED)" },
+      { "fragment": "c-source/src/cset.h:cset__hash2_callback", "target": "pipeline/project/src/cset.rs:cset_hash2_callback", "exists": true, "notes": "xxh64_h(...) | 1 (force odd)" },
+      { "fragment": "c-source/src/cset.h:cset__Value macro", "target": "pipeline/project/src/cset.rs:CsetValue<T>", "exists": true, "notes": "struct already declared { pi: i32, elem: T }; pi 0=empty,-1=tombstone,>=1=occupied" },
+      { "fragment": "c-source/src/cset.h:Cset macro (struct fields)", "target": "pipeline/project/src/cset.rs:Cset<T>", "exists": true, "notes": "struct already declared; no customhasher field (scaffold gap, accepted per brief rule 4)" },
+      { "fragment": "c-source/src/cset.h:cset__init", "target": "pipeline/project/src/cset.rs:Cset::new", "exists": true, "notes": "CSET_INITIAL_CAP zeroed buckets, seed=CSET_DEFAULT_SEED, max/min load factor defaults, compare=None" },
+      { "fragment": "c-source/src/cset.h:cset__empty / cset__tombstone macros", "target": "pipeline/project/src/cset.rs:Cset::empty/Cset::tombstone (+ private index-taking helpers)", "exists": true, "notes": "scaffold's pub empty()/tombstone() take no index (signature mismatch vs C macro) -- add private *_at(&self, index) helpers, keep pub signatures as declared" },
+      { "fragment": "c-source/src/cset.h:cset__index", "target": "pipeline/project/src/cset.rs:Cset::index", "exists": true, "notes": "returns owned T by value (scaffold has no T:Clone bound in impl header -- add bound only if permitted, else clone via Copy-only test types)" },
+      { "fragment": "c-source/src/cset.h:cset__size / cset__set_size", "target": "pipeline/project/src/cset.rs:Cset::get_size/set_size", "exists": true, "notes": "direct bucket_size accessor" },
+      { "fragment": "c-source/src/cset.h:cset__seed / cset__set_seed", "target": "pipeline/project/src/cset.rs:Cset::get_seed/set_seed", "exists": true, "notes": "direct field accessor" },
+      { "fragment": "c-source/src/cset.h:cset__max_load_factor / cset__set_max_load_factor", "target": "pipeline/project/src/cset.rs:Cset::get_max_load_factor/set_max_load_factor", "exists": true, "notes": "direct field accessor" },
+      { "fragment": "c-source/src/cset.h:cset__min_load_factor / cset__set_min_load_factor", "target": "pipeline/project/src/cset.rs:Cset::get_min_load_factor/set_min_load_factor", "exists": true, "notes": "direct field accessor; value never read by add/resize logic (dead config, matches C)" },
+      { "fragment": "c-source/src/cset.h:cset__vector_buckets_ref / cset__vector_temp_buckets_ref", "target": "pipeline/project/src/cset.rs:Cset::get_buckets/get_buckets_ref/get_temp_buckets_ref", "exists": true, "notes": "return refs to buckets/temp_buckets Vec fields" },
+      { "fragment": "c-source/src/cset.h:cset__cap", "target": "pipeline/project/src/cset.rs:Cset::capacity", "exists": true, "notes": "self.buckets.len() as i32" },
+      { "fragment": "c-source/src/cset.h:cset__h1hash / cset__h2hash / cset__double_hash_index", "target": "pipeline/project/src/cset.rs: private helper(s) used inside add/remove/contains", "exists": true, "notes": "h1 = xxh64(bytes, size, seed); h2 = xxh64_h(bytes, size, seed) | 1; index = (h1 + i*h2) % cap -- no customhasher dispatch (scaffold gap, default-only path)" },
+      { "fragment": "c-source/src/cset.h:cset__bytes_compare / cset__matches", "target": "pipeline/project/src/cset.rs: private default-equality helper used by add/remove/contains", "exists": true, "notes": "self.compare.map_or(byte_equality, |f| f(a,b)); byte_equality via size_of::<T>() raw-byte view" },
+      { "fragment": "c-source/src/cset.h:cset__add / cset__add_", "target": "pipeline/project/src/cset.rs:Cset::add", "exists": true, "notes": "resize check (bucket_size/cap >= max_load_factor) then probe; break unconditionally at first empty-or-tombstone slot (preserve exact subtlety, no full-table dup scan)" },
+      { "fragment": "c-source/src/cset.h:cset__resize", "target": "pipeline/project/src/cset.rs:private resize(&mut self, new_cap) called from add", "exists": true, "notes": "rehash live elements into temp_buckets (drop tombstones), swap buckets<->temp_buckets" },
+      { "fragment": "c-source/src/cset.h:cset__remove / cset__remove_", "target": "pipeline/project/src/cset.rs:Cset::remove", "exists": true, "notes": "probe; on match set pi=-1, decrement bucket_size; no-op if not found" },
+      { "fragment": "c-source/src/cset.h:cset__contains / cset__contains_", "target": "pipeline/project/src/cset.rs:Cset::contains", "exists": true, "notes": "probe skipping tombstones, stop at first empty or match" },
+      { "fragment": "c-source/src/cset.h:cset__clear", "target": "pipeline/project/src/cset.rs:Cset::clear", "exists": true, "notes": "fresh CSET_INITIAL_CAP zeroed buckets, bucket_size=0; old Vec dropped automatically" },
+      { "fragment": "c-source/src/cset.h:cset__free", "target": "(omitted -- Drop replaces it)", "exists": true, "notes": "no pub free() in scaffold by design; ownership/Drop handles deallocation" },
+      { "fragment": "c-source/src/cset.h:cset__set_comparator", "target": "pipeline/project/src/cset.rs:Cset::set_comparator", "exists": true, "notes": "stores Some(compare) into self.compare" },
+      { "fragment": "c-source/src/cset.h:Cset_iterator / cset_iterator__init/__done/__next", "target": "pipeline/project/src/cset.rs:Cset::iter", "exists": true, "notes": "scaffold collapses the stateful iterator into one method returning materialized Vec<T> in bucket order; termination bound = size(), not cap" },
+      { "fragment": "c-source/src/cset.h:cset__intersect", "target": "pipeline/project/src/cset.rs:Cset::intersect", "exists": true, "notes": "occupied elems of first present in second -> add into self (self not pre-cleared)" },
+      { "fragment": "c-source/src/cset.h:cset__union", "target": "pipeline/project/src/cset.rs:Cset::union", "exists": true, "notes": "all occupied elems of first then second -> add into self" },
+      { "fragment": "c-source/src/cset.h:cset__is_disjoint", "target": "pipeline/project/src/cset.rs:Cset::is_disjoint", "exists": true, "notes": "true unless some occupied elem of self is in other; early-exit on first shared element" },
+      { "fragment": "c-source/src/cset.h:cset__difference", "target": "pipeline/project/src/cset.rs:Cset::difference", "exists": true, "notes": "occupied elems of first not contained in second -> add into self" },
+      { "fragment": "c-source/src/cset.h:cset_Vector / cset_vector__init_with_cap/__grow/__add/__index/__cap/__free", "target": "(no direct module -- replaced by Vec<CsetValue<T>> ops inline in Cset<T> methods)", "exists": true, "notes": "malloc/memcpy/free growth -> Vec::with_capacity/push/resize/mem::replace; per analysis §2, do NOT reintroduce as a separate module" }
+    ],
+    "part_a_missing": [],
+
+    "part_b_tests_and_mocks": [
+      { "fragment": "README.md:Getting Started example (add/dup/size/iterate)", "target": "pipeline/project/src/cset.rs:tests::test_add_duplicate_noop, tests::test_iterator_yields_all_elements", "mode": "needs-new-test", "notes": "no c-source/tests/ (removed, held-out oracle); README examples are the only first-party behavioral spec" },
+      { "fragment": "README.md:cset__remove example", "target": "pipeline/project/src/cset.rs:tests::test_remove_then_size_zero", "mode": "needs-new-test" },
+      { "fragment": "README.md:cset__size example", "target": "pipeline/project/src/cset.rs:tests::test_new_default_state (extended with three-adds size check)", "mode": "needs-new-test" },
+      { "fragment": "README.md:cset__clear example", "target": "pipeline/project/src/cset.rs:tests::test_clear_resets_size", "mode": "needs-new-test" },
+      { "fragment": "README.md:cset__contains example", "target": "pipeline/project/src/cset.rs:tests::test_contains_true_false", "mode": "needs-new-test" },
+      { "fragment": "README.md:custom comparator/hash Node example", "target": "pipeline/project/src/cset.rs:tests::Node fixture, tests::node_comparator, tests::test_custom_comparator_dedup_by_field", "mode": "needs-new-test", "notes": "comparator-only reproduction; no customhasher field in scaffold so the custom-hash half of the README example cannot be ported, per analysis §3 gap" },
+      { "fragment": "README.md:iteration APIs (cset_iterator__init/__done/__next)", "target": "pipeline/project/src/cset.rs:tests::test_iterator_yields_all_elements", "mode": "needs-new-test", "notes": "assert as multiset/sorted comparison since order is bucket-order, not insertion order" },
+      { "fragment": "README.md:cset__intersect example (sizes {12,13,14} & {12,13,16} => 2)", "target": "pipeline/project/src/cset.rs:tests::test_intersect_sizes", "mode": "needs-new-test" },
+      { "fragment": "README.md:cset__union example (sizes 5 then 6)", "target": "pipeline/project/src/cset.rs:tests::test_union_sizes", "mode": "needs-new-test" },
+      { "fragment": "(no README example -- inferred from cset__is_disjoint macro semantics)", "target": "pipeline/project/src/cset.rs:tests::test_is_disjoint", "mode": "needs-new-test" },
+      { "fragment": "(no README example -- inferred from cset__difference macro semantics)", "target": "pipeline/project/src/cset.rs:tests::test_difference", "mode": "needs-new-test" },
+      { "fragment": "(no README example -- xxHash64 KATs, upstream algorithm)", "target": "pipeline/project/src/cset.rs:tests::test_xxh64_known_answer_empty_input, tests::test_xxh64_known_answer_long_input, tests::test_xxh_is_little_endian_matches_platform", "mode": "needs-new-test", "notes": "xxh64 may be checked against upstream xxHash64 test vectors; xxh64_h's v2/v3 reseeding is cset-local, self-consistency only" },
+      { "fragment": "(no README example -- cset__hash2_callback odd-forcing)", "target": "pipeline/project/src/cset.rs:tests::test_cset_hash2_callback_always_odd, tests::test_hash1_and_hash2_are_independent", "mode": "needs-new-test" },
+      { "fragment": "(no README example -- resize-at-load-factor observable via capacity() doubling)", "target": "pipeline/project/src/cset.rs:tests::test_resize_on_load_factor", "mode": "needs-new-test" },
+      { "fragment": "(no README example -- remove-miss no-op)", "target": "pipeline/project/src/cset.rs:tests::test_remove_missing_is_noop", "mode": "needs-new-test" },
+      { "fragment": "(no README example -- accessor getters/setters)", "target": "pipeline/project/src/cset.rs:tests::test_accessor_round_trip", "mode": "needs-new-test" }
+    ],
+    "part_b_missing": [],
+
+    "mockable_seams_note": "The C source has no I/O, threading, or external boundary (per analysis.md §1/'Unit-test strategy'); it is pure in-memory data-structure code. No trait-based mock seam is structurally required. The only fixture needed is the README's `Node{x,y}` struct + a comparator fn to exercise the set_comparator dispatch (M6/M7) -- added as a private test-module fixture, not a pub API addition."
+  },
+
+  "name_mapping": [
+    { "c_symbol": "XXH_PRIME64_1 .. XXH_PRIME64_5 (ULL literals)", "rust_symbol": "XXH_PRIME64_1 .. XXH_PRIME64_5: u64" },
+    { "c_symbol": "xxh_u8 / xxh_u32 / xxh_u64 / XXH64_hash_t / XXH32_hash_t", "rust_symbol": "XXHU8 = u8 / XXHU32 = u32 / XXHU64 = XXH64HashT / XXH64HashT = u64 / XXH32HashT = u32" },
+    { "c_symbol": "XXH_readLE64", "rust_symbol": "xxh_read_le64" },
+    { "c_symbol": "XXH_get64bits (macro)", "rust_symbol": "xxh_get64bits" },
+    { "c_symbol": "XXH_isLittleEndian", "rust_symbol": "xxh_is_little_endian" },
+    { "c_symbol": "XXH_readLE64_align", "rust_symbol": "xxh_read_le64_align" },
+    { "c_symbol": "XXH_swap32", "rust_symbol": "xxh_swap32" },
+    { "c_symbol": "XXH_read32", "rust_symbol": "xxh_read32" },
+    { "c_symbol": "XXH64_round", "rust_symbol": "xxh64_round" },
+    { "c_symbol": "XXH64_mergeRound", "rust_symbol": "xxh64_merge_round" },
+    { "c_symbol": "XXH_get32bits (macro)", "rust_symbol": "xxh_get_32bits" },
+    { "c_symbol": "XXH_readLE32 / XXH_readLE32_align", "rust_symbol": "xxh_read_le32_align" },
+    { "c_symbol": "XXH64_avalanche", "rust_symbol": "xxh64_avalanche" },
+    { "c_symbol": "XXH64_finalize", "rust_symbol": "xxh64_finalize" },
+    { "c_symbol": "XXH64_endian_align", "rust_symbol": "xxh64_endian_align" },
+    { "c_symbol": "XXH64_endian_align_h", "rust_symbol": "xxh64_endian_align_h" },
+    { "c_symbol": "XXH64", "rust_symbol": "xxh64" },
+    { "c_symbol": "XXH64_h", "rust_symbol": "xxh64_h" },
+    { "c_symbol": "cset__hash1_callback", "rust_symbol": "cset_hash1_callback" },
+    { "c_symbol": "cset__hash2_callback", "rust_symbol": "cset_hash2_callback" },
+    { "c_symbol": "CSET__FORCE_INITIALIZE", "rust_symbol": "CSET_FORCE_INITIALIZE" },
+    { "c_symbol": "cset__INITIAL_CAP", "rust_symbol": "CSET_INITIAL_CAP" },
+    { "c_symbol": "cset__DEFAULT_SEED", "rust_symbol": "CSET_DEFAULT_SEED" },
+    { "c_symbol": "cset__MAX_LOAD_FACTOR", "rust_symbol": "CSET_MAX_LOAD_FACTOR" },
+    { "c_symbol": "cset__MIN_LOAD_FACTOR", "rust_symbol": "CSET_MIN_LOAD_FACTOR" },
+    { "c_symbol": "cset__Value(type) { int pi; type elem; }", "rust_symbol": "struct CsetValue<T> { pi: i32, elem: T }" },
+    { "c_symbol": "Cset(type) { buckets, max_load_factor, min_load_factor, seed, v, bucket_size, compare, customhasher, temp_buckets }", "rust_symbol": "struct Cset<T> { buckets, max_load_factor, min_load_factor, seed, v, bucket_size, compare: Option<fn(&T,&T)->bool>, temp_buckets } (no customhasher field -- scaffold gap, accepted)" },
+    { "c_symbol": "cset__init", "rust_symbol": "Cset::<T>::new" },
+    { "c_symbol": "cset__empty(vector_ref, index)", "rust_symbol": "Cset::empty(&self) (no-index pub form) + private index-taking helper" },
+    { "c_symbol": "cset__tombstone(vector_ref, index)", "rust_symbol": "Cset::tombstone(&self) (no-index pub form) + private index-taking helper" },
+    { "c_symbol": "cset__index(cset, index)", "rust_symbol": "Cset::index(&self, index: usize) -> T" },
+    { "c_symbol": "cset__size / cset__set_size", "rust_symbol": "Cset::get_size / Cset::set_size" },
+    { "c_symbol": "cset__seed / cset__set_seed", "rust_symbol": "Cset::get_seed / Cset::set_seed" },
+    { "c_symbol": "cset__max_load_factor / cset__set_max_load_factor", "rust_symbol": "Cset::get_max_load_factor / Cset::set_max_load_factor" },
+    { "c_symbol": "cset__min_load_factor / cset__set_min_load_factor", "rust_symbol": "Cset::get_min_load_factor / Cset::set_min_load_factor" },
+    { "c_symbol": "cset__vector_buckets_ref", "rust_symbol": "Cset::get_buckets / Cset::get_buckets_ref" },
+    { "c_symbol": "cset__vector_temp_buckets_ref", "rust_symbol": "Cset::get_temp_buckets_ref" },
+    { "c_symbol": "cset__cap", "rust_symbol": "Cset::capacity" },
+    { "c_symbol": "cset__size(cset) as count", "rust_symbol": "Cset::size" },
+    { "c_symbol": "cset__add / cset__add_", "rust_symbol": "Cset::add" },
+    { "c_symbol": "cset__resize", "rust_symbol": "Cset::resize (private helper, invoked from add)" },
+    { "c_symbol": "cset__remove / cset__remove_", "rust_symbol": "Cset::remove" },
+    { "c_symbol": "cset__contains / cset__contains_", "rust_symbol": "Cset::contains" },
+    { "c_symbol": "cset__matches / cset__bytes_compare", "rust_symbol": "private equality helper dispatching self.compare vs raw-byte default" },
+    { "c_symbol": "cset__h1hash / cset__h2hash / cset__double_hash_index", "rust_symbol": "private hashing/probe-index helpers using cset_hash1_callback/cset_hash2_callback" },
+    { "c_symbol": "Cset_iterator + cset_iterator__init/__done/__next", "rust_symbol": "Cset::iter(&mut self) -> Vec<T> (collapsed, no separate iterator struct)" },
+    { "c_symbol": "cset__set_comparator", "rust_symbol": "Cset::set_comparator" },
+    { "c_symbol": "cset__clear", "rust_symbol": "Cset::clear" },
+    { "c_symbol": "cset__free", "rust_symbol": "(omitted -- Drop)" },
+    { "c_symbol": "cset__intersect", "rust_symbol": "Cset::intersect" },
+    { "c_symbol": "cset__union", "rust_symbol": "Cset::union" },
+    { "c_symbol": "cset__is_disjoint", "rust_symbol": "Cset::is_disjoint" },
+    { "c_symbol": "cset__difference", "rust_symbol": "Cset::difference" },
+    { "c_symbol": "cset_Vector / cset_vector__*", "rust_symbol": "(none -- Vec<CsetValue<T>> used directly)" },
+    { "c_symbol": "README Node struct + custom_comparator", "rust_symbol": "tests::Node { x: i32, y: i32 } + tests::node_comparator (test-only fixture)" }
+  ],
+
+  "skeleton": {
+    "location": "pipeline/project",
+    "layout": {
+      "Cargo.toml": "unchanged from scaffold, no new dependencies",
+      "src/lib.rs": "pub mod cset; (unchanged)",
+      "src/cset.rs": "all xxhash free functions + CsetValue<T> + Cset<T> with stubbed (unimplemented!()) bodies, exactly mirroring .scaffold/src/cset.rs, PLUS a new #[cfg(test)] mod tests block with #[ignore]'d stub test functions (todo!() bodies) and a Node/node_comparator fixture for the comparator seam"
+    },
+    "status": "copied idempotently from .scaffold (byte-identical Part A); Part B test skeleton added on top",
+    "verification": {
+      "build_check": "bash ../../tools/build_check.sh pipeline/project .scaffold -> build_check: OK (crate builds; 54 warning(s))",
+      "unit_test": "bash ../../tools/unit_test.sh pipeline/project -> unit_test: OK (no agent-written tests yet)"
+    }
+  },
+
+  "implementation_plan": [
+    {
+      "id": "M0",
+      "title": "Skeleton compiles",
+      "goal": "pipeline/project builds as-is against the scaffold contract: lib.rs declares pub mod cset;, cset.rs declares every scaffolded type/function/constant with exact names/signatures/pub visibility (bodies unimplemented!()), cargo build --lib succeeds. No functional behavior yet.",
+      "tests": [],
+      "steps_part_a": [
+        "Verify pipeline/project/src/lib.rs still declares `pub mod cset;` (already matches scaffold).",
+        "Verify pipeline/project/src/cset.rs mirrors .scaffold/src/cset.rs's public surface byte-for-byte (types, constants, fn signatures, struct fields, pub visibility) -- confirmed identical by diff.",
+        "Run `bash ../../tools/build_check.sh pipeline/project .scaffold` and confirm OK."
+      ],
+      "steps_part_b": [
+        "Add the #[cfg(test)] mod tests skeleton (Node fixture, node_comparator stub, #[ignore]'d test stubs per milestone) so later milestones have a place to land tests without further structural edits.",
+        "Run `bash ../../tools/unit_test.sh pipeline/project` and confirm OK (no agent-written tests yet, since all stubs are #[ignore]d)."
+      ]
+    },
+    {
+      "id": "M1",
+      "title": "xxHash64 byte-reading and mixing primitives",
+      "goal": "Port xxh_is_little_endian, xxh_read_le64/_align, xxh_swap32, xxh_read32, xxh_get_32bits, xxh_read_le32_align, xxh64_round, xxh64_merge_round, xxh64_avalanche, xxh64_finalize, xxh64_get64bits, using wrapping_* arithmetic to match C's silent uint64_t/uint32_t wraparound. Pure functions, no Cset<T> state.",
+      "tests": ["tests::test_xxh_is_little_endian_matches_platform", "tests::test_xxh64_known_answer_empty_input", "tests::test_xxh64_known_answer_long_input"],
+      "depends_on": ["M0"],
+      "steps_part_a": [
+        "Implement xxh_is_little_endian via 1u32.to_ne_bytes()[0] == 1.",
+        "Implement xxh_read_le64 (unsafe 8-byte forward read + shift/OR) and xxh_read_le64_align (thin wrapper) and xxh_get64bits (delegates to xxh_read_le64_align).",
+        "Implement xxh_swap32 and xxh_read32 (unsafe 4-byte read).",
+        "Implement xxh64_round and xxh64_merge_round with wrapping_add/wrapping_mul/rotate_left(31), matching C exactly.",
+        "Implement xxh_get_32bits/xxh_read_le32_align dispatching on xxh_is_little_endian() at runtime (raw read vs swapped read).",
+        "Implement xxh64_avalanche (wrapping_mul + xor-shift chain).",
+        "Implement xxh64_finalize (len &= 31; 8-byte loop via xxh_get64bits/xxh64_round; 4-byte via xxh_get_32bits; 1-byte tail loop; final xxh64_avalanche), confining unsafe pointer advances to this fn."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_xxh_is_little_endian_matches_platform and implement its assertion.",
+        "Remove #[ignore] from test_xxh64_known_answer_empty_input/_long_input once xxh64/xxh64_h exist (M2) so the >32-byte block-mixing path and the finalize tail path are both exercised; may stage KAT values here but finalize activation happens after M2."
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "xxh64 / xxh64_h top-level hash and cset hash callbacks",
+      "goal": "Implement xxh64_endian_align, xxh64_endian_align_h (independently-seeded variants), xxh64, xxh64_h, and cset_hash1_callback/cset_hash2_callback (hash2 forced odd via | 1) using CSET_DEFAULT_SEED. Deterministic and self-consistent with M1 primitives.",
+      "tests": ["tests::test_xxh64_known_answer_empty_input", "tests::test_xxh64_known_answer_long_input", "tests::test_cset_hash2_callback_always_odd", "tests::test_hash1_and_hash2_are_independent"],
+      "depends_on": ["M1"],
+      "steps_part_a": [
+        "Implement xxh64_endian_align: len>=32 block-mixing loop (v1..v4 seeded seed+PRIME64_1+PRIME64_2 / seed+PRIME64_2 / seed+0 / seed-PRIME64_1) else seed+PRIME64_5, then += len, then xxh64_finalize.",
+        "Implement xxh64_endian_align_h with its distinct v2/v3 seeding (seed-PRIME64_2 / seed+PRIME64_3) and else-branch += PRIME64_1, preserving the asymmetry vs xxh64_endian_align.",
+        "Implement xxh64(input: *const u8, len, seed) delegating to xxh64_endian_align after an unsafe raw-pointer-to-byte-slice view (handle input possibly null/len 0 as C does).",
+        "Implement xxh64_h delegating to xxh64_endian_align_h.",
+        "Implement cset_hash1_callback = xxh64(memptr, size, CSET_DEFAULT_SEED); cset_hash2_callback = xxh64_h(...) | 1."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] and finish test_xxh64_known_answer_empty_input/_long_input (KAT / self-consistency assertions).",
+        "Remove #[ignore] and implement test_cset_hash2_callback_always_odd (assert result & 1 == 1 across several inputs).",
+        "Remove #[ignore] and implement test_hash1_and_hash2_are_independent (assert hash1 != hash2 for representative inputs)."
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Cset::new() and field accessors",
+      "goal": "Implement Cset::new() allocating CSET_INITIAL_CAP zero-initialized buckets (pi=0), seed=CSET_DEFAULT_SEED, max_load_factor=0.7, min_load_factor=0.2, bucket_size=0, compare=None, empty temp_buckets. Implement get/set accessors and empty()/tombstone() predicates.",
+      "tests": ["tests::test_new_default_state", "tests::test_accessor_round_trip"],
+      "depends_on": ["M0"],
+      "steps_part_a": [
+        "Implement Cset::new(): Vec<CsetValue<T>> of length CSET_INITIAL_CAP each { pi: 0, elem: <needs no real value until written -- build without requiring T: Default, e.g. via a placeholder-free construction path that only needs `pi` set for capacity bookkeeping> }; set defaults per goal.",
+        "Implement get_size/set_size, get_seed/set_seed, get_max_load_factor/set_max_load_factor, get_min_load_factor/set_min_load_factor as direct field accessors.",
+        "Implement get_buckets/get_buckets_ref/get_temp_buckets_ref returning references to the Vec fields.",
+        "Implement size() (bucket_size as i32) and capacity() (buckets.len() as i32).",
+        "Implement empty()/tombstone() per the scaffold's no-index pub signatures, plus private index-taking helpers (empty_at(&self, i)/tombstone_at(&self, i)) used internally by add/remove/contains/resize/iter in later milestones."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] and implement test_new_default_state: Cset::<i32>::new() has size()==0 and capacity()==CSET_INITIAL_CAP as i32.",
+        "Remove #[ignore] and implement test_accessor_round_trip: set_seed/get_seed, set_max_load_factor/get_max_load_factor, set_min_load_factor/get_min_load_factor round-trip correctly."
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "add / contains with default byte-equality and probing",
+      "goal": "Implement double-hashing probe (index = (h1 + i*h2) % cap) using M2 hash callbacks and default raw-byte equality (size_of::<T>()-based) when no comparator is set. Implement add() with duplicate no-op semantics and first-empty-or-tombstone insertion (preserving the exact early-break subtlety), and contains() with tombstone-skipping probe.",
+      "tests": ["tests::test_add_duplicate_noop", "tests::test_contains_true_false", "tests::test_resize_on_load_factor"],
+      "depends_on": ["M2", "M3"],
+      "steps_part_a": [
+        "Add private helper(s) for h1/h2 hashing of a &T via its raw-byte representation (size_of::<T>()) using cset_hash1_callback/cset_hash2_callback and self.seed, plus a double_hash_index(h1, h2, i, cap) helper.",
+        "Add a private default-equality helper: self.compare.map_or(byte-equality, |f| f(a, b)), where byte-equality compares the raw byte reprs of two &T values via size_of::<T>().",
+        "Implement Cset::add(&mut self, value: T) -> i32: pre-insert load-factor check (bucket_size/cap >= max_load_factor triggers a resize, wired as a no-op stub call until M5 lands resize logic), then probe using h1/h2, breaking unconditionally at the first empty-or-tombstone slot (not scanning the whole table for a later duplicate), checking equality against occupied slots visited before that break; on no match, write value+pi=iteration into the found slot and bucket_size += 1; return self.bucket_size as i32 (documented assumption per analysis.md, no C return value exists to consult).",
+        "Implement Cset::contains(&mut self, value: &T) -> bool: probe up to cap iterations, skip tombstones, stop at first empty slot or match."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] and implement test_add_duplicate_noop (README: add(1); add(2); add(2) dup -> size unaffected by the duplicate).",
+        "Remove #[ignore] and implement test_contains_true_false (README: add 34/25/56; contains(34)==true; contains(100)==false).",
+        "Stage (but leave #[ignore]'d until M5) test_resize_on_load_factor since full resize semantics land in M5."
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "remove, tombstones, and load-factor-triggered resize",
+      "goal": "Implement remove() marking the found slot's pi=-1 and decrementing bucket_size (no-op if not found). Implement the resize check in add() and resize() itself: rehash all live elements into temp_buckets (dropping tombstones), then swap buckets<->temp_buckets. capacity() reflects the doubled size after a resize.",
+      "tests": ["tests::test_remove_then_size_zero", "tests::test_remove_missing_is_noop", "tests::test_clear_resets_size", "tests::test_resize_on_load_factor"],
+      "depends_on": ["M4"],
+      "steps_part_a": [
+        "Implement Cset::remove(&mut self, value: T) -> i32: probe (same h1/h2 sequence as add/contains), skip tombstones, stop at first empty slot or cap exhaustion; on match set pi=-1 and bucket_size -= 1; return self.bucket_size as i32 (consistent with add's return convention).",
+        "Implement the private resize(&mut self, new_cap: usize) helper: build temp_buckets of new_cap zeroed slots, walk current buckets in order, re-add every live (non-empty, non-tombstone) element's elem into temp_buckets via the same add-style probe logic (dropping tombstones by omission), then reset bucket_size accordingly and swap self.buckets with self.temp_buckets (mem::swap or assignment), leaving temp_buckets empty/dropped.",
+        "Wire the load-factor check inside Cset::add (from M4) to actually call resize(cap * 2) when bucket_size as f64 / cap as f64 >= max_load_factor, before performing the insert probe.",
+        "Implement Cset::clear(&mut self): replace buckets with a fresh CSET_INITIAL_CAP zeroed Vec (old Vec dropped automatically), reset bucket_size = 0."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] and implement test_remove_then_size_zero (README: add(34); assert size==1; remove(34); assert size==0).",
+        "Remove #[ignore] and implement test_remove_missing_is_noop (remove a value never added; size unchanged).",
+        "Remove #[ignore] and implement test_clear_resets_size (README: add 34/25/56; clear(); assert size==0).",
+        "Remove #[ignore] and implement test_resize_on_load_factor (add enough elements to cross the 0.7 load factor; assert capacity() has doubled from CSET_INITIAL_CAP)."
+      ]
+    },
+    {
+      "id": "M6",
+      "title": "clear, index, and iter (bucket-order materialization)",
+      "goal": "Implement clear() (already landed in M5; re-verify), index(&self, index) returning the element at a bucket slot, and iter(&mut self) walking buckets in array order, skipping empty/tombstone slots, collecting exactly the live elements into a Vec<T> (bucket order), matching the C iterator's done()/next() termination bound (current_count >= size()).",
+      "tests": ["tests::test_iterator_yields_all_elements"],
+      "depends_on": ["M5"],
+      "steps_part_a": [
+        "Implement Cset::index(&self, index: usize) -> T returning (a clone of) the element at that bucket slot; test instantiations are expected to use Copy types (i32/char) per analysis.md, so clone/copy is safe without a declared T: Clone bound conflict.",
+        "Implement Cset::iter(&mut self) -> Vec<T>: walk buckets 0..capacity() in order, skip pi==0 (empty) and pi==-1 (tombstone) slots, push a clone of each live elem, stopping once collected.len() >= self.size() (mirrors the C iterator's current_count >= size() bound) -- though a full single pass naturally terminates at the same point since bucket_size counts exactly the live slots."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] and implement test_iterator_yields_all_elements: add several elements, call iter(), and assert the resulting Vec<T>, compared as a multiset/sorted collection (not insertion order), matches the expected elements exactly."
+      ]
+    },
+    {
+      "id": "M7",
+      "title": "Custom comparator dispatch",
+      "goal": "Implement set_comparator(&mut self, compare) storing the function pointer, and make add/remove/contains use self.compare when Some(...) instead of the default byte-equality fallback from M4, so two distinct values considered equal by the comparator are treated as one for dedup, removal, and membership.",
+      "tests": ["tests::test_custom_comparator_dedup_by_field"],
+      "depends_on": ["M4", "M5", "M6"],
+      "steps_part_a": [
+        "Implement Cset::set_comparator(&mut self, compare: fn(&T, &T) -> bool): self.compare = Some(compare).",
+        "Confirm/adjust the private equality helper (added in M4) is the single dispatch point used by add/remove/contains, so no duplicate equality logic exists to fall out of sync."
+      ],
+      "steps_part_b": [
+        "Implement the Node{x,y} fixture and node_comparator(a,b) => a.x == b.x (already stubbed in the tests module).",
+        "Remove #[ignore] and implement test_custom_comparator_dedup_by_field mirroring the README Node example: set_comparator(node_comparator); add(Node{4,5}); add(Node{4,4}) is a dedup no-op (size stays 1); add(Node{1,2}) grows size to 2; remove(Node{1,45}) removes by x==1 (size back to 1)."
+      ]
+    },
+    {
+      "id": "M8",
+      "title": "Set algebra: intersect, union, is_disjoint, difference",
+      "goal": "Implement intersect(&mut self, first, second) (occupied elements of first that are in second, added into self without clearing self first), union(&mut self, first, second) (all occupied elements of first then second, added into self), is_disjoint(&mut self, other) (true unless some occupied element of self is contained in other, early-exiting on the first shared element), and difference(&mut self, first, second) (occupied elements of first not contained in second), all built on top of add/contains from M4/M7.",
+      "tests": ["tests::test_intersect_sizes", "tests::test_union_sizes", "tests::test_is_disjoint", "tests::test_difference"],
+      "depends_on": ["M7"],
+      "steps_part_a": [
+        "Implement Cset::intersect(&mut self, first: &Self, second: &Self): iterate first's occupied bucket slots (skip empty/tombstone), test membership via second.contains(...) (requires a &mut on second, or a helper that borrows mutably as contains requires -- resolve via interior probe logic without violating borrow rules, e.g. by re-deriving containment via a shared-ref-safe probe path), and self.add(elem) on each match. Do not clear self first.",
+        "Implement Cset::union(&mut self, first: &Self, second: &Self): self.add every occupied element of first, then every occupied element of second.",
+        "Implement Cset::is_disjoint(&mut self, other: &Self) -> bool: iterate self's occupied elements, testing containment in other; return false and stop at first shared element found, else true.",
+        "Implement Cset::difference(&mut self, first: &Self, second: &Self): self.add every occupied element of first that is not contained in second."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] and implement test_intersect_sizes (README: {12,13,14} vs {12,13,16} -> intersect size 2).",
+        "Remove #[ignore] and implement test_union_sizes (README: union sizes 5 then 6 after adding a new element to b).",
+        "Remove #[ignore] and implement test_is_disjoint (two non-overlapping sets are disjoint; adding a shared element makes them not disjoint).",
+        "Remove #[ignore] and implement test_difference (elements of a not present in b)."
+      ]
+    },
+    {
+      "id": "M9",
+      "title": "Golden: full contract conformance",
+      "goal": "The complete Cset<T> port (hashing, insertion/removal/probing, resize, comparator override, iteration, and set algebra) reproduces the full observable contract of c-source/src/cset.h end-to-end and passes the entire held-out oracle test suite for this project.",
+      "tests": ["test"],
+      "depends_on": ["M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8"],
+      "steps_part_a": [
+        "Run `cargo build --lib` (via build_check.sh) and confirm zero errors across the whole crate.",
+        "Sweep for any remaining `unimplemented!()` bodies in pipeline/project/src/cset.rs and confirm none remain.",
+        "Re-review wrapping_* usage in all xxh64_* arithmetic and % cap arithmetic for overflow/width faithfulness per analysis.md's error-handling section."
+      ],
+      "steps_part_b": [
+        "Remove all remaining #[ignore] attributes in tests::* now that every milestone's logic is implemented.",
+        "Run `bash ../../tools/unit_test.sh pipeline/project` and confirm all authored tests pass.",
+        "Hand off to the held-out oracle test run (outside this agent's scope) as the final acceptance gate."
+      ]
+    }
+  ],
+
+  "verification_summary": {
+    "working_copy_confirmed": "pipeline/project (idempotently initialized from .scaffold; Part A byte-identical to scaffold, Part B test skeleton added)",
+    "plan_written": "pipeline/plan.json",
+    "build_check_result": "OK (crate builds; 54 warning(s))",
+    "unit_test_result": "OK (no agent-written tests yet -- all Part B stubs are #[ignore]'d todo!() placeholders pending Translator implementation per milestone)"
+  }
+}

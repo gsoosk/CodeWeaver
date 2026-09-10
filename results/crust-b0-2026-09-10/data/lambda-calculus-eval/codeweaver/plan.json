@@ -1,0 +1,314 @@
+{
+  "project": "lambda-calculus-eval",
+  "working_copy": "pipeline/project",
+  "scaffold": ".scaffold",
+  "verification_commands": {
+    "build_check": "bash ../../tools/build_check.sh pipeline/project .scaffold",
+    "unit_test": "bash ../../tools/unit_test.sh pipeline/project",
+    "status_after_planning": "build_check: OK (crate builds); unit_test: OK (no agent-written tests executed -- all Part B stubs are #[ignore]d pending Translator implementation)"
+  },
+  "fragment_extraction": {
+    "part_a_implementation": [
+      { "fragment": "c-source/src/common.h/.c:tokens_t,AstNodeType,LambdaExpression,Application,Variable,AstNodeUnion,AstNode", "target": "pipeline/project/src/common.rs:tokens_t,AstNodeType,LambdaExpression,Application,Variable,AstNodeUnion,AstNode", "verified": true, "notes": "types already declared verbatim in scaffold" },
+      { "fragment": "c-source/src/common.c:set_verbose", "target": "src/common.rs:set_verbose", "verified": true },
+      { "fragment": "c-source/src/common.c:print_ast_verbose", "target": "src/common.rs:print_ast_verbose", "verified": true },
+      { "fragment": "c-source/src/common.c:print_verbose", "target": "src/common.rs:print_verbose", "verified": true },
+      { "fragment": "c-source/src/common.c:error", "target": "src/common.rs:error", "verified": true },
+      { "fragment": "c-source/src/common.c:format", "target": "src/common.rs:format", "verified": true },
+      { "fragment": "c-source/src/common.c:append_to_buffer", "target": "src/common.rs:append_to_buffer", "verified": true },
+      { "fragment": "c-source/src/common.c:append_ast_to_buffer", "target": "src/common.rs:append_ast_to_buffer", "verified": true },
+      { "fragment": "c-source/src/common.c:ast_to_string", "target": "src/common.rs:ast_to_string", "verified": true },
+      { "fragment": "<implicit: no C Default constructor, sentinel is a design decision>", "target": "src/common.rs:impl Default for AstNode", "verified": true, "notes": "no direct C fragment; scaffold declares it, analysis.md mandates an empty-VAR sentinel to model hash_table's NULL-valued bucket entries" },
+      { "fragment": "c-source/hash-table/hash_table.c:hash", "target": "src/hash_table.rs:hash", "verified": true },
+      { "fragment": "c-source/hash-table/hash_table.c:createHashTable", "target": "src/hash_table.rs:createHashTable,HashTable::new", "verified": true },
+      { "fragment": "c-source/hash-table/hash_table.c:destroyHashTable", "target": "src/hash_table.rs:destroyHashTable", "verified": true, "notes": "likely no-op/identity given HashMap's automatic Drop" },
+      { "fragment": "c-source/hash-table/hash_table.c:insert", "target": "src/hash_table.rs:HashTable::insert", "verified": true },
+      { "fragment": "c-source/hash-table/hash_table.c:table_exists", "target": "src/hash_table.rs:HashTable::table_exists", "verified": true, "notes": "scaffold's HashMap backing changes bucket-collision micro-semantics to key-presence; acceptable per analysis.md" },
+      { "fragment": "c-source/hash-table/hash_table.c:search", "target": "src/hash_table.rs:HashTable::search", "verified": true, "notes": "must treat AstNode::default() sentinel value as None" },
+      { "fragment": "c-source/hash-table/hash_table.c:delete_c", "target": "src/hash_table.rs:HashTable::delete", "verified": true },
+      { "fragment": "c-source/src/io.c:create_file", "target": "src/io.rs:create_file", "verified": true, "notes": "skeleton returns io::Result instead of C's fatal-on-NULL" },
+      { "fragment": "c-source/src/io.c:get_file", "target": "src/io.rs:get_file", "verified": true },
+      { "fragment": "c-source/src/io.c:write_to_file", "target": "src/io.rs:write_to_file", "verified": true },
+      { "fragment": "c-source/src/io.c:delete_file", "target": "src/io.rs:delete_file", "verified": true },
+      { "fragment": "c-source/src/io.c:close_file", "target": "src/io.rs:close_file", "verified": true },
+      { "fragment": "c-source/src/io.c:next", "target": "src/io.rs:next", "verified": true, "notes": "fgetc-equivalent; EOF handling maps to io::Result rather than C's char-cast(-1)" },
+      { "fragment": "c-source/src/config.c:trim", "target": "src/config.rs:trim", "verified": true },
+      { "fragment": "c-source/src/config.c:get_config_type", "target": "src/config.rs:get_config_type", "verified": true },
+      { "fragment": "c-source/src/config.c:parse_config", "target": "src/config.rs:parse_config", "verified": true },
+      { "fragment": "c-source/src/config.c:get_config_from_file", "target": "src/config.rs:get_config_from_file", "verified": true, "notes": "must panic/expect internally on fatal paths since return type is not Result" },
+      { "fragment": "c-source/src/parser.c:parse_token", "target": "src/parser.rs:parse_token", "verified": true },
+      { "fragment": "c-source/src/parser.c:p_print_token", "target": "src/parser.rs:p_print_token", "verified": true },
+      { "fragment": "c-source/src/parser.c:p_print_astNode_type", "target": "src/parser.rs:p_print_astNode_type", "verified": true },
+      { "fragment": "c-source/src/parser.c:print_ast", "target": "src/parser.rs:print_ast", "verified": true },
+      { "fragment": "c-source/src/parser.c:is_variable", "target": "src/parser.rs:is_variable", "verified": true },
+      { "fragment": "c-source/src/parser.c:peek", "target": "src/parser.rs:peek", "verified": true, "notes": "needs EOF sentinel char since Rust char has no EOF; use Seek::seek(SeekFrom::Current(-1)) for ungetc" },
+      { "fragment": "c-source/src/parser.c:peek_print", "target": "src/parser.rs:peek_print", "verified": true },
+      { "fragment": "c-source/src/parser.c:consume", "target": "src/parser.rs:consume", "verified": true },
+      { "fragment": "c-source/src/parser.c:create_variable", "target": "src/parser.rs:create_variable", "verified": true },
+      { "fragment": "c-source/src/parser.c:create_application", "target": "src/parser.rs:create_application", "verified": true },
+      { "fragment": "c-source/src/parser.c:create_lambda", "target": "src/parser.rs:create_lambda", "verified": true },
+      { "fragment": "c-source/src/parser.c:alpha_convert", "target": "src/parser.rs:alpha_convert", "verified": true, "notes": "C's static int n -> module-level atomic counter" },
+      { "fragment": "c-source/src/parser.c:is_used", "target": "src/parser.rs:is_used", "verified": true },
+      { "fragment": "c-source/src/parser.c:parse_space_chars", "target": "src/parser.rs:parse_space_chars", "verified": true },
+      { "fragment": "c-source/src/parser.c:parse_lambda", "target": "src/parser.rs:parse_lambda", "verified": true },
+      { "fragment": "c-source/src/parser.c:parse_expression", "target": "src/parser.rs:parse_expression", "verified": true },
+      { "fragment": "c-source/src/parser.c:parse_import", "target": "src/parser.rs:parse_import", "verified": true },
+      { "fragment": "c-source/src/parser.c:parse_definition", "target": "src/parser.rs:parse_definition", "verified": true },
+      { "fragment": "c-source/src/parser.c:is_uppercase", "target": "src/parser.rs:is_uppercase", "verified": true },
+      { "fragment": "c-source/src/parser.c:parse_type_definition", "target": "src/parser.rs:parse_type_definition", "verified": true },
+      { "fragment": "c-source/src/parser.c:parse_type", "target": "src/parser.rs:parse_type", "verified": true },
+      { "fragment": "c-source/src/parser.c:parse_variable", "target": "src/parser.rs:parse_variable", "verified": true },
+      { "fragment": "c-source/src/parser.c:expect", "target": "src/parser.rs:expect", "verified": true },
+      { "fragment": "c-source/src/parser.c:free_ast", "target": "src/parser.rs:free_ast", "verified": true, "notes": "manual free becomes a no-op / drop-driven stub since Rust owns the tree" },
+      { "fragment": "c-source/src/reducer.c:set_reduction_order", "target": "src/reducer.rs:set_reduction_order", "verified": true },
+      { "fragment": "c-source/src/reducer.c:print_reduction_order", "target": "src/reducer.rs:print_reduction_order", "verified": true },
+      { "fragment": "c-source/src/reducer.c:reduce", "target": "src/reducer.rs:reduce", "verified": true },
+      { "fragment": "c-source/src/reducer.c:expand_definitions", "target": "src/reducer.rs:expand_definitions", "verified": true, "notes": "in-place &mut AstNode mutation; panics if definition absent (mirrors HANDLE_NULL)" },
+      { "fragment": "c-source/src/reducer.c:replace", "target": "src/reducer.rs:replace", "verified": true },
+      { "fragment": "c-source/src/reducer.c:reduce_ast", "target": "src/reducer.rs:reduce_ast", "verified": true, "notes": "must return owned AstNode via tree reconstruction, not pointer surgery" },
+      { "fragment": "c-source/src/reducer.c:substitute", "target": "src/reducer.rs:substitute", "verified": true },
+      { "fragment": "c-source/src/reducer.c:deepcopy", "target": "src/reducer.rs:deepcopy", "verified": true },
+      { "fragment": "c-source/src/reducer.c:deepcopy_application", "target": "src/reducer.rs:deepcopy_application", "verified": true },
+      { "fragment": "c-source/src/reducer.c:deepcopy_lambda_expr", "target": "src/reducer.rs:deepcopy_lambda_expr", "verified": true },
+      { "fragment": "c-source/src/reducer.c:deepcopy_var", "target": "src/reducer.rs:deepcopy_var", "verified": true },
+      { "fragment": "c-source/src/typechecker.c:assert_", "target": "src/typechecker.rs:assert_", "verified": true },
+      { "fragment": "c-source/src/typechecker.c:typecheck", "target": "src/typechecker.rs:typecheck", "verified": true, "notes": "must preserve the non-arrow-codomain APPLICATION limitation exactly" },
+      { "fragment": "c-source/src/typechecker.c:type_equal", "target": "src/typechecker.rs:type_equal", "verified": true },
+      { "fragment": "c-source/src/typechecker.c:get_type_from_expr", "target": "src/typechecker.rs:get_type_from_expr", "verified": true },
+      { "fragment": "c-source/src/typechecker.c:p_print_type", "target": "src/typechecker.rs:p_print_type", "verified": true },
+      { "fragment": "c-source/src/typechecker.c:create_type", "target": "src/typechecker.rs:create_type", "verified": true },
+      { "fragment": "c-source/src/typechecker.c:parse_function_type", "target": "src/typechecker.rs:parse_function_type", "verified": true },
+      { "fragment": "c-source/src/typechecker.c:expr_type_equal", "target": "src/typechecker.rs:expr_type_equal", "verified": true },
+      { "fragment": "c-source/src/typechecker.c:add_to_env", "target": "src/typechecker.rs:add_to_env", "verified": true, "notes": "C's TypeEnv** -> &mut Option<Box<TypeEnv>>" },
+      { "fragment": "c-source/src/typechecker.c:lookup_type", "target": "src/typechecker.rs:lookup_type", "verified": true }
+    ],
+    "part_a_out_of_scope": [
+      { "fragment": "c-source/bin/main.c:main and all CLI wiring", "reason": "no .scaffold module exists for it (no bin/ target declared); brief and analysis.md both mark it out of scope" }
+    ],
+    "part_b_tests_and_mocks": [
+      { "fragment": "c-source/tests/*", "status": "MISSING", "notes": "the tests/ directory has been removed from this checkout per the brief; nothing to translate directly. All Part-B fragments below are therefore needs-new-test, following the fixture-based (no-mock) style implied by the Makefile's per-module test-binary structure described in analysis.md." },
+      { "fragment": "src/common.rs:tests::test_ast_to_string_var_no_type", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/common.rs:tests::test_ast_to_string_var_with_type", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/common.rs:tests::test_ast_to_string_lambda_expr", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/common.rs:tests::test_ast_to_string_application", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/common.rs:tests::test_default_ast_node_is_empty_var_sentinel", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/hash_table.rs:tests::test_insert_then_search_returns_value", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/hash_table.rs:tests::test_search_returns_none_for_default_sentinel_value", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/hash_table.rs:tests::test_table_exists_reflects_key_presence", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/hash_table.rs:tests::test_delete_then_search_returns_none", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/hash_table.rs:tests::test_hash_is_deterministic_and_bounded", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/io.rs:tests::test_create_write_get_roundtrip", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/io.rs:tests::test_delete_file_then_get_file_errors", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/io.rs:tests::test_next_reads_one_byte_and_advances_cursor", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/config.rs:tests::test_trim_strips_leading_and_trailing_whitespace", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/config.rs:tests::test_get_config_type_maps_known_keys", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/config.rs:tests::test_parse_config_splits_on_first_equals_and_trims", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/parser.rs:tests::test_parse_token_maps_chars_to_tokens", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/parser.rs:tests::test_is_variable_accepts_underscore_and_letters", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/parser.rs:tests::test_alpha_convert_appends_monotonic_suffix", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/parser.rs:tests::test_parse_expression_builds_expected_ast_shape", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/reducer.rs:tests::test_reduce_ast_applicative_order", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/reducer.rs:tests::test_reduce_ast_normal_order", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/reducer.rs:tests::test_substitute_replaces_free_variable", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/reducer.rs:tests::test_expand_definitions_replaces_definition_node", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/reducer.rs:tests::test_deepcopy_produces_independent_tree", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/typechecker.rs:tests::test_typecheck_var_returns_its_declared_type", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/typechecker.rs:tests::test_typecheck_lambda_expr_builds_arrow_like_type", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/typechecker.rs:tests::test_type_equal_compares_by_type_name", "kind": "needs-new-test", "verified_stub_present": true },
+      { "fragment": "src/typechecker.rs:tests::test_add_to_env_and_lookup_type_roundtrip", "kind": "needs-new-test", "verified_stub_present": true }
+    ],
+    "mockable_seam_decision": "Per analysis.md's unit-test strategy: this project uses fixture-based tests, NOT mocks. The C original never abstracted FILE*/HashTable behind an interface, and both are cheap/local/deterministic (no network, DB, or clock), so no mock trait is introduced. The mockable 'seam' for io/parser is the real filesystem via std::env::temp_dir()-rooted temp files created/cleaned up per test; the seam for hash_table/reducer/typechecker is direct construction of small in-memory AstNode/HashTable/TypeEnv fixtures. This mirrors the Makefile's original per-module, non-mocked test-binary structure."
+  },
+  "name_mapping": [
+    { "c_symbol": "AstNode (struct, tagged union via AstNodeType+AstNodeUnion)", "rust_symbol": "common::AstNode { type_: AstNodeType, node: AstNodeUnion }" },
+    { "c_symbol": "AstNodeType (enum: LAMBDA_EXPR, APPLICATION, VAR, DEFINITION)", "rust_symbol": "common::AstNodeType (same variants)" },
+    { "c_symbol": "LambdaExpression { parameter, type, body: AstNode* }", "rust_symbol": "common::LambdaExpression { parameter: String, type_: String, body: Option<Box<AstNode>> }" },
+    { "c_symbol": "Application { function: AstNode*, argument: AstNode* }", "rust_symbol": "common::Application { function: Option<Box<AstNode>>, argument: Option<Box<AstNode>> }" },
+    { "c_symbol": "Variable { name, type }", "rust_symbol": "common::Variable { name: String, type_: String }" },
+    { "c_symbol": "tokens_t (enum)", "rust_symbol": "common::tokens_t (same variants)" },
+    { "c_symbol": "NULL char* type field", "rust_symbol": "String::new() (empty string means 'absent', mirrors C's `!= NULL` checks as `!type_.is_empty()`)" },
+    { "c_symbol": "set_verbose/print_verbose/print_ast_verbose/error/format/append_to_buffer/append_ast_to_buffer/ast_to_string", "rust_symbol": "common::{set_verbose,print_verbose,print_ast_verbose,error,format,append_to_buffer,append_ast_to_buffer,ast_to_string} (identical names)" },
+    { "c_symbol": "HANDLE_NULL(ptr) macro", "rust_symbol": "panic!()/unreachable!() at the equivalent call sites (no macro, inlined)" },
+    { "c_symbol": "HashTable { table: HashNode*[HASH_TABLE_SIZE] } (chained buckets)", "rust_symbol": "hash_table::HashTable { table: HashMap<String, common::AstNode> }" },
+    { "c_symbol": "hash/insert/table_exists/search/delete_c/createHashTable/destroyHashTable", "rust_symbol": "hash_table::{hash, HashTable::insert, HashTable::table_exists, HashTable::search, HashTable::delete, createHashTable, destroyHashTable}", "notes": "delete_c -> delete (avoids Rust keyword collision with `delete` as a method, not a free fn, so no rename needed on the fn itself besides being a method)" },
+    { "c_symbol": "NULL-valued HashNode->value (bound-but-undefined marker)", "rust_symbol": "common::AstNode::default() sentinel (empty VAR)" },
+    { "c_symbol": "FILE* + fopen/fgetc/ungetc/fputs/remove/fclose", "rust_symbol": "io::{create_file, get_file, next, write_to_file, delete_file, close_file} over std::fs::File / std::io traits" },
+    { "c_symbol": "Options { file: FILE*, step_by_step_reduction, reduction_order }", "rust_symbol": "config::Options { file: File, step_by_step_reduction: bool, reduction_order: reduction_order_t }" },
+    { "c_symbol": "reduction_order_t (APPLICATIVE, NORMAL)", "rust_symbol": "config::reduction_order_t (same variants)" },
+    { "c_symbol": "option_type_t (FILENAME, STEP_REDUCTION, REDUCTION_ORDER, CONFIG_ERROR)", "rust_symbol": "config::option_type_t (same variants)" },
+    { "c_symbol": "trim/get_config_type/parse_config/get_config_from_file", "rust_symbol": "config::{trim, get_config_type, parse_config, get_config_from_file} (identical names)" },
+    { "c_symbol": "CONFIG_PATH \"config\"", "rust_symbol": "config::CONFIG_PATH" },
+    { "c_symbol": "parse_token/p_print_token/p_print_astNode_type/print_ast/is_variable/peek/peek_print/consume/create_variable/create_application/create_lambda/alpha_convert/is_used/parse_space_chars/parse_lambda/parse_expression/parse_import/parse_definition/is_uppercase/parse_type_definition/parse_type/parse_variable/expect/free_ast", "rust_symbol": "parser::{same names} (identical, 1:1)" },
+    { "c_symbol": "EOF (-1, from fgetc/ungetc)", "rust_symbol": "an internal private-use sentinel char (e.g. '\\u{FFFF}') used uniformly wherever parser compared against EOF" },
+    { "c_symbol": "static int n (alpha_convert counter)", "rust_symbol": "a module-level atomic counter (e.g. std::sync::atomic::AtomicU32) in parser.rs" },
+    { "c_symbol": "set_reduction_order/print_reduction_order/reduce/expand_definitions/replace/reduce_ast/substitute/deepcopy/deepcopy_application/deepcopy_lambda_expr/deepcopy_var", "rust_symbol": "reducer::{same names} (identical, 1:1)" },
+    { "c_symbol": "SIZE 122 (#define)", "rust_symbol": "reducer::SIZE: usize = 122" },
+    { "c_symbol": "Type { expr: AstNode*, type: char*, return_type: char* }", "rust_symbol": "typechecker::Type { expr: common::AstNode, type_: String, return_type: String }" },
+    { "c_symbol": "TypeEnv { type: Type*, next: TypeEnv* }", "rust_symbol": "typechecker::TypeEnv { type_: Type, next: Option<Box<TypeEnv>> }" },
+    { "c_symbol": "assert_/typecheck/type_equal/get_type_from_expr/p_print_type/create_type/parse_function_type/expr_type_equal/add_to_env/lookup_type", "rust_symbol": "typechecker::{same names} (identical, 1:1)" },
+    { "c_symbol": "TypeEnv** env (double pointer, for insertion)", "rust_symbol": "&mut Option<Box<TypeEnv>>" }
+  ],
+  "skeleton": {
+    "location": "pipeline/project (copied idempotently from .scaffold; not yet present before this run, now populated)",
+    "state": "All 7 scaffold modules (common, config, io, parser, hash_table, reducer, typechecker) retained at their declared paths in src/lib.rs; every public type/function signature unchanged from .scaffold; all Part-A bodies remain unimplemented!() (Translator's job). Added Part-B seams: a #[cfg(test)] mod tests block per module with #[ignore]d, todo!()-bodied stub test functions named per the fixture-based strategy in analysis.md (no mock trait introduced -- fixtures are real File/HashTable/AstNode values, per the documented no-mock decision).",
+    "verification": {
+      "build_check": "bash ../../tools/build_check.sh pipeline/project .scaffold -> build_check: OK (crate builds; 133 warning(s))",
+      "unit_test": "bash ../../tools/unit_test.sh pipeline/project -> unit_test: OK (no agent-written tests yet) [ignored stubs do not execute, a legitimate Layer-1 state]"
+    }
+  },
+  "implementation_plan": [
+    {
+      "id": "M0",
+      "title": "Skeleton compiles",
+      "goal": "Crate builds with cargo build; src/lib.rs still declares all 7 scaffold modules; no signature changed; bodies may remain unimplemented!().",
+      "tests": [],
+      "steps_part_a": ["Verify src/lib.rs module list unchanged (already done by Planner)."],
+      "steps_part_b": ["Verify #[cfg(test)] mod tests stub scaffolding added per module compiles under cargo test --lib (already done by Planner)."],
+      "gate": "bash ../../tools/build_check.sh pipeline/project .scaffold succeeds"
+    },
+    {
+      "id": "M1",
+      "title": "common: AstNode model and string rendering",
+      "goal": "Implement common.rs: Default for AstNode (empty-VAR sentinel), set_verbose/print_verbose/print_ast_verbose, error(), format(), append_to_buffer, append_ast_to_buffer, ast_to_string -- exact C textual contract per node type.",
+      "tests": ["common::tests::test_ast_to_string_var_no_type", "common::tests::test_ast_to_string_var_with_type", "common::tests::test_ast_to_string_lambda_expr", "common::tests::test_ast_to_string_application", "common::tests::test_default_ast_node_is_empty_var_sentinel"],
+      "steps_part_a": [
+        "Implement `impl Default for AstNode` as an empty VAR node (name=\"\", type_=\"\").",
+        "Implement set_verbose (module-level mutable bool, e.g. AtomicBool or thread-unsafe static with unsafe accessor to mirror C's static bool) and print_verbose/print_ast_verbose gated on it.",
+        "Implement error() to eprintln! the C-style message then std::process::exit(1).",
+        "Implement format() as a thin wrapper over std::fmt::format(args) (fmt already provided by caller via format_args!).",
+        "Implement append_to_buffer/append_ast_to_buffer/ast_to_string matching the exact C string shape per AstNodeType (fragments: common.c:append_ast_to_buffer switch arms)."
+      ],
+      "steps_part_b": [
+        "Un-ignore and implement common.rs tests: build hand-made VAR/LAMBDA_EXPR/APPLICATION AstNode fixtures and assert exact ast_to_string output including trailing spaces.",
+        "Implement test_default_ast_node_is_empty_var_sentinel asserting the Default sentinel renders as the empty-name VAR string."
+      ],
+      "gate": "cargo build succeeds; cargo test --lib -- common:: passes"
+    },
+    {
+      "id": "M2",
+      "title": "hash_table: insert/search/table_exists/delete",
+      "goal": "Implement hash_table.rs on HashMap<String, common::AstNode>: hash() (djb2 mod HASH_TABLE_SIZE), createHashTable/destroyHashTable, insert/search/table_exists/delete with Default-sentinel-as-None search semantics.",
+      "tests": ["hash_table::tests::test_insert_then_search_returns_value", "hash_table::tests::test_search_returns_none_for_default_sentinel_value", "hash_table::tests::test_table_exists_reflects_key_presence", "hash_table::tests::test_delete_then_search_returns_none", "hash_table::tests::test_hash_is_deterministic_and_bounded"],
+      "steps_part_a": [
+        "Implement hash() as a faithful djb2 port using wrapping arithmetic (u32/u64 wrapping_mul/wrapping_add) then `% HASH_TABLE_SIZE as u32`.",
+        "Implement HashTable::new/createHashTable as HashMap::new() wrappers; destroyHashTable as a no-op consuming its argument (Drop handles the rest).",
+        "Implement insert to HashMap::insert(key.to_string(), value).",
+        "Implement search to return None both when the key is absent AND when the stored value equals AstNode::default() (compare via common::ast_to_string or a dedicated is_default check), mirroring C's NULL-valued bucket entries.",
+        "Implement table_exists as self.table.contains_key(key) (documented HashMap-driven simplification of C's bucket-based check).",
+        "Implement delete as self.table.remove(key); discard result."
+      ],
+      "steps_part_b": [
+        "Un-ignore hash_table.rs tests: insert+search round trip, default-sentinel search returns None, table_exists true/false, delete then search None, hash() bounded/deterministic."
+      ],
+      "gate": "cargo build succeeds; cargo test --lib -- hash_table:: passes"
+    },
+    {
+      "id": "M3",
+      "title": "io: file wrappers",
+      "goal": "Implement io.rs: create_file/get_file/write_to_file/delete_file/close_file returning io::Result<_> via ?, and next() as a byte-read + cursor-advance (fgetc-equivalent).",
+      "tests": ["io::tests::test_create_write_get_roundtrip", "io::tests::test_delete_file_then_get_file_errors", "io::tests::test_next_reads_one_byte_and_advances_cursor"],
+      "steps_part_a": [
+        "Implement create_file via OpenOptions::new().write(true).create(true).truncate(true).open(path)?.",
+        "Implement get_file via File::open/OpenOptions per the requested mode string (e.g. \"r\" -> read, \"w\" -> write/create).",
+        "Implement write_to_file via file.write_all(content.as_bytes())? then seek back to start (rewind-equivalent).",
+        "Implement delete_file via std::fs::remove_file(path)?.",
+        "Implement close_file as drop(file); Ok(()) (Rust closes files on drop; return Ok to preserve the Result signature).",
+        "Implement next() by reading exactly one byte via Read::read, returning the EOF sentinel char on 0 bytes read, else the byte cast to char (mirrors fgetc's char cast)."
+      ],
+      "steps_part_b": [
+        "Un-ignore io.rs tests: create+write+get+read-back round trip using std::env::temp_dir()-rooted paths (cleaned up at test end); delete_file then get_file errors; next() reads one byte and advances the cursor."
+      ],
+      "gate": "cargo build succeeds; cargo test --lib -- io:: passes"
+    },
+    {
+      "id": "M4",
+      "title": "config: options parsing",
+      "goal": "Implement config.rs: trim() (isspace-bounded), get_config_type(), parse_config() (split on first '='), get_config_from_file() (line-by-line via BufRead, opening the referenced lambda file through io::get_file, panicking on fatal errors).",
+      "tests": ["config::tests::test_trim_strips_leading_and_trailing_whitespace", "config::tests::test_get_config_type_maps_known_keys", "config::tests::test_parse_config_splits_on_first_equals_and_trims"],
+      "steps_part_a": [
+        "Implement trim() in-place on &mut String, reproducing C's isspace-bounded start/end scan and off-by-one edge behavior for all-whitespace/single-char strings.",
+        "Implement get_config_type() matching \"file\"/\"step_by_step_reduction\"/\"reduction_order\" to their variants, else CONFIG_ERROR (matches C's error()-then-CONFIG_ERROR fallthrough behavior, invoked but non-fatal from the Rust side unless the caller panics).",
+        "Implement parse_config() to split line on the first '=' via splitn(2, '='), trim both halves into key/value.",
+        "Implement get_config_from_file() to open config::CONFIG_PATH via io::get_file, read lines with BufRead::lines(), call parse_config/get_config_type per line, open the referenced lambda file via io::get_file, and .expect()/panic! on any fatal condition (missing file=, unrecognized key, bad reduction_order value) exactly where C called error()."
+      ],
+      "steps_part_b": [
+        "Un-ignore config.rs tests for trim/get_config_type/parse_config as pure-string tests (no I/O needed for these three)."
+      ],
+      "gate": "cargo build succeeds; cargo test --lib -- config:: passes"
+    },
+    {
+      "id": "M5",
+      "title": "typechecker: structural type checking",
+      "goal": "Implement typechecker.rs: Type/TypeEnv, assert_, typecheck() (VAR/APPLICATION/LAMBDA_EXPR, preserving the non-arrow-codomain limitation on APPLICATION), type_equal, get_type_from_expr, create_type/parse_function_type, expr_type_equal, add_to_env, lookup_type.",
+      "tests": ["typechecker::tests::test_typecheck_var_returns_its_declared_type", "typechecker::tests::test_typecheck_lambda_expr_builds_arrow_like_type", "typechecker::tests::test_type_equal_compares_by_type_name", "typechecker::tests::test_add_to_env_and_lookup_type_roundtrip"],
+      "steps_part_a": [
+        "Implement assert_() to panic!(\"{}\", error_msg) when expr is false (mirrors C's assert_ fatal behavior).",
+        "Implement typecheck() for VAR (lookup_type/get_type_from_expr), APPLICATION (assert type_equal of function/argument types, return the function's own Type unchanged -- do NOT compute a codomain), and LAMBDA_EXPR (recursively typecheck body under an extended env, build the arrow-shaped Type via create_type/parse_function_type).",
+        "Implement type_equal/expr_type_equal as string-equality on the type_/return_type fields, matching C's NULL-vs-\"\" asymmetry handling (\"\" == absent).",
+        "Implement get_type_from_expr/create_type/parse_function_type per the C field extraction and '->'-split parsing.",
+        "Implement add_to_env(env: &mut Option<Box<TypeEnv>>, type_: Type) by prepending a new TypeEnv node (mirrors C's TypeEnv** insertion).",
+        "Implement lookup_type() by walking the Option<Box<TypeEnv>> chain matching on the AstNode's variable name."
+      ],
+      "steps_part_b": [
+        "Un-ignore typechecker.rs tests: VAR/LAMBDA_EXPR typecheck success cases, type_equal string comparisons, add_to_env+lookup_type round trip."
+      ],
+      "gate": "cargo build succeeds; cargo test --lib -- typechecker:: passes"
+    },
+    {
+      "id": "M6",
+      "title": "parser: lexer and recursive-descent grammar",
+      "goal": "Implement parser.rs on top of common and hash_table: parse_token, is_variable, peek/peek_print (EOF-sentinel pushback via Seek), consume/expect (fatal on mismatch), create_variable/create_application/create_lambda, alpha_convert (atomic counter), is_used, parse_space_chars, the grammar functions, and free_ast.",
+      "tests": ["parser::tests::test_parse_token_maps_chars_to_tokens", "parser::tests::test_is_variable_accepts_underscore_and_letters", "parser::tests::test_alpha_convert_appends_monotonic_suffix", "parser::tests::test_parse_expression_builds_expected_ast_shape"],
+      "steps_part_a": [
+        "Implement parse_token() as an exact char->tokens_t match (parens, '@'->LAMBDA, '.'->DOT, whitespace/newline/'='/'\"'/':' cases, is_variable(c)->VARIABLE, else ERROR).",
+        "Implement is_variable() to accept '_' plus ASCII letters (a-z, A-Z) only.",
+        "Implement peek()/peek_print() via Read::read of one byte + Seek::seek(SeekFrom::Current(-1)) pushback, returning the EOF sentinel char on 0 bytes read.",
+        "Implement consume()/expect() to call peek/read the next token, exit(1)/panic with the C's fatal message shape on mismatch.",
+        "Implement create_variable/create_application/create_lambda as plain AstNode constructors.",
+        "Implement alpha_convert() using a module-level AtomicU32 counter, producing \"<old>_<n>\" and incrementing.",
+        "Implement is_used() via hash_table::HashTable::table_exists.",
+        "Implement parse_space_chars() to consume whitespace/newline tokens via peek/consume in a loop.",
+        "Implement the grammar functions parse_lambda/parse_expression/parse_import/parse_definition/parse_type_definition/parse_type/parse_variable per the C recursive-descent structure, threading the HashTable for definitions/types/bound-variable tracking.",
+        "Implement free_ast() as a no-op (or explicit drop of node's owned children) since Rust's ownership already frees the tree; keep the signature for contract parity."
+      ],
+      "steps_part_b": [
+        "Un-ignore parser.rs tests: parse_token table-driven assertions, is_variable boundary cases ('_' plus letters vs digits/symbols), alpha_convert monotonic suffix assertions across repeated calls, and an end-to-end parse_expression fixture (write a small lambda expr string to a temp file, parse, assert via common::ast_to_string)."
+      ],
+      "gate": "cargo build succeeds; cargo test --lib -- parser:: passes"
+    },
+    {
+      "id": "M7",
+      "title": "reducer: beta/eta reduction engine",
+      "goal": "Implement reducer.rs on top of common, hash_table, parser, config: set_reduction_order/print_reduction_order, reduce(), expand_definitions() (in-place, panics if a definition is absent), replace() (in-place renaming), reduce_ast() (applicative vs normal exactly as coded), substitute(), and deepcopy*.",
+      "tests": ["reducer::tests::test_reduce_ast_applicative_order", "reducer::tests::test_reduce_ast_normal_order", "reducer::tests::test_substitute_replaces_free_variable", "reducer::tests::test_expand_definitions_replaces_definition_node", "reducer::tests::test_deepcopy_produces_independent_tree"],
+      "steps_part_a": [
+        "Implement set_reduction_order/print_reduction_order using a module-level mutable reduction_order_t state (mirrors C's file-scope variable) plus printing its name.",
+        "Implement deepcopy/deepcopy_application/deepcopy_lambda_expr/deepcopy_var as owned recursive tree-cloning helpers (used by substitute to avoid aliasing).",
+        "Implement substitute() to recursively rebuild an owned AstNode replacing free occurrences of `variable` with a deepcopy of `replacement`, exactly matching C's (non-alpha-safe-at-substitution-time) logic.",
+        "Implement reduce_ast() to branch on the current reduction_order: applicative reduces function and argument fully then beta-reduces and returns the substitution directly; normal reduces lazily and recurses into reduce_ast again on the result -- match the C control flow exactly, not the comments.",
+        "Implement expand_definitions() as in-place &mut AstNode mutation: for DEFINITION nodes, look up the name in `table` and panic!() (mirroring HANDLE_NULL) if absent, else overwrite the node's union/type; recurse into children.",
+        "Implement replace() as in-place bound-variable renaming through a subtree (used post alpha_convert).",
+        "Implement reduce() to call expand_definitions then reduce_ast, with optional verbose tracing via common::print_ast_verbose."
+      ],
+      "steps_part_b": [
+        "Un-ignore reducer.rs tests: build small typed lambda ASTs in-memory, assert reduce_ast output (compared via common::ast_to_string) for both APPLICATIVE and NORMAL order, substitute() free-variable replacement, expand_definitions() rewriting a DEFINITION node from a populated HashTable, and deepcopy() producing a structurally-identical but independently-owned tree."
+      ],
+      "gate": "cargo build succeeds; cargo test --lib -- reducer:: passes"
+    },
+    {
+      "id": "M8",
+      "title": "Golden: full contract conformance",
+      "goal": "All seven modules fully implemented per the C source's observable behavior; crate builds cleanly; entire held-out oracle suite passes.",
+      "tests": ["cargo test (full suite, including held-out oracle staged separately)"],
+      "steps_part_a": ["No further Part-A changes beyond bugfixes surfaced by the oracle; do not alter any declared signature."],
+      "steps_part_b": ["Re-run all per-module unit tests (Layer 1) to confirm no regressions before the oracle run (Layer 2)."],
+      "gate": "bash ../../tools/build_check.sh pipeline/project .scaffold AND bash ../../tools/unit_test.sh pipeline/project AND the held-out oracle suite all pass"
+    }
+  ],
+  "confirmation": {
+    "plan_written_to": "<repo>/examples/crust/subjects/lambda-calculus-eval/pipeline/plan.json",
+    "skeleton_location": "<repo>/examples/crust/subjects/lambda-calculus-eval/pipeline/project",
+    "build_check_result": "OK (crate builds; 133 warning(s))",
+    "unit_test_result": "OK (no agent-written tests yet -- all Part B stubs are #[ignore]d pending Translator implementation, a legitimate Layer-1 state per unit_test.sh's own contract)"
+  }
+}

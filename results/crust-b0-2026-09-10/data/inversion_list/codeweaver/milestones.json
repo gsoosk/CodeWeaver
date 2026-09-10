@@ -1,0 +1,81 @@
+{
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Skeleton compiles and links",
+      "goal": "The crate builds against the scaffold with every declared module present (lib.rs, inversion_list.rs), library init/finish (`inversion_list_init`/`inversion_list_finish`-equivalent setup) works, and the entrypoint runs without panics. No functional behaviour is asserted yet.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M1",
+      "title": "Struct creation and destruction",
+      "goal": "InversionList can be constructed from a capacity, a count and a slice of values (mirroring `inversion_list_create`) and safely dropped (mirroring `inversion_list_destroy`), preserving field layout (capacity/support) and basic invariants.",
+      "tests": ["test_struct", "test_create_destroy_2"],
+      "marker": ""
+    },
+    {
+      "id": "M2",
+      "title": "Getters and creation edge cases",
+      "goal": "Capacity and support accessors (`inversion_list_capacity`, `inversion_list_support`) return correct values, and creation correctly handles edge cases such as empty value sets, values exceeding capacity, and duplicate/unsorted input (mirroring the additional create/destroy edge-case coverage).",
+      "tests": ["test_getters", "test_create_destroy_3", "test_create_destroy_4"],
+      "marker": ""
+    },
+    {
+      "id": "M3",
+      "title": "Membership queries",
+      "goal": "`inversion_list_member`-equivalent membership testing returns correct results for values inside and outside the set, including boundary values.",
+      "tests": ["test_member"],
+      "marker": ""
+    },
+    {
+      "id": "M4",
+      "title": "Cloning",
+      "goal": "Cloning a set (mirroring `inversion_list_clone`) produces an independent, equal copy with no shared mutable state.",
+      "tests": ["test_clone"],
+      "marker": ""
+    },
+    {
+      "id": "M5",
+      "title": "String conversion",
+      "goal": "Converting a set to its string representation (mirroring `inversion_list_to_string`) matches the C formatting exactly, including for the empty set.",
+      "tests": ["test_to_string"],
+      "marker": ""
+    },
+    {
+      "id": "M6",
+      "title": "Equality and ordering comparisons",
+      "goal": "Set comparison operators (equal, not_equal, less, less_equal, greater, greater_equal, disjoint — mirroring `inversion_list_equal`/`_not_equal`/`_less`/`_less_equal`/`_greater`/`_greater_equal`/`_disjoint`) produce results consistent with set semantics.",
+      "tests": ["test_equals"],
+      "marker": ""
+    },
+    {
+      "id": "M7",
+      "title": "Value iterator",
+      "goal": "An iterator over individual set members (mirroring `inversion_list_iterator_create`/`_next`/`_rewind`/`_valid`/`_get`) visits every member in order exactly once and correctly reports validity/exhaustion.",
+      "tests": ["test_iterator"],
+      "marker": ""
+    },
+    {
+      "id": "M8",
+      "title": "Couple (range) iterator",
+      "goal": "An iterator over the set's inf/sup range couples (mirroring `inversion_list_couple_iterator_create`/`_next`/`_rewind`/`_valid`/`_get_inf`/`_get_sup`) visits every contiguous range exactly once with correct bounds.",
+      "tests": ["test_couple_iterator"],
+      "marker": ""
+    },
+    {
+      "id": "M9",
+      "title": "Set algebra operations",
+      "goal": "Complement, union, intersection, difference and symmetric difference (mirroring `inversion_list_complement`/`_union`/`_intersection`/`_difference`/`_symmetric_difference`) produce sets matching standard set-algebra semantics over multiple operands.",
+      "tests": ["test_complement", "test_union", "test_intersection", "test_difference"],
+      "marker": ""
+    },
+    {
+      "id": "M10",
+      "title": "Golden conformance",
+      "goal": "The full translation reproduces the complete C `inversion-list` contract: every prior slice still passes together with the whole held-out suite, with no regressions introduced by later milestones.",
+      "tests": [],
+      "marker": "--all"
+    }
+  ]
+}

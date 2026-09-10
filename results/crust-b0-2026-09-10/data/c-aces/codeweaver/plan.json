@@ -1,0 +1,856 @@
+{
+  "project": "c-aces",
+  "brief": "C-ACES (Arithmetic Channel Encryption Scheme, FHE) C->Rust port",
+  "working_copy": "pipeline/project",
+  "scaffold": ".scaffold",
+  "analysis_source": "pipeline/analysis.md",
+  "fragment_extraction": {
+    "part_a_implementation": [
+      {
+        "fragment": "c-source/src/Common.c:gcd",
+        "target": "src/common.rs:gcd",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Common.c:xgcd",
+        "target": "src/common.rs:xgcd",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Common.c:are_coprime",
+        "target": "src/common.rs:are_coprime",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Common.c:randinverse",
+        "target": "src/common.rs:randinverse",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Common.c:randrange",
+        "target": "src/common.rs:randrange",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Common.c:normal_rand",
+        "target": "src/common.rs:normal_rand",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/include/Common.h:max",
+        "target": "src/common.rs:max",
+        "verified": true,
+        "note": "static inline in header, no .c body"
+      },
+      {
+        "fragment": "c-source/src/include/Common.h:min",
+        "target": "src/common.rs:min",
+        "verified": true,
+        "note": "static inline in header, no .c body"
+      },
+      {
+        "fragment": "c-source/src/include/Common.h:clamp",
+        "target": "src/common.rs:clamp",
+        "verified": true,
+        "note": "static inline in header, no .c body"
+      },
+      {
+        "fragment": "c-source/src/Matrix.c:matrix2d_multiply",
+        "target": "src/matrix.rs:matrix2d_multiply",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Matrix.c:swap_transform",
+        "target": "src/matrix.rs:swap_transform",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Matrix.c:linear_mix_transform",
+        "target": "src/matrix.rs:linear_mix_transform",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Matrix.c:scale_transform",
+        "target": "src/matrix.rs:scale_transform",
+        "verified": true,
+        "note": "C returns 1 despite doc comment saying it's a typo for 0; skeleton returns Result<()> -> Ok(())"
+      },
+      {
+        "fragment": "c-source/src/Matrix.c:matrix2d_eye",
+        "target": "src/matrix.rs:matrix2d_eye",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Matrix.c:fill_random_invertible_pairs",
+        "target": "src/matrix.rs:fill_random_invertible_pairs",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/include/Matrix.h:matrix2d_row",
+        "target": "src/matrix.rs:Matrix2D::row/row_mut",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/include/Matrix.h:matrix2d_get",
+        "target": "src/matrix.rs:Matrix2D::get",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/include/Matrix.h:matrix2d_set",
+        "target": "src/matrix.rs:Matrix2D::set",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Matrix.c:matrix3d_get",
+        "target": "src/matrix.rs:Matrix3D::get_mut",
+        "verified": true,
+        "note": "skeleton exposes only get_mut, no free matrix3d_get"
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:get_polynomial/get_polyarray/set_polynomial/poly_free",
+        "target": "src/polynomial.rs:Polynomial::new/PolyArray::new",
+        "verified": true,
+        "note": "malloc/free arena collapses into Vec-owned constructors; no 1:1 free/get_* equivalents in skeleton"
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:set_zero",
+        "target": "src/polynomial.rs:Polynomial::set_zero",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:coef_sum",
+        "target": "src/polynomial.rs:Polynomial::coef_sum",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_degree",
+        "target": "src/polynomial.rs:Polynomial::degree",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_fit",
+        "target": "src/polynomial.rs:Polynomial::fit",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_mul",
+        "target": "src/polynomial.rs:Polynomial::mul",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_add",
+        "target": "src/polynomial.rs:Polynomial::add",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_sub",
+        "target": "src/polynomial.rs:Polynomial::sub",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_lshift",
+        "target": "src/polynomial.rs:Polynomial::lshift",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_mod",
+        "target": "src/polynomial.rs:Polynomial::poly_mod",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_sub_scaler",
+        "target": "src/polynomial.rs:Polynomial::sub_scaler",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_add_scaler",
+        "target": "src/polynomial.rs:Polynomial::add_scaler",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Polynomial.c:poly_equal",
+        "target": "src/polynomial.rs:derive(PartialEq, Eq)",
+        "verified": true,
+        "note": "becomes trait derive, not a method"
+      },
+      {
+        "fragment": "c-source/src/Channel.c:init_channel",
+        "target": "src/channel.rs:Channel::new + Channel::init",
+        "verified": true,
+        "note": "splits into unconditional new() and the auto-correcting init(); see design note 3.4"
+      },
+      {
+        "fragment": "c-source/src/Aces-internal.c:generate_error",
+        "target": "src/aces_internal.rs:generate_error",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Aces-internal.c:generate_vanisher",
+        "target": "src/aces_internal.rs:generate_vanisher",
+        "verified": true,
+        "note": "C returns sampled k (unused by any caller); skeleton drops the return value"
+      },
+      {
+        "fragment": "c-source/src/Aces-internal.c:generate_linear",
+        "target": "src/aces_internal.rs:generate_linear",
+        "verified": true,
+        "note": "C returns sampled k (unused by any caller); skeleton drops the return value"
+      },
+      {
+        "fragment": "c-source/src/Aces-internal.c:generate_u",
+        "target": "src/aces_internal.rs:generate_u",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Aces-internal.c:generate_secret",
+        "target": "src/aces_internal.rs:generate_secret",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Aces-internal.c:generate_f0",
+        "target": "src/aces_internal.rs:generate_f0",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Aces-internal.c:generate_f1",
+        "target": "src/aces_internal.rs:generate_f1",
+        "verified": true,
+        "note": "C's f1->coeffs += diff pointer shift becomes a slice copy/truncation in Rust"
+      },
+      {
+        "fragment": "c-source/src/Aces.c:set_aces",
+        "target": "src/aces.rs:set_aces",
+        "verified": true,
+        "note": "hand-rolled arena allocator replaced by direct Vec construction; mem: &mut [u8] kept only for signature parity/capacity check"
+      },
+      {
+        "fragment": "c-source/src/Aces.c:init_aces",
+        "target": "src/aces.rs:init_aces",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Aces.c:aces_encrypt",
+        "target": "src/aces.rs:aces_encrypt",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Aces.c:aces_decrypt",
+        "target": "src/aces.rs:aces_decrypt",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Aces.c:aces_add",
+        "target": "src/aces.rs:aces_add",
+        "verified": true
+      },
+      {
+        "fragment": "c-source/src/Aces.c:aces_mul",
+        "target": "src/aces.rs:aces_mul",
+        "verified": true,
+        "note": "C stub is TODO/unimplemented, 0% coverage; port preserves as no-op Ok(())"
+      },
+      {
+        "fragment": "c-source/src/Aces.c:aces_refresh",
+        "target": "src/aces.rs:aces_refresh",
+        "verified": true
+      }
+    ],
+    "part_a_missing": [],
+    "part_b_tests_and_mocks": [
+      {
+        "fragment": "src/common.rs:tests::gcd_matches_known_values",
+        "status": "needs-new-test",
+        "reason": "c-source/tests/ removed (held-out oracle basis); no C test source recoverable"
+      },
+      {
+        "fragment": "src/common.rs:tests::xgcd_satisfies_bezout_identity",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/common.rs:tests::are_coprime_matches_gcd_equals_one",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/common.rs:tests::randinverse_produces_valid_modular_inverse",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/common.rs:tests::randrange_stays_within_inclusive_bounds",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/common.rs:tests::normal_rand_produces_finite_values",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/common.rs:tests::max_min_clamp_boundary_behavior",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/matrix.rs:tests::matrix2d_accessors_respect_bounds",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/matrix.rs:tests::matrix2d_multiply_matches_naive_product",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/matrix.rs:tests::matrix2d_eye_is_identity",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/matrix.rs:tests::swap_transform_preserves_inverse_invariant",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/matrix.rs:tests::linear_mix_transform_preserves_inverse_invariant",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/matrix.rs:tests::scale_transform_preserves_inverse_invariant",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/matrix.rs:tests::fill_random_invertible_pairs_yields_valid_pair",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::degree_matches_msb_first_convention",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::coef_sum_matches_hand_computed_example",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::set_zero_zeroes_all_coefficients",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::fit_strips_leading_zero_coefficients",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::add_matches_hand_computed_example",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::sub_matches_hand_computed_example",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::mul_matches_hand_computed_example",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::lshift_errs_when_divisor_leading_coeff_is_not_one",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::poly_mod_reduces_below_divisor_degree",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::sub_scaler_applies_to_every_coefficient",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/polynomial.rs:tests::add_scaler_applies_to_every_coefficient",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/channel.rs:tests::init_keeps_q_when_p_squared_less_than_q_and_coprime",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/channel.rs:tests::init_corrects_q_to_p_plus_one_squared_when_condition_fails",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces_internal.rs:tests::generate_error_encodes_message_in_coef_sum",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces_internal.rs:tests::generate_vanisher_coef_sum_is_multiple_of_p_mod_q",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces_internal.rs:tests::generate_linear_coef_sum_is_within_p_mod_q",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces_internal.rs:tests::generate_u_has_correct_shape_and_coef_sum",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces_internal.rs:tests::generate_secret_derives_consistent_secret_and_lambda",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces_internal.rs:tests::generate_f0_samples_within_bounds",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces_internal.rs:tests::generate_f1_matches_reduced_sum_of_products",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces.rs:tests::set_aces_shapes_buffers_correctly",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces.rs:tests::set_aces_errs_on_undersized_mem",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces.rs:tests::init_aces_wires_all_key_material",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces.rs:tests::encrypt_add_decrypt_round_trip_matches_readme_example",
+        "status": "needs-new-test",
+        "source_hint": "c-source/README.md worked example (p=2,q=33,encrypt 4 and 3, add, decrypt)"
+      },
+      {
+        "fragment": "src/aces.rs:tests::encrypt_decrypt_errs_when_message_len_exceeds_one",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces.rs:tests::aces_add_sums_levels_and_reduces_mod_u",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces.rs:tests::aces_mul_is_a_no_op_matching_c_stub",
+        "status": "needs-new-test"
+      },
+      {
+        "fragment": "src/aces.rs:tests::aces_refresh_subtracts_k_times_p_and_decrements_level",
+        "status": "needs-new-test"
+      }
+    ],
+    "mock_seam_strategy": "No trait-based mocks needed: the C source has no I/O/network/filesystem boundaries, and the only 'environment' dependency (libc rand()) is already abstracted behind common::randrange/normal_rand/rand::Rng, which the skeleton does not parametrize with an injectable RNG. Testable seams are therefore: (1) pure-function input->output assertions for common/polynomial/matrix(non-random parts)/channel; (2) property-based invariant checks (run-many-times) for randomized matrix transforms and aces_internal generators; (3) one end-to-end regression test in aces.rs translated from the C README worked example. All Part-B fragments are marked needs-new-test since c-source/tests/ was removed as the held-out oracle basis."
+  },
+  "name_mapping": [
+    {
+      "c": "Xgcd{gcd:u64,a:i64,b:i64}",
+      "rust": "common::Xgcd{gcd,a,b}"
+    },
+    {
+      "c": "Pair{first:u64,second:u64}",
+      "rust": "common::Pair{first,second}"
+    },
+    {
+      "c": "gcd(u64,u64)->u64",
+      "rust": "common::gcd(u64,u64)->u64"
+    },
+    {
+      "c": "xgcd(u64,u64)->Xgcd",
+      "rust": "common::xgcd(u64,u64)->Xgcd"
+    },
+    {
+      "c": "are_coprime(u64,u64)->int(0/1)",
+      "rust": "common::are_coprime(u64,u64)->bool"
+    },
+    {
+      "c": "randinverse(u64)->Pair",
+      "rust": "common::randinverse(u64)->Pair"
+    },
+    {
+      "c": "randrange(u64,u64)->u64",
+      "rust": "common::randrange(u64,u64)->u64"
+    },
+    {
+      "c": "normal_rand(f64,f64)->f64",
+      "rust": "common::normal_rand(f64,f64)->f64"
+    },
+    {
+      "c": "max/min/clamp (static inline)",
+      "rust": "common::max/min/clamp"
+    },
+    {
+      "c": "Matrix2D{dim:size_t,data:*u64}",
+      "rust": "matrix::Matrix2D{dim:usize,data:Vec<u64>}"
+    },
+    {
+      "c": "Matrix3D{data:*Matrix2D,size:size_t}",
+      "rust": "matrix::Matrix3D{data:Vec<Matrix2D>}",
+      "note": "size field dropped; use data.len()"
+    },
+    {
+      "c": "matrix2d_get/set/row (static inline)",
+      "rust": "Matrix2D::get/set/row/row_mut -> Option/Result"
+    },
+    {
+      "c": "matrix3d_get(lambda,idx)->Matrix2D*",
+      "rust": "Matrix3D::get_mut(idx)->Option<&mut Matrix2D>"
+    },
+    {
+      "c": "matrix2d_multiply/swap_transform/linear_mix_transform/scale_transform/matrix2d_eye/fill_random_invertible_pairs",
+      "rust": "free fns of the same name in matrix.rs, Result<..> return"
+    },
+    {
+      "c": "Transformer fn-pointer typedef, TRANSFORM_COUNT",
+      "rust": "no public equivalent; internal dispatch only inside fill_random_invertible_pairs"
+    },
+    {
+      "c": "Coeff = int64_t",
+      "rust": "polynomial::Coeff = i64"
+    },
+    {
+      "c": "Polynomial{coeffs:*Coeff,size:size_t}",
+      "rust": "polynomial::Polynomial{coeffs:Vec<Coeff>}",
+      "note": "size dropped; use coeffs.len()"
+    },
+    {
+      "c": "PolyArray{polies:*Polynomial,size:size_t}",
+      "rust": "polynomial::PolyArray{polies:Vec<Polynomial>}",
+      "note": "size dropped; use polies.len()"
+    },
+    {
+      "c": "get_polynomial/get_polyarray/set_polynomial/poly_free (malloc/free)",
+      "rust": "Polynomial::new(Vec<Coeff>) / PolyArray::new(Vec<Polynomial>)"
+    },
+    {
+      "c": "poly_equal(p1,p2)->int",
+      "rust": "derive(PartialEq, Eq) on Polynomial; callers use =="
+    },
+    {
+      "c": "coef_sum(poly)->int64_t",
+      "rust": "Polynomial::coef_sum(&self)->Coeff"
+    },
+    {
+      "c": "poly_degree(poly)->u64",
+      "rust": "Polynomial::degree(&self)->usize"
+    },
+    {
+      "c": "set_zero(poly)->int",
+      "rust": "Polynomial::set_zero(&mut self)"
+    },
+    {
+      "c": "poly_fit(poly,mod)->int",
+      "rust": "Polynomial::fit(&mut self,u64)->Result<()>"
+    },
+    {
+      "c": "poly_mul(p1,p2,result,mod)->int",
+      "rust": "Polynomial::mul(&self,&Polynomial,u64)->Result<Polynomial>"
+    },
+    {
+      "c": "poly_add(p1,p2,result,mod)->int",
+      "rust": "Polynomial::add(&self,&Polynomial,u64)->Result<Polynomial>"
+    },
+    {
+      "c": "poly_sub(p1,p2,result,mod)->int",
+      "rust": "Polynomial::sub(&self,&Polynomial,u64)->Result<Polynomial>"
+    },
+    {
+      "c": "poly_lshift(p1,p2,result,mod)->int",
+      "rust": "Polynomial::lshift(&self,&Polynomial,u64)->Result<Polynomial>"
+    },
+    {
+      "c": "poly_mod(p1,p2,mod)->int",
+      "rust": "Polynomial::poly_mod(&mut self,&Polynomial,u64)->Result<()>"
+    },
+    {
+      "c": "poly_sub_scaler(poly,scaler,result,mod)->int",
+      "rust": "Polynomial::sub_scaler(&self,u64,u64)->Result<Polynomial>"
+    },
+    {
+      "c": "poly_add_scaler(poly,scaler,result,mod)->int",
+      "rust": "Polynomial::add_scaler(&self,u64,u64)->Result<Polynomial>"
+    },
+    {
+      "c": "Parameters{dim:u64,N:u64}",
+      "rust": "channel::Parameters{dim:u64,N:u64}",
+      "note": "uppercase N kept verbatim"
+    },
+    {
+      "c": "Channel{p:u64,q:u64,w:u64}",
+      "rust": "channel::Channel{p,q,w}"
+    },
+    {
+      "c": "init_channel(channel,p,q,w)->int",
+      "rust": "Channel::new(p,q,w)->Self + Channel::init(p,q,w)->Result<Self>",
+      "note": "new is unconditional; init replicates the p^2<q && coprime(p,q) auto-correction to (p+1)^2"
+    },
+    {
+      "c": "generate_error(q,message,rm)->int",
+      "rust": "aces_internal::generate_error(u64,u64,&mut Polynomial)->Result<()>"
+    },
+    {
+      "c": "generate_vanisher(p,q,e)->u64(returns k)",
+      "rust": "aces_internal::generate_vanisher(u64,u64,&mut Polynomial)->Result<()>",
+      "note": "return value k dropped; no caller uses it"
+    },
+    {
+      "c": "generate_linear(p,q,b)->u64(returns k)",
+      "rust": "aces_internal::generate_linear(u64,u64,&mut Polynomial)->Result<()>",
+      "note": "return value k dropped; no caller uses it"
+    },
+    {
+      "c": "generate_u(channel,param,u)->int",
+      "rust": "aces_internal::generate_u(&Channel,&Parameters,&mut Polynomial)->Result<()>"
+    },
+    {
+      "c": "generate_secret(channel,param,u,secret,lambda)->int",
+      "rust": "aces_internal::generate_secret(&Channel,&Parameters,&Polynomial,&mut PolyArray,&mut Matrix3D)->Result<()>"
+    },
+    {
+      "c": "generate_f0(channel,param,f0)->int",
+      "rust": "aces_internal::generate_f0(&Channel,&Parameters,&mut PolyArray)->Result<()>"
+    },
+    {
+      "c": "generate_f1(channel,param,f0,x,u,f1)->int",
+      "rust": "aces_internal::generate_f1(&Channel,&Parameters,&PolyArray,&PolyArray,&Polynomial,&mut Polynomial)->Result<()>"
+    },
+    {
+      "c": "PublicKey{u,lambda}",
+      "rust": "aces::PublicKey{u,lambda}"
+    },
+    {
+      "c": "PrivateKey{x,f0,f1}",
+      "rust": "aces::PrivateKey{x,f0,f1}"
+    },
+    {
+      "c": "SharedInfo{channel,param,pk}",
+      "rust": "aces::SharedInfo{channel,param,pk}"
+    },
+    {
+      "c": "Aces{shared_info,private_key}",
+      "rust": "aces::Aces{shared_info,private_key}"
+    },
+    {
+      "c": "CipherMessage{c1,c2,level}",
+      "rust": "aces::CipherMessage{c1,c2,level}"
+    },
+    {
+      "c": "set_aces(aces,dim,memory,size)->int",
+      "rust": "aces::set_aces(&mut Aces,usize,&mut [u8])->Result<()>",
+      "note": "arena allocator replaced by direct Vec construction; mem retained only for signature/capacity-check parity"
+    },
+    {
+      "c": "init_aces(p,q,dim,aces)->int",
+      "rust": "aces::init_aces(u64,u64,u64,&mut Aces)->Result<()>"
+    },
+    {
+      "c": "aces_encrypt(aces,message,size,result)->int",
+      "rust": "aces::aces_encrypt(&Aces,&[u64],&mut CipherMessage)->Result<()>",
+      "note": "size param dropped; use message.len()"
+    },
+    {
+      "c": "aces_decrypt(aces,message,size,result)->int",
+      "rust": "aces::aces_decrypt(&Aces,&CipherMessage,&mut [u64])->Result<()>",
+      "note": "size param dropped; use result.len()/message context"
+    },
+    {
+      "c": "aces_add(a,b,info,result)->int",
+      "rust": "aces::aces_add(&CipherMessage,&CipherMessage,&SharedInfo,&mut CipherMessage)->Result<()>"
+    },
+    {
+      "c": "aces_mul(a,b,info,result)->int",
+      "rust": "aces::aces_mul(&CipherMessage,&CipherMessage,&SharedInfo,&mut CipherMessage)->Result<()>",
+      "note": "no-op stub preserved verbatim"
+    },
+    {
+      "c": "aces_refresh(info,a,k)->int",
+      "rust": "aces::aces_refresh(&SharedInfo,&mut CipherMessage,u64)->Result<()>"
+    },
+    {
+      "c": "n/a (new relative to C)",
+      "rust": "error::AcesError{GenericError(String)}, error::Result<T>",
+      "note": "replaces the raw int 0/-1 convention; already fully specified, fixed API"
+    }
+  ],
+  "skeleton": {
+    "location": "pipeline/project (copied from .scaffold, idempotent)",
+    "modules_declared_in_lib_rs": [
+      "aces_internal",
+      "aces",
+      "channel",
+      "common",
+      "error",
+      "matrix",
+      "polynomial"
+    ],
+    "part_a_seam": "Every scaffold function/method body left as unimplemented!() with its exact declared signature (name, params, return type, pub visibility) preserved verbatim from .scaffold; no logic added.",
+    "part_b_seam": "A #[cfg(test)] mod tests { use super::*; ... } block appended to the bottom of each of the 6 implementation files (common.rs, matrix.rs, polynomial.rs, channel.rs, aces_internal.rs, aces.rs). Each test is #[ignore = \"needs-new-test: ...\"] with an unimplemented!() body and a doc comment naming the C invariant/behavior it must assert once the Translator fills in real logic -- this keeps cargo test --lib passing today (ignored tests are skipped) while recording the exact test surface the Translator must implement per milestone.",
+    "no_new_public_items": "No new public types/traits were added beyond what .scaffold already declares; error.rs (AcesError/Result) is untouched as it is already a fixed, fully-specified API.",
+    "build_check_command": "bash ../../tools/build_check.sh pipeline/project .scaffold",
+    "build_check_result": "OK (crate builds; 127 warning(s) -- all unused-variable/unimplemented-related, none are errors)",
+    "unit_test_command": "bash ../../tools/unit_test.sh pipeline/project",
+    "unit_test_result": "OK (no agent-written tests yet -- all new tests are #[ignore]d stubs pending Translator implementation)"
+  },
+  "implementation_plan": [
+    {
+      "id": "milestone-1-error-common",
+      "title": "error + common",
+      "goal": "Implement AcesError/Result (already fixed, no work) and all of common.rs: gcd, xgcd, are_coprime, randinverse, randrange, normal_rand, max, min, clamp.",
+      "depends_on": [],
+      "tests": [
+        "src/common.rs:tests::* (7 tests)"
+      ],
+      "steps_part_a": [
+        "src/common.rs:gcd -- Euclidean subtraction loop (while x != y) exactly as Common.c.",
+        "src/common.rs:xgcd -- extended Euclidean algorithm, i64 Bezout coefficients as Common.c.",
+        "src/common.rs:are_coprime -- gcd(x,y) == 1, exposed as bool per skeleton (C's !(gcd>1)).",
+        "src/common.rs:randinverse -- sample a in [2,value-1] via randrange until coprime, then xgcd-derive inverse in [1,value).",
+        "src/common.rs:randrange -- rand::Rng::random_range(lower..=upper), inclusive bounds per Common.c's rand()%(upper-lower+1)+lower.",
+        "src/common.rs:normal_rand -- Box-Muller transform with rand::Rng uniforms + f64::ln/sqrt/cos, matching Common.c's rand_val()/PI constant.",
+        "src/common.rs:max/min/clamp -- direct u64 comparisons per Common.h's static inline versions."
+      ],
+      "steps_part_b": [
+        "src/common.rs:tests::gcd_matches_known_values -- un-ignore, assert gcd(48,18)==6 and other hand-picked C-doc-derived cases.",
+        "src/common.rs:tests::xgcd_satisfies_bezout_identity -- assert gcd == a*x + b*y for several (x,y) pairs.",
+        "src/common.rs:tests::are_coprime_matches_gcd_equals_one -- table-driven boolean checks.",
+        "src/common.rs:tests::randinverse_produces_valid_modular_inverse -- property test over many iterations: 1<=a<value, a*inv % value == 1.",
+        "src/common.rs:tests::randrange_stays_within_inclusive_bounds -- property test over many iterations, assert lower<=v<=upper including lower==upper edge case.",
+        "src/common.rs:tests::normal_rand_produces_finite_values -- assert .is_finite() over many samples.",
+        "src/common.rs:tests::max_min_clamp_boundary_behavior -- equal-args ties, value below/above/within range."
+      ]
+    },
+    {
+      "id": "milestone-2-matrix",
+      "title": "matrix",
+      "goal": "Implement Matrix2D/Matrix3D and matrix2d_multiply, swap_transform, linear_mix_transform, scale_transform, matrix2d_eye, fill_random_invertible_pairs.",
+      "depends_on": [
+        "milestone-1-error-common"
+      ],
+      "tests": [
+        "src/matrix.rs:tests::* (7 tests)"
+      ],
+      "steps_part_a": [
+        "src/matrix.rs:Matrix2D::new/row/row_mut/get/set -- Vec-backed dim*dim storage, Option/Result-returning bounds-checked accessors replacing C's unchecked static-inline pointer math.",
+        "src/matrix.rs:Matrix3D::new/get_mut -- Vec<Matrix2D> replacing the C data+size pair; get_mut replaces the free matrix3d_get.",
+        "src/matrix.rs:matrix2d_multiply -- naive triple loop mod-q product per Matrix.c, using wrapping_mul/wrapping_add for the u64*u64 accumulation.",
+        "src/matrix.rs:swap_transform -- random row/col swap between m and invm via common::randrange, mirroring Matrix.c's memcpy-based row swap.",
+        "src/matrix.rs:linear_mix_transform -- random column mix with mod-q scale factor per Matrix.c.",
+        "src/matrix.rs:scale_transform -- random scale via common::randinverse applied to every element of m and invm.",
+        "src/matrix.rs:matrix2d_eye -- zero then set diagonal to 1.",
+        "src/matrix.rs:fill_random_invertible_pairs -- matrix2d_eye both matrices then apply `iterations` random transforms selected via common::randrange(0,2), internal dispatch table (no public Transformer type)."
+      ],
+      "steps_part_b": [
+        "src/matrix.rs:tests::matrix2d_accessors_respect_bounds -- assert None for out-of-range row/col, Some/Ok for in-range.",
+        "src/matrix.rs:tests::matrix2d_multiply_matches_naive_product -- small hand-built matrices, compare against manually computed mod-q product.",
+        "src/matrix.rs:tests::matrix2d_eye_is_identity -- assert diagonal==1, off-diagonal==0.",
+        "src/matrix.rs:tests::swap_transform_preserves_inverse_invariant -- start from eye pair, apply transform N times, assert m*invm % q == I each time (property test).",
+        "src/matrix.rs:tests::linear_mix_transform_preserves_inverse_invariant -- same invariant, N trials.",
+        "src/matrix.rs:tests::scale_transform_preserves_inverse_invariant -- same invariant, N trials.",
+        "src/matrix.rs:tests::fill_random_invertible_pairs_yields_valid_pair -- after 600-like iterations, assert m*invm % q == I."
+      ]
+    },
+    {
+      "id": "milestone-3-polynomial",
+      "title": "polynomial",
+      "goal": "Implement Polynomial/PolyArray and all methods: degree, set_zero, coef_sum, fit, add, sub, mul, lshift, poly_mod, sub_scaler, add_scaler.",
+      "depends_on": [
+        "milestone-1-error-common"
+      ],
+      "tests": [
+        "src/polynomial.rs:tests::* (10 tests)"
+      ],
+      "steps_part_a": [
+        "src/polynomial.rs:Polynomial::new/PolyArray::new -- direct Vec ownership, replacing malloc-based get_polynomial/get_polyarray/set_polynomial/poly_free.",
+        "src/polynomial.rs:Polynomial::degree -- MSB-first: size-1-i for first nonzero coeffs[i], 0 for size==0/all-zero, per Polynomial.c's poly_degree.",
+        "src/polynomial.rs:Polynomial::set_zero -- fill coeffs with 0.",
+        "src/polynomial.rs:Polynomial::coef_sum -- sum all coeffs as i64, 0 for empty, matching coef_sum's early-return.",
+        "src/polynomial.rs:Polynomial::fit -- strip leading (low-index) zero run using degree(), reduce remaining coeffs mod (as u64 cast back to i64), matching poly_fit's idx computation and truncation.",
+        "src/polynomial.rs:Polynomial::add/sub -- Err on size mismatch vs result capacity or mod==0 (poly_add/poly_sub's explicit `mod == 0` check preserved); zero-pad shorter operand at the low-index end when sizes differ.",
+        "src/polynomial.rs:Polynomial::mul -- convolution accumulate then fit(), preserving poly_mul's res_deg offset arithmetic and wrapping_mul on i64 products mod q.",
+        "src/polynomial.rs:Polynomial::lshift -- Err if divisor's leading coeff != 1 or degree1<degree2; else per-coeff subtract-and-correct-sign (`res<0 -> res+mod`) exactly as poly_lshift, then fit().",
+        "src/polynomial.rs:Polynomial::poly_mod -- repeatedly call lshift on self until it errs (degree1<degree2), in place, per poly_mod's while loop.",
+        "src/polynomial.rs:Polynomial::sub_scaler/add_scaler -- per-coefficient (coeff -/+ scaler) % mod, matching C's truncating-toward-zero % semantics with sign correction where needed."
+      ],
+      "steps_part_b": [
+        "src/polynomial.rs:tests::degree_matches_msb_first_convention -- hand-built coeffs arrays, assert degree for various leading-zero-run lengths, including size==0.",
+        "src/polynomial.rs:tests::coef_sum_matches_hand_computed_example -- small fixed coeffs, assert sum.",
+        "src/polynomial.rs:tests::set_zero_zeroes_all_coefficients -- assert all-zero after call.",
+        "src/polynomial.rs:tests::fit_strips_leading_zero_coefficients -- polynomial with leading zeros, assert resulting coeffs/len match poly_fit semantics.",
+        "src/polynomial.rs:tests::add_matches_hand_computed_example -- same-size and size-mismatched operands, assert zero-padded mod-q sum.",
+        "src/polynomial.rs:tests::sub_matches_hand_computed_example -- same, for subtraction including negative-result sign correction.",
+        "src/polynomial.rs:tests::mul_matches_hand_computed_example -- small polynomials, assert convolution result against hand computation.",
+        "src/polynomial.rs:tests::lshift_errs_when_divisor_leading_coeff_is_not_one -- divisor with coeffs[0]!=1 -> Err.",
+        "src/polynomial.rs:tests::poly_mod_reduces_below_divisor_degree -- assert resulting degree < divisor degree after poly_mod.",
+        "src/polynomial.rs:tests::sub_scaler_applies_to_every_coefficient / add_scaler_applies_to_every_coefficient -- per-element assertions."
+      ]
+    },
+    {
+      "id": "milestone-4-channel",
+      "title": "channel",
+      "goal": "Implement Channel::new/Channel::init and Parameters (already just data).",
+      "depends_on": [
+        "milestone-1-error-common"
+      ],
+      "tests": [
+        "src/channel.rs:tests::* (2 tests)"
+      ],
+      "steps_part_a": [
+        "src/channel.rs:Channel::new -- unconditional constructor {p,q,w}, no validation (mirrors the plain field-assignment portion of init_channel).",
+        "src/channel.rs:Channel::init -- replicate C's actual behavior: if p^2 < q && are_coprime(p,q), keep q; else q = (p+1)^2 (both branches return Ok(Self{..}), never Err, per design note 3.4 overriding the skeleton's paraphrased doc comment)."
+      ],
+      "steps_part_b": [
+        "src/channel.rs:tests::init_keeps_q_when_p_squared_less_than_q_and_coprime -- choose p,q,w hitting the kept-as-is branch, assert returned q unchanged.",
+        "src/channel.rs:tests::init_corrects_q_to_p_plus_one_squared_when_condition_fails -- choose p,q,w failing p^2<q or coprimality, assert q==(p+1)^2."
+      ]
+    },
+    {
+      "id": "milestone-5-aces-internal",
+      "title": "aces_internal",
+      "goal": "Implement generate_error, generate_vanisher, generate_linear, generate_u, generate_secret, generate_f0, generate_f1.",
+      "depends_on": [
+        "milestone-2-matrix",
+        "milestone-3-polynomial",
+        "milestone-4-channel"
+      ],
+      "tests": [
+        "src/aces_internal.rs:tests::* (7 tests)"
+      ],
+      "steps_part_a": [
+        "src/aces_internal.rs:generate_error -- sample rm coeffs via randrange(0,q), then shift-correct the last coefficient so coef_sum(rm) % q == message, per Aces-internal.c.",
+        "src/aces_internal.rs:generate_vanisher -- sample internal k in {0,1} (EPROB=0.5 threshold), sample e coeffs, shift-correct last coeff so coef_sum(e) % q relates to p*k; k itself is not returned (skeleton drops it, confirmed unused by all callers).",
+        "src/aces_internal.rs:generate_linear -- sample internal k in [0,p], sample b coeffs, shift-correct last coeff so coef_sum(b) % q relates to k.",
+        "src/aces_internal.rs:generate_u -- build length dim+1 polynomial: coeffs[0]=1, randomized nonzero/zero run pattern using randrange + normal_rand + clamp exactly as Aces-internal.c, last coeff = q - coef_sum(u).",
+        "src/aces_internal.rs:generate_secret -- build dim x dim invertible pair via matrix::fill_random_invertible_pairs, derive secret.polies[i] from invm columns, derive lambda tensor via poly_mul + poly_mod + matrix2d_multiply composition per Aces-internal.c's nested loop.",
+        "src/aces_internal.rs:generate_f0 -- fill each f0.polies[i] with randrange(0,q-1) samples sized to each polynomial's own existing length.",
+        "src/aces_internal.rs:generate_f1 -- compute sum(f0_i * x_i) mod u via poly_mul/poly_add/poly_mod, then copy the low-order f1.coeffs.len() entries into f1 (Rust replacement for C's pointer-shift truncation)."
+      ],
+      "steps_part_b": [
+        "src/aces_internal.rs:tests::generate_error_encodes_message_in_coef_sum -- assert coef_sum(rm) % q == message for several q/message values.",
+        "src/aces_internal.rs:tests::generate_vanisher_coef_sum_is_multiple_of_p_mod_q -- assert coef_sum(e) % q is congruent to 0 or p (property test, many trials since k is internal/random).",
+        "src/aces_internal.rs:tests::generate_linear_coef_sum_is_within_p_mod_q -- assert coef_sum(b) % q in [0,p] range across trials.",
+        "src/aces_internal.rs:tests::generate_u_has_correct_shape_and_coef_sum -- assert len==dim+1, coeffs[0]==1, coef_sum(u)==q.",
+        "src/aces_internal.rs:tests::generate_secret_derives_consistent_secret_and_lambda -- assert secret has dim polynomials, lambda has dim matrices, and the algebraic relation from Aces-internal.c's doc comment holds for at least one (i,j).",
+        "src/aces_internal.rs:tests::generate_f0_samples_within_bounds -- assert every sampled coeff is in [0,q-1].",
+        "src/aces_internal.rs:tests::generate_f1_matches_reduced_sum_of_products -- build small f0/x/u fixtures, assert f1 equals the independently-computed reduced sum."
+      ]
+    },
+    {
+      "id": "milestone-6-aces",
+      "title": "aces",
+      "goal": "Implement PublicKey/PrivateKey/SharedInfo/Aces/CipherMessage plumbing, set_aces, init_aces, aces_encrypt, aces_decrypt, aces_add, aces_mul (stub), aces_refresh.",
+      "depends_on": [
+        "milestone-5-aces-internal"
+      ],
+      "tests": [
+        "src/aces.rs:tests::* (7 tests)"
+      ],
+      "steps_part_a": [
+        "src/aces.rs:set_aces -- size-check mem.len() against an equivalent required-capacity computation (proxy for C's byte-arena check), then construct zeroed Vec-backed u (dim+1), lambda (dim x dim x dim), x/f0 (dim polynomials of size dim), f1 (size dim) directly -- no raw pointer slicing into mem.",
+        "src/aces.rs:init_aces -- wire Channel::init -> aces_internal::generate_u -> generate_secret -> generate_f0 -> generate_f1 in that order, matching Aces.c's init_aces.",
+        "src/aces.rs:aces_encrypt -- Err if message.len()>1; else generate r_m/e/b via aces_internal, compute c1[i]=poly_mod(b*f0[i],u) per component, c2=poly_mod((f1+e)*b + r_m, u), level=channel.p.",
+        "src/aces.rs:aces_decrypt -- Err if result.len()>1 (mirroring C's size>1 guard on the analogous side); accumulate sum(c1[i]*x[i]) fitted, subtract from c2, result[0] = (coef_sum % q) % p.",
+        "src/aces.rs:aces_add -- per-component c1 add + poly_mod(u), c2 add + poly_mod(u), level=a.level+b.level.",
+        "src/aces.rs:aces_mul -- no-op Ok(()), result left untouched, matching C's TODO stub exactly (do not implement real homomorphic multiplication).",
+        "src/aces.rs:aces_refresh -- c2 = sub_scaler(c2, k*p, q); level = level.wrapping_sub(k) to preserve C's silent u64 underflow wraparound."
+      ],
+      "steps_part_b": [
+        "src/aces.rs:tests::set_aces_shapes_buffers_correctly -- assert u.len()==dim+1, lambda.data.len()==dim (each dim x dim), x/f0 have dim polys of len dim, f1.len()==dim.",
+        "src/aces.rs:tests::set_aces_errs_on_undersized_mem -- pass a too-small mem slice, assert Err.",
+        "src/aces.rs:tests::init_aces_wires_all_key_material -- after init_aces, assert channel/u/secret/f0/f1 are all populated with the expected shapes.",
+        "src/aces.rs:tests::encrypt_add_decrypt_round_trip_matches_readme_example -- translate the C README example verbatim: p=2,q=33,dim=D, encrypt 4 and 3, aces_add, decrypt, assert result == (4+3)%2.",
+        "src/aces.rs:tests::encrypt_decrypt_errs_when_message_len_exceeds_one -- message.len()==2 -> Err from aces_encrypt; oversized result slice -> Err from aces_decrypt.",
+        "src/aces.rs:tests::aces_add_sums_levels_and_reduces_mod_u -- assert result.level == a.level + b.level and c1/c2 degrees stay reduced mod u.",
+        "src/aces.rs:tests::aces_mul_is_a_no_op_matching_c_stub -- call aces_mul on a mutated `result` sentinel, assert it is unchanged and Ok(()) is returned.",
+        "src/aces.rs:tests::aces_refresh_subtracts_k_times_p_and_decrements_level -- assert level decreases by k (including a wrapping-underflow case with k>level)."
+      ]
+    }
+  ]
+}

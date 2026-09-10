@@ -1,0 +1,74 @@
+{
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Skeleton compiles",
+      "goal": "pipeline/project builds as-is against the scaffold contract: src/lib.rs still declares `pub mod cset;`, cset.rs still declares every scaffolded type/function/constant with the exact names, signatures and pub visibility (bodies may remain unimplemented!()), and `cargo build --lib` succeeds. No functional behavior yet.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M1",
+      "title": "xxHash64 byte-reading and mixing primitives",
+      "goal": "Port the vendored xxHash64 internals faithfully: xxh_is_little_endian, xxh_read_le64/_align, xxh_swap32, xxh_read32, xxh_get_32bits, xxh_read_le32_align, xxh64_round, xxh64_merge_round, xxh64_avalanche, xxh64_finalize, xxh64_get64bits, using wrapping_* arithmetic to match C's uint64_t/uint32_t silent wraparound (no debug-mode overflow panics). These are pure functions with no Cset<T> state involved.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M2",
+      "title": "xxh64 / xxh64_h top-level hash and cset hash callbacks",
+      "goal": "Implement xxh64_endian_align, xxh64_endian_align_h (the two independently-seeded variants), xxh64, xxh64_h, and the cset_hash1_callback/cset_hash2_callback wrappers (hash2 forced odd via `| 1`) using CSET_DEFAULT_SEED. Given the same byte input, xxh64/xxh64_h must be deterministic and self-consistent with the round/avalanche/finalize primitives from M1.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M3",
+      "title": "Cset::new() and field accessors",
+      "goal": "Implement Cset::new() to allocate CSET_INITIAL_CAP zero-initialized buckets (pi=0), seed=CSET_DEFAULT_SEED, max_load_factor=0.7, min_load_factor=0.2, bucket_size=0, compare=None, empty temp_buckets. Implement get_size/set_size, get_seed/set_seed, get_max_load_factor/set_max_load_factor, get_min_load_factor/set_min_load_factor, get_buckets/get_buckets_ref/get_temp_buckets_ref, size(), capacity(), empty()/tombstone() bucket-state predicates.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M4",
+      "title": "add / contains with default byte-equality and probing",
+      "goal": "Implement double-hashing probe sequence (index = (h1 + i*h2) % cap) using the M2 hash callbacks and default raw-byte equality (size_of::<T>() based comparison) when no comparator is set. Implement add() with duplicate no-op semantics and insertion at the first empty-or-tombstone slot found while probing (preserving the exact C early-break-on-first-open-slot subtlety, not a full-table duplicate scan), and contains() with the tombstone-skipping probe. size()/get_size() reflect bucket_size after inserts.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M5",
+      "title": "remove, tombstones, and load-factor-triggered resize",
+      "goal": "Implement remove() marking the found slot's pi=-1 (tombstone) and decrementing bucket_size, no-op when not found. Implement the resize check in add() (bucket_size/cap >= max_load_factor triggers resize(cap*2)) and resize() itself: rehash all live (non-empty, non-tombstone) elements into temp_buckets, drop tombstones during the rehash, then swap buckets<->temp_buckets. capacity() reflects the doubled size after a resize.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M6",
+      "title": "clear, index, and iter (bucket-order materialization)",
+      "goal": "Implement clear() (reset to CSET_INITIAL_CAP fresh zeroed buckets, bucket_size=0), index(&self, index) returning the element at a bucket slot, and iter(&mut self) walking buckets in array order, skipping empty/tombstone slots, and collecting exactly the live elements into a Vec<T> (bucket order, not insertion order), matching the semantics of the C iterator's done()/next() termination bound (current_count >= size()).",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M7",
+      "title": "Custom comparator dispatch",
+      "goal": "Implement set_comparator(&mut self, compare) storing the function pointer, and make add/remove/contains use self.compare when Some(...) instead of the default byte-equality fallback from M4, so two distinct values considered equal by the comparator are treated as one for dedup, removal, and membership.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M8",
+      "title": "Set algebra: intersect, union, is_disjoint, difference",
+      "goal": "Implement intersect(&mut self, first, second) (occupied elements of first that are in second, added into self without clearing self first), union(&mut self, first, second) (all occupied elements of first then second, added into self), is_disjoint(&mut self, other) (true unless some occupied element of self is contained in other, early-exiting on the first shared element), and difference(&mut self, first, second) (occupied elements of first not contained in second), all built on top of the add/contains from M4/M7.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M9",
+      "title": "Golden: full contract conformance",
+      "goal": "The complete Cset<T> port (hashing, insertion/removal/probing, resize, comparator override, iteration, and set algebra) reproduces the full observable contract of c-source/src/cset.h end-to-end and passes the entire held-out oracle test suite for this project.",
+      "tests": ["test"],
+      "marker": ""
+    }
+  ]
+}

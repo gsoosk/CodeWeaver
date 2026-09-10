@@ -16,9 +16,9 @@
       "project": "c-aces",
       "state": "scored",
       "passed": 0,
-      "failed": 22,
+      "failed": 11,
       "ignored": 0,
-      "total": 22,
+      "total": 11,
       "exit_code": 1
     },
     "lambda-calculus-eval": {
@@ -33,10 +33,10 @@
     "inversion_list": {
       "project": "inversion_list",
       "state": "scored",
-      "passed": 2,
-      "failed": 28,
+      "passed": 1,
+      "failed": 14,
       "ignored": 0,
-      "total": 30,
+      "total": 15,
       "exit_code": 1
     }
   },
@@ -150,6 +150,24 @@
       "iterations": []
     },
     {
+      "arm": "codeweaver",
+      "subject": "cset",
+      "tag": null,
+      "oracle": {
+        "project": "cset",
+        "state": "scored",
+        "passed": 15,
+        "failed": 0,
+        "ignored": 0,
+        "total": 15,
+        "exit_code": 0
+      },
+      "contract_intact": true,
+      "api_calls": 0,
+      "completion_tokens": null,
+      "iterations": []
+    },
+    {
       "arm": "b0-per-file",
       "subject": "c-aces",
       "tag": "b0-crust-perfile-sonnet5-med-20260909",
@@ -254,15 +272,33 @@
       "oracle": {
         "project": "c-aces",
         "state": "scored",
-        "passed": 22,
+        "passed": 11,
         "failed": 0,
         "ignored": 0,
-        "total": 22,
+        "total": 11,
         "exit_code": 0
       },
       "contract_intact": true,
       "api_calls": 1,
       "completion_tokens": 48835,
+      "iterations": []
+    },
+    {
+      "arm": "codeweaver",
+      "subject": "c-aces",
+      "tag": null,
+      "oracle": {
+        "project": "c-aces",
+        "state": "scored",
+        "passed": 11,
+        "failed": 0,
+        "ignored": 0,
+        "total": 11,
+        "exit_code": 0
+      },
+      "contract_intact": true,
+      "api_calls": 0,
+      "completion_tokens": null,
       "iterations": []
     },
     {
@@ -398,16 +434,34 @@
       "iterations": []
     },
     {
+      "arm": "codeweaver",
+      "subject": "lambda-calculus-eval",
+      "tag": null,
+      "oracle": {
+        "project": "lambda-calculus-eval",
+        "state": "scored",
+        "passed": 22,
+        "failed": 0,
+        "ignored": 0,
+        "total": 22,
+        "exit_code": 0
+      },
+      "contract_intact": true,
+      "api_calls": 0,
+      "completion_tokens": null,
+      "iterations": []
+    },
+    {
       "arm": "b0-per-file",
       "subject": "inversion_list",
       "tag": "b0-crust-perfile-sonnet5-med-20260909",
       "oracle": {
         "project": "inversion_list",
         "state": "scored",
-        "passed": 28,
-        "failed": 2,
+        "passed": 14,
+        "failed": 1,
         "ignored": 0,
-        "total": 30,
+        "total": 15,
         "exit_code": 1
       },
       "contract_intact": true,
@@ -422,10 +476,10 @@
       "oracle": {
         "project": "inversion_list",
         "state": "scored",
-        "passed": 28,
-        "failed": 2,
+        "passed": 14,
+        "failed": 1,
         "ignored": 0,
-        "total": 30,
+        "total": 15,
         "exit_code": 1
       },
       "contract_intact": true,
@@ -448,10 +502,10 @@
       "oracle": {
         "project": "inversion_list",
         "state": "scored",
-        "passed": 28,
-        "failed": 2,
+        "passed": 14,
+        "failed": 1,
         "ignored": 0,
-        "total": 30,
+        "total": 15,
         "exit_code": 1
       },
       "contract_intact": true,
@@ -496,15 +550,33 @@
       "oracle": {
         "project": "inversion_list",
         "state": "scored",
-        "passed": 30,
+        "passed": 15,
         "failed": 0,
         "ignored": 0,
-        "total": 30,
+        "total": 15,
         "exit_code": 0
       },
       "contract_intact": true,
       "api_calls": 1,
       "completion_tokens": 7914,
+      "iterations": []
+    },
+    {
+      "arm": "codeweaver",
+      "subject": "inversion_list",
+      "tag": null,
+      "oracle": {
+        "project": "inversion_list",
+        "state": "scored",
+        "passed": 15,
+        "failed": 0,
+        "ignored": 0,
+        "total": 15,
+        "exit_code": 0
+      },
+      "contract_intact": true,
+      "api_calls": 0,
+      "completion_tokens": null,
       "iterations": []
     }
   ]

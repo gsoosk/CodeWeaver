@@ -1,0 +1,432 @@
+{
+  "project": "inversion_list",
+  "working_copy": "pipeline/project",
+  "scaffold": ".scaffold",
+  "build_check_cmd": "bash ../../tools/build_check.sh pipeline/project .scaffold",
+  "unit_test_cmd": "bash ../../tools/unit_test.sh",
+  "skeleton_status": {
+    "compiles": true,
+    "verified_with": "bash ../../tools/build_check.sh pipeline/project .scaffold",
+    "unit_runner_verified_with": "bash ../../tools/unit_test.sh pipeline/project",
+    "notes": "pipeline/project was already initialised from .scaffold (identical src/); added a #[cfg(test)] mod tests seam at the bottom of src/inversion_list.rs with one #[ignore]'d stub per held-out milestone test name from pipeline/milestones.json. No implementation logic added; all public bodies remain unimplemented!()."
+  },
+  "fragment_extraction": {
+    "part_a_implementation": [
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_create (lines 70-133)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::new",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_destroy (lines 134-139)",
+        "target": "(none -- Drop is automatic; not a scaffold method)",
+        "exists": true,
+        "note": "No Rust counterpart to stub; ownership handles destruction."
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_capacity (lines 140-145)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::capacity",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_support (lines 146-151)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::support",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_member (lines 204-216) + _search/_bound/_lower_bound/_upper_bound (lines 152-203)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::contains",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_clone (lines 217-232)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::clone_list",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_complement (lines 233-277)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::complement",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:_add_string (lines 278-297) + inversion_list_to_string (lines 298-339)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::to_str, impl fmt::Display for InversionList",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:_in_list (lines 340-350) + inversion_list_equal (lines 351-360) + inversion_list_not_equal (lines 361-366)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::equal, impl PartialEq/Eq for InversionList",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_less (lines 367-384)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::is_strict_subset_of",
+        "exists": true,
+        "note": "Faithfully-quirky: support-count + boundary-probe heuristic, not a true strict-subset test; must be reproduced verbatim per analysis.md."
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_less_equal (lines 385-390)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::is_subset_of",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_greater (391-394) / inversion_list_greater_equal (395-399)",
+        "target": "(no direct scaffold method -- callers swap operands on is_strict_subset_of/is_subset_of)",
+        "exists": true,
+        "note": "No stub needed; behavior implied by is_strict_subset_of/is_subset_of with swapped operands."
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_disjoint (lines 400-406)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::is_disjoint",
+        "exists": true,
+        "note": "C's disjoint aliases not_equal (bug); reproduce faithfully."
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:_union (lines 407-442) + inversion_list_union (lines 562-588)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::union",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:_intersection (lines 443-497) + inversion_list_intersection (lines 589-611)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::intersection",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:_difference (lines 498-561) + inversion_list_difference (lines 612-642)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::difference",
+        "exists": true,
+        "note": "Contains a leftover min-boundary bug (always uses set1's first boundary); reproduce faithfully."
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_symmetric_difference (lines 643-658)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionList::symmetric_difference",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_iterator_create/_destroy/_next/_rewind/_valid/_get (lines 659-707)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionListIterator::new, impl Iterator for InversionListIterator",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_couple_iterator_create/_destroy/_next/_rewind/_valid/_get_inf/_get_sup (lines 708-757)",
+        "target": "pipeline/project/src/inversion_list.rs:InversionListCoupleIterator::new, impl Iterator for InversionListCoupleIterator",
+        "exists": true
+      },
+      {
+        "fragment": "c-source/src/inversion-list/inversion-list.c:inversion_list_init (lines 37-48) / inversion_list_finish (lines 49-61)",
+        "target": "(intentionally omitted -- not in scaffold)",
+        "exists": true,
+        "note": "Global buffer/counter lifecycle superseded by per-instance Vec ownership; no stub needed."
+      }
+    ],
+    "part_b_tests_and_mocks": [
+      {
+        "fragment": "c-source test/ directory (removed from c-source per brief; historically referenced via top-level CMakeLists.txt add_subdirectory(test))",
+        "status": "missing",
+        "note": "Confirmed absent from c-source/ (only CMakeLists.txt/docs/src remain). This is the held-out oracle's origin and must not be reconstructed."
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_struct",
+        "milestone": "M1",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_create_destroy_2",
+        "milestone": "M1",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_getters",
+        "milestone": "M2",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_create_destroy_3",
+        "milestone": "M2",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_create_destroy_4",
+        "milestone": "M2",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_member",
+        "milestone": "M3",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_clone",
+        "milestone": "M4",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_to_string",
+        "milestone": "M5",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_equals",
+        "milestone": "M6",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_iterator",
+        "milestone": "M7",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_couple_iterator",
+        "milestone": "M8",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_complement",
+        "milestone": "M9",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_union",
+        "milestone": "M9",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_intersection",
+        "milestone": "M9",
+        "classification": "needs-new-test",
+        "exists": true
+      },
+      {
+        "fragment": "pipeline/project/src/inversion_list.rs:mod tests::test_difference",
+        "milestone": "M9",
+        "classification": "needs-new-test",
+        "exists": true
+      }
+    ],
+    "mock_seams": {
+      "needed": false,
+      "reason": "Pure in-memory data structure with no I/O/network/clock/randomness boundaries (per analysis.md 'Unit-test strategy'); no trait/mock split introduced. All new unit tests construct known InversionList instances directly and assert observable outputs."
+    }
+  },
+  "name_mapping": [
+    {"c": "struct _InversionList { capacity; support; size; couples[] }", "rust": "struct InversionList { capacity: u32, support: u32, intervals: Vec<(u32,u32)> }", "note": "size recovered as intervals.len()*2 where needed"},
+    {"c": "inversion_list_create(capacity, count, values)", "rust": "InversionList::new(capacity: u32, values: &[u32]) -> Result<Self, InversionListError>"},
+    {"c": "inversion_list_destroy(set)", "rust": "(Drop, automatic -- no stub)"},
+    {"c": "inversion_list_capacity(set)", "rust": "InversionList::capacity(&self) -> u32"},
+    {"c": "inversion_list_support(set)", "rust": "InversionList::support(&self) -> u32"},
+    {"c": "inversion_list_member(set, value)", "rust": "InversionList::contains(&self, value: u32) -> bool"},
+    {"c": "inversion_list_clone(set)", "rust": "InversionList::clone_list(&self) -> Self"},
+    {"c": "inversion_list_complement(set)", "rust": "InversionList::complement(&self) -> Self"},
+    {"c": "inversion_list_to_string(set)", "rust": "InversionList::to_str(&self) -> String, impl fmt::Display"},
+    {"c": "inversion_list_equal(set1, set2)", "rust": "InversionList::equal(&self, other: &Self) -> bool, impl PartialEq/Eq"},
+    {"c": "inversion_list_not_equal(set1, set2)", "rust": "!lhs.eq(&rhs) / lhs.ne(&rhs) (derived, no dedicated method)"},
+    {"c": "inversion_list_less(set1, set2)", "rust": "InversionList::is_strict_subset_of(&self, other: &Self) -> bool"},
+    {"c": "inversion_list_less_equal(set1, set2)", "rust": "InversionList::is_subset_of(&self, other: &Self) -> bool"},
+    {"c": "inversion_list_greater(set1, set2)", "rust": "(caller: other.is_strict_subset_of(self))"},
+    {"c": "inversion_list_greater_equal(set1, set2)", "rust": "(caller: other.is_subset_of(self))"},
+    {"c": "inversion_list_disjoint(set1, set2)", "rust": "InversionList::is_disjoint(&self, other: &Self) -> bool"},
+    {"c": "inversion_list_union(set, ...) / _union(set1, set2)", "rust": "InversionList::union(&self, other: &Self) -> Self"},
+    {"c": "inversion_list_intersection(set, ...) / _intersection(set1, set2)", "rust": "InversionList::intersection(&self, other: &Self) -> Self"},
+    {"c": "inversion_list_difference(set, ...) / _difference(set1, set2)", "rust": "InversionList::difference(&self, other: &Self) -> Self"},
+    {"c": "inversion_list_symmetric_difference(set1, set2)", "rust": "InversionList::symmetric_difference(&self, other: &Self) -> Self"},
+    {"c": "struct _InversionListIterator { set; index }", "rust": "struct InversionListIterator<'a> { list: &'a InversionList, interval_index: usize, current_value: u32 }"},
+    {"c": "inversion_list_iterator_create(set)", "rust": "InversionListIterator::new(list: &'a InversionList) -> Self"},
+    {"c": "inversion_list_iterator_next/_valid/_get(iterator)", "rust": "impl Iterator for InversionListIterator { fn next(&mut self) -> Option<u32> }"},
+    {"c": "inversion_list_iterator_destroy/_rewind(iterator)", "rust": "(no stub -- Drop automatic; rewind not exposed, tests re-create the iterator)"},
+    {"c": "struct _InversionListCoupleIterator { set; index }", "rust": "struct InversionListCoupleIterator<'a> { list: &'a InversionList, couple_index: usize }"},
+    {"c": "inversion_list_couple_iterator_create(set)", "rust": "InversionListCoupleIterator::new(list: &'a InversionList) -> Self"},
+    {"c": "inversion_list_couple_iterator_next/_valid/_get_inf/_get_sup(iterator)", "rust": "impl Iterator for InversionListCoupleIterator { fn next(&mut self) -> Option<(u32,u32)> }"},
+    {"c": "inversion_list_init() / inversion_list_finish()", "rust": "(omitted -- no scaffold equivalent)"},
+    {"c": "errno = EINVAL (out-of-range value)", "rust": "InversionListError::ValueOutOfRange(u32, u32)"},
+    {"c": "errno = ENOMEM (allocation failure)", "rust": "InversionListError::Generic(String) (unused/defensive; Vec growth aborts instead)"}
+  ],
+  "implementation_plan": [
+    {
+      "id": "M0",
+      "title": "Skeleton compiles and links",
+      "goal": "Crate builds against the scaffold with every declared module present; test seam module compiles with #[ignore]'d stubs.",
+      "tests": [],
+      "gate_cmd": "bash ../../tools/build_check.sh pipeline/project .scaffold && bash ../../tools/unit_test.sh pipeline/project",
+      "steps_part_a": [
+        "Verify src/lib.rs still declares pub mod inversion_list; (no change needed).",
+        "Verify src/inversion_list.rs keeps every scaffold signature, field name and pub visibility unchanged."
+      ],
+      "steps_part_b": [
+        "Add #[cfg(test)] mod tests with one #[ignore]'d stub fn per milestone test name in pipeline/milestones.json (done in this planning pass)."
+      ],
+      "status": "done"
+    },
+    {
+      "id": "M1",
+      "title": "Struct creation and destruction",
+      "goal": "InversionList::new constructs from (capacity, values), coalescing sorted/deduplicated values into intervals; validates value < capacity; Drop is automatic.",
+      "tests": ["test_struct", "test_create_destroy_2"],
+      "gate_cmd": "cargo test --lib -- test_struct test_create_destroy_2 (after removing #[ignore])",
+      "steps_part_a": [
+        "Implement InversionList::new: sort a local Vec<u32> copy of values, validate each value < capacity else Err(ValueOutOfRange(value, capacity)), coalesce adjacent/duplicate sorted values into (start,end) intervals, compute support as distinct value count, return Ok(Self { capacity, support, intervals })."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_struct: construct a small set, assert capacity/support/intervals fields make sense (via accessors) for a simple contiguous input.",
+        "Remove #[ignore] from test_create_destroy_2: construct and drop a set with multiple disjoint values; assert no panic and correct intervals via public accessors."
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Getters and creation edge cases",
+      "goal": "capacity()/support() return correct values; new() handles empty values, values == capacity-1 boundary, out-of-range values, and duplicate/unsorted input.",
+      "tests": ["test_getters", "test_create_destroy_3", "test_create_destroy_4"],
+      "gate_cmd": "cargo test --lib -- test_getters test_create_destroy_3 test_create_destroy_4",
+      "steps_part_a": [
+        "Implement InversionList::capacity as self.capacity.",
+        "Implement InversionList::support as self.support.",
+        "Confirm InversionList::new (M1) already handles: empty values slice -> support 0, empty intervals; unsorted/duplicate input -> sorted+deduped coalescing; any value >= capacity -> Err(ValueOutOfRange(value, capacity)) using the first offending value found."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_getters: assert capacity()/support() on sets built with known capacities/values.",
+        "Remove #[ignore] from test_create_destroy_3: assert new(capacity, &[]) yields support()==0 and construction with capacity==0 or capacity-boundary values (e.g. capacity-1) succeeds.",
+        "Remove #[ignore] from test_create_destroy_4: assert unsorted/duplicate values coalesce correctly and out-of-range values yield Err(ValueOutOfRange(..))."
+      ],
+      "depends_on": ["M1"]
+    },
+    {
+      "id": "M3",
+      "title": "Membership queries",
+      "goal": "contains() correctly reports membership for values inside/outside any interval, including exact interval boundaries (start inclusive, end exclusive).",
+      "tests": ["test_member"],
+      "gate_cmd": "cargo test --lib -- test_member",
+      "steps_part_a": [
+        "Implement InversionList::contains(value): scan/binary-search self.intervals for an interval (lo,hi) with lo <= value < hi; return bool."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_member: assert contains() true/false for interior, exterior, and exact boundary (start and end) values on a multi-interval set."
+      ],
+      "depends_on": ["M1", "M2"]
+    },
+    {
+      "id": "M4",
+      "title": "Cloning",
+      "goal": "clone_list() produces an independent equal copy sharing no mutable state with the original.",
+      "tests": ["test_clone"],
+      "gate_cmd": "cargo test --lib -- test_clone",
+      "steps_part_a": [
+        "Implement InversionList::clone_list: return a field-wise copy (may delegate to derived Clone::clone), ensuring intervals is a fresh Vec."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_clone: assert cloned.equal(&original) and mutating one's intervals (via a rebuilt set) does not affect the other."
+      ],
+      "depends_on": ["M1", "M3"]
+    },
+    {
+      "id": "M5",
+      "title": "String conversion",
+      "goal": "to_str()/Display produce '[v1, v2, ...]' ascending member listing, '[]' for empty sets, matching C formatting exactly.",
+      "tests": ["test_to_string"],
+      "gate_cmd": "cargo test --lib -- test_to_string",
+      "steps_part_a": [
+        "Implement InversionList::to_str: expand every interval into individual member values in order, join with ', ', wrap in '[' ']'.",
+        "Implement impl fmt::Display for InversionList::fmt to delegate to to_str (or equivalent shared logic)."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_to_string: assert to_str() on an empty set is '[]', and on a known multi-interval set matches the expected expanded string; assert Display (format!(\"{}\", set)) matches to_str()."
+      ],
+      "depends_on": ["M1"]
+    },
+    {
+      "id": "M6",
+      "title": "Equality and ordering comparisons",
+      "goal": "equal()/PartialEq compare (support, intervals) structurally; is_strict_subset_of/is_subset_of/is_disjoint faithfully reproduce the C quirk-behaviors (not true subset/disjoint tests).",
+      "tests": ["test_equals"],
+      "gate_cmd": "cargo test --lib -- test_equals",
+      "steps_part_a": [
+        "Implement InversionList::equal(other): compare self.support == other.support && self.intervals == other.intervals.",
+        "Implement impl PartialEq for InversionList::eq to call the same logic as equal (or vice versa); Eq is a marker (already declared).",
+        "Implement InversionList::is_strict_subset_of(other): self.support < other.support && exists a member of other in 0..self's last interval upper bound (port the C boundary-probe verbatim).",
+        "Implement InversionList::is_subset_of(other): self.equal(other) || self.is_strict_subset_of(other).",
+        "Implement InversionList::is_disjoint(other): !self.equal(other) (faithful alias of not_equal, per the C bug)."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_equals: assert equal()/== for identical and differently-shaped sets; assert is_strict_subset_of/is_subset_of/is_disjoint reproduce the exact (non-standard) C outcomes on constructed pairs designed to expose the quirk (e.g. smaller-support set with no true subset relation)."
+      ],
+      "depends_on": ["M1", "M3", "M4"]
+    },
+    {
+      "id": "M7",
+      "title": "Value iterator",
+      "goal": "InversionListIterator visits every member value ascending exactly once, exhausting correctly (including on an empty set).",
+      "tests": ["test_iterator"],
+      "gate_cmd": "cargo test --lib -- test_iterator",
+      "steps_part_a": [
+        "Implement InversionListIterator::new(list): interval_index = 0, current_value = list.intervals.get(0).map(|(lo,_)| *lo).unwrap_or(0).",
+        "Implement impl Iterator for InversionListIterator::next: if interval_index is past the last interval, return None; otherwise yield current_value, advance current_value, and move to interval_index+1 once current_value reaches the current interval's upper bound."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_iterator: assert iterating a multi-interval set yields all members ascending exactly once; assert iterating an empty set yields no items."
+      ],
+      "depends_on": ["M1", "M3"]
+    },
+    {
+      "id": "M8",
+      "title": "Couple (range) iterator",
+      "goal": "InversionListCoupleIterator visits every (inf, sup) interval exactly once in order, exhausting correctly (including on an empty set).",
+      "tests": ["test_couple_iterator"],
+      "gate_cmd": "cargo test --lib -- test_couple_iterator",
+      "steps_part_a": [
+        "Implement InversionListCoupleIterator::new(list): couple_index = 0.",
+        "Implement impl Iterator for InversionListCoupleIterator::next: if couple_index >= list.intervals.len(), return None; else return list.intervals[couple_index], increment couple_index."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_couple_iterator: assert iterating a multi-interval set yields each (inf,sup) tuple in interval order exactly once; assert an empty set yields no items."
+      ],
+      "depends_on": ["M1"]
+    },
+    {
+      "id": "M9",
+      "title": "Set algebra operations",
+      "goal": "complement/union/intersection/difference/symmetric_difference match the C brute-force/two-pointer semantics exactly, bugs included (e.g. difference's fixed-min quirk), with capacity = max(self.capacity, other.capacity) for binary ops.",
+      "tests": ["test_complement", "test_union", "test_intersection", "test_difference"],
+      "gate_cmd": "cargo test --lib -- test_complement test_union test_intersection test_difference",
+      "steps_part_a": [
+        "Implement InversionList::complement: reproduce the C boundary add/drop logic for whether 0/capacity are boundary members; support becomes capacity - support.",
+        "Implement InversionList::union(other): brute-force scan over 0..max(self,other bounds) collecting values where self.contains(v) || other.contains(v), coalesce via the same logic as new(); capacity = max(self.capacity, other.capacity).",
+        "Implement InversionList::intersection(other): mirror the C two-pointer/overlap walk (or membership-scan restricted to overlap) producing coalesced intervals for values in both sets.",
+        "Implement InversionList::difference(other): mirror the C two-pointer walk collecting values in self but not other, faithfully reproducing the fixed-min (`set1`'s own first boundary rather than max(self_min, other_min)) quirk noted in analysis.md.",
+        "Implement InversionList::symmetric_difference(other): self.union(other).difference(&self.intersection(other)), matching the C composition exactly."
+      ],
+      "steps_part_b": [
+        "Remove #[ignore] from test_complement: assert complement() boundary cases -- starts at 0, ends at capacity, neither, both -- and support == capacity - support.",
+        "Remove #[ignore] from test_union: assert union() over overlapping/disjoint/touching/empty operand pairs.",
+        "Remove #[ignore] from test_intersection: assert intersection() over overlapping/disjoint/touching/empty operand pairs.",
+        "Remove #[ignore] from test_difference: assert difference() over overlapping/disjoint/touching/empty operand pairs, including a case that exposes the fixed-min quirk faithfully."
+      ],
+      "depends_on": ["M1", "M3", "M4", "M6"]
+    },
+    {
+      "id": "M10",
+      "title": "Golden conformance",
+      "goal": "Full translation reproduces the complete C inversion-list contract: all prior slices plus the whole held-out suite pass with no regressions.",
+      "tests": [],
+      "marker": "--all",
+      "gate_cmd": "bash ../../tools/build_check.sh pipeline/project .scaffold && bash ../../tools/unit_test.sh pipeline/project && bash ../../tools/oracle.sh (held-out suite, run by the Validator)",
+      "steps_part_a": [
+        "Re-review every method against inversion-list.h/.c for any remaining literal-fidelity gaps (integer widths, wrapping, iteration order) once M1-M9 land."
+      ],
+      "steps_part_b": [
+        "Ensure every #[ignore] attribute added in M0 has been removed by its owning milestone; run the full `cargo test --lib` suite with no ignored/failed tests remaining."
+      ],
+      "depends_on": ["M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9"]
+    }
+  ]
+}

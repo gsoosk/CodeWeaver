@@ -1,0 +1,67 @@
+{
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Skeleton compiles",
+      "goal": "The crate builds with `cargo build`: `src/lib.rs` still declares every scaffold module (common, config, io, parser, hash_table, reducer, typechecker), all public types/signatures are unchanged, and no module is removed to make the build pass. Bodies may still be `unimplemented!()` where not yet ported.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M1",
+      "title": "common: AstNode model and string rendering",
+      "goal": "Implement `common.rs`: `AstNode`/`AstNodeType`/`AstNodeUnion`/`LambdaExpression`/`Application`/`Variable`/`tokens_t`, `Default for AstNode` (empty-VAR sentinel), `set_verbose`/`print_verbose`/`print_ast_verbose`, `error()` (stderr + `process::exit(1)`), `format()`, `append_to_buffer`, `append_ast_to_buffer`, and `ast_to_string`, reproducing the exact C textual contract per node type (LAMBDA_EXPR, APPLICATION, VAR, DEFINITION, unknown) including trailing spaces and the `\"\"`-means-absent-type convention.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M2",
+      "title": "hash_table: insert/search/table_exists/delete",
+      "goal": "Implement `hash_table.rs` on top of `HashMap<String, common::AstNode>`: `hash()` (djb2 mod HASH_TABLE_SIZE, faithful arithmetic port even though unused by the map), `createHashTable`/`destroyHashTable`, and insert/search/table_exists/delete semantics such that inserting the `AstNode::default()` sentinel makes `search` return `None` (mirrors C's NULL-valued bucket entries) and `table_exists` reflects key presence.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M3",
+      "title": "io: file wrappers",
+      "goal": "Implement `io.rs`: `create_file`, `get_file`, `write_to_file`, `delete_file`, `close_file` all returning `io::Result<_>` and propagating `std::io::Error` via `?`, and `next()` reading one byte and advancing the cursor by one (fgetc-equivalent), byte-identical round trip through real files on disk.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M4",
+      "title": "config: options parsing",
+      "goal": "Implement `config.rs`: `trim()` (isspace-bounded, matching C's off-by-one edge behavior), `get_config_type()` (file/step_by_step_reduction/reduction_order -> variant, else CONFIG_ERROR), `parse_config()` (split on first `=`, trim both sides), and `get_config_from_file()` reading the `config` file line-by-line via `BufRead`, opening the referenced lambda file through `io::get_file`, and panicking (not returning `Result`) on any fatal C-equivalent failure.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M5",
+      "title": "typechecker: structural type checking",
+      "goal": "Implement `typechecker.rs`: `Type`/`TypeEnv` (owned `Option<Box<TypeEnv>>` linked list), `assert_`, `typecheck()` (VAR/APPLICATION/LAMBDA_EXPR cases, preserving the known non-arrow-codomain limitation on APPLICATION exactly, not fixed), `type_equal`, `get_type_from_expr`, `create_type`/`parse_function_type`, `expr_type_equal`, `add_to_env`, and `lookup_type`.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M6",
+      "title": "parser: lexer and recursive-descent grammar",
+      "goal": "Implement `parser.rs` on top of `common` and `hash_table`: `parse_token`, `is_variable` (accepts `_` plus ASCII letters), `peek`/`peek_print` (byte read + `Seek::seek(SeekFrom::Current(-1))` pushback, using a private-use EOF sentinel char instead of C's `EOF`), `consume`/`expect` (fatal on mismatch), `create_variable`/`create_application`/`create_lambda`, `alpha_convert` (monotonic `_N` suffix via process-wide counter), `is_used`, `parse_space_chars`, the grammar functions `parse_lambda`/`parse_expression`/`parse_import`/`parse_definition`/`parse_type_definition`/`parse_type`/`parse_variable`, and `free_ast`.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M7",
+      "title": "reducer: beta/eta reduction engine",
+      "goal": "Implement `reducer.rs` on top of `common`, `hash_table`, `parser`, and `config`: `set_reduction_order`/`print_reduction_order`, `reduce()`, `expand_definitions()` (in-place `&mut AstNode` mutation, panics if a definition is absent from the table, mirroring `HANDLE_NULL`), `replace()` (in-place bound-variable renaming), `reduce_ast()` (applicative vs normal order exactly as coded), `substitute()`, and `deepcopy`/`deepcopy_application`/`deepcopy_lambda_expr`/`deepcopy_var`, all via tree reconstruction (owned returns) rather than pointer surgery.",
+      "tests": [],
+      "marker": ""
+    },
+    {
+      "id": "M8",
+      "title": "Golden: full contract conformance",
+      "goal": "All seven modules (common, config, io, parser, hash_table, reducer, typechecker) are fully implemented per the C source's observable behavior (exact `ast_to_string` output shape, hash-table lookup semantics, config parsing edge cases, parser grammar/error behavior, applicative/normal reduction order, and the typechecker's known limitations), the crate builds cleanly, and the entire held-out oracle suite passes.",
+      "tests": ["test"],
+      "marker": ""
+    }
+  ]
+}
