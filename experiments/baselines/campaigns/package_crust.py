@@ -44,6 +44,7 @@ def main() -> int:
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--b0-tag", required=True)
     ap.add_argument("--repo-tag", help="whole-repository single-call B0 arm")
+    ap.add_argument("--cli-tag", help="Copilot CLI B0 arm")
     ap.add_argument("--codeweaver", action="store_true",
                     help="also package the CodeWeaver pipeline result at pipeline/project")
     ap.add_argument("--build-tag", required=True)
@@ -57,6 +58,8 @@ def main() -> int:
             "repair-test": args.test_tag}
     if args.repo_tag:
         arms["b0-whole-repo"] = args.repo_tag
+    if args.cli_tag:
+        arms["b0-cli"] = args.cli_tag
     subjects_dir = repo / "examples/crust/subjects"
 
     results, stub_baseline = [], {}
