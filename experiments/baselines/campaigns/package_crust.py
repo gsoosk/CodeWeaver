@@ -43,6 +43,8 @@ def main() -> int:
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--b0-tag", required=True)
     ap.add_argument("--repo-tag", help="whole-repository single-call B0 arm")
+    ap.add_argument("--codeweaver", action="store_true",
+                    help="also package the CodeWeaver pipeline result at pipeline/project")
     ap.add_argument("--build-tag", required=True)
     ap.add_argument("--test-tag", required=True)
     args = ap.parse_args()
@@ -65,8 +67,9 @@ def main() -> int:
             if not (run / "project").is_dir():
                 results.append({"arm": arm, "subject": subject, "state": "missing"})
                 continue
-            score = oracle(repo, subject, f"pipeline-baseline-{tag}/project")
-            status_path = subject_dir / f"pipeline-baseline-{tag}.status.json"
+            rel = "pipeline/project" if tag is None else f"pipeline-baseline-{tag}/project"
+            score = oracle(repo, subject, rel)
+            status_path = subject_dir / f"pipeline-baseline-{tag}.status.json" if tag else Path("/nonexistent")
             status = json.loads(status_path.read_text()) if status_path.is_file() else {}
             audits = sorted((run / "api-audit").glob("*/audit.json")) if (run / "api-audit").is_dir() else []
             usage = [json.loads(p.read_text()) for p in audits]
@@ -87,7 +90,8 @@ def main() -> int:
             shutil.rmtree(dest / "project" / "target", ignore_errors=True)
             if (run / "api-audit").is_dir():
                 shutil.copytree(run / "api-audit", dest / "api-audit")
-            for name in ("oracle_score.txt", "metadata.json", "generation.json"):
+            for name in ("oracle_score.txt", "metadata.json", "generation.json",
+                         "milestones.json", "analysis.md", "plan.json", "report.json"):
                 if (run / name).is_file():
                     shutil.copy2(run / name, dest / name)
         meta = out / "metadata" / subject
