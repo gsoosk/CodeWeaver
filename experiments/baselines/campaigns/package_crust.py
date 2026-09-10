@@ -62,9 +62,15 @@ def main() -> int:
     results, stub_baseline = [], {}
     for subject in SUBJECTS:
         subject_dir = subjects_dir / subject
-        stub_baseline[subject] = oracle(repo, subject, "pipeline/project")
-        for arm, tag in arms.items():
-            run = subject_dir / f"pipeline-baseline-{tag}"
+        # The stub baseline is the SCAFFOLD, not the working copy: after a CodeWeaver
+        # run the working copy holds the translation, not the untouched stubs.
+        stub_baseline[subject] = oracle(repo, subject, ".scaffold")
+        pairs = list(arms.items())
+        if args.codeweaver:
+            pairs.append(("codeweaver", None))
+        for arm, tag in pairs:
+            run = (subject_dir / "pipeline") if tag is None \
+                else (subject_dir / f"pipeline-baseline-{tag}")
             if not (run / "project").is_dir():
                 results.append({"arm": arm, "subject": subject, "state": "missing"})
                 continue
@@ -97,7 +103,13 @@ def main() -> int:
                     shutil.copy2(run / name, dest / name)
         meta = out / "metadata" / subject
         meta.mkdir(parents=True)
-        shutil.copytree(subject_dir / ".oracle-master", meta / "oracle-master")
+        # The oracle lives outside the subject tree (see examples/crust/setup.sh);
+        # resolve it the same way the harness does rather than assuming a location.
+        oracle_dir = Path(os.environ.get("CRUST_ORACLE_ROOT",
+                                         str(Path.home() / ".crust-oracles"))) / subject
+        if not (oracle_dir / "bin").is_dir():
+            oracle_dir = subject_dir / ".oracle-master"
+        shutil.copytree(oracle_dir, meta / "oracle-master")
         shutil.copy2(subject_dir / ".scaffold" / "src" / "lib.rs", meta / "scaffold-lib.rs")
 
     normalized: list[dict] = []
