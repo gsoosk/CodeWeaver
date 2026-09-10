@@ -1,0 +1,10 @@
+{
+  "milestone": "ALL",
+  "passed": true,
+  "tests": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0
+  },
+  "failures": []
+}

@@ -1,0 +1,1229 @@
+{
+  "run": {
+    "id": "pipeline-20260831-225820",
+    "started": "2026-08-31T22:58:20-07:00",
+    "elapsed_s": 888,
+    "host": "bf3-host3",
+    "reps": 1,
+    "duration_s": 30,
+    "variants": [
+      "rust",
+      "python"
+    ],
+    "dom_update_interval_s": 5,
+    "scenarios_requested": [
+      "B1",
+      "B2",
+      "B3",
+      "B5",
+      "B6",
+      "B8",
+      "B9",
+      "B10",
+      "B11",
+      "B4",
+      "B7",
+      "B12"
+    ]
+  },
+  "provenance": {
+    "crate": "pipeline",
+    "crate_path": "/home/sonic/dev/sonic-dev/recodeAgent/pipeline/crate",
+    "binary": "/home/sonic/dev/sonic-dev/recodeAgent/pipeline/crate/target/release/xcvrd-rs",
+    "sha256_16": "342120e281c16271",
+    "built": "2026-08-31T10:02:00-07:00",
+    "built_this_run": true,
+    "inprocess_harness": true
+  },
+  "environment": {
+    "dut": "10.250.0.101",
+    "transceiver_rows": "32",
+    "emulator_specials": "none"
+  },
+  "scenarios": {
+    "B1": {
+      "rust": [
+        {
+          "expected_ports": 32,
+          "first_info_s": 12.107381105422974,
+          "all_info_s": 12.107382774353027,
+          "timed_out": false
+        }
+      ],
+      "python": [
+        {
+          "expected_ports": 32,
+          "first_info_s": 11.964555263519287,
+          "all_info_s": 11.96455717086792,
+          "timed_out": false
+        }
+      ]
+    },
+    "B2": {
+      "rust": [
+        {
+          "index": 0,
+          "port": "Ethernet0",
+          "plug_s": {
+            "p50": 3.2465062141418457,
+            "p95": 3.2465062141418457,
+            "raw": [
+              3.2465062141418457
+            ]
+          },
+          "unplug_s": {
+            "p50": 0.20132803916931152,
+            "p95": 0.20132803916931152,
+            "raw": [
+              0.20132803916931152
+            ]
+          }
+        }
+      ],
+      "python": [
+        {
+          "index": 0,
+          "port": "Ethernet0",
+          "plug_s": {
+            "p50": 3.1033589839935303,
+            "p95": 3.1033589839935303,
+            "raw": [
+              3.1033589839935303
+            ]
+          },
+          "unplug_s": {
+            "p50": 0.8495709896087646,
+            "p95": 0.8495709896087646,
+            "raw": [
+              0.8495709896087646
+            ]
+          }
+        }
+      ]
+    },
+    "B3": {
+      "rust": [
+        {
+          "index": 0,
+          "port": "Ethernet0",
+          "ready_s": {
+            "p50": 0.01622748374938965,
+            "p95": 0.01622748374938965,
+            "raw": [
+              0.01622748374938965
+            ]
+          },
+          "caveat": "result_4 adds a deliberate 1s dwell per CMIS state"
+        }
+      ],
+      "python": [
+        {
+          "index": 0,
+          "port": "Ethernet0",
+          "ready_s": {
+            "p50": 3.162036657333374,
+            "p95": 3.162036657333374,
+            "raw": [
+              3.162036657333374
+            ]
+          },
+          "caveat": "result_4 adds a deliberate 1s dwell per CMIS state"
+        }
+      ]
+    },
+    "B5": {
+      "rust": [
+        {
+          "duration_s": 30.0,
+          "samples": 23,
+          "span_s": 29.9,
+          "rss_kb_median": 83336,
+          "rss_kb_max": 84012,
+          "hwm_kb": 87808,
+          "threads": 14,
+          "fds": 46,
+          "cpu_pct": 36.14,
+          "pid_changed": false,
+          "pids": [
+            92631
+          ]
+        }
+      ],
+      "python": [
+        {
+          "duration_s": 30.0,
+          "samples": 22,
+          "span_s": 29.1,
+          "rss_kb_median": 71096,
+          "rss_kb_max": 71120,
+          "hwm_kb": 71120,
+          "threads": 13,
+          "fds": 253,
+          "cpu_pct": 18.38,
+          "pid_changed": false,
+          "pids": [
+            93085
+          ]
+        }
+      ]
+    },
+    "B6": {
+      "rust": [
+        {
+          "modules": 33,
+          "target_rows": 32,
+          "unplug_cleared_s": 0.4145853519439697,
+          "first_info_s": 3.247,
+          "all_info_s": 6.131,
+          "elapsed_s": 6.14,
+          "final_rows": 32
+        }
+      ],
+      "python": [
+        {
+          "modules": 33,
+          "target_rows": 32,
+          "unplug_cleared_s": 0.9581601619720459,
+          "first_info_s": 3.091,
+          "all_info_s": 4.467,
+          "elapsed_s": 4.477,
+          "final_rows": 32
+        }
+      ]
+    },
+    "B8": {
+      "rust": [
+        {
+          "index": 0,
+          "port": "Ethernet0",
+          "set_s": {
+            "p50": 0.2575986385345459,
+            "raw": [
+              0.2575986385345459
+            ]
+          },
+          "clear_s": {
+            "p50": 3.099763870239258,
+            "raw": [
+              3.099763870239258
+            ]
+          }
+        }
+      ],
+      "python": [
+        {
+          "index": 0,
+          "port": "Ethernet0",
+          "set_s": {
+            "p50": 0.8490221500396729,
+            "raw": [
+              0.8490221500396729
+            ]
+          },
+          "clear_s": {
+            "p50": 3.0814871788024902,
+            "raw": [
+              3.0814871788024902
+            ]
+          }
+        }
+      ]
+    },
+    "B9": {
+      "rust": [
+        {
+          "window_s": 30.0,
+          "total_events": 16338,
+          "reads": 15521,
+          "writes": 817,
+          "ports_touched": 32,
+          "events_per_port": 510.6,
+          "page_histogram": {
+            "0": 6868,
+            "1": 1338,
+            "2": 304,
+            "4": 135,
+            "16": 2770,
+            "17": 4868,
+            "18": 55
+          }
+        }
+      ],
+      "python": [
+        {
+          "window_s": 30.0,
+          "total_events": 6456,
+          "reads": 6456,
+          "writes": 0,
+          "ports_touched": 32,
+          "events_per_port": 201.8,
+          "page_histogram": {
+            "0": 1734,
+            "1": 1980,
+            "2": 720,
+            "16": 540,
+            "17": 1440,
+            "18": 42
+          }
+        }
+      ]
+    },
+    "B10": {
+      "rust": [
+        {
+          "reps": 1,
+          "samples_s": [
+            1.2422943115234375
+          ],
+          "p50_s": 1.2422943115234375,
+          "max_s": 1.2422943115234375
+        }
+      ],
+      "python": [
+        {
+          "reps": 1,
+          "samples_s": [
+            1.3746871948242188
+          ],
+          "p50_s": 1.3746871948242188,
+          "max_s": 1.3746871948242188
+        }
+      ]
+    },
+    "B11": {
+      "rust": [
+        {
+          "index": 0,
+          "port": "Ethernet0",
+          "notify_s": {
+            "p50": 3.1313815116882324,
+            "p95": 3.1313815116882324,
+            "raw": [
+              3.1313815116882324
+            ]
+          }
+        }
+      ],
+      "python": [
+        {
+          "index": 0,
+          "port": "Ethernet0",
+          "notify_s": {
+            "p50": 3.1103034019470215,
+            "p95": 3.1103034019470215,
+            "raw": [
+              3.1103034019470215
+            ]
+          }
+        }
+      ]
+    },
+    "B4": {
+      "a": [
+        {
+          "config": "a",
+          "ports": 28,
+          "polls": 50,
+          "p50_ns": 62189079,
+          "p95_ns": 85339727,
+          "max_ns": 90834170,
+          "p50_ns_per_port": 2221039
+        }
+      ],
+      "b": [
+        {
+          "config": "b",
+          "ports": 28,
+          "polls": 50,
+          "p50_ns": 91245635,
+          "p95_ns": 113672247,
+          "max_ns": 120777756,
+          "p50_ns_per_port": 3258773
+        }
+      ],
+      "p": [
+        {
+          "config": "p",
+          "ports": 28,
+          "polls": 50,
+          "p50_ns": 30929109,
+          "p95_ns": 46113195,
+          "max_ns": 62383327,
+          "p50_ns_per_port": 1104611.0357142857
+        }
+      ]
+    },
+    "B7": {
+      "a": [
+        {
+          "config": "a",
+          "ports": 1,
+          "polls": 30,
+          "p50_ns": 2536910,
+          "p95_ns": 3431393,
+          "max_ns": 3543020,
+          "p50_ns_per_port": 2536910
+        },
+        {
+          "config": "a",
+          "ports": 4,
+          "polls": 30,
+          "p50_ns": 6437168,
+          "p95_ns": 7672575,
+          "max_ns": 14660765,
+          "p50_ns_per_port": 1609292
+        },
+        {
+          "config": "a",
+          "ports": 8,
+          "polls": 30,
+          "p50_ns": 19319464,
+          "p95_ns": 22886303,
+          "max_ns": 24502623,
+          "p50_ns_per_port": 2414933
+        },
+        {
+          "config": "a",
+          "ports": 16,
+          "polls": 30,
+          "p50_ns": 34177672,
+          "p95_ns": 48885420,
+          "max_ns": 53716516,
+          "p50_ns_per_port": 2136104
+        },
+        {
+          "config": "a",
+          "ports": 28,
+          "polls": 30,
+          "p50_ns": 60942161,
+          "p95_ns": 80920756,
+          "max_ns": 89334531,
+          "p50_ns_per_port": 2176506
+        }
+      ],
+      "b": [
+        {
+          "config": "b",
+          "ports": 1,
+          "polls": 30,
+          "p50_ns": 1724380,
+          "p95_ns": 3117230,
+          "max_ns": 3252663,
+          "p50_ns_per_port": 1724380
+        },
+        {
+          "config": "b",
+          "ports": 4,
+          "polls": 30,
+          "p50_ns": 9786683,
+          "p95_ns": 14984277,
+          "max_ns": 15842615,
+          "p50_ns_per_port": 2446671
+        },
+        {
+          "config": "b",
+          "ports": 8,
+          "polls": 30,
+          "p50_ns": 22399748,
+          "p95_ns": 32205410,
+          "max_ns": 35726340,
+          "p50_ns_per_port": 2799968
+        },
+        {
+          "config": "b",
+          "ports": 16,
+          "polls": 30,
+          "p50_ns": 28643001,
+          "p95_ns": 52688181,
+          "max_ns": 59646827,
+          "p50_ns_per_port": 1790188
+        },
+        {
+          "config": "b",
+          "ports": 28,
+          "polls": 30,
+          "p50_ns": 88310943,
+          "p95_ns": 109652654,
+          "max_ns": 111865875,
+          "p50_ns_per_port": 3153962
+        }
+      ],
+      "p": [
+        {
+          "config": "p",
+          "ports": 1,
+          "polls": 30,
+          "p50_ns": 796386,
+          "p95_ns": 1076581,
+          "max_ns": 1090379,
+          "p50_ns_per_port": 796386.0
+        },
+        {
+          "config": "p",
+          "ports": 4,
+          "polls": 30,
+          "p50_ns": 4141987,
+          "p95_ns": 7039947,
+          "max_ns": 8395690,
+          "p50_ns_per_port": 1035496.75
+        },
+        {
+          "config": "p",
+          "ports": 8,
+          "polls": 30,
+          "p50_ns": 10395612,
+          "p95_ns": 18720526,
+          "max_ns": 19985337,
+          "p50_ns_per_port": 1299451.5
+        },
+        {
+          "config": "p",
+          "ports": 16,
+          "polls": 30,
+          "p50_ns": 20154346,
+          "p95_ns": 29190748,
+          "max_ns": 32645534,
+          "p50_ns_per_port": 1259646.625
+        },
+        {
+          "config": "p",
+          "ports": 28,
+          "polls": 30,
+          "p50_ns": 34201001,
+          "p95_ns": 48556473,
+          "max_ns": 52340483,
+          "p50_ns_per_port": 1221464.3214285714
+        }
+      ]
+    },
+    "B12": {
+      "-": [
+        {
+          "a": {
+            "num_sfps": 3.092400390625,
+            "sfp(0)  [handle construction]": 56.42411083984375,
+            "get_presence  [scalar]": 1.32178173828125,
+            "sfp_type  [string]": 20.73035986328125,
+            "get_transceiver_dom_real_value  [27 fields]": 2173.090671875,
+            "get_transceiver_info  [33 fields]": 3393.1634765625,
+            "get_transceiver_status  [7 fields]": 430.68448046875,
+            "call_json(get_transceiver_status_flags)": 225.7087314453125,
+            "read_eeprom(9, 1)": 33.58256494140625,
+            "get_change_event(0)": 26.74683984375,
+            "db.set  [27 fields]": 2590.2356953125,
+            "db.get": 2158.1549140625,
+            "db.hget": 63.75334521484375,
+            "db.hset": 87.42777734375,
+            "db.get_size_for_key": 34.01772021484375,
+            "db.getKeys": 45.35590234375
+          },
+          "b": {
+            "num_sfps": 253.6813955078125,
+            "sfp(0)  [handle construction]": 459.0703349609375,
+            "get_presence  [scalar]": 296.2720234375,
+            "sfp_type  [string]": 278.82833349609376,
+            "get_transceiver_dom_real_value  [27 fields]": 16964.2735625,
+            "get_transceiver_info  [33 fields]": 18141.6738125,
+            "get_transceiver_status  [7 fields]": 7795.263125,
+            "call_json(get_transceiver_status_flags)": 5035.2365546875,
+            "read_eeprom(9, 1)": 950.086505859375,
+            "get_change_event(0)": 6319.4952734375
+          },
+          "p": {
+            "num_sfps": 48.88967919921875,
+            "sfp(0)  [handle construction]": 113.6789111328125,
+            "get_presence  [scalar]": 40.5219794921875,
+            "sfp_type  [string]": 46.555048828125,
+            "get_transceiver_dom_real_value  [27 fields]": 289.1601064453125,
+            "get_transceiver_info  [33 fields]": 321.882748046875,
+            "get_transceiver_status  [7 fields]": 192.2999560546875,
+            "call_json(get_transceiver_status_flags)": 116.980513671875,
+            "read_eeprom(9, 1)": 318.63510986328123,
+            "get_change_event(0)": 360.3379873046875,
+            "db.set  [27 fields]": 1237.427923828125,
+            "db.get": 807.875642578125,
+            "db.hget": 161.45596630859376,
+            "db.hset": 135.11278857421874,
+            "db.get_size_for_key": 99.01444580078125,
+            "db.getKeys": 185.71777880859375
+          }
+        }
+      ]
+    }
+  },
+  "records": [
+    {
+      "scenario": "B1",
+      "name": "b01_cold_start_info",
+      "variant": "rust",
+      "rep": 0,
+      "wall_s": 12.27,
+      "result": {
+        "expected_ports": 32,
+        "first_info_s": 12.107381105422974,
+        "all_info_s": 12.107382774353027,
+        "timed_out": false
+      },
+      "ts": "2026-09-01T05:59:36"
+    },
+    {
+      "scenario": "B1",
+      "name": "b01_cold_start_info",
+      "variant": "python",
+      "rep": 0,
+      "wall_s": 12.18,
+      "result": {
+        "expected_ports": 32,
+        "first_info_s": 11.964555263519287,
+        "all_info_s": 11.96455717086792,
+        "timed_out": false
+      },
+      "ts": "2026-09-01T06:00:03"
+    },
+    {
+      "scenario": "B2",
+      "name": "b02_hotplug_single",
+      "variant": "rust",
+      "rep": 0,
+      "wall_s": 3.57,
+      "result": {
+        "index": 0,
+        "port": "Ethernet0",
+        "plug_s": {
+          "p50": 3.2465062141418457,
+          "p95": 3.2465062141418457,
+          "raw": [
+            3.2465062141418457
+          ]
+        },
+        "unplug_s": {
+          "p50": 0.20132803916931152,
+          "p95": 0.20132803916931152,
+          "raw": [
+            0.20132803916931152
+          ]
+        }
+      },
+      "ts": "2026-09-01T06:00:54"
+    },
+    {
+      "scenario": "B2",
+      "name": "b02_hotplug_single",
+      "variant": "python",
+      "rep": 0,
+      "wall_s": 4.06,
+      "result": {
+        "index": 0,
+        "port": "Ethernet0",
+        "plug_s": {
+          "p50": 3.1033589839935303,
+          "p95": 3.1033589839935303,
+          "raw": [
+            3.1033589839935303
+          ]
+        },
+        "unplug_s": {
+          "p50": 0.8495709896087646,
+          "p95": 0.8495709896087646,
+          "raw": [
+            0.8495709896087646
+          ]
+        }
+      },
+      "ts": "2026-09-01T06:01:13"
+    },
+    {
+      "scenario": "B3",
+      "name": "b03_cmis_bringup",
+      "variant": "rust",
+      "rep": 0,
+      "wall_s": 0.38,
+      "result": {
+        "index": 0,
+        "port": "Ethernet0",
+        "ready_s": {
+          "p50": 0.01622748374938965,
+          "p95": 0.01622748374938965,
+          "raw": [
+            0.01622748374938965
+          ]
+        },
+        "caveat": "result_4 adds a deliberate 1s dwell per CMIS state"
+      },
+      "ts": "2026-09-01T06:02:01"
+    },
+    {
+      "scenario": "B3",
+      "name": "b03_cmis_bringup",
+      "variant": "python",
+      "rep": 0,
+      "wall_s": 4.12,
+      "result": {
+        "index": 0,
+        "port": "Ethernet0",
+        "ready_s": {
+          "p50": 3.162036657333374,
+          "p95": 3.162036657333374,
+          "raw": [
+            3.162036657333374
+          ]
+        },
+        "caveat": "result_4 adds a deliberate 1s dwell per CMIS state"
+      },
+      "ts": "2026-09-01T06:02:20"
+    },
+    {
+      "scenario": "B5",
+      "name": "b05_idle_soak",
+      "variant": "rust",
+      "rep": 0,
+      "wall_s": 30.28,
+      "result": {
+        "duration_s": 30.0,
+        "samples": 23,
+        "span_s": 29.9,
+        "rss_kb_median": 83336,
+        "rss_kb_max": 84012,
+        "hwm_kb": 87808,
+        "threads": 14,
+        "fds": 46,
+        "cpu_pct": 36.14,
+        "pid_changed": false,
+        "pids": [
+          92631
+        ]
+      },
+      "ts": "2026-09-01T06:03:37"
+    },
+    {
+      "scenario": "B5",
+      "name": "b05_idle_soak",
+      "variant": "python",
+      "rep": 0,
+      "wall_s": 30.0,
+      "result": {
+        "duration_s": 30.0,
+        "samples": 22,
+        "span_s": 29.1,
+        "rss_kb_median": 71096,
+        "rss_kb_max": 71120,
+        "hwm_kb": 71120,
+        "threads": 13,
+        "fds": 253,
+        "cpu_pct": 18.38,
+        "pid_changed": false,
+        "pids": [
+          93085
+        ]
+      },
+      "ts": "2026-09-01T06:04:22"
+    },
+    {
+      "scenario": "B6",
+      "name": "b06_plug_storm",
+      "variant": "rust",
+      "rep": 0,
+      "wall_s": 6.7,
+      "result": {
+        "modules": 33,
+        "target_rows": 32,
+        "unplug_cleared_s": 0.4145853519439697,
+        "first_info_s": 3.247,
+        "all_info_s": 6.131,
+        "elapsed_s": 6.14,
+        "final_rows": 32
+      },
+      "ts": "2026-09-01T06:05:17"
+    },
+    {
+      "scenario": "B6",
+      "name": "b06_plug_storm",
+      "variant": "python",
+      "rep": 0,
+      "wall_s": 5.6,
+      "result": {
+        "modules": 33,
+        "target_rows": 32,
+        "unplug_cleared_s": 0.9581601619720459,
+        "first_info_s": 3.091,
+        "all_info_s": 4.467,
+        "elapsed_s": 4.477,
+        "final_rows": 32
+      },
+      "ts": "2026-09-01T06:05:37"
+    },
+    {
+      "scenario": "B8",
+      "name": "b08_error_inject",
+      "variant": "rust",
+      "rep": 0,
+      "wall_s": 3.61,
+      "result": {
+        "index": 0,
+        "port": "Ethernet0",
+        "set_s": {
+          "p50": 0.2575986385345459,
+          "raw": [
+            0.2575986385345459
+          ]
+        },
+        "clear_s": {
+          "p50": 3.099763870239258,
+          "raw": [
+            3.099763870239258
+          ]
+        }
+      },
+      "ts": "2026-09-01T06:06:27"
+    },
+    {
+      "scenario": "B8",
+      "name": "b08_error_inject",
+      "variant": "python",
+      "rep": 0,
+      "wall_s": 4.22,
+      "result": {
+        "index": 0,
+        "port": "Ethernet0",
+        "set_s": {
+          "p50": 0.8490221500396729,
+          "raw": [
+            0.8490221500396729
+          ]
+        },
+        "clear_s": {
+          "p50": 3.0814871788024902,
+          "raw": [
+            3.0814871788024902
+          ]
+        }
+      },
+      "ts": "2026-09-01T06:06:47"
+    },
+    {
+      "scenario": "B9",
+      "name": "b09_read_amplification",
+      "variant": "rust",
+      "rep": 0,
+      "wall_s": 30.4,
+      "result": {
+        "window_s": 30.0,
+        "total_events": 16338,
+        "reads": 15521,
+        "writes": 817,
+        "ports_touched": 32,
+        "events_per_port": 510.6,
+        "page_histogram": {
+          "0": 6868,
+          "1": 1338,
+          "2": 304,
+          "4": 135,
+          "16": 2770,
+          "17": 4868,
+          "18": 55
+        }
+      },
+      "ts": "2026-09-01T06:08:05"
+    },
+    {
+      "scenario": "B9",
+      "name": "b09_read_amplification",
+      "variant": "python",
+      "rep": 0,
+      "wall_s": 30.39,
+      "result": {
+        "window_s": 30.0,
+        "total_events": 6456,
+        "reads": 6456,
+        "writes": 0,
+        "ports_touched": 32,
+        "events_per_port": 201.8,
+        "page_histogram": {
+          "0": 1734,
+          "1": 1980,
+          "2": 720,
+          "16": 540,
+          "17": 1440,
+          "18": 42
+        }
+      },
+      "ts": "2026-09-01T06:08:50"
+    },
+    {
+      "scenario": "B10",
+      "name": "b10_sigterm_shutdown",
+      "variant": "rust",
+      "rep": 0,
+      "wall_s": 14.79,
+      "result": {
+        "reps": 1,
+        "samples_s": [
+          1.2422943115234375
+        ],
+        "p50_s": 1.2422943115234375,
+        "max_s": 1.2422943115234375
+      },
+      "ts": "2026-09-01T06:09:52"
+    },
+    {
+      "scenario": "B10",
+      "name": "b10_sigterm_shutdown",
+      "variant": "python",
+      "rep": 0,
+      "wall_s": 14.17,
+      "result": {
+        "reps": 1,
+        "samples_s": [
+          1.3746871948242188
+        ],
+        "p50_s": 1.3746871948242188,
+        "max_s": 1.3746871948242188
+      },
+      "ts": "2026-09-01T06:10:22"
+    },
+    {
+      "scenario": "B11",
+      "name": "b11_media_settings_notify",
+      "variant": "rust",
+      "rep": 0,
+      "wall_s": 3.56,
+      "result": {
+        "index": 0,
+        "port": "Ethernet0",
+        "notify_s": {
+          "p50": 3.1313815116882324,
+          "p95": 3.1313815116882324,
+          "raw": [
+            3.1313815116882324
+          ]
+        }
+      },
+      "ts": "2026-09-01T06:11:13"
+    },
+    {
+      "scenario": "B11",
+      "name": "b11_media_settings_notify",
+      "variant": "python",
+      "rep": 0,
+      "wall_s": 3.92,
+      "result": {
+        "index": 0,
+        "port": "Ethernet0",
+        "notify_s": {
+          "p50": 3.1103034019470215,
+          "p95": 3.1103034019470215,
+          "raw": [
+            3.1103034019470215
+          ]
+        }
+      },
+      "ts": "2026-09-01T06:11:32"
+    },
+    {
+      "scenario": "B4",
+      "harness": "inprocess",
+      "variant": "a",
+      "result": {
+        "config": "a",
+        "ports": 28,
+        "polls": 50,
+        "p50_ns": 62189079,
+        "p95_ns": 85339727,
+        "max_ns": 90834170,
+        "p50_ns_per_port": 2221039
+      }
+    },
+    {
+      "scenario": "B4",
+      "harness": "inprocess",
+      "variant": "b",
+      "result": {
+        "config": "b",
+        "ports": 28,
+        "polls": 50,
+        "p50_ns": 91245635,
+        "p95_ns": 113672247,
+        "max_ns": 120777756,
+        "p50_ns_per_port": 3258773
+      }
+    },
+    {
+      "scenario": "B4",
+      "harness": "inprocess",
+      "variant": "p",
+      "result": {
+        "config": "p",
+        "ports": 28,
+        "polls": 50,
+        "p50_ns": 30929109,
+        "p95_ns": 46113195,
+        "max_ns": 62383327,
+        "p50_ns_per_port": 1104611.0357142857
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "a",
+      "result": {
+        "config": "a",
+        "ports": 1,
+        "polls": 30,
+        "p50_ns": 2536910,
+        "p95_ns": 3431393,
+        "max_ns": 3543020,
+        "p50_ns_per_port": 2536910
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "b",
+      "result": {
+        "config": "b",
+        "ports": 1,
+        "polls": 30,
+        "p50_ns": 1724380,
+        "p95_ns": 3117230,
+        "max_ns": 3252663,
+        "p50_ns_per_port": 1724380
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "p",
+      "result": {
+        "config": "p",
+        "ports": 1,
+        "polls": 30,
+        "p50_ns": 796386,
+        "p95_ns": 1076581,
+        "max_ns": 1090379,
+        "p50_ns_per_port": 796386.0
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "a",
+      "result": {
+        "config": "a",
+        "ports": 4,
+        "polls": 30,
+        "p50_ns": 6437168,
+        "p95_ns": 7672575,
+        "max_ns": 14660765,
+        "p50_ns_per_port": 1609292
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "b",
+      "result": {
+        "config": "b",
+        "ports": 4,
+        "polls": 30,
+        "p50_ns": 9786683,
+        "p95_ns": 14984277,
+        "max_ns": 15842615,
+        "p50_ns_per_port": 2446671
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "p",
+      "result": {
+        "config": "p",
+        "ports": 4,
+        "polls": 30,
+        "p50_ns": 4141987,
+        "p95_ns": 7039947,
+        "max_ns": 8395690,
+        "p50_ns_per_port": 1035496.75
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "a",
+      "result": {
+        "config": "a",
+        "ports": 8,
+        "polls": 30,
+        "p50_ns": 19319464,
+        "p95_ns": 22886303,
+        "max_ns": 24502623,
+        "p50_ns_per_port": 2414933
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "b",
+      "result": {
+        "config": "b",
+        "ports": 8,
+        "polls": 30,
+        "p50_ns": 22399748,
+        "p95_ns": 32205410,
+        "max_ns": 35726340,
+        "p50_ns_per_port": 2799968
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "p",
+      "result": {
+        "config": "p",
+        "ports": 8,
+        "polls": 30,
+        "p50_ns": 10395612,
+        "p95_ns": 18720526,
+        "max_ns": 19985337,
+        "p50_ns_per_port": 1299451.5
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "a",
+      "result": {
+        "config": "a",
+        "ports": 16,
+        "polls": 30,
+        "p50_ns": 34177672,
+        "p95_ns": 48885420,
+        "max_ns": 53716516,
+        "p50_ns_per_port": 2136104
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "b",
+      "result": {
+        "config": "b",
+        "ports": 16,
+        "polls": 30,
+        "p50_ns": 28643001,
+        "p95_ns": 52688181,
+        "max_ns": 59646827,
+        "p50_ns_per_port": 1790188
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "p",
+      "result": {
+        "config": "p",
+        "ports": 16,
+        "polls": 30,
+        "p50_ns": 20154346,
+        "p95_ns": 29190748,
+        "max_ns": 32645534,
+        "p50_ns_per_port": 1259646.625
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "a",
+      "result": {
+        "config": "a",
+        "ports": 28,
+        "polls": 30,
+        "p50_ns": 60942161,
+        "p95_ns": 80920756,
+        "max_ns": 89334531,
+        "p50_ns_per_port": 2176506
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "b",
+      "result": {
+        "config": "b",
+        "ports": 28,
+        "polls": 30,
+        "p50_ns": 88310943,
+        "p95_ns": 109652654,
+        "max_ns": 111865875,
+        "p50_ns_per_port": 3153962
+      }
+    },
+    {
+      "scenario": "B7",
+      "harness": "inprocess",
+      "variant": "p",
+      "result": {
+        "config": "p",
+        "ports": 28,
+        "polls": 30,
+        "p50_ns": 34201001,
+        "p95_ns": 48556473,
+        "max_ns": 52340483,
+        "p50_ns_per_port": 1221464.3214285714
+      }
+    },
+    {
+      "scenario": "B12",
+      "harness": "inprocess",
+      "result": {
+        "a": {
+          "num_sfps": 3.092400390625,
+          "sfp(0)  [handle construction]": 56.42411083984375,
+          "get_presence  [scalar]": 1.32178173828125,
+          "sfp_type  [string]": 20.73035986328125,
+          "get_transceiver_dom_real_value  [27 fields]": 2173.090671875,
+          "get_transceiver_info  [33 fields]": 3393.1634765625,
+          "get_transceiver_status  [7 fields]": 430.68448046875,
+          "call_json(get_transceiver_status_flags)": 225.7087314453125,
+          "read_eeprom(9, 1)": 33.58256494140625,
+          "get_change_event(0)": 26.74683984375,
+          "db.set  [27 fields]": 2590.2356953125,
+          "db.get": 2158.1549140625,
+          "db.hget": 63.75334521484375,
+          "db.hset": 87.42777734375,
+          "db.get_size_for_key": 34.01772021484375,
+          "db.getKeys": 45.35590234375
+        },
+        "b": {
+          "num_sfps": 253.6813955078125,
+          "sfp(0)  [handle construction]": 459.0703349609375,
+          "get_presence  [scalar]": 296.2720234375,
+          "sfp_type  [string]": 278.82833349609376,
+          "get_transceiver_dom_real_value  [27 fields]": 16964.2735625,
+          "get_transceiver_info  [33 fields]": 18141.6738125,
+          "get_transceiver_status  [7 fields]": 7795.263125,
+          "call_json(get_transceiver_status_flags)": 5035.2365546875,
+          "read_eeprom(9, 1)": 950.086505859375,
+          "get_change_event(0)": 6319.4952734375
+        },
+        "p": {
+          "num_sfps": 48.88967919921875,
+          "sfp(0)  [handle construction]": 113.6789111328125,
+          "get_presence  [scalar]": 40.5219794921875,
+          "sfp_type  [string]": 46.555048828125,
+          "get_transceiver_dom_real_value  [27 fields]": 289.1601064453125,
+          "get_transceiver_info  [33 fields]": 321.882748046875,
+          "get_transceiver_status  [7 fields]": 192.2999560546875,
+          "call_json(get_transceiver_status_flags)": 116.980513671875,
+          "read_eeprom(9, 1)": 318.63510986328123,
+          "get_change_event(0)": 360.3379873046875,
+          "db.set  [27 fields]": 1237.427923828125,
+          "db.get": 807.875642578125,
+          "db.hget": 161.45596630859376,
+          "db.hset": 135.11278857421874,
+          "db.get_size_for_key": 99.01444580078125,
+          "db.getKeys": 185.71777880859375
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "round": 10,
+  "passed": false,
+  "tests": {
+    "unit": { "total": 320, "passed": 320, "failed": 0 },
+    "e2e": { "total": 105, "passed": 104, "failed": 1 }
+  },
+  "failures": [
+    {
+      "layer": "e2e",
+      "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+      "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init.",
+      "regressed": "TRANSCEIVER_DOM_FLAG|Ethernet48 is published during the CMIS init/DP_DEINIT window instead of being suppressed until a terminal CMIS state.",
+      "likely_cause": "Cadence-sensitive, NOT a regression from this round. Round 10 changed zero files (optimize.json files: []); the crate is byte-for-byte identical to the baseline. The failure is triggered exclusively by the requested --dom-interval 5 cadence: at 5s the DOM poll lands inside the CMIS init window and emits a DOM_FLAG row before CMIS reaches a terminal state. Isolation runs confirm this: the test FAILS deterministically (2/2) with --dom-interval 5 but PASSES at the daemon's default DOM cadence (no interval). The crate honors --dom_update_interval (no DOM_INTERVAL_FALLBACK was logged), so the tighter cadence is genuinely applied. This matches the optimize.json rationale, which flags test_dom_gated_during_cmis_init as a cadence-sensitive/flaky gate that fires on the untouched baseline.",
+      "repair_hint": "Not repairable by the Optimizer this round (no code was changed and the fault is not a translation defect introduced here). The DOM-vs-CMIS gating boundary in src/dom.rs / cmis CMIS FSM (mirror dom/dom_mgr.py DomInfoUpdateTask + cmis_state gating) is not tolerant of a 5s DOM poll relative to CMIS init timing; it only holds at the default cadence. Treat as a pre-existing, cadence-triggered gating limitation, not a round-10 performance regression."
+    }
+  ]
+}

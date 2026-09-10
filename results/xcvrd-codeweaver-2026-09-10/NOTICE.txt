@@ -1,0 +1,33 @@
+This package records a Python-to-Rust translation of sonic-xcvrd, the SONiC
+transceiver daemon, together with the pipeline's own verdicts and a benchmark
+ledger.
+
+The Python source under translation is SONiC's sonic-platform-daemons
+(https://github.com/sonic-net/sonic-platform-daemons), an independent open-source
+work under its own license. That source is NOT redistributed here; this package
+contains generated Rust, pipeline artifacts and evaluation metadata.
+
+The oracle (xcvrd-tests) is also not redistributed. It was written by this project
+rather than taken from a benchmark, and it cannot run without a SONiC KVM testbed
+and the xcvr-emu transceiver emulator, so shipping the files would not make this
+package self-scoring. metadata/oracle-manifest.json identifies the exact suite and
+the commit it is pinned at.
+
+The translated daemon calls the existing Python sonic_platform plugin over PyO3
+rather than reimplementing the CMIS/SFF decode stack. Only the daemon's control
+logic was translated. Any claim about "porting xcvrd" should be read with that
+boundary in mind.
+
+Generation used GitHub Copilot CLI custom agents under a GitHub Copilot
+subscription. No credentials, proxy code or raw request/response streams are
+included here.
+
+These runs were produced by recodeAgent, the xcvrd-specific ancestor of CodeWeaver,
+not by the CodeWeaver code in this repository. The methodology is the same; the
+generalisation into a config-driven engine came afterwards.
+
+Generated outputs are not upstream releases and are not endorsed by the SONiC
+project. Known limitations remain: one e2e test fails in the optimized arm, one is
+skipped for an environmental reason, one was deferred by the pipeline's give-up
+path, and the daemon has only ever been exercised against an emulated transceiver
+plant on a virtual testbed — never against real optics.

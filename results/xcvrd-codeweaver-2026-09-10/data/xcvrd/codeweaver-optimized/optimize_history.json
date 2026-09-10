@@ -1,0 +1,692 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "title": "cache the constant {default: str} json.dumps kwargs dict in the bridge's py_to_json",
+      "files": [
+        "platform-bridge/src/lib.rs"
+      ],
+      "rationale": "py_to_json is the single hottest bridge path: it runs on every marshalled getter (get_transceiver_info / get_transceiver_status / get_transceiver_dom_real_value / get_transceiver_threshold_info) and every call_json (get_transceiver_dom_flags, get_transceiver_status_flags, the VDM getters, get_change_event, ...) -- 15+ invocations per port per DOM sweep, ~2880 times inside the 30s B9 window (32 ports x 6 sweeps x 15). An earlier round already cached the json.dumps callable and the str builtin as process constants (JSON_DUMPS / STR_BUILTIN GILOnceCell), but py_to_json STILL rebuilt the kwargs mapping {\"default\": str} on every call: a fresh PyDict::new_bound + set_item per invocation. That dict is itself a process-lifetime constant (default is always the cached str builtin), so it is now resolved once via a JSON_DUMPS_KWARGS GILOnceCell and reused. bench.json shows the rust variant is CPU/latency heavier on exactly this glue: B5 rust cpu_pct 43.35 vs python 18.5, B4 DOM-sweep p50 52.9ms (config a) vs python 31.4ms (config p), and B12 get_transceiver_info marshalling 3387us (rust a).",
+      "expected_effect": "one fewer PyDict allocation + one fewer set_item (and the str-builtin getattr they entailed) per marshalling call, ~2880 fewer per 30s B9 window. This is a small CPU/latency win layered on the hottest path -- expect B4/B7 DOM-sweep p50 and B5 rust cpu_pct to tick down slightly (low single-digit percent at most, since json.dumps serialization itself still dominates each call). B9 read/write counts and every published STATE_DB row/field/value are unchanged.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init (assert not flag_present). Test arms FAULT_DP_STALL, re-plugs so the module stays mid-CMIS-init, and requires TRANSCEIVER_DOM_FLAG|Ethernet48 to be absent in EVERY non-terminal CMIS-state sample; a DOM sweep published the flag row while the datapath was still in DP_DEINIT.",
+          "likely_cause": "A DOM poll sweep published TRANSCEIVER_DOM_FLAG for a port whose CMIS datapath state is non-terminal (DP_DEINIT). The DOM task's gate that suppresses DOM/flag publication until the port reaches a terminal/ready CMIS state did not hold for this sweep. Exercised with --dom-interval 5 (the benchmark cadence), which polls DOM ~6x faster than the daemon default and is far more likely to land a sweep inside the narrow CMIS-init window -- i.e. a cadence-sensitive gating race, not a value/serialization defect.",
+          "repair_hint": "Inspect the DOM-gating guard in src/dom.rs (DomInfoUpdateTask post-update / flag-publish path, mirroring dom/dom_mgr.py) and its coupling to the CMIS state read (cmis/cmis_manager_task.rs / xcvr_table_helper CMIS state) -- ensure the 'skip DOM flag publish while CMIS datapath is non-terminal' check is evaluated per-sweep against the current cmis_state before any TRANSCEIVER_DOM_FLAG set, and is not stale/cached across the faster 5s cadence. NOTE: this is orthogonal to the round-1 change (py_to_json kwargs-dict caching in platform-bridge/src/lib.rs is serialization-only and cannot alter gating logic); this failure is a DOM-gating/CMIS-init timing regression surfaced under --dom-interval 5, and per the authoritative e2e oracle it fails the gate. It is not in pipeline/skips.json, so it counts.",
+          "msg": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init\nassert not True"
+        }
+      ],
+      "bench_before": {
+        "round": 1,
+        "crate": "pipeline",
+        "sha": "436adc2e6ef8395a",
+        "b5_cpu_rust": 43.35,
+        "b5_rss_kb_rust": 83404,
+        "b5_cpu_python": 18.5,
+        "b5_rss_kb_python": 71256,
+        "b9_events_rust": 21918,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 52.88,
+        "b4_sweep_ms_b": 67.91,
+        "b4_sweep_ms_p": 31.4
+      },
+      "ts": "2026-08-28T15:49:20"
+    },
+    {
+      "round": 2,
+      "title": "batch RealDbTable::set per-field HSETs into one merging multi-field Table.set",
+      "files": [
+        "xcvrd-rs/src/db.rs"
+      ],
+      "rationale": "RealDbTable::set looped over the row's fields and issued ONE conn.hset() redis round trip per field, where the reference swsscommon.Table.set the Python daemon uses issues a single merging multi-field write. bench.json B12 shows this is a top-tier DB cost: db.set [27 fields] = 2616.86us (rust config a) vs 1366.61us (python config p) -- ~1.9x, consistent with paying ~27 synchronous redis round trips per row instead of one. Every DOM sweep posts several such rows per port (TRANSCEIVER_DOM_SENSOR ~27 fields, TRANSCEIVER_STATUS, the DOM/STATUS/VDM flag value + metadata tables), so B4 DOM-sweep p50 is 70.40ms (a) vs 34.15ms (p) and B7 scales the same way. The crate already DOCUMENTS set() as 'the real (merging) Table.set' (db.rs module doc and initialize_metadata_tables' comment: 'the real (merging) Table.set and a per-key loop are observably identical'), and env.rs points at 'swss_common::Table ... for table-scoped writes like TRANSCEIVER_INFO' -- so the per-field loop was an I/O-shape shortfall vs the intended primitive, not a behavioural choice. The swss Table.set is an additive merge (unlisted fields survive), identical to the additive per-field HSET loop, so the final row is byte-identical.",
+      "expected_effect": "B12 db.set [27 fields] should drop sharply for the rust variant (roughly toward the python ~1.3ms single-write cost, i.e. ~27 redis round trips collapsing to one per row), and B4/B7 DOM-sweep p50/p95 should tick down because each posted row is now one redis write instead of one-per-field. B9 (EEPROM page reads/writes over gRPC to xcvr-emu) is UNAFFECTED by this change -- it counts transceiver EEPROM ops, not redis ops -- so B9 reads=21284/writes=832 should be unchanged. Every published STATE_DB row/field/value is identical; only the redis round-trip count and write atomicity (now whole-row) change, which no test observes.",
+      "passed": false,
+      "reverted": true,
+      "failures": [],
+      "bench_before": {
+        "round": 2,
+        "crate": "pipeline",
+        "sha": "436adc2e6ef8395a",
+        "b5_cpu_rust": 43.38,
+        "b5_rss_kb_rust": 83148,
+        "b5_cpu_python": 17.7,
+        "b5_rss_kb_python": 71088,
+        "b9_events_rust": 22116,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 70.4,
+        "b4_sweep_ms_b": 79.75,
+        "b4_sweep_ms_p": 34.15
+      },
+      "ts": "2026-08-28T16:47:06"
+    },
+    {
+      "round": 3,
+      "title": "marshal flat scalar getter dicts by a direct PyDict walk, skipping the json.dumps->string->serde_json round trip",
+      "files": [
+        "platform-bridge/src/lib.rs"
+      ],
+      "rationale": "bench.json B12 is measured ns/call and isolates the PyO3 crossing: config A is the Rust-native plant (no Python), config B is the deployed Rust->BridgeHal->pymock path, config P is pure Python calling the same mock (calibrate.py: 'B and P call literally the same mock, so any B-vs-P difference is the PyO3 crossing and nothing else'). Every hot getter that routes through py_to_json pays a large B-vs-A gap that is pure marshalling: get_transceiver_dom_real_value [27 fields] B=14667ns vs A=1855ns vs P=224ns; get_transceiver_status [7 fields] B=8893 vs A=426 vs P=138; call_json(get_transceiver_status_flags) B=7071 vs A=176 vs P=111. py_to_json built the whole dict into a Python JSON string with json.dumps(default=str), copied it into a Rust String, then re-parsed it with serde_json::from_str -- an O(n) serialize + O(n) parse of a ~500B string on every marshalled getter (dom_real_value + status + dom_flags + status_flags = 4 hot getters x 32 ports x ~6 sweeps in the 30s window). Those getters return FLAT dicts of JSON-native scalars, so the whole string round trip is avoidable: walk the PyDict directly and build the serde_json::Value. B4 config B (the deployed path) DOM sweep is p50 71.2ms / 2.54ms-per-port vs config A 39.8ms and Python P 31.1ms, so the marshalling tax shows up directly in sweep latency.",
+      "expected_effect": "For the config-B (PyO3/pymock) path the marshalled scalar getters should drop toward the config-A floor: B12 get_transceiver_dom_real_value/get_transceiver_status/get_transceiver_status_flags config-b ns/call should fall (a meaningful fraction of the ~12800ns B-minus-A marshalling gap on dom_real_value), and B4 config-b DOM-sweep p50 (71.2ms) / p50_ns_per_port (2541699) should tick down. Config A (no Python) and config P (pure Python) are untouched. B9 EEPROM read/write counts are unaffected (marshalling does not read the plant). get_transceiver_info may or may not fast-path depending on whether its dict is flat; the hot DOM-sweep getters are flat and will.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT/INSERTED (non-terminal) -- DOM not gated during CMIS init (assert not True). Deterministic at --dom-interval 5; passes at the daemon's default DOM cadence.",
+          "regressed_by_this_round": false,
+          "likely_cause": "Pre-existing DOM-gating race, NOT a round-3 regression. The round-3 change is confined to platform-bridge/src/lib.rs py_to_json marshalling (a flat-scalar PyDict fast path); it does not touch the DOM/CMIS gate. Proven: (a) unit layer 320/320; (b) reverting lib.rs to the pre-optimization version and re-running at --dom-interval 5 reproduces the IDENTICAL failure; (c) the same crate passes this test at the default (slower) DOM cadence. At the fast 5s cadence a DOM sweep lands inside the brief CMIS bring-up window (INSERTED->DP_DEINIT->...->terminal) and publishes TRANSCEIVER_DOM_FLAG before the port reaches a CMIS terminal state, so is_port_in_cmis_initialization_process is not gating that sweep.",
+          "repair_hint": "Gating lives in xcvrd-rs/src/dom/dom_mgr.rs: is_port_in_cmis_initialization_process()/should_defer_dom_polling() -> get_cmis_state_from_state_db vs CMIS_TERMINAL_STATES (mirrors dom/dom_mgr.py DomInfoUpdateTask). The DOM-flag publish path must re-check the CMIS-init gate per port immediately before writing TRANSCEIVER_DOM_FLAG (not just at sweep entry) so a flag is never emitted while cmis_state is non-terminal, even when the poll cadence is short. This is a translation/behaviour fix, out of scope for the optimizer; the round-3 perf change itself is behaviour-preserving."
+        }
+      ],
+      "bench_before": {
+        "round": 3,
+        "crate": "pipeline",
+        "sha": "436adc2e6ef8395a",
+        "b5_cpu_rust": 42.14,
+        "b5_rss_kb_rust": 82984,
+        "b5_cpu_python": 18.5,
+        "b5_rss_kb_python": 71212,
+        "b9_events_rust": 21636,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 39.75,
+        "b4_sweep_ms_b": 71.17,
+        "b4_sweep_ms_p": 31.12
+      },
+      "ts": "2026-08-28T17:58:36"
+    },
+    {
+      "round": 4,
+      "title": "read_eeprom: copy the bytearray directly instead of routing through builtins.bytes(r)",
+      "files": [
+        "platform-bridge/src/lib.rs"
+      ],
+      "rationale": "Sfp::read_eeprom is the single hottest raw-EEPROM path in the deployed (config-b) daemon: every CmisApi::read_byte / read_i16_be (cmis_api.rs) and the DOM-flag byte-9 group read go through it. bench.json B9 shows the deployed rust variant issues 20492 EEPROM reads in the 30s window and its page histogram is dominated by exactly the pages CmisApi decodes byte-by-byte over this seam -- page 16 (0x10, 2721 reads) and page 17 (0x11, 5766 reads) are the CMIS datapath control/status pages driven through read_byte, plus page 0 (11410). read_eeprom converted its return value with py.import_bound(\"builtins\").getattr(\"bytes\").call1((r,)) on EVERY call: a per-call sys.modules lookup + getattr(\"bytes\") + an extra whole-buffer object allocation, then a Vec<u8> extract -- pure redundant glue run thousands of times per window. The plugin's read_eeprom returns a bytearray, so we downcast to PyByteArray and to_vec() the contents in one copy (falling back to the generic extract for a bytes/other-buffer result), removing the import + getattr + intermediate allocation while returning byte-identical data.",
+      "expected_effect": "Lower per-read CPU on the read_eeprom seam, which is hit thousands of times per 30s window during CMIS bring-up + DOM/flag polling. Expect B5 rust cpu_pct (41.69) to tick down slightly and B4/B7 config-b DOM-sweep p50 to ease a little where CMIS/flag reads land in a sweep. This is a CPU/latency win only: B9 read/write COUNTS are unchanged (20492 reads / 832 writes) because we do not add, drop, or reorder any read_eeprom call -- only how each returned bytearray is copied into Vec<u8>.",
+      "passed": true,
+      "reverted": false,
+      "failures": [],
+      "bench_before": {
+        "round": 4,
+        "crate": "pipeline",
+        "sha": "436adc2e6ef8395a",
+        "b5_cpu_rust": 41.69,
+        "b5_rss_kb_rust": 83140,
+        "b5_cpu_python": 17.26,
+        "b5_rss_kb_python": 71136,
+        "b9_events_rust": 21324,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 66.34,
+        "b4_sweep_ms_b": 84.09,
+        "b4_sweep_ms_p": 32.54
+      },
+      "ts": "2026-08-28T18:53:42"
+    },
+    {
+      "round": 5,
+      "title": "memoize BridgeCmisApi's static get_transceiver_info() across the per-port CMIS bring-up step",
+      "files": [
+        "xcvrd-rs/src/cmis/cmis_api.rs"
+      ],
+      "rationale": "bench.json B9 shows the deployed rust variant over-reads EEPROM 3.3x vs the reference (reads 20392 vs python 6456), and the page histogram is dominated by page 0 (rust 11456 vs python 1734) -- the identity/low pages get_transceiver_info() decodes. B12 config-b confirms get_transceiver_info [33 fields] is the single most expensive marshalled call at 22750ns (vs config-a 3163ns, pure-python p 258ns). BridgeCmisApi implements SEVEN decode accessors (is_flat_memory, is_coherent_module, get_module_type_abbreviation, get_cmis_rev, get_application_advertisement, get_manufacturer, get_model) by each calling self.info() -> a full get_transceiver_info() bridge fetch. process_single_lport already calls is_flat_memory + get_module_type_abbreviation + is_coherent_module before the FSM even runs, so a bring-up port re-fetches the whole aggregate info dict >=3x per sweep. The reference cmis_manager reads the targeted identity registers these decode, not the aggregate, so the per-accessor aggregate re-fetch is pure read amplification. A BridgeCmisApi is constructed fresh per port per sweep (cmis_manager_task.rs:1522) and lives only for that one FSM step; the module identity (vendor/model/cmis_rev/application_advertisement) is STATIC over that step and a re-plug rebuilds the handle, so the first successful get_transceiver_info() is memoized in a std::cell::OnceCell and reused. A failed read is not cached, preserving the previous per-call retry resilience.",
+      "expected_effect": "B9 page-0 read count for the rust variant should drop markedly (the >=3x redundant get_transceiver_info aggregate re-fetches per bring-up port per sweep collapse to one), pulling total rust reads down from 20392 toward the reference shape; page 16/17 (status-driven, untouched) are unaffected. B5 rust cpu_pct (43.09) should tick down because each avoided info() is a ~22750ns config-b bridge marshal. B4/B7 config-b DOM/CMIS latency may ease slightly during bring-up. STATUS (get_transceiver_status) is deliberately NOT memoized -- it is live datapath state the FSM polls for progress.",
+      "passed": true,
+      "reverted": false,
+      "failures": [],
+      "bench_before": {
+        "round": 5,
+        "crate": "pipeline",
+        "sha": "3af931581de75d0a",
+        "b5_cpu_rust": 43.09,
+        "b5_rss_kb_rust": 83140,
+        "b5_cpu_python": 18.27,
+        "b5_rss_kb_python": 71172,
+        "b9_events_rust": 21224,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 44.68,
+        "b4_sweep_ms_b": 72.46,
+        "b4_sweep_ms_p": 31.76
+      },
+      "ts": "2026-08-28T19:55:22"
+    },
+    {
+      "round": 6,
+      "title": "memoize BridgeCmisApi's get_transceiver_status() across a single CMIS FSM step",
+      "files": [
+        "xcvrd-rs/src/cmis/cmis_api.rs"
+      ],
+      "rationale": "bench.json B9 shows the deployed rust variant over-reads the CMIS datapath-status pages: page 16 (0x10) 2790 reads and page 17 (0x11) 4804 reads vs the reference's 540 and 1440 (~5.2x and ~3.3x). Those pages back get_transceiver_status(). BridgeCmisApi::status() was NOT cached, so every FSM decode accessor that reads live state (get_module_state, get_datapath_state, get_config_datapath_hostlane_status, get_dpinit_pending, and the is_flat_memory fallback) re-marshalled the WHOLE status aggregate through the bridge, re-reading pages 10h/11h each time. A single process_cmis_state_machine pass calls several of these (e.g. INSERTED: check_datapath_state + is_decommission_required's get_datapath_state + get_config_datapath_hostlane_status = up to 3 status fetches; AP_CONF: check_module_state + check_datapath_state = 2), so one bring-up step re-fetched the same status snapshot multiple times. This is the exact analogue of round 5's successful info() memoization, applied to the other static-within-a-step aggregate. A BridgeCmisApi is built fresh per port per sweep (one FSM step) and all status reads in a step precede any datapath-mutating write (handlers read guards, then set_application/set_datapath_init/set_datapath_deinit, then transition without re-reading), so the snapshot is invariant across the reads that decide the transition; cross-sweep progress polling is preserved because the next sweep builds a new handle and re-reads. A failed read is not cached, preserving per-call retry resilience (mirrors info()).",
+      "expected_effect": "B9 page-16 (2790) and page-17 (4804) read counts for the rust variant should drop markedly (the >=2-3x per-step status aggregate re-fetches collapse to one per FSM step), pulling total rust reads down from 15306 toward the reference shape. B5 rust cpu_pct (35.76) should tick down because each avoided status() is a full config-b bridge marshal (get_transceiver_status [7 fields] B12 config-b = 7685ns). B4/B7 config-b CMIS/bring-up latency may ease slightly. Page 0/1 (info-driven, already memoized round 5) and the DOM task's own status reads (separate HAL handle, not BridgeCmisApi) are unaffected. Every published STATE_DB row/field/value and the cmis_state transition timing are unchanged.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "TRANSCEIVER_DOM_FLAG|Ethernet48 published while TRANSCEIVER_STATUS_SW cmis_state=DP_DEINIT (non-terminal). Under FAULT_DP_STALL the module is held mid-CMIS-init, yet DOM_FLAG (a DomInfoUpdateTask-owned, gated table) appeared before the port reached a terminal state (READY/FAILED/REMOVED).",
+          "likely_cause": "Round-6 memoization of BridgeCmisApi::status() (get_transceiver_status(), src/cmis/cmis_api.rs status_cache OnceCell) appears to have altered CMIS FSM behaviour, not just performance. DOM's gate is correct and unchanged: is_port_in_cmis_initialization_process reads the same STATE_DB cmis_state the FSM publishes and DP_DEINIT is NOT in CMIS_TERMINAL_STATES (READY/FAILED/REMOVED). For DOM_FLAG to be published, the FSM must have momentarily reached/published a TERMINAL state during the stall window (opening the gate for one DOM sweep) before falling back to DP_DEINIT. That is exactly the read-after-write hazard the optimize.json rationale assumed away: a handler that issues a datapath-mutating write (set_datapath_deinit / set_datapath_init) and then RE-READS status within the SAME FSM step now gets the pre-write cached snapshot instead of live state, so a stalled deinit/init can be mis-judged as complete and the FSM advances out of DP_DEINIT prematurely. The invariant 'every status read precedes every status-mutating write in a step' does not hold for the DP_DEINIT / bring-up path under FAULT_DP_STALL, so the memoization changed a transition decision.",
+          "repair_hint": "Do not cache get_transceiver_status() blindly for the whole handle lifetime. In src/cmis/cmis_api.rs, invalidate/clear status_cache after any datapath-mutating write (set_datapath_init, set_datapath_deinit, set_application, set_datapath_deinit) so a subsequent get_datapath_state / get_config_datapath_hostlane_status / get_dpinit_pending in the same FSM step re-reads live pages 10h/11h. Cross-reference the DP_DEINIT and AP_CONF/DP_INIT handlers in src/cmis/cmis_manager_task.rs (mirror cmis/cmis_manager.py) for read-after-write of datapath state within one process_cmis_state_machine step; those are the reads that must NOT be served from the pre-write snapshot. Alternatively scope memoization to only the pre-decision guard reads and bypass the cache for post-write confirmation reads. Mirror round-5's info() memoization only where the aggregate is truly step-invariant (info is; status under an in-flight deinit/init is not)."
+        }
+      ],
+      "bench_before": {
+        "round": 6,
+        "crate": "pipeline",
+        "sha": "d8500b4d80dc2e9a",
+        "b5_cpu_rust": 35.76,
+        "b5_rss_kb_rust": 83148,
+        "b5_cpu_python": 17.78,
+        "b5_rss_kb_python": 71168,
+        "b9_events_rust": 16129,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 43.58,
+        "b4_sweep_ms_b": 74.09,
+        "b4_sweep_ms_p": 32.73
+      },
+      "ts": "2026-08-28T20:51:16"
+    },
+    {
+      "round": 7,
+      "title": "memoize BridgeCmisApi's FlatMem register bit (00h:2) across a single CMIS FSM step",
+      "files": [
+        "xcvrd-rs/src/cmis/cmis_api.rs"
+      ],
+      "rationale": "bench.json B9 shows the deployed rust variant still over-reads page 0 (6888 reads/30s vs the reference's 1734, ~4x) even after round 5 memoized get_transceiver_info(). A residual page-0 amplifier is is_flat_memory(): it reads CMIS 00h:2 (a page-0 lower-memory byte) on EVERY call via read_byte, and it is called several times per FSM step -- once at process_single_lport step start (cmis_manager_task.rs:1531) and again inside each duration getter's guard (get_datapath_init/deinit/tx_turnon/tx_turnoff/module_pwr_up/module_pwr_down all begin `if self.is_flat_memory()`), so an AP_CONF step re-reads 00h:2 ~3x and a DP_INIT step ~4x. The FlatMem bit is a STATIC module property over a bring-up step (the handle is rebuilt per sweep and on re-plug, exactly like info_cache), so the repeated 00h:2 reads are pure read amplification. This is the direct analogue of round 5's successful info() memoization applied to the other static-within-a-step page-0 read, and unlike round 6 (status) the value is genuinely invariant. Block-batching the alternative over-read (get_active_apsel_hostlane's 8 single-byte page-11h reads) was rejected: MockSfp.read_eeprom returns None on any unseeded byte in a range and a unit test relies on per-byte partial-miss->0 resilience, so batching would change behaviour and break the test.",
+      "expected_effect": "B9 page-0 read count should drop by roughly the per-step redundant is_flat_memory reads (~2-3 fewer 00h:2 reads x ~192 FSM steps in the 30s window, order ~400-600 fewer page-0 reads, a few percent off page 0), moving it toward the reference. No effect on pages 16/17 or on marshalling (B12). Small CPU trim on the CMIS bring-up path. B4/B7 sweep p50 unchanged to slightly lower.",
+      "passed": true,
+      "reverted": false,
+      "failures": [],
+      "bench_before": {
+        "round": 7,
+        "crate": "pipeline",
+        "sha": "d8500b4d80dc2e9a",
+        "b5_cpu_rust": 37.06,
+        "b5_rss_kb_rust": 83084,
+        "b5_cpu_python": 18.79,
+        "b5_rss_kb_python": 71332,
+        "b9_events_rust": 16407,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 57.54,
+        "b4_sweep_ms_b": 77.32,
+        "b4_sweep_ms_p": 30.71
+      },
+      "ts": "2026-08-28T21:48:17"
+    },
+    {
+      "round": 8,
+      "title": "memoize BridgeCmisApi's parsed application advertisement across a single CMIS FSM step",
+      "files": [
+        "xcvrd-rs/src/cmis/cmis_api.rs"
+      ],
+      "rationale": "get_application_advertisement() re-ran py_repr_to_json on the info() 'application_advertisement' repr string on EVERY call, even though info() itself is already memoized per handle (rounds 5/7). It is re-invoked several times per FSM step by the app-selection accessors -- get_host_lane_assignment_option (via get_cmis_host_lanes_mask), get_media_lane_count, get_media_lane_assignment_option, and common::get_cmis_application (via get_cmis_application_desired) -- and get_desired_app_map/is_decommission_required/is_cmis_application_update_required each drive those, so a single process_single_lport step parses the same several-hundred-byte repr string 3-5+ times. That is pure redundant CPU work (category 1). Unlike round 6 (caching live get_transceiver_status, reverted) this caches a value that is a pure function of the already-static info() identity dict, so it is STATIC over the handle's single step by exactly the same argument that made the round-5 info() and round-7 flat_mem caches safe. bench.json shows the deployed rust variant is CPU-heavier than the reference on this glue: B5 cpu_pct rust 38.21 vs python 18.39.",
+      "expected_effect": "Fewer py_repr_to_json parses per CMIS FSM step (one parse per handle instead of 3-5+), trimming CMIS-bring-up CPU. This is a CPU/latency-only change on the CMIS app-config path: expect a small downward tick in B5 rust cpu_pct and in CMIS bring-up latency (B2 plug_s / B3 ready_s) at startup and on replug. It reads NO EEPROM (info is already memoized), so B9 read/write counts and the page histogram (page 0 6941, page 16 2804, page 17 4945) are UNCHANGED, and every published STATE_DB row/field/value is byte-identical. It does not touch the get_transceiver_status marshalling path or DOM-sweep timing (B4/B7), so it does not perturb the DOM-vs-CMIS publish race that reverted rounds 1/3/6.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init (assert not True). Deterministic: reproduced 1/1 on an isolated re-run, so it is a real behaviour regression, not a race flake.",
+          "likely_cause": "The round-8 memoization of BridgeCmisApi's parsed application advertisement in xcvrd-rs/src/cmis/cmis_api.rs perturbed the CMIS FSM step, breaking the DOM-vs-CMIS publish gating the optimizer claimed was untouched. DOM sweeps must be suppressed until the CMIS state machine reaches its terminal READY state; with the cache in place the daemon now publishes TRANSCEIVER_DOM_FLAG for Ethernet48 while the module is still in the non-terminal DP_DEINIT state. Because get_application_advertisement feeds get_desired_app_map / is_decommission_required / is_cmis_application_update_required, caching its parsed value changed the app-selection accessors' results (or the cadence of the FSM step), which shifts when the module is treated as gated -- exactly the DOM/CMIS publish-race class that reverted rounds 1/3/6. This is the same regression the optimize.json 'behaviour_risk: none observable' assumption failed to anticipate.",
+          "repair_hint": "Revert or tightly scope the round-8 cache in xcvrd-rs/src/cmis/cmis_api.rs. The memoized parsed application_advertisement is NOT step-invariant with respect to the DOM gating decision even though info() is memoized: the FSM step timing/ordering it feeds gates the DOM sweep. Re-check the DOM gating predicate (cmis_state must be terminal/READY before DOM publish; mirror the Python cmis/cmis_state_machine + dom gating in source/xcvrd) and ensure the app-advertisement memoization does not advance or short-circuit the FSM past DP_DEINIT before the gate opens. Safest fix: drop the round-8 memoization (keep the round-5 info() and round-7 flat_mem caches which do not touch FSM step ordering), or guard the DOM publish path on the CMIS terminal-state check so the cache cannot leak DOM rows during CMIS init."
+        }
+      ],
+      "bench_before": {
+        "round": 8,
+        "crate": "pipeline",
+        "sha": "449692f8605879be",
+        "b5_cpu_rust": 38.21,
+        "b5_rss_kb_rust": 82912,
+        "b5_cpu_python": 18.39,
+        "b5_rss_kb_python": 71192,
+        "b9_events_rust": 16522,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 62.69,
+        "b4_sweep_ms_b": 73.81,
+        "b4_sweep_ms_p": 29.35
+      },
+      "ts": "2026-08-28T22:46:43"
+    },
+    {
+      "round": 9,
+      "title": "memoize BridgeCmisApi's cmis_major (00h:1 CMIS revision) across a single CMIS FSM step",
+      "files": [
+        "xcvrd-rs/src/cmis/cmis_api.rs"
+      ],
+      "rationale": "bench.json B9 shows the rust variant reads EEPROM page 0 6754 times vs the reference python's 1734 (total reads 15319 vs 6456) -- the largest single-page read-amplification gap. cmis_major() reads the static CMIS revision register 00h:1 and is called ONCE PER HOST LANE inside the loops in set_datapath_init and set_datapath_deinit (up to CMIS_MAX_HOST_LANES=8 reads per call) to pick the v4+ deinit-bit polarity, even though the value is loop-invariant and static for a plugged module. This is pure page-0 read amplification the reference does not do (c_cmis reads the CMIS version once per step, not per lane). The fix mirrors the already-accepted flat_mem_cache (round 7, passed) and info_cache (round 5, passed): a std::cell::OnceCell that caches only the reliable register read, leaving the read-miss default (5) uncached to preserve per-call retry resilience. The handle is rebuilt every sweep/re-plug so the cached revision is always current.",
+      "expected_effect": "B9 rust page-0 reads (and total reads) should drop by the excess per-lane 00h:1 reads issued during CMIS datapath init/deinit across the 32-port bring-up -- the several cmis_major() calls per set_datapath_init/deinit collapse to at most one 00h:1 read per handle. Small B9 read-count reduction concentrated on page 0; no effect on B4/B7 DOM-sweep timing (these register reads are on the CMIS bring-up path, not the periodic DOM sweep). Because it shrinks the CMIS-init window slightly it cannot increase DOM-flag-during-init exposure.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "deferred": false,
+          "gating": true,
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=INSERTED (non-terminal) -- DOM not gated during CMIS init (assert not True). A DOM sweep published TRANSCEIVER_DOM_FLAG|Ethernet48 while the CMIS datapath was still non-terminal; the test arms FAULT_DP_STALL and re-plugs so the module is held mid-CMIS-init and requires TRANSCEIVER_DOM_FLAG to be absent in EVERY non-terminal CMIS-state sample.",
+          "regression": "This is the round-9 gate failure. The Optimizer memoized BridgeCmisApi::cmis_major() (00h:1 CMIS revision) with a OnceCell, and cmis_major() is called on the exact set_datapath_init/set_datapath_deinit (DP_DEINIT) path this test exercises to pick the v4+ deinit-bit polarity. cmis/cmis_api.rs is the ONLY file changed this round, and test_dom_gated_during_cmis_init is the historical accept/revert discriminator for this campaign: it PASSES on every accepted round (4,5,7) and FAILS on every reverted cmis_api/bridge round (1,3,6,8) -- and now round 9. So the memoization altered observable behaviour on the CMIS bring-up path (the daemon now emits a DOM flag row during a non-terminal CMIS state), contradicting optimize.json's 'none observable / cannot alter which STATE_DB rows/fields/values are published or when' claim. It is NOT in pipeline/skips.json, so per the authoritative e2e oracle it gates and round 9 fails.",
+          "likely_cause": "Caching cmis_major() across a CMIS FSM step changes the deinit/init bit-polarity decision timing (or value at a re-plug read-miss boundary) enough to shift when the datapath reaches a terminal CMIS state, widening/mis-timing the DOM-gating window so a DOM sweep at --dom-interval 5 (fast cadence) lands inside the non-terminal window and publishes TRANSCEIVER_DOM_FLAG before CMIS init completes. Cadence-sensitive: this failure is deterministic at --dom-interval 5 and does not surface at the daemon default cadence.",
+          "repair_hint": "Revert or narrow the cmis_major OnceCell memoization in xcvrd-rs/src/cmis/cmis_api.rs so it cannot influence the set_datapath_init/set_datapath_deinit deinit-bit-polarity decision or its timing during CMIS init/re-plug (mirror c_cmis reading the CMIS version once per step, not the accepted per-lane behaviour that rounds 5/7 preserved). Cross-check the DOM-gating guard coupling in src/dom.rs (DomInfoUpdateTask flag-publish path, dom/dom_mgr.py) against the current CMIS datapath state read in cmis/cmis_manager_task.rs -- the 'skip DOM flag publish while CMIS datapath is non-terminal' check must remain evaluated per-sweep against the live cmis_state. If the memoization is behaviourally required, guarantee it returns byte-identical revision AND identical per-lane call timing to the round-7 baseline before re-attempting."
+        },
+        {
+          "layer": "e2e",
+          "test": "test_link_change_flags.py::test_link_change_triggers_fast_flag_recapture",
+          "deferred": true,
+          "gating": false,
+          "symptom": "AssertionError: Ethernet48 DOM flag table recorded 4 transitions across 10 flap-driven edges in 23s (needed >=6); poll-only at ~5.2s cadence reaches at most ~4. Known-failing.",
+          "regression": "NOT a round-9 regression and NOT a gating failure. This test is listed in pipeline/skips.json (tests_to_skip) -- an earlier milestone exhausted its repair budget and deferred it. It is excluded from the round-9 gate and does not affect the passed verdict."
+        }
+      ],
+      "bench_before": {
+        "round": 9,
+        "crate": "pipeline",
+        "sha": "449692f8605879be",
+        "b5_cpu_rust": 38.8,
+        "b5_rss_kb_rust": 83060,
+        "b5_cpu_python": 17.49,
+        "b5_rss_kb_python": 71252,
+        "b9_events_rust": 16143,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 57.86,
+        "b4_sweep_ms_b": 73.93,
+        "b4_sweep_ms_p": 32.31
+      },
+      "ts": "2026-08-28T23:44:08"
+    },
+    {
+      "round": 10,
+      "title": "return &Value from BridgeCmisApi::info() instead of deep-cloning the ~33-field identity map on every accessor",
+      "files": [
+        "xcvrd-rs/src/cmis/cmis_api.rs"
+      ],
+      "rationale": "BridgeCmisApi::info() memoizes the module identity dict (round 5) in a per-handle OnceCell, but every accessor read still went through `return v.clone()` -- a full deep clone of the ~33-field serde_json::Map (get_transceiver_info [33 fields], the second-largest getter in B12: config-a 3354ns) on EVERY call. During one CMIS bring-up step the FSM hits info() several times (is_coherent_module, get_cmis_rev, get_module_type_abbreviation via handle_cmis_*, and get_application_advertisement -- the latter re-cloning the whole map just to pull one string field before py_repr_to_json, and it is called from get_host_lane_assignment_option / get_media_lane_count / get_media_lane_assignment_option / common::get_cmis_application). Every one of those accessors only ever does `self.info().get(field)`, so the clone was pure wasted CPU + heap allocation. bench.json B5 shows the rust variant is CPU-heavy (cpu_pct 36.32 vs python 18.15) and B3 CMIS ready is 3.81s (rust) vs 3.18s (python); the surplus map clones during bring-up are part of that gap. This is a category-3 (avoid needless copies) change: info() now hands back a borrow into the cache, and on a failed fetch returns a shared static empty object (behaviourally identical to the old json!({}), still NOT cached so the next call retries). This is distinct from the reverted round-8 idea (memoize the PARSED application advertisement) -- nothing about the app-advertisement parse changes here.",
+      "expected_effect": "Fewer heap allocations / less memcpy per CMIS accessor call: B5 rust cpu_pct should tick down slightly (single-digit percent at most; the clones are only part of bring-up CPU) and B3 rust ready_s may edge toward the python floor. CRITICAL invariant: B9 EEPROM read/write counts are UNCHANGED -- info() still fetches get_transceiver_info exactly once per handle and caches it; this change removes copies of an already-in-memory value, it touches no read/write. Every published STATE_DB row/field/value is byte-identical (accessors read the same fields from the same cached dict).",
+      "passed": true,
+      "reverted": false,
+      "failures": [],
+      "bench_before": {
+        "round": 10,
+        "crate": "pipeline",
+        "sha": "449692f8605879be",
+        "b5_cpu_rust": 36.32,
+        "b5_rss_kb_rust": 83088,
+        "b5_cpu_python": 18.15,
+        "b5_rss_kb_python": 70864,
+        "b9_events_rust": 15393,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 52.82,
+        "b4_sweep_ms_b": 68.97,
+        "b4_sweep_ms_p": 31.67
+      },
+      "ts": "2026-08-29T00:40:53"
+    },
+    {
+      "round": 1,
+      "title": "cache the resolved per-index Sfp Python handle in the bridge, skipping the repeated chassis.get_sfp() PyO3 crossing",
+      "files": [
+        "platform-bridge/src/lib.rs"
+      ],
+      "rationale": "Platform::sfp(index) called chassis.get_sfp(index) on EVERY invocation -- a PyO3 method crossing paid ~13x per port per DOM sweep: poll_port's own presence probe, each of the ~6 posters calls validate_and_get_physical_port (one hal.sfp for the presence check) AND post_diagnostic_values_to_db (a second hal.sfp for the read), plus the CMIS bring-up step. The plant makes that crossing pure overhead: sonic_platform Chassis.__init__ builds _sfp_list = [Sfp(i) for i in range(count)] ONCE and get_sfp(index) is literally `return self._sfp_list[index]` (platform/sonic_platform/chassis.py:42,68-72) -- a stable object for the process lifetime, no EEPROM read, no side effect, unchanged across plug/unplug. bench.json B12 config-b measures this seam directly: sfp(0) [handle construction] = 407ns and get_presence [scalar] = 337ns per call (vs pure-Python config-p 114ns / 40ns), and the deployed config-b path is the daemon's CPU/latency bottleneck -- B5 rust cpu_pct 35.65 vs python 17.76, B4 config-b DOM sweep p50 88.1ms vs config-a 50.8ms and python-p 28.9ms. So the resolved Py handle is a process-lifetime constant per index and is now memoized in a Mutex<HashMap<usize, Py<PyAny>>>, resolved once and reused (clone_ref of the same underlying Python Sfp). This mirrors the accepted round-5 info() / round-7 flat_mem memoizations (reuse a value that is provably static for the handle) applied one level up at the Platform seam, and is distinct from every prior round (no py_to_json / json.dumps marshalling change like reverted rounds 1/3, no CMIS FSM read like reverted rounds 6/8/9, no db batching like reverted round 2).",
+      "expected_effect": "The get_sfp PyO3 crossing collapses from ~13x/port/sweep to once per index for the process lifetime. Expect B12 config-b sfp(0) [handle construction] (407ns) to fall toward the cache-hit floor, and a small downward tick in B5 rust cpu_pct (35.65) and B4/B7 config-b DOM-sweep p50 (88.1ms / p50_ns_per_port 3147021) since every poster + presence check now reuses the cached handle. CRITICAL invariants, all unchanged: B9 EEPROM read/write counts (reads 15100 / writes 829, page histogram) are UNAFFECTED -- get_sfp reads no EEPROM, and we add/drop/reorder no getter call; every published STATE_DB row/field/value is byte-identical because the cached handle IS the same Python Sfp object the plugin already returns; config-a (no Python) and config-p (pure Python) are untouched.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError at test_dom_gating.py:55 -- Ethernet48 TRANSCEIVER_DOM_FLAG present while cmis_state=DP_DEINIT (a non-terminal CMIS-init state). The invariant is that DOM must be gated (no TRANSCEIVER_DOM_FLAG|<port> row) in EVERY non-terminal CMIS sample across the DP-stall window; the daemon published a DOM flag during DP_DEINIT.",
+          "regressed_behaviour": "DOM-during-CMIS-init gating. The Optimizer's round-11 change (optimize.json: memoize the per-index Python Sfp handle in platform-bridge Platform::sfp, collapsing chassis.get_sfp() from ~13x/port/sweep to once per index) is a pure performance change that MUST NOT alter published STATE_DB rows. It regressed the DOM gate: with the get_sfp PyO3 crossing removed, the DOM sweep runs measurably faster (optimize.json expected_effect: B4 config-b DOM-sweep p50 88.1ms trending down), which narrows/removes the timing margin that previously kept the DOM poster from firing while a port is mid-CMIS-init (DP_DEINIT). The faster poster now wins the race against the CMIS state check and publishes TRANSCEIVER_DOM_FLAG|Ethernet48 before the datapath leaves the non-terminal init window.",
+          "likely_cause": "DOM publish path does not (or no longer reliably) consult the live CMIS/datapath state before posting, so the accelerated sweep publishes a DOM flag during DP_DEINIT. The cached handle itself reads no EEPROM and returns the same Sfp object, so values are unchanged; what changed is publish TIMING relative to the CMIS state machine.",
+          "repair_hint": "Make the DOM-flag gate independent of sweep cadence rather than relying on the poster being slow. In the DOM poster (src/dom.rs / DomInfoUpdateTask, mirroring dom/dom_mgr.py post_port_dom_flag / the CMIS-init gate in xcvrd.py), re-check the port's CMIS state at publish time and skip publishing TRANSCEIVER_DOM_FLAG while cmis_state is non-terminal (not in the TERMINAL set, e.g. DP_DEINIT). Cross-reference the DOM gating logic against pipeline/analysis.md / pipeline/plan.json and source/xcvrd/. Note: this is the ONLY failure in 105 e2e tests and the assertion is timing-window sensitive (sampled across a fault-injected DP stall), so confirm on a repair re-run whether it reproduces deterministically or is a narrow race exposed by the speed-up; either way the optimization changed observable behaviour and the round does not pass as-is."
+        }
+      ],
+      "bench_before": {
+        "round": 1,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 35.65,
+        "b5_rss_kb_rust": 83292,
+        "b5_cpu_python": 17.76,
+        "b5_rss_kb_python": 71244,
+        "b9_events_rust": 15929,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 50.8,
+        "b4_sweep_ms_b": 88.12,
+        "b4_sweep_ms_p": 28.94
+      },
+      "ts": "2026-08-31T16:01:27"
+    },
+    {
+      "round": 2,
+      "title": "no further safe optimisation identified",
+      "files": [],
+      "rationale": "Every meaningful hotspot in this round's bench.json sits on one of exactly two timing-sensitive paths, and optimize_history shows both are guarded by the same genuine race that has already reverted 7 rounds. (1) DOM sweep publish path: B12 config-b marshalling dominates the deployed cost (get_transceiver_dom_real_value 14932ns vs config-a 2178 / config-p 244; get_transceiver_status 6821 vs 418/191; call_json(get_transceiver_status_flags) 4528), plus db.set [27 fields] 2759ns (config-a) and B4 config-b DOM-sweep p50 79.1ms vs config-a 50.8ms / python 32.7ms. Every optimization that sped this path was reverted for test_dom_gating.py::test_dom_gated_during_cmis_init: py_to_json kwargs cache (old round 1), batch RealDbTable::set HSETs (old round 2), direct-PyDict-walk marshalling (old round 3), and cache the per-index Sfp handle (this streak's round 1). (2) CMIS FSM step path: B9 read amplification is the single biggest gap (rust 15086 EEPROM reads / 793 writes vs python 6456 / 0; page-17 histogram 4784 vs 1440 from the per-lane byte reads in get_active_apsel_hostlane/get_application), but every CMIS-side read or CPU reduction was reverted for the SAME gating test: status memoize (old round 6, staled the cmis_state the gate reads), parsed-advertisement memoize (old round 8), cmis_major memoize (old round 9). The only accepted CMIS rounds (5 info memoize, 7 flat_mem memoize, 10 info() -> &Value borrow) all reduced work on the module's STATIC identity aggregate that was otherwise re-fetched per accessor -- that seam is now fully exhausted in the current crate (info_cache + flat_mem_cache + &Value borrow are already present), and the one remaining static-data redundancy (get_application_advertisement re-running py_repr_to_json each call) is precisely reverted old-round-8, which per the agent rules must not be retried.",
+      "expected_effect": "No code change this round, so no benchmark metric should move: B5 rust cpu_pct ~36.12, rss ~83196 KB; B9 reads 15086 / writes 793; B4 config-b DOM-sweep p50 ~79.1ms; B12 marshalling costs unchanged; unit tests stay 320 passed / 0 failed. This is a deliberate no-op: the remaining measured wins (marshalling, DB round trips, EEPROM read amplification) are real but all lie on the DOM-sweep or CMIS-FSM timing paths, and the daemon carries a latent DOM-gating concurrency race (the DOM poller reads cmis_state from STATE_DB at poll_port entry, then publishes TRANSCEIVER_DOM_FLAG later in the same pass; under the benchmark's --dom-interval 5 cadence any speed-up of either the poller or the CMIS state-writer narrows that window and lets a DOM_FLAG row appear while a port is still non-terminal). Inventing a marginal change here would carry that regression risk for no reliable gain. The correct next unlock is a behaviour-preserving fix that makes the DOM-flag gate cadence-independent (re-check the live terminal CMIS state immediately before each TRANSCEIVER_DOM_FLAG publish) -- a Repair concern, not an Optimizer one; once that race is closed the marshalling / read-amplification / DB-batching wins above become safe to take.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init (assert not True).",
+          "likely_cause": "The latent DOM-gating concurrency race described in optimize.json: the DOM poller samples cmis_state at poll_port entry, then publishes TRANSCEIVER_DOM_FLAG later in the same pass. Under the benchmark's --dom-interval 5 cadence the window is wide enough that a DOM_FLAG row is emitted for a port still traversing CMIS init (DP_DEINIT). This round changed no files, so the failure is the pre-existing race being exposed by the pinned cadence, not a new regression -- but the gate does not pass.",
+          "repair_hint": "Make the DOM-flag gate cadence-independent: re-read the live terminal CMIS state from STATE_DB immediately before each TRANSCEIVER_DOM_FLAG publish (src/dom.rs publish path, mirroring dom/dom_mgr.py DomInfoUpdateTask gating against the module's cmis_state) rather than relying on the value sampled at poll entry. This is the Repair unlock optimize.json names as the prerequisite for the deferred marshalling/read-amplification wins."
+        },
+        {
+          "layer": "e2e",
+          "test": "test_cmis_state_progression.py::test_cmis_state_progression",
+          "symptom": "Ethernet28 observed too few intermediate cmis_states [] (seq=['READY']); daemon appears to jump straight to READY without traversing the machine (assert 0 >= 4).",
+          "likely_cause": "CMIS FSM step path (the second timing-sensitive path in optimize.json). Under --dom-interval 5 the intermediate TRANSCEIVER_STATUS|cmis_state rows (INSERTION/DP_INIT/DP_ACTIVATE/...) are written and overwritten faster than the test can sample them, so the observed set of intermediate states collapses to only the terminal READY. No files changed this round, so this is the existing CmisManagerTask state-publish timing surfacing at the measured cadence.",
+          "repair_hint": "Ensure each CMIS FSM transition durably publishes its cmis_state to STATE_DB TRANSCEIVER_STATUS before advancing (src/cmis/cmis_manager_task.rs advance/step, mirroring cmis/cmis_mgr.py CmisManagerTask per-state writes), so intermediate states remain observable regardless of poll cadence."
+        },
+        {
+          "layer": "e2e",
+          "test": "test_sff_control.py::test_sff_lpmode_disabled_on_bringup",
+          "symptom": "WaitTimeout after 80s waiting for Ethernet40 xcvrd Power Control write (00h:93) on admin-up bring-up (last=None) -- the expected Power Control byte was never written.",
+          "likely_cause": "SFF (non-CMIS) admin-up bring-up path did not issue the Power Control (page 00h byte 93) write within the timeout on this run. No files changed this round; consistent with the same DOM/CMIS timing contention on the injected daemon under the --dom-interval 5 cadence starving/deferring the SFF power-control write, so the row never lands.",
+          "repair_hint": "Verify the SFF power-override/Power Control write on admin-up is unconditionally issued during bring-up (src/sfp / SFF control path, mirroring the Python xcvrd sff power-control handling) and is not gated behind or delayed by the DOM/CMIS poll loop; confirm 00h:93 is written promptly on the admin-up event for Ethernet40."
+        }
+      ],
+      "bench_before": {
+        "round": 2,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 36.12,
+        "b5_rss_kb_rust": 83196,
+        "b5_cpu_python": 18.42,
+        "b5_rss_kb_python": 71192,
+        "b9_events_rust": 15879,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 50.76,
+        "b4_sweep_ms_b": 79.13,
+        "b4_sweep_ms_p": 32.73
+      },
+      "ts": "2026-08-31T16:58:11"
+    },
+    {
+      "round": 3,
+      "title": "no further safe optimisation identified",
+      "files": [],
+      "rationale": "I re-read this round's bench.json and the full optimize_history before touching code, and independently reached the same conclusion as round 2 -- now reinforced by decisive new evidence. Every meaningful hotspot sits on one of exactly two timing-sensitive paths, both guarded by a latent DOM-gating race that has reverted 8 rounds. (1) DOM-sweep publish path: B12 config-b marshalling is the dominant deployed cost -- get_transceiver_dom_real_value 15944ns (config-a 1801, config-p 218), get_transceiver_status 6560ns (a 464, p 139), call_json(get_transceiver_status_flags) 5063ns -- plus db.set [27 fields] 2368ns (config-a) and B4 config-b DOM-sweep p50 59.3ms vs config-a 60.9ms / python 34.6ms. Every optimisation that sped this path was reverted for test_dom_gating.py::test_dom_gated_during_cmis_init: py_to_json kwargs cache (old r1), batch RealDbTable::set HSETs (old r2), direct-PyDict-walk marshalling (old r3), cache the per-index Sfp handle (streak r1). (2) CMIS-FSM step path: B9 read amplification is the biggest single gap -- rust 14884 EEPROM reads / 790 writes vs python 6456 / 0, page-17 histogram 4747 vs 1440 and page-16 2689 vs 540, from the per-lane single-byte reads in get_active_apsel_hostlane/get_application. Every CMIS-side read or CPU reduction there was reverted for the SAME gating test: status memoize (old r6, staled the cmis_state the gate reads), parsed-advertisement memoize (old r8), cmis_major memoize (old r9); and per-byte page-16/17 batching is blocked because MockSfp.read_eeprom returns None on any unseeded byte in a range and a unit test relies on per-byte partial-miss->0 resilience (noted in r7). The only accepted CMIS rounds (r5 info memoize, r7 flat_mem memoize, r10 info() -> &Value borrow) all reduced work on the module's STATIC identity aggregate; that seam is fully exhausted in the current crate (info_cache + flat_mem_cache + &Value borrow are all present), and the remaining static-data redundancy -- get_application_advertisement re-running py_repr_to_json -- is precisely reverted old-r8, which the rules forbid retrying. The bridge is otherwise lean: read_eeprom already carries the accepted r4 bytearray-copy fast path, and its only remaining per-call allocation (py_to_json's {default: str} kwargs PyDict) is exactly reverted old-r1. The decisive new evidence: the round-2 no-op -- ZERO files changed -- was itself recorded failing test_dom_gating.py::test_dom_gated_during_cmis_init (plus test_cmis_state_progression and test_sff_control) at --dom-interval 5. So the current crate (sha 342120e281c16271) already trips this race independent of any optimisation; it is a pre-existing cadence-sensitive concurrency defect, not something an Optimizer edit introduces or can avoid. The magnitude lesson from the accept/revert record confirms the boundary: only a tiny, uniform, both-paths CPU glue reduction survives (r4 read_eeprom, already taken), while any change that meaningfully shifts the DOM-poller-vs-CMIS-writer relative timing (r11 Sfp handle removed a ~13x/port/sweep PyO3 crossing) widens the window and leaks TRANSCEIVER_DOM_FLAG during a non-terminal cmis_state. No remaining change is both meaningful and off both timing paths.",
+      "expected_effect": "No code change this round, so no benchmark metric should move: B5 rust cpu_pct ~37.38, rss_kb_median ~82940; B9 rust reads 14884 / writes 790 (page hist 0:6513, 16:2689, 17:4747); B4 config-b DOM-sweep p50 ~59.3ms (config-a 60.9ms, python 34.6ms); B12 config-b marshalling unchanged (info 17033ns, dom_real_value 15944ns, status 6560ns, status_flags 5063ns, get_change_event 5074ns); db.set [27 fields] config-a ~2368ns; unit tests stay 320 passed / 0 failed. This is a deliberate no-op: the real remaining wins (marshalling, DB round trips, EEPROM read amplification) all lie on the DOM-sweep or CMIS-FSM timing paths, and the crate carries a latent DOM-gating race that -- proven by the round-2 no-op failure -- already fails test_dom_gated_during_cmis_init at --dom-interval 5 with no change at all. Inventing a marginal change would add regression risk on top of an already-red gate for no reliable gain. The correct next unlock is a behaviour-preserving Repair, not an Optimizer edit: make the DOM-flag gate cadence-independent by re-reading the live terminal CMIS state from STATE_DB immediately before each TRANSCEIVER_DOM_FLAG publish (src/dom.rs publish path / DomInfoUpdateTask, mirroring dom/dom_mgr.py), rather than relying on the value sampled at poll_port entry. Once that race is closed, the marshalling / read-amplification / DB-batching wins above become safe to take.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=INSERTED (non-terminal) -- DOM not gated during CMIS init (assert not True). Runs at --dom-interval 5.",
+          "likely_cause": "Pre-existing cadence-sensitive DOM-gating race, NOT introduced by this round (optimize.json round 3 is a deliberate no-op: zero files changed, crate sha 342120e281c16271 unchanged; the round-2 no-op recorded the identical failure). The DOM poller decides whether to publish TRANSCEIVER_DOM_FLAG using the cmis_state sampled at poll_port entry rather than re-reading the live terminal CMIS state immediately before publish, so at a 5s DOM cadence a DOM sweep can leak a DOM flag for a port whose cmis_state is still non-terminal (INSERTED).",
+          "repair_hint": "Behaviour-preserving Repair (not an Optimizer edit): in src/dom.rs DomInfoUpdateTask publish path, re-read the live terminal CMIS state from STATE_DB immediately before each TRANSCEIVER_DOM_FLAG publish and gate on it, mirroring dom/dom_mgr.py, instead of the value sampled at poll entry. This is a real regression against the oracle at --dom-interval 5, but it is latent in the current crate independent of any optimisation."
+        }
+      ],
+      "bench_before": {
+        "round": 3,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 37.38,
+        "b5_rss_kb_rust": 82940,
+        "b5_cpu_python": 18.19,
+        "b5_rss_kb_python": 70984,
+        "b9_events_rust": 15674,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 60.93,
+        "b4_sweep_ms_b": 59.32,
+        "b4_sweep_ms_p": 34.61
+      },
+      "ts": "2026-08-31T17:49:52"
+    },
+    {
+      "round": 4,
+      "title": "tune the release build profile (opt-level 3, codegen-units=1, thin LTO)",
+      "files": [
+        "Cargo.toml"
+      ],
+      "rationale": "The workspace [profile.release] was pinned to a de-optimised `opt-level = 2` with default codegen-units (16) and no LTO, so the daemon binary the benchmark builds and grades is under-optimised. This is the one remaining lever that is provably behaviour-neutral. Every earlier source-level idea on the hot paths is either already landed (rounds 4/5/7/10: EEPROM read-amplification and clone removal) or was reverted; critically, optimize_history shows test_dom_gated_during_cmis_init reverted TWO deliberate no-op rounds (seq2 rounds 2 and 3, sha 342120e281c16271 unchanged) and a bridge-only round (seq2 round 1) -- i.e. it fails on the untouched baseline ~independently of the change, so it is a flaky/cadence-sensitive e2e gate, not a regression signal. Given that, the only responsible move is a change that cannot alter ANY observable behaviour at all. A build-profile change compiles the exact same source: identical STATE_DB rows/fields/values, identical publish ordering, identical EEPROM read/write counts (B9), identical CLI/log lines. It only makes the emitted code faster. It targets the pure-Rust compute the benchmark measures directly: B12 config-a (native plant, no PyO3) get_transceiver_info 3021ns / dom_real_value 1797ns / db.set 2480ns / db.get 2385ns, and the B4/B7 DOM-sweep timings and B5 CPU. Cross-crate inlining (daemon -> platform-bridge -> swss-common) is exactly what thin LTO + codegen-units=1 unlocks.",
+      "expected_effect": "B12 config-a per-call costs (get_transceiver_info, get_transceiver_dom_real_value, db.set, db.get) should tick down a few percent from better codegen/inlining; B4 config-a and config-b DOM-sweep p50 (50.17ms / 84.52ms) and B5 rust cpu_pct (36.59) should edge down. INVARIANTS that MUST NOT move: B9 rust total_events (15853) and its page histogram, config-p (pure Python) numbers, and every published STATE_DB row/field/value/order -- this change touches no source line, only the compiler's optimisation settings. If the next benchmark shows no measurable movement, revert (thin LTO's win on a PyO3-crossing-dominated workload can be marginal) rather than keeping a longer build for nothing.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init (assert not True). test_dom_gating.py:55.",
+          "reproduced": "2/2 runs (full --all suite and a targeted -k re-run), deterministic at --dom-interval 5.",
+          "regression_assessment": "NOT attributable to round 4. This round changes only Cargo.toml [profile.release] (opt-level 2->3, codegen-units 16->1, thin LTO); it compiles the exact same source, so STATE_DB rows/fields/values and publish ordering are unchanged. This gate is the pre-existing cadence-sensitive DOM-gating race documented in optimize.json/optimize_history: it reverted two deliberate no-op rounds at unchanged sha 342120e281c16271 and a bridge-only round, i.e. it fails on the untouched baseline independently of any source change. It is not listed in pipeline/skips.json. Every other observable behaviour is intact: the other 104 e2e tests pass (presence, info, DOM values/flags/metadata, VDM, PM, status/error, warm-reboot, media-settings, optics-si, sff8636/sff-control, lpmode/reset) and all 320 mocked unit tests pass.",
+          "likely_cause": "Latent race between the CMIS state machine reaching a terminal datapath state and the DOM poll gate in the daemon: DOM_FLAG rows are published for a port whose cmis_state is still DP_DEINIT (non-terminal), so the gate that should withhold DOM publication during CMIS init is not observed under this poll cadence.",
+          "repair_hint": "Gate DOM/DOM_FLAG publication on CMIS readiness. Mirror the Python cmis/cmis_mgr.py DP-state terminal check into the Rust DOM publish path (src/dom.rs / cmis manager in src/cmis/) so a port in DP_DEINIT (or any non-terminal cmis_state) has its DOM_FLAG publication suppressed until CMIS init completes. This is a repair the DOM-gating milestone owns; it is orthogonal to the build-profile change and should not block accepting/rejecting round 4 on performance grounds."
+        }
+      ],
+      "bench_before": {
+        "round": 4,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 36.59,
+        "b5_rss_kb_rust": 83308,
+        "b5_cpu_python": 18.42,
+        "b5_rss_kb_python": 71380,
+        "b9_events_rust": 15853,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 50.17,
+        "b4_sweep_ms_b": 84.52,
+        "b4_sweep_ms_p": 32.06
+      },
+      "ts": "2026-08-31T18:49:01"
+    },
+    {
+      "round": 5,
+      "title": "thread the resolved SfpHandle out of validate_and_get_physical_port so posters stop re-constructing it",
+      "files": [
+        "xcvrd-rs/src/dom/utilities/db.rs",
+        "xcvrd-rs/src/dom/utilities/vdm.rs"
+      ],
+      "rationale": "Every DOM/status/VDM poster (post_diagnostic_values_to_db, post_flags_to_db, post_vdm_thresholds_or_flags) called validate_and_get_physical_port -- which already constructs an SfpHandle via hal.sfp() to run the get_presence()/flat-memory checks -- and then IMMEDIATELY called hal.sfp(physical_port) a SECOND time to get a handle to read from. Each hal.sfp() is a PyO3 chassis.get_sfp() crossing (GIL acquire + call_method1 + unbind + Box alloc): B12 (config a) measures 'sfp(0) [handle construction]' at 68.7us. That doubled construction runs once per poster per port per sweep across ~6 posters x 32 ports, and the DOM sweep (B4 config a) is 48.2ms total / 1720us per port. chassis.get_sfp just returns the plugin's cached _sfp_list[index] (verified in platform/sonic_platform/chassis.py), so it performs NO EEPROM read -- the second construction is pure PyO3/alloc overhead, invisible to STATE_DB and to B9 page traffic. validate_and_get_physical_port now returns Some((physical_port, handle)) and the callers reuse that handle instead of re-resolving.",
+      "expected_effect": "One fewer hal.sfp() PyO3 crossing per port per poster invocation (roughly 6 x 32 = ~190 fewer chassis.get_sfp crossings per DOM sweep). Expect B4/B7 DOM-sweep p50 (config a/b) and B5 rust cpu_pct to tick down by a small-but-real amount; B9 read/write counts, the page_histogram, and every published STATE_DB row/field/value/timing are unchanged (get_sfp does not touch EEPROM and no read cadence moves).",
+      "passed": false,
+      "reverted": true,
+      "failures": [],
+      "bench_before": {
+        "round": 5,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 37.08,
+        "b5_rss_kb_rust": 83296,
+        "b5_cpu_python": 18.31,
+        "b5_rss_kb_python": 70884,
+        "b9_events_rust": 15700,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 48.17,
+        "b4_sweep_ms_b": 75.0,
+        "b4_sweep_ms_p": 31.79
+      },
+      "ts": "2026-08-31T19:16:38"
+    },
+    {
+      "round": 6,
+      "title": "no further safe optimisation identified",
+      "files": [],
+      "rationale": "I re-read this round's bench.json and the full 15-round optimize_history before touching code, and independently reach the same conclusion the last two rounds reached, now with fresh confirmation. Every measurable hotspot sits on exactly one of two timing-sensitive paths, and both are already exhausted or blocked. (1) DOM-sweep publish path: B12 config-b marshalling dominates deployed cost (get_transceiver_dom_real_value config-b 20681ns vs config-a 1867 / config-p 226; get_transceiver_status 7522 vs 361 / 152; call_json(get_transceiver_status_flags) 5507 vs 200 / 146), plus native db.set[27] 2755ns / db.get 2615ns (config-a) and B4 DOM-sweep p50 config-a 49.6ms / config-b 67.6ms vs python 30.0ms. EVERY optimisation that sped this path was reverted for test_dom_gating.py::test_dom_gated_during_cmis_init: py_to_json kwargs cache (old r1), batch RealDbTable::set HSETs (old r2), direct-PyDict-walk marshalling (old r3), cache the per-index Sfp handle (streak r1), and thread the resolved SfpHandle out of validate_and_get_physical_port (streak r5). Any remaining DB-path micro-change (hoisting redis_key's format! alloc, dropping the per-write keys-index String clone) also lives on this exact publish path and carries the same revert risk for zero evidence it clears the gate. (2) CMIS-FSM step path: B9 read amplification is the single biggest gap (rust 15177 EEPROM reads / 800 writes vs python 6456 / 0; page-17 histogram 4810 vs 1440, page-16 2740 vs 540, from per-lane single-byte reads in get_active_apsel_hostlane/get_application). Every CMIS-side read or CPU reduction there was reverted for the SAME gate: status memoize (old r6), parsed-advertisement memoize (old r8), cmis_major memoize (old r9); per-byte page-16/17 range batching is blocked because MockSfp.read_eeprom returns None on any unseeded byte in a range and a unit test depends on per-byte partial-miss->0 resilience (noted r7). The only accepted CMIS rounds (r5 info memoize, r7 flat_mem memoize, r10 info()->&Value borrow) all reduced work on the module's STATIC identity aggregate; I confirmed this round that info_cache + flat_mem_cache are still present in xcvrd-rs/src/cmis/cmis_api.rs and the accepted read_eeprom bytearray-copy fast path is still in platform-bridge/src/lib.rs -- that seam is fully landed, and the one remaining static redundancy (get_application_advertisement re-running py_repr_to_json) is precisely reverted old-r8, which the rules forbid retrying.",
+      "expected_effect": "No files changed, so all benchmark numbers, B9 read/write counts, the page_histogram, every STATE_DB row/field/value and publish ordering, and all CLI/log lines are byte-for-byte unchanged from the baseline crate (sha 342120e281c16271).",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init.",
+          "regressed": "Not a regression from round 6 (zero files changed). Pre-existing, cadence-sensitive DOM-gating failure against the oracle at --dom-interval 5, present on the untouched baseline crate. optimize.json documents this exact test reverting prior no-op rounds.",
+          "likely_cause": "STATE_DB TRANSCEIVER_DOM_FLAG|Ethernet48 is written while the module's cmis_state is still non-terminal (DP_DEINIT). The DOM poll only samples is_port_dom_monitoring_disabled at poll_port entry and does not re-check the live terminal cmis_state immediately before each flag publish.",
+          "repair_hint": "In xcvrd-rs/src/dom/dom_mgr.rs (poll_port / post_port_dom_flags_to_db and the link-change/republish hooks), gate each TRANSCEIVER_DOM_FLAG publish on a live terminal cmis_state re-read from STATE_DB immediately before the write, mirroring dom/dom_mgr.py DomInfoUpdateTask, while preserving the one-cadence DOM_FLAG-reappears invariant that test_dom_flag_meta.py::test_dom_flag_groups_temp_and_vcc depends on. This is a correctness Repair, not an Optimizer change."
+        },
+        {
+          "layer": "e2e",
+          "test": "test_sff_control.py::test_sff_high_power_class_enabled",
+          "symptom": "lib.waits.WaitTimeout: timed out after 80s waiting for Ethernet40 xcvrd Power Control write (00h:93) on class-5 bring-up (last=None).",
+          "regressed": "Not a regression from round 6 (zero files changed). Pre-existing e2e failure on the baseline crate; the test appears under skips.json 'retried' but is NOT in 'tests_to_skip', so it still gates.",
+          "likely_cause": "For an SFF-8636 class-5 (high-power) module on Ethernet40, the daemon never issues the Power Control write to page 00h byte 93 (Power set / high-power-class enable). No EEPROM write to 00h:93 is observed within the 80s bring-up window, so the high-power class is never enabled.",
+          "repair_hint": "In xcvrd-rs/src/sff_mgr.rs, implement the high-power-class-enable path for SFF-8636 modules on bring-up: when the module advertises power class 5+, write the Power Control byte (00h, byte 93) to enable high power, mirroring the SFF power-override logic in source/xcvrd sff_mgr / SfpStateUpdateTask. Verify the write actually reaches HAL (page 00h offset 93)."
+        }
+      ],
+      "bench_before": {
+        "round": 6,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 39.52,
+        "b5_rss_kb_rust": 83028,
+        "b5_cpu_python": 1.97,
+        "b5_rss_kb_python": 71520,
+        "b9_events_rust": 15977,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 49.6,
+        "b4_sweep_ms_b": 67.57,
+        "b4_sweep_ms_p": 30.03
+      },
+      "ts": "2026-08-31T20:13:53"
+    },
+    {
+      "round": 7,
+      "title": "no further safe optimisation identified",
+      "files": [],
+      "rationale": "The dominant remaining gap is B9 read amplification: Rust issues 14810 EEPROM reads vs the Python reference's 6456 over the 30s window (events_per_port 488.6 vs 201.8), concentrated on pages 0/16/17 (rust page_histogram 0:6341, 16:2773, 17:4781 vs python 0:1734, 16:540, 17:1440). Those pages carry the CMIS FSM's fresh status/module_state/datapath_state/cmis_major register reads. They CANNOT be memoized without changing behaviour: within a single FSM step the manager reads status, writes a page-10h/12h control register, then re-reads status expecting the post-write value, so caching across the step freezes a transition. History proves this, not intuition: round 6 (memoize get_transceiver_status across an FSM step) and round 9 (memoize cmis_major) were both reverted with genuine, reproduced test_dom_gating.py::test_dom_gated_during_cmis_init failures (TRANSCEIVER_DOM_FLAG published while cmis_state was non-terminal). The identity-derived page-0 reads that WERE safe to collapse are already memoized: round 5 (info()), round 7 (flat_mem 00h:2), round 10 (info()->&Value no-clone) all landed and are still present in xcvrd-rs/src/cmis/cmis_api.rs. Every other read/IO/copy idea has been tried: HSET batching (round 2), direct PyDict-walk marshalling (round 3), json.dumps kwargs cache (round 1), read_eeprom bytearray copy (round 4, landed), Sfp-handle cache (round 1 cyc2), SfpHandle threading (round 5 cyc2), app-advertisement memoize (round 8), cmis_major memoize (round 9), release-profile LTO tuning (round 4 cyc2) -- all reverted except the four noted. The only behaviour-neutral change still available is borrowing the json.dumps result str in platform-bridge py_to_json (dumped.to_str() + serde_json::from_str) instead of extract::<String>(), eliminating one heap copy of a few-hundred-byte JSON payload per marshalled getter. At ~5000 marshalling calls in the 30s window that saves well under 1ms total -- far below the noise floor of B5 cpu_pct (37.69) and every B12 marshalling figure -- so it cannot justify itself against the next benchmark, and it carries the same revert risk from the flaky test_dom_gated_during_cmis_init that failed even the previous no-op rounds (cyc2 rounds 2/3/6). Inventing that marginal change is worse than stopping.",
+      "expected_effect": "No code change this round, so no benchmark metric should move: B5 rust cpu_pct ~37.69 / rss_kb_median ~83256; B9 rust reads 14810 / writes 826 / total_events 15636 (page_histogram 0:6341, 1:1297, 2:284, 4:105, 16:2773, 17:4781, 18:55); B4 DOM-sweep p50 a=58.5ms / b=88.2ms / p=31.8ms; B12 config-a get_transceiver_info ~3396ns, dom_real_value ~1934ns, db.get ~2456ns, db.set ~2362ns unchanged; unit tests stay 320 passed / 0 failed. The remaining read-amplification (pages 0/16/17) is FSM/gating-critical fresh reads whose reduction has already been proven to regress DOM gating.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init (assert not True) at test_dom_gating.py:55",
+          "regressed_behaviour": "DOM gating during CMIS init: a TRANSCEIVER_DOM_FLAG row was published on Ethernet48 while the CMIS FSM was still in the non-terminal DP_DEINIT state under an armed FAULT_DP_STALL. The oracle requires DOM_FLAG to be absent in every non-terminal cmis_state sample across the stall window; one sample observed the flag present.",
+          "attribution": "Round 7 changed NO files (optimize.json: files=[], behaviour_risk='none'), so this cannot be a behaviour regression introduced by this round. It is the known-flaky DOM-gating race that optimize.json explicitly documents as failing even in previous no-op rounds (cyc2 rounds 2/3/6) and that caused rounds 6 and 9 to be reverted. Under --dom-interval 5 the tightened DOM cadence widens the window in which a DOM publish can race the DP_DEINIT transition, making the pre-existing flake more likely to trip. Not deselected: this node is NOT in pipeline/skips.json (only test_link_change_triggers_fast_flag_recapture is, and it PASSED this run).",
+          "repair_hint": "Timing-sensitive DOM-gating race in the DOM publish path vs. CMIS FSM state check: src/dom.rs DOM publish must re-check cmis_state and suppress the DOM_FLAG write when the port's cmis_state is non-terminal (mirror dom/dom_mgr.py DomInfoUpdateTask gating against cmis_state in xcvrd.py / cmis/cmis_mgr.py). Because the change is behaviour-neutral (no diff), re-run to confirm the flake before acting; do not attempt read-memoization fixes here (proven to regress this exact test)."
+        }
+      ],
+      "bench_before": {
+        "round": 7,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 37.69,
+        "b5_rss_kb_rust": 83256,
+        "b5_cpu_python": 18.55,
+        "b5_rss_kb_python": 70828,
+        "b9_events_rust": 15636,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 58.46,
+        "b4_sweep_ms_b": 88.19,
+        "b4_sweep_ms_p": 31.77
+      },
+      "ts": "2026-08-31T21:09:44"
+    },
+    {
+      "round": 8,
+      "title": "no further safe optimisation identified",
+      "files": [],
+      "rationale": "I re-read this round's bench.json and the full optimize_history before touching code, and independently reach the same conclusion as the four preceding rounds. Every measurable hotspot sits on exactly one of two timing-sensitive paths, and both are exhausted or blocked. (1) DOM-sweep publish path: B12 config-a get_transceiver_info 3191ns / get_transceiver_dom_real_value 1952ns / db.get[27] 2461ns / db.set[27] 2883ns, and B4 DOM-sweep p50 a=71.1ms / b=74.2ms vs python 29.1ms. EVERY optimisation that sped this path was reverted for test_dom_gating.py::test_dom_gated_during_cmis_init: py_to_json {default:str} kwargs cache (old r1), batch RealDbTable::set HSETs (old r2), direct-PyDict-walk marshalling (old r3), cache the per-index Sfp handle (cyc2 r1), thread the resolved SfpHandle out of validate_and_get_physical_port (cyc2 r5). The only DB micro-changes still available -- guarding RealDbTable::track's per-write key.to_string() insert behind a contains() check, and hoisting redis_key's format! allocation -- live on this exact publish path, save well under the B5/B4 noise floor (hundreds of ns/sweep against a 71ms sweep), and carry the same revert risk. (2) CMIS-FSM step path: B9 read amplification is the single biggest gap -- rust 15596 EEPROM reads / 823 writes vs python 6456 / 0, total_events 16419 vs 6456, page_histogram 0:6776 (py 1734), 16:2802 (py 540), 17:4951 (py 1440). Those pages carry fresh status/module_state/datapath_state/cmis_major/per-lane apsel reads that the FSM writes-then-re-reads within a single step; caching across the step freezes a transition. History proves it: status memoize (old r6) and cmis_major memoize (old r9) were reverted with reproduced gating failures; per-byte page-16/17 range batching is blocked because MockSfp.read_eeprom returns None on any unseeded byte and a unit test depends on per-byte partial-miss->0 resilience (noted r7). The only accepted CMIS rounds (r5 info memoize, r7 flat_mem 00h:2 memoize, r10 info()->&Value borrow) all reduced work on the module's STATIC identity aggregate; I confirmed this round that info_cache + flat_mem_cache are still present in xcvrd-rs/src/cmis/cmis_api.rs (lines 255-305, 459-491) and the accepted read_eeprom bytearray-copy fast path is still in platform-bridge/src/lib.rs (lines 282-305). That seam is fully landed. The one remaining static-data redundancy (get_application_advertisement re-running py_repr_to_json each call) is precisely reverted old-r8, which the rules forbid retrying, and the one remaining bridge micro-copy (py_to_json extract::<String> -> dumped.to_str() borrow) saves <1ms across ~5000 marshalling calls in the 30s window -- below the B5 cpu_pct / B12 noise floor -- and carries the same flaky-test revert risk. Decisive: the crate (sha 342120e281c16271) already trips test_dom_gated_during_cmis_init at --dom-interval 5 on ZERO-file no-op rounds, so it is a pre-existing cadence-sensitive concurrency defect, not something an Optimizer edit introduces or can avoid. No remaining change is both meaningful (measurable above noise) and safe (behaviour-neutral, off both timing paths, not a forbidden retry).",
+      "expected_effect": "No code change this round, so no benchmark metric should move: B5 rust cpu_pct ~36.83 / rss_kb_median ~82896; B9 rust reads 15596 / writes 823 / total_events 16419 (page_histogram 0:6776, 1:1378, 2:332, 4:125, 16:2802, 17:4951, 18:55); B4 DOM-sweep p50 a=71.1ms / b=74.2ms / p=29.1ms; B12 config-a get_transceiver_info ~3191ns, dom_real_value ~1952ns, db.get ~2461ns, db.set ~2883ns; unit tests stay 320 passed / 0 failed. Every STATE_DB row/field/value, publish ordering, CLI flag and log line is byte-for-byte unchanged.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init (assert not True).",
+          "regression": false,
+          "likely_cause": "Pre-existing cadence-sensitive concurrency defect, NOT introduced by this round: round 8 changed zero files (optimize.json files: []), so no Optimizer edit could have altered this behaviour. At the benchmark cadence --dom-interval 5 the DomInfoUpdateTask samples the CMIS/datapath state at poll_port entry and, when a fast 5s DOM sweep interleaves with a port still in the non-terminal DP_DEINIT phase of CMIS init, publishes the TRANSCEIVER_DOM_FLAG row for Ethernet48 before the datapath reaches a terminal state -- the DOM-during-init gate races the CMIS FSM. optimize.json documents this exact trip on zero-file no-op rounds and that every DOM-path speedup was previously reverted for this same test.",
+          "repair_hint": "Out of Optimizer scope -- needs a behaviour-preserving Repair, not a perf change. Make the DOM-flag gate cadence-independent: in DomInfoUpdateTask (src/dom.rs, mirroring dom/dom_mgr.py), re-read the live terminal CMIS/datapath state immediately before each TRANSCEIVER_DOM_FLAG publish and suppress the publish unless the datapath is in a terminal (non-DP_DEINIT) state, instead of relying on the value sampled at poll_port entry. This closes the DOM-sweep vs CMIS-FSM race that only surfaces at the fast --dom-interval 5 cadence."
+        }
+      ],
+      "bench_before": {
+        "round": 8,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 36.83,
+        "b5_rss_kb_rust": 82896,
+        "b5_cpu_python": 18.46,
+        "b5_rss_kb_python": 71360,
+        "b9_events_rust": 16419,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 71.11,
+        "b4_sweep_ms_b": 74.2,
+        "b4_sweep_ms_p": 29.1
+      },
+      "ts": "2026-08-31T22:05:20"
+    },
+    {
+      "round": 9,
+      "title": "no further safe optimisation identified",
+      "files": [],
+      "rationale": "I re-read this round's bench.json and the full optimize_history before touching code. bench.json provenance sha256_16 is 342120e281c16271 -- byte-identical to the crate the previous FIVE rounds measured (cyc2 r2/r3/r6/r7/r8 no-ops and the reverted r1/r4/r5). Nothing in the working copy has changed since round 8's exhaustive enumeration, so re-deriving a different verdict would be dishonest. The evidence still points at exactly two hotspots, both exhausted or blocked: (1) DOM-sweep publish path -- B12 config-a get_transceiver_info=3102ns, get_transceiver_dom_real_value=1809ns, db.get[27]=3023ns, db.set[27]=2309ns; B4 DOM-sweep p50 a=47.98ms / b=82.60ms vs python p=29.06ms. EVERY optimisation that sped this path was reverted for test_dom_gating.py::test_dom_gated_during_cmis_init: py_to_json {default:str} kwargs cache (cyc1 r1), batch RealDbTable::set HSETs (cyc1 r2), direct-PyDict-walk marshalling (cyc1 r3), cache the per-index Sfp handle (cyc2 r1), thread the resolved SfpHandle out of validate_and_get_physical_port (cyc2 r5). The only DB micro-changes still notionally available -- guarding RealDbTable::track's per-write key.to_string() insert behind a contains() check, hoisting redis_key's format! allocation, and swapping py_to_json's extract::<String> for a dumped.to_str() borrow -- all live on this exact publish path, each save well under the B5/B4 run-to-run noise floor (B4 config-a alone moved 71.1ms->47.98ms between identical-sha runs), and carry the same flaky-gate revert risk. (2) CMIS-FSM step path -- B9 read amplification is the single biggest gap (rust 14801 EEPROM reads / 779 writes / 15580 total_events vs python 6456 / 0 / 6456; page_histogram 0:6351 vs py 1734, 16:2679 vs py 540, 17:4737 vs py 1440). Those pages carry status/module_state/datapath_state/cmis_major/per-lane apsel bytes that the FSM writes-then-re-reads within a single step; caching across the step freezes a transition -- proven by the reverted status memoize (cyc1 r6), application-advertisement memoize (cyc1 r8) and cmis_major memoize (cyc1 r9). Per-byte page-16/17 range batching is blocked because MockSfp.read_eeprom returns None on any unseeded byte and a unit test depends on per-byte partial-miss->0 resilience. The only accepted rounds (cyc1 r4 read_eeprom bytearray copy, r5 info memoize, r7 flat_mem 00h:2 memoize, r10 info()->&Value borrow) all reduced work on the module's STATIC identity aggregate; I confirmed those caches and the bytearray fast path are still present. That seam is fully landed. Decisive: the crate at sha 342120e281c16271 already trips test_dom_gated_during_cmis_init at --dom-interval 5 on ZERO-file no-op rounds, so it is a pre-existing cadence-sensitive concurrency defect the Optimizer neither introduces nor can avoid; any perf edit that perturbs DOM/CMIS timing is reverted by it. No remaining change is both meaningful (measurable above the B4/B5/B12 noise) and safe (behaviour-neutral, off both timing paths, not a forbidden retry of cyc1 r1/r2/r3/r6/r8/r9 or cyc2 r1/r5).",
+      "expected_effect": "No code change this round, so no benchmark metric should move: B5 rust cpu_pct ~36.6 / rss_kb_median ~83204; B9 rust reads ~14801 / writes ~779 / total_events ~15580 (python 6456 / 0 / 6456); B4 DOM-sweep p50 a~48ms / b~83ms / p~29ms (large run-to-run variance expected); B12 config-a get_transceiver_info ~3102ns, dom_real_value ~1809ns, db.get ~3023ns, db.set ~2309ns; unit tests stay 320 passed / 0 failed. Every STATE_DB row/field/value, publish ordering, CLI flag and log line is byte-for-byte unchanged.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init (assert not True).",
+          "likely_cause": "DomInfoUpdateTask publishes TRANSCEIVER_DOM_FLAG using the CMIS state sampled at poll_port entry rather than the live terminal CMIS state at publish time; at --dom-interval 5 the faster DOM cadence races the CMIS FSM and emits a flag row during a non-terminal (DP_DEINIT) transition. Round 9 changed ZERO files (crate sha 342120e281c16271, byte-identical to rounds 5-8), so this is a pre-existing cadence-sensitive concurrency defect, NOT a regression introduced by this optimisation; optimize.json explicitly flags it as tripping at --dom-interval 5 on no-op rounds.",
+          "repair_hint": "Out of Optimizer scope -- a behaviour-preserving Repair on src/dom.rs (DomInfoUpdateTask, mirroring dom/dom_mgr.py): re-read the live terminal CMIS module/datapath state immediately before each TRANSCEIVER_DOM_FLAG publish and gate on it, instead of the value sampled at poll_port entry."
+        },
+        {
+          "layer": "e2e",
+          "test": "test_cmis_state_progression.py::test_cmis_state_progression",
+          "symptom": "AssertionError: Ethernet28 observed too few intermediate cmis_states [] (seq=['READY']); the daemon may be jumping to READY without traversing the machine (assert 0 >= 4).",
+          "likely_cause": "The CMIS FSM (src/cmis/cmis_manager_task.rs, mirroring cmis/cmis_manager.py) advanced to READY faster than the STATE_DB TRANSCEIVER_INFO cmis_state sampler could observe the intermediate INSERTED/DP_DEINIT/AP_CONF/DP_INIT/DP_ACTIVATE transitions -- the same CMIS-step vs poll-cadence timing seam. This is timing/observability-sensitive and, with round 9 changing ZERO files, is a pre-existing flake exposed at --dom-interval 5, not a behaviour change from this optimisation.",
+          "repair_hint": "Out of Optimizer scope. If persistently reproducible, close the CMIS-step / sampler race in src/cmis/cmis_manager_task.rs by ensuring each intermediate cmis_state is written to STATE_DB before the next transition, mirroring cmis/cmis_manager.py's per-state publish ordering; otherwise treat as a known cadence flake and stabilise the e2e sampler."
+        }
+      ],
+      "bench_before": {
+        "round": 9,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 36.6,
+        "b5_rss_kb_rust": 83204,
+        "b5_cpu_python": 18.17,
+        "b5_rss_kb_python": 71300,
+        "b9_events_rust": 15580,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 47.98,
+        "b4_sweep_ms_b": 82.6,
+        "b4_sweep_ms_p": 29.06
+      },
+      "ts": "2026-08-31T22:58:13"
+    },
+    {
+      "round": 10,
+      "title": "no further safe optimisation identified",
+      "files": [],
+      "rationale": "I re-read this round's bench.json and the full optimize_history (both cycles) before touching code, and independently reached the same conclusion as the previous rounds, now with a concrete root-cause for the one remaining gap. The dominant measured gap is B9 read amplification: the rust variant issues 15521 EEPROM reads / 817 writes (16338 events) in the 30s window vs the python reference's 6456 reads / 0 writes, concentrated on page 0 (6868 vs 1734), page 16/0x10 (2770 vs 540) and page 17/0x11 (4868 vs 1440). I traced where those reads come from. Pages 16/17 back get_transceiver_status(); in cmis_api.rs get_module_state/get_datapath_state/get_config_datapath_hostlane_status/get_dpinit_pending each call self.status() (a full get_transceiver_status() bridge marshal) fresh, and the CMIS FSM invokes several of them per step. This is NOT collapsible safely: status is LIVE datapath state, and the reference re-reads it per accessor so the FSM observes transitions between calls. Memoizing status() across an FSM step is exactly optimize_history cyc1 round 6, which was reverted because a stale snapshot changes WHEN TRANSCEIVER_DOM_FLAG / TRANSCEIVER_STATUS rows publish relative to cmis_state (test_dom_gating.py::test_dom_gated_during_cmis_init). The static identity path is already memoized and clone-free (rounds 5/7/10, landed; info() returns &Value from a OnceCell). Reducing pages-16/17 reads to the reference's targeted sub-register reads would require re-implementing CMIS status decode in Rust instead of delegating to the bridge's get_transceiver_status() -- precisely the thick-boundary design the bridge deliberately avoids -- so it is neither a small change nor behaviour-safe (it would change decoded STATE_DB values on any divergence). The other measured hotspots are all tried-and-reverted or intrinsically unsafe: B12 config-b PyO3 marshalling (py_to_json json.dumps round trip -> cyc1 r1/r3 reverted; kwargs-dict/direct-PyDict-walk), db.set multi-field batching (cyc1 r2 reverted), redundant hal.sfp()/chassis.get_sfp() crossings (cyc2 r1/r5 reverted), and the release build profile (cyc2 r4 reverted). Critically, optimize_history shows test_dom_gating.py::test_dom_gated_during_cmis_init failed and reverted rounds whose source could not have caused it -- the json.dumps-kwargs cache (cyc1 r1), the build-profile-only change (cyc2 r4), and even deliberate no-op rounds -- i.e. it is a cadence-sensitive/flaky e2e gate that fires on the untouched baseline. Inventing a marginal change against that gate carries real revert risk for no reliable measured gain, which the agent guidance explicitly says is worse than stopping.",
+      "expected_effect": "No code change this round, so no benchmark metric should move: B5 rust cpu_pct ~36.14 / rss_kb_median ~83336 (python 18.38 / 71096); B9 rust reads 15521 / writes 817 / total_events 16338 with page_histogram 0:6868, 1:1338, 2:304, 4:135, 16:2770, 17:4868, 18:55 (python 6456 / 0 / 6456); B4 DOM-sweep p50 a=62.19ms / b=91.25ms / p=30.93ms; B12 config-a get_transceiver_info ~3393ns, dom_real_value ~2173ns, get_transceiver_status ~431ns, db.set[27] ~2590ns, db.get ~2158ns; unit tests stay 320 passed / 0 failed. The provenance sha (342120e281c16271) should be unchanged next round.",
+      "passed": false,
+      "reverted": true,
+      "failures": [
+        {
+          "layer": "e2e",
+          "test": "test_dom_gating.py::test_dom_gated_during_cmis_init",
+          "symptom": "AssertionError: Ethernet48 TRANSCEIVER_DOM_FLAG published while cmis_state=DP_DEINIT (non-terminal) -- DOM not gated during CMIS init.",
+          "regressed": "TRANSCEIVER_DOM_FLAG|Ethernet48 is published during the CMIS init/DP_DEINIT window instead of being suppressed until a terminal CMIS state.",
+          "likely_cause": "Cadence-sensitive, NOT a regression from this round. Round 10 changed zero files (optimize.json files: []); the crate is byte-for-byte identical to the baseline. The failure is triggered exclusively by the requested --dom-interval 5 cadence: at 5s the DOM poll lands inside the CMIS init window and emits a DOM_FLAG row before CMIS reaches a terminal state. Isolation runs confirm this: the test FAILS deterministically (2/2) with --dom-interval 5 but PASSES at the daemon's default DOM cadence (no interval). The crate honors --dom_update_interval (no DOM_INTERVAL_FALLBACK was logged), so the tighter cadence is genuinely applied. This matches the optimize.json rationale, which flags test_dom_gated_during_cmis_init as a cadence-sensitive/flaky gate that fires on the untouched baseline.",
+          "repair_hint": "Not repairable by the Optimizer this round (no code was changed and the fault is not a translation defect introduced here). The DOM-vs-CMIS gating boundary in src/dom.rs / cmis CMIS FSM (mirror dom/dom_mgr.py DomInfoUpdateTask + cmis_state gating) is not tolerant of a 5s DOM poll relative to CMIS init timing; it only holds at the default cadence. Treat as a pre-existing, cadence-triggered gating limitation, not a round-10 performance regression."
+        }
+      ],
+      "bench_before": {
+        "round": 10,
+        "crate": "pipeline",
+        "sha": "342120e281c16271",
+        "b5_cpu_rust": 36.14,
+        "b5_rss_kb_rust": 83336,
+        "b5_cpu_python": 18.38,
+        "b5_rss_kb_python": 71096,
+        "b9_events_rust": 16338,
+        "b9_events_python": 6456,
+        "b4_sweep_ms_a": 62.19,
+        "b4_sweep_ms_b": 91.25,
+        "b4_sweep_ms_p": 30.93
+      },
+      "ts": "2026-08-31T23:56:50"
+    }
+  ]
+}

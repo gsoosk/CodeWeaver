@@ -1,0 +1,21 @@
+{
+  "subject": "sonic-xcvrd",
+  "language_pair": "Python -> Rust",
+  "engine": "recodeAgent (xcvrd-specific ancestor of CodeWeaver)",
+  "backend": "copilot",
+  "model": "claude-opus-4.8",
+  "effort": "max (analyzer/scoper/planner/translator/parity_verifier), high (validator)",
+  "independent_sample": true,
+  "n": 1,
+  "oracle_seen": true,
+  "oracle_tests_in_prompt": false,
+  "oracle_failure_ids_in_prompt": true,
+  "oracle_feedback_during_generation": true,
+  "oracle_exposure_note": "Repair mode inlines the failing pytest node ids and the Validator's diagnostics into the Translator prompt, and instructs it to re-read those tests. Agents have read access to the suite. NOT a test-blind arm.",
+  "usage": null,
+  "usage_note": "unrecoverable; per-agent logs are overwritten per invocation and carry no usage records",
+  "arm": "codeweaver",
+  "protocol": "analyze -> scope -> plan -> (translate <-> validate) x milestone -> parity_verify. A milestone passes only when BOTH the mocked Rust unit tests and the e2e oracle pass. A milestone that exhausts its repair budget is skipped and its failing tests deferred to skips.json; the parity loop then re-scopes untranslated source and gives deferred tests one retry.",
+  "gate": "cumulative milestone selection (-k), deferred tests deselected",
+  "e2e_denominator_note": "104 selected, not the full 105-test suite"
+}

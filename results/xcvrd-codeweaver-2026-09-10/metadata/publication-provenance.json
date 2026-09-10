@@ -1,0 +1,17 @@
+{
+  "package": "xcvrd-codeweaver-2026-09-10",
+  "assembled": "2026-09-10",
+  "assembled_from": "Existing artifacts in gsoosk/sonic-dev under recodeAgent/results/. The pipeline was NOT re-run to build this package; these are the recorded outputs of the original runs.",
+  "sonic_dev_commit": "ea15660b50d6adc9be6a1769be55303bc6d5de85",
+  "codeweaver_engine_pin": "2b52eb73f3b8405b8733a8907ad233ec47e13676",
+  "engine_note": "The runs were executed by recodeAgent, the xcvrd-specific ancestor of CodeWeaver, not by the CodeWeaver code in this repository. Same agent methodology and same graph; the generalisation into a config-driven engine came afterwards. This package is therefore evidence for the METHOD, and is not a reproduction of this repository's current code.",
+  "source_size_loc": {
+    "python_xcvrd_daemon": 13845
+  },
+  "output_size_loc": {
+    "codeweaver_rust": 24263,
+    "codeweaver_optimized_rust": 24347
+  },
+  "cost": null,
+  "cost_note": "Unrecoverable, as for every CodeWeaver run in this directory: the per-agent JSONL logs are overwritten per CLI invocation and carry no usage records, so no premium-request or AIU ledger exists for these runs. No figure is inferred."
+}

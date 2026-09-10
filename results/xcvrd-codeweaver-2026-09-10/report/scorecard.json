@@ -1,0 +1,70 @@
+{
+  "campaign": "xcvrd Python->Rust, CodeWeaver, with a benchmark/optimize extension",
+  "subject": "sonic-xcvrd (SONiC transceiver daemon)",
+  "language_pair": "Python -> Rust",
+  "model": "claude-opus-4.8",
+  "reasoning_effort": "max for analyzer/scoper/planner/translator/parity_verifier, high for validator",
+  "n_per_arm": 1,
+  "oracle": {
+    "name": "xcvrd-tests",
+    "authored_by": "this project, not a benchmark",
+    "style": "black-box on STATE_DB; never imports the daemon",
+    "modules": 41,
+    "held_out_from_agents": false,
+    "why": "The repair loop hands the Translator the failing test node ids plus the Validator's diagnostics, and explicitly instructs it to re-read those tests. Agents also run with read access to the suite. This arm is test-INFORMED by design and must not be pooled with the test-blind CodeWeaver column in this directory's other packages."
+  },
+  "stub_baseline": null,
+  "stub_baseline_note": "Not measured. Unlike CRUST-bench there is no stub crate to score, so this package cannot say what an unimplemented daemon would score. A no-op daemon control was run separately in sonic-dev (transceiver_tests_noop) and fails the STATE_DB-backed tests, but it was not scored through this oracle and is not reported as a number here.",
+  "arms": {
+    "codeweaver": {
+      "what": "the pipeline run to correctness: analyze -> scope -> plan -> (translate <-> validate) x milestone -> parity_verify",
+      "milestones": 18,
+      "milestones_by_origin": {
+        "parity": 3,
+        "retry": 1,
+        "scoper": 13,
+        "user": 1
+      },
+      "final_milestone": "M16",
+      "passed": true,
+      "unit": {
+        "total": 312,
+        "passed": 312,
+        "failed": 0
+      },
+      "e2e": {
+        "total": 104,
+        "passed": 103,
+        "failed": 0,
+        "skipped": 1,
+        "deselected": 1
+      },
+      "parity_complete": true,
+      "parity_gaps": 0,
+      "coverage_matrix_entries": 18,
+      "deferred_tests": [
+        "test_link_change_flags.py::test_link_change_triggers_fast_flag_recapture"
+      ]
+    },
+    "codeweaver-optimized": {
+      "what": "continues from the codeweaver arm: benchmark <-> optimize rounds, then one full-suite conformance milestone",
+      "optimize_rounds": 20,
+      "changes_kept": 4,
+      "passed": false,
+      "unit": {
+        "total": 320,
+        "passed": 320,
+        "failed": 0
+      },
+      "e2e": {
+        "total": 105,
+        "passed": 104,
+        "failed": 1
+      },
+      "failures": [
+        "test_dom_gating.py::test_dom_gated_during_cmis_init"
+      ]
+    }
+  },
+  "denominators_differ": "The two arms do not share an e2e denominator. The codeweaver arm was gated on the cumulative milestone selection with deferred tests deselected (104); the optimized arm ran the entire suite with no -k gate (105). They are a before/after pair on one artifact, not two independent samples, and neither column is a pass rate over the same set."
+}

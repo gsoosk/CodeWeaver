@@ -1,0 +1,27 @@
+{
+  "round": 10,
+  "title": "no further safe optimisation identified",
+  "files": [],
+  "rationale": "I re-read this round's bench.json and the full optimize_history (both cycles) before touching code, and independently reached the same conclusion as the previous rounds, now with a concrete root-cause for the one remaining gap. The dominant measured gap is B9 read amplification: the rust variant issues 15521 EEPROM reads / 817 writes (16338 events) in the 30s window vs the python reference's 6456 reads / 0 writes, concentrated on page 0 (6868 vs 1734), page 16/0x10 (2770 vs 540) and page 17/0x11 (4868 vs 1440). I traced where those reads come from. Pages 16/17 back get_transceiver_status(); in cmis_api.rs get_module_state/get_datapath_state/get_config_datapath_hostlane_status/get_dpinit_pending each call self.status() (a full get_transceiver_status() bridge marshal) fresh, and the CMIS FSM invokes several of them per step. This is NOT collapsible safely: status is LIVE datapath state, and the reference re-reads it per accessor so the FSM observes transitions between calls. Memoizing status() across an FSM step is exactly optimize_history cyc1 round 6, which was reverted because a stale snapshot changes WHEN TRANSCEIVER_DOM_FLAG / TRANSCEIVER_STATUS rows publish relative to cmis_state (test_dom_gating.py::test_dom_gated_during_cmis_init). The static identity path is already memoized and clone-free (rounds 5/7/10, landed; info() returns &Value from a OnceCell). Reducing pages-16/17 reads to the reference's targeted sub-register reads would require re-implementing CMIS status decode in Rust instead of delegating to the bridge's get_transceiver_status() -- precisely the thick-boundary design the bridge deliberately avoids -- so it is neither a small change nor behaviour-safe (it would change decoded STATE_DB values on any divergence). The other measured hotspots are all tried-and-reverted or intrinsically unsafe: B12 config-b PyO3 marshalling (py_to_json json.dumps round trip -> cyc1 r1/r3 reverted; kwargs-dict/direct-PyDict-walk), db.set multi-field batching (cyc1 r2 reverted), redundant hal.sfp()/chassis.get_sfp() crossings (cyc2 r1/r5 reverted), and the release build profile (cyc2 r4 reverted). Critically, optimize_history shows test_dom_gating.py::test_dom_gated_during_cmis_init failed and reverted rounds whose source could not have caused it -- the json.dumps-kwargs cache (cyc1 r1), the build-profile-only change (cyc2 r4), and even deliberate no-op rounds -- i.e. it is a cadence-sensitive/flaky e2e gate that fires on the untouched baseline. Inventing a marginal change against that gate carries real revert risk for no reliable measured gain, which the agent guidance explicitly says is worse than stopping.",
+  "expected_effect": "No code change this round, so no benchmark metric should move: B5 rust cpu_pct ~36.14 / rss_kb_median ~83336 (python 18.38 / 71096); B9 rust reads 15521 / writes 817 / total_events 16338 with page_histogram 0:6868, 1:1338, 2:304, 4:135, 16:2770, 17:4868, 18:55 (python 6456 / 0 / 6456); B4 DOM-sweep p50 a=62.19ms / b=91.25ms / p=30.93ms; B12 config-a get_transceiver_info ~3393ns, dom_real_value ~2173ns, get_transceiver_status ~431ns, db.set[27] ~2590ns, db.get ~2158ns; unit tests stay 320 passed / 0 failed. The provenance sha (342120e281c16271) should be unchanged next round.",
+  "behaviour_risk": "none -- no files changed. STATE_DB rows/fields/values, publish ordering, B9 read/write counts, CLI flags and log lines are byte-for-byte identical to the baseline crate.",
+  "unit_tests": "passed (bash tools/unit_test.sh against pipeline/crate: 320 passed; 0 failed; 0 ignored)",
+  "measured_before": {
+    "b5_cpu_rust": 36.14,
+    "b5_rss_kb_rust": 83336,
+    "b5_cpu_python": 18.38,
+    "b9_reads_rust": 15521,
+    "b9_writes_rust": 817,
+    "b9_total_events_rust": 16338,
+    "b9_reads_python": 6456,
+    "b9_page_histogram_rust": {"0": 6868, "1": 1338, "2": 304, "4": 135, "16": 2770, "17": 4868, "18": 55},
+    "b4_sweep_ms_a": 62.19,
+    "b4_sweep_ms_b": 91.25,
+    "b4_sweep_ms_p": 30.93,
+    "b12_a_get_transceiver_info_ns": 3393.16,
+    "b12_a_dom_real_value_ns": 2173.09,
+    "b12_a_get_transceiver_status_ns": 430.68,
+    "b12_a_db_set_ns": 2590.24,
+    "b12_a_db_get_ns": 2158.15
+  }
+}

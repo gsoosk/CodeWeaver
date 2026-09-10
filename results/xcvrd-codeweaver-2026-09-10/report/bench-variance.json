@@ -1,0 +1,121 @@
+{
+  "what_this_is": "The optimize stage ran 20 rounds. Rounds after the last ACCEPTED change all measured one unchanged crate, so they are repeated measurements of a fixed artifact and give this package something the other packages in results/ do not have: a measured noise floor.",
+  "kept_round_indices_0based": [
+    3,
+    4,
+    6,
+    9
+  ],
+  "repeated_measurements_of_final_crate": 10,
+  "metrics": {
+    "b9_events_rust": {
+      "pre_optimisation": 21918,
+      "post_optimisation": {
+        "n": 10,
+        "mean": 15898.5,
+        "sd": 285.54,
+        "cv_pct": 1.8,
+        "min": 15580,
+        "max": 16419
+      },
+      "delta_pct": -27.5,
+      "exceeds_noise": true
+    },
+    "b9_events_python": {
+      "pre_optimisation": 6456,
+      "post_optimisation": {
+        "n": 10,
+        "mean": 6456,
+        "sd": 0.0,
+        "cv_pct": 0.0,
+        "min": 6456,
+        "max": 6456
+      },
+      "delta_pct": 0.0,
+      "exceeds_noise": false
+    },
+    "b5_cpu_rust": {
+      "pre_optimisation": 43.35,
+      "post_optimisation": {
+        "n": 10,
+        "mean": 36.96,
+        "sd": 1.09,
+        "cv_pct": 2.9,
+        "min": 35.65,
+        "max": 39.52
+      },
+      "delta_pct": -14.7,
+      "exceeds_noise": true
+    },
+    "b5_cpu_python": {
+      "pre_optimisation": 18.5,
+      "post_optimisation": {
+        "n": 10,
+        "mean": 16.66,
+        "sd": 5.17,
+        "cv_pct": 31.0,
+        "min": 1.97,
+        "max": 18.55
+      },
+      "delta_pct": -9.9,
+      "exceeds_noise": false
+    },
+    "b5_rss_kb_rust": {
+      "pre_optimisation": 83404,
+      "post_optimisation": {
+        "n": 10,
+        "mean": 83175.2,
+        "sd": 161.4,
+        "cv_pct": 0.2,
+        "min": 82896,
+        "max": 83336
+      },
+      "delta_pct": -0.3,
+      "exceeds_noise": false
+    },
+    "b4_sweep_ms_a": {
+      "pre_optimisation": 52.88,
+      "post_optimisation": {
+        "n": 10,
+        "mean": 55.02,
+        "sd": 7.76,
+        "cv_pct": 14.1,
+        "min": 47.98,
+        "max": 71.11
+      },
+      "delta_pct": 4.0,
+      "exceeds_noise": false
+    },
+    "b4_sweep_ms_b": {
+      "pre_optimisation": 67.91,
+      "post_optimisation": {
+        "n": 10,
+        "mean": 78.99,
+        "sd": 10.1,
+        "cv_pct": 12.8,
+        "min": 59.32,
+        "max": 91.25
+      },
+      "delta_pct": 16.3,
+      "exceeds_noise": false
+    },
+    "b4_sweep_ms_p": {
+      "pre_optimisation": 31.4,
+      "post_optimisation": {
+        "n": 10,
+        "mean": 31.1,
+        "sd": 1.85,
+        "cv_pct": 6.0,
+        "min": 28.94,
+        "max": 34.61
+      },
+      "delta_pct": -1.0,
+      "exceeds_noise": false
+    }
+  },
+  "caveats": [
+    "b5_cpu_python has one outlier (2.0% vs a ~18.5% typical) inflating its sd: that run measured the Python reference at its 60s default DOM interval instead of the 5s the Rust daemon used. Treat that cell as unusable, not as evidence the Python daemon is variable.",
+    "b9_events_python is identical in all 10 runs (6456). EEPROM work per cycle is deterministic, which is why B9 is the validity gate rather than a timing.",
+    "b4_* carry a 12-14% coefficient of variation. Their apparent movement across the campaign is inside that band and is NOT evidence of a regression."
+  ]
+}

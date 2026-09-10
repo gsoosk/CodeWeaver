@@ -17,11 +17,19 @@ it can support, and what it cannot. **Read the method file before quoting a numb
 | `alphatrans-b0-api-2026-09-09` | B0 via direct API, per-file and whole-repo | `claude-sonnet-5` | [METHOD](alphatrans-b0-api-2026-09-09/METHOD.md) |
 | `alphatrans-b0-repair-2026-09-09` | Repair over the B0 API per-file artifact, build-guided and test-guided | `claude-sonnet-5` | [METHOD](alphatrans-b0-repair-2026-09-09/METHOD.md) |
 | `crust-b0-2026-09-10` | **CRUST-bench C→Rust**: B0 via CLI, whole-repo and per-file, both repair arms, and CodeWeaver | `claude-sonnet-5` | [METHOD](crust-b0-2026-09-10/METHOD.md) |
+| `xcvrd-codeweaver-2026-09-10` | **SONiC xcvrd Python→Rust**: CodeWeaver, correctness arm and a benchmark/optimize arm | `claude-opus-4.8` | [METHOD](xcvrd-codeweaver-2026-09-10/METHOD.md) |
 
 The CRUST package is a **second suite in a different language pair** (C→Rust), not
 another AlphaTrans arm. Its oracle is much weaker and was LLM-generated rather than
 human-verified. Never place its numbers in a table with the AlphaTrans numbers; see
 its `METHOD.md` before quoting anything from it.
+
+The xcvrd package is a **third suite, and the only one whose generation arm was not
+test-blind.** Its oracle is one we wrote rather than a benchmark's, and its repair
+loop hands the Translator the failing test ids and tells it to read those tests. On
+oracle exposure it belongs beside "B0 + test repair" below, never beside the
+CodeWeaver column. It is also the only package here that measures a **noise floor**
+rather than reporting N=1 points. Read its `METHOD.md` before quoting anything.
 
 Generation is reproduced by `experiments/baselines/campaigns/README.md`, which
 records the exact invocation behind each package. Scoring needs no model access:
@@ -99,6 +107,41 @@ An earlier revision of that package published the raw counts and was wrong (`c-a
 22 instead of 11, `inversion_list` 30 instead of 15). The oracle now synthesizes its
 own manifest so each held-out test is counted exactly once. See its `METHOD.md`.
 
+## Third suite: SONiC xcvrd (Python→Rust)
+
+A production daemon rather than a benchmark subject: ~6,500 lines of Python to
+~24,300 lines of Rust, graded by a black-box suite that drives the real supervised
+daemon on a virtual switch and asserts on Redis STATE_DB.
+
+| Arm | unit | e2e | note |
+|---|---:|---:|---|
+| `codeweaver` | 312 / 312 | 103 passed of 104 selected | 1 skipped (environmental), 1 deferred; parity complete, 0 gaps |
+| `codeweaver-optimized` | 320 / 320 | 104 / 105 | whole suite, ungated; the 1 failure is flaky (see below) |
+
+**The two e2e denominators are not the same set** — 104 is the cumulative milestone
+gate with deferred tests deselected, 105 is the whole suite. They are before/after on
+one artifact. Do not difference those fractions.
+
+The optimized arm's single failure (`test_dom_gating`) failed in 14 of the campaign's
+20 rounds, **including 7 rounds in which no code changed at all**. An empty change set
+cannot cause a regression, so it is reported as flaky rather than as a defect — and
+reported rather than filtered.
+
+### The only measured noise floor in this directory
+
+That campaign's second half accepted no changes, so its 10 benchmark rounds are
+repeated measurements of one unchanged crate:
+
+| metric | pre | post | change | noise (cv) | real? |
+|---|---:|---:|---:|---:|:--:|
+| EEPROM reads/cycle | 21,918 | 15,899 | −27.5% | 1.8% | yes |
+| idle CPU | 43.4% | 37.0% | −14.7% | 2.9% | yes |
+| DOM sweep | 52.9 ms | 55.0 ms | +4.0% | 14.1% | **no** |
+
+The last row is why this matters: as a bare before/after pair it reads as a 4%
+regression, and it is nothing — well inside a 14% band. Quote the deltas only with
+their cv.
+
 ## Rules for combining these numbers
 
 1. **Scoring is uniform, protocols are not.** Every arm is scored the same way:
@@ -122,6 +165,7 @@ own manifest so each held-out test is counted exactly once. See its `METHOD.md`.
    | B0 (all generation variants) | never | never | never |
    | B0 + build repair | never | never | **yes, diagnostics** |
    | B0 + test repair | never | **full failure output** | yes |
+   | xcvrd CodeWeaver | **read by the agent** | **failing test ids + diagnostics** | yes |
 
    The last row is the only arm that saw oracle failure text. CodeWeaver sees gated
    pass/fail counts at milestone boundaries and never the tests themselves. Keep both
@@ -144,7 +188,10 @@ own manifest so each held-out test is counted exactly once. See its `METHOD.md`.
    AlphaTrans reports per-fragment statuses and `#GS`; CRUST-bench lets the model
    read and run the test suite. Our oracle is held out from every arm here.
 
-5. **N = 1 per subject.** No repetitions, no variance, anywhere in this directory.
+5. **N = 1 per subject.** No repetitions, no variance, anywhere in this directory —
+   with one exception: the xcvrd package measures benchmark noise over 10 repeated
+   measurements of a fixed crate. That is a floor for its *timings only*; its
+   translation arms are still N = 1.
 
 ## Cost
 
