@@ -42,6 +42,7 @@ def main() -> int:
     ap.add_argument("--repo", type=Path, required=True)
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--b0-tag", required=True)
+    ap.add_argument("--repo-tag", help="whole-repository single-call B0 arm")
     ap.add_argument("--build-tag", required=True)
     ap.add_argument("--test-tag", required=True)
     args = ap.parse_args()
@@ -51,6 +52,8 @@ def main() -> int:
         raise SystemExit(f"refusing to overwrite {out}")
     arms = {"b0-per-file": args.b0_tag, "repair-build": args.build_tag,
             "repair-test": args.test_tag}
+    if args.repo_tag:
+        arms["b0-whole-repo"] = args.repo_tag
     subjects_dir = repo / "examples/crust/subjects"
 
     results, stub_baseline = [], {}
