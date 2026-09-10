@@ -1,0 +1,4 @@
+[oracle] project  : inversion_list
+[oracle] source   : <repo>/examples/crust/subjects/inversion_list/pipeline-baseline-b0-crust-repo-sonnet5-med-20260910/project
+[oracle] result   : 30 passed, 0 failed, 0 ignored (of 30)
+[oracle] exitcode : 0

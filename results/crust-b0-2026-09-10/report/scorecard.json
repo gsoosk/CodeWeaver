@@ -1,0 +1,511 @@
+{
+  "campaign": "CRUST-bench C->Rust baselines and repair",
+  "model": "claude-sonnet-5",
+  "reasoning_effort": "medium",
+  "stub_baseline": {
+    "cset": {
+      "project": "cset",
+      "state": "scored",
+      "passed": 0,
+      "failed": 15,
+      "ignored": 0,
+      "total": 15,
+      "exit_code": 1
+    },
+    "c-aces": {
+      "project": "c-aces",
+      "state": "scored",
+      "passed": 0,
+      "failed": 22,
+      "ignored": 0,
+      "total": 22,
+      "exit_code": 1
+    },
+    "lambda-calculus-eval": {
+      "project": "lambda-calculus-eval",
+      "state": "scored",
+      "passed": 0,
+      "failed": 22,
+      "ignored": 0,
+      "total": 22,
+      "exit_code": 1
+    },
+    "inversion_list": {
+      "project": "inversion_list",
+      "state": "scored",
+      "passed": 2,
+      "failed": 28,
+      "ignored": 0,
+      "total": 30,
+      "exit_code": 1
+    }
+  },
+  "arms": {
+    "b0-per-file": "b0-crust-perfile-sonnet5-med-20260909",
+    "repair-build": "b0r-build-crust-sonnet5-med-20260910",
+    "repair-test": "b0r-test-crust-sonnet5-med-20260910",
+    "b0-whole-repo": "b0-crust-repo-sonnet5-med-20260910"
+  },
+  "results": [
+    {
+      "arm": "b0-per-file",
+      "subject": "cset",
+      "tag": "b0-crust-perfile-sonnet5-med-20260909",
+      "oracle": {
+        "project": "cset",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 4
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 22123,
+      "iterations": []
+    },
+    {
+      "arm": "repair-build",
+      "subject": "cset",
+      "tag": "b0r-build-crust-sonnet5-med-20260910",
+      "oracle": {
+        "project": "cset",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 4
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 956,
+      "iterations": [
+        {
+          "iteration": 0,
+          "metric": {
+            "compile_errors": 3,
+            "builds": false
+          }
+        },
+        {
+          "iteration": 1,
+          "status": "applied",
+          "metric": {
+            "compile_errors": 3,
+            "builds": false
+          }
+        }
+      ]
+    },
+    {
+      "arm": "repair-test",
+      "subject": "cset",
+      "tag": "b0r-test-crust-sonnet5-med-20260910",
+      "oracle": {
+        "project": "cset",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 4
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 6652,
+      "iterations": [
+        {
+          "iteration": 0,
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 1,
+          "status": "applied",
+          "metric": {
+            "score": null
+          }
+        }
+      ]
+    },
+    {
+      "arm": "b0-whole-repo",
+      "subject": "cset",
+      "tag": "b0-crust-repo-sonnet5-med-20260910",
+      "oracle": {
+        "project": "cset",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 4
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 31485,
+      "iterations": []
+    },
+    {
+      "arm": "b0-per-file",
+      "subject": "c-aces",
+      "tag": "b0-crust-perfile-sonnet5-med-20260909",
+      "oracle": {
+        "project": "c-aces",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 145
+      },
+      "contract_intact": true,
+      "api_calls": 6,
+      "completion_tokens": 66963,
+      "iterations": []
+    },
+    {
+      "arm": "repair-build",
+      "subject": "c-aces",
+      "tag": "b0r-build-crust-sonnet5-med-20260910",
+      "oracle": {
+        "project": "c-aces",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 145
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 1484,
+      "iterations": [
+        {
+          "iteration": 0,
+          "metric": {
+            "compile_errors": 144,
+            "builds": false
+          }
+        },
+        {
+          "iteration": 1,
+          "status": "applied",
+          "metric": {
+            "compile_errors": 144,
+            "builds": false
+          }
+        }
+      ]
+    },
+    {
+      "arm": "repair-test",
+      "subject": "c-aces",
+      "tag": "b0r-test-crust-sonnet5-med-20260910",
+      "oracle": {
+        "project": "c-aces",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 155
+      },
+      "contract_intact": true,
+      "api_calls": 3,
+      "completion_tokens": 5884,
+      "iterations": [
+        {
+          "iteration": 0,
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 1,
+          "status": "applied",
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 2,
+          "status": "applied",
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 3,
+          "status": "applied",
+          "metric": {
+            "score": null
+          }
+        }
+      ]
+    },
+    {
+      "arm": "b0-whole-repo",
+      "subject": "c-aces",
+      "tag": "b0-crust-repo-sonnet5-med-20260910",
+      "oracle": {
+        "project": "c-aces",
+        "state": "scored",
+        "passed": 22,
+        "failed": 0,
+        "ignored": 0,
+        "total": 22,
+        "exit_code": 0
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 48835,
+      "iterations": []
+    },
+    {
+      "arm": "b0-per-file",
+      "subject": "lambda-calculus-eval",
+      "tag": "b0-crust-perfile-sonnet5-med-20260909",
+      "oracle": {
+        "project": "lambda-calculus-eval",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 127
+      },
+      "contract_intact": true,
+      "api_calls": 7,
+      "completion_tokens": 41791,
+      "iterations": []
+    },
+    {
+      "arm": "repair-build",
+      "subject": "lambda-calculus-eval",
+      "tag": "b0r-build-crust-sonnet5-med-20260910",
+      "oracle": {
+        "project": "lambda-calculus-eval",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 45
+      },
+      "contract_intact": true,
+      "api_calls": 3,
+      "completion_tokens": 19904,
+      "iterations": [
+        {
+          "iteration": 0,
+          "metric": {
+            "compile_errors": 126,
+            "builds": false
+          }
+        },
+        {
+          "iteration": 1,
+          "status": "applied",
+          "metric": {
+            "compile_errors": 62,
+            "builds": false
+          }
+        },
+        {
+          "iteration": 2,
+          "status": "applied",
+          "metric": {
+            "compile_errors": 10,
+            "builds": false
+          }
+        },
+        {
+          "iteration": 3,
+          "status": "applied",
+          "metric": {
+            "compile_errors": 44,
+            "builds": false
+          }
+        }
+      ]
+    },
+    {
+      "arm": "repair-test",
+      "subject": "lambda-calculus-eval",
+      "tag": "b0r-test-crust-sonnet5-med-20260910",
+      "oracle": {
+        "project": "lambda-calculus-eval",
+        "state": "build_failed",
+        "passed": 0,
+        "failed": 0,
+        "ignored": 0,
+        "total": 0,
+        "build_errors": 78
+      },
+      "contract_intact": true,
+      "api_calls": 3,
+      "completion_tokens": 8241,
+      "iterations": [
+        {
+          "iteration": 0,
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 1,
+          "status": "applied",
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 2,
+          "status": "applied",
+          "metric": {
+            "score": null
+          }
+        },
+        {
+          "iteration": 3,
+          "status": "applied",
+          "metric": {
+            "score": null
+          }
+        }
+      ]
+    },
+    {
+      "arm": "b0-whole-repo",
+      "subject": "lambda-calculus-eval",
+      "tag": "b0-crust-repo-sonnet5-med-20260910",
+      "oracle": {
+        "project": "lambda-calculus-eval",
+        "state": "scored",
+        "passed": 22,
+        "failed": 0,
+        "ignored": 0,
+        "total": 22,
+        "exit_code": 0
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 54193,
+      "iterations": []
+    },
+    {
+      "arm": "b0-per-file",
+      "subject": "inversion_list",
+      "tag": "b0-crust-perfile-sonnet5-med-20260909",
+      "oracle": {
+        "project": "inversion_list",
+        "state": "scored",
+        "passed": 28,
+        "failed": 2,
+        "ignored": 0,
+        "total": 30,
+        "exit_code": 1
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 9422,
+      "iterations": []
+    },
+    {
+      "arm": "repair-build",
+      "subject": "inversion_list",
+      "tag": "b0r-build-crust-sonnet5-med-20260910",
+      "oracle": {
+        "project": "inversion_list",
+        "state": "scored",
+        "passed": 28,
+        "failed": 2,
+        "ignored": 0,
+        "total": 30,
+        "exit_code": 1
+      },
+      "contract_intact": true,
+      "api_calls": 0,
+      "completion_tokens": null,
+      "iterations": [
+        {
+          "iteration": 0,
+          "metric": {
+            "compile_errors": 0,
+            "builds": true
+          }
+        }
+      ]
+    },
+    {
+      "arm": "repair-test",
+      "subject": "inversion_list",
+      "tag": "b0r-test-crust-sonnet5-med-20260910",
+      "oracle": {
+        "project": "inversion_list",
+        "state": "scored",
+        "passed": 28,
+        "failed": 2,
+        "ignored": 0,
+        "total": 30,
+        "exit_code": 1
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 1370,
+      "iterations": [
+        {
+          "iteration": 0,
+          "metric": {
+            "score": {
+              "passed": 28,
+              "failed": 2,
+              "skipped": 0,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "28 passed, 2 failed, 0 ignored (of 30)"
+            }
+          }
+        },
+        {
+          "iteration": 1,
+          "status": "applied",
+          "metric": {
+            "score": {
+              "passed": 28,
+              "failed": 2,
+              "skipped": 0,
+              "deselected": 0,
+              "errors": 0,
+              "exit_code": 1,
+              "summary": "28 passed, 2 failed, 0 ignored (of 30)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "arm": "b0-whole-repo",
+      "subject": "inversion_list",
+      "tag": "b0-crust-repo-sonnet5-med-20260910",
+      "oracle": {
+        "project": "inversion_list",
+        "state": "scored",
+        "passed": 30,
+        "failed": 0,
+        "ignored": 0,
+        "total": 30,
+        "exit_code": 0
+      },
+      "contract_intact": true,
+      "api_calls": 1,
+      "completion_tokens": 7914,
+      "iterations": []
+    }
+  ]
+}

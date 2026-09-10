@@ -1,0 +1,14 @@
+[oracle] project  : lambda-calculus-eval
+[oracle] source   : <repo>/examples/crust/subjects/lambda-calculus-eval/pipeline-baseline-b0-crust-perfile-sonnet5-med-20260909/project
+[oracle] result   : BUILD FAILED, 127 compile error(s), 0 tests ran
+[oracle]   error[E0432]: unresolved import `crate::common::AstNodeKind`
+[oracle]   error[E0425]: cannot find function `table_exists` in module `hash_table`
+[oracle]   error[E0425]: cannot find function `search` in module `hash_table`
+[oracle]   error[E0425]: cannot find function `insert` in module `hash_table`
+[oracle]   error[E0425]: cannot find function `insert` in module `hash_table`
+[oracle]   error[E0425]: cannot find function `table_exists` in module `hash_table`
+[oracle]   error[E0425]: cannot find function `search` in module `hash_table`
+[oracle]   error[E0425]: cannot find function `insert` in module `hash_table`
+[oracle]   error[E0425]: cannot find function `table_exists` in module `hash_table`
+[oracle]   error[E0425]: cannot find function `insert` in module `hash_table`
+[oracle] exitcode : 2

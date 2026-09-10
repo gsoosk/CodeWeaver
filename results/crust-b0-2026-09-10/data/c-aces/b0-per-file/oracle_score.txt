@@ -1,0 +1,14 @@
+[oracle] project  : c-aces
+[oracle] source   : <repo>/examples/crust/subjects/c-aces/pipeline-baseline-b0-crust-perfile-sonnet5-med-20260909/project
+[oracle] result   : BUILD FAILED, 145 compile error(s), 0 tests ran
+[oracle]   error[E0560]: struct `Polynomial` has no field named `size`
+[oracle]   error[E0609]: no field `size` on type `&Polynomial`
+[oracle]   error[E0609]: no field `size` on type `&Polynomial`
+[oracle]   error[E0609]: no field `size` on type `&Polynomial`
+[oracle]   error[E0609]: no field `size` on type `&Polynomial`
+[oracle]   error[E0609]: no field `size` on type `&Polynomial`
+[oracle]   error[E0609]: no field `size` on type `&mut Polynomial`
+[oracle]   error[E0609]: no field `size` on type `&Polynomial`
+[oracle]   error[E0609]: no field `size` on type `&Polynomial`
+[oracle]   error[E0609]: no field `size` on type `&Polynomial`
+[oracle] exitcode : 2

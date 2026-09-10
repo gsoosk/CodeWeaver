@@ -1,0 +1,8 @@
+[oracle] project  : cset
+[oracle] source   : <repo>/examples/crust/subjects/cset/pipeline-baseline-b0-crust-repo-sonnet5-med-20260910/project
+[oracle] result   : BUILD FAILED, 4 compile error(s), 0 tests ran
+[oracle]   error: casting `&T` to `&mut T` is undefined behavior, even if the reference is unused, consider instead using an `UnsafeCell`
+[oracle]   error: casting `&T` to `&mut T` is undefined behavior, even if the reference is unused, consider instead using an `UnsafeCell`
+[oracle]   error: could not compile `cset` (lib) due to 2 previous errors; 1 warning emitted
+[oracle]   error: could not compile `cset` (lib test) due to 2 previous errors; 1 warning emitted
+[oracle] exitcode : 2

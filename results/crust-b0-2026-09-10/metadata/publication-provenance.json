@@ -1,0 +1,101 @@
+{
+  "note": "Machine paths in textual evidence are normalized to <repo>. Original hashes are recorded here. Generated code bytes are unchanged.",
+  "normalized_files": [
+    {
+      "path": "data/c-aces/b0-per-file/oracle_score.txt",
+      "sha256_before_normalization": "13bebe20274fc4e84ecfcf5572b9c271b4770f1abf188916ac35fe979cb1ace7"
+    },
+    {
+      "path": "data/c-aces/b0-whole-repo/oracle_score.txt",
+      "sha256_before_normalization": "dba0f247777de16510f93055cae970b15b62aafc4d148fbc184dee5e71f4771a"
+    },
+    {
+      "path": "data/c-aces/repair-build/oracle_score.txt",
+      "sha256_before_normalization": "8a6ca971cdfdb226eab0d6a437f2d22279e8a5654ded003614683b18f548c22e"
+    },
+    {
+      "path": "data/c-aces/repair-test/api-audit/round-01/request.json",
+      "sha256_before_normalization": "8576b7d257e1019a0e9b5bba0c83c3762dc382e100706083b8c34f952690f6d3"
+    },
+    {
+      "path": "data/c-aces/repair-test/api-audit/round-02/request.json",
+      "sha256_before_normalization": "7d2a886fd73bd49fc513a09c76921352f7985c0ae78e903e3d13075aa1cff6f1"
+    },
+    {
+      "path": "data/c-aces/repair-test/api-audit/round-03/request.json",
+      "sha256_before_normalization": "abc72b3e1de1ce5b2cd0012b534805c9124f1cf4e96b3c5beb2e90ad8ce82a94"
+    },
+    {
+      "path": "data/c-aces/repair-test/oracle_score.txt",
+      "sha256_before_normalization": "bd0a86a2e3f7b08a3de17685035ff4442c6b3f6a3ea839305704588855035ae1"
+    },
+    {
+      "path": "data/cset/b0-per-file/oracle_score.txt",
+      "sha256_before_normalization": "430321484943bc8bb48ede88e42872603fa7573ef05cc2ef2703c57c51aedc9b"
+    },
+    {
+      "path": "data/cset/b0-whole-repo/oracle_score.txt",
+      "sha256_before_normalization": "78ef628121591250244e548ac8e442f9b5c253f077c03d93124f4660cc8d50aa"
+    },
+    {
+      "path": "data/cset/repair-build/oracle_score.txt",
+      "sha256_before_normalization": "36aef43fa164d11cc268f57276959cb6aa64561d86168129e12917e052335ae5"
+    },
+    {
+      "path": "data/cset/repair-test/api-audit/round-01/request.json",
+      "sha256_before_normalization": "063c86e1cfe132d1daa694ebc4e765a03b52a822eb070cd20d368d6fde4e288a"
+    },
+    {
+      "path": "data/cset/repair-test/oracle_score.txt",
+      "sha256_before_normalization": "6cb992c987a2026701a25d66f0176dc69fa8d4235744bfd8180f7e57996f9bd4"
+    },
+    {
+      "path": "data/inversion_list/b0-per-file/oracle_score.txt",
+      "sha256_before_normalization": "9b8bdfe26140ef0f1d42f0167274558b945bf4d1f6471857c6976aadef0600f2"
+    },
+    {
+      "path": "data/inversion_list/b0-whole-repo/oracle_score.txt",
+      "sha256_before_normalization": "0284cb86d7f65a94eb2a024d05e7e60fe259db59213a599b231d4e2f9ce48fac"
+    },
+    {
+      "path": "data/inversion_list/repair-build/oracle_score.txt",
+      "sha256_before_normalization": "9154b58208caa6ebd6985bcbc252284c7682456547aa75963e6dbb37a5592383"
+    },
+    {
+      "path": "data/inversion_list/repair-test/api-audit/round-01/request.json",
+      "sha256_before_normalization": "5f268f9569a6620720de39ae2303e02acd7ee73702aefe58d878bb4d617a86b5"
+    },
+    {
+      "path": "data/inversion_list/repair-test/oracle_score.txt",
+      "sha256_before_normalization": "2836371bcefcb26979b067ee54a24166dd2b3e2b10155ef0c482c7ac46a64f56"
+    },
+    {
+      "path": "data/lambda-calculus-eval/b0-per-file/oracle_score.txt",
+      "sha256_before_normalization": "ce4e6fb603e69965e20908d97bb7418983ec5cfa1de2ec9556db066acd23e622"
+    },
+    {
+      "path": "data/lambda-calculus-eval/b0-whole-repo/oracle_score.txt",
+      "sha256_before_normalization": "dc0e120f7b911142cd0f7eef14d3a5a9be58d9a6570a1669d8660984192ab0ce"
+    },
+    {
+      "path": "data/lambda-calculus-eval/repair-build/oracle_score.txt",
+      "sha256_before_normalization": "fd52c7aa4319a764c42717e978256ea969cacf88ac4121dae7ca6ee7e929c8b8"
+    },
+    {
+      "path": "data/lambda-calculus-eval/repair-test/api-audit/round-01/request.json",
+      "sha256_before_normalization": "b223a0ea2bae74e2510e09953332f70bfaec47e0d74a90cca5d831a3a7e6ece3"
+    },
+    {
+      "path": "data/lambda-calculus-eval/repair-test/api-audit/round-02/request.json",
+      "sha256_before_normalization": "be6dcaa329c122ff889f6c7bb35f060ca175e1fd00cbdd0e17843b5047960155"
+    },
+    {
+      "path": "data/lambda-calculus-eval/repair-test/api-audit/round-03/request.json",
+      "sha256_before_normalization": "1d1692d0237a04e134741002332529996c005d1871a5917576e41a85089a2984"
+    },
+    {
+      "path": "data/lambda-calculus-eval/repair-test/oracle_score.txt",
+      "sha256_before_normalization": "8129aca013bc68687b6705cfdb2b961aec41c745a307b14572068786e258aea6"
+    }
+  ]
+}

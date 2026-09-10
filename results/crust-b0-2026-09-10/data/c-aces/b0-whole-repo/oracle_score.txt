@@ -1,0 +1,4 @@
+[oracle] project  : c-aces
+[oracle] source   : <repo>/examples/crust/subjects/c-aces/pipeline-baseline-b0-crust-repo-sonnet5-med-20260910/project
+[oracle] result   : 22 passed, 0 failed, 0 ignored (of 22)
+[oracle] exitcode : 0

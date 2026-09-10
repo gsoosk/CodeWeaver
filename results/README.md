@@ -16,6 +16,12 @@ it can support, and what it cannot. **Read the method file before quoting a numb
 | `alphatrans-b0-sonnet5-med-2026-09-08` | B0 single-shot, Copilot CLI | `claude-sonnet-5` | [METHOD](alphatrans-b0-sonnet5-med-2026-09-08/METHOD.md) |
 | `alphatrans-b0-api-2026-09-09` | B0 via direct API, per-file and whole-repo | `claude-sonnet-5` | [METHOD](alphatrans-b0-api-2026-09-09/METHOD.md) |
 | `alphatrans-b0-repair-2026-09-09` | Repair over the B0 API per-file artifact, build-guided and test-guided | `claude-sonnet-5` | [METHOD](alphatrans-b0-repair-2026-09-09/METHOD.md) |
+| `crust-b0-2026-09-10` | **CRUST-bench C→Rust**: B0 whole-repo and per-file, plus both repair arms | `claude-sonnet-5` | [METHOD](crust-b0-2026-09-10/METHOD.md) |
+
+The CRUST package is a **second suite in a different language pair** (C→Rust), not
+another AlphaTrans arm. Its oracle is much weaker and was LLM-generated rather than
+human-verified. Never place its numbers in a table with the AlphaTrans numbers; see
+its `METHOD.md` before quoting anything from it.
 
 Generation is reproduced by `experiments/baselines/campaigns/README.md`, which
 records the exact invocation behind each package. Scoring needs no model access:
@@ -49,6 +55,28 @@ are a before/after pair on one artifact, not two independent samples.
 
 This arm read the oracle's failure output. It is an upper bound on what repair can
 recover given perfect feedback, **not** a peer of any column above.
+
+## Second suite: CRUST-bench (C→Rust), test-blind arms
+
+Different language pair, different benchmark, much weaker oracle. Reported here for
+the mechanism it isolates, not as a score comparable to anything above.
+
+| Subject | stubs | B0 whole-repo | B0 per-file | + build repair |
+|---|---:|---:|---:|---:|
+| cset | 0/15 | FAIL(4) | FAIL(4) | FAIL(4) |
+| c-aces | 0/22 | **22/22** | FAIL(145) | FAIL(145) |
+| lambda-calculus-eval | 0/22 | **22/22** | FAIL(127) | FAIL(45) |
+| inversion_list | 2/30 | **30/30** | 28/30 | 28/30 |
+
+`FAIL(n)` means the crate did not compile, with n `rustc` errors; no tests ran. Rust
+gives no partial credit, so that is its own state, not a zero. The "stubs" column is
+the negative control — `inversion_list` has 2 tests that pass on unimplemented stubs.
+
+**Whole-repo beats per-file decisively here, the reverse of the AlphaTrans result.**
+Same mechanism, different dominant term: these crates are small enough that the output
+cap never binds, so what remains is cross-module contract disagreement — which per-file
+creates and whole-repo avoids. In AlphaTrans the cap dominated instead. Damage tracks
+inter-module coupling, not repository size.
 
 ## Rules for combining these numbers
 

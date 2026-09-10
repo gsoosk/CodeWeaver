@@ -1,0 +1,87 @@
+{
+  "baseline": "B0-repair-build",
+  "project": "inversion_list",
+  "tag": "b0r-build-crust-sonnet5-med-20260910",
+  "source_tag": "b0-crust-perfile-sonnet5-med-20260909",
+  "source_baseline": "B0-single-shot",
+  "source_granularity": "per-file",
+  "arm": "build",
+  "feedback_source": "build_check parse/import diagnostics",
+  "test_blind": true,
+  "oracle_seen": false,
+  "oracle_tests_in_prompt": false,
+  "backend": "copilot-api",
+  "model": "claude-sonnet-5",
+  "effort": "medium",
+  "max_output_tokens": 64000,
+  "max_iterations": 3,
+  "recorded": "2026-09-10T17:58:09+0000",
+  "code_revision": "f0abd67e5175c7403993d533ce8b6370d0b67851",
+  "collector_code_sha256": {
+    "single_shot.py": "937f1d701cd5fe11ff70ada361335f6806cd9add45dd46f501e8447c22006f7c",
+    "backends/copilot.py": "972fbbfd623eb9266deb84c1e0fa0874edeb83d66866edab6a8df32336c946b9",
+    "backends/copilot_api.py": "f5487a7e716b564b7e4b8f3e8f41cc405d64fd38b80763ffe4b4e46676cf5ba3",
+    "backends/base.py": "9f3afaf7fd376638b2797f97c80c2e85527d063b571c9930295aa4d97fa1b0e7",
+    "run_one.py": "7fd8fb7b17c84537360b86972d31580bd2b8d1706d80def71b9bff33b4054e9e"
+  },
+  "transport": "loopback-http-openai-chat-completions",
+  "api_configuration": {
+    "base_url": "http://127.0.0.1:4141/v1",
+    "endpoint": "http://127.0.0.1:4141/v1/chat/completions",
+    "model": "claude-sonnet-5",
+    "max_tokens": 64000,
+    "timeout_s": 3600.0,
+    "max_retries": 0,
+    "redirects": "rejected",
+    "min_request_interval_s": 30.0,
+    "environment_proxies": false,
+    "authentication_to_loopback": "local-bearer-key",
+    "reasoning_effort": "medium",
+    "stream": true
+  },
+  "api_protocol": {
+    "id": "b0-api-chat-completions-v1",
+    "message_roles": "native system/user/assistant",
+    "stream": true,
+    "tools": "omitted; returned tool/function calls invalidate the request",
+    "cli_invocations": 0,
+    "implicit_cli_system_prompt": false,
+    "client_auto_continuation": false,
+    "proxy_auto_continuation": false,
+    "continuation": "explicit harness requests for missing whole modules only",
+    "upstream_requests_per_http_request": 1,
+    "proxy_contract": "ericc-ch/copilot-api v0.7.0, 0ea08febdd7e3e055b03dd298bf57e669500b5c1",
+    "proxy_version_verified_by_client": false,
+    "provider_internal_prompts": "not observable; not claimed equivalent to CLI"
+  },
+  "protocol": "Iterative repair over a frozen B0 artifact. Each iteration is one explicit HTTP model request carrying the current project source and the current diagnostics; no tools, no retries, no conversation state between iterations. The source run is copied, never modified. Feedback is parse/import diagnostics only; the oracle is never consulted during repair, so this arm remains test-blind.",
+  "iterations_run": 0,
+  "best_iteration_by_metric": 0,
+  "kept": "final iteration (CRUST-bench convention); trajectory in history",
+  "history": [
+    {
+      "iteration": 0,
+      "clean": true,
+      "metric": {
+        "compile_errors": 0,
+        "builds": true
+      },
+      "api_calls": 0
+    }
+  ],
+  "usage_per_iteration": [],
+  "usage": {},
+  "api_audit": [],
+  "explicit_http_model_requests": 0,
+  "final_oracle_score": {
+    "passed": 28,
+    "failed": 2,
+    "skipped": 0,
+    "deselected": 0,
+    "errors": 0,
+    "exit_code": 1,
+    "summary": "28 passed, 2 failed, 0 ignored (of 30)",
+    "pipeline_deferrals_applied": false
+  },
+  "source_hashes": {}
+}

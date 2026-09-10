@@ -1,0 +1,14 @@
+[oracle] project  : lambda-calculus-eval
+[oracle] source   : <repo>/examples/crust/subjects/lambda-calculus-eval/pipeline-baseline-b0r-test-crust-sonnet5-med-20260910/project
+[oracle] result   : BUILD FAILED, 78 compile error(s), 0 tests ran
+[oracle]   error[E0432]: unresolved imports `common::AstNode`, `common::AstNodeType`, `common::Application`, `common::LambdaExpression`, `common::Variable`, `common::tokens_t`
+[oracle]   error[E0432]: unresolved import `crate::common::AstNode`
+[oracle]   error[E0433]: cannot find `AstNode` in `common`
+[oracle]   error[E0433]: cannot find `AstNode` in `common`
+[oracle]   error[E0433]: cannot find `AstNode` in `common`
+[oracle]   error[E0433]: cannot find `AstNode` in `common`
+[oracle]   error[E0433]: cannot find `AstNode` in `common`
+[oracle]   error[E0433]: cannot find `AstNode` in `common`
+[oracle]   error[E0433]: cannot find `AstNode` in `common`
+[oracle]   error[E0433]: cannot find `AstNode` in `common`
+[oracle] exitcode : 2
