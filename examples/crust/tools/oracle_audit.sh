@@ -24,11 +24,8 @@ RC=0
 for PROJECT in "$@"; do
   SUBJECT="$ROOT/subjects/$PROJECT"
   [ -d "$SUBJECT" ] || { echo "[audit] $PROJECT: not materialized"; continue; }
-  if [ -f "$SUBJECT/.oracle-path" ]; then
-    ORACLE="$(cat "$SUBJECT/.oracle-path")"
-  else
-    ORACLE="$SUBJECT/.oracle-master"
-  fi
+  ORACLE="${CRUST_ORACLE_ROOT:-$HOME/.crust-oracles}/$PROJECT"
+  [ -d "$ORACLE/bin" ] || ORACLE="$SUBJECT/.oracle-master"
 
   LOGS="$SUBJECT/pipeline/logs"
   if [ ! -d "$LOGS" ]; then
@@ -37,7 +34,7 @@ for PROJECT in "$@"; do
   fi
 
   # Match the oracle's absolute path, its basename, and the legacy in-tree name.
-  HITS="$(grep -l -e "$ORACLE" -e "$(basename "$ORACLE")/bin" -e ".oracle-master" \
+  HITS="$(grep -l -e "$ORACLE" -e "crust-oracles" -e ".oracle-master" -e ".oracle-path" \
             "$LOGS"/*.log "$LOGS"/*.jsonl 2>/dev/null | sort -u)"
   if [ -n "$HITS" ]; then
     echo "[audit] $PROJECT: ORACLE REFERENCED in $(echo "$HITS" | wc -l) log(s)"

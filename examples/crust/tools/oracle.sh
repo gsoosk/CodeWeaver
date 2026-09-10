@@ -40,15 +40,13 @@ done
 
 SUBJECT="$ROOT/subjects/$PROJECT"
 [ -d "$SUBJECT" ] || { echo "subject not materialized: $SUBJECT" >&2; exit 2; }
-# The oracle lives outside the subject tree (see setup.sh); the subject holds only a
-# pointer. Fall back to the legacy in-tree location so older materializations still
-# score, but new ones keep the tests out of the agents' working directory.
-if [ -f "$SUBJECT/.oracle-path" ]; then
-  ORACLE="$(cat "$SUBJECT/.oracle-path")"
-else
-  ORACLE="$SUBJECT/.oracle-master"
-fi
-[ -d "$ORACLE/bin" ] || { echo "no held-out tests at $ORACLE/bin" >&2; exit 2; }
+# The oracle location is derived by CONVENTION, not read from a pointer inside the
+# subject directory. A pointer there is itself a leak: an agent read one and then
+# viewed the directory it named. Nothing in the agents' working tree names this path.
+ORACLE="${CRUST_ORACLE_ROOT:-$HOME/.crust-oracles}/$PROJECT"
+# Legacy in-tree location, so older materializations still re-score.
+[ -d "$ORACLE/bin" ] || ORACLE="$SUBJECT/.oracle-master"
+[ -d "$ORACLE/bin" ] || { echo "no held-out tests for $PROJECT" >&2; exit 2; }
 
 REL="${WORKING_COPY_REL:-pipeline/project}"
 SRC="$SUBJECT/$REL"
