@@ -1,0 +1,69 @@
+# CodeWeaver config for the CRUST-bench subject '__PROJECT__'.
+#
+# This config lives in examples/crust/subjects/__PROJECT__/, so [paths].root — and
+# therefore the agents' working directory — is THIS directory. Every subject gets its
+# own scaffold, oracle, pipeline and Burr state.
+#
+# tier = A
+#
+# THE ORACLE IS HELD OUT. CRUST ships its tests inside the crate at src/bin/, where
+# `cargo test` finds them automatically. setup.sh moves them to .oracle-master and
+# strips the matching [[test]] declarations, and tools/oracle.sh stages them back
+# into a throwaway tree at validation time. `reference_dirs` deliberately excludes
+# both .oracle-master and the C project's own tests/ directory: CRUST generated its
+# Rust tests from those C tests, so exposing them would leak the oracle in another
+# language.
+
+[project]
+name = "crust-__PROJECT__"
+slug = "crust-__PROJECT_SLUG__"
+description = "CRUST-bench: translate the C project '__PROJECT__' into Rust conforming to the provided interface skeleton and passing the held-out cargo test suite."
+
+[translation]
+source_language = "C"
+target_language = "Rust"
+brief_file = "../../brief.md"
+
+[paths]
+source_dir = "c-source"             # the C project to translate (read-only, tests excluded)
+immutable_input = ".scaffold"       # interface skeleton (signatures, `unimplemented!()` bodies)
+working_copy = "pipeline/project"   # the Rust crate the agents fill in (src/**)
+pipeline_dir = "pipeline"
+
+[commands]
+# Run from this subject directory (= [paths].root = the agents' cwd).
+#   build_check : the crate must compile, and must still declare every module the
+#                 interface skeleton declares. Rust checks types, ownership,
+#                 lifetimes and exhaustiveness here, so this is a far stronger
+#                 signal than the Python example's parse+import check.
+#   unit_test   : LAYER 1 — the agents' OWN tests, inside the working copy.
+#                 Never the oracle.
+#   validate    : LAYER 2 — the held-out CRUST tests, via the isolating harness.
+build_check = "bash ../../tools/build_check.sh pipeline/project .scaffold"
+unit_test   = "bash ../../tools/unit_test.sh"
+validate    = '__VALIDATE_CMD__'
+
+[validation]
+# Cumulative gate -> space-separated test TARGET names (the stems of the files in
+# .oracle-master/bin). tools/oracle.sh maps each to `cargo test --test <name>`,
+# which selects a whole target. It deliberately avoids `cargo test <substring>`,
+# whose matching would drag later milestones' tests into an earlier gate.
+gate_template = "{tests_space}"
+skip_exclude_template = ""
+
+[model]
+# Fixed across every arm in this campaign so CodeWeaver and the B0 baselines are
+# model-matched.
+default = "claude-sonnet-5"
+effort_default = "medium"
+
+[execution]
+max_iter = 6
+parity_check = true
+max_parity_rounds = 4
+
+# No [[milestones]] declared: the scope stage reads the C source and the Rust
+# interface skeleton — NOT the oracle tests — and generates a cumulative,
+# dependency-ordered milestone matrix. The parity verifier then confirms every C
+# translation unit has a faithful Rust counterpart with no `unimplemented!()` or
+# `todo!()` left behind.

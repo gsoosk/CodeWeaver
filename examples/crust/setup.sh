@@ -97,18 +97,18 @@ for PROJECT in $TARGETS; do
   cp "$WORK/Cargo.toml" "$SUBJECT/.scaffold/Cargo.toml"
   [ -f "$WORK/Cargo.lock" ] && cp "$WORK/Cargo.lock" "$SUBJECT/.scaffold/Cargo.lock"
 
-  # 6. Minimal config, in the shape the baseline harness expects.
-  cat > "$SUBJECT/codeweaver.toml" <<EOF
-# tier = A
-# CRUST-bench subject: C -> Rust.
-[paths]
-source_dir = "c-source"
-working_copy = "pipeline/project"
+  # 6. Config, generated from the template so every subject is configured identically.
+  VALIDATE_CMD="bash ../../tools/oracle.sh --project $PROJECT --gate \"{gate}\""
+  SLUG="$(echo "$PROJECT" | tr 'A-Z' 'a-z' | tr -c 'a-z0-9' '-' | sed 's/-*$//')"
+  sed -e "s|__PROJECT__|$PROJECT|g" \
+      -e "s|__PROJECT_SLUG__|$SLUG|g" \
+      -e "s|__VALIDATE_CMD__|$VALIDATE_CMD|g" \
+      "$HERE/codeweaver.template.toml" > "$SUBJECT/codeweaver.toml"
 
-[commands]
-build_check = "bash ../../tools/build_check.sh"
-validate    = "bash ../../tools/oracle.sh --project $PROJECT"
-EOF
+  # Test TARGET names are the gate vocabulary: one token per file in .oracle-master/bin.
+  # Recorded so the scope stage can be checked against what the harness can actually
+  # select, without anyone reading the tests themselves.
+  ( cd "$ORACLE/bin" && ls *.rs 2>/dev/null | sed 's/\.rs$//' ) > "$SUBJECT/.gate-tokens.txt" || true
 
   # 5. Record the stub baseline: which tests pass with nothing implemented.
   #    Those are free points for every arm and must be visible in the results.

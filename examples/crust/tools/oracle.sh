@@ -22,6 +22,8 @@ WORKING_COPY_REL=""
 JSON=0
 KEEP_STAGING=0
 TIMEOUT=1200
+GATE=""
+ALL=0
 while [ $# -gt 0 ]; do
   case "$1" in
     --project) PROJECT="$2"; shift 2 ;;
@@ -29,6 +31,8 @@ while [ $# -gt 0 ]; do
     --json) JSON=1; shift ;;
     --keep-staging) KEEP_STAGING=1; shift ;;
     --timeout) TIMEOUT="$2"; shift 2 ;;
+    --all) ALL=1; shift ;;
+    --gate) GATE="$2"; shift 2 ;;
     *) echo "unknown arg: $1" >&2; exit 2 ;;
   esac
 done
@@ -72,8 +76,32 @@ if ! ( cd "$STAGING" && timeout "$TIMEOUT" cargo build --tests >"$BUILD_LOG" 2>&
 fi
 
 TEST_LOG="$STAGING/.test.log"
+# A gate is a space-separated list of test TARGET names -- the stems of the files in
+# .oracle-master/bin. `cargo test --test <name>` selects a whole target, which is the
+# same granularity the AlphaTrans harness uses when it resolves a token to a test
+# FILE. It deliberately avoids `cargo test <substring>`, whose matching would let an
+# early milestone's gate drag in later milestones' tests and fail for work it was
+# never asked to do.
+SELECT=""
+if [ -n "$GATE" ] && [ "$ALL" -eq 0 ]; then
+  for token in $GATE; do
+    if [ -f "$ORACLE/bin/$token.rs" ]; then
+      SELECT="$SELECT --test $token"
+    else
+      match="$(cd "$ORACLE/bin" && ls | sed 's/\.rs$//' | grep -ix "$token" | head -1 || true)"
+      if [ -n "$match" ]; then
+        SELECT="$SELECT --test $match"
+      else
+        echo "[oracle] gate token matched no test target: $token" >&2
+        exit 2
+      fi
+    fi
+  done
+fi
+
 set +e
-( cd "$STAGING" && timeout "$TIMEOUT" cargo test --no-fail-fast >"$TEST_LOG" 2>&1 )
+# shellcheck disable=SC2086
+( cd "$STAGING" && timeout "$TIMEOUT" cargo test $SELECT --no-fail-fast >"$TEST_LOG" 2>&1 )
 TRC=$?
 set -e
 
@@ -105,6 +133,7 @@ if [ "$JSON" -eq 1 ]; then
 else
   echo "[oracle] project  : $PROJECT"
   echo "[oracle] source   : $SRC"
+  echo "[oracle] gate     : ${GATE:-(whole suite)}"
   echo "[oracle] result   : $PASSED passed, $FAILED failed, $IGNORED ignored (of $TOTAL)"
   if [ "$FAILED" -gt 0 ]; then
     echo "[oracle] failures :"
