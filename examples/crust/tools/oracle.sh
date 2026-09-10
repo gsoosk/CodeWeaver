@@ -40,7 +40,14 @@ done
 
 SUBJECT="$ROOT/subjects/$PROJECT"
 [ -d "$SUBJECT" ] || { echo "subject not materialized: $SUBJECT" >&2; exit 2; }
-ORACLE="$SUBJECT/.oracle-master"
+# The oracle lives outside the subject tree (see setup.sh); the subject holds only a
+# pointer. Fall back to the legacy in-tree location so older materializations still
+# score, but new ones keep the tests out of the agents' working directory.
+if [ -f "$SUBJECT/.oracle-path" ]; then
+  ORACLE="$(cat "$SUBJECT/.oracle-path")"
+else
+  ORACLE="$SUBJECT/.oracle-master"
+fi
 [ -d "$ORACLE/bin" ] || { echo "no held-out tests at $ORACLE/bin" >&2; exit 2; }
 
 REL="${WORKING_COPY_REL:-pipeline/project}"

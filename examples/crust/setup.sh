@@ -7,13 +7,13 @@
 # LAYOUT PRODUCED, per subject:
 #   subjects/<name>/pipeline/project/   the Rust working copy the agents may edit
 #   subjects/<name>/c-source/           the original C project, READ ONLY reference
-#   subjects/<name>/.oracle-master/     the held-out tests, never in the working copy
+#   $CRUST_ORACLE_ROOT/<name>/         the held-out tests, OUTSIDE the subject tree
 #
 # THE ORACLE IS HELD OUT. CRUST ships its tests inside the project, at
 # src/bin/*.rs, where `cargo test` picks them up automatically. If we left them
 # in place the translator could read them, and every "test-blind" claim in the
 # results would be false. So setup strips src/bin/ out of the working copy and
-# keeps it in .oracle-master/, which tools/oracle.sh stages back at scoring time.
+# keeps it outside the subject dir, which tools/oracle.sh stages back at scoring time.
 #
 # Cargo.toml needs the same treatment: some subjects declare [[test]] targets
 # pointing into src/bin/, and cargo errors out if those paths are missing. The
@@ -52,8 +52,21 @@ for PROJECT in $TARGETS; do
   mkdir -p "$SUBJECT"
 
   WORK="$SUBJECT/pipeline/project"
-  ORACLE="$SUBJECT/.oracle-master"
+  # The oracle lives OUTSIDE the subject directory.
+  #
+  # The subject directory is the agents' working directory, and CodeWeaver runs its
+  # agents with --allow-all. An oracle stored at `<subject>/.oracle-master` is
+  # therefore one `ls -a` away, and that is not hypothetical: a scoper run listed it
+  # and lifted the exact test-target names out of `.oracle-master/bin/`, which are
+  # NOT derivable from the C source because the C tests are withheld. Keeping the
+  # oracle out of the tree the agents are pointed at is the difference between a
+  # held-out oracle and a nominally held-out one.
+  ORACLE_ROOT="${CRUST_ORACLE_ROOT:-$HOME/.crust-oracles}"
+  ORACLE="$ORACLE_ROOT/$PROJECT"
+  rm -rf "$ORACLE"
   mkdir -p "$WORK" "$ORACLE"
+  # A pointer, not the oracle: tools/oracle.sh resolves this, agents gain nothing.
+  printf '%s\n' "$ORACLE" > "$SUBJECT/.oracle-path"
 
   cp -r "$RSRC/." "$WORK/"
   rm -rf "$WORK/target"
@@ -105,14 +118,16 @@ for PROJECT in $TARGETS; do
       -e "s|__VALIDATE_CMD__|$VALIDATE_CMD|g" \
       "$HERE/codeweaver.template.toml" > "$SUBJECT/codeweaver.toml"
 
-  # Test TARGET names are the gate vocabulary: one token per file in .oracle-master/bin.
+  # Test TARGET names are the gate vocabulary. They are written BESIDE THE ORACLE,
+  # not in the subject directory: for CRUST they are not derivable from the C source
+  # (the C tests are withheld), so exposing them hands the agents the answer key.
   # Recorded so the scope stage can be checked against what the harness can actually
   # select, without anyone reading the tests themselves.
-  ( cd "$ORACLE/bin" && ls *.rs 2>/dev/null | sed 's/\.rs$//' ) > "$SUBJECT/.gate-tokens.txt" || true
+  ( cd "$ORACLE/bin" && ls *.rs 2>/dev/null | sed 's/\.rs$//' ) > "$ORACLE/gate-tokens.txt" || true
 
   # 5. Record the stub baseline: which tests pass with nothing implemented.
   #    Those are free points for every arm and must be visible in the results.
-  cat > "$SUBJECT/.oracle-master/README.txt" <<EOF
+  cat > "$ORACLE/README.txt" <<EOF
 Held-out oracle for $PROJECT.
 
 bin/              the CRUST test targets, removed from the working copy
