@@ -68,7 +68,7 @@ if ! ( cd "$STAGING" && timeout "$TIMEOUT" cargo build --tests >"$BUILD_LOG" 2>&
     grep -E '^error(\[|:)' "$BUILD_LOG" | head -10 | sed 's/^/[oracle]   /'
     echo "[oracle] exitcode : 2"
   fi
-  exit 1
+  exit 2
 fi
 
 TEST_LOG="$STAGING/.test.log"
@@ -82,9 +82,26 @@ FAILED="$(grep -cE '^test .* \.\.\. FAILED$' "$TEST_LOG" || true)"
 IGNORED="$(grep -cE '^test .* \.\.\. ignored$' "$TEST_LOG" || true)"
 TOTAL=$((PASSED + FAILED + IGNORED))
 
+# cargo exits 101 when any test fails. The harness reads pytest's convention, and
+# cross-checks the reported code against the process's own exit status, so the two
+# must agree: 0 = everything passed, 1 = some test failed, 2 = could not build.
+STATUS=$([ "$FAILED" -eq 0 ] && echo 0 || echo 1)
+
+if [ "$TOTAL" -eq 0 ]; then
+  # Compiled, but not one test ran. Never report that as a clean pass.
+  if [ "$JSON" -eq 1 ]; then
+    printf '{"project":"%s","state":"no_tests_ran","passed":0,"failed":0,"ignored":0,"total":0}\n' "$PROJECT"
+  else
+    echo "[oracle] project  : $PROJECT"
+    echo "[oracle] result   : NO TESTS RAN - the oracle collected nothing"
+    echo "[oracle] exitcode : 2"
+  fi
+  exit 2
+fi
+
 if [ "$JSON" -eq 1 ]; then
   printf '{"project":"%s","state":"scored","passed":%d,"failed":%d,"ignored":%d,"total":%d,"exit_code":%d}\n' \
-    "$PROJECT" "$PASSED" "$FAILED" "$IGNORED" "$TOTAL" "$TRC"
+    "$PROJECT" "$PASSED" "$FAILED" "$IGNORED" "$TOTAL" "$STATUS"
 else
   echo "[oracle] project  : $PROJECT"
   echo "[oracle] source   : $SRC"
@@ -93,9 +110,7 @@ else
     echo "[oracle] failures :"
     grep -E '^test .* \.\.\. FAILED$' "$TEST_LOG" | head -20 | sed 's/^/[oracle]   /'
   fi
-  # cargo exits 101 when tests fail; the harness reads pytest's 0/1 convention,
-  # so report the same meaning in the same shape: 0 all passed, 1 some failed.
-  echo "[oracle] exitcode : $([ "$FAILED" -eq 0 ] && echo 0 || echo 1)"
+  echo "[oracle] exitcode : $STATUS"
 fi
 [ "$KEEP_STAGING" -eq 1 ] && echo "[oracle] staging  : $STAGING"
-exit "$TRC"
+exit "$STATUS"
