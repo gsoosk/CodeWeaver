@@ -95,6 +95,7 @@ def main() -> int:
         shutil.copytree(subject_dir / ".oracle-master", meta / "oracle-master")
         shutil.copy2(subject_dir / ".scaffold" / "src" / "lib.rs", meta / "scaffold-lib.rs")
 
+    normalized: list[dict] = []
     (out / "report").mkdir(parents=True, exist_ok=True)
     (out / "report" / "scorecard.json").write_text(json.dumps({
         "campaign": "CRUST-bench C->Rust baselines and repair",
@@ -111,13 +112,37 @@ def main() -> int:
 
     rows = []
     for path in sorted(out.rglob("*")):
-        if path.is_file() and path.name != "SHA256SUMS.txt":
-            rows.append((hashlib.sha256(path.read_bytes()).hexdigest(),
-                         str(path.relative_to(out)).replace("\\", "/")))
+        if not path.is_file() or path.name == "SHA256SUMS.txt":
+            continue
+        # Machine paths are not results. The AlphaTrans packages normalise them and
+        # keep the original hashes in provenance; do the same here so a published
+        # artifact does not carry someone's home directory around.
+        if path.suffix in (".txt", ".json", ".md", ".log"):
+            try:
+                text = path.read_text(encoding="utf-8")
+            except (UnicodeDecodeError, OSError):
+                text = None
+            if text and str(repo) in text:
+                original = hashlib.sha256(path.read_bytes()).hexdigest()
+                path.write_text(text.replace(str(repo), "<repo>"), encoding="utf-8")
+                normalized.append({"path": str(path.relative_to(out)).replace("\\", "/"),
+                                   "sha256_before_normalization": original})
+        rows.append((hashlib.sha256(path.read_bytes()).hexdigest(),
+                     str(path.relative_to(out)).replace("\\", "/")))
+    # Written before the manifest so the manifest covers it too.
+    provenance = out / "metadata" / "publication-provenance.json"
+    provenance.write_text(json.dumps({
+        "note": "Machine paths in textual evidence are normalized to <repo>. "
+                "Original hashes are recorded here. Generated code bytes are unchanged.",
+        "normalized_files": normalized,
+    }, indent=2) + "\n")
+    rows.append((hashlib.sha256(provenance.read_bytes()).hexdigest(),
+                 str(provenance.relative_to(out)).replace("\\", "/")))
     with (out / "SHA256SUMS.txt").open("w", newline="\n") as fh:
         for digest, rel in sorted(rows, key=lambda r: r[1]):
             fh.write(f"{digest}  {rel}\n")
-    print(f"packaged {len(results)} runs, {len(rows)} files -> {out}")
+    print(f"packaged {len(results)} runs, {len(rows)} files, "
+          f"{len(normalized)} path-normalized -> {out}")
     return 0
 
 
