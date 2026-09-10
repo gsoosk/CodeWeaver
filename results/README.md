@@ -57,6 +57,13 @@ recover given perfect feedback, **not** a peer of any column above.
    failures, fixed environment exclusions retained. What differs between arms is how
    the translation was produced, and that difference is the experiment.
 
+   The `reproduction/oracle.sh` bundled in each package is deliberately **not** the
+   same file as `examples/alphatrans/tools/oracle.sh`, and its pinned hash will not
+   match. The bundled copy predates the `--no-pipeline-skips` flag: the wrappers get
+   the same guarantee structurally, by staging a fresh tree that has no
+   `pipeline/skips.json` in it at all, so there is nothing for the flag to suppress.
+   Both paths deselect exactly the fixed environment-broken tests and nothing else.
+
 2. **Do not pool arms with different feedback.** Arms differ in what the model was
    allowed to see:
 
