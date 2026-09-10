@@ -46,6 +46,8 @@ def write_json(path: Path, data: dict) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project", required=True)
+    parser.add_argument("--example", default="alphatrans",
+                        help="translation example: alphatrans (Java->Python) or crust (C->Rust)")
     parser.add_argument("--tag", required=True)
     parser.add_argument("--backend", choices=("copilot", "copilot-api"), default="copilot")
     parser.add_argument("--granularity", choices=("repo", "per-file"), default="repo",
@@ -60,6 +62,7 @@ def main() -> int:
     parser.add_argument("--max-rounds", type=int, default=6)
     parser.add_argument("--compare-tag", help="retain and compare against an earlier run of this subject")
     args = parser.parse_args()
+    profile = single_shot.use_profile(args.example)
     for tag in (args.project, args.tag, args.resume_tag, args.compare_tag):
         if tag is not None:
             single_shot.validate_tag(tag)
@@ -114,7 +117,7 @@ def main() -> int:
     ).strip()
     command = [
         sys.executable, "-u", str(single_shot.HERE / "single_shot.py"),
-        "--project", args.project, "--tag", args.tag,
+        "--project", args.project, "--tag", args.tag, "--example", args.example,
         "--backend", args.backend, "--model", model, "--max-rounds", str(args.max_rounds),
     ]
     if effort is not None:
@@ -157,9 +160,14 @@ def main() -> int:
     write_json(status_file, state)
     score_command = [
         "bash", str(single_shot.EXAMPLE / "tools/oracle.sh"),
-        "--project", args.project, "--all", "--no-pipeline-skips",
+        "--project", args.project,
         "--working-copy", f"pipeline-baseline-{args.tag}/project",
     ]
+    # The AlphaTrans oracle takes a test-selection gate and a deferral switch.
+    # The CRUST oracle always runs every test and stages no deferral file at all,
+    # so those flags do not exist there and passing them would abort the run.
+    if profile.name == "alphatrans":
+        score_command[4:4] = ["--all", "--no-pipeline-skips"]
     try:
         scored = subprocess.run(
             score_command, text=True, encoding="utf-8", errors="replace",

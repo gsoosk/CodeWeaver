@@ -36,6 +36,7 @@ transport/protocol, not a reproduction of the CLI's hidden scaffolding.
 from __future__ import annotations
 
 import argparse
+import ast
 from dataclasses import dataclass, field
 import hashlib
 import json
@@ -52,19 +53,130 @@ from backends.copilot import checked_number, command, decode_events, flatten_mes
 
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent.parent
-EXAMPLE = REPO / "examples" / "alphatrans"
+
+
+class Profile:
+    """What differs between translation examples, in one place.
+
+    Everything AlphaTrans-specific used to be inlined: the `.java` glob, the
+    `src/main` prefix, the ```python fence, `ast.parse` as the syntax gate. None
+    of that transfers to a C->Rust example, but the machinery around it -- block
+    parsing, continuation, audits, recovery -- does. So the differences live here
+    and the pipeline reads them.
+
+    The alphatrans profile reproduces the previously hardcoded behaviour exactly;
+    published results stay reproducible.
+    """
+
+    def __init__(self, name, example_rel, source_exts, source_fence, target_ext,
+                 target_fence, target_root, source_dir_default, exclude_dirs=(),
+                 validate=None, module_key=None):
+        self.name = name
+        self.example = REPO / example_rel
+        self.source_exts = source_exts
+        self.source_fence = source_fence
+        self.target_ext = target_ext
+        self.target_fence = target_fence
+        self.target_root = target_root
+        self.source_dir_default = source_dir_default
+        self.exclude_dirs = exclude_dirs
+        self._validate = validate
+        self._module_key = module_key
+
+    def file_block(self) -> re.Pattern:
+        return re.compile(
+            r"\{\{\s*([^\}\n]+?)\s*\}\}\s*\n+```(?:" + self.target_fence +
+            r")?\s*\n(.*?)```", re.DOTALL)
+
+    def bare_block(self) -> re.Pattern:
+        return re.compile(r"```(?:" + self.target_fence + r")?\s*\n(.*?)```", re.DOTALL)
+
+    def validate_syntax(self, path: pathlib.Path) -> str | None:
+        """Return an error string, or None if the file is syntactically fine.
+
+        Rust has no stdlib parser available here, and `cargo build` in
+        build_check already checks far more than a parse would, so the Rust
+        profile deliberately has no pre-check rather than a weak imitation of one.
+        """
+        if self._validate is None:
+            return None
+        return self._validate(path)
+
+    def module_key(self, name: str) -> str:
+        """Normalise a source or target path to the key the two share."""
+        if self._module_key is not None:
+            return self._module_key(name)
+        return name
+
+
+def _py_validate(path: pathlib.Path) -> str | None:
+    try:
+        ast.parse(path.read_text(encoding="utf-8"))
+    except SyntaxError as exc:
+        return f"{type(exc).__name__}: {exc}"
+    return None
+
+
+def _crust_key(name: str) -> str:
+    """C and Rust names differ by case and separator, not by identity.
+
+    `src/Aces-internal.c` and `src/aces_internal.rs` are the same module;
+    `src/inversion-list/inversion-list.h` and `src/inversion_list.rs` likewise.
+    Directory structure does not survive the translation, so only the stem is
+    compared.
+    """
+    stem = name.rsplit("/", 1)[-1]
+    stem = stem.rsplit(".", 1)[0]
+    return stem.lower().replace("-", "_")
+
+
+PROFILES = {
+    "alphatrans": Profile(
+        name="alphatrans", example_rel="examples/alphatrans",
+        source_exts=(".java",), source_fence="java",
+        target_ext=".py", target_fence="python|py", target_root="src/main",
+        source_dir_default=None, validate=_py_validate),
+    "crust": Profile(
+        name="crust", example_rel="examples/crust",
+        source_exts=(".c", ".h"), source_fence="c",
+        target_ext=".rs", target_fence="rust|rs", target_root="src",
+        source_dir_default="c-source",
+        exclude_dirs=("tests", "test", "t", "target", ".git"),
+        validate=None, module_key=_crust_key),
+}
+
+# Module-level default keeps existing callers (run_one.py, repair_loop.py) working.
+PROFILE = PROFILES["alphatrans"]
+EXAMPLE = PROFILE.example
+
+
+def use_profile(name: str) -> Profile:
+    """Switch the active profile. Must be called before any path is resolved.
+
+    Requesting the profile that is already active is a no-op. Switching is an
+    explicit action; re-asserting the default must not overwrite module globals,
+    which callers and tests are entitled to patch.
+    """
+    global PROFILE, EXAMPLE, FILE_BLOCK, BARE_BLOCK
+    if name not in PROFILES:
+        raise SystemExit(f"unknown example profile {name!r}; have {sorted(PROFILES)}")
+    if PROFILES[name] is PROFILE:
+        return PROFILE
+    PROFILE = PROFILES[name]
+    EXAMPLE = PROFILE.example
+    FILE_BLOCK = PROFILE.file_block()
+    BARE_BLOCK = PROFILE.bare_block()
+    return PROFILE
+
 
 # `{{path/to/File.py}}` followed by a fenced block -- the same convention
 # CRUST-Bench's prompts use, which keeps multi-file responses parseable.
-FILE_BLOCK = re.compile(
-    r"\{\{\s*([^\}\n]+?)\s*\}\}\s*\n+```(?:python|py)?\s*\n(.*?)```",
-    re.DOTALL,
-)
+FILE_BLOCK = PROFILE.file_block()
 
 # Per-file mode only. With a single target module the model has nothing to
 # disambiguate and answers with a bare fenced block, which is also the shape
 # AlphaTrans's own class-by-class parser extracts.
-BARE_BLOCK = re.compile(r"```(?:python|py)?\s*\n(.*?)```", re.DOTALL)
+BARE_BLOCK = PROFILE.bare_block()
 
 
 def read_config(project: str) -> dict:
@@ -82,8 +194,14 @@ def read_config(project: str) -> dict:
         if line.startswith("# tier"):
             tier = line.split("=", 1)[1].strip()
             break
+    # AlphaTrans records an absolute dataset path; the CRUST example keeps its C
+    # sources inside the subject, so a relative value resolves against the subject
+    # rather than against whatever directory the harness happens to run from.
+    source_dir = pathlib.Path(raw["paths"]["source_dir"])
+    if not source_dir.is_absolute():
+        source_dir = (cfg_path.parent / source_dir).resolve()
     return {
-        "source_dir": pathlib.Path(raw["paths"]["source_dir"]),
+        "source_dir": source_dir,
         "tier": tier,
         "model": raw.get("model", {}).get("default"),
         "effort": raw.get("model", {}).get("effort_default"),
@@ -91,14 +209,28 @@ def read_config(project: str) -> dict:
 
 
 def collect_java(source_dir: pathlib.Path) -> list[tuple[str, str]]:
-    files = sorted(p for p in source_dir.rglob("*.java"))
-    return [(str(p.relative_to(source_dir)).replace("\\", "/"),
-             p.read_text(encoding="utf-8", errors="replace")) for p in files]
+    """Collect translation inputs. Named for history; honours the active profile.
+
+    Excluded directories matter: for CRUST the C test suites are what its Rust
+    tests were generated from, so including them would leak the oracle.
+    """
+    files = []
+    for ext in PROFILE.source_exts:
+        files.extend(source_dir.rglob(f"*{ext}"))
+    out = []
+    for p in sorted(set(files)):
+        rel = p.relative_to(source_dir)
+        if any(part in PROFILE.exclude_dirs for part in rel.parts):
+            continue
+        out.append((str(rel).replace("\\", "/"),
+                    p.read_text(encoding="utf-8", errors="replace")))
+    return out
 
 
 def collect_skeleton(scaffold: pathlib.Path) -> list[tuple[str, str]]:
-    src_main = scaffold / "src" / "main"
-    files = sorted(p for p in src_main.rglob("*.py") if p.name != "__init__.py")
+    root = scaffold / PROFILE.target_root
+    files = sorted(p for p in root.rglob(f"*{PROFILE.target_ext}")
+                   if p.name not in ("__init__.py", "lib.rs"))
     return [(str(p.relative_to(scaffold)).replace("\\", "/"),
              p.read_text(encoding="utf-8", errors="replace")) for p in files]
 
@@ -106,10 +238,12 @@ def collect_skeleton(scaffold: pathlib.Path) -> list[tuple[str, str]]:
 def build_prompt(project: str, java: list, skel: list) -> tuple[str, str]:
     system = (HERE / "prompts" / "single_shot_system.md").read_text(encoding="utf-8")
     tpl = (HERE / "prompts" / "single_shot_user.md").read_text(encoding="utf-8")
+    sf = PROFILE.source_fence.split("|")[0]
+    tf = PROFILE.target_fence.split("|")[0]
     java_blob = "\n".join(
-        f"{{{{{name}}}}}\n```java\n{content}\n```\n" for name, content in java)
+        f"{{{{{name}}}}}\n```{sf}\n{content}\n```\n" for name, content in java)
     skel_blob = "\n".join(
-        f"{{{{{name}}}}}\n```python\n{content}\n```\n" for name, content in skel)
+        f"{{{{{name}}}}}\n```{tf}\n{content}\n```\n" for name, content in skel)
     targets = "\n".join(f"  - {name}" for name, _ in skel)
 
     user = (tpl
@@ -123,38 +257,61 @@ def build_prompt(project: str, java: list, skel: list) -> tuple[str, str]:
 
 
 def pair_per_file(java: list, skel: list) -> tuple[list[tuple[str, str, str]], list[str]]:
-    """Map each skeleton module to its one Java file.
+    """Map each target module to the source file(s) it comes from.
 
-    AlphaTrans keeps `src/main/java/<pkg>/<Class>.java` beside
-    `src/main/<pkg>/<Class>.py`, so the module path is the Java path minus the
-    leading `java/` segment and the extension. A module with no Java counterpart is
-    reported, never silently paired with an unrelated file.
+    AlphaTrans is one-to-one: `src/main/java/<pkg>/<Class>.java` sits beside
+    `src/main/<pkg>/<Class>.py`, so the key is the path minus the leading `java/`
+    segment and the extension.
+
+    CRUST is one-to-many and renames: a single `src/aces_internal.rs` corresponds
+    to both `src/Aces-internal.c` and `src/include/Aces-internal.h`. Those are
+    concatenated in declaration-then-definition order, since a C header carries
+    the types the implementation needs. A module with no counterpart is reported
+    as an orphan, never silently paired with an unrelated file.
     """
-    by_key = {}
+    by_key: dict[str, list[tuple[str, str]]] = {}
     for name, content in java:
-        key = name[len("java/"):] if name.startswith("java/") else name
-        by_key[key[:-len(".java")]] = (name, content)
+        if PROFILE.name == "alphatrans":
+            key = name[len("java/"):] if name.startswith("java/") else name
+            key = key[:-len(".java")]
+        else:
+            key = PROFILE.module_key(name)
+        by_key.setdefault(key, []).append((name, content))
+
     units, orphans = [], []
+    prefix = PROFILE.target_root + "/"
     for name, content in skel:
-        key = name[len("src/main/"):] if name.startswith("src/main/") else name
-        java_entry = by_key.get(key[:-len(".py")])
-        if java_entry is None:
+        if PROFILE.name == "alphatrans":
+            key = name[len(prefix):] if name.startswith(prefix) else name
+            key = key[:-len(PROFILE.target_ext)]
+        else:
+            key = PROFILE.module_key(name)
+        entries = by_key.get(key)
+        if not entries:
             orphans.append(name)
             continue
-        units.append((name, java_entry[0], java_entry[1], content))
+        # Headers first: declarations before definitions.
+        entries = sorted(entries, key=lambda e: (not e[0].endswith(".h"), e[0]))
+        src_name = ", ".join(e[0] for e in entries)
+        sf = PROFILE.source_fence.split("|")[0]
+        src_body = "\n\n".join(
+            f"/* {e[0]} */\n{e[1]}" if len(entries) > 1 else e[1] for e in entries)
+        units.append((name, src_name, src_body, content))
     return units, orphans
 
 
 def build_per_file_prompt(project: str, unit: tuple[str, str, str, str]) -> tuple[str, str]:
-    """One Java class plus its one skeleton module -- AlphaTrans's granularity."""
+    """One source unit plus its one skeleton module -- AlphaTrans's granularity."""
     module, java_name, java_source, skeleton = unit
     system = (HERE / "prompts" / "single_shot_system.md").read_text(encoding="utf-8")
     tpl = (HERE / "prompts" / "per_file_user.md").read_text(encoding="utf-8")
+    sf = PROFILE.source_fence.split("|")[0]
+    tf = PROFILE.target_fence.split("|")[0]
     user = (tpl
             .replace("{{PROJECT}}", project)
             .replace("{{TARGET_PATH}}", module)
-            .replace("{{JAVA_FILE}}", f"{{{{{java_name}}}}}\n```java\n{java_source}\n```\n")
-            .replace("{{SKELETON_FILE}}", f"{{{{{module}}}}}\n```python\n{skeleton}\n```\n"))
+            .replace("{{JAVA_FILE}}", f"{{{{{java_name}}}}}\n```{sf}\n{java_source}\n```\n")
+            .replace("{{SKELETON_FILE}}", f"{{{{{module}}}}}\n```{tf}\n{skeleton}\n```\n"))
     return system, user
 
 
@@ -224,11 +381,12 @@ def parse_response(text: str) -> dict[str, str]:
     out: dict[str, str] = {}
     for raw_name, body in FILE_BLOCK.findall(text):
         name = raw_name.strip().strip("`").replace("\\", "/")
-        if not name.endswith(".py"):
+        if not name.endswith(PROFILE.target_ext):
             continue
-        # Normalise to a path under src/main/ regardless of how it was written.
-        idx = name.find("src/main/")
-        name = name[idx:] if idx != -1 else f"src/main/{name.lstrip('/')}"
+        # Normalise to a path under the target root regardless of how it was written.
+        root = PROFILE.target_root + "/"
+        idx = name.find(root)
+        name = name[idx:] if idx != -1 else f"{root}{name.lstrip('/')}"
         if ":" in name or any(part in (".", "..") for part in name.split("/")):
             continue
         out[name] = body
@@ -559,6 +717,13 @@ def materialize(scaffold: pathlib.Path, out_root: pathlib.Path,
         shutil.rmtree(out_root)
     out_root.mkdir(parents=True)
     shutil.copytree(scaffold / "src", out_root / "src")
+    # Anything else the scaffold holds is build metadata the target language needs
+    # -- Cargo.toml and Cargo.lock for Rust. Without the manifest a Rust crate
+    # cannot be compiled or scored at all, so a src-only copy would report every
+    # run as a build failure regardless of what the model wrote.
+    for extra in sorted(scaffold.iterdir()):
+        if extra.is_file():
+            shutil.copy2(extra, out_root / extra.name)
 
     written, unknown = 0, 0
     for rel, body in files.items():
@@ -624,6 +789,10 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--project", required=True)
+    ap.add_argument("--example", default="alphatrans", choices=sorted(PROFILES),
+                    help="which translation example the subject belongs to: "
+                         "alphatrans (Java->Python) or crust (C->Rust). "
+                         "Selects source/target languages, paths and syntax gate.")
     ap.add_argument("--tag", default=None)
     ap.add_argument("--resume-tag", help="recover/continue a terminal audited Copilot run under a NEW tag")
     ap.add_argument("--backend", default="copilot", choices=["copilot", "foundry", "copilot-api"])
@@ -646,6 +815,7 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true",
                     help="build the prompt, report its size, call nothing")
     args = ap.parse_args()
+    profile = use_profile(args.example)
     args.tag = args.tag or (("b0-api-" if args.backend == "copilot-api" else "") + time.strftime("%Y%m%d"))
     validate_tag(args.project)
     validate_tag(args.tag)
@@ -849,15 +1019,12 @@ def main() -> int:
         written, unknown = materialize(scaffold, out_root, files)
         missing = sorted(expected - set(files))
         # Syntax diagnostics are recorded only AFTER generation, never sent back.
-        import ast
         unparseable = []
         for rel in files:
             path = out_root / rel
             if not path.is_file():
                 continue
-            try:
-                ast.parse(path.read_text(encoding="utf-8"))
-            except SyntaxError:
+            if PROFILE.validate_syntax(path) is not None:
                 unparseable.append(rel)
         print(f"[b0] wall clock   : {elapsed:,.0f}s new work; {rounds} total backend invocation(s)")
         print(f"[b0] files parsed : {len(files)}  written={written}  unplaceable={unknown}")

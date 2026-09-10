@@ -614,9 +614,72 @@ def test_run_one_recovery():
     print("PASS: run_one forwards linked recovery, scores afterward with no pipeline skips, preserves failed source status")
 
 
+def test_example_profiles():
+    """The crust profile must change languages and paths without disturbing alphatrans."""
+    assert single_shot.PROFILE.name == "alphatrans", "default profile must stay alphatrans"
+
+    crust = single_shot.PROFILES["crust"]
+    alpha = single_shot.PROFILES["alphatrans"]
+
+    # C and Rust names differ by case and separator; the key must bridge that.
+    assert crust.module_key("src/Aces-internal.c") == "aces_internal"
+    assert crust.module_key("src/include/Aces-internal.h") == "aces_internal"
+    assert crust.module_key("src/aces_internal.rs") == "aces_internal"
+    assert crust.module_key("src/inversion-list/inversion-list.c") == "inversion_list"
+    print("PASS: crust module keys bridge C/Rust case and separator differences")
+
+    # A Rust module is fed BOTH its .c and its .h, header first.
+    try:
+        single_shot.use_profile("crust")
+        c_files = [("src/Aces.c", "int impl(void){return 1;}"),
+                   ("src/include/Aces.h", "int impl(void);"),
+                   ("src/Other.c", "int other(void){return 2;}")]
+        skel = [("src/aces.rs", "pub fn impl_() { unimplemented!() }")]
+        units, orphans = single_shot.pair_per_file(c_files, skel)
+        assert len(units) == 1 and not orphans, (units, orphans)
+        module, src_name, src_body, _ = units[0]
+        assert module == "src/aces.rs"
+        assert "Aces.h" in src_name and "Aces.c" in src_name, src_name
+        assert src_body.index("int impl(void);") < src_body.index("int impl(void){"), \
+            "header declarations must precede the implementation"
+        assert "other" not in src_body, "unrelated C file leaked into the unit"
+        print("PASS: crust pairs .h before .c and never merges unrelated files")
+
+        # Rust fences must be accepted, and paths normalised under src/ not src/main/.
+        completion = Completion(text="{{src/aces.rs}}\n```rust\npub fn a() {}\n```",
+                                usage=Usage(0, 0), raw={}, model="m")
+        got = single_shot.completion_files(completion)
+        assert got == {"src/aces.rs": "pub fn a() {}\n"}, got
+
+        bare = Completion(text="```rust\npub fn b() {}\n```", usage=Usage(0, 0), raw={}, model="m")
+        assert single_shot.BARE_BLOCK.findall(bare.text) == ["pub fn b() {}\n"]
+        print("PASS: crust profile parses rust fences and normalises to src/")
+
+        # There is no Rust parser here; cargo build in build_check is the real gate.
+        # The profile must say so rather than silently reporting every file as valid.
+        assert crust._validate is None and alpha._validate is not None
+        print("PASS: crust defers syntax checking to cargo rather than faking a parser")
+    finally:
+        single_shot.use_profile("alphatrans")
+
+    # Switching back must fully restore Java/Python behaviour.
+    assert single_shot.PROFILE.name == "alphatrans"
+    completion = Completion(text="{{Mod.py}}\n```python\nx = 1\n```", usage=Usage(0, 0), raw={}, model="m")
+    assert single_shot.completion_files(completion) == {"src/main/Mod.py": "x = 1\n"}
+    print("PASS: switching back to alphatrans restores Java/Python parsing exactly")
+
+    # Re-asserting the active profile must not clobber a patched EXAMPLE.
+    sentinel = pathlib.Path("/tmp/patched-example")
+    with patch.object(single_shot, "EXAMPLE", sentinel):
+        single_shot.use_profile("alphatrans")
+        assert single_shot.EXAMPLE == sentinel, "no-op switch overwrote a patched EXAMPLE"
+    print("PASS: re-selecting the active profile leaves patched globals alone")
+
+
 def main() -> int:
     run_api_transport_tests()
     run_repair_loop_tests()
+    test_example_profiles()
     test_backend_protocol()
     test_score_selection()
     test_existing_run_is_preserved()
