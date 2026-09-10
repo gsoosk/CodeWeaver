@@ -56,13 +56,43 @@ STAGING="$(mktemp -d)"
 cleanup() { [ "$KEEP_STAGING" -eq 1 ] || rm -rf "$STAGING"; }
 trap cleanup EXIT
 
-# Stage the translation, then overwrite the manifest and restore the tests.
-# Order matters: the oracle manifest wins, so a translation cannot disable a
-# test target by editing its own Cargo.toml.
+# Stage the translation, then synthesize a canonical manifest and restore the tests.
+#
+# The manifest is REBUILT rather than copied, because cargo's defaults make the
+# denominator unstable:
+#   * src/bin/*.rs is auto-discovered as binaries, and `cargo test` runs the
+#     `#[test]` functions inside them;
+#   * a file ALSO named in a [[test]] block is compiled a second time as an
+#     integration target, so every one of its tests is counted TWICE;
+#   * a bare `cargo test` additionally runs the crate's own `#[cfg(test)] mod tests`,
+#     which CodeWeaver's agents write -- tests the translation graded itself on.
+# Subjects therefore reported 2x, 1x or 1x+agent-tests depending on whether CRUST
+# happened to declare [[test]] blocks. Disabling auto-discovery and declaring each
+# staged file exactly once makes every subject count each oracle test exactly once.
 cp -r "$SRC/." "$STAGING/"
 rm -rf "$STAGING/target" "$STAGING/src/bin"
-cp "$ORACLE/Cargo.toml.oracle" "$STAGING/Cargo.toml"
 cp -r "$ORACLE/bin" "$STAGING/src/bin"
+
+awk '
+  /^\[\[test\]\]/ || /^\[\[bin\]\]/ { skip=1; next }
+  /^\[/                             { skip=0 }
+  !skip                             { print }
+' "$ORACLE/Cargo.toml.oracle" > "$STAGING/Cargo.toml"
+# autobins/autotests off: nothing is a target unless declared below.
+python3 - "$STAGING/Cargo.toml" <<'PY'
+import re, sys
+path = sys.argv[1]
+text = open(path).read()
+# Place the auto-discovery switches inside [package], where cargo reads them.
+text = re.sub(r'(?m)^(\[package\]\s*$)', r'\1\nautobins = false\nautotests = false', text, count=1)
+open(path, 'w').write(text)
+PY
+for f in "$STAGING/src/bin"/*.rs; do
+  [ -e "$f" ] || continue
+  name="$(basename "$f" .rs)"
+  printf '\n[[test]]\nname = "%s"\npath = "src/bin/%s.rs"\nharness = true\n' "$name" "$name" \
+    >> "$STAGING/Cargo.toml"
+done
 
 BUILD_LOG="$STAGING/.build.log"
 if ! ( cd "$STAGING" && timeout "$TIMEOUT" cargo build --tests >"$BUILD_LOG" 2>&1 ); then
@@ -81,12 +111,15 @@ if ! ( cd "$STAGING" && timeout "$TIMEOUT" cargo build --tests >"$BUILD_LOG" 2>&
 fi
 
 TEST_LOG="$STAGING/.test.log"
-# A gate is a space-separated list of test TARGET names -- the stems of the files in
-# .oracle-master/bin. `cargo test --test <name>` selects a whole target, which is the
-# same granularity the AlphaTrans harness uses when it resolves a token to a test
-# FILE. It deliberately avoids `cargo test <substring>`, whose matching would let an
-# early milestone's gate drag in later milestones' tests and fail for work it was
-# never asked to do.
+# Select the oracle's test TARGETS explicitly, always.
+#
+# A bare `cargo test` also runs the crate's own `#[cfg(test)] mod tests` -- and
+# CodeWeaver's agents write those. Counting them inflates both numerator and
+# denominator with tests the translation graded itself on, which is not a held-out
+# score at all. Naming each target with --test restricts the run to the staged
+# oracle and nothing else.
+#
+# A gate narrows that set further, to the targets a milestone is responsible for.
 SELECT=""
 if [ -n "$GATE" ] && [ "$ALL" -eq 0 ]; then
   for token in $GATE; do
@@ -101,6 +134,11 @@ if [ -n "$GATE" ] && [ "$ALL" -eq 0 ]; then
         exit 2
       fi
     fi
+  done
+else
+  for f in "$ORACLE/bin"/*.rs; do
+    [ -e "$f" ] || continue
+    SELECT="$SELECT --test $(basename "$f" .rs)"
   done
 fi
 
