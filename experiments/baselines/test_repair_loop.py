@@ -297,6 +297,25 @@ def check_crust_contract_guard(root):
     print("PASS: crust build_check rejects a crate that drops a declared module")
 
 
+def check_crust_module_drop_is_refused():
+    """The write itself must be refused, not merely flagged after the fact.
+
+    The loop keeps its final iteration, so a patch that shrinks the crate survives
+    to be scored even when build_check reports it. Observed on a real run.
+    """
+    contract = {"alpha", "beta", "gamma"}
+    intact = "pub mod alpha;\npub mod beta;\npub mod gamma;\n"
+    assert repair_loop.dropped_contract_modules(intact, contract) == []
+    amputated = "pub mod alpha;\n"
+    assert repair_loop.dropped_contract_modules(amputated, contract) == ["beta", "gamma"]
+    # Reordering, comments and extra modules are all fine; only removal is not.
+    reordered = "// header\npub mod gamma;\npub mod alpha;\npub mod beta;\npub mod extra;\n"
+    assert repair_loop.dropped_contract_modules(reordered, contract) == []
+    # A commented-out declaration is a removal, not a declaration.
+    commented = "pub mod alpha;\n// pub mod beta;\npub mod gamma;\n"
+    assert repair_loop.dropped_contract_modules(commented, contract) == ["beta"]
+    print("PASS: dropping a declared module from lib.rs is detected as a contract breach")
+
 def check_refuses_overwrite(root):
     subject, source, _ = make_source(root / "o")
     (subject / "pipeline-baseline-taken").mkdir()
@@ -332,6 +351,7 @@ def run_tests():
         check_cascading_progress_is_not_discarded(root)
         check_regression_is_visible_not_hidden(root)
         check_crust_contract_guard(root)
+        check_crust_module_drop_is_refused()
         check_error_recovery_counts_as_progress()
         check_refuses_overwrite(root)
         check_diagnostic_digest()

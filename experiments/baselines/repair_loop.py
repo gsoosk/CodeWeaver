@@ -140,6 +140,19 @@ def failure_digest(output: str) -> str:
     return digest
 
 
+def dropped_contract_modules(body: str, contract: set[str]) -> list[str]:
+    """Modules the interface declares that this lib.rs no longer does.
+
+    The declared module list is part of the immutable interface, not of the
+    implementation. A repair that drops `pub mod parser;` makes `cargo build --lib`
+    succeed by removing the code that fails to compile, and every test linking
+    against that path then fails to build. Reporting it afterwards is not enough,
+    because the loop keeps its final iteration and the shrunken crate survives.
+    """
+    declared = set(re.findall(r"^\s*pub\s+mod\s+([A-Za-z_]\w*)\s*;", body, re.MULTILINE))
+    return sorted(contract - declared)
+
+
 def better(arm: str, current: dict, best: dict | None) -> bool:
     """Did this iteration improve the arm's own metric?
 
@@ -206,6 +219,14 @@ def main() -> int:
     shutil.copytree(source / "project", run / "project")
     project = run / "project"
     source_root = project / single_shot.PROFILE.target_root
+    # The interface skeleton is the contract. Read the module list it declares once,
+    # so a repair cannot quietly shrink the crate to make the compiler happy.
+    contract_modules: set[str] = set()
+    scaffold_lib = subject_dir / ".scaffold" / "src" / "lib.rs"
+    if args.example == "crust" and scaffold_lib.is_file():
+        contract_modules = set(re.findall(
+            r"^\s*pub\s+mod\s+([A-Za-z_]\w*)\s*;",
+            scaffold_lib.read_text(encoding="utf-8"), re.MULTILINE))
     audit_dir = run / "api-audit"
 
     backend = single_shot.build_backend(
@@ -297,6 +318,19 @@ def main() -> int:
                 if not body.strip():
                     rejected.append({"path": relative, "reason": "empty body"})
                     continue
+                # The declared module list is part of the immutable interface, not
+                # of the implementation. A repair that drops `pub mod parser;` makes
+                # `cargo build --lib` succeed by removing the code that fails, and
+                # every test that links against that path then fails to compile.
+                # Reporting it afterwards is not enough: the loop keeps its final
+                # iteration, so the damaged tree survives. Refuse the write.
+                if relative.endswith("/lib.rs") or relative == "src/lib.rs":
+                    dropped = dropped_contract_modules(body, contract_modules)
+                    if dropped:
+                        rejected.append({
+                            "path": relative,
+                            "reason": "removes declared module(s): " + ", ".join(dropped)})
+                        continue
             else:
                 try:
                     ast.parse(body)
