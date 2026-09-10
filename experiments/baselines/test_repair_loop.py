@@ -1,6 +1,7 @@
 """Offline coverage for the repair loops; invoked by test_continuation.py."""
 import json
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -256,6 +257,46 @@ def check_error_recovery_counts_as_progress():
     print("PASS: crust build metric ranks by compile errors and prefers a crate that builds")
 
 
+def check_crust_contract_guard(root):
+    """A repair must not reach a clean build by deleting the failing modules."""
+    import subprocess as sp
+    repo = Path(single_shot.REPO)
+    script = repo / "examples/crust/tools/build_check.sh"
+    # `bash` being on PATH is not enough: on Windows it often resolves to a WSL
+    # stub that cannot execute anything. Probe it rather than trusting the name.
+    usable_bash = False
+    if shutil.which("bash"):
+        try:
+            probe = sp.run(["bash", "-c", "echo ok"], capture_output=True,
+                           text=True, timeout=30)
+            usable_bash = probe.returncode == 0 and probe.stdout.strip() == "ok"
+        except (OSError, sp.SubprocessError):
+            usable_bash = False
+    if not script.is_file() or not usable_bash:
+        print("SKIP: crust build_check contract guard (needs a working bash)")
+        return
+    subject = root / "amputee"
+    scaffold = subject / ".scaffold" / "src"
+    work = subject / "project" / "src"
+    scaffold.mkdir(parents=True)
+    work.mkdir(parents=True)
+    (scaffold / "lib.rs").write_text("pub mod alpha;\npub mod beta;\n")
+    # The working copy silently drops `beta`, which is exactly how a repair loop
+    # scored on "does it compile" can score zero while reporting success.
+    (work / "lib.rs").write_text("pub mod alpha;\n")
+    (work / "alpha.rs").write_text("pub fn a() {}\n")
+    (work / "beta.rs").write_text("pub fn b() {}\n")
+    (subject / "project" / "Cargo.toml").write_text(
+        '[package]\nname = "amputee"\nversion = "0.1.0"\nedition = "2021"\n')
+    result = sp.run(["bash", str(script), str(subject / "project"), str(subject / ".scaffold")],
+                    capture_output=True, text=True, timeout=120)
+    combined = result.stdout + result.stderr
+    assert result.returncode != 0, "dropping a declared module was reported as a clean build"
+    assert "beta" in combined, combined
+    assert "no longer declares module" in combined, combined
+    print("PASS: crust build_check rejects a crate that drops a declared module")
+
+
 def check_refuses_overwrite(root):
     subject, source, _ = make_source(root / "o")
     (subject / "pipeline-baseline-taken").mkdir()
@@ -290,6 +331,7 @@ def run_tests():
         check_reverts_regression(root)
         check_cascading_progress_is_not_discarded(root)
         check_regression_is_visible_not_hidden(root)
+        check_crust_contract_guard(root)
         check_error_recovery_counts_as_progress()
         check_refuses_overwrite(root)
         check_diagnostic_digest()

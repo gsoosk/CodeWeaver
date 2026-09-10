@@ -70,8 +70,12 @@ def build_signal(project: Path, repo: Path,
         pipeline.mkdir()
         (pipeline / "project").symlink_to(project.resolve(), target_is_directory=True)
         if profile == "crust":
+            # Pass the subject's scaffold explicitly: the staging tree is a symlink
+            # shim, so the relative lookup inside build_check cannot find it, and
+            # without it the contract check silently does nothing.
+            scaffold = project.parent.parent / ".scaffold"
             command = ["bash", str(repo / "examples/crust/tools/build_check.sh"),
-                       str(pipeline / "project")]
+                       str(pipeline / "project"), str(scaffold)]
         else:
             command = [sys.executable,
                        str(repo / "examples/alphatrans/tools/build_check.py"), staging]

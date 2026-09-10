@@ -20,7 +20,38 @@ set -eu
 export PATH="$HOME/.cargo/bin:$PATH"
 
 WORK="${1:-pipeline/project}"
+SCAFFOLD_ARG="${2:-}"
 [ -d "$WORK/src" ] || { echo "build_check: no working copy at $WORK/src" >&2; exit 2; }
+
+# The declared module list is part of the contract, not of the implementation.
+#
+# A repair loop scored on "does it compile" can satisfy that by DELETING whatever
+# fails -- dropping `pub mod parser;` from lib.rs makes the crate build and makes
+# every test referring to it fail to link. That is not a repair, and it was
+# observed happening. So check the contract first, using only the scaffold, which
+# the translator was given anyway. This stays fully test-blind.
+SCAFFOLD=""
+for candidate in "$SCAFFOLD_ARG" "$WORK/../../.scaffold" "$WORK/../../../.scaffold"; do
+  [ -n "$candidate" ] && [ -f "$candidate/src/lib.rs" ] && { SCAFFOLD="$candidate"; break; }
+done
+if [ -n "$SCAFFOLD" ] && [ -f "$WORK/src/lib.rs" ]; then
+  MISSING=""
+  while IFS= read -r module; do
+    grep -qE "^[[:space:]]*pub[[:space:]]+mod[[:space:]]+${module}[[:space:]]*;" \
+      "$WORK/src/lib.rs" || MISSING="$MISSING $module"
+  done <<EOF
+$(grep -oE '^[[:space:]]*pub[[:space:]]+mod[[:space:]]+[A-Za-z_][A-Za-z0-9_]*' "$SCAFFOLD/src/lib.rs" \
+   | awk '{print $NF}')
+EOF
+  if [ -n "$MISSING" ]; then
+    echo "build_check: FAILED with 1 error(s)"
+    echo "error: lib.rs no longer declares module(s) the interface requires:$MISSING"
+    echo "  --> $WORK/src/lib.rs"
+    echo "note: removing a module from the crate does not repair it; the tests link"
+    echo "      against these paths and will fail to compile without them."
+    exit 1
+  fi
+fi
 
 LOG="$(mktemp)"
 trap 'rm -f "$LOG"' EXIT
