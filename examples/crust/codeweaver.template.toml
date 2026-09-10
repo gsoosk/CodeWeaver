@@ -7,10 +7,10 @@
 # tier = A
 #
 # THE ORACLE IS HELD OUT. CRUST ships its tests inside the crate at src/bin/, where
-# `cargo test` finds them automatically. setup.sh moves them to .oracle-master and
+# `cargo test` finds them automatically. setup.sh relocates them and
 # strips the matching [[test]] declarations, and tools/oracle.sh stages them back
 # into a throwaway tree at validation time. `reference_dirs` deliberately excludes
-# both .oracle-master and the C project's own tests/ directory: CRUST generated its
+# the C project's own tests/ directory: CRUST generated its
 # Rust tests from those C tests, so exposing them would leak the oracle in another
 # language.
 
@@ -45,7 +45,7 @@ validate    = '__VALIDATE_CMD__'
 
 [validation]
 # Cumulative gate -> space-separated test TARGET names (the stems of the files in
-# .oracle-master/bin). tools/oracle.sh maps each to `cargo test --test <name>`,
+# tools/oracle.sh maps each to `cargo test --test <name>`,
 # which selects a whole target. It deliberately avoids `cargo test <substring>`,
 # whose matching would drag later milestones' tests into an earlier gate.
 gate_template = "{tests_space}"
