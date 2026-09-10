@@ -675,6 +675,23 @@ def test_example_profiles():
         assert single_shot.EXAMPLE == sentinel, "no-op switch overwrote a patched EXAMPLE"
     print("PASS: re-selecting the active profile leaves patched globals alone")
 
+    # Every prompt the two profiles use must exist and must not be shared by
+    # accident: a Rust run served the Java prompt would silently ask for Python.
+    stems = ("single_shot_system", "single_shot_user", "per_file_user",
+             "repair_build_system", "repair_build_user",
+             "repair_test_system", "repair_test_user")
+    for stem in stems:
+        java_text = alpha.prompt(stem)
+        rust_text = crust.prompt(stem)
+        assert java_text.strip(), f"alphatrans prompt {stem} is empty"
+        assert rust_text.strip(), f"crust prompt {stem} is empty"
+        assert rust_text != java_text, f"crust reused the alphatrans prompt for {stem}"
+        assert "Python" not in rust_text and "Java" not in rust_text, \
+            f"crust prompt {stem} still mentions Java/Python"
+        assert "Rust" in rust_text or "rust" in rust_text, \
+            f"crust prompt {stem} never mentions Rust"
+    print(f"PASS: all {len(stems)} prompts exist per profile with no cross-language leakage")
+
 
 def main() -> int:
     run_api_transport_tests()

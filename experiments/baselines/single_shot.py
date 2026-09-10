@@ -70,7 +70,7 @@ class Profile:
 
     def __init__(self, name, example_rel, source_exts, source_fence, target_ext,
                  target_fence, target_root, source_dir_default, exclude_dirs=(),
-                 validate=None, module_key=None):
+                 validate=None, module_key=None, prompt_suffix=""):
         self.name = name
         self.example = REPO / example_rel
         self.source_exts = source_exts
@@ -82,6 +82,10 @@ class Profile:
         self.exclude_dirs = exclude_dirs
         self._validate = validate
         self._module_key = module_key
+        # Prompt wording is language-specific. The AlphaTrans prompts stay
+        # byte-identical so its published runs remain reproducible; other
+        # profiles select their own variants by suffix.
+        self.prompt_suffix = prompt_suffix
 
     def file_block(self) -> re.Pattern:
         return re.compile(
@@ -101,6 +105,13 @@ class Profile:
         if self._validate is None:
             return None
         return self._validate(path)
+
+    def prompt(self, stem: str) -> str:
+        """Resolve a prompt file, falling back to the shared one when no variant exists."""
+        specific = HERE / "prompts" / f"{stem}{self.prompt_suffix}.md"
+        if self.prompt_suffix and specific.is_file():
+            return specific.read_text(encoding="utf-8")
+        return (HERE / "prompts" / f"{stem}.md").read_text(encoding="utf-8")
 
     def module_key(self, name: str) -> str:
         """Normalise a source or target path to the key the two share."""
@@ -140,7 +151,7 @@ PROFILES = {
         name="crust", example_rel="examples/crust",
         source_exts=(".c", ".h"), source_fence="c",
         target_ext=".rs", target_fence="rust|rs", target_root="src",
-        source_dir_default="c-source",
+        source_dir_default="c-source", prompt_suffix="_crust",
         exclude_dirs=("tests", "test", "t", "target", ".git"),
         validate=None, module_key=_crust_key),
 }
@@ -236,8 +247,8 @@ def collect_skeleton(scaffold: pathlib.Path) -> list[tuple[str, str]]:
 
 
 def build_prompt(project: str, java: list, skel: list) -> tuple[str, str]:
-    system = (HERE / "prompts" / "single_shot_system.md").read_text(encoding="utf-8")
-    tpl = (HERE / "prompts" / "single_shot_user.md").read_text(encoding="utf-8")
+    system = PROFILE.prompt("single_shot_system")
+    tpl = PROFILE.prompt("single_shot_user")
     sf = PROFILE.source_fence.split("|")[0]
     tf = PROFILE.target_fence.split("|")[0]
     java_blob = "\n".join(
@@ -303,8 +314,8 @@ def pair_per_file(java: list, skel: list) -> tuple[list[tuple[str, str, str]], l
 def build_per_file_prompt(project: str, unit: tuple[str, str, str, str]) -> tuple[str, str]:
     """One source unit plus its one skeleton module -- AlphaTrans's granularity."""
     module, java_name, java_source, skeleton = unit
-    system = (HERE / "prompts" / "single_shot_system.md").read_text(encoding="utf-8")
-    tpl = (HERE / "prompts" / "per_file_user.md").read_text(encoding="utf-8")
+    system = PROFILE.prompt("single_shot_system")
+    tpl = PROFILE.prompt("per_file_user")
     sf = PROFILE.source_fence.split("|")[0]
     tf = PROFILE.target_fence.split("|")[0]
     user = (tpl

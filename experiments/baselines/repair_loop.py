@@ -50,37 +50,63 @@ def project_blob(source_root: Path) -> str:
     return "\n".join(parts)
 
 
-def build_signal(project: Path, repo: Path) -> tuple[bool, str, dict]:
-    """Parse+import check. Never touches the oracle.
+def build_signal(project: Path, repo: Path,
+                 profile: str = "alphatrans") -> tuple[bool, str, dict]:
+    """Build check. Never touches the oracle.
 
-    `build_check.py` resolves its working copy as `<subject>/pipeline/project`,
+    `build_check` resolves its working copy as `<subject>/pipeline/project`,
     while a baseline run lives at `pipeline-baseline-<tag>/project`. Stage a
     throwaway subject directory with that expected shape rather than duplicating
     the tool's logic, so this arm's signal is exactly the pipeline's own.
+
+    The two examples report different things, because their languages permit
+    different things to be checked without running code. AlphaTrans can only
+    parse and import; CRUST gets the whole of rustc. Both are the strongest
+    test-blind signal available for their target, which is the property this arm
+    depends on.
     """
     with tempfile.TemporaryDirectory(prefix="cw_build_check_") as staging:
         pipeline = Path(staging) / "pipeline"
         pipeline.mkdir()
         (pipeline / "project").symlink_to(project.resolve(), target_is_directory=True)
+        if profile == "crust":
+            command = ["bash", str(repo / "examples/crust/tools/build_check.sh"),
+                       str(pipeline / "project")]
+        else:
+            command = [sys.executable,
+                       str(repo / "examples/alphatrans/tools/build_check.py"), staging]
         result = subprocess.run(
-            [sys.executable, str(repo / "examples/alphatrans/tools/build_check.py"), staging],
-            capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=600,
+            command, capture_output=True, text=True, encoding="utf-8",
+            errors="replace", timeout=900,
         )
     output = (result.stdout + result.stderr).replace(staging, "<build-check>")
-    match = re.search(r"build_check: (\d+)/(\d+) modules parse and import", output)
-    metric = {"modules_ok": int(match.group(1)) if match else 0,
-              "modules_total": int(match.group(2)) if match else None,
-              "syntax_or_import_failures": len(
-                  [line for line in output.splitlines() if line.startswith(("SYNTAX", "IMPORT"))])}
+    if profile == "crust":
+        errors = re.search(r"build_check: FAILED with (\d+) error", output)
+        metric = {"compile_errors": int(errors.group(1)) if errors else 0,
+                  "builds": result.returncode == 0}
+    else:
+        match = re.search(r"build_check: (\d+)/(\d+) modules parse and import", output)
+        metric = {"modules_ok": int(match.group(1)) if match else 0,
+                  "modules_total": int(match.group(2)) if match else None,
+                  "syntax_or_import_failures": len(
+                      [line for line in output.splitlines()
+                       if line.startswith(("SYNTAX", "IMPORT"))])}
     return result.returncode == 0, output, metric
 
 
-def test_signal(subject: str, working_copy: str, repo: Path) -> tuple[bool, str, dict]:
+def test_signal(subject: str, working_copy: str, repo: Path,
+                profile: str = "alphatrans") -> tuple[bool, str, dict]:
     """Oracle failure output. Test-guided arm only."""
+    if profile == "crust":
+        command = ["bash", str(repo / "examples/crust/tools/oracle.sh"),
+                   "--project", subject, "--working-copy", working_copy]
+    else:
+        command = ["bash", str(repo / "examples/alphatrans/tools/oracle.sh"),
+                   "--project", subject, "--all", "--no-pipeline-skips",
+                   "--working-copy", working_copy]
     result = subprocess.run(
-        ["bash", str(repo / "examples/alphatrans/tools/oracle.sh"),
-         "--project", subject, "--all", "--no-pipeline-skips", "--working-copy", working_copy],
-        capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=1800,
+        command, capture_output=True, text=True, encoding="utf-8",
+        errors="replace", timeout=1800,
     )
     output = result.stdout + result.stderr
     try:
@@ -137,6 +163,8 @@ def better(arm: str, current: dict, best: dict | None) -> bool:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project", required=True)
+    parser.add_argument("--example", default="alphatrans", choices=("alphatrans", "crust"),
+                        help="translation example the subject belongs to")
     parser.add_argument("--source-tag", required=True, help="frozen B0 run to repair; never modified")
     parser.add_argument("--tag", required=True, help="new tag for this repair run")
     parser.add_argument("--arm", required=True, choices=("build", "test"))
@@ -152,6 +180,7 @@ def main() -> int:
     if args.iterations < 1:
         raise SystemExit("--iterations must be positive")
 
+    single_shot.use_profile(args.example)
     subject_dir = single_shot.EXAMPLE / "subjects" / args.project
     source = subject_dir / f"pipeline-baseline-{args.source_tag}"
     run = subject_dir / f"pipeline-baseline-{args.tag}"
@@ -165,7 +194,7 @@ def main() -> int:
     run.mkdir()
     shutil.copytree(source / "project", run / "project")
     project = run / "project"
-    source_root = project / "src" / "main"
+    source_root = project / single_shot.PROFILE.target_root
     audit_dir = run / "api-audit"
 
     backend = single_shot.build_backend(
@@ -173,8 +202,8 @@ def main() -> int:
         base_url=args.api_base_url, effort=args.effort, stream=args.api_stream,
         audit_dir=audit_dir,
     )
-    system = (single_shot.HERE / "prompts" / f"repair_{args.arm}_system.md").read_text(encoding="utf-8")
-    template = (single_shot.HERE / "prompts" / f"repair_{args.arm}_user.md").read_text(encoding="utf-8")
+    system = single_shot.PROFILE.prompt(f"repair_{args.arm}_system")
+    template = single_shot.PROFILE.prompt(f"repair_{args.arm}_user")
     working_copy = f"pipeline-baseline-{args.tag}/project"
 
     meta = {
@@ -210,8 +239,8 @@ def main() -> int:
     write_json(status_file, state)
     write_json(run / "generation.json", meta)
 
-    signal = (lambda: build_signal(project, single_shot.REPO)) if args.arm == "build" else \
-             (lambda: test_signal(args.project, working_copy, single_shot.REPO))
+    signal = (lambda: build_signal(project, single_shot.REPO, args.example)) if args.arm == "build" else \
+             (lambda: test_signal(args.project, working_copy, single_shot.REPO, args.example))
 
     ok, output, metric = signal()
     (run / "iteration-00-signal.txt").write_text(output, encoding="utf-8")
@@ -243,16 +272,26 @@ def main() -> int:
             try:
                 target.resolve().relative_to(source_root.resolve())
             except ValueError:
-                rejected.append({"path": relative, "reason": "outside src/main"})
+                rejected.append({"path": relative,
+                                 "reason": f"outside {single_shot.PROFILE.target_root}"})
                 continue
             if not target.is_file():
                 rejected.append({"path": relative, "reason": "not an existing module"})
                 continue
-            try:
-                ast.parse(body)
-            except SyntaxError as exc:
-                rejected.append({"path": relative, "reason": f"does not parse: {exc.msg}"})
-                continue
+            # Reject a repair that is not even syntactically valid, so a broken
+            # patch cannot destroy a module that merely had a type error. Rust has
+            # no in-process parser here, so the profile declines rather than
+            # pretending to check; cargo catches it on the very next signal.
+            if args.example == "crust":
+                if not body.strip():
+                    rejected.append({"path": relative, "reason": "empty body"})
+                    continue
+            else:
+                try:
+                    ast.parse(body)
+                except SyntaxError as exc:
+                    rejected.append({"path": relative, "reason": f"does not parse: {exc.msg}"})
+                    continue
             target.write_text(body.rstrip() + "\n", encoding="utf-8")
             applied.append(relative)
         (run / f"iteration-{iteration:02d}-response.md").write_text(completion.text, encoding="utf-8")
@@ -281,9 +320,15 @@ def main() -> int:
     # The final tree is kept, as in CRUST-bench's repair loop. The per-iteration
     # metrics above show the trajectory, including any regression, rather than
     # hiding it by cherry-picking an intermediate state.
+    if args.example == "crust":
+        final_command = ["bash", str(single_shot.REPO / "examples/crust/tools/oracle.sh"),
+                         "--project", args.project, "--working-copy", working_copy]
+    else:
+        final_command = ["bash", str(single_shot.REPO / "examples/alphatrans/tools/oracle.sh"),
+                         "--project", args.project, "--all", "--no-pipeline-skips",
+                         "--working-copy", working_copy]
     final = subprocess.run(
-        ["bash", str(single_shot.REPO / "examples/alphatrans/tools/oracle.sh"),
-         "--project", args.project, "--all", "--no-pipeline-skips", "--working-copy", working_copy],
+        final_command,
         capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=1800,
     )
     (run / "oracle_score.txt").write_text(final.stdout + final.stderr, encoding="utf-8")
