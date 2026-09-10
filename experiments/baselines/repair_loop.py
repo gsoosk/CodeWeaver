@@ -147,6 +147,13 @@ def better(arm: str, current: dict, best: dict | None) -> bool:
     if best is None:
         return True
     if arm == "build":
+        # Metric shape follows the example. AlphaTrans counts modules that parse
+        # and import; CRUST counts rustc errors, where fewer is better and zero
+        # means the crate builds.
+        if "compile_errors" in current:
+            if current.get("builds") != best.get("builds"):
+                return bool(current.get("builds"))
+            return current["compile_errors"] < best["compile_errors"]
         return current["modules_ok"] > best["modules_ok"]
     a, b = current.get("score"), best.get("score")
     if a is None:

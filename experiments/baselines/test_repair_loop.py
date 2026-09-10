@@ -241,6 +241,20 @@ def check_error_recovery_counts_as_progress():
     assert repair_loop.better("build", {"modules_ok": 3}, {"modules_ok": 3}) is False
     print("PASS: collection recovery counts as progress; a lower visible pass count does not mask it")
 
+    # The crust build metric is a different shape: fewer rustc errors is better,
+    # and a crate that compiles beats one that does not regardless of the count.
+    broken = {"compile_errors": 145, "builds": False}
+    fewer = {"compile_errors": 12, "builds": False}
+    compiles = {"compile_errors": 0, "builds": True}
+    assert repair_loop.better("build", fewer, broken) is True
+    assert repair_loop.better("build", broken, fewer) is False
+    assert repair_loop.better("build", compiles, fewer) is True
+    assert repair_loop.better("build", fewer, compiles) is False
+    assert repair_loop.better("build", broken, broken) is False
+    # A metric of one shape must never be read with the other's keys.
+    assert repair_loop.better("build", compiles, None) is True
+    print("PASS: crust build metric ranks by compile errors and prefers a crate that builds")
+
 
 def check_refuses_overwrite(root):
     subject, source, _ = make_source(root / "o")
